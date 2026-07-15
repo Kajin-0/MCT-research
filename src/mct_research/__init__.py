@@ -1,5 +1,14 @@
 """Executable analytical models for HgCdTe research."""
 
+from .gauge import (
+    AlignmentDiagnostics,
+    GaugeAlignmentError,
+    KANE_IRREP_BLOCKS,
+    align_basis,
+    parallel_transport_sequence,
+    procrustes_unitary,
+    rotate_operator,
+)
 from .kane8 import (
     ALPHA_EV_A2,
     ExtendedKaneParameters,
@@ -10,7 +19,9 @@ from .kane8 import (
     time_reversal_residual_two_p,
 )
 from .projection import (
+    OBSERVATION_DIMENSION,
     closure_residual,
+    covariance_whitener,
     design_diagnostics,
     extended_closure_residual,
     extended_design_diagnostics,
@@ -18,20 +29,43 @@ from .projection import (
     fit_parameters,
     parameter_templates,
 )
+from .symmetry import (
+    forbidden_gamma_coupling_norm,
+    gamma_irrep_residual,
+    gamma_irrep_symmetrize,
+    hermitize,
+    time_reversal_pair_residual,
+    time_reversal_pair_symmetrize,
+)
 
 __all__ = [
     "ALPHA_EV_A2",
+    "AlignmentDiagnostics",
     "ExtendedKaneParameters",
+    "GaugeAlignmentError",
+    "KANE_IRREP_BLOCKS",
     "KaneParameters",
+    "OBSERVATION_DIMENSION",
+    "align_basis",
     "closure_residual",
+    "covariance_whitener",
     "design_diagnostics",
     "extended_closure_residual",
     "extended_design_diagnostics",
     "fit_extended_parameters",
     "fit_parameters",
+    "forbidden_gamma_coupling_norm",
+    "gamma_irrep_residual",
+    "gamma_irrep_symmetrize",
     "hamiltonian",
     "hamiltonian_two_p",
+    "hermitize",
+    "parallel_transport_sequence",
     "parameter_templates",
+    "procrustes_unitary",
+    "rotate_operator",
+    "time_reversal_pair_residual",
+    "time_reversal_pair_symmetrize",
     "time_reversal_residual",
     "time_reversal_residual_two_p",
 ]
