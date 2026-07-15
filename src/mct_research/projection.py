@@ -1,85 +1,91 @@
-"""Matrix-level projection onto the bulk 8-band Kane parameter manifold."""
+"""Matrix-level projection onto one-P and two-P bulk Kane manifolds."""
 
 from __future__ import annotations
 
 from dataclasses import fields
-from typing import Iterable, Mapping, Sequence
+from typing import Callable, Iterable, Mapping, Sequence, TypeVar
 
 import numpy as np
 from numpy.typing import NDArray
 
-from .kane8 import KaneParameters, hamiltonian
+from .kane8 import (
+    ExtendedKaneParameters,
+    KaneParameters,
+    hamiltonian,
+    hamiltonian_two_p,
+)
 
+ParameterType = TypeVar("ParameterType", KaneParameters, ExtendedKaneParameters)
 PARAMETER_NAMES = tuple(field.name for field in fields(KaneParameters))
+EXTENDED_PARAMETER_NAMES = tuple(field.name for field in fields(ExtendedKaneParameters))
 
 
 class ProjectionError(RuntimeError):
-    """Raised when the Kane parameter projection is rank deficient."""
+    """Raised when a Kane parameter projection is rank deficient."""
 
 
 def _real_vector(matrix: NDArray[np.complex128]) -> NDArray[np.float64]:
-    """Vectorize a complex matrix without discarding phase information."""
-
     flat = np.asarray(matrix, dtype=np.complex128).reshape(-1)
     return np.concatenate((flat.real, flat.imag))
 
 
-def fixed_hamiltonian(k: Iterable[float]) -> NDArray[np.complex128]:
-    """Parameter-independent free-electron conduction contribution."""
+def _templates(k, parameter_type, parameter_names, model):
+    base = model(k, parameter_type())
+    templates = {}
+    for name in parameter_names:
+        kwargs = {parameter_name: 0.0 for parameter_name in parameter_names}
+        kwargs[name] = 1.0
+        templates[name] = model(k, parameter_type(**kwargs)) - base
+    return templates
 
+
+def fixed_hamiltonian(k: Iterable[float]) -> NDArray[np.complex128]:
     return hamiltonian(k, KaneParameters())
 
 
 def parameter_templates(k: Iterable[float]) -> dict[str, NDArray[np.complex128]]:
-    """Return exact linear templates dH/dp_a at one k point."""
-
-    base = fixed_hamiltonian(k)
-    templates: dict[str, NDArray[np.complex128]] = {}
-    for name in PARAMETER_NAMES:
-        kwargs = {parameter_name: 0.0 for parameter_name in PARAMETER_NAMES}
-        kwargs[name] = 1.0
-        templates[name] = hamiltonian(k, KaneParameters(**kwargs)) - base
-    return templates
+    return _templates(k, KaneParameters, PARAMETER_NAMES, hamiltonian)
 
 
-def fit_parameters(
-    k_points: Sequence[Iterable[float]],
-    matrices: Sequence[NDArray[np.complex128]],
+def extended_parameter_templates(k: Iterable[float]) -> dict[str, NDArray[np.complex128]]:
+    return _templates(k, ExtendedKaneParameters, EXTENDED_PARAMETER_NAMES, hamiltonian_two_p)
+
+
+def _fit_model(
+    k_points,
+    matrices,
     *,
-    weights: Sequence[float] | None = None,
-    rcond: float | None = None,
-) -> tuple[KaneParameters, Mapping[str, float]]:
-    """Fit Kane parameters to full complex Hamiltonian matrices.
-
-    The fit solves the real least-squares problem obtained by stacking real
-    and imaginary matrix elements. The parameter-independent conduction
-    ``alpha*k^2`` term is removed before fitting.
-    """
-
+    parameter_type,
+    parameter_names,
+    model,
+    weights,
+    rcond,
+):
     if len(k_points) != len(matrices):
         raise ValueError("k_points and matrices must have equal length")
     if not k_points:
         raise ValueError("at least one k point is required")
 
-    if weights is None:
-        weights_array = np.ones(len(k_points), dtype=float)
-    else:
-        weights_array = np.asarray(weights, dtype=float)
-        if weights_array.shape != (len(k_points),):
-            raise ValueError("weights must contain one value per k point")
-        if np.any(weights_array <= 0.0) or not np.all(np.isfinite(weights_array)):
-            raise ValueError("weights must be finite and strictly positive")
+    weights_array = (
+        np.ones(len(k_points), dtype=float)
+        if weights is None
+        else np.asarray(weights, dtype=float)
+    )
+    if weights_array.shape != (len(k_points),):
+        raise ValueError("weights must contain one value per k point")
+    if np.any(weights_array <= 0.0) or not np.all(np.isfinite(weights_array)):
+        raise ValueError("weights must be finite and strictly positive")
 
-    rows: list[NDArray[np.float64]] = []
-    targets: list[NDArray[np.float64]] = []
-
+    rows = []
+    targets = []
+    zero = parameter_type()
     for k, matrix, weight in zip(k_points, matrices, weights_array, strict=True):
         matrix = np.asarray(matrix, dtype=np.complex128)
         if matrix.shape != (8, 8):
             raise ValueError(f"each matrix must have shape (8, 8), got {matrix.shape}")
-        templates = parameter_templates(k)
-        design = np.column_stack([_real_vector(templates[name]) for name in PARAMETER_NAMES])
-        target = _real_vector(matrix - fixed_hamiltonian(k))
+        templates = _templates(k, parameter_type, parameter_names, model)
+        design = np.column_stack([_real_vector(templates[name]) for name in parameter_names])
+        target = _real_vector(matrix - model(k, zero))
         scale = float(np.sqrt(weight))
         rows.append(scale * design)
         targets.append(scale * target)
@@ -87,24 +93,21 @@ def fit_parameters(
     a = np.vstack(rows)
     b = np.concatenate(targets)
     solution, residuals, rank, singular_values = np.linalg.lstsq(a, b, rcond=rcond)
-
-    if rank < len(PARAMETER_NAMES):
+    if rank < len(parameter_names):
         raise ProjectionError(
-            f"rank-deficient Kane projection: rank={rank}, required={len(PARAMETER_NAMES)}"
+            f"rank-deficient Kane projection: rank={rank}, required={len(parameter_names)}"
         )
 
-    params = KaneParameters(**dict(zip(PARAMETER_NAMES, solution, strict=True)))
+    params = parameter_type(**dict(zip(parameter_names, solution, strict=True)))
     fitted = np.concatenate(
         [
-            _real_vector(hamiltonian(k, params) - fixed_hamiltonian(k))
-            * np.sqrt(weight)
+            _real_vector(model(k, params) - model(k, zero)) * np.sqrt(weight)
             for k, weight in zip(k_points, weights_array, strict=True)
         ]
     )
     weighted_target = np.concatenate(targets)
     residual_norm = np.linalg.norm(weighted_target - fitted)
     target_norm = max(np.linalg.norm(weighted_target), np.finfo(float).eps)
-
     diagnostics = {
         "rank": float(rank),
         "condition_number": float(singular_values[0] / singular_values[-1]),
@@ -115,20 +118,43 @@ def fit_parameters(
     return params, diagnostics
 
 
-def closure_residual(
+def fit_parameters(
     k_points: Sequence[Iterable[float]],
     matrices: Sequence[NDArray[np.complex128]],
-    params: KaneParameters,
     *,
     weights: Sequence[float] | None = None,
-) -> float:
-    """Normalized Frobenius residual of a fitted Kane model.
+    rcond: float | None = None,
+) -> tuple[KaneParameters, Mapping[str, float]]:
+    return _fit_model(
+        k_points,
+        matrices,
+        parameter_type=KaneParameters,
+        parameter_names=PARAMETER_NAMES,
+        model=hamiltonian,
+        weights=weights,
+        rcond=rcond,
+    )
 
-    The denominator is the weighted norm of the supplied matrices after
-    subtracting their Gamma-point reference when a Gamma matrix is present;
-    otherwise the raw weighted matrix norm is used.
-    """
 
+def fit_extended_parameters(
+    k_points: Sequence[Iterable[float]],
+    matrices: Sequence[NDArray[np.complex128]],
+    *,
+    weights: Sequence[float] | None = None,
+    rcond: float | None = None,
+) -> tuple[ExtendedKaneParameters, Mapping[str, float]]:
+    return _fit_model(
+        k_points,
+        matrices,
+        parameter_type=ExtendedKaneParameters,
+        parameter_names=EXTENDED_PARAMETER_NAMES,
+        model=hamiltonian_two_p,
+        weights=weights,
+        rcond=rcond,
+    )
+
+
+def _closure_residual(k_points, matrices, params, model, *, weights):
     if len(k_points) != len(matrices):
         raise ValueError("k_points and matrices must have equal length")
     if not k_points:
@@ -152,7 +178,7 @@ def closure_residual(
     denominator = 0.0
     for k, matrix, weight in zip(k_points, matrices, weights_array, strict=True):
         target = np.asarray(matrix, dtype=np.complex128)
-        residual = target - hamiltonian(k, params)
+        residual = target - model(k, params)
         numerator += float(weight * np.linalg.norm(residual, ord="fro") ** 2)
         reference_difference = target if gamma_reference is None else target - gamma_reference
         denominator += float(weight * np.linalg.norm(reference_difference, ord="fro") ** 2)
@@ -162,18 +188,34 @@ def closure_residual(
     return float(np.sqrt(numerator / denominator))
 
 
-def design_diagnostics(
-    k_points: Sequence[Iterable[float]],
+def closure_residual(
+    k_points,
+    matrices,
+    params: KaneParameters,
     *,
-    weights: Sequence[float] | None = None,
-) -> Mapping[str, object]:
-    """Return rank and singular-value diagnostics for a proposed k grid.
+    weights=None,
+) -> float:
+    return _closure_residual(k_points, matrices, params, hamiltonian, weights=weights)
 
-    This inspects identifiability before any electronic-structure matrices are
-    fitted. A rank below the number of parameters means at least one Kane
-    invariant is exactly unobservable on the chosen grid.
-    """
 
+def extended_closure_residual(
+    k_points,
+    matrices,
+    params: ExtendedKaneParameters,
+    *,
+    weights=None,
+) -> float:
+    return _closure_residual(k_points, matrices, params, hamiltonian_two_p, weights=weights)
+
+
+def _design_diagnostics(
+    k_points,
+    *,
+    parameter_type,
+    parameter_names,
+    model,
+    weights,
+):
     if not k_points:
         raise ValueError("at least one k point is required")
     weights_array = (
@@ -186,10 +228,10 @@ def design_diagnostics(
     if np.any(weights_array <= 0.0) or not np.all(np.isfinite(weights_array)):
         raise ValueError("weights must be finite and strictly positive")
 
-    rows: list[NDArray[np.float64]] = []
+    rows = []
     for k, weight in zip(k_points, weights_array, strict=True):
-        templates = parameter_templates(k)
-        design = np.column_stack([_real_vector(templates[name]) for name in PARAMETER_NAMES])
+        templates = _templates(k, parameter_type, parameter_names, model)
+        design = np.column_stack([_real_vector(templates[name]) for name in parameter_names])
         rows.append(float(np.sqrt(weight)) * design)
 
     a = np.vstack(rows)
@@ -203,7 +245,27 @@ def design_diagnostics(
     )
     return {
         "rank": rank,
-        "parameter_count": len(PARAMETER_NAMES),
+        "parameter_count": len(parameter_names),
         "condition_number": condition_number,
         "singular_values": singular_values,
     }
+
+
+def design_diagnostics(k_points, *, weights=None) -> Mapping[str, object]:
+    return _design_diagnostics(
+        k_points,
+        parameter_type=KaneParameters,
+        parameter_names=PARAMETER_NAMES,
+        model=hamiltonian,
+        weights=weights,
+    )
+
+
+def extended_design_diagnostics(k_points, *, weights=None) -> Mapping[str, object]:
+    return _design_diagnostics(
+        k_points,
+        parameter_type=ExtendedKaneParameters,
+        parameter_names=EXTENDED_PARAMETER_NAMES,
+        model=hamiltonian_two_p,
+        weights=weights,
+    )
