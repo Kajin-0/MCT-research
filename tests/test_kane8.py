@@ -152,6 +152,7 @@ def test_two_p_extension_identifies_one_p_nonclosure(hg_te_like: KaneParameters)
     assert time_reversal_residual_two_p((0.006, -0.003, 0.008), extended) < 1e-13
     assert standard_diagnostics["relative_residual"] > 1e-4
     assert closure_residual(k_points, matrices, standard_fit) > 1e-4
+    assert standard_fit.p == pytest.approx((2.0 * extended.p8 + extended.p7) / 3.0, rel=2e-12)
     assert extended_fit.p8 == pytest.approx(extended.p8, rel=2e-12)
     assert extended_fit.p7 == pytest.approx(extended.p7, rel=2e-12)
     assert extended_fit.eta_p == pytest.approx(extended.eta_p, rel=2e-12)
