@@ -1,6 +1,6 @@
 # MCT Research
 
-A private, hypothesis-driven research program for developing stronger analytical models of Hg\(_{1-x}\)Cd\(_x\)Te (MCT), with an initial focus on the composition- and temperature-dependent bandgap.
+A private, hypothesis-driven research program for developing stronger analytical models of $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$ (MCT), with an initial focus on the composition- and temperature-dependent bandgap.
 
 ## Objective
 
@@ -32,32 +32,32 @@ No novelty claim should be made until both a systematic literature audit and an 
 
 Can the signed bulk gap
 
-\[
+$$
 E_g(x,T)=E_{\Gamma_6}(x,T)-E_{\Gamma_8}(x,T)
-\]
+$$
 
 be replaced by a physics-constrained expression of the form
 
-\[
+$$
 E_g(x,T)=E_g^{\mathrm{stat}}(x)
 +\Delta E_g^{\mathrm{ep}}(x,T)
 +\Delta E_g^{\mathrm{QH}}(x,T)
 +\Delta E_g^{\mathrm{disorder}}(x,T),
-\]
+$$
 
 where the electron–phonon term is obtained from Fan–Migdal and Debye–Waller self-energies, the quasiharmonic term accounts for thermal expansion, and the result is projected into a symmetry-preserving 8-band Kane Hamiltonian?
 
 ## Current leading hypothesis
 
-Temperature primarily renormalizes the relative \(\Gamma_6\) and \(\Gamma_8\) band-edge energies, while the Kane coupling \(P\) or velocity \(v_K\) changes much less:
+Temperature primarily renormalizes the relative $\Gamma_6$ and $\Gamma_8$ band-edge energies, while the Kane coupling $P$ or velocity $v_K$ changes much less:
 
-\[
+$$
 \left|\frac{\Delta v_K}{v_K}\right|
 \ll
 \left|\frac{\Delta E_g}{E_g}\right|.
-\]
+$$
 
-Bulk magnetospectroscopy reporting an approximately composition- and temperature-independent Kane velocity near \(1.07\times10^6\ \mathrm{m\,s^{-1}}\) motivates this as a falsifiable hypothesis, not an assumption.
+Bulk magnetospectroscopy reporting an approximately composition- and temperature-independent Kane velocity near $1.07\times10^6\ \mathrm{m\,s^{-1}}$ motivates this as a falsifiable hypothesis, not an assumption.
 
 ## Research program
 
@@ -65,7 +65,7 @@ Bulk magnetospectroscopy reporting an approximately composition- and temperature
 
 - Reconstruct Hansen-type empirical equations and their source datasets.
 - Separate the static-lattice, quasiparticle, optical, and detector-cutoff definitions of bandgap.
-- Establish uncertainty propagation from \(x\), \(T\), strain, carrier density, and spectral-edge criterion.
+- Establish uncertainty propagation from $x$, $T$, strain, carrier density, and spectral-edge criterion.
 
 ### Phase 2 — Binary endpoint validation
 
@@ -115,7 +115,7 @@ These are research targets, not current achievements.
 
 ## Initial literature anchors
 
-- Hansen, Schmit, and Casselman: empirical \(E_g(x,T)\) relation for HgCdTe.
+- Hansen, Schmit, and Casselman: empirical $E_g(x,T)$ relation for HgCdTe.
 - Novik et al.: standard 8-band Kane treatment for HgTe/CdTe heterostructures.
 - Allen–Heine–Cardona theory: Fan and Debye–Waller temperature renormalization of electronic structure.
 - Teppe et al.: temperature-driven massless Kane fermions and approximately universal Kane velocity in bulk HgCdTe.
