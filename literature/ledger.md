@@ -89,6 +89,53 @@ This file records claim-level evidence. Entries must distinguish what a source a
 - **What it supports:** perturbative decomposition of finite-temperature electronic energy shifts into electron–phonon terms including Fan and Debye–Waller contributions.
 - **Project use:** foundational derivation.
 
+### L008 — Gauge construction for composite bands
+
+- **Citation:** N. Marzari and D. Vanderbilt, “Maximally-localized generalized Wannier functions for composite energy bands,” *Physical Review B* 56, 12847 (1997); arXiv:cond-mat/9707145.
+- **URL:** https://arxiv.org/abs/cond-mat/9707145
+- **Type:** `T`, `M`
+- **What it supports:** unitary gauge freedom inside a composite band subspace and systematic construction of a smooth localized gauge.
+- **Project use:** conceptual basis for treating the projected Kane basis as a gauge-fixed composite subspace rather than a list of independently ordered eigenvectors.
+- **What it does not establish:** the specific block-restricted $\Gamma_6\oplus\Gamma_8\oplus\Gamma_7$ alignment or the AHC-to-Kane closure metric developed here.
+
+### L009 — Disentanglement of entangled bands
+
+- **Citation:** I. Souza, N. Marzari, and D. Vanderbilt, “Maximally-localized Wannier functions for entangled energy bands,” *Physical Review B* 65, 035109 (2001); arXiv:cond-mat/0108084.
+- **URL:** https://arxiv.org/abs/cond-mat/0108084
+- **Type:** `T`, `M`
+- **What it supports:** selection of an optimally connected low-energy subspace when target bands are entangled with remote states.
+- **Project use:** required precursor if the HgTe/HgCdTe eight-state manifold cannot be isolated by energy alone over the fitting $\mathbf k$ window.
+- **Caution:** subspace selection error must be propagated into principal-angle and Kane-parameter uncertainty.
+
+### L010 — Nonadiabatic and polar convergence of AHC
+
+- **Citation:** S. Poncé, Y. Gillet, J. Laflamme Janssen, A. Marini, M. Verstraete, and X. Gonze, “Temperature dependence of the electronic structure of semiconductors and insulators,” arXiv:1504.05992.
+- **URL:** https://arxiv.org/abs/1504.05992
+- **Type:** `T`, `C`, `R`
+- **What it supports:** systematic $q$-mesh and broadening convergence analysis; in polar materials, the adiabatic band-edge integral remains divergent and requires nonadiabatic treatment.
+- **Project use:** methodological basis for requiring dynamical denominators and explicit convergence/extrapolation for polar CdTe/HgTe.
+- **What it does not establish:** convergence behavior for inverted HgTe specifically.
+
+### L011 — EPW spinor and polar interpolation capability
+
+- **Citation:** S. Poncé, E. R. Margine, C. Verdi, and F. Giustino, “EPW: Electron-phonon coupling, transport and superconducting properties using maximally localized Wannier functions,” arXiv:1604.03525; *Computer Physics Communications*.
+- **URL:** https://arxiv.org/abs/1604.03525
+- **Type:** `C`, `M`
+- **What it supports:** Wannier interpolation of electron–phonon matrix elements, electronic self-energies and spectral functions, with spin–orbit coupling and long-range polar interpolation.
+- **Project use:** candidate dense-grid and spectral-function engine after direct DFPT verification.
+- **Caution:** EPW Fan/self-energy capability alone does not guarantee a complete Debye–Waller treatment for the final AHC gap model.
+
+### L012 — Modern cross-code verification of AHC methods
+
+- **Citation:** S. Poncé, J.-M. Lihm, and C.-H. Park, “Verification and Validation of zero-point electron-phonon renormalization of the bandgap, mass enhancement, and spectral functions,” *npj Computational Materials* 11, 117 (2025); arXiv:2410.14319.
+- **URL:** https://arxiv.org/abs/2410.14319
+- **DOI:** https://doi.org/10.1038/s41524-025-01587-5
+- **Type:** `C`, `M`
+- **What it supports:** cross-verification among ABINIT, Quantum ESPRESSO, EPW, and special-displacement approaches; agreement between DFPT AHC and Wannier-function perturbation theory; explicit comparison of real and imaginary self-energies and spectral functions.
+- **Important result:** the Debye–Waller term is momentum dependent and simplified Luttinger-type approximations can affect mass enhancement.
+- **Project use:** direct precedent for a two-implementation CdTe verification stage and for requiring momentum-dependent Debye–Waller contributions when extracting $F$ and $\gamma_i$.
+- **What it does not establish:** the HgTe/HgCdTe finite-temperature Kane projection proposed here.
+
 ## Prior-art questions requiring targeted search
 
 1. Has a full Fan + Debye–Waller calculation already been performed for bulk HgTe, CdTe, or HgCdTe?
@@ -98,15 +145,18 @@ This file records claim-level evidence. Entries must distinguish what a source a
 5. Has random-alloy broadening near the normal/inverted transition been treated through a spectral function rather than a scalar bowing equation?
 6. Have published analytical equations separated constant-volume electron–phonon and quasiharmonic contributions?
 7. Which historical datasets underlie the coefficients and claimed accuracy of the Hansen equation?
+8. Which available code path supplies a complete, nonadiabatic, spinor Fan + Debye–Waller matrix self-energy for HgTe without a diagonal or Luttinger approximation?
 
 ## Evidence table for current hypotheses
 
 | Hypothesis | Supporting source | Contradicting source | Status |
 |---|---|---|---|
 | $|\Delta v_K/v_K|\ll|\Delta E_g/E_g|$ | L003 | none entered | plausible; unproved |
-| Low-temperature gap should deviate from exact linearity | L004, L005, L007 establish nontrivial phonon occupation physics generally | HgCdTe-specific evidence pending | theoretical expectation |
+| Low-temperature gap should deviate from exact linearity | L004, L005, L007, L010 establish nontrivial phonon occupation and convergence physics generally | HgCdTe-specific evidence pending | theoretical expectation |
 | Standard one-$P$ Kane model may not be closed under temperature renormalization | L004 permits matrix/wavefunction renormalization | no HgCdTe calculation entered | open |
 | Disorder may broaden the zero-gap transition | L006 establishes atomistic alloy treatment precedent | quantitative broadening source pending | open |
+| Momentum-dependent Debye–Waller terms may renormalize effective masses and quadratic Kane parameters | L012 | HgCdTe-specific calculation pending | strong general-method evidence |
+| Raw eigenvalue ordering is insufficient for stable Kane-state tracking | L008, L009 | none entered | established gauge/subspace principle |
 
 ## Source-ingestion template
 
