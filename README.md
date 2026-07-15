@@ -110,8 +110,31 @@ These are research targets, not current achievements.
 - `docs/derivations/` — formal mathematical derivations
 - `docs/insights/` — concise numbered research insights and conjectures
 - `literature/` — source ledger, prior-art audit, and evidence tables
-- `models/` — analytical and numerical model implementations
+- `src/mct_research/` — executable analytical models and projection tools
+- `tests/` — numerical, symmetry, and identifiability checks
 - `data/` — provenance-controlled experimental or calculated datasets
+
+## Executable model status
+
+The repository includes a tested homogeneous bulk 8-band Kane implementation and matrix-level parameter projection under `src/mct_research/`.
+
+Run the validation suite with:
+
+```bash
+python -m pip install -e '.[test]'
+pytest
+```
+
+Current checks cover:
+
+- Hermiticity,
+- time reversal,
+- $\Gamma$-point degeneracies,
+- exact synthetic parameter recovery,
+- non-Kane closure-residual detection,
+- and $\mathbf{k}$-grid identifiability.
+
+The current local validation result is **11 tests passed**.
 
 ## Initial literature anchors
 
