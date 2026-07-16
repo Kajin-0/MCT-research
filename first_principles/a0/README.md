@@ -1,9 +1,22 @@
-# CdTe A0: pseudopotential acquisition and input gate
+# CdTe A0: pseudopotential and execution-readiness gate
 
-This directory implements only the authorized A0 preparation stage from the CdTe
-thermal-moment decision memo. No electronic-structure calculation has been run.
+This directory implements only the authorized A0 preparation and static/phonon
+sanity stage from the CdTe thermal-moment decision memo. No electronic-structure
+calculation or scientific result is recorded here.
 
-## Selected primary pair
+## Authorization boundary
+
+A0 permits only:
+
+- static fully relativistic SOC calculations;
+- coarse phonon-stability checks;
+- dielectric-tensor and Born-effective-charge sanity checks;
+- convergence and resource measurements needed to decide whether A1 is viable.
+
+A0 does not authorize the timed A1 electron-phonon smoke test, production AHC,
+dense EPW, HgTe, VCA, SQS, CPA, SCBA or alloy calculations.
+
+## Selected pseudopotentials
 
 The pinned upstream source is
 
@@ -12,7 +25,7 @@ PseudoDojo/ONCVPSP-PBE-FR-PDv0.4
 commit 7aa01a3fcf5ad226caf25bd387a9be9612be9f27
 ```
 
-Selected files:
+Selected Quantum ESPRESSO files:
 
 ```text
 Cd/Cd-sp_r.upf
@@ -26,13 +39,24 @@ Cd/Cd-sp_r.psp8
 Te/Te-d_r.psp8
 ```
 
-The UPF headers identify norm-conserving PBE potentials with full relativity,
-spin-orbit projectors and nonlinear core correction. Cd has 20 valence electrons
-with `4s 4p 4d 5s` shells represented; Te has 16 with `4d 5s 5p` represented.
+The headers identify norm-conserving PBE potentials with full relativity,
+spin-orbit data and nonlinear core correction. Cd has 20 valence electrons with
+`4s 4p 4d 5s` represented; Te has 16 with `4d 5s 5p` represented.
+
+PR #42 downloaded the exact immutable upstream bytes in an isolated workflow,
+verified Git blob identities and published psp8 MD5 values, and recorded SHA-256
+values in:
+
+- `cdte_pseudopotential_hash_manifest.json`;
+- `cdte_pseudopotential_selection.json`;
+- `first_principles/pseudopotential_matrix.csv`.
+
+The pseudopotential payloads themselves are not committed. Every runtime copy
+must still be rehashed and match the recorded SHA-256 values.
 
 ## Cutoff-unit correction
 
-PseudoDojo's published cutoff hints are in Hartree. Quantum ESPRESSO accepts
+PseudoDojo publishes cutoff hints in Hartree. Quantum ESPRESSO accepts
 `ecutwfc` in Rydberg, so the hints must be multiplied by two.
 
 | Element | low (Ha) | normal (Ha) | high (Ha) | low (Ry) | normal (Ry) | high (Ry) |
@@ -46,16 +70,33 @@ Cd controls the compound starting ladder:
 94 Ry -> 102 Ry -> 114 Ry
 ```
 
-These are convergence starting points, not converged values.
+These values are starting points, not convergence evidence. `ecutrho` remains
+an independent convergence variable; the project does not assume a fixed ratio.
 
-`ecutrho` remains unresolved. Do not assume that any fixed multiple of `ecutwfc`
-is sufficient without a total-energy, stress, force, gap and phonon convergence
-check.
+## Exact code-source pins
 
-## Required local acquisition
+`cdte_a0_run_spec.json` pins the source trees selected for release-specific
+syntax and reproducibility work:
 
-Download from the immutable upstream commit, not from an unpinned default branch.
-After acquisition, inspect every file and save the emitted JSON:
+```text
+Quantum ESPRESSO qe-7.4.1
+commit 500de340b820e1cb8c05f2d8bb8fced102f377c1
+
+ABINIT 10.6.5
+commit d50172aacfc501b46cd33ae58fda139e674d40e3
+```
+
+A source pin is not an installed-binary record. Before execution, archive:
+
+- the complete version output;
+- SHA-256 for `pw.x`, `ph.x` and `abinit`;
+- compiler, MPI and linked-library versions;
+- release-specific syntax-check results for every rendered input.
+
+## Runtime pseudopotential inspection
+
+Acquire runtime copies from the immutable upstream commit, then inspect and hash
+every file. Example commands:
 
 ```bash
 python tools/inspect_pseudopotential.py pseudos/Cd-sp_r.upf \
@@ -81,18 +122,15 @@ python tools/inspect_pseudopotential.py pseudos/Te-d_r.psp8 \
   --output-json pseudos/Te-d_r.psp8.inspect.json
 ```
 
-Record the locally calculated SHA-256 values in
-`cdte_pseudopotential_selection.json` and `pseudopotential_matrix.csv`. The
-upstream Git blob SHA-1 and PseudoDojo psp8 MD5 values are provenance anchors;
-they do not replace a local SHA-256 of the exact bytes used by a calculation.
+The runtime SHA-256 values must equal the byte-verification manifest. Upstream
+Git SHA-1 and psp8 MD5 values are additional provenance anchors, not substitutes
+for runtime SHA-256 verification.
 
 ## Input rendering
 
-Use `tools/render_first_principles_input.py` only after the local files pass
-inspection. Every pseudopotential must be supplied through `--input-file` so its
-SHA-256 enters the run manifest.
-
-Example structure:
+Use `tools/render_first_principles_input.py` only after runtime files pass
+inspection. Supply every pseudopotential through `--input-file` so its SHA-256
+enters the render manifest.
 
 ```bash
 python tools/render_first_principles_input.py \
@@ -104,17 +142,46 @@ python tools/render_first_principles_input.py \
   --input-file Te_UPF=pseudos/Te-d_r.upf
 ```
 
-The renderer fails on missing or unused parameters and unresolved placeholders.
-A successful render does not imply that `pw.x` or `ph.x` accepts the input.
+The renderer fails on missing, unused or unresolved parameters. Rendering does
+not execute a code and does not establish release-specific syntax validity.
 
-## Remaining blockers before execution
+## Fail-closed readiness check
 
-1. local SHA-256 verification of all selected files;
-2. exact installed Quantum ESPRESSO and ABINIT versions;
-3. a declared lattice constant and its provenance;
-4. `ecutrho`, k-grid, band-count and SCF-threshold ladders;
-5. release-specific syntax checks;
-6. static ordering, phonon stability, dielectric tensor and Born-charge sanity;
-7. measured resources from the one authorized A1 smoke test before any larger run.
+`cdte_a0_run_spec.json` is the machine-readable execution contract.
+`tools/check_cdte_a0_readiness.py` recomputes readiness rather than trusting a
+manually edited Boolean.
 
-A0 does not authorize AHC, dense EPW, HgTe or alloy calculations.
+Generate the current blocker report without authorizing execution:
+
+```bash
+python tools/check_cdte_a0_readiness.py \
+  --report-json runs/cdte_a0/readiness-report.json
+```
+
+Require every prerequisite before an execution wrapper proceeds:
+
+```bash
+python tools/check_cdte_a0_readiness.py \
+  --require-ready \
+  --report-json runs/cdte_a0/readiness-report.json
+```
+
+The strict command exits nonzero while any blocker remains. It also rejects any
+attempt to enable A1, AHC, dense EPW, HgTe or alloy work in the A0 record.
+
+## Current blockers before A0 execution
+
+The repository intentionally remains not ready. The unresolved execution inputs
+are:
+
+1. installed QE/ABINIT version output and executable hashes;
+2. release-specific syntax checks against the pinned releases;
+3. a primary-experimental lattice constant with temperature and observable
+   definition; the `6.482 Å` entry is only a candidate planning value;
+4. declared `ecutrho`, k-grid and band-count ladders;
+5. runtime pseudopotential rehash and input-render manifests;
+6. static ordering, phonon stability, dielectric tensor and Born-charge results;
+7. measured resources before any larger calculation.
+
+No result should be inferred from the presence of templates, source pins,
+pseudopotential hashes or a successful readiness-validator unit test.
