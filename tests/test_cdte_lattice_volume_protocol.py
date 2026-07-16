@@ -91,6 +91,21 @@ def test_primary_execution_anchor_generates_auditable_grid() -> None:
         )
 
 
+def test_execution_grid_rejects_nonhex_source_hash() -> None:
+    specification = copy.deepcopy(_load_specification())
+    structure = specification["structure"]
+    structure["execution_lattice_constant_angstrom"] = 6.47
+    structure["execution_lattice_constant_source"].update(
+        {
+            "source_type": "primary_experimental",
+            "source_sha256": "z" * 64,
+        }
+    )
+
+    with pytest.raises(ValueError, match="primary experimental source SHA-256"):
+        grid_from_specification(specification)
+
+
 def test_grid_rejects_asymmetric_offsets() -> None:
     with pytest.raises(ValueError, match="symmetric"):
         build_volume_grid(6.482, [-0.005, 0.0, 0.01])
