@@ -57,6 +57,29 @@ jobs:
               label="held-out full covariance statistic",
           )'''
           code = code[:block_start] + replacement + code[block_end:]
+
+          test_label = '    label="composition test import",\n)'
+          test_label_start = code.index(test_label)
+          test_block_start = code.rfind('tests = replace_once(', 0, test_label_start)
+          test_block_end = test_label_start + len(test_label)
+          test_replacement = '''tests = replace_once(
+              tests,
+              (
+                  "    fit_composition_aware_gap_model,\\n"
+                  "    leave_one_source_out,\\n"
+              ),
+              (
+                  "    fit_composition_aware_gap_model,\\n"
+                  "    leave_one_composition_group_out,\\n"
+                  "    leave_one_source_out,\\n"
+              ),
+              label="composition test import",
+          )'''
+          code = (
+              code[:test_block_start]
+              + test_replacement
+              + code[test_block_end:]
+          )
           Path('/tmp/apply_focused_patch.py').write_text(code, encoding='utf-8')
           BOOTSTRAP
           set +e
