@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "verification_method": "GitHub Actions isolated download from immutable upstream commit",
+  "verification_workflow_run_id": 29477218248,
+  "verification_head_sha": "be4c339b04a90fc41777d8399283ece43263d82e",
+  "artifact_id": 8367008880,
+  "artifact_archive_digest": "sha256:81080768fc54e4b0d03ef92b46e00888d41d3c411ad08402661ef68d8cfade39",
+  "upstream_repository": "PseudoDojo/ONCVPSP-PBE-FR-PDv0.4",
+  "upstream_commit": "7aa01a3fcf5ad226caf25bd387a9be9612be9f27",
+  "acquisition_complete": true,
+  "calculation_executed": false,
+  "pseudopotential_files_committed": false,
+  "files": {
+    "Cd_upf": {
+      "upstream_path": "Cd/Cd-sp_r.upf",
+      "size_bytes": 335719,
+      "git_blob_sha1": "3b19c4bd04655c8e3739d72d3a3c6dd11c9eabdb",
+      "md5": "fc9988adff5645b1bce1836ec33f834f",
+      "sha256": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+      "element": "Cd",
+      "format": "UPF 2.0.1",
+      "z_valence": 20,
+      "fully_relativistic": true,
+      "spin_orbit": true,
+      "nonlinear_core_correction": true,
+      "functional": "PBE"
+    },
+    "Cd_psp8": {
+      "upstream_path": "Cd/Cd-sp_r.psp8",
+      "size_bytes": 461467,
+      "git_blob_sha1": "9b25c3d7149af077c73dad85fcf127610cb3facd",
+      "md5": "dcbd5767dfef427999519c4f3f741969",
+      "sha256": "5fe4fc81c64b1e0e912a6f362739a5d8d9cc47a26093f5e701f04c3973ced1e6",
+      "element": "Cd",
+      "format": "psp8",
+      "z_valence": 20,
+      "fully_relativistic": true,
+      "spin_orbit": true,
+      "pspxc": 11
+    },
+    "Te_upf": {
+      "upstream_path": "Te/Te-d_r.upf",
+      "size_bytes": 314907,
+      "git_blob_sha1": "c0cecbdc1bfe830f377e771038ecd203fc8fdab9",
+      "md5": "d198e370297ac1d7edee156d0fe975c4",
+      "sha256": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519",
+      "element": "Te",
+      "format": "UPF 2.0.1",
+      "z_valence": 16,
+      "fully_relativistic": true,
+      "spin_orbit": true,
+      "nonlinear_core_correction": true,
+      "functional": "PBE"
+    },
+    "Te_psp8": {
+      "upstream_path": "Te/Te-d_r.psp8",
+      "size_bytes": 423619,
+      "git_blob_sha1": "2ab549b1c98d05a53601f2690ea9c15430091f9c",
+      "md5": "198fb7fcceace28ae22a5dd5a5087a3e",
+      "sha256": "c306f620e606a618f94f81f8283f66575b01902b7d0051fc3aa8177876c13706",
+      "element": "Te",
+      "format": "psp8",
+      "z_valence": 16,
+      "fully_relativistic": true,
+      "spin_orbit": true,
+      "pspxc": 11
+    }
+  },
+  "runtime_rule": "Every runtime copy must be rehashed and match this manifest before rendering or execution."
+}
