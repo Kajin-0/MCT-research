@@ -1,0 +1,7 @@
+claim_id,claim,current_class,closest_prior_art,remaining_open_scope
+C18,Temperature-dependent 8-band Kane modeling of HgTe or HgCdTe heterostructures,established,"Krishtopenko 2016; Ikonnikov 2016; Marcinkiewicz 2017","Microscopic rather than empirical parameter provenance"
+C19,Temperature-driven topological phase transition calculated with an 8-band Kane model,established,"HgTe quantum-well phase diagrams and magnetospectroscopy","Bulk alloy matrix-self-energy origin and uncertainty-qualified projection"
+C20,Off-diagonal electron-phonon self-energy and wavefunction renormalization across a topological transition,established generally,"Lihm and Park 2020 on BiTlSe2","Application to the HgCdTe Gamma6+Gamma8+Gamma7 manifold"
+C21,Electron-phonon renormalization of a Dirac or Kane velocity,established generally,"Park et al. 2007 graphene velocity renormalization","HgCdTe-specific P P8 P7 decomposition and comparison with near-constant measured Kane velocity"
+C22,Complete T-dependent Eg Delta P F gamma1 gamma2 gamma3 derived from one HgCdTe microscopic matrix self-energy,candidate novel unconfirmed,"No direct prior example identified in current audit","Complete literature search and actual calculation"
+C23,Reject the empirical Eg+VBO+structural-temperature 8-band null model using a non-gap invariant,candidate result,"Existing HgTe QW calculations define the null model","Held-out observable with uncertainty-qualified improvement"
