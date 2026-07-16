@@ -1,0 +1,11 @@
+composition_x,temperature_k,dEg_dx_ev_per_x,target_gap_mev,z_sigma,min_independent_cation_sites,equivalent_cube_length_nm,model_class,notes
+0.17,77,1.726128,2,1,105102,19.205,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,2,3,945922,39.948,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,5,1,16816,10.426,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,5,3,151348,21.687,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,10,1,4204,6.568,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,10,3,37837,13.662,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,20,1,1051,4.138,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,20,3,9459,8.607,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,50,1,168,2.246,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
+0.17,77,1.726128,50,3,1513,4.672,ideal_uncorrelated_binomial,"Diagnostic only; physical coarse-graining scale and correlations are not inferred"
