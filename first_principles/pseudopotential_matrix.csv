@@ -1,0 +1,5 @@
+set_id,material,element,format,library,filename,sha256,xc,fully_relativistic,valence_configuration,semicore_included,nlcc,recommended_ecutwfc_ry,recommended_ecutrho_ry,source_url,license,status,static_gap_mev,delta_so_mev,phonon_status,dielectric_status,notes
+candidate_001,CdTe,Cd,UPF,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,pending,,,,,"Record Cd 4d treatment explicitly"
+candidate_001,CdTe,Te,UPF,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,pending,,,,,"Must match Cd XC and relativistic convention"
+candidate_002,HgTe,Hg,UPF,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,pending,,,,,"Record Hg 5d treatment explicitly"
+candidate_002,HgTe,Te,UPF,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,pending,,,,,"Prefer same Te valence partition as CdTe endpoint"
