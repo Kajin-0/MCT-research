@@ -38,11 +38,28 @@ jobs:
           end = workflow.index(end_marker, start)
           code = dedent(workflow[start:end])
 
-          label = '    label="held-out full covariance statistic",\n)'
-          label_start = code.index(label)
-          block_start = code.rfind('source = replace_once(', 0, label_start)
-          block_end = label_start + len(label)
-          replacement = '''source = replace_once(
+          def replace_generated_block(
+              code_text: str,
+              *,
+              assignment_start: str,
+              label: str,
+              replacement: str,
+          ) -> str:
+              label_text = f'    label="{label}",\n)'
+              label_start = code_text.index(label_text)
+              block_start = code_text.rfind(assignment_start, 0, label_start)
+              block_end = label_start + len(label_text)
+              return (
+                  code_text[:block_start]
+                  + replacement
+                  + code_text[block_end:]
+              )
+
+          code = replace_generated_block(
+              code,
+              assignment_start='source = replace_once(',
+              label='held-out full covariance statistic',
+              replacement='''source = replace_once(
               source,
               "        held_out_sigma = np.sqrt(np.diag(held_out_covariance))\\n",
               (
@@ -55,14 +72,14 @@ jobs:
                   "        full_covariance_chi_square += held_out_chi_square\\n"
               ),
               label="held-out full covariance statistic",
-          )'''
-          code = code[:block_start] + replacement + code[block_end:]
+          )''',
+          )
 
-          test_label = '    label="composition test import",\n)'
-          test_label_start = code.index(test_label)
-          test_block_start = code.rfind('tests = replace_once(', 0, test_label_start)
-          test_block_end = test_label_start + len(test_label)
-          test_replacement = '''tests = replace_once(
+          code = replace_generated_block(
+              code,
+              assignment_start='tests = replace_once(',
+              label='composition test import',
+              replacement='''tests = replace_once(
               tests,
               (
                   "    fit_composition_aware_gap_model,\\n"
@@ -74,12 +91,114 @@ jobs:
                   "    leave_one_source_out,\\n"
               ),
               label="composition test import",
-          )'''
-          code = (
-              code[:test_block_start]
-              + test_replacement
-              + code[test_block_end:]
+          )''',
           )
+
+          code = replace_generated_block(
+              code,
+              assignment_start='doc = replace_once(',
+              label='composition holdout documentation',
+              replacement='''doc = replace_once(
+              doc,
+              (
+                  "In shared-group cross-validation, a holdout may not split one specimen across\\n"
+                  "training and test sets. Doing so would leak the same latent composition error\\n"
+                  "into both sides of the comparison.\\n\\n"
+                  "## Interpretation limits\\n"
+              ),
+              (
+                  "In shared-group cross-validation, a holdout may not split one specimen across\\n"
+                  "training and test sets. Doing so would leak the same latent composition error\\n"
+                  "into both sides of the comparison.\\n\\n"
+                  "## Holdout scoring\\n\\n"
+                  "Each fold retains the complete held-out covariance and reports\\n\\n"
+                  "```text\\n"
+                  "chi2_holdout = r^T C_holdout^-1 r.\\n"
+                  "```\\n\\n"
+                  "Unweighted MAE and RMSE remain useful descriptive errors. The existing weighted\\n"
+                  "fields use only the marginal standard deviations `sqrt(diag(C_holdout))` and are\\n"
+                  "therefore labeled diagonal-marginal metrics. They do not replace the correlated\\n"
+                  "chi-square and must not be used to count a densely sampled specimen as many\\n"
+                  "independent composition measurements.\\n\\n"
+                  "The holdout covariance currently includes reported energy uncertainty and the\\n"
+                  "first-order composition block. It does not include fitted-coefficient uncertainty,\\n"
+                  "so the statistic is a conditional model-error diagnostic rather than a complete\\n"
+                  "posterior predictive check.\\n\\n"
+                  "## Interpretation limits\\n"
+              ),
+              label="composition holdout documentation",
+          )''',
+          )
+
+          code = replace_generated_block(
+              code,
+              assignment_start='validator = replace_once(',
+              label='convergence ladder length validation',
+              replacement='''validator = replace_once(
+              validator,
+              (
+                  "    add(\\n"
+                  "        \\\"threshold_ladders_tighten\\\",\\n"
+                  "        isinstance(ladders, dict)\\n"
+                  "        and _strictly_decreasing(ladders.get(\\\"scf_conv_thr_ry\\\"))\\n"
+                  "        and _strictly_decreasing(ladders.get(\\\"ph_tr2\\\")),\\n"
+                  "        \\\"SCF and phonon thresholds must tighten monotonically.\\\",\\n"
+                  "    )\\n\\n"
+                  "    required_sequence = [\\n"
+              ),
+              (
+                  "    add(\\n"
+                  "        \\\"threshold_ladders_tighten\\\",\\n"
+                  "        isinstance(ladders, dict)\\n"
+                  "        and _strictly_decreasing(ladders.get(\\\"scf_conv_thr_ry\\\"))\\n"
+                  "        and _strictly_decreasing(ladders.get(\\\"ph_tr2\\\")),\\n"
+                  "        \\\"SCF and phonon thresholds must tighten monotonically.\\\",\\n"
+                  "    )\\n\\n"
+                  "    governed_ladders = (\\n"
+                  "        \\\"ecutwfc_ry\\\",\\n"
+                  "        \\\"ecutrho_ratio\\\",\\n"
+                  "        \\\"k_grid_n\\\",\\n"
+                  "        \\\"nbnd\\\",\\n"
+                  "        \\\"scf_conv_thr_ry\\\",\\n"
+                  "        \\\"ph_tr2\\\",\\n"
+                  "    )\\n"
+                  "    add(\\n"
+                  "        \\\"governed_ladders_support_two_refinements\\\",\\n"
+                  "        isinstance(ladders, dict)\\n"
+                  "        and all(\\n"
+                  "            isinstance(ladders.get(name), list)\\n"
+                  "            and len(ladders[name]) >= 3\\n"
+                  "            for name in governed_ladders\\n"
+                  "        ),\\n"
+                  "        (\\n"
+                  "            \\\"Every ladder governed by the generic selection rule must contain \\\"\\n"
+                  "            \\\"an initial point plus at least two refinements.\\\"\\n"
+                  "        ),\\n"
+                  "    )\\n\\n"
+                  "    required_sequence = [\\n"
+              ),
+              label="convergence ladder length validation",
+          )''',
+          )
+
+          code = replace_generated_block(
+              code,
+              assignment_start='convergence_doc = replace_once(',
+              label='phonon threshold documentation',
+              replacement='''convergence_doc = replace_once(
+              convergence_doc,
+              "```text\\ntr2_ph = 1e-12 -> 1e-14\\n```\\n",
+              (
+                  "```text\\n"
+                  "tr2_ph = 1e-10 -> 1e-12 -> 1e-14\\n"
+                  "```\\n\\n"
+                  "The looser first point supplies the initial value required before two successive\\n"
+                  "threshold refinements. It does not relax the final declared threshold.\\n"
+              ),
+              label="phonon threshold documentation",
+          )''',
+          )
+
           Path('/tmp/apply_focused_patch.py').write_text(code, encoding='utf-8')
           BOOTSTRAP
           set +e
