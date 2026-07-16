@@ -1,0 +1,55 @@
+{
+  "material": "CdTe",
+  "calculation_id": "cdte-ahc-example",
+  "code": "ABINIT or Quantum ESPRESSO/EPW",
+  "code_version": "REQUIRED",
+  "git_revision": "OPTIONAL",
+  "host": "REQUIRED",
+  "execution_date_utc": "REQUIRED",
+  "input_files": {
+    "ground_state": {
+      "path": "REQUIRED",
+      "sha256": "REQUIRED"
+    },
+    "dfpt": {
+      "path": "REQUIRED",
+      "sha256": "REQUIRED"
+    },
+    "electron_phonon": {
+      "path": "REQUIRED",
+      "sha256": "REQUIRED"
+    }
+  },
+  "pseudopotentials": [
+    {
+      "element": "Cd",
+      "filename": "REQUIRED",
+      "sha256": "REQUIRED",
+      "fully_relativistic": true,
+      "valence_configuration": "REQUIRED"
+    },
+    {
+      "element": "Te",
+      "filename": "REQUIRED",
+      "sha256": "REQUIRED",
+      "fully_relativistic": true,
+      "valence_configuration": "REQUIRED"
+    }
+  ],
+  "physical_content": {
+    "spin_orbit": true,
+    "fan": true,
+    "debye_waller": true,
+    "nonadiabatic": true,
+    "polar_long_range": true,
+    "thermal_expansion": false,
+    "matrix_valued_self_energy": true
+  },
+  "units": {
+    "energy": "eV",
+    "wavevector": "angstrom^-1",
+    "volume": "angstrom^3",
+    "temperature": "K"
+  },
+  "notes": "Replace all REQUIRED fields and record any approximation or missing term."
+}
