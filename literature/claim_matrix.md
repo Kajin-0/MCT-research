@@ -17,14 +17,15 @@ A contribution is classified at the level of a precise claim, not by whether the
 | C05 | Derive $T$-dependent $E_g,\Delta,P,F,\gamma_i$ from matrix AHC | candidate novel, unconfirmed and now narrower | historical HgCdTe work already reports gap, band-edge, valence-offset, and electron-effective-mass temperature changes | determine whether any prior work renormalizes the complete Kane Hamiltonian or momentum/Luttinger parameters |
 | C06 | Test one-$P$ closure against separate effective $P_8$ and $P_7$ | candidate methodological, unconfirmed | nested model derived and executable here | equivalent multi-coupling finite-$T$ Kane literature |
 | C07 | $P_{\mathrm{fit}}=(2P_8+P_7)/3$ under the declared Frobenius metric | derived but metric-specific; novelty uncertain | exact repository derivation | prior invariant-projection literature |
-| C08 | Temperature primarily changes $E_g$ while Kane velocity remains nearly constant | established experimentally over measured ranges | bulk HgCdTe magnetospectroscopy | limits across composition, strain, and temperature |
+| C08 | Temperature primarily changes $E_g$ while Kane velocity remains nearly constant | established experimentally over measured ranges | Teppe et al. 2016 report $\tilde c=(1.07\pm0.05)\times10^6$ m/s for two near-critical samples over approximately 2–120 K | broader composition, strain, temperature, and full-8-band limits |
 | C09 | Average cubic symmetry permits a true $\Gamma_6$–$\Gamma_8$ crossing and forbids generic mixing at $\Gamma$ | established representation theory | zincblende double-group symmetry | disorder/strain exceptions |
 | C10 | Use multiple SQS configurations and restore average cubic symmetry | established methodology | SQS and group averaging are standard | HgCdTe electron–phonon application |
 | C11 | Treat the inversion region through a disorder-averaged spectral function rather than one sharp gap | uncertain to incremental | alloy spectral functions and CPA are established generally | HgCdTe-specific inversion-transition treatment |
 | C12 | Derive a compact composition-dependent spectral-moment model from the gap-coupling spectrum | candidate novel, unconfirmed | oscillator reduction established generally | prior HgCdTe analytical spectral-moment equations |
-| C13 | Outperform Hansen under leave-one-composition-out and held-out-temperature validation | empirical result, not yet established | protocol defined here | reconstructed primary data and later independent datasets |
+| C13 | Outperform Hansen under leave-one-composition-out and held-out-temperature validation | empirical result, not yet established | protocol defined; Teppe nominal $x=0.155$, $T_c\approx77$ K differs from Hansen by 9.2 meV or 25 K | reconstructed Hansen/Laurenti data; independent composition uncertainties; complete temperature-series extraction |
 | C14 | Current matrix covariance propagation is exact conditional on a fixed estimated gauge | established linear uncertainty propagation | repository derivation and tests | uncertainty of the estimated gauge remains excluded |
 | C15 | A diagonal self-energy table is insufficient to validate a finite-temperature Kane Hamiltonian | established information-content statement | dimensional/information argument | none required for principle; application examples useful |
+| C16 | Near inversion, composition uncertainty must be propagated as uncertainty in the explanatory variable | established statistical necessity; HgCdTe consequence quantified here | exact implicit sensitivity $dT_c/dx=-(\partial_xE_g)/(\partial_TE_g)$; Hansen/Teppe example gives about 4.49 K per $\Delta x=0.001$ | source-specific composition methods and uncertainty distributions |
 
 ## First HgCdTe-specific prior-art result
 
@@ -43,6 +44,42 @@ Consequences for this project:
 3. novelty must lie beyond recalculating $E_g(T)$ or $m_e^*(T)$ alone;
 4. the still-open distinction is whether the complete symmetry-resolved, frequency-dependent 8-band Hamiltonian has been derived and tested for closure;
 5. the 1995 full text must be audited before claiming that its method omitted matrix self-energy, Debye–Waller completeness, nonadiabatic polar corrections, disorder, or quasiharmonic effects.
+
+## First signed-gap validation result
+
+Teppe et al. 2016 provide an independent near-inversion constraint based on far-infrared magneto-transmission and Landau-level fitting:
+
+- a nominal $x=0.155$ sample reaches $E_g\approx0$ near 77 K;
+- the characteristic Kane velocity remains approximately constant while the signed gap and Kane mass change sign;
+- the analysis uses a reduced $\Gamma_6\oplus\Gamma_8$ model, not a complete finite-temperature 8-band Hamiltonian;
+- the authors compare against the Laurenti 1990 empirical relation rather than Hansen.
+
+At the same nominal $(x,T)$, Hansen predicts
+
+$$
+E_g^{\mathrm H}(0.155,77\ \mathrm K)=+9.21\ \mathrm{meV}
+$$
+
+and a critical temperature of about 52 K. This is a potentially important discrepancy, but it is not yet an identified functional-form error: the 9.21 meV difference is equivalent to a composition offset of only
+
+$$
+\Delta x\approx0.00555.
+$$
+
+The local Hansen sensitivity is
+
+$$
+\frac{dT_c}{dx}\approx-4.49\times10^3\ \mathrm{K/composition},
+$$
+
+so $\sigma_x=0.001$ already implies approximately 4.49 K uncertainty in critical temperature. The paper's own use of both $x=0.17$ and $x=0.175$ for the higher-Cd sample illustrates why composition provenance must be retained before making meV-level equation claims.
+
+Consequences:
+
+1. critical-point data are powerful only with independent composition metrology;
+2. a complete $E_g(T)$ curve is more informative than one $(x,T_c)$ pair because a constant composition offset cannot mimic arbitrary curvature;
+3. optical-edge and signed magneto-optical gaps require measurement-class-aware comparison;
+4. the analytical benchmark must score both nominal-composition and composition-marginalized residuals.
 
 ## Search clusters
 
@@ -99,6 +136,17 @@ Search:
 - gap distributions and Urbach tails;
 - topological Anderson or disorder-driven transitions;
 - HgCdTe compositional fluctuation broadening.
+
+### F. Composition metrology and cross-source comparability
+
+Search:
+
+- composition determination methods in bulk, LPE, and MBE HgCdTe;
+- calibration uncertainty and gradients;
+- relation between lattice constant, optical gap, Hall data, and actual Cd fraction;
+- specimen-level composition offsets;
+- strain and substrate effects on inferred composition and gap;
+- whether reported $x$ values were independently measured or back-calculated from a gap equation.
 
 ## Classification rules
 
