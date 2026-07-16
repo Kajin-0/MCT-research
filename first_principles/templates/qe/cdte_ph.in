@@ -1,0 +1,18 @@
+&INPUTPH
+  prefix = 'cdte'
+  outdir = '@OUTDIR@'
+  fildyn = 'cdte.dyn'
+  ldisp = .true.
+  nq1 = @NQ@
+  nq2 = @NQ@
+  nq3 = @NQ@
+  tr2_ph = @TR2_PH@
+  recover = .true.
+  trans = .true.
+  epsil = .true.
+/
+
+# For an insulating Gamma-point response, epsil=.true. requests the macroscopic
+# dielectric tensor; with trans=.true. the Born effective charges are also
+# obtained. Verify the behavior of the installed ph.x release when ldisp=.true.
+# and archive the complete dynamical-matrix and dvscf outputs for EPW.
