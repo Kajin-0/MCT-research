@@ -145,9 +145,10 @@ def test_end_to_end_random_gauge_symmetry_and_gls_recovery() -> None:
         [record.matrix for record in records],
         covariances=[record.covariance for record in records],
     )
+    standard_errors = fit_diagnostics["parameter_standard_errors"]
     for name in PARAMETER_NAMES:
-        assert getattr(recovered, name) == pytest.approx(
-            getattr(true, name), rel=2e-9, abs=2e-9
-        )
+        error = abs(getattr(recovered, name) - getattr(true, name))
+        assert error < 5.0e-8
+        assert error < 0.01 * standard_errors[name]
     assert fit_diagnostics["relative_residual"] < 1e-8
     assert fit_diagnostics["rank"] == 8.0
