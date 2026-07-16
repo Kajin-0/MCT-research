@@ -37,10 +37,14 @@ def _complete_specification() -> tuple[dict, dict]:
         {
             "source_type": "primary_experimental",
             "citation": "Synthetic primary-source record for validator testing",
-            "temperature_k": 300,
+            "source_sha256": "4" * 64,
+            "measurement_temperature_k": 0,
+            "reported_lattice_constant_angstrom": 6.482,
+            "reported_standard_uncertainty_angstrom": 0.0001,
             "observable_definition": (
                 "cubic zincblende lattice parameter from X-ray diffraction"
             ),
+            "reference_volume_temperature_k": 0,
         }
     )
     specification["convergence_ladders"].update(
@@ -124,3 +128,39 @@ def test_scope_escalation_and_missing_runtime_hashes_fail() -> None:
     assert report["ready_for_execution"] is False
     assert "a0_scope_authorized" in report["blocking_checks"]
     assert "runtime_pseudopotential_hashes_verified" in report["blocking_checks"]
+
+
+def test_lattice_source_requires_real_sha256_and_uncertainty() -> None:
+    specification, selection = _complete_specification()
+    source = specification["structure"]["execution_lattice_constant_source"]
+    source["source_sha256"] = "not-a-hash".ljust(64, "x")
+    source["reported_standard_uncertainty_angstrom"] = None
+
+    report = evaluate_readiness(specification, selection)
+
+    assert report["ready_for_execution"] is False
+    assert "execution_lattice_constant_provenance" in report["blocking_checks"]
+
+
+def test_temperature_transformation_requires_verified_expansion_manifest() -> None:
+    specification, selection = _complete_specification()
+    source = specification["structure"]["execution_lattice_constant_source"]
+    source["measurement_temperature_k"] = 300
+    source["reference_volume_temperature_k"] = 0
+
+    report = evaluate_readiness(specification, selection)
+    assert "execution_lattice_constant_provenance" in report["blocking_checks"]
+
+    source["transformation_to_reference"].update(
+        {
+            "method": "integrate measured linear thermal expansion",
+            "thermal_expansion_source_sha256": "5" * 64,
+            "thermal_expansion_status": "primary_measurement_acquired_verified",
+            "integration_temperature_bounds_k": [0, 300],
+            "uncertainty_propagation": "runs/cdte_a0/lattice-uncertainty.json",
+            "derivation_manifest": "runs/cdte_a0/lattice-transform.json",
+        }
+    )
+
+    report = evaluate_readiness(specification, selection)
+    assert report["ready_for_execution"] is True
