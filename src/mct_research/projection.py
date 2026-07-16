@@ -95,6 +95,28 @@ def covariance_whitener(
     if symmetry_residual / scale > 1.0e-10:
         raise ValueError("covariance must be symmetric")
 
+    diagonal = np.diag(symmetric)
+    off_diagonal = symmetric - np.diag(diagonal)
+    if np.linalg.norm(off_diagonal, ord="fro") <= 1.0e-13 * scale:
+        minimum = float(np.min(diagonal))
+        maximum = float(np.max(diagonal))
+        if maximum <= 0.0:
+            raise ValueError("covariance must have at least one positive eigenvalue")
+        if minimum < -1.0e-10 * maximum:
+            raise ValueError("covariance is not positive semidefinite")
+        tolerance = relative_floor * maximum
+        clipped = np.maximum(diagonal, tolerance)
+        whitener = np.diag(1.0 / np.sqrt(clipped))
+        diagnostics = {
+            "minimum_eigenvalue": minimum,
+            "maximum_eigenvalue": maximum,
+            "regularization_floor": tolerance,
+            "regularized_eigenvalues": float(np.count_nonzero(diagonal < tolerance)),
+            "condition_number_after_regularization": float(np.max(clipped) / np.min(clipped)),
+            "diagonal_fast_path": True,
+        }
+        return whitener, diagnostics
+
     eigenvalues, eigenvectors = np.linalg.eigh(symmetric)
     maximum = float(np.max(eigenvalues))
     if maximum <= 0.0:
@@ -111,6 +133,7 @@ def covariance_whitener(
         "regularization_floor": tolerance,
         "regularized_eigenvalues": float(np.count_nonzero(eigenvalues < tolerance)),
         "condition_number_after_regularization": float(np.max(clipped) / np.min(clipped)),
+        "diagonal_fast_path": False,
     }
     return whitener, diagnostics
 
