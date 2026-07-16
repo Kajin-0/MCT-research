@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "decision": "authorize_A0_and_one_timed_A1_smoke_test_only",
+  "production_ahc_authorized": false,
+  "dense_epw_authorized": false,
+  "hgte_authorized": false,
+  "target_material": "CdTe",
+  "target_quantity": "fixed_volume_mode_resolved_electron_phonon_edge_and_gap_shifts",
+  "temperature_grid_k": [0, 20, 50, 100, 200, 300],
+  "hypotheses": {
+    "H0": "one leading thermal moment predicts the fixed-volume gap shift within 1.5 meV",
+    "H1": "a second stable moment improves held-out temperature prediction by at least 2 meV and more than three numerical standard uncertainties",
+    "H2": "signed conduction and valence contributions produce a resolved turnover or slope change"
+  },
+  "accuracy_targets": {
+    "conduction_edge_shift_mev": 1.0,
+    "valence_edge_shift_mev": 1.0,
+    "gap_shift_mev": 1.5,
+    "leading_slope_mev_per_k": 0.01,
+    "cross_code_gap_difference_mev": 2.0,
+    "cross_code_edge_difference_mev": 3.0
+  },
+  "q_grid_ladder": [4, 6, 8],
+  "optional_q_grid": 10,
+  "planning_cost_core_hours": {
+    "A0_static_and_coarse_phonons": [100, 500],
+    "A1_q4": [500, 2000],
+    "A2_q6": [1700, 6800],
+    "A3_q8": [4000, 16000],
+    "optional_q10": [8000, 31000]
+  },
+  "cost_status": "planning_prior_replace_with_measured_A1_resources",
+  "required_exports": [
+    "static_SOC_edge_energies_and_irreps",
+    "phonon_frequencies_and_stability",
+    "Fan_edge_shifts",
+    "Debye_Waller_edge_shifts",
+    "zero_point_and_finite_temperature_separation",
+    "mode_or_frequency_binned_gap_coupling_weights",
+    "software_and_pseudopotential_provenance",
+    "wall_time_core_count_memory_scratch_output_size"
+  ],
+  "hard_stops": [
+    "unstable_phonons_or_incorrect_static_ordering",
+    "inconsistent_or_missing_Fan_or_Debye_Waller",
+    "no_mode_or_frequency_resolved_export",
+    "q_grid_gap_change_above_3_meV_without_stable_trend",
+    "edge_change_above_5_meV_without_stable_trend",
+    "unexplained_cross_code_disagreement",
+    "second_moment_improvement_below_2_meV_or_fold_unstable",
+    "turnover_below_three_times_numerical_uncertainty",
+    "result_only_duplicates_total_experimental_gap_curve"
+  ]
+}
