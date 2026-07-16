@@ -47,13 +47,6 @@ def _complete_specification() -> tuple[dict, dict]:
             "reference_volume_temperature_k": 0,
         }
     )
-    specification["convergence_ladders"].update(
-        {
-            "ecutrho_ry": [376, 408, 456],
-            "k_grid_n": [6, 8, 10, 12],
-            "nbnd": [40, 48, 56],
-        }
-    )
     specification["runtime_inputs"].update(
         {
             "runtime_hash_manifest": "runs/cdte_a0/runtime-hashes.json",
@@ -76,12 +69,14 @@ def test_repository_a0_specification_fails_closed_on_unresolved_inputs() -> None
         "abinit_installed_binary_recorded",
         "abinit_release_syntax_checked",
         "execution_lattice_constant_provenance",
-        "ecutrho_ladder_declared",
-        "k_grid_ladder_declared",
-        "band_count_ladder_declared",
         "runtime_pseudopotential_hashes_verified",
         "render_manifests_recorded",
     }.issubset(report["blocking_checks"])
+    assert {
+        "ecutrho_ladder_declared",
+        "k_grid_ladder_declared",
+        "band_count_ladder_declared",
+    }.isdisjoint(report["blocking_checks"])
 
 
 def test_source_release_tags_and_commits_are_immutable_pins() -> None:

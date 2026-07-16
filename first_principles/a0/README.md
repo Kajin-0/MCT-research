@@ -70,8 +70,58 @@ Cd controls the compound starting ladder:
 94 Ry -> 102 Ry -> 114 Ry
 ```
 
-These values are starting points, not convergence evidence. `ecutrho` remains
-an independent convergence variable; the project does not assume a fixed ratio.
+These values are starting points, not convergence evidence.
+
+## Lattice and fixed-volume protocol
+
+`cdte_lattice_volume_protocol.md` defines the physical reference-volume gate.
+The `6.482 Angstrom` entry remains a planning value only. An execution lattice
+requires a hashed primary absolute measurement with temperature and uncertainty;
+a transformation to the 0 K reference additionally requires a verified primary
+thermal-expansion source and derivation manifest.
+
+The sensitivity points are defined in volume:
+
+```text
+Delta V / V = -0.005, 0, +0.005
+```
+
+and are converted exactly through
+
+```text
+a / a_ref = (V / V_ref)^(1/3).
+```
+
+Issue #46 tracks acquisition of the absolute anchor and primary CdTe
+thermal-expansion data.
+
+## Declared convergence protocol
+
+`cdte_a0_convergence_protocol.md` declares, but does not execute or certify, the
+smallest sequential convergence plan:
+
+- `ecutrho/ecutwfc = 4, 5, 6` at `ecutwfc = 114 Ry`;
+- `ecutwfc = 94, 102, 114 Ry` after selecting the charge-density ratio;
+- Gamma-centered cubic k grids `4, 6, 8, 10, 12`;
+- noncollinear SOC band counts `40, 48, 56, 64` for the verified 36-electron
+  primitive cell;
+- tightening SCF and phonon thresholds;
+- one selected-versus-next-denser cross-factor recheck.
+
+A setting is selected only after two successive refinements satisfy every
+applicable observable criterion. Failure at the largest declared point stops the
+branch and requires a new decision memo.
+
+Validate the plan structure without running a code:
+
+```bash
+python tools/check_cdte_a0_convergence_protocol.py \
+  --require-valid \
+  --report-json runs/cdte_a0/convergence-protocol-report.json
+```
+
+A passing protocol report means only that the proposed ladder is internally
+consistent. It does not mean that any numerical setting is converged.
 
 ## Exact code-source pins
 
@@ -171,17 +221,18 @@ attempt to enable A1, AHC, dense EPW, HgTe or alloy work in the A0 record.
 
 ## Current blockers before A0 execution
 
-The repository intentionally remains not ready. The unresolved execution inputs
-are:
+The convergence ladders are now declared but have not been run. The repository
+intentionally remains not ready because the following execution inputs are
+unresolved:
 
 1. installed QE/ABINIT version output and executable hashes;
 2. release-specific syntax checks against the pinned releases;
-3. a primary-experimental lattice constant with temperature and observable
-   definition; the `6.482 Å` entry is only a candidate planning value;
-4. declared `ecutrho`, k-grid and band-count ladders;
-5. runtime pseudopotential rehash and input-render manifests;
-6. static ordering, phonon stability, dielectric tensor and Born-charge results;
-7. measured resources before any larger calculation.
+3. the primary-experimental absolute lattice anchor and thermal-expansion
+   derivation tracked by Issue #46;
+4. runtime pseudopotential rehash and input-render manifests;
+5. static ordering, cutoff/k-grid/band convergence, phonon stability, dielectric
+   tensor and Born-charge results;
+6. measured resources before any larger calculation.
 
 No result should be inferred from the presence of templates, source pins,
-pseudopotential hashes or a successful readiness-validator unit test.
+pseudopotential hashes, declared ladders or a successful validator unit test.

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "stage": "A0_static_phonon_readiness",
   "authorization": {
     "static_scf": true,
@@ -94,14 +94,48 @@
     }
   },
   "convergence_ladders": {
+    "selection_status": "declared_not_run",
     "ecutwfc_ry": [
       94,
       102,
       114
     ],
-    "ecutrho_ry": [],
-    "k_grid_n": [],
-    "nbnd": [],
+    "ecutrho_reference_ecutwfc_ry": 114,
+    "ecutrho_ratio": [
+      4,
+      5,
+      6
+    ],
+    "ecutrho_ry": [
+      456,
+      570,
+      684
+    ],
+    "k_grid_n": [
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "k_grid_shift": [
+      0,
+      0,
+      0
+    ],
+    "total_valence_electrons": 36,
+    "nbnd": [
+      40,
+      48,
+      56,
+      64
+    ],
+    "empty_spinor_bands": [
+      4,
+      12,
+      20,
+      28
+    ],
     "scf_conv_thr_ry": [
       1e-08,
       1e-10,
@@ -111,6 +145,32 @@
       1e-12,
       1e-14
     ]
+  },
+  "convergence_protocol": {
+    "document": "first_principles/a0/cdte_a0_convergence_protocol.md",
+    "sequence": [
+      "ecutrho_at_ecutwfc_114Ry",
+      "ecutwfc_with_selected_ecutrho_ratio",
+      "gamma_centered_k_grid",
+      "nbnd_spinor_empty_states",
+      "threshold_tightening",
+      "selected_vs_next_denser_cross_factor_recheck"
+    ],
+    "selection_rule": "Select the first setting for which two successive refinements satisfy every applicable observable criterion. If the largest declared point fails, stop and write a new decision memo rather than extending automatically.",
+    "criteria": {
+      "total_energy_mev_per_atom": 0.2,
+      "stress_gpa": 0.02,
+      "gamma_conduction_edge_mev": 0.25,
+      "gamma_valence_edge_mev": 0.25,
+      "gamma_gap_mev": 0.5,
+      "spin_orbit_splitting_mev": 0.5,
+      "optical_phonon_cm-1": 0.2,
+      "acoustic_sum_rule_residual_cm-1": 0.1,
+      "dielectric_tensor_relative": 0.002,
+      "born_effective_charge_e": 0.005
+    },
+    "cross_factor_recheck_required": true,
+    "calculation_results_recorded": false
   },
   "runtime_inputs": {
     "pseudopotential_selection": "first_principles/a0/cdte_pseudopotential_selection.json",
