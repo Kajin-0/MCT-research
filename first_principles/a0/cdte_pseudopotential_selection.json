@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "stage": "A0_selection_only",
+  "schema_version": "1.1",
+  "stage": "A0_byte_verified_selection",
   "run_executed": false,
   "scientific_result_available": false,
   "upstream": {
@@ -14,11 +14,11 @@
     "Cd": {
       "upf_path": "Cd/Cd-sp_r.upf",
       "upf_git_blob_sha1": "3b19c4bd04655c8e3739d72d3a3c6dd11c9eabdb",
+      "upf_sha256": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
       "psp8_path": "Cd/Cd-sp_r.psp8",
       "psp8_git_blob_sha1": "9b25c3d7149af077c73dad85fcf127610cb3facd",
       "psp8_pseudodojo_md5": "dcbd5767dfef427999519c4f3f741969",
-      "local_upf_sha256": null,
-      "local_psp8_sha256": null,
+      "psp8_sha256": "5fe4fc81c64b1e0e912a6f362739a5d8d9cc47a26093f5e701f04c3973ced1e6",
       "z_valence": 20,
       "valence_configuration": "4s2 4p6 4d10 5s2",
       "semicore_included": ["4s", "4p", "4d"],
@@ -31,11 +31,11 @@
     "Te": {
       "upf_path": "Te/Te-d_r.upf",
       "upf_git_blob_sha1": "c0cecbdc1bfe830f377e771038ecd203fc8fdab9",
+      "upf_sha256": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519",
       "psp8_path": "Te/Te-d_r.psp8",
       "psp8_git_blob_sha1": "2ab549b1c98d05a53601f2690ea9c15430091f9c",
       "psp8_pseudodojo_md5": "198fb7fcceace28ae22a5dd5a5087a3e",
-      "local_upf_sha256": null,
-      "local_psp8_sha256": null,
+      "psp8_sha256": "c306f620e606a618f94f81f8283f66575b01902b7d0051fc3aa8177876c13706",
       "z_valence": 16,
       "valence_configuration": "4d10 5s2 5p4",
       "semicore_included": ["4d"],
@@ -45,6 +45,15 @@
       "cutoff_hints_hartree": {"low": 34, "normal": 40, "high": 46},
       "cutoff_hints_rydberg": {"low": 68, "normal": 80, "high": 92}
     }
+  },
+  "byte_verification": {
+    "manifest": "first_principles/a0/cdte_pseudopotential_hash_manifest.json",
+    "workflow_run_id": 29477218248,
+    "verification_head_sha": "be4c339b04a90fc41777d8399283ece43263d82e",
+    "exact_git_blob_matches": true,
+    "published_psp8_md5_matches": true,
+    "sha256_recorded": true,
+    "pseudopotential_files_committed": false
   },
   "cdte_cutoff_ladder_rydberg": {
     "rule": "maximum element hint after converting Hartree to Rydberg",
@@ -58,15 +67,15 @@
     "exact_upstream_files_selected": true,
     "upstream_commit_pinned": true,
     "headers_primary_verified": true,
-    "local_bytes_acquired": false,
-    "local_sha256_verified": false,
+    "downloaded_byte_sha256_verified": true,
+    "runtime_file_hash_verified": false,
     "qe_syntax_checked": false,
     "abinit_syntax_checked": false,
     "static_calculation_run": false,
     "phonon_calculation_run": false
   },
   "hard_stops": [
-    "do_not_run_if_local_sha256_is_missing",
+    "do_not_run_if_runtime_file_sha256_does_not_match_the_verified_manifest",
     "do_not_run_if_inspected_header_disagrees_with_expected_element_xc_soc_or_valence",
     "do_not_treat_cutoff_hints_as_convergence_proof",
     "do_not_assume_an_ecutrho_ratio_without_testing",
