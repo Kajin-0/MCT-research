@@ -1,0 +1,6 @@
+sample_number,carrier_density_77k_cm3,mobility_77k_cm2_per_vs,composition_x,composition_sigma_x,supplier,composition_provenance,independent_for_composition_law,usable_for_within_specimen_temperature_shape,source_pdf_sha256
+1,1.4e14,1.6e5,0.239,,Honeywell,infrared_cutoff_derived,false,true,5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49
+2,2.8e14,1.2e5,0.253,,Texas Instruments,gap_measured_then_x_assigned_with_HSC,false,true,5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49
+3,1.0e14,7.6e4,0.259,0.0015,Cominco,wet_chemistry_tied_vendor_value,true,true,5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49
+4,1.4e14,6.6e4,0.277,0.0010,Cominco,wet_chemistry_tied_vendor_value,true,true,5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49
+5,9.9e13,5.3e4,0.300,0.0035,Cominco,wet_chemistry_tied_vendor_value,true,true,5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49
