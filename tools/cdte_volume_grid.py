@@ -7,7 +7,10 @@ import argparse
 import json
 import math
 from pathlib import Path
+import re
 from typing import Any
+
+_SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 def _load_object(path: str | Path) -> dict[str, Any]:
@@ -92,8 +95,7 @@ def grid_from_specification(
     source_is_primary = (
         isinstance(source, dict)
         and source.get("source_type") == "primary_experimental"
-        and isinstance(source.get("source_sha256"), str)
-        and len(source["source_sha256"]) == 64
+        and bool(_SHA256.fullmatch(str(source.get("source_sha256", ""))))
     )
 
     if isinstance(execution_lattice, (int, float)) and execution_lattice > 0:
