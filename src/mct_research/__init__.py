@@ -1,5 +1,12 @@
 """Executable analytical models for HgCdTe research."""
 
+from .dataio import (
+    MatrixDataset,
+    MatrixRecord,
+    file_sha256,
+    load_matrix_dataset,
+    save_matrix_dataset,
+)
 from .gauge import (
     AlignmentDiagnostics,
     GaugeAlignmentError,
@@ -17,6 +24,14 @@ from .kane8 import (
     hamiltonian_two_p,
     time_reversal_residual,
     time_reversal_residual_two_p,
+)
+from .pipeline import (
+    ProcessingDiagnostics,
+    process_record,
+    project_covariance,
+    real_linear_map,
+    rotate_covariance,
+    rotation_from_overlap,
 )
 from .projection import (
     OBSERVATION_DIMENSION,
@@ -45,13 +60,17 @@ __all__ = [
     "GaugeAlignmentError",
     "KANE_IRREP_BLOCKS",
     "KaneParameters",
+    "MatrixDataset",
+    "MatrixRecord",
     "OBSERVATION_DIMENSION",
+    "ProcessingDiagnostics",
     "align_basis",
     "closure_residual",
     "covariance_whitener",
     "design_diagnostics",
     "extended_closure_residual",
     "extended_design_diagnostics",
+    "file_sha256",
     "fit_extended_parameters",
     "fit_parameters",
     "forbidden_gamma_coupling_norm",
@@ -60,10 +79,17 @@ __all__ = [
     "hamiltonian",
     "hamiltonian_two_p",
     "hermitize",
+    "load_matrix_dataset",
     "parallel_transport_sequence",
     "parameter_templates",
+    "process_record",
+    "project_covariance",
     "procrustes_unitary",
+    "real_linear_map",
+    "rotate_covariance",
     "rotate_operator",
+    "rotation_from_overlap",
+    "save_matrix_dataset",
     "time_reversal_pair_residual",
     "time_reversal_pair_symmetrize",
     "time_reversal_residual",
