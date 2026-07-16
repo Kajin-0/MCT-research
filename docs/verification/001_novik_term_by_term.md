@@ -106,29 +106,29 @@ recovers Novik exactly.
 
 The diagonal $U\pm V$ and $U-\Delta$ terms, the $R$ and $R^\dagger$ terms, the $\sqrt2V$ terms, and the $\bar S_\pm/\widetilde S_\pm$ terms were compared against all upper-triangular entries of Eq. (5).
 
-### Defect found and corrected
-
-The previous implementation used
-
-$$
-H_{5,7}=-\sqrt{\frac32}\,\widetilde S_+,
-$$
-
-in one-based basis notation. Novik Eq. (5) requires
+The visually dense $u_5$–$u_7$ entry was checked directly against the rendered primary-source matrix. It is
 
 $$
 \boxed{
-H_{5,7}=-\sqrt{\frac32}\,\widetilde S_+^\dagger
-}.
+H_{5,7}=-\sqrt{\frac32}\,\widetilde S_+
+},
 $$
 
-In zero-based Python indices this is `h[4, 6]`. The code now uses
+while the Hermitian counterpart is
+
+$$
+H_{7,5}=-\sqrt{\frac32}\,\widetilde S_+^\dagger.
+$$
+
+In zero-based Python indices the upper-triangular entry is therefore
 
 ```python
-h[4, 6] = -np.sqrt(3.0 / 2.0) * np.conjugate(s_plus)
+h[4, 6] = -np.sqrt(3.0 / 2.0) * s_plus
 ```
 
-The error vanishes whenever $k_y=0$ or $k_z=0$, so axis-only and [110] tests could not detect it. It changes the matrix for general directions such as [111]. This is why the external [111] reference test is now mandatory.
+which was already the repository's original implementation. An initial audit draft mistakenly moved the dagger into the upper-triangular entry; GitHub CI and the existing time-reversal test rejected that transcription. The mistaken branch change was reverted before merge.
+
+This term vanishes whenever $k_y=0$ or $k_z=0$. The [111] external reference test is therefore retained because it exercises the complex mixed-$k$ structure that axis-only and [110] checks cannot expose.
 
 ## 6. Independent executable checks
 
@@ -171,4 +171,4 @@ Those extensions are deferred. They are not required for the current homogeneous
 
 ## 8. Conclusion
 
-After the conjugation correction, the implemented one-$P$ homogeneous Hamiltonian is algebraically identical to the declared Novik convention within the stated scope. The verification is now executable and includes directions that expose complex mixed-$k$ terms.
+The implemented one-$P$ homogeneous Hamiltonian is algebraically identical to the declared Novik convention within the stated scope. The verification is executable and includes directions that expose complex mixed-$k$ terms. The CI failure during the audit was useful evidence: it caught a human transcription error rather than a defect in the original implementation.
