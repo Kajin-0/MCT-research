@@ -8,6 +8,20 @@ $$
 
 campaign. They are research templates, not validated production inputs.
 
+## Current authorization
+
+The merged CdTe decision memo authorizes only:
+
+1. A0 static/phonon preparation and sanity checks;
+2. one timed A1 $4\times4\times4$ q-grid smoke test after A0 passes.
+
+Production AHC, dense EPW, HgTe and alloy calculations remain blocked. The
+machine-readable authorization state is in
+`decision_memos/cdte_fixed_volume_thermal_moment_pilot.json`.
+
+The exact Cd/Te PseudoDojo file selection, cutoff-unit conversion, local-hash
+requirements and operator procedure are in `a0/`.
+
 ## Scientific rules
 
 1. Use fully relativistic pseudopotentials and explicit SOC for the electronic states.
@@ -17,9 +31,12 @@ campaign. They are research templates, not validated production inputs.
 5. Do not use EPW's diagonal electron self-energy output as a substitute for a full matrix-valued AHC result.
 6. Do not convert a diagonal self-energy table into `MatrixDataset`; the export must contain an explicit complex $8\times8$ matrix.
 7. Record pseudopotential hashes, input hashes, code versions, meshes, broadening, band windows, and convergence deltas.
+8. Treat published pseudopotential cutoff hints as convergence starting points, not convergence evidence. Check their units before translating them between codes.
 
 ## Directory contents
 
+- `a0/` — exact CdTe pseudopotential selection and preparation gate.
+- `decision_memos/` — calculation authorization, hypotheses, costs and hard stops.
 - `templates/qe/` — Quantum ESPRESSO ground-state, DFPT, and EPW templates.
 - `templates/abinit/` — ABINIT EPH/AHC driver fragment to attach to a validated GS/DFPT workflow.
 - `pseudopotential_matrix.csv` — candidate-pseudopotential comparison ledger.
@@ -29,15 +46,18 @@ campaign. They are research templates, not validated production inputs.
 
 ## Temperature protocol
 
-The target temperatures are
+The historical target temperatures for the later full pipeline are
 
 $$
 T=0,\ 77,\ 150,\ 225,\ 300\ \mathrm{K}.
 $$
 
+The narrower CdTe thermal-moment pilot uses the grid declared in its decision
+memo. Do not silently substitute one grid for the other.
+
 ABINIT's `tmesh` defines a linear grid by initial temperature, step, and number
-of points. Because the target list is not uniformly spaced, use one EPH run per
-temperature with
+of points. Because the historical target list is not uniformly spaced, use one
+EPH run per temperature with
 
 ```text
 tmesh @TEMPERATURE_K@ 1 1
@@ -81,5 +101,6 @@ off-diagonal information from eigenvalue-only output.
 - Quantum ESPRESSO `pw.x`: <https://www.quantum-espresso.org/Doc/INPUT_PW.html>
 - Quantum ESPRESSO `ph.x`: <https://www.quantum-espresso.org/Doc/INPUT_PH.html>
 - EPW inputs: <https://docs.epw-code.org/Inputs/Inputs.html>
+- PseudoDojo cutoff-hint units and usage: <https://www.pseudo-dojo.org/faq.html>
 
 Every template must be rechecked against the exact installed code release before execution.
