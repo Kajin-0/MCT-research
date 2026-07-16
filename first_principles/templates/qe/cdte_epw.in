@@ -1,0 +1,63 @@
+&INPUTEPW
+  prefix = 'cdte'
+  outdir = '@OUTDIR@'
+  dvscf_dir = '@DVSCF_DIR@'
+
+  amass(1) = 112.414
+  amass(2) = 127.60
+
+  elph = .true.
+  ep_coupling = .true.
+  wannierize = .true.
+  epwwrite = .true.
+  epwread = .false.
+
+  nbndsub = @NBND_SUB@
+  num_iter = @NUM_WANNIER_ITER@
+  dis_win_min = @DIS_WIN_MIN_EV@
+  dis_win_max = @DIS_WIN_MAX_EV@
+  dis_froz_min = @DIS_FROZ_MIN_EV@
+  dis_froz_max = @DIS_FROZ_MAX_EV@
+
+  proj(1) = 'Cd:s'
+  proj(2) = 'Cd:p'
+  proj(3) = 'Te:s'
+  proj(4) = 'Te:p'
+
+  lpolar = .true.
+
+  elecselfen = .true.
+  elecselfen_type = 'nonadiabatic'
+  specfun_el = .true.
+  degaussw = @DEGAUSSW_EV@
+  degaussq = @DEGAUSSQ_MEV@
+  fsthick = @FSTHICK_EV@
+
+  nstemp = 5
+  temps = 0.0 77.0 150.0 225.0 300.0
+
+  nk1 = @NK_COARSE@
+  nk2 = @NK_COARSE@
+  nk3 = @NK_COARSE@
+  nq1 = @NQ_COARSE@
+  nq2 = @NQ_COARSE@
+  nq3 = @NQ_COARSE@
+
+  nkf1 = @NK_FINE@
+  nkf2 = @NK_FINE@
+  nkf3 = @NK_FINE@
+  nqf1 = @NQ_FINE@
+  nqf2 = @NQ_FINE@
+  nqf3 = @NQ_FINE@
+
+  wmin_specfun = @WMIN_EV@
+  wmax_specfun = @WMAX_EV@
+  nw_specfun = @NW_SPECFUN@
+/
+
+# Scientific scope:
+# - This supplies dense, nonadiabatic, polar Fan/self-energy diagnostics.
+# - The complete AHC result still requires a consistent Debye-Waller term.
+# - Standard diagonal self-energy output is not a full 8x8 matrix export.
+# - Wannier disentanglement, spinor gauge, frozen/outer windows and interpolation
+#   residuals must be converged and entered in the convergence ledger.
