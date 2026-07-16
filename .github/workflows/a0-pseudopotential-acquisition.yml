@@ -22,14 +22,22 @@ jobs:
           python-version: '3.11'
       - name: Acquire and verify pinned pseudopotentials
         run: |
+          set +e
           python tools/acquire_cdte_pseudopotentials.py \
             --selection-json first_principles/a0/cdte_pseudopotential_selection.json \
             --output-dir "$RUNNER_TEMP/cdte-pseudos" \
-            --manifest-json "$RUNNER_TEMP/cdte-pseudopotential-hashes.json"
-      - name: Upload hash and header manifest only
+            --manifest-json "$RUNNER_TEMP/cdte-pseudopotential-hashes.json" \
+            > "$RUNNER_TEMP/cdte-pseudopotential-verification.log" 2>&1
+          status=$?
+          cat "$RUNNER_TEMP/cdte-pseudopotential-verification.log"
+          exit "$status"
+      - name: Upload verification record
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cdte-pseudopotential-hashes
-          path: ${{ runner.temp }}/cdte-pseudopotential-hashes.json
+          name: cdte-pseudopotential-verification
+          path: |
+            ${{ runner.temp }}/cdte-pseudopotential-hashes.json
+            ${{ runner.temp }}/cdte-pseudopotential-verification.log
           if-no-files-found: error
           retention-days: 7
