@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 from pathlib import Path
 
 import pytest
@@ -7,6 +8,7 @@ import pytest
 from tools.analyze_krishnamurthy1995_kane_closure import analyze_table
 
 TABLE = Path("data/theory/krishnamurthy1995_hg078cd022_table2.csv")
+LEDGER = Path("data/theory/krishnamurthy1995_hg078cd022_kane_closure.csv")
 
 
 def test_table_ii_hyperbola_reproduces_all_printed_mass_ratios() -> None:
@@ -24,6 +26,23 @@ def test_table_ii_hyperbola_reproduces_all_printed_mass_ratios() -> None:
         reproduction["maximum_relative_velocity_convention_difference"]
         < 6.0e-4
     )
+
+
+def test_committed_ledger_matches_fresh_analysis_column_by_column() -> None:
+    expected_rows, _ = analyze_table(TABLE)
+    recorded_rows = list(
+        csv.DictReader(LEDGER.read_text(encoding="utf-8").splitlines())
+    )
+
+    assert len(recorded_rows) == len(expected_rows) == 21
+    for expected, recorded in zip(expected_rows, recorded_rows, strict=True):
+        assert set(recorded) == set(expected)
+        for name, value in expected.items():
+            assert float(recorded[name]) == pytest.approx(
+                value,
+                rel=1.0e-12,
+                abs=1.0e-12,
+            )
 
 
 def test_robust_paper_convention_velocity_drift_stays_below_five_percent() -> None:
