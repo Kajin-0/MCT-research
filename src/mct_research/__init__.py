@@ -15,6 +15,13 @@ from .dataio import (
     load_matrix_dataset,
     save_matrix_dataset,
 )
+from .gap_models import (
+    bracketed_root,
+    critical_composition,
+    critical_temperature_k,
+    hansen_gap_ev,
+    laurenti_gap_ev,
+)
 from .gauge import (
     AlignmentDiagnostics,
     GaugeAlignmentError,
@@ -76,8 +83,11 @@ __all__ = [
     "OBSERVATION_DIMENSION",
     "ProcessingDiagnostics",
     "align_basis",
+    "bracketed_root",
     "closure_residual",
     "covariance_whitener",
+    "critical_composition",
+    "critical_temperature_k",
     "dataset_from_arrays",
     "design_diagnostics",
     "extended_closure_residual",
@@ -90,7 +100,9 @@ __all__ = [
     "gamma_irrep_symmetrize",
     "hamiltonian",
     "hamiltonian_two_p",
+    "hansen_gap_ev",
     "hermitize",
+    "laurenti_gap_ev",
     "load_jsonl_matrix_export",
     "load_matrix_dataset",
     "load_netcdf_matrix_export",
