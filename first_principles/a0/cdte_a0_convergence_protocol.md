@@ -112,8 +112,11 @@ Electronic SCF:
 Phonon response:
 
 ```text
-tr2_ph = 1e-12 -> 1e-14
+tr2_ph = 1e-10 -> 1e-12 -> 1e-14
 ```
+
+The looser first point supplies the initial value required before two successive
+threshold refinements. It does not relax the final declared threshold.
 
 ### 6. Cross-factor recheck
 

@@ -12,6 +12,7 @@ from mct_research.composition_uncertainty import (
     CompositionAwareGapData,
     CompositionUncertaintySpec,
     fit_composition_aware_gap_model,
+    leave_one_composition_group_out,
     leave_one_source_out,
     named_composition_holdout_cross_validation,
     oscillator_composition_derivative_matrix,
@@ -250,3 +251,50 @@ def test_leave_one_source_out_uses_source_labels_without_offset_fitting() -> Non
     np.testing.assert_allclose(result.predictions_ev, gap, atol=1.0e-12)
     assert {fold.name for fold in result.folds} == {"source_1", "source_2"}
     assert result.metrics.rmse_mev < 1.0e-8
+
+
+def test_shared_group_holdout_reports_full_covariance_chi_square() -> None:
+    x = np.repeat([0.2, 0.5, 0.8], 3)
+    temperature = np.tile([0.0, 100.0, 200.0], 3)
+    groups = np.repeat(["a", "b", "c"], 3)
+    gap = -0.30 + 1.70 * x + 5.0e-4 * temperature
+    gap[groups == "c"] += 0.004
+    data = CompositionAwareGapData.from_arrays(
+        x,
+        temperature,
+        gap,
+        sigma_ev=0.001,
+        sigma_x=0.003,
+        group=groups,
+        measurement_class=["signed_gap"] * gap.size,
+    )
+
+    result = leave_one_composition_group_out(
+        data,
+        OscillatorBasisSpec(static_degree=1, quasiharmonic_degree=0),
+        composition_uncertainty=CompositionUncertaintySpec(
+            mode="shared_group"
+        ),
+    )
+    fold = next(item for item in result.folds if item.name == "c")
+    residual = data.gap_ev[fold.held_out_indices] - fold.prediction_ev
+    manual_chi_square = float(
+        residual
+        @ np.linalg.solve(fold.effective_covariance_ev2, residual)
+    )
+    marginal_diagonal_chi_square = float(
+        np.sum((residual / fold.effective_sigma_ev) ** 2)
+    )
+
+    assert fold.full_covariance_chi_square == pytest.approx(
+        manual_chi_square
+    )
+    assert fold.full_covariance_chi_square < marginal_diagonal_chi_square
+    assert fold.full_covariance_chi_square_per_observation == pytest.approx(
+        manual_chi_square / residual.size
+    )
+    assert result.full_covariance_chi_square == pytest.approx(
+        sum(item.full_covariance_chi_square for item in result.folds)
+    )
+    assert "diagonal-marginal" in result.metrics_interpretation
+    assert result.metrics is result.marginal_metrics

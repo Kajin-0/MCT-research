@@ -65,3 +65,19 @@ def test_protocol_cannot_claim_results_or_skip_cross_factor_recheck() -> None:
     assert report["protocol_valid"] is False
     assert "declared_not_run" in report["blocking_checks"]
     assert "sequential_one_factor_protocol" in report["blocking_checks"]
+
+
+def test_every_governed_ladder_supports_two_successive_refinements() -> None:
+    specification = copy.deepcopy(_load(RUN_SPEC_PATH))
+    specification["convergence_ladders"]["ph_tr2"] = [1e-12, 1e-14]
+
+    report = evaluate_convergence_protocol(
+        specification,
+        _load(SELECTION_PATH),
+    )
+
+    assert report["protocol_valid"] is False
+    assert (
+        "governed_ladders_support_two_refinements"
+        in report["blocking_checks"]
+    )
