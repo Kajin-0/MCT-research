@@ -110,13 +110,22 @@ These are research targets, not current achievements.
 - `docs/derivations/` — formal mathematical derivations
 - `docs/insights/` — concise numbered research insights and conjectures
 - `literature/` — source ledger, prior-art audit, and evidence tables
-- `src/mct_research/` — executable analytical models and projection tools
-- `tests/` — numerical, symmetry, and identifiability checks
+- `src/mct_research/` — executable analytical models, matrix processing, uncertainty propagation, and data adapters
+- `tests/` — numerical, symmetry, identifiability, ingestion, and covariance checks
+- `first_principles/` — parameterized ABINIT/QE/EPW assets and convergence/provenance ledgers
+- `tools/` — dataset conversion and research workflow utilities
 - `data/` — provenance-controlled experimental or calculated datasets
 
 ## Executable model status
 
-The repository includes a tested homogeneous bulk 8-band Kane implementation and matrix-level parameter projection under `src/mct_research/`.
+The repository includes:
+
+- a homogeneous bulk 8-band Kane implementation;
+- one-$P$ and two-$P$ matrix-level parameter projection;
+- gauge alignment and zone-center symmetry restoration;
+- covariance propagation and generalized least squares;
+- integrity-checked `MatrixDataset` storage;
+- strict adapters for explicit full $8\times8$ first-principles exports.
 
 Run the validation suite with:
 
@@ -127,14 +136,16 @@ pytest
 
 Current checks cover:
 
-- Hermiticity,
-- time reversal,
-- $\Gamma$-point degeneracies,
-- exact synthetic parameter recovery,
-- non-Kane closure-residual detection,
-- and $\mathbf{k}$-grid identifiability.
+- Hermiticity and time reversal;
+- $\Gamma$-point degeneracies and symmetry restoration;
+- exact synthetic parameter recovery;
+- one-$P$ versus two-$P$ closure;
+- $\mathbf{k}$-grid and covariance-weighted identifiability;
+- gauge and covariance transformations;
+- dataset integrity and external matrix ingestion;
+- rejection of diagonal-only self-energy exports as full matrix AHC data.
 
-The current local validation result is **11 tests passed**.
+The complete core suite reported **23 local tests passed** before the latest export-adapter addition. Four new adapter tests passed in an isolated local reconstruction. The combined repository suite and GitHub Actions result still require confirmation; neither number should be presented as independently reproduced yet.
 
 ## Initial literature anchors
 
