@@ -39,7 +39,19 @@ jobs:
           code = dedent(workflow[start:end])
           Path('/tmp/apply_focused_patch.py').write_text(code, encoding='utf-8')
           BOOTSTRAP
-          python /tmp/apply_focused_patch.py
+          set +e
+          python /tmp/apply_focused_patch.py > patch-error.log 2>&1
+          status=$?
+          cat patch-error.log
+          exit $status
+
+      - name: Upload patch diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oneoff-patch-diagnostic
+          path: patch-error.log
+          retention-days: 2
 
       - name: Install package and tests
         run: python -m pip install -e '.[test]'
