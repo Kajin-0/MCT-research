@@ -110,8 +110,9 @@ These are research targets, not current achievements.
 - `docs/derivations/` — formal mathematical derivations
 - `docs/insights/` — concise numbered research insights and conjectures
 - `literature/` — source ledger, prior-art audit, and evidence tables
-- `src/mct_research/` — executable analytical models, matrix processing, uncertainty propagation, and data adapters
-- `tests/` — numerical, symmetry, identifiability, ingestion, and covariance checks
+- `benchmarks/` — analytical model specifications and executable benchmark status
+- `src/mct_research/` — analytical models, benchmark fitting, matrix processing, uncertainty propagation, and data adapters
+- `tests/` — numerical, symmetry, identifiability, ingestion, covariance, and benchmark checks
 - `first_principles/` — parameterized ABINIT/QE/EPW assets and convergence/provenance ledgers
 - `tools/` — dataset conversion and research workflow utilities
 - `data/` — provenance-controlled experimental or calculated datasets
@@ -120,6 +121,9 @@ These are research targets, not current achievements.
 
 The repository includes:
 
+- published Hansen and Laurenti analytical gap baselines;
+- fixed-scale one- and two-oscillator benchmark bases;
+- equality-constrained weighted fitting, parameter covariance, and group-preserving holdouts;
 - a homogeneous bulk 8-band Kane implementation;
 - one-$P$ and two-$P$ matrix-level parameter projection;
 - gauge alignment and zone-center symmetry restoration;
@@ -136,23 +140,30 @@ pytest
 
 Current checks cover:
 
+- Hansen and Laurenti reference values and critical points;
+- oscillator basis limits, constrained recovery, covariance, and holdout behavior;
 - Hermiticity and time reversal;
 - $\Gamma$-point degeneracies and symmetry restoration;
-- exact synthetic parameter recovery;
+- exact synthetic Kane-parameter recovery;
 - one-$P$ versus two-$P$ closure;
 - $\mathbf{k}$-grid and covariance-weighted identifiability;
 - gauge and covariance transformations;
 - dataset integrity and external matrix ingestion;
 - rejection of diagonal-only self-energy exports as full matrix AHC data.
 
-The complete core suite reported **23 local tests passed** before the latest export-adapter addition. Four new adapter tests passed in an isolated local reconstruction. The combined repository suite and GitHub Actions result still require confirmation; neither number should be presented as independently reproduced yet.
+GitHub Actions has been directly verified on Python 3.11 and 3.13, including the 34-test projection-layer freeze milestone and later evidence/data changes. The exact test count evolves with the repository and should be taken from the workflow attached to the commit being evaluated, not from an older README snapshot.
+
+Synthetic benchmark recovery establishes implementation correctness only. No oscillator model has yet been ranked on a complete provenance-controlled experimental dataset.
 
 ## Initial literature anchors
 
-- Hansen, Schmit, and Casselman: empirical $E_g(x,T)$ relation for HgCdTe.
+- Hansen, Schmit, and Casselman: heterogeneous empirical $E_g(x,T)$ relation for HgCdTe.
+- Laurenti et al.: nonlinear composition-dependent absorption-edge equation and Cd-rich temperature series.
+- Krishnamurthy et al.: historical HgCdTe electron–phonon gap, edge, mass, and reduced nonparabolic-parameter calculations.
 - Novik et al.: standard 8-band Kane treatment for HgTe/CdTe heterostructures.
 - Allen–Heine–Cardona theory: Fan and Debye–Waller temperature renormalization of electronic structure.
 - Teppe et al.: temperature-driven massless Kane fermions and approximately universal Kane velocity in bulk HgCdTe.
+- Unfolded-supercell and SCBA work: alloy spectral weight, disorder-renormalized Kane mass, and disorder-driven inversion.
 - Recent dielectric-dependent hybrid-functional/SQS work: static HgCdTe band structure and defect calculations with spin–orbit coupling.
 
 Full bibliographic records and claim-level notes belong in `literature/ledger.md`.
