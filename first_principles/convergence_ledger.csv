@@ -1,0 +1,2 @@
+run_id,parent_run_id,date_utc,material,composition,code,code_version,stage,pseudopotential_set,input_sha256,output_sha256,lattice_a_ang,volume_a3,ecutwfc_ry,ecutrho_ry,nk1,nk2,nk3,nq1,nq2,nq3,nkf1,nkf2,nkf3,nqf1,nqf2,nqf3,nbnd,nbndsub,temperature_k,zcut_ha,degaussw_ev,degaussq_mev,frohlich_ntheta,ahc_type,polar_correction,sternheimer,quantity,value,unit,reference_run_id,delta_mev,numerical_uncertainty_mev,status,notes
+TEMPLATE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,pending,"One row per reported observable; do not overwrite prior runs"
