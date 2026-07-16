@@ -1,0 +1,12 @@
+{
+  "k_inv_a": "k_inv_angstrom",
+  "matrix_real": "self_energy_matrix_real_ev",
+  "matrix_imag": "self_energy_matrix_imag_ev",
+  "temperature_k": "temperature_kelvin",
+  "volume_a3": "cell_volume_angstrom3",
+  "composition": "cd_fraction",
+  "frequency_ev": "evaluation_energy_ev",
+  "basis_overlap_real": "kane_basis_overlap_real",
+  "basis_overlap_imag": "kane_basis_overlap_imag",
+  "covariance": "matrix_covariance_real_vectorization"
+}
