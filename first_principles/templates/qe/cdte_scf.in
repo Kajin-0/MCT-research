@@ -1,0 +1,44 @@
+&CONTROL
+  calculation = 'scf'
+  prefix = 'cdte'
+  pseudo_dir = '@PSEUDO_DIR@'
+  outdir = '@OUTDIR@'
+  tstress = .true.
+  tprnfor = .true.
+  disk_io = 'low'
+/
+&SYSTEM
+  ibrav = 2
+  celldm(1) = @LATTICE_A_BOHR@
+  nat = 2
+  ntyp = 2
+  ecutwfc = @ECUTWFC_RY@
+  ecutrho = @ECUTRHO_RY@
+  nbnd = @NBND@
+  occupations = 'fixed'
+  noncolin = .true.
+  lspinorb = .true.
+/
+&ELECTRONS
+  conv_thr = @CONV_THR@
+  mixing_beta = 0.3
+  electron_maxstep = 200
+/
+
+ATOMIC_SPECIES
+Cd 112.414 @CD_FULLY_RELATIVISTIC_UPF@
+Te 127.60  @TE_FULLY_RELATIVISTIC_UPF@
+
+ATOMIC_POSITIONS crystal
+Cd 0.0000000000 0.0000000000 0.0000000000
+Te 0.2500000000 0.2500000000 0.2500000000
+
+K_POINTS automatic
+@NK@ @NK@ @NK@ 0 0 0
+
+# Required controls before use:
+# - verify both UPFs are fully relativistic and use the same XC family;
+# - compare Cd 4d and Te semicore partitions across candidate sets;
+# - converge ecutwfc, ecutrho, nk, nbnd, lattice constant, gap, Delta_SO,
+#   dielectric response and phonons;
+# - hash all pseudopotentials and the rendered input.
