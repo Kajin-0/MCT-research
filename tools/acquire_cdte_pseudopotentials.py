@@ -11,10 +11,14 @@ import argparse
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
+import sys
 import tempfile
 from typing import Any
 from urllib.parse import quote
 from urllib.request import urlopen
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.inspect_pseudopotential import inspect, validate
 
