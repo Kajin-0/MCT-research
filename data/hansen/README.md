@@ -1,12 +1,12 @@
 # Hansen dataset reconstruction
 
 **Issue:** #1  
-**Status:** primary paper and source data not yet fully acquired  
+**Status:** bibliographic record resolved; primary full text and source data not yet acquired  
 **Rule:** do not generate pseudo-data from the published polynomial and call it the Hansen dataset
 
 ## Objective
 
-Reconstruct, at datum level, the evidence underlying G. L. Hansen, J. L. Schmit, and T. N. Casselman, “Energy gap versus alloy composition and temperature in HgCdTe,” *Journal of Applied Physics* **53**, 7099 (1982).
+Reconstruct, at datum level, the evidence underlying G. L. Hansen, J. L. Schmit, and T. N. Casselman, “Energy gap versus alloy composition and temperature in HgCdTe,” *Journal of Applied Physics* **53**(10), 7099–7101 (1982), DOI `10.1063/1.330018`.
 
 The commonly reproduced equation is
 
@@ -17,6 +17,17 @@ E_g(x,T)=
 $$
 
 with $E_g$ in eV and $T$ in K. The equation is a baseline to be verified against the primary source, not evidence for its own source data or uncertainty.
+
+## Acquisition status
+
+The DOI, issue, and page range are resolved. The publisher DOI route currently returns access denial in the available research environment, and no legal open full-text copy was located in the initial search. Therefore:
+
+- bibliographic metadata may be used;
+- the equation may be recorded as a historically attributed baseline;
+- the abstract, methods, figures, tables, references, fitting procedure, and data lineage remain **unverified** until the paper is obtained;
+- no claims about sample count, measurement method, temperature range, weighting, uncertainty, or residuals may be inferred from later reproductions of the equation.
+
+See `acquisition_log.md` for the search record and `source_inventory.csv` for candidate source lineage.
 
 ## Required primary-source extraction
 
@@ -44,10 +55,11 @@ For every datum or plotted point, record:
 | `digitization_sigma_ev` | added digitization uncertainty |
 | `notes` | strain, carrier concentration, defects, or caveats |
 
-## Files planned
+## Files
 
-- `source_inventory.csv` — every primary and inherited data source.
-- `measurements.csv` — one row per reconstructed datum.
+- `source_inventory.csv` — every primary, inherited, and later validation source.
+- `acquisition_log.md` — search routes, access outcomes, and unresolved retrieval actions.
+- `measurements.csv` — one row per reconstructed datum; not to be populated before source extraction.
 - `digitization_log.csv` — figure-coordinate provenance and calibration.
 - `fit_reproduction.json` — exact model, weights, optimizer, and coefficient covariance.
 - `residuals.csv` — residuals in energy before any wavelength conversion.
@@ -85,17 +97,17 @@ wavelength residuals diverge and become strongly asymmetric near $E_g=0$; they a
 
 ## Current verified versus pending information
 
-### Verified from widely reproduced bibliographic records
+### Bibliographic record resolved
 
 - authors: G. L. Hansen, J. L. Schmit, T. N. Casselman;
 - title: “Energy gap versus alloy composition and temperature in HgCdTe”;
 - journal: *Journal of Applied Physics*;
-- volume/year/start page: 53 (1982), 7099;
+- volume, issue, year, pages: **53**(10), 7099–7101 (1982);
+- DOI: `10.1063/1.330018`;
 - the cubic-in-$x$, linear-in-$T(1-2x)$ equation above is widely attributed to this paper.
 
 ### Pending primary-paper verification
 
-- DOI and full page range;
 - abstract and stated purpose;
 - exact measurement methods;
 - source data and cited predecessor datasets;
