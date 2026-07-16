@@ -32,16 +32,17 @@ STAGES = {
     "plus_111_quadratic": tuple(ROWS),
 }
 
+EXPECTED_RANKS = (2, 4, 7, 8)
+
 
 def stage_result(row_names: tuple[str, ...]) -> dict[str, object]:
     matrix = np.asarray([ROWS[name] for name in row_names], dtype=float)
     singular_values = np.linalg.svd(matrix, compute_uv=False)
     rank = int(np.linalg.matrix_rank(matrix))
-    null_dimension = len(PARAMETERS) - rank
     return {
         "rows": list(row_names),
         "rank": rank,
-        "null_dimension": null_dimension,
+        "null_dimension": len(PARAMETERS) - rank,
         "singular_values": singular_values.tolist(),
     }
 
@@ -57,6 +58,13 @@ def residue_example(z6: float = 0.8, z8: float = 0.9, z7: float = 0.7,
 
 def analyze() -> dict[str, object]:
     stages = {name: stage_result(rows) for name, rows in STAGES.items()}
+    ranks = tuple(int(stage["rank"]) for stage in stages.values())
+    if ranks != EXPECTED_RANKS:
+        raise RuntimeError(f"unexpected identifiability ranks: {ranks}")
+    residue = residue_example()
+    if not math.isclose(residue["eta_P"], 0.12549213361245665,
+                        rel_tol=0.0, abs_tol=1.0e-14):
+        raise RuntimeError("residue example changed")
     return {
         "parameters": list(PARAMETERS),
         "stages": stages,
@@ -64,7 +72,7 @@ def analyze() -> dict[str, object]:
         "recommended_holdout_direction": "[110]",
         "zone_center_decision": "only_Eg_and_Delta_identifiable",
         "full_rank_decision": "finite_k_linear_and_two_inequivalent_quadratic_directions_required",
-        "residue_induced_one_P_failure": residue_example(),
+        "residue_induced_one_P_failure": residue,
         "claim_boundary": (
             "A Gamma-only self-energy cannot determine P8, P7, F, or gamma1-3. "
             "A differentiating result requires fixed-basis finite-k matrix data "
