@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "stage": "A0_static_phonon_readiness",
   "authorization": {
     "static_scf": true,
@@ -60,14 +60,38 @@
       "citation": null,
       "doi": null,
       "source_sha256": null,
-      "temperature_k": null,
-      "observable_definition": null
+      "measurement_temperature_k": null,
+      "reported_lattice_constant_angstrom": null,
+      "reported_standard_uncertainty_angstrom": null,
+      "observable_definition": null,
+      "reference_volume_temperature_k": 0,
+      "transformation_to_reference": {
+        "method": null,
+        "thermal_expansion_citation": "G. K. White, J. G. Collins, J. A. Birch, and T. F. Smith, J. Phys. C 13, 1649 (1980)",
+        "thermal_expansion_source_sha256": null,
+        "thermal_expansion_status": "primary_measurement_identified_not_acquired",
+        "integration_temperature_bounds_k": null,
+        "uncertainty_propagation": null,
+        "derivation_manifest": null
+      }
     },
-    "volume_fractional_offsets": [
-      -0.005,
-      0.0,
-      0.005
-    ]
+    "fixed_volume_protocol": {
+      "reference_temperature_k": 0,
+      "temperature_dependent_electron_phonon_runs_use_one_volume": true,
+      "quasiharmonic_volume_path_authorized_in_a0": false,
+      "volume_fractional_offsets": [
+        -0.005,
+        0.0,
+        0.005
+      ],
+      "lattice_scale_factors": [
+        0.9983305478136913,
+        1.0,
+        1.001663896579312
+      ],
+      "relationship": "a/a_ref = (V/V_ref)^(1/3)",
+      "double_counting_rule": "Hold V_ref fixed for every electron-phonon temperature point. Any future quasiharmonic term must be calculated and reported separately as the static band-edge change along V(T), then added once."
+    }
   },
   "convergence_ladders": {
     "ecutwfc_ry": [
