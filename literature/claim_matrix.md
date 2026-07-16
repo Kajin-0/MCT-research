@@ -10,44 +10,82 @@ A contribution is classified at the level of a precise claim, not by whether the
 
 | ID | Proposed claim or contribution | Current class | Evidence already identified | Main missing search |
 |---|---|---|---|---|
-| C01 | Decompose $E_g(T)$ into Fan, Debye–Waller, and quasiharmonic terms | established | Allen–Heine–Cardona and quasiharmonic literature | exact decomposition and approximations used in historical HgCdTe work |
-| C02 | Replace Hansen's exactly linear temperature term with a nonlinear low-temperature thermal law | established in HgCdTe | Laurenti 1990 uses a composition-dependent $T^2/[T+B(x)]$ form | original Laurenti dataset, fit construction, uncertainty, and range |
-| C03 | Calculate electron–phonon band-edge shifts and temperature-dependent gaps for HgCdTe | established in HgCdTe | Krishnamurthy et al., *J. Electron. Mater.* 24, 1121–1125 (1995), DOI `10.1007/BF02653063` | full-text audit of alloy model, phonon spectrum, Fan/DW treatment, thermal expansion, and numerical assumptions |
-| C04 | Project a finite-temperature self-energy into an 8-band Kane basis | uncertain | generalized matrix AHC and standard Kane downfolding exist separately | direct prior example for HgTe/HgCdTe or another narrow-gap system |
-| C05 | Derive $T$-dependent $E_g,\Delta,P,F,\gamma_i$ from matrix AHC | candidate novel, unconfirmed and now narrower | historical HgCdTe work already reports gap, band-edge, valence-offset, and electron-effective-mass temperature changes | determine whether any prior work renormalizes the complete Kane Hamiltonian or momentum/Luttinger parameters |
+| C01 | Decompose $E_g(T)$ into electron–phonon and quasiharmonic terms | established | Allen–Heine–Cardona literature; Krishnamurthy 1995 explicitly treats electron–phonon interaction and separately discusses lattice dilation | exact modern Fan/Debye–Waller/quasiharmonic decomposition for HgTe, CdTe, and HgCdTe |
+| C02 | Replace Hansen's exactly linear temperature term with a nonlinear low-temperature thermal law | established in HgCdTe | Laurenti 1990 derives a composition-dependent Varshni form $T^2/[T+B(x)]$ from primary absorption-edge data | independent out-of-sample comparison of Laurenti with modern composition-calibrated datasets |
+| C03 | Calculate electron–phonon band-edge shifts and temperature-dependent gaps for HgCdTe | established in HgCdTe | Krishnamurthy et al. 1995 calculate band-edge shifts, gap, band offsets, hyperbolic dispersion parameters, and effective mass | modern first-principles comparison and uncertainty analysis |
+| C04 | Project a finite-temperature matrix self-energy into an 8-band Kane basis | uncertain | generalized matrix AHC and standard Kane downfolding exist separately | direct prior example for HgTe/HgCdTe or another narrow-gap system |
+| C05 | Derive $T$-dependent $E_g,\Delta,P,F,\gamma_i$ from matrix AHC | candidate novel, unconfirmed and narrower | Krishnamurthy already gives $E_g(T)$, electron mass, and two hyperbolic dispersion parameters for Hg$_{0.78}$Cd$_{0.22}$Te | determine whether any prior work renormalizes the complete symmetry-resolved Kane Hamiltonian or momentum/Luttinger parameters |
 | C06 | Test one-$P$ closure against separate effective $P_8$ and $P_7$ | candidate methodological, unconfirmed | nested model derived and executable here | equivalent multi-coupling finite-$T$ Kane literature |
 | C07 | $P_{\mathrm{fit}}=(2P_8+P_7)/3$ under the declared Frobenius metric | derived but metric-specific; novelty uncertain | exact repository derivation | prior invariant-projection literature |
-| C08 | Temperature primarily changes $E_g$ while Kane velocity remains nearly constant | established experimentally over measured ranges | Teppe et al. 2016 report $\tilde c=(1.07\pm0.05)\times10^6$ m/s for two near-critical samples over approximately 2–120 K | broader composition, strain, temperature, and full-8-band limits |
+| C08 | Temperature primarily changes $E_g$ while Kane velocity remains nearly constant | established experimentally over measured ranges | Teppe et al. 2016 report $\tilde c=(1.07\pm0.05)\times10^6$ m/s for two near-critical samples | broader composition, strain, temperature, and complete-8-band limits |
 | C09 | Average cubic symmetry permits a true $\Gamma_6$–$\Gamma_8$ crossing and forbids generic mixing at $\Gamma$ | established representation theory | zincblende double-group symmetry | disorder/strain exceptions |
 | C10 | Use multiple SQS configurations and restore average cubic symmetry | established methodology | SQS and group averaging are standard | HgCdTe electron–phonon application |
-| C11 | Treat the inversion region through a disorder-averaged spectral function rather than one sharp gap | uncertain to incremental | alloy spectral functions and CPA are established generally | HgCdTe-specific inversion-transition treatment |
-| C12 | Derive a compact composition-dependent spectral-moment model from the gap-coupling spectrum | candidate novel, unconfirmed and narrowed | Laurenti already supplies nonlinear composition-dependent thermal curvature; oscillator reductions are established generally | prior HgCdTe spectral-moment equations and proof that a new reduction improves held-out prediction beyond Laurenti |
-| C13 | Outperform Hansen and Laurenti under leave-one-composition-out and held-out-temperature validation | empirical result, not yet established | common protocol defined; reconstructed Laurenti formula reproduces Teppe's nominal 77 K transition | primary Hansen/Laurenti datasets; independent composition uncertainties; complete temperature-series extraction |
+| C11 | Treat the inversion region through a disorder-averaged spectral function rather than one sharp gap | uncertain to incremental | alloy spectral functions and CPA are established generally; Laurenti discusses CPA consistency at the band edge | HgCdTe-specific temperature-dependent inversion treatment with quantified broadening |
+| C12 | Derive a compact composition-dependent spectral-moment model from the gap-coupling spectrum | candidate novel, unconfirmed and narrowed | Laurenti already supplies nonlinear composition-dependent thermal curvature; oscillator reductions are established generally | prior HgCdTe spectral-moment equations and proof of held-out improvement beyond Laurenti |
+| C13 | Outperform Hansen and Laurenti under leave-one-composition-out and held-out-temperature validation | empirical result, not yet established | common protocol defined; Hansen Table I and selected later values recovered | complete source-level datasets, uncertainties, and independent composition calibration |
 | C14 | Current matrix covariance propagation is exact conditional on a fixed estimated gauge | established linear uncertainty propagation | repository derivation and tests | uncertainty of the estimated gauge remains excluded |
-| C15 | A diagonal self-energy table is insufficient to validate a finite-temperature Kane Hamiltonian | established information-content statement | dimensional/information argument | none required for principle; application examples useful |
-| C16 | Near inversion, composition uncertainty must be propagated as uncertainty in the explanatory variable | established statistical necessity; HgCdTe consequence quantified here | exact implicit sensitivity $dT_c/dx=-(\partial_xE_g)/(\partial_TE_g)$; Hansen/Teppe example gives about 4.49 K per $\Delta x=0.001$ | source-specific composition methods and uncertainty distributions |
+| C15 | A diagonal self-energy table is insufficient to validate a finite-temperature Kane Hamiltonian | established information-content statement | dimensional/information argument | application examples useful but not required for principle |
+| C16 | Near inversion, composition uncertainty must be propagated as uncertainty in the explanatory variable | established statistical necessity; HgCdTe consequence quantified here | exact sensitivity $dT_c/dx=-(\partial_xE_g)/(\partial_TE_g)$ and primary papers showing percent-level composition revisions | source-specific composition-error distributions |
+| C17 | A resolved finite-$T$ turnover in $E_g(T)$ requires competing signed thermal channels and cannot be represented by Hansen, Laurenti, or one fixed-sign oscillator | mathematical limitation established; HgCdTe occurrence uncertain | monotonicity proof; Krishnamurthy Table II contains a shallow 1–20 K decrease followed by an increase | high-precision low-temperature experiment and modern calculation establishing whether the approximately 1 meV feature is physical |
+
+## Hansen empirical baseline: primary-paper audit
+
+Hansen, Schmit, and Casselman combine a heterogeneous historical evidence base rather than one uniform experiment:
+
+- data from 22 different studies;
+- practical fit support over approximately $0\le x\le0.6$, plus CdTe;
+- temperatures from 4.2 to 300 K;
+- optical criteria including $\alpha=500$ and $1000\ \mathrm{cm^{-1}}$, half-peak detector cutoff, and 50% detector cutoff;
+- several magneto-optical methods;
+- composition from density, transmission cutoff, vendor calibration, and destructive chemistry;
+- four low-$x$ Schmit–Stelzer samples excluded for mercury inclusions;
+- selected Weiler compositions revised using additional measurements.
+
+Their staged fitting procedure first fits a linear temperature slope for each temperature-dependent sample, then fits slope versus composition, normalizes data to 80 K, and finally fits the composition dependence. The paper reports a 13 meV standard error of estimate and describes the high-Cd composition dependence beyond roughly $x=0.6$ as conjectural.
+
+Consequences:
+
+1. Hansen is a cross-source engineering regression, not a uniform fundamental-gap measurement.
+2. Its 13 meV error scale must be retained when evaluating claimed improvements.
+3. Modern sub-meV or few-meV comparisons require source, composition, and observable uncertainty that the published equation does not provide.
+4. The complete underlying source dataset still requires reconstruction even though the primary paper is now available.
 
 ## HgCdTe-specific electron–phonon prior art
 
-Krishnamurthy, Chen, Sher, and Van Schilfgaarde published “Temperature dependence of band gaps in HgCdTe and other semiconductors” in 1995. The publisher abstract states that the work:
+Krishnamurthy, Chen, Sher, and Van Schilfgaarde (1995) use a hybrid pseudopotential tight-binding Hamiltonian with:
 
-- calculated electron–phonon-induced band-edge shifts for HgCdTe alloys;
-- started from accurate zero-temperature band structures;
-- reproduced experimental temperature variations of the gaps to better than 10% for the studied materials except InAs and InSb;
-- found that both the conduction and valence band edges move downward with temperature;
-- reported temperature changes of valence-band offsets and electron effective mass.
+- empirical pseudopotential plus minimum $sp^3$ tight-binding basis;
+- site-diagonal spin–orbit coupling;
+- a valence-force-field phonon model;
+- first- and second-displacement terms retained to preserve symmetry;
+- all phonon branches, including the polar long-range contribution through the LO treatment;
+- $k=0$ evaluation for direct gaps and broader Brillouin-zone treatment for masses and indirect quantities;
+- zero-temperature electronic bands as the perturbative reference;
+- a separately described lattice-dilation contribution.
 
-Consequences for this project:
+For Hg$_{0.78}$Cd$_{0.22}$Te, the paper reports:
 
-1. a scalar electron–phonon explanation of HgCdTe $E_g(T)$ is established;
-2. temperature-dependent electron effective mass is also established at least at the reported level;
-3. novelty must lie beyond recalculating $E_g(T)$ or $m_e^*(T)$ alone;
-4. the still-open distinction is whether the complete symmetry-resolved, frequency-dependent 8-band Hamiltonian has been derived and tested for closure;
-5. the 1995 full text must be audited before claiming that its method omitted matrix self-energy, Debye–Waller completeness, nonadiabatic polar corrections, disorder, or quasiharmonic effects.
+- a zero-point gap correction of 13.6 meV;
+- calculated $E_g(T)$ from 1 to 600 K;
+- hyperbolic conduction-band parameters $\gamma(T)$ and $c(T)$;
+- an effective-mass ratio reaching 1.634 at 300 K relative to the low-temperature value;
+- both conduction and valence edges moving downward, with the valence edge moving farther so the gap increases;
+- major acoustic-phonon contributions at 300 K;
+- an explicit warning that higher-order perturbation and finite-temperature-renormalized bands become important at high temperature.
+
+Consequences:
+
+1. scalar electron–phonon HgCdTe $E_g(T)$ is established;
+2. finite-temperature dispersion and mass changes are established at a reduced-parameter level;
+3. recalculating $E_g(T)$ or $m_e^*(T)$ alone is not novel;
+4. the open target is a complete symmetry-resolved matrix self-energy and an auditable projection into the full 8-band parameter manifold;
+5. any new analytical equation should be compared with the tabulated historical microscopic curve, not only with Hansen and Laurenti.
 
 ## Laurenti nonlinear thermal prior art
 
-The Laurenti equation reproduced by Teppe is
+Laurenti et al. (1990) directly measured LPE Hg$_{1-x}$Cd$_x$Te samples primarily over $0.5\lesssim x\le1$ from approximately 2 to 300 K. They extracted the nonexcitonic interband edge using derivative-transmission spectra fitted with three-dimensional direct-allowed exciton theory, reporting edge accuracy better than approximately 3 meV.
+
+Their final equation is
 
 $$
 E_g^{\mathrm L}(x,T)=
@@ -55,131 +93,71 @@ E_g^{\mathrm L}(x,T)=
 +10^{-4}A(x)\frac{T^2}{T+B(x)},
 $$
 
-where
+with
 
 $$
 A(x)=6.3(1-x)-3.25x-5.92x(1-x),
 $$
 
-and
-
 $$
 B(x)=11(1-x)+78.7x.
 $$
 
-This establishes several points of prior art:
+The authors combine their Cd-rich measurements with selected Hg-rich literature data, apply average composition corrections of about 2.3% to reconcile historical series, state a nominal equation range $0\le x\le1$ and $0\le T\le500$ K, and identify a temperature-independent composition near $x=0.505$ with $E_g\approx0.628$ eV.
 
-1. HgCdTe analytical gap equations with low-temperature curvature predate this project;
-2. a composition-dependent effective thermal scale $B(x)$ is established empirically;
-3. endpoint-interpolated thermal amplitudes with opposite HgTe/CdTe signs are established;
-4. beating Hansen alone is insufficient for a novelty or performance claim;
-5. a new phonon or spectral-moment model must demonstrate predictive improvement, improved identifiability, or a defensible microscopic interpretation beyond Laurenti.
+This establishes:
 
-The original Laurenti paper and dataset remain unavailable, so its reported range, weighting, and uncertainty are not yet reconstructed.
+1. nonlinear low-temperature HgCdTe gap equations as prior art;
+2. a composition-dependent effective thermal scale as prior art;
+3. endpoint-interpolated thermal amplitudes with opposite HgTe/CdTe signs as prior art;
+4. explicit composition adjustment as part of historical model construction;
+5. the requirement that a new model beat Laurenti under held-out, composition-aware tests rather than only fit the same compiled data.
 
 ## Signed-gap validation result
 
 Teppe et al. 2016 provide a near-inversion constraint based on far-infrared magneto-transmission and Landau-level fitting:
 
-- a nominal $x=0.155$ sample reaches $E_g\approx0$ near 77 K;
-- the characteristic Kane velocity remains approximately constant while the signed gap and Kane mass change sign;
-- the analysis uses a reduced $\Gamma_6\oplus\Gamma_8$ model, not a complete finite-temperature 8-band Hamiltonian;
-- the authors compare against the Laurenti 1990 empirical relation rather than Hansen.
+- nominal $x=0.155$ reaches $E_g\approx0$ near 77 K;
+- the Kane velocity remains approximately constant while signed gap and mass change sign;
+- the analysis uses a reduced $\Gamma_6\oplus\Gamma_8$ model;
+- the paper compares against Laurenti rather than Hansen.
 
-At the same nominal $(x,T)$, Hansen predicts
+At the nominal point, Hansen predicts $+9.21$ meV and $T_c\approx52$ K, whereas Laurenti predicts $-0.0478$ meV and $T_c=77.124$ K. The Laurenti agreement verifies the transcription because Teppe used Laurenti; it is not independent validation of Laurenti’s physical accuracy.
 
-$$
-E_g^{\mathrm H}(0.155,77\ \mathrm K)=+9.21\ \mathrm{meV}
-$$
-
-and a critical temperature of about 52 K. The reconstructed Laurenti equation gives
-
-$$
-E_g^{\mathrm L}(0.155,77\ \mathrm K)=-0.0478\ \mathrm{meV},
-$$
-
-with
-
-$$
-T_c^{\mathrm L}=77.124\ \mathrm K.
-$$
-
-The Laurenti agreement verifies the reconstructed transcription because Teppe explicitly used that equation. It is not an independent validation of Laurenti's physical accuracy.
-
-Consequences:
-
-1. critical-point data are powerful only with independent composition metrology;
-2. a complete $E_g(T)$ curve is more informative than one $(x,T_c)$ pair because a constant composition offset cannot mimic arbitrary curvature;
-3. optical-edge and signed magneto-optical gaps require measurement-class-aware comparison;
-4. the analytical benchmark must score both nominal-composition and composition-marginalized residuals;
-5. model development must compare against both historical baselines.
+The higher-Cd Teppe sample is also labeled both $x=0.17$ and $x=0.175$. That difference shifts either historical equation by roughly 9 meV, demonstrating that composition provenance can dominate low-gap model rankings.
 
 ## Search clusters
 
 ### A. HgTe, CdTe, and HgCdTe finite-temperature electron–phonon work
 
-Search for:
-
-- zero-point renormalization;
-- Fan and Debye–Waller decomposition;
-- nonadiabatic or Fröhlich corrections;
-- temperature-dependent band inversion;
-- phonon-induced topological transitions;
-- binary versus alloy calculations.
+Search for zero-point renormalization, complete Fan/Debye–Waller decomposition, nonadiabatic and Fröhlich corrections, temperature-dependent inversion, and binary-versus-alloy calculations.
 
 ### B. Temperature-dependent Kane parameters
 
-Search separately for each parameter:
+Search separately for
 
 $$
 E_g,\quad \Delta,\quad P,\quad E_P,\quad F,\quad
 \gamma_1,\gamma_2,\gamma_3,\quad v_K.
 $$
 
-Distinguish parameters inserted from empirical formulas from parameters derived or independently measured at finite temperature.
+Distinguish empirically inserted parameters from independently derived or measured finite-temperature parameters.
 
 ### C. Self-energy downfolding into $k\cdot p$
 
-Search terms must include:
-
-- matrix electron–phonon self-energy;
-- Löwdin or Schrieffer–Wolff downfolding;
-- temperature-dependent effective Hamiltonian;
-- quasiparticle $k\cdot p$;
-- electron–phonon-renormalized effective masses and momentum matrix elements;
-- topological/narrow-gap semiconductors.
+Search matrix electron–phonon self-energy, Löwdin/Schrieffer–Wolff downfolding, temperature-dependent effective Hamiltonians, quasiparticle $k\cdot p$, and renormalized momentum matrix elements.
 
 ### D. Analytical phonon-based gap equations
 
-Audit:
-
-- Varshni;
-- Bose–Einstein/O'Donnell–Chen forms;
-- one- and two-oscillator fits;
-- spectral-density and Eliashberg-moment reductions;
-- quasiharmonic separation;
-- composition interpolation for semiconductor alloys.
+Audit Varshni, Bose–Einstein/O'Donnell–Chen, one- and two-oscillator, spectral-moment, quasiharmonic, and alloy-composition interpolation models.
 
 ### E. Disorder near the normal/inverted transition
 
-Search:
-
-- CPA, SQS, unfolded spectral functions;
-- local normal/inverted regions;
-- gap distributions and Urbach tails;
-- topological Anderson or disorder-driven transitions;
-- HgCdTe compositional fluctuation broadening.
+Search CPA, SQS, unfolded spectral functions, local normal/inverted regions, gap distributions, Urbach tails, and disorder-driven transitions.
 
 ### F. Composition metrology and cross-source comparability
 
-Search:
-
-- composition determination methods in bulk, LPE, and MBE HgCdTe;
-- calibration uncertainty and gradients;
-- relation between lattice constant, optical gap, Hall data, and actual Cd fraction;
-- specimen-level composition offsets;
-- strain and substrate effects on inferred composition and gap;
-- whether reported $x$ values were independently measured or back-calculated from a gap equation.
+Search composition determination and gradients in bulk, LPE, and MBE HgCdTe; strain and substrate effects; source-level offsets; and whether reported $x$ was measured independently or inferred from a gap equation.
 
 ## Classification rules
 
@@ -189,7 +167,7 @@ A claim can move to `candidate novel` only when:
 2. the closest prior approaches are identified;
 3. the difference is substantive rather than a software combination;
 4. the result has a falsification test;
-5. a reproducible calculation or data analysis supports it;
+5. reproducible calculation or data analysis supports it;
 6. negative and conflicting literature is included.
 
-The phrase “first-principles” is not itself a novelty claim. Neither is combining AHC and an 8-band model unless the projection produces a new verified result or resolves an existing HgCdTe limitation.
+The phrase “first-principles” is not itself a novelty claim. Combining AHC and an 8-band model is not sufficient unless the projection produces a new verified result or resolves an existing HgCdTe limitation.
