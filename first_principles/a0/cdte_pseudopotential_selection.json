@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "stage": "A0_selection_only",
+  "run_executed": false,
+  "scientific_result_available": false,
+  "upstream": {
+    "repository": "PseudoDojo/ONCVPSP-PBE-FR-PDv0.4",
+    "commit": "7aa01a3fcf5ad226caf25bd387a9be9612be9f27",
+    "table": "standard",
+    "exchange_correlation": "PBE",
+    "pseudo_type": "ONCVPSP norm-conserving fully relativistic"
+  },
+  "elements": {
+    "Cd": {
+      "upf_path": "Cd/Cd-sp_r.upf",
+      "upf_git_blob_sha1": "3b19c4bd04655c8e3739d72d3a3c6dd11c9eabdb",
+      "psp8_path": "Cd/Cd-sp_r.psp8",
+      "psp8_git_blob_sha1": "9b25c3d7149af077c73dad85fcf127610cb3facd",
+      "psp8_pseudodojo_md5": "dcbd5767dfef427999519c4f3f741969",
+      "local_upf_sha256": null,
+      "local_psp8_sha256": null,
+      "z_valence": 20,
+      "valence_configuration": "4s2 4p6 4d10 5s2",
+      "semicore_included": ["4s", "4p", "4d"],
+      "nonlinear_core_correction": true,
+      "spin_orbit": true,
+      "fully_relativistic": true,
+      "cutoff_hints_hartree": {"low": 47, "normal": 51, "high": 57},
+      "cutoff_hints_rydberg": {"low": 94, "normal": 102, "high": 114}
+    },
+    "Te": {
+      "upf_path": "Te/Te-d_r.upf",
+      "upf_git_blob_sha1": "c0cecbdc1bfe830f377e771038ecd203fc8fdab9",
+      "psp8_path": "Te/Te-d_r.psp8",
+      "psp8_git_blob_sha1": null,
+      "psp8_pseudodojo_md5": "198fb7fcceace28ae22a5dd5a5087a3e",
+      "local_upf_sha256": null,
+      "local_psp8_sha256": null,
+      "z_valence": 16,
+      "valence_configuration": "4d10 5s2 5p4",
+      "semicore_included": ["4d"],
+      "nonlinear_core_correction": true,
+      "spin_orbit": true,
+      "fully_relativistic": true,
+      "cutoff_hints_hartree": {"low": 34, "normal": 40, "high": 46},
+      "cutoff_hints_rydberg": {"low": 68, "normal": 80, "high": 92}
+    }
+  },
+  "cdte_cutoff_ladder_rydberg": {
+    "rule": "maximum element hint after converting Hartree to Rydberg",
+    "low": 94,
+    "normal": 102,
+    "high": 114,
+    "ecutrho": null,
+    "ecutrho_status": "must_be_converged_independently"
+  },
+  "verification_state": {
+    "exact_upstream_files_selected": true,
+    "upstream_commit_pinned": true,
+    "headers_primary_verified": true,
+    "local_bytes_acquired": false,
+    "local_sha256_verified": false,
+    "qe_syntax_checked": false,
+    "abinit_syntax_checked": false,
+    "static_calculation_run": false,
+    "phonon_calculation_run": false
+  },
+  "hard_stops": [
+    "do_not_run_if_local_sha256_is_missing",
+    "do_not_run_if_inspected_header_disagrees_with_expected_element_xc_soc_or_valence",
+    "do_not_treat_cutoff_hints_as_convergence_proof",
+    "do_not_assume_an_ecutrho_ratio_without_testing",
+    "do_not_start_AHC_or_dense_EPW_in_A0"
+  ]
+}
