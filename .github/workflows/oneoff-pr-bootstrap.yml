@@ -38,47 +38,25 @@ jobs:
           end = workflow.index(end_marker, start)
           code = dedent(workflow[start:end])
 
-          bad = '''source = replace_once(
+          label = '    label="held-out full covariance statistic",\n)'
+          label_start = code.index(label)
+          block_start = code.rfind('source = replace_once(', 0, label_start)
+          block_end = label_start + len(label)
+          replacement = '''source = replace_once(
               source,
-              \'''        held_out_sigma = np.sqrt(np.diag(held_out_covariance))
-
-              indices = np.flatnonzero(holdout)
-          \''',
-              \'''        held_out_sigma = np.sqrt(np.diag(held_out_covariance))
-              held_out_residual = held_out.gap_ev - prediction
-              held_out_chi_square = _full_covariance_chi_square(
-                  held_out_residual,
-                  held_out_covariance,
-              )
-              full_covariance_chi_square += held_out_chi_square
-
-              indices = np.flatnonzero(holdout)
-          \''',
+              "        held_out_sigma = np.sqrt(np.diag(held_out_covariance))\\n",
+              (
+                  "        held_out_sigma = np.sqrt(np.diag(held_out_covariance))\\n"
+                  "        held_out_residual = held_out.gap_ev - prediction\\n"
+                  "        held_out_chi_square = _full_covariance_chi_square(\\n"
+                  "            held_out_residual,\\n"
+                  "            held_out_covariance,\\n"
+                  "        )\\n"
+                  "        full_covariance_chi_square += held_out_chi_square\\n"
+              ),
               label="held-out full covariance statistic",
           )'''
-          good = '''source = replace_once(
-              source,
-              \'''        held_out_sigma = np.sqrt(np.diag(held_out_covariance))
-
-                      indices = np.flatnonzero(holdout)
-          \''',
-              \'''        held_out_sigma = np.sqrt(np.diag(held_out_covariance))
-                      held_out_residual = held_out.gap_ev - prediction
-                      held_out_chi_square = _full_covariance_chi_square(
-                          held_out_residual,
-                          held_out_covariance,
-                      )
-                      full_covariance_chi_square += held_out_chi_square
-
-                      indices = np.flatnonzero(holdout)
-          \''',
-              label="held-out full covariance statistic",
-          )'''
-          if code.count(bad) != 1:
-              raise RuntimeError(
-                  f'bootstrap held-out patch expected one match, found {code.count(bad)}'
-              )
-          code = code.replace(bad, good, 1)
+          code = code[:block_start] + replacement + code[block_end:]
           Path('/tmp/apply_focused_patch.py').write_text(code, encoding='utf-8')
           BOOTSTRAP
           set +e
@@ -92,7 +70,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: oneoff-patch-diagnostic
-          path: patch-error.log
+          path: |
+            patch-error.log
+            /tmp/apply_focused_patch.py
           retention-days: 2
 
       - name: Install package and tests
