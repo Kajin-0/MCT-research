@@ -106,8 +106,8 @@ def render(
     manifest: dict[str, Any] = {
         "schema_version": "1.0",
         "renderer": "tools/render_first_principles_input.py",
-        "execution_performed": false,
-        "syntax_check_performed": false,
+        "execution_performed": False,
+        "syntax_check_performed": False,
         "template": {
             "path": str(template_file),
             "sha256": _sha256_bytes(template_bytes),
