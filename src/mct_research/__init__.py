@@ -1,5 +1,13 @@
 """Executable analytical models for HgCdTe research."""
 
+from .code_exports import (
+    ExportDefaults,
+    ExportFormatError,
+    NetcdfFieldMap,
+    dataset_from_arrays,
+    load_jsonl_matrix_export,
+    load_netcdf_matrix_export,
+)
 from .dataio import (
     MatrixDataset,
     MatrixRecord,
@@ -56,17 +64,21 @@ from .symmetry import (
 __all__ = [
     "ALPHA_EV_A2",
     "AlignmentDiagnostics",
+    "ExportDefaults",
+    "ExportFormatError",
     "ExtendedKaneParameters",
     "GaugeAlignmentError",
     "KANE_IRREP_BLOCKS",
     "KaneParameters",
     "MatrixDataset",
     "MatrixRecord",
+    "NetcdfFieldMap",
     "OBSERVATION_DIMENSION",
     "ProcessingDiagnostics",
     "align_basis",
     "closure_residual",
     "covariance_whitener",
+    "dataset_from_arrays",
     "design_diagnostics",
     "extended_closure_residual",
     "extended_design_diagnostics",
@@ -79,7 +91,9 @@ __all__ = [
     "hamiltonian",
     "hamiltonian_two_p",
     "hermitize",
+    "load_jsonl_matrix_export",
     "load_matrix_dataset",
+    "load_netcdf_matrix_export",
     "parallel_transport_sequence",
     "parameter_templates",
     "process_record",
