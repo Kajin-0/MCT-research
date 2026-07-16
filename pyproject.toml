@@ -11,6 +11,8 @@ dependencies = ["numpy>=1.26"]
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
+netcdf = ["netCDF4>=1.7"]
+all = ["pytest>=8", "netCDF4>=1.7"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
