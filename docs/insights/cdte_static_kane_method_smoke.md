@@ -112,6 +112,15 @@ Before selecting any subspace:
 - reject non-finite or incomplete matrices;
 - record the full 40-band eigenvalue ordering at every point.
 
+Validate the raw file with:
+
+```text
+python tools/check_wannier90_gamma_star_mmn.py seedname.mmn \
+  --summary-json seedname.mmn.validation.json
+```
+
+This validator checks file structure and overlap orientation only. It does not choose the Kane subspace or make a material claim.
+
 ## Projection and closure
 
 The fixed reference subspace is the Gamma6 plus Gamma8 plus Gamma7 spinor manifold at Gamma. Reconstruct each finite-k Hamiltonian using the overlap metric rather than eigenvector relabeling:
