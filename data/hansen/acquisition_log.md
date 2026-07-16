@@ -1,11 +1,13 @@
-# Hansen primary-source acquisition log
+# Hansen and successor-equation primary-source acquisition log
+
+## A. Hansen 1982
 
 **Target:** G. L. Hansen, J. L. Schmit, and T. N. Casselman, “Energy gap versus alloy composition and temperature in HgCdTe,” *Journal of Applied Physics* **53**(10), 7099–7101 (1982), DOI `10.1063/1.330018`.
 
 **Search date:** 2026-07-15/16  
 **Current outcome:** bibliographic metadata resolved; primary full text not acquired.
 
-## Search record
+### Search record
 
 | Route | Query or identifier | Outcome | Evidentiary use |
 |---|---|---|---|
@@ -16,7 +18,7 @@
 | User File Library | title, authors, DOI, and HgCdTe bandgap terms | User-authored documents containing the citation found; primary Hansen paper not found | Confirms local citation history only |
 | Secondary web pages | HgCdTe property/reference pages | Published polynomial and citation reproduced | Legacy-formula confirmation only; not source-data evidence |
 
-## Information currently resolved
+### Information currently resolved
 
 - authors;
 - title;
@@ -27,7 +29,7 @@
 - DOI `10.1063/1.330018`;
 - historically attributed analytical equation.
 
-## Information not yet resolved
+### Information not yet resolved
 
 - abstract and stated scope;
 - whether the paper reports new measurements, compiles prior measurements, or both;
@@ -40,6 +42,42 @@
 - fitting objective, weighting, constraints, and exclusion rules;
 - coefficient uncertainty and residual statistics;
 - treatment of HgTe/CdTe endpoints and the inverted/zero-gap region.
+
+## B. Laurenti 1990
+
+**Target:** J. P. Laurenti et al., “Temperature dependence of the fundamental absorption edge of mercury cadmium telluride,” *Journal of Applied Physics* **67**, 6454 (1990). Exact page range and DOI remain unresolved.
+
+**Why this paper is now a priority:** Novik et al. 2005 state that the composition- and temperature-dependent HgCdTe gap used in their 8-band model is determined by Laurenti. Teppe et al. 2016 also compare their signed-gap temperature dependence with the Laurenti empirical relation. Laurenti is therefore the immediate successor baseline to Hansen for modern Kane-model work.
+
+**Search date:** 2026-07-16  
+**Current outcome:** title, journal, volume, year, and first page resolved from later primary reference lists; primary full text and exact equation not acquired.
+
+### Search record
+
+| Route | Query or identifier | Outcome | Evidentiary use |
+|---|---|---|---|
+| Exact-title search | `"Temperature dependence of the fundamental absorption edge of mercury cadmium telluride"` | No direct primary full-text result located | Negative search result |
+| Author/title/page search | `Laurenti HgCdTe 67 6454 1990` | Later papers and unrelated results; no reliable DOI/full text | Metadata corroboration only |
+| Novik 2005 primary paper | material-parameter section and references | Confirms Laurenti as the empirical $E_g(x,T)$ source used in the 8-band model | Citation relation confirmed |
+| Teppe 2016 primary preprint and supplement | model comparison and references | Confirms Laurenti as the empirical equation used for the reported temperature-driven transition comparison | Citation relation confirmed |
+| Publisher-targeted search | title and journal terms | No accessible primary record returned in the available search environment | No methods or data evidence |
+
+### Information not yet resolved
+
+- complete author list;
+- DOI and full page range;
+- exact analytical equation and coefficient units;
+- whether the equation is a new fit or a modification/compilation of earlier relations;
+- sample count, material form, and growth methods;
+- composition determination and uncertainty;
+- fundamental-edge extraction criterion;
+- temperature/composition ranges;
+- weighting, exclusions, covariance, and residuals;
+- relationship to Hansen data and coefficients.
+
+### Prohibited shortcut
+
+Do not transcribe a garbled equation from PDF text extraction or a secondary code implementation and label it the Laurenti equation. The exact expression must be verified visually or from the primary typeset source, with all powers and coefficients checked.
 
 ## Acceptable acquisition routes
 
@@ -56,7 +94,8 @@
 4. Classify each underlying datum by source, method, and gap definition.
 5. Reproduce the published coefficients using the declared or reconstructed weighting.
 6. Report residuals in meV before any wavelength conversion.
+7. Compare Hansen and Laurenti on identical $(x,T)$ grids only after both equations and stated validity ranges are primary-verified.
 
 ## Research rule
 
-Absence of an accessible full text does not justify filling missing methods or data from later reviews. Until the paper is obtained, all such fields remain explicitly `unknown` rather than inferred.
+Absence of an accessible full text does not justify filling missing methods or data from later reviews. Until a paper is obtained, all such fields remain explicitly `unknown` rather than inferred.
