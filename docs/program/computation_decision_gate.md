@@ -40,7 +40,7 @@ $$
 
 with a declared discrimination factor $K$ such as 3.
 
-The current generic target of $1\ \mathrm{meV}$ is provisional. If competing analytical models differ by only $0.3\ \mathrm{meV}$, a $1\ \mathrm{meV}$ calculation is uninformative. If they differ by $10\ \mathrm{meV}$, sub-meV convergence may be unnecessary for the pilot.
+The generic target of $1\ \mathrm{meV}$ is provisional. If competing analytical models differ by only $0.3\ \mathrm{meV}$, a $1\ \mathrm{meV}$ calculation is uninformative. If they differ by tens of meV, existing experiments may be sufficient and no calculation is justified.
 
 ### 4. Expected information gained
 
@@ -101,17 +101,66 @@ A calculation with no stopping result is exploratory infrastructure, not a decis
 
 ## Current project decision
 
-### Unresolved quantity
+### Resolved model-separation fact
 
-Not yet sufficiently narrowed. Candidate quantities include the low-temperature curvature of $E_g(T)$ in CdTe and the fixed-volume electron–phonon contribution to the HgCdTe temperature coefficient.
+At the CdTe endpoint, the two executable historical equations predict thermal shifts from 0 to 77 K of
+
+$$
+\Delta E_g^{\mathrm H}=-41.20\ \mathrm{meV},
+$$
+
+and
+
+$$
+\Delta E_g^{\mathrm L}=-12.38\ \mathrm{meV}.
+$$
+
+Their predicted thermal shifts differ by
+
+$$
+\boxed{28.82\ \mathrm{meV}}
+$$
+
+at 77 K and by
+
+$$
+\boxed{83.26\ \mathrm{meV}}
+$$
+
+at 300 K.
+
+These differences are large enough that a provenance-controlled bulk-CdTe experimental temperature series should decide which total-gap law is closer without first-principles computation.
+
+### Question that does **not** justify AHC
+
+> Is Hansen or Laurenti closer to the total experimental CdTe gap shift?
+
+This is experimentally decidable and should be answered from primary data first.
+
+### Candidate quantity that may justify AHC later
+
+A narrower latent quantity unavailable from total-gap experiments may justify calculation:
+
+$$
+\Delta E_g^{\mathrm{ep,fixed\ volume}}(T),
+$$
+
+separated from
+
+$$
+\Delta E_g^{\mathrm{QH}}(T).
+$$
+
+The purpose would be to determine whether a compact one-effective-phonon or spectral-moment description reproduces the fixed-volume electron–phonon contribution, not merely to generate another total-gap curve.
 
 ### Missing prerequisites
 
-- primary Hansen data reconstruction;
-- later independent experimental datasets with compatible gap definitions;
-- prior-art audit of analytical phonon-based HgCdTe equations;
-- benchmark estimate of model separation in meV;
-- exact pseudopotential files and pilot timing.
+- primary bulk-CdTe temperature-dependent gap data with observable definition and uncertainty;
+- separation or accounting of excitonic transition energy versus fundamental quasiparticle gap;
+- a fit of Hansen, Laurenti, and oscillator models to the same CdTe data;
+- estimate of the remaining fixed-volume versus quasiharmonic ambiguity in meV;
+- full-text audit of the 1995 HgCdTe electron–phonon method;
+- exact pseudopotential files and timed pilot cost.
 
 ### Gate outcome
 
@@ -119,4 +168,4 @@ $$
 \boxed{\text{Do not begin production AHC or dense EPW calculations yet.}}
 $$
 
-The next decision memo should be completed only after the analytical benchmark identifies where experimental models disagree enough for a CdTe calculation to be informative.
+The first calculation memo may be opened only after endpoint experimental evidence identifies a microscopic decomposition question that survives model fitting. If experimental data alone saturate the analytical need, the CdTe AHC branch should stop.
