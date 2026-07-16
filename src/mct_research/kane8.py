@@ -195,7 +195,7 @@ def _hamiltonian(
     h[3, 6] = rt2 * v
     h[3, 7] = -np.sqrt(3.0 / 2.0) * s_minus
     h[4, 5] = np.conjugate(s_plus)
-    h[4, 6] = -np.sqrt(3.0 / 2.0) * s_plus
+    h[4, 6] = -np.sqrt(3.0 / 2.0) * np.conjugate(s_plus)
     h[4, 7] = -rt2 * v
     h[5, 6] = rt2 * np.conjugate(r)
     h[5, 7] = s_plus / rt2
