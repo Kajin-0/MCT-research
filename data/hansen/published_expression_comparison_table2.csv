@@ -1,0 +1,7 @@
+expression,average_deviation_ev,standard_error_ev,evaluation_domain,source_table,notes
+Hansen_Schmit_Casselman_1982,-0.001,0.013,"0<=x<=1; 4.2<=T<=300 K",Table_II,"This work"
+Scott_1969,-0.006,0.015,"evaluated by Hansen over 0<=x<=1 and 4.2<=T<=300 K",Table_II,"Original expression had a narrower intended range"
+Schmit_Stelzer,0.015,0.021,"evaluated by Hansen over 0<=x<=1 and 4.2<=T<=300 K",Table_II,"Original expression had a narrower intended range"
+Weiler,0.032,0.042,"evaluated by Hansen over 0<=x<=1 and 4.2<=T<=300 K",Table_II,"Hansen reports about 60% standard-error improvement within Weiler's own x<0.3 and T<100 K range"
+Finkman_Nemirovsky,0.022,0.042,"evaluated by Hansen over 0<=x<=1 and 4.2<=T<=300 K",Table_II,"Hansen reports about 15% standard-error improvement within the original 0.205<=x<=0.220 range"
+Wiley,0.042,0.051,"evaluated by Hansen over 0<=x<=1 and 4.2<=T<=300 K",Table_II,"Original expression had a narrower intended range"

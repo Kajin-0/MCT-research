@@ -1,24 +1,24 @@
-# Krishnamurthy et al. (1995) - HgCdTe electron-phonon gap shifts
+# Krishnamurthy et al. (1995) — HgCdTe electron–phonon gap shifts
 
 ## Bibliographic record
 
-S. Krishnamurthy, A.-B. Chen, A. Sher, and M. Van Schilfgaarde, “Temperature dependence of band gaps in HgCdTe and other semiconductors,” *Journal of Electronic Materials* **24**, 1121-1125 (1995). DOI `10.1007/BF02653063`.
+S. Krishnamurthy, A.-B. Chen, A. Sher, and M. Van Schilfgaarde, “Temperature dependence of band gaps in HgCdTe and other semiconductors,” *Journal of Electronic Materials* **24**, 1121–1125 (1995). DOI `10.1007/BF02653063`.
 
 **Primary copy:** owner-supplied PDF audited visually; exact source hash recorded in `literature/papers/README.md`  
 **SHA-256:** `790994754e9d0137e48be7f62fb1fe23ff51e203d78059b65120b0f4122c283b`  
-**Full-text audit status:** initial method and claim audit complete; numerical reproduction pending.
+**Full-text audit status:** method and claim audit complete; Table II transcribed; full numerical reproduction pending.
 
 ## Method actually used
 
 The paper is not a modern density-functional AHC calculation. It uses a hybrid empirical-pseudopotential/tight-binding (HPTB) Hamiltonian:
 
 - empirical pseudopotential form factors plus a minimum $sp^3$ tight-binding correction;
-- an added site-diagonal spin-orbit Hamiltonian;
+- site-diagonal spin–orbit coupling;
 - band-structure parameters tuned to experiment;
 - a valence-force-field dynamical matrix for phonons;
 - first and second derivatives of interatomic matrix elements with respect to atomic displacement.
 
-The band shift is written as a first-order expectation value of the second-order displacement potential plus a second-order sum over the first-order displacement potential. In modern language, this contains Debye-Waller-like and Fan-like contributions, although the paper does not formulate the calculation as a contemporary matrix-valued AHC workflow.
+The band shift is written as a first-order expectation value of the second-order displacement potential plus a second-order sum over the first-order displacement potential. In modern language, this contains Debye–Waller-like and Fan-like contributions, although the paper does not formulate the calculation as a contemporary matrix-valued AHC workflow.
 
 Additional verified details:
 
@@ -27,36 +27,66 @@ Additional verified details:
 - polar coupling is included in the longitudinal-optical contribution;
 - direct-gap shifts are evaluated at $k=0$;
 - nonzero-$k$ and full-zone sums are used for effective-mass or indirect-gap changes;
-- the electronic bands entering the perturbation theory are zero-temperature bands rather than self-consistently renormalized finite-temperature bands;
-- the authors explicitly state that higher-order perturbation and finite-temperature renormalized bands would be needed at higher temperature.
+- the perturbative reference is the zero-temperature electronic structure rather than self-consistently renormalized finite-temperature bands;
+- higher-order perturbation and finite-temperature-renormalized bands are explicitly identified as necessary at higher temperature.
 
-The paper separately discusses lattice dilation. It formulates the dilation contribution using thermal expansion, bulk modulus, and pressure dependence from the literature; the quoted heterojunction band-offset change explicitly excludes the dilation contribution.
+The paper separately discusses lattice dilation using thermal expansion, bulk modulus, and pressure coefficients from the literature. The quoted heterojunction band-offset change explicitly excludes dilation. The exact decomposition represented by every value in Table II should be checked before labeling those values “electron–phonon only” or “total.”
 
 ## HgCdTe results verified from the full text
 
-For approximately $\mathrm{Hg}_{0.78}\mathrm{Cd}_{0.22}\mathrm{Te}$:
+For approximately Hg$_{0.78}$Cd$_{0.22}$Te:
 
-- the direct gap increases with temperature;
-- calculated gap changes are typically within about 10-15 meV of the experimental curves shown;
-- the zero-point correction is reported as 13.6 meV;
-- both $E_c$ and $E_v$ move downward, with $E_v$ moving farther so that the gap increases;
+- the direct gap increases overall with temperature;
+- calculated gap changes are typically within about 10–15 meV of the experimental curves shown;
+- the zero-point correction is 13.6 meV;
+- both $E_c$ and $E_v$ move downward, with $E_v$ moving farther so the gap increases;
 - acoustic phonons contribute about 75% of the calculated band-edge shifts at 300 K;
 - polar LO phonons do not dominate because relevant interband matrix elements are suppressed by selection rules;
 - temperature-dependent gap, effective mass, and hyperbolic-band parameters are tabulated;
-- the calculated valence-band offset between the alloy and CdTe changes substantially with temperature in the electron-phonon-only estimate.
+- the calculated valence-band offset between the alloy and CdTe changes substantially with temperature in the electron–phonon-only estimate.
 
-The full paper also confirms the abstract-level result that the general trends agree with experiment for the studied materials, while InAs and InSb gap changes are underestimated by roughly a factor of two.
+The paper also confirms that the trends agree with experiment for most studied materials, while InAs and InSb gap changes are underestimated by roughly a factor of two.
+
+## Table II data product
+
+The complete 21-row table from 1 to 600 K is transcribed into
+
+`data/theory/krishnamurthy1995_hg078cd022_table2.csv`.
+
+It contains:
+
+- calculated gap in meV;
+- the reported hyperbolic-dispersion parameter $\gamma$;
+- the hyperbolic parameter $c$ in eV;
+- effective-mass ratio relative to the low-temperature value;
+- the stated low-temperature mass $m^*(0)/m_0=0.008$;
+- the stated zero-point gap correction of 13.6 meV.
+
+The unit/normalization of the printed $\gamma$ header should be confirmed against the original typeset symbol before external reuse; the CSV therefore labels the column `gamma_reported` rather than imposing an inferred unit.
+
+## Low-temperature turnover diagnostic
+
+The tabulated gap changes from 113.60 meV at 1 K to 112.56 meV at 20 K, then rises to 114.44 meV at 30 K. The model therefore predicts a shallow minimum near 20 K.
+
+This approximately 1 meV feature is much smaller than the paper’s quoted 10–15 meV overall comparison accuracy and is **not** established physical behavior. It is nevertheless analytically informative because:
+
+- Hansen is monotonic at fixed composition;
+- Laurenti is monotonic at fixed composition;
+- a one-effective-oscillator Bose term is monotonic at fixed sign;
+- a genuine turnover would require competing signed phonon channels or opposition between electron–phonon and quasiharmonic terms.
+
+The full derivation and falsification conditions are recorded in `docs/insights/0015_low_temperature_turnover_requires_signed_channels.md`.
 
 ## Claim impact
 
 The following are established prior art and cannot support novelty by themselves:
 
-- perturbative electron-phonon calculation of HgCdTe band-edge shifts;
-- calculation of HgCdTe $E_g(T)$ from an electronic and phonon Hamiltonian;
+- perturbative electron–phonon calculation of HgCdTe band-edge shifts;
+- calculation of HgCdTe $E_g(T)$ from electronic and phonon Hamiltonians;
 - separate conduction- and valence-edge temperature shifts;
-- phonon-branch and intermediate-band decomposition of the scalar edge shifts;
+- phonon-branch and intermediate-band decomposition of scalar edge shifts;
 - zero-point gap correction;
-- temperature-dependent electron effective mass and related nonparabolic parameters;
+- temperature-dependent electron effective mass and reduced nonparabolic parameters;
 - temperature-dependent valence-band-offset estimates.
 
 Potentially differentiating claims remain narrower:
@@ -64,7 +94,7 @@ Potentially differentiating claims remain narrower:
 - a full complex, frequency-dependent matrix self-energy rather than only band-energy corrections;
 - projection into a fixed complete $\Gamma_6\oplus\Gamma_8\oplus\Gamma_7$ 8-band Kane manifold;
 - extraction and closure testing of $P$, $F$, $\gamma_i$, and separate effective $P_8/P_7$;
-- modern nonadiabatic polar convergence and momentum-dependent Debye-Waller treatment;
+- modern nonadiabatic polar convergence and momentum-dependent Debye–Waller treatment;
 - disorder-aware alloy averaging and spectral broadening near inversion;
 - uncertainty-aware analytical compression with held-out experimental validation.
 
@@ -72,10 +102,10 @@ Potentially differentiating claims remain narrower:
 
 The primary text does not establish:
 
-- a first-principles quasiparticle calculation;
-- a gauge-fixed 8-by-8 self-energy matrix;
+- a modern first-principles quasiparticle calculation;
+- a gauge-fixed $8\times8$ self-energy matrix;
 - off-diagonal self-energy projection into Kane parameters;
-- separate finite-temperature renormalization of the full standard 8-band parameter set;
+- separate finite-temperature renormalization of the complete standard 8-band parameter set;
 - SQS/CPA disorder broadening near the zero-gap transition;
 - nonadiabatic dense-grid convergence of the long-range polar interaction;
 - coefficient covariance or uncertainty propagation;
@@ -85,9 +115,10 @@ Spin is included in the electronic structure, but the tabulated band-by-band dec
 
 ## Next reproducibility tasks
 
-1. digitize Fig. 1 and Table II for $\mathrm{Hg}_{0.78}\mathrm{Cd}_{0.22}\mathrm{Te}$;
+1. digitize Fig. 1 with calibrated uncertainty and compare it to the transcribed Table II values;
 2. reconstruct the HPTB and valence-force-field parameters from the cited predecessor papers;
-3. separate the electron-phonon and dilation contributions quantitatively;
-4. map the paper's two perturbative terms onto modern Fan/Debye-Waller notation without overstating equivalence;
-5. compare its scalar $E_g(T)$ and effective-mass predictions against Hansen, Laurenti, and modern magnetospectroscopy;
-6. document exactly which quantities cannot be recovered without the original code or parameter files.
+3. separate electron–phonon and dilation contributions quantitatively;
+4. map the two perturbative terms onto modern Fan/Debye–Waller notation without overstating equivalence;
+5. compare the table against Hansen, Laurenti, and modern magnetospectroscopy in energy-shift space;
+6. determine whether the low-temperature turnover survives a modern converged calculation or lies below numerical/model uncertainty;
+7. document quantities irrecoverable without the original code or parameter files.
