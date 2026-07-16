@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 import re
 from typing import Any
@@ -30,6 +31,94 @@ def _strictly_decreasing_positive(values: list[Any]) -> bool:
     return bool(values) and all(
         isinstance(value, (int, float)) and value > 0 for value in values
     ) and all(left > right for left, right in zip(values, values[1:]))
+
+
+def _finite_number(value: Any) -> bool:
+    return isinstance(value, (int, float)) and math.isfinite(value)
+
+
+def _nonempty_string(value: Any) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _valid_sha256(value: Any) -> bool:
+    return bool(_SHA256.fullmatch(str(value)))
+
+
+def _lattice_provenance_complete(
+    lattice: Any,
+    source: Any,
+) -> bool:
+    if not (_finite_number(lattice) and lattice > 0 and isinstance(source, dict)):
+        return False
+
+    measurement_temperature = source.get("measurement_temperature_k")
+    reported_lattice = source.get("reported_lattice_constant_angstrom")
+    reported_uncertainty = source.get("reported_standard_uncertainty_angstrom")
+    reference_temperature = source.get("reference_volume_temperature_k")
+
+    anchor_complete = (
+        source.get("source_type") == "primary_experimental"
+        and _nonempty_string(source.get("citation"))
+        and _valid_sha256(source.get("source_sha256"))
+        and _finite_number(measurement_temperature)
+        and measurement_temperature >= 0
+        and _finite_number(reported_lattice)
+        and reported_lattice > 0
+        and _finite_number(reported_uncertainty)
+        and reported_uncertainty >= 0
+        and _nonempty_string(source.get("observable_definition"))
+        and _finite_number(reference_temperature)
+        and reference_temperature >= 0
+    )
+    if not anchor_complete:
+        return False
+
+    same_temperature = math.isclose(
+        float(measurement_temperature),
+        float(reference_temperature),
+        rel_tol=0.0,
+        abs_tol=1e-12,
+    )
+    if same_temperature:
+        return math.isclose(
+            float(lattice),
+            float(reported_lattice),
+            rel_tol=0.0,
+            abs_tol=max(float(reported_uncertainty), 1e-12),
+        )
+
+    transformation = source.get("transformation_to_reference", {})
+    if not isinstance(transformation, dict):
+        return False
+    bounds = transformation.get("integration_temperature_bounds_k")
+    bounds_complete = (
+        isinstance(bounds, list)
+        and len(bounds) == 2
+        and all(_finite_number(value) and value >= 0 for value in bounds)
+        and math.isclose(
+            min(float(value) for value in bounds),
+            min(float(measurement_temperature), float(reference_temperature)),
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        )
+        and math.isclose(
+            max(float(value) for value in bounds),
+            max(float(measurement_temperature), float(reference_temperature)),
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        )
+    )
+    return (
+        _nonempty_string(transformation.get("method"))
+        and _nonempty_string(transformation.get("thermal_expansion_citation"))
+        and _valid_sha256(transformation.get("thermal_expansion_source_sha256"))
+        and transformation.get("thermal_expansion_status")
+        == "primary_measurement_acquired_verified"
+        and bounds_complete
+        and _nonempty_string(transformation.get("uncertainty_propagation"))
+        and _nonempty_string(transformation.get("derivation_manifest"))
+    )
 
 
 def evaluate_readiness(
@@ -136,17 +225,13 @@ def evaluate_readiness(
     )
     add(
         "execution_lattice_constant_provenance",
-        isinstance(lattice, (int, float))
-        and lattice > 0
-        and isinstance(source, dict)
-        and source.get("source_type") == "primary_experimental"
-        and isinstance(source.get("citation"), str)
-        and bool(source["citation"].strip())
-        and isinstance(source.get("temperature_k"), (int, float))
-        and source["temperature_k"] >= 0
-        and isinstance(source.get("observable_definition"), str)
-        and bool(source["observable_definition"].strip()),
-        "A positive execution lattice constant and primary experimental provenance are required.",
+        _lattice_provenance_complete(lattice, source),
+        (
+            "A positive execution lattice requires a hashed primary absolute "
+            "measurement with temperature and uncertainty. Extrapolation to the "
+            "reference temperature additionally requires a verified thermal-expansion "
+            "source and derivation manifest."
+        ),
     )
 
     ladders = specification.get("convergence_ladders", {})
@@ -239,7 +324,7 @@ def evaluate_readiness(
 
     ready = all(check["passed"] for check in checks)
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "stage": specification.get("stage"),
         "ready_for_execution": ready,
         "passed_checks": sum(check["passed"] for check in checks),
