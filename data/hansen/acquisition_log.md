@@ -2,100 +2,82 @@
 
 ## A. Hansen 1982
 
-**Target:** G. L. Hansen, J. L. Schmit, and T. N. Casselman, “Energy gap versus alloy composition and temperature in HgCdTe,” *Journal of Applied Physics* **53**(10), 7099–7101 (1982), DOI `10.1063/1.330018`.
+**Target:** G. L. Hansen, J. L. Schmit, and T. N. Casselman, “Energy gap versus alloy composition and temperature in HgCdTe,” *Journal of Applied Physics* **53**(10), 7099-7101 (1982), DOI `10.1063/1.330018`.
 
-**Search date:** 2026-07-15/16  
-**Current outcome:** bibliographic metadata resolved; primary full text not acquired.
+**Acquisition date:** 2026-07-16  
+**Current outcome:** primary full text acquired from a repository-owner upload and audited; exact source hash recorded in `literature/papers/README.md`.  
+**SHA-256:** `aa8017a8f3e136a0b893619e836e8808002b9889119c8e809536e94ebd557357`.
 
-### Search record
+### Primary-source facts now verified
 
-| Route | Query or identifier | Outcome | Evidentiary use |
-|---|---|---|---|
-| Exact-title web search | `"Energy gap versus alloy composition and temperature in HgCdTe"` | Bibliographic references and later reproductions found; no legal open primary PDF located | Metadata discovery only |
-| DOI search | `10.1063/1.330018` | DOI and citation confirmed; publisher route inaccessible in current environment | Confirms identifier, not methods or data |
-| Publisher/DOI resolver | DOI route | Access denied/HTTP 403 in current environment | No full-text evidence obtained |
-| Government/archive search | exact title on OSTI and Internet Archive | No primary copy located in initial search | Negative search result only |
-| User File Library | title, authors, DOI, and HgCdTe bandgap terms | User-authored documents containing the citation found; primary Hansen paper not found | Confirms local citation history only |
-| Secondary web pages | HgCdTe property/reference pages | Published polynomial and citation reproduced | Legacy-formula confirmation only; not source-data evidence |
+- The paper compiles optical-absorption and magneto-optical results and states that data from 22 studies were used.
+- The fit-support region is stated as approximately `0 <= x <= 0.6`, plus the CdTe endpoint `x=1`, over `4.2 <= T <= 300 K`.
+- The published expression is
 
-### Information currently resolved
+  $$
+  E_g(x,T)=-0.302+1.93x-0.810x^2+0.832x^3
+  +5.35\times10^{-4}T(1-2x).
+  $$
 
-- authors;
-- title;
-- journal;
-- year;
-- volume and issue;
-- pages 7099–7101;
-- DOI `10.1063/1.330018`;
-- historically attributed analytical equation.
+- The reported standard error of estimate is `0.013 eV`, at least 15% better than the earlier expressions compared by the authors.
+- The fitting sequence is explicit:
+  1. regress $E_g$ versus $T$ for each temperature-dependent sample;
+  2. fit $\partial E_g/\partial T$ linearly versus composition;
+  3. normalize each sample to 80 K;
+  4. perform a nonlinear least-squares fit of the 80 K composition dependence.
+- Optical data used nonuniform operational edges, including approximately `alpha=500 cm^-1`, `alpha=1000 cm^-1`, detector half-peak cutoff, and 50% detector cutoff criteria.
+- Composition was not measured by one common method: the source studies used density, vendor-reported composition tied to optical cutoff and destructive chemistry, and revised transmission-cutoff estimates.
+- Four low-composition Schmit-Stelzer samples were excluded because of mercury inclusions.
+- The authors explicitly caution that the true composition dependence above approximately `x=0.6` is conjectural even though the equation spans the full nominal alloy range.
 
-### Information not yet resolved
+### Remaining reconstruction work
 
-- abstract and stated scope;
-- whether the paper reports new measurements, compiles prior measurements, or both;
-- complete reference list and source-data lineage;
-- material form, growth method, and sample count;
-- composition determination method and uncertainty;
-- energy-gap measurement method and operational definition;
-- temperature and composition ranges;
-- figures and tables containing source data;
-- fitting objective, weighting, constraints, and exclusion rules;
-- coefficient uncertainty and residual statistics;
-- treatment of HgTe/CdTe endpoints and the inverted/zero-gap region.
+- transcribe every source study and specimen into a provenance-controlled table;
+- separate optical cutoff energy from magneto-optical bandgap measurements;
+- recover source-specific composition uncertainties and corrections;
+- reproduce the stated `0.013 eV` standard error from the reconstructed data;
+- determine implicit weighting and leverage of the HgTe and CdTe endpoints;
+- quantify coefficient covariance, which is not reported in a modern uncertainty format;
+- evaluate residuals by measurement class, composition, and temperature.
 
 ## B. Laurenti 1990
 
-**Target:** J. P. Laurenti et al., “Temperature dependence of the fundamental absorption edge of mercury cadmium telluride,” *Journal of Applied Physics* **67**, 6454 (1990). Exact page range and DOI remain unresolved.
+**Target:** J. P. Laurenti, J. Camassel, A. Bouhemadou, B. Toulouse, R. Legros, and A. Lusson, “Temperature dependence of the fundamental absorption edge of mercury cadmium telluride,” *Journal of Applied Physics* **67**(10), 6454-6460 (1990), DOI `10.1063/1.345119`.
 
-**Why this paper is now a priority:** Novik et al. 2005 state that the composition- and temperature-dependent HgCdTe gap used in their 8-band model is determined by Laurenti. Teppe et al. 2016 also compare their signed-gap temperature dependence with the Laurenti empirical relation. Laurenti is therefore the immediate successor baseline to Hansen for modern Kane-model work.
+**Acquisition date:** 2026-07-16  
+**Current outcome:** primary full text acquired from a repository-owner upload and audited; exact source hash recorded in `literature/papers/README.md`.  
+**SHA-256:** `1e6a8805c6b2dae538b52dff4da40e4b9f10c2e8e204438c9d5917aa819fecea`.
 
-**Search date:** 2026-07-16  
-**Current outcome:** title, journal, volume, year, and first page resolved from later primary reference lists; primary full text and exact equation not acquired.
+### Primary-source facts now verified
 
-### Search record
+- The authors measured cadmium-rich LPE HgCdTe samples with `0.5 <= x <= 1` from approximately 2 to 300 K and combined them with selected Hg-rich and endpoint literature data.
+- Temperature-dependent measurements used transmission, often analyzed through the first derivative of absorption.
+- The fundamental nonexcitonic edge was extracted with a three-dimensional direct-allowed exciton model.
+- The authors report transition-energy accuracy better than approximately `3 meV` despite temperature-dependent broadening.
+- For one inherited Scott dataset, nominal compositions were adjusted to account for about 2% composition uncertainty; the reported best overall correction was about 2.3%.
+- The primary typeset equation directly verifies the nonlinear composition-dependent Varshni form currently implemented in the repository.
+- The authors state a nominal validity range `0 <= x <= 1` and `0 <= T <= 500 K`.
+- The equation predicts a temperature-independent gap near `x=0.505`.
+- The paper also uses a simplified three-band $k\cdot p$ model to derive composition- and temperature-dependent effective masses.
 
-| Route | Query or identifier | Outcome | Evidentiary use |
-|---|---|---|---|
-| Exact-title search | `"Temperature dependence of the fundamental absorption edge of mercury cadmium telluride"` | No direct primary full-text result located | Negative search result |
-| Author/title/page search | `Laurenti HgCdTe 67 6454 1990` | Later papers and unrelated results; no reliable DOI/full text | Metadata corroboration only |
-| Novik 2005 primary paper | material-parameter section and references | Confirms Laurenti as the empirical $E_g(x,T)$ source used in the 8-band model | Citation relation confirmed |
-| Teppe 2016 primary preprint and supplement | model comparison and references | Confirms Laurenti as the empirical equation used for the reported temperature-driven transition comparison | Citation relation confirmed |
-| Publisher-targeted search | title and journal terms | No accessible primary record returned in the available search environment | No methods or data evidence |
+### Remaining reconstruction work
 
-### Information not yet resolved
+- recover the complete numerical dataset behind every plotted composition and temperature series;
+- trace the Hg-rich and endpoint values to their original papers and measurement definitions;
+- reconstruct the least-mean-squares objective, effective weighting, and residual distribution;
+- distinguish directly measured LPE specimens from literature-compiled values;
+- propagate composition uncertainty rather than applying only deterministic composition corrections;
+- determine whether the nominal `0-500 K` validity claim is supported by data or partly extrapolative.
 
-- complete author list;
-- DOI and full page range;
-- exact analytical equation and coefficient units;
-- whether the equation is a new fit or a modification/compilation of earlier relations;
-- sample count, material form, and growth methods;
-- composition determination and uncertainty;
-- fundamental-edge extraction criterion;
-- temperature/composition ranges;
-- weighting, exclusions, covariance, and residuals;
-- relationship to Hansen data and coefficients.
+## C. Krishnamurthy et al. 1995
 
-### Prohibited shortcut
-
-Do not transcribe a garbled equation from PDF text extraction or a secondary code implementation and label it the Laurenti equation. The exact expression must be verified visually or from the primary typeset source, with all powers and coefficients checked.
-
-## Acceptable acquisition routes
-
-1. Institutional library or interlibrary-loan copy.
-2. A legally obtained personal copy uploaded by the repository owner.
-3. Author, employer, or institutional archive with explicit full text.
-4. Publisher access through an authorized subscription.
-
-## Actions after acquisition
-
-1. Preserve the original file hash and acquisition provenance.
-2. Extract the abstract, methods, equations, figures, tables, and references.
-3. Build the cited-source graph before digitizing any data.
-4. Classify each underlying datum by source, method, and gap definition.
-5. Reproduce the published coefficients using the declared or reconstructed weighting.
-6. Report residuals in meV before any wavelength conversion.
-7. Compare Hansen and Laurenti on identical $(x,T)$ grids only after both equations and stated validity ranges are primary-verified.
+The closest historical electron-phonon calculation has also been acquired and audited; its exact source hash is recorded in `literature/papers/README.md`. Its method and novelty implications are audited in `literature/notes/krishnamurthy_1995.md`.
 
 ## Research rule
 
-Absence of an accessible full text does not justify filling missing methods or data from later reviews. Until a paper is obtained, all such fields remain explicitly `unknown` rather than inferred.
+Primary-source acquisition resolves bibliographic and methodological uncertainty, but it does not by itself reconstruct the underlying data or reproduce the published fits. All later claims must distinguish:
+
+1. visually verified statements from the papers;
+2. newly reconstructed datasets;
+3. repository calculations;
+4. inferences not stated by the original authors.
