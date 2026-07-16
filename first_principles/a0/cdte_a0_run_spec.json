@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "stage": "A0_static_phonon_readiness",
+  "authorization": {
+    "static_scf": true,
+    "coarse_phonon_sanity": true,
+    "dielectric_born_charge_sanity": true,
+    "a1_timed_4x4x4_smoke_test": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "source_code": {
+    "quantum_espresso": {
+      "repository": "QEF/q-e",
+      "tag": "qe-7.4.1",
+      "commit": "500de340b820e1cb8c05f2d8bb8fced102f377c1",
+      "executables": [
+        "pw.x",
+        "ph.x"
+      ],
+      "installed_version_output": null,
+      "executable_sha256": {},
+      "release_specific_syntax_checked": false
+    },
+    "abinit": {
+      "repository": "abinit/abinit",
+      "tag": "10.6.5",
+      "commit": "d50172aacfc501b46cd33ae58fda139e674d40e3",
+      "executables": [
+        "abinit"
+      ],
+      "installed_version_output": null,
+      "executable_sha256": {},
+      "release_specific_syntax_checked": false
+    }
+  },
+  "structure": {
+    "prototype": "zincblende",
+    "primitive_atoms": 2,
+    "fractional_positions": {
+      "Cd": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Te": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "candidate_reference_lattice_constant_angstrom": 6.482,
+    "candidate_reference_temperature_k": 300,
+    "candidate_reference_status": "planning_value_not_execution_authorized",
+    "execution_lattice_constant_angstrom": null,
+    "execution_lattice_constant_source": {
+      "source_type": null,
+      "citation": null,
+      "doi": null,
+      "source_sha256": null,
+      "temperature_k": null,
+      "observable_definition": null
+    },
+    "volume_fractional_offsets": [
+      -0.005,
+      0.0,
+      0.005
+    ]
+  },
+  "convergence_ladders": {
+    "ecutwfc_ry": [
+      94,
+      102,
+      114
+    ],
+    "ecutrho_ry": [],
+    "k_grid_n": [],
+    "nbnd": [],
+    "scf_conv_thr_ry": [
+      1e-08,
+      1e-10,
+      1e-12
+    ],
+    "ph_tr2": [
+      1e-12,
+      1e-14
+    ]
+  },
+  "runtime_inputs": {
+    "pseudopotential_selection": "first_principles/a0/cdte_pseudopotential_selection.json",
+    "runtime_hash_manifest": null,
+    "runtime_hashes_verified": false,
+    "rendered_qe_scf_manifest": null,
+    "rendered_qe_phonon_manifest": null,
+    "rendered_abinit_manifest": null
+  },
+  "required_a0_outputs": [
+    "total_energy",
+    "stress",
+    "forces",
+    "Gamma_band_ordering_and_irreps",
+    "spin_orbit_splitting",
+    "phonon_frequencies",
+    "acoustic_sum_rule_residual",
+    "dielectric_tensor",
+    "born_effective_charges",
+    "convergence_deltas",
+    "wall_time_memory_scratch_output"
+  ],
+  "readiness_claim": {
+    "calculation_executed": false,
+    "scientific_result_available": false,
+    "ready_for_execution": false
+  }
+}
