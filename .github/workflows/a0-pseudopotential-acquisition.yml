@@ -1,0 +1,35 @@
+name: a0-pseudopotential-acquisition
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/a0-pseudopotential-acquisition.yml'
+      - 'first_principles/a0/cdte_pseudopotential_selection.json'
+      - 'tools/acquire_cdte_pseudopotentials.py'
+      - 'tools/inspect_pseudopotential.py'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-pinned-bytes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Acquire and verify pinned pseudopotentials
+        run: |
+          python tools/acquire_cdte_pseudopotentials.py \
+            --selection-json first_principles/a0/cdte_pseudopotential_selection.json \
+            --output-dir "$RUNNER_TEMP/cdte-pseudos" \
+            --manifest-json "$RUNNER_TEMP/cdte-pseudopotential-hashes.json"
+      - name: Upload hash and header manifest only
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-pseudopotential-hashes
+          path: ${{ runner.temp }}/cdte-pseudopotential-hashes.json
+          if-no-files-found: error
+          retention-days: 7
