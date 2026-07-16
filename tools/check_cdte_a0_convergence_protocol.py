@@ -156,6 +156,28 @@ def evaluate_convergence_protocol(
         "SCF and phonon thresholds must tighten monotonically.",
     )
 
+    governed_ladders = (
+        "ecutwfc_ry",
+        "ecutrho_ratio",
+        "k_grid_n",
+        "nbnd",
+        "scf_conv_thr_ry",
+        "ph_tr2",
+    )
+    add(
+        "governed_ladders_support_two_refinements",
+        isinstance(ladders, dict)
+        and all(
+            isinstance(ladders.get(name), list)
+            and len(ladders[name]) >= 3
+            for name in governed_ladders
+        ),
+        (
+            "Every ladder governed by the generic selection rule must contain "
+            "an initial point plus at least two refinements."
+        ),
+    )
+
     required_sequence = [
         "ecutrho_at_ecutwfc_114Ry",
         "ecutwfc_with_selected_ecutrho_ratio",

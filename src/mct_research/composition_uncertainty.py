@@ -249,9 +249,19 @@ class CompositionHoldoutFold:
     held_out_indices: NDArray[np.int64]
     prediction_ev: FloatArray
     effective_sigma_ev: FloatArray
+    effective_covariance_ev2: FloatArray
     composition_derivative_ev_per_x: FloatArray
-    metrics: ResidualMetrics
+    marginal_metrics: ResidualMetrics
+    full_covariance_chi_square: float
+    full_covariance_chi_square_per_observation: float
+    metrics_interpretation: str
     fit: CompositionAwareGapFit
+
+    @property
+    def metrics(self) -> ResidualMetrics:
+        """Backward-compatible alias for diagonal-marginal residual metrics."""
+
+        return self.marginal_metrics
 
 
 @dataclass(frozen=True)
@@ -259,8 +269,17 @@ class CompositionCrossValidationResult:
     predictions_ev: FloatArray
     residual_ev: FloatArray
     effective_sigma_ev: FloatArray
-    metrics: ResidualMetrics
+    marginal_metrics: ResidualMetrics
+    full_covariance_chi_square: float
+    full_covariance_chi_square_per_observation: float
+    metrics_interpretation: str
     folds: tuple[CompositionHoldoutFold, ...]
+
+    @property
+    def metrics(self) -> ResidualMetrics:
+        """Backward-compatible alias for diagonal-marginal residual metrics."""
+
+        return self.marginal_metrics
 
 
 @dataclass(frozen=True)
@@ -767,6 +786,36 @@ def fit_composition_aware_gap_model(
     )
 
 
+def _full_covariance_chi_square(
+    residual_ev: ArrayLike,
+    covariance_ev2: ArrayLike,
+) -> float:
+    """Return r.T C^-1 r for one held-out covariance block."""
+
+    residual = np.asarray(residual_ev, dtype=float).ravel()
+    covariance = np.asarray(covariance_ev2, dtype=float)
+    expected_shape = (residual.size, residual.size)
+    if residual.size == 0 or not np.all(np.isfinite(residual)):
+        raise ValueError("held-out residual must be non-empty and finite")
+    if covariance.shape != expected_shape:
+        raise ValueError("held-out covariance has the wrong shape")
+    if not np.all(np.isfinite(covariance)) or not np.allclose(
+        covariance,
+        covariance.T,
+        rtol=1.0e-12,
+        atol=1.0e-15,
+    ):
+        raise ValueError("held-out covariance must be finite and symmetric")
+    try:
+        cholesky = np.linalg.cholesky(covariance)
+    except np.linalg.LinAlgError as error:
+        raise np.linalg.LinAlgError(
+            "held-out covariance must be positive definite"
+        ) from error
+    whitened = np.linalg.solve(cholesky, residual)
+    return float(whitened @ whitened)
+
+
 def _holdout_splits_shared_group(
     data: CompositionAwareGapData,
     holdout: NDArray[np.bool_],
@@ -801,6 +850,12 @@ def named_composition_holdout_cross_validation(
     effective_sigma = np.full(data.gap_ev.shape, np.nan, dtype=float)
     assigned = np.zeros(data.gap_ev.shape, dtype=int)
     folds: list[CompositionHoldoutFold] = []
+    full_covariance_chi_square = 0.0
+    metrics_interpretation = (
+        "unweighted metrics plus diagonal-marginal weighted metrics; "
+        "within-specimen correlation is represented by the separate "
+        "full-covariance chi-square; coefficient uncertainty is excluded"
+    )
 
     for name, raw_mask in holdouts.items():
         holdout = np.asarray(raw_mask, dtype=bool)
@@ -843,6 +898,12 @@ def named_composition_holdout_cross_validation(
                 composition_uncertainty,
             )
         held_out_sigma = np.sqrt(np.diag(held_out_covariance))
+        held_out_residual = held_out.gap_ev - prediction
+        held_out_chi_square = _full_covariance_chi_square(
+            held_out_residual,
+            held_out_covariance,
+        )
+        full_covariance_chi_square += held_out_chi_square
 
         indices = np.flatnonzero(holdout)
         predictions[indices] = prediction
@@ -854,12 +915,18 @@ def named_composition_holdout_cross_validation(
                 held_out_indices=indices.astype(np.int64),
                 prediction_ev=prediction,
                 effective_sigma_ev=held_out_sigma,
+                effective_covariance_ev2=held_out_covariance,
                 composition_derivative_ev_per_x=derivative,
-                metrics=residual_metrics(
+                marginal_metrics=residual_metrics(
                     held_out.gap_ev,
                     prediction,
                     sigma_ev=held_out_sigma,
                 ),
+                full_covariance_chi_square=held_out_chi_square,
+                full_covariance_chi_square_per_observation=(
+                    held_out_chi_square / held_out.gap_ev.size
+                ),
+                metrics_interpretation=metrics_interpretation,
                 fit=fit,
             )
         )
@@ -874,15 +941,21 @@ def named_composition_holdout_cross_validation(
 
     residual = np.full(data.gap_ev.shape, np.nan, dtype=float)
     residual[evaluated] = data.gap_ev[evaluated] - predictions[evaluated]
+    marginal_metrics = residual_metrics(
+        data.gap_ev[evaluated],
+        predictions[evaluated],
+        sigma_ev=effective_sigma[evaluated],
+    )
     return CompositionCrossValidationResult(
         predictions_ev=predictions,
         residual_ev=residual,
         effective_sigma_ev=effective_sigma,
-        metrics=residual_metrics(
-            data.gap_ev[evaluated],
-            predictions[evaluated],
-            sigma_ev=effective_sigma[evaluated],
+        marginal_metrics=marginal_metrics,
+        full_covariance_chi_square=full_covariance_chi_square,
+        full_covariance_chi_square_per_observation=(
+            full_covariance_chi_square / marginal_metrics.count
         ),
+        metrics_interpretation=metrics_interpretation,
         folds=tuple(folds),
     )
 

@@ -87,6 +87,30 @@ In shared-group cross-validation, a holdout may not split one specimen across
 training and test sets. Doing so would leak the same latent composition error
 into both sides of the comparison.
 
+## Holdout scoring
+
+Each fold retains the complete held-out covariance and reports
+
+```text
+chi2_holdout = r^T C_holdout^-1 r.
+```
+
+Unweighted MAE and RMSE remain useful descriptive errors. The existing weighted
+fields use only the marginal standard deviations `sqrt(diag(C_holdout))` and are
+therefore labeled diagonal-marginal metrics. They do not replace the correlated
+chi-square and must not be used to count a densely sampled specimen as many
+independent composition measurements.
+
+The aggregate cross-validation value is the sum of the disjoint fold statistics.
+Because each fold is predicted by a different training fit, this sum is a compact
+cross-validation diagnostic; it is not the chi-square of one jointly fitted
+prediction vector.
+
+The holdout covariance currently includes reported energy uncertainty and the
+first-order composition block. It does not include fitted-coefficient uncertainty,
+so the statistic is a conditional model-error diagnostic rather than a complete
+posterior predictive check.
+
 ## Interpretation limits
 
 This is a first-order Gaussian linearization, not a complete errors-in-variables
