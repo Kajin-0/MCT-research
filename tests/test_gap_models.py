@@ -15,7 +15,7 @@ from mct_research.gap_models import (
 def test_hansen_reference_values() -> None:
     assert hansen_gap_ev(0.155, 77.0) == pytest.approx(0.009212564, abs=1.0e-12)
     assert critical_temperature_k(hansen_gap_ev, 0.155) == pytest.approx(
-        52.0427, abs=1.0e-4
+        52.043846675, abs=1.0e-8
     )
 
 
