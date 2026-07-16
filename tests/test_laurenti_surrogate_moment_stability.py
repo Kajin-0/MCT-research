@@ -22,21 +22,22 @@ def _by_fold_and_x(
 
 
 def test_laurenti_high_temperature_slope_formula() -> None:
+    temperature_k = 1.0e8
     for x in EVALUATION_COMPOSITIONS:
-        step = 1.0e-4
-        temperature_k = 1.0e8
         amplitude = 6.3 - 15.47 * x + 5.92 * x**2
+        scale = 11.0 + 67.7 * x
 
-        def thermal_term(temperature: float) -> float:
-            scale = 11.0 + 67.7 * x
-            return 1.0e-4 * amplitude * temperature**2 / (temperature + scale)
-
-        numerical = (
-            thermal_term(temperature_k + step)
-            - thermal_term(temperature_k - step)
-        ) / (2.0 * step)
+        # Exact derivative of c*A*T^2/(T+B), evaluated at a temperature
+        # far above B. This avoids subtracting nearly equal large values.
+        finite_temperature_derivative = (
+            1.0e-4
+            * amplitude
+            * temperature_k
+            * (temperature_k + 2.0 * scale)
+            / (temperature_k + scale) ** 2
+        )
         assert laurenti_high_temperature_slope_ev_per_k(float(x)) == pytest.approx(
-            numerical, rel=0.0, abs=2.0e-8
+            finite_temperature_derivative, rel=0.0, abs=5.0e-13
         )
 
 
