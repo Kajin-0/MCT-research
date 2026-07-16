@@ -1,69 +1,93 @@
-# Krishnamurthy et al. (1995) — HgCdTe electron–phonon gap shifts
+# Krishnamurthy et al. (1995) - HgCdTe electron-phonon gap shifts
 
 ## Bibliographic record
 
-S. Krishnamurthy, A.-B. Chen, A. Sher, and M. Van Schilfgaarde, “Temperature dependence of band gaps in HgCdTe and other semiconductors,” *Journal of Electronic Materials* **24**, 1121–1125 (1995). DOI `10.1007/BF02653063`.
+S. Krishnamurthy, A.-B. Chen, A. Sher, and M. Van Schilfgaarde, “Temperature dependence of band gaps in HgCdTe and other semiconductors,” *Journal of Electronic Materials* **24**, 1121-1125 (1995). DOI `10.1007/BF02653063`.
 
-- published: September 1995;
-- received: 4 October 1994;
-- revised: 8 January 1995;
-- affiliations: SRI International and Auburn University.
+**Primary copy:** owner-supplied PDF audited visually; exact source hash recorded in `literature/papers/README.md`  
+**SHA-256:** `790994754e9d0137e48be7f62fb1fe23ff51e203d78059b65120b0f4122c283b`  
+**Full-text audit status:** initial method and claim audit complete; numerical reproduction pending.
 
-## Evidence available without the subscription full text
+## Method actually used
 
-The publisher abstract states that the authors:
+The paper is not a modern density-functional AHC calculation. It uses a hybrid empirical-pseudopotential/tight-binding (HPTB) Hamiltonian:
 
-1. calculated electron–phonon-induced band-edge shifts for HgCdTe alloys and other semiconductors;
-2. used accurate zero-temperature band structures as the starting point;
-3. obtained temperature variations of band gaps agreeing with experiment to better than 10% except for InAs and InSb;
-4. found that both the conduction-band edge $E_c$ and valence-band edge $E_v$ shift downward;
-5. reported temperature variations of valence-band offsets and electron effective mass.
+- empirical pseudopotential form factors plus a minimum $sp^3$ tight-binding correction;
+- an added site-diagonal spin-orbit Hamiltonian;
+- band-structure parameters tuned to experiment;
+- a valence-force-field dynamical matrix for phonons;
+- first and second derivatives of interatomic matrix elements with respect to atomic displacement.
 
-The reference list explicitly includes:
+The band shift is written as a first-order expectation value of the second-order displacement potential plus a second-order sum over the first-order displacement potential. In modern language, this contains Debye-Waller-like and Fan-like contributions, although the paper does not formulate the calculation as a contemporary matrix-valued AHC workflow.
 
-- Varshni and foundational Allen–Heine/Cardona literature;
-- Hansen, Schmit, and Casselman (1982);
-- Seiler et al., *J. Vac. Sci. Technol. A* **8**, 1237 (1990);
-- Chen and Sher electronic-structure work;
-- earlier Krishnamurthy/Sher/Chen HgCdTe alloy calculations.
+Additional verified details:
+
+- both first- and second-displacement terms are retained to preserve symmetry;
+- all phonon branches are included;
+- polar coupling is included in the longitudinal-optical contribution;
+- direct-gap shifts are evaluated at $k=0$;
+- nonzero-$k$ and full-zone sums are used for effective-mass or indirect-gap changes;
+- the electronic bands entering the perturbation theory are zero-temperature bands rather than self-consistently renormalized finite-temperature bands;
+- the authors explicitly state that higher-order perturbation and finite-temperature renormalized bands would be needed at higher temperature.
+
+The paper separately discusses lattice dilation. It formulates the dilation contribution using thermal expansion, bulk modulus, and pressure dependence from the literature; the quoted heterojunction band-offset change explicitly excludes the dilation contribution.
+
+## HgCdTe results verified from the full text
+
+For approximately $\mathrm{Hg}_{0.78}\mathrm{Cd}_{0.22}\mathrm{Te}$:
+
+- the direct gap increases with temperature;
+- calculated gap changes are typically within about 10-15 meV of the experimental curves shown;
+- the zero-point correction is reported as 13.6 meV;
+- both $E_c$ and $E_v$ move downward, with $E_v$ moving farther so that the gap increases;
+- acoustic phonons contribute about 75% of the calculated band-edge shifts at 300 K;
+- polar LO phonons do not dominate because relevant interband matrix elements are suppressed by selection rules;
+- temperature-dependent gap, effective mass, and hyperbolic-band parameters are tabulated;
+- the calculated valence-band offset between the alloy and CdTe changes substantially with temperature in the electron-phonon-only estimate.
+
+The full paper also confirms the abstract-level result that the general trends agree with experiment for the studied materials, while InAs and InSb gap changes are underestimated by roughly a factor of two.
 
 ## Claim impact
 
-The following are not novel project claims:
+The following are established prior art and cannot support novelty by themselves:
 
-- electron–phonon contributions to HgCdTe band-edge shifts;
-- a calculated temperature-dependent HgCdTe bandgap;
-- temperature variation of the electron effective mass;
-- temperature variation of valence-band offsets.
+- perturbative electron-phonon calculation of HgCdTe band-edge shifts;
+- calculation of HgCdTe $E_g(T)$ from an electronic and phonon Hamiltonian;
+- separate conduction- and valence-edge temperature shifts;
+- phonon-branch and intermediate-band decomposition of the scalar edge shifts;
+- zero-point gap correction;
+- temperature-dependent electron effective mass and related nonparabolic parameters;
+- temperature-dependent valence-band-offset estimates.
 
-Potentially differentiating claims must be narrower:
+Potentially differentiating claims remain narrower:
 
-- full matrix rather than band-diagonal self-energy;
-- projection into the complete $\Gamma_6\oplus\Gamma_8\oplus\Gamma_7$ Kane manifold;
-- extraction and closure testing of $P$, $F$, $\gamma_i$, and possibly separate $P_8/P_7$;
-- nonadiabatic polar and modern Debye–Waller completeness;
-- disorder-aware alloy averaging near inversion;
-- a validated compact analytical spectral-moment equation across composition.
+- a full complex, frequency-dependent matrix self-energy rather than only band-energy corrections;
+- projection into a fixed complete $\Gamma_6\oplus\Gamma_8\oplus\Gamma_7$ 8-band Kane manifold;
+- extraction and closure testing of $P$, $F$, $\gamma_i$, and separate effective $P_8/P_7$;
+- modern nonadiabatic polar convergence and momentum-dependent Debye-Waller treatment;
+- disorder-aware alloy averaging and spectral broadening near inversion;
+- uncertainty-aware analytical compression with held-out experimental validation.
 
-## Unknown until full-text audit
+## Important limitations of the 1995 work
 
-Do not infer the following from the abstract:
+The primary text does not establish:
 
-- whether the method is formally Allen–Heine–Cardona or another perturbative pseudopotential treatment;
-- explicit Fan versus Debye–Waller decomposition;
-- adiabatic versus nonadiabatic denominators;
-- Fröhlich long-range treatment;
-- phonon model and alloy interpolation;
-- thermal-expansion contribution;
-- zero-point renormalization convention;
-- matrix/off-diagonal self-energy content;
-- exact compositions and temperatures;
-- numerical residuals behind the “better than 10%” summary;
-- parameter covariance or uncertainty.
+- a first-principles quasiparticle calculation;
+- a gauge-fixed 8-by-8 self-energy matrix;
+- off-diagonal self-energy projection into Kane parameters;
+- separate finite-temperature renormalization of the full standard 8-band parameter set;
+- SQS/CPA disorder broadening near the zero-gap transition;
+- nonadiabatic dense-grid convergence of the long-range polar interaction;
+- coefficient covariance or uncertainty propagation;
+- held-out predictive validation across composition.
 
-## Current classification
+Spin is included in the electronic structure, but the tabulated band-by-band decomposition is spin averaged. This is materially different from demonstrating closure of the complete spinor Kane Hamiltonian.
 
-- scalar HgCdTe electron–phonon gap calculation: **established**;
-- band-edge and electron-mass temperature shifts: **established**;
-- complete finite-temperature 8-band Kane Hamiltonian from matrix AHC: **unresolved**;
-- compact spectral-moment successor to Hansen with held-out validation: **unresolved / candidate novel**.
+## Next reproducibility tasks
+
+1. digitize Fig. 1 and Table II for $\mathrm{Hg}_{0.78}\mathrm{Cd}_{0.22}\mathrm{Te}$;
+2. reconstruct the HPTB and valence-force-field parameters from the cited predecessor papers;
+3. separate the electron-phonon and dilation contributions quantitatively;
+4. map the paper's two perturbative terms onto modern Fan/Debye-Waller notation without overstating equivalence;
+5. compare its scalar $E_g(T)$ and effective-mass predictions against Hansen, Laurenti, and modern magnetospectroscopy;
+6. document exactly which quantities cannot be recovered without the original code or parameter files.

@@ -1,12 +1,13 @@
 # Laurenti 1990 equation reconstruction
 
-**Target:** J. P. Laurenti et al., “Temperature dependence of the fundamental absorption edge of mercury cadmium telluride,” *Journal of Applied Physics* **67**, 6454 (1990).  
-**Status:** analytical formula reconstructed with high confidence; original paper, fitted dataset, validity range, and coefficient uncertainty not yet acquired.  
-**Use:** benchmark baseline, not a substitute for reconstructing the original Laurenti evidence.
+**Target:** J. P. Laurenti, J. Camassel, A. Bouhemadou, B. Toulouse, R. Legros, and A. Lusson, “Temperature dependence of the fundamental absorption edge of mercury cadmium telluride,” *Journal of Applied Physics* **67**(10), 6454-6460 (1990), DOI `10.1063/1.345119`.  
+**Status:** analytical formula and typography primary-verified; experimental data reconstruction and fit reproduction remain incomplete.  
+**Primary copy:** owner-supplied PDF audited visually; exact source hash recorded in `literature/papers/README.md`.  
+**SHA-256:** `1e6a8805c6b2dae538b52dff4da40e4b9f10c2e8e204438c9d5917aa819fecea`.
 
-## Reconstructed analytical form
+## Primary-verified analytical form
 
-The equation reproduced in the supplementary material of Teppe et al. is
+The paper gives
 
 $$
 E_g^{\mathrm L}(x,T)=
@@ -28,29 +29,23 @@ $$
 
 Here $E_g$ is in eV, $T$ is in K, and $x$ is the Cd mole fraction in $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$.
 
-## Evidence chain
+The previous reconstruction from Teppe et al. and an independent executable implementation is therefore confirmed by the original typeset source.
 
-### Primary reproduction
+## Primary-source experimental basis
 
-Teppe et al., *Nature Communications* **7**, 12576 (2016), Supplementary equation (1), explicitly attribute the equation to Laurenti et al. Their PDF text extraction preserves all coefficients but scrambles their visual ordering. The recoverable coefficient set is:
+The paper reports:
 
-- composition terms: `0.303`, `1.606`, `0.132`;
-- temperature numerator: `6.3`, `3.25`, `5.92`, $10^{-4}T^2$;
-- denominator: `11`, `78.7`, and $T$.
+- LPE-grown cadmium-rich samples covering approximately `0.5 <= x <= 1`;
+- temperature-dependent transmission measurements from approximately 2 to 300 K;
+- frequent use of derivative absorption to locate the edge;
+- fitting with the three-dimensional theory of direct-allowed excitons to obtain the nonexcitonic interband edge;
+- claimed edge-energy accuracy better than approximately `3 meV`;
+- combination with selected Hg-rich and CdTe literature data;
+- composition corrections of order 2% for one inherited dataset, with a reported best average correction of 2.3%;
+- a nominal equation range `0 <= x <= 1`, `0 <= T <= 500 K`;
+- a temperature-independent composition near `x=0.505`.
 
-The Nature article states that this supplementary equation reproduces the temperature-driven transition of its nominal $x=0.155$ sample near 77 K.
-
-### Independent executable reproduction
-
-A public scientific-analysis implementation, `Ryan3141/FTIR_Analyzer`, contains the same function:
-
-```cpp
--0.303*(1-x) + 1.606*x - 0.132*x*(1-x)
-+ (6.3*(1-x) - 3.25*x - 5.92*x*(1-x))
-  * 1E-4*T*T / (11*(1-x) + 78.7*x + T)
-```
-
-This is secondary evidence, not a primary literature source, but it independently resolves the two-dimensional ordering that is lost in the PDF text extraction.
+The equation is therefore an optical-edge empirical model assembled from mixed direct measurements and literature data. It is not a first-principles signed-gap equation.
 
 ## Numerical verification
 
@@ -60,7 +55,7 @@ $$
 x=0.155,
 $$
 
-the reconstructed equation gives
+the equation gives
 
 $$
 E_g^{\mathrm L}(0.155,77\ \mathrm K)
@@ -74,9 +69,7 @@ $$
 \boxed{T_c^{\mathrm L}(0.155)=77.124\ \mathrm K.}
 $$
 
-This agrees with the reported approximately 77 K gap closure to 0.12 K. The agreement is too specific to be explained by the corrupted coefficients being assembled arbitrarily.
-
-Other useful checks are
+Other checks are
 
 $$
 E_g^{\mathrm L}(0.175,2\ \mathrm K)=12.08\ \mathrm{meV},
@@ -92,17 +85,17 @@ $$
 x_c^{\mathrm L}(77\ \mathrm K)=0.155028.
 $$
 
-The low-temperature signed gaps are not expected to equal every optical-absorption magnitude reported by Teppe because sample labels, signed versus unsigned gap definitions, and extraction methods must be audited separately.
+Agreement with the Teppe transition is a useful transfer test, but it does not eliminate composition, strain, and measurement-class uncertainty.
 
 ## Structural interpretation
 
-The temperature term is a composition-dependent Varshni-type form:
+The temperature term is a composition-dependent Varshni form:
 
 $$
 \Delta E_g(x,T)=10^{-4}A(x)\frac{T^2}{T+B(x)}.
 $$
 
-Consequently,
+Therefore
 
 $$
 \left.\frac{\partial E_g}{\partial T}\right|_{T=0}=0,
@@ -112,38 +105,34 @@ unlike Hansen's exactly linear temperature term. At high temperature,
 
 $$
 \Delta E_g(x,T)
-=10^{-4}A(x)\left[T-B(x)+O(T^{-1})\right],
+=10^{-4}A(x)\left[T-B(x)+O(T^{-1})\right].
 $$
 
-so the model approaches a composition-dependent linear slope while retaining low-temperature curvature.
-
-The endpoint coefficients have clear roles:
+The endpoint coefficients encode the observed sign reversal:
 
 - HgTe, $x=0$: $A=+6.3$, $B=11$ K;
 - CdTe, $x=1$: $A=-3.25$, $B=78.7$ K.
-
-The sign reversal allows the HgTe signed gap to increase with temperature while the CdTe gap decreases.
 
 ## Confidence classification
 
 | Item | Confidence | Reason |
 |---|---|---|
-| algebraic formula above | high | complete coefficient set from Teppe plus independent executable reproduction and exact transition check |
-| attribution to Laurenti 1990 | high | explicitly cited by Teppe and Novik |
-| exact original typography | not independently viewed | original Laurenti full text unavailable |
-| original samples and measurement methods | unknown | primary paper unavailable |
-| fitted data, weights, exclusions, and uncertainties | unknown | primary paper unavailable |
-| original validity range | unknown | primary paper unavailable |
-| suitability for signed Kane gaps near inversion | empirical and measurement-dependent | Laurenti measured a fundamental absorption edge; Teppe applied the equation to a signed Kane gap |
+| algebraic formula and coefficient ordering | primary-verified | visually checked in the original typeset paper |
+| DOI, authors, pages, and stated range | primary-verified | original paper front matter and conclusion |
+| experimental edge-extraction method | primary-verified at article level | transmission/derivative absorption and 3D exciton fitting are described |
+| exact specimen-level dataset | incomplete | values remain to be transcribed from figures, tables, and cited source papers |
+| fit weights, covariance, and coefficient uncertainties | unresolved | not reported in a modern reproducible form |
+| use as a signed Kane gap near inversion | transfer assumption | the source measures a fundamental optical absorption edge |
+| validity through 500 K | author-stated, not yet independently stress-tested | direct measurements emphasized 0-300 K |
 
 ## Benchmark rule
 
-The reconstructed equation may now enter the common benchmark as a **published-coefficient legacy baseline**. It must not be described as a reproduced Laurenti fit until the original paper and source data are acquired.
+Laurenti may now be described as a **primary-verified published-coefficient baseline**. It must not yet be described as a reproduced fit.
 
-Required scores are:
+Required benchmark variants are:
 
-1. published coefficients with reported composition used directly;
-2. published coefficients with composition uncertainty propagated;
-3. comparison within optical-edge sources;
-4. transfer test to signed magneto-optical gaps;
-5. refit of the same functional form only after a common provenance-controlled dataset exists.
+1. published coefficients with nominal composition;
+2. published coefficients with latent composition uncertainty;
+3. optical-edge-only scoring;
+4. transfer scoring to signed magneto-optical gaps;
+5. refit of the same functional form only after a common specimen-level dataset exists.
