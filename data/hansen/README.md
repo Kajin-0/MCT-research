@@ -1,7 +1,7 @@
 # Hansen dataset reconstruction
 
 **Issue:** #1  
-**Status:** primary paper acquired and audited; 16 Table I points extracted; underlying multi-source dataset remains incomplete  
+**Status:** primary paper acquired; 22-study citation graph reconstructed; 16 Table I points extracted; raw specimen-level dataset remains incomplete  
 **Rule:** do not generate pseudo-data from the published polynomial and call it the Hansen dataset
 
 ## Objective
@@ -35,6 +35,29 @@ $$
 $$
 
 Although the final expression spans $0\le x\le1$, the paper explicitly calls the true composition dependence for approximately $x\gtrsim0.6$ conjectural.
+
+### Exact 22-study count
+
+The 22 data sources are now resolved at citation and role level in `hansen_1982_source_graph.csv`.
+
+The paper has only 21 numbered data references because Ref. 6 contains two independent private datasets:
+
+- Rawe photoconductors;
+- Tobin photodiodes.
+
+The count is
+
+$$
+4\text{ sources in Refs. 1--4}
++2\text{ datasets in Ref. 6}
++14\text{ sources in Refs. 7--20}
++2\text{ endpoint sources in Refs. 24--25}
+=22.
+$$
+
+Ref. 5 is a comparison equation, not a fitted data source. Refs. 21--23 support composition calibration rather than gap observations.
+
+This citation-level reconstruction does not yet identify the 22 specimen-level temperature series used in the slope fit. Source count and sample count must remain distinct.
 
 ### Measurement heterogeneity
 
@@ -92,6 +115,8 @@ $$
 
 The paper does not report datum-level weights, coefficient covariance, or a machine-readable residual table.
 
+This staged regression cannot independently test low-temperature curvature because each raw specimen series is first compressed into a linear slope and an 80 K value. The exact aliasing and normalization bias are derived in `docs/insights/0016_hansen_staged_fit_cannot_test_curvature.md`.
+
 ## Reported fit quality
 
 For the new expression, Hansen et al. report:
@@ -99,7 +124,7 @@ For the new expression, Hansen et al. report:
 - average deviation: $-0.001\ \mathrm{eV}$;
 - standard error of estimate: $0.013\ \mathrm{eV}$.
 
-The standard error is therefore 13 meV, which is already comparable to or larger than many modern model differences being discussed in this project.
+The standard error is therefore 13 meV, which is already comparable to or larger than many modern model differences being discussed in this project. It is not a direct test of whether $\partial^2E_g/\partial T^2=0$, because linearity was imposed during the first reduction stage.
 
 ## Recovered numerical data
 
@@ -112,7 +137,8 @@ These are direct primary-table transcriptions, but they represent detector cutof
 
 ## Files
 
-- `source_inventory.csv` — primary, inherited, and later validation sources.
+- `hansen_1982_source_graph.csv` — every numbered reference, its role, and the exact reconstruction of the 22 data sources.
+- `source_inventory.csv` — broader primary, inherited, theoretical, and later-validation inventory.
 - `acquisition_log.md` — acquisition and audit record, including file hash.
 - `measurements.csv` — recovered numerical observations; currently the 16 Table I points.
 - `digitization_log.csv` — figure-coordinate provenance and calibration.
@@ -123,7 +149,7 @@ These are direct primary-table transcriptions, but they represent detector cutof
 
 The Hansen fit is not fully reproduced until the following are recovered or explicitly declared irrecoverable:
 
-1. the complete reference/source graph for all fitted data;
+1. primary papers and specimen mapping for the fitted sources;
 2. raw or digitized values for the 22 temperature-dependent sample series;
 3. non-temperature-dependent points used in the 80 K composition fit;
 4. source-specific composition methods and uncertainties;
@@ -158,3 +184,4 @@ wavelength residuals become divergent and asymmetric near $E_g=0$ and are unsuit
 - Assigning zero composition uncertainty when the source did not report it.
 - Fitting in wavelength and reporting the result as an energy-gap reconstruction.
 - Describing the $x>0.6$ cubic behavior as strongly data constrained.
+- Treating the reported 13 meV error as evidence that temperature curvature is absent.
