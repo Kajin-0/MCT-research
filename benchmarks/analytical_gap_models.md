@@ -96,15 +96,94 @@ Each datum receives a level:
 
 Primary benchmark scores use levels A and B. C and D are sensitivity/legacy comparisons, not equal-status observations.
 
-## 4. Validation splits
+Each datum also receives a measurement class:
+
+- `optical_absorption_edge`;
+- `two_photon_magnetoabsorption`;
+- `Landau_level_Kane_gap`;
+- `transport_inferred_gap`;
+- `photoluminescence_or_other`;
+- `model_derived`.
+
+Measurement classes are not pooled without either demonstrating compatibility or including a class-dependent offset/uncertainty term. A detector cutoff, an extrapolated absorption edge, and a signed $\Gamma_6-\Gamma_8$ magneto-optical gap are not assumed identical.
+
+## 4. Composition, source, and measurement uncertainty
+
+### 4.1 Composition is an uncertain explanatory variable
+
+Near detector-relevant and inversion compositions,
+
+$$
+\left|\frac{\partial E_g}{\partial x}\right|
+\sim1\text{–}2\ \mathrm{eV},
+$$
+
+so a third-decimal composition error can create meV-scale or larger gap errors. Reported $x$ must not be treated as exact merely because a paper gives three digits.
+
+For a datum with reported composition uncertainty,
+
+$$
+x_i^{\mathrm{true}}
+\sim
+\mathcal N(x_i^{\mathrm{reported}},\sigma_{x,i}^2).
+$$
+
+The observation model is
+
+$$
+E_{g,i}^{\mathrm{obs}}
+\sim
+\mathcal N\!\left(
+E_g(x_i^{\mathrm{true}},T_i)+b_{s(i)}+b_{m(i)},
+\sigma_{E,i}^2+\sigma_{\mathrm{digit},i}^2
+\right),
+$$
+
+where $b_{s(i)}$ is a source/laboratory offset and $b_{m(i)}$ is an optional measurement-class offset.
+
+### 4.2 Missing composition uncertainty
+
+If a source does not report $\sigma_x$, use one of three declared treatments:
+
+1. infer a source-level latent offset $\delta x_s$ with a sensitivity prior;
+2. repeat the benchmark over a stated grid of plausible $\sigma_x$ or $\delta x_s$;
+3. exclude the source from claims below its implied composition-error floor.
+
+Never assign zero composition uncertainty by default.
+
+### 4.3 Critical-point likelihood
+
+A reported critical point $(x_r,T_c)$ constrains
+
+$$
+E_g(x^{\mathrm{true}},T_c)=0,
+$$
+
+not necessarily $E_g(x_r,T_c)=0$ exactly. The critical-temperature likelihood must integrate over composition uncertainty:
+
+$$
+p(T_c\mid x_r,M)
+=
+\int p\!\left(E_g(x,T_c)=0\mid M\right)
+ p(x\mid x_r,\sigma_x)\,dx.
+$$
+
+A single nominal critical point cannot distinguish equation error from composition calibration error.
+
+### 4.4 Source and specimen grouping
+
+Repeated temperatures on one specimen share the same latent composition and source calibration. They are not independent composition measurements. All folds and bootstrap procedures must preserve specimen groups.
+
+## 5. Validation splits
 
 ### Leave-one-composition-out
 
-For each distinct composition group $x_j$:
+For each distinct composition/specimen group $x_j$:
 
-1. fit on all other composition groups;
+1. fit on all other groups;
 2. predict all temperatures at $x_j$;
-3. retain the complete residual vector.
+3. retain the complete residual vector;
+4. marginalize or profile over the held-out specimen's declared composition uncertainty without refitting a free offset to its observed gaps.
 
 Composition groups must account for reported $\sigma_x$ and repeated measurements on the same specimen.
 
@@ -122,7 +201,11 @@ Exact boundaries are selected from the recovered data distribution before model 
 
 When multiple papers contribute data, hold out complete source datasets. This tests transfer across measurement methods and laboratories rather than interpolation within one publication.
 
-## 5. Metrics
+### Measurement-class holdout
+
+Where enough data exist, fit optical-edge sources and predict magneto-optical signed-gap sources, then reverse the direction. Failure in this test identifies observable-definition mismatch rather than automatically proving incorrect temperature physics.
+
+## 6. Metrics
 
 All primary metrics are calculated in energy:
 
@@ -142,9 +225,18 @@ Report:
 - residual versus $T$;
 - residual autocorrelation within repeated-temperature series;
 - source-specific residuals;
+- measurement-class residuals;
+- inferred source composition offsets and their uncertainty;
 - parameter covariance and correlation;
 - effective degrees of freedom;
 - singular values or identifiability diagnostics.
+
+Two residual scores are required where composition is uncertain:
+
+1. `nominal-x residual` using reported composition directly;
+2. `composition-marginalized residual` after propagating only the declared composition uncertainty model.
+
+A large improvement from score 1 to score 2 indicates composition calibration sensitivity, not necessarily a superior bandgap equation.
 
 ### Critical composition
 
@@ -157,8 +249,10 @@ $$
 Report
 
 $$
-\Delta x_c(T)=x_c^{\mathrm{model}}(T)-x_c^{\mathrm{reference}}(T).
+\Delta x_c(T)=x_c^{\mathrm{model}}(T)-x_c^{\mathrm{reference}}(T)
 $$
+
+with uncertainty from both the reference composition and the model.
 
 ### Critical temperature
 
@@ -168,7 +262,7 @@ $$
 E_g(x,T_c)=0
 $$
 
-and report $\Delta T_c$.
+and report $\Delta T_c$ together with the composition-induced uncertainty in $T_c$.
 
 ### Equivalent wavelength error
 
@@ -183,36 +277,38 @@ $$
 
 Do not average wavelength errors across the zero-gap region.
 
-## 6. Model-selection rules
+## 7. Model-selection rules
 
 A more complicated model advances only if:
 
 1. it improves at least two independent held-out schemes;
-2. improvement exceeds uncertainty from data reconstruction;
+2. improvement exceeds uncertainty from data reconstruction and composition calibration;
 3. parameters remain identifiable across folds;
 4. residual structure is reduced rather than merely redistributed;
 5. endpoint and limiting behavior remain defensible;
-6. the improvement is not driven by one source or one composition.
+6. the improvement is not driven by one source, one composition, or one measurement class;
+7. it does not require implausibly large source-specific composition offsets.
 
 A two-oscillator model with unconstrained or fold-unstable oscillator temperatures is rejected even if its in-sample error is lower.
 
-## 7. Reporting table
+## 8. Reporting table
 
-| Model | Parameters | In-sample MAE (meV) | LOCO MAE | Temperature-holdout MAE | Max error | $x_c$ error | $T_c$ error | Identifiable? |
-|---|---:|---:|---:|---:|---:|---:|---:|---|
-| M0 Hansen published | 0 fitted | pending | pending | pending | pending | pending | pending | n/a |
-| M0 Hansen refit | pending | pending | pending | pending | pending | pending | pending | pending |
-| M1 constrained empirical | pending | pending | pending | pending | pending | pending | pending | pending |
-| M2 one oscillator | pending | pending | pending | pending | pending | pending | pending | pending |
-| M3 two oscillator/moments | pending | pending | pending | pending | pending | pending | pending | pending |
-| M4 + quasiharmonic | pending | pending | pending | pending | pending | pending | pending | pending |
-| M5 + disorder width | pending | pending | pending | pending | pending | pending | pending | pending |
+| Model | Parameters | Nominal-$x$ MAE | Composition-marginalized MAE | LOCO MAE | Temperature-holdout MAE | Max error | $x_c$ error | $T_c$ error | Identifiable? |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| M0 Hansen published | 0 fitted | pending | pending | pending | pending | pending | pending | pending | n/a |
+| M0 Hansen refit | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| M1 constrained empirical | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| M2 one oscillator | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| M3 two oscillator/moments | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| M4 + quasiharmonic | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| M5 + disorder width | pending | pending | pending | pending | pending | pending | pending | pending | pending |
 
-## 8. Stop condition
+## 9. Stop condition
 
-If the one-oscillator or spectral-moment model does not improve held-out energy error beyond reconstructed experimental uncertainty, the project should not claim a superior universal analytical equation. The useful result may instead be:
+If the one-oscillator or spectral-moment model does not improve held-out energy error beyond reconstructed experimental and composition uncertainty, the project should not claim a superior universal analytical equation. The useful result may instead be:
 
 - a quantified validity range for Hansen;
 - a corrected uncertainty model;
 - a low-temperature-only extension;
-- or proof that measurement-definition heterogeneity dominates functional-form error.
+- proof that composition or measurement-definition heterogeneity dominates functional-form error;
+- or a recommendation for the minimum composition metrology required to discriminate models.
