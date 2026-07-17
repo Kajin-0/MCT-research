@@ -14,6 +14,8 @@ TE_HASH="db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
 
 rm -rf "$WORK" "$EVIDENCE"
 mkdir -p "$WORK/src" "$WORK/run/pseudo" "$WORK/run/tmp" "$EVIDENCE/build" "$EVIDENCE/runtime" "$EVIDENCE/raw"
+exec > >(tee -a "$EVIDENCE/runtime/driver.stdout.txt") \
+     2> >(tee -a "$EVIDENCE/runtime/driver.stderr.txt" >&2)
 
 status="failed"
 stage="initialization"
@@ -74,10 +76,16 @@ git -C "$WORK/src/qe" submodule update --init --recursive
 git -C "$WORK/src/qe" submodule status --recursive > "$EVIDENCE/runtime/qe_submodules.txt"
 
 stage="pseudopotential_verification"
-cp "$WORK/src/pseudo/Cd/Cd-sp_r.upf" "$WORK/run/pseudo/Cd-sp_r.upf"
-cp "$WORK/src/pseudo/Te/Te-d_r.upf" "$WORK/run/pseudo/Te-d_r.upf"
+git -C "$WORK/src/pseudo" ls-tree -r --name-only "$PSEUDO_COMMIT" \
+  | grep -E '^(Cd/Cd-sp_r\.upf|Te/Te-d_r\.upf)$' \
+  > "$EVIDENCE/runtime/pseudopotential_git_paths.txt"
+test "$(wc -l < "$EVIDENCE/runtime/pseudopotential_git_paths.txt")" -eq 2
+git -C "$WORK/src/pseudo" show "$PSEUDO_COMMIT:Cd/Cd-sp_r.upf" \
+  > "$WORK/run/pseudo/Cd-sp_r.upf"
+git -C "$WORK/src/pseudo" show "$PSEUDO_COMMIT:Te/Te-d_r.upf" \
+  > "$WORK/run/pseudo/Te-d_r.upf"
 actual_cd=$(sha256sum "$WORK/run/pseudo/Cd-sp_r.upf" | awk '{print $1}')
-actual_te=$(sha256sum "$WORK/run/pseudo/Te/Te-d_r.upf" | awk '{print $1}')
+actual_te=$(sha256sum "$WORK/run/pseudo/Te-d_r.upf" | awk '{print $1}')
 printf '%s  Cd-sp_r.upf\n%s  Te-d_r.upf\n' "$actual_cd" "$actual_te" > "$EVIDENCE/runtime/pseudopotential_sha256.txt"
 test "$actual_cd" = "$CD_HASH"
 test "$actual_te" = "$TE_HASH"
