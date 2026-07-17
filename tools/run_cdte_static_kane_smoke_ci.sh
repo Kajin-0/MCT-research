@@ -25,7 +25,8 @@ finish() {
     printf 'exit_code=%s\n' "$code"
     date -u '+finished_utc=%Y-%m-%dT%H:%M:%SZ'
   } > "$EVIDENCE/status.txt"
-  find "$EVIDENCE" -type f -print0 | sort -z | xargs -0 sha256sum > "$EVIDENCE/evidence_sha256.txt" || true
+  find "$EVIDENCE" -type f ! -name evidence_sha256.txt -print0 \
+    | sort -z | xargs -0 sha256sum > "$EVIDENCE/evidence_sha256.txt" || true
   exit "$code"
 }
 trap finish EXIT
@@ -76,7 +77,7 @@ stage="pseudopotential_verification"
 cp "$WORK/src/pseudo/Cd/Cd-sp_r.upf" "$WORK/run/pseudo/Cd-sp_r.upf"
 cp "$WORK/src/pseudo/Te/Te-d_r.upf" "$WORK/run/pseudo/Te-d_r.upf"
 actual_cd=$(sha256sum "$WORK/run/pseudo/Cd-sp_r.upf" | awk '{print $1}')
-actual_te=$(sha256sum "$WORK/run/pseudo/Te-d_r.upf" | awk '{print $1}')
+actual_te=$(sha256sum "$WORK/run/pseudo/Te/Te-d_r.upf" | awk '{print $1}')
 printf '%s  Cd-sp_r.upf\n%s  Te-d_r.upf\n' "$actual_cd" "$actual_te" > "$EVIDENCE/runtime/pseudopotential_sha256.txt"
 test "$actual_cd" = "$CD_HASH"
 test "$actual_te" = "$TE_HASH"
@@ -89,22 +90,21 @@ W90="$WORK/src/wannier90/wannier90.x"
 test -x "$W90"
 
 stage="qe_configure"
-mkdir -p "$WORK/src/qe/build"
 (
-  cd "$WORK/src/qe/build"
+  cd "$WORK/src/qe"
   /usr/bin/time -v -o "$EVIDENCE/build/qe.configure.time.txt" \
-    ../configure --disable-parallel --enable-openmp --with-scalapack=no \
+    ./configure --disable-parallel --enable-openmp --with-scalapack=no \
     > "$EVIDENCE/build/qe.configure.out" 2> "$EVIDENCE/build/qe.configure.err"
 )
-cp "$WORK/src/qe/build/configure.msg" "$EVIDENCE/build/qe.configure.msg" || true
-cp "$WORK/src/qe/build/config.log" "$EVIDENCE/build/qe.config.log" || true
-cp "$WORK/src/qe/build/make.inc" "$EVIDENCE/build/qe.make.inc" || true
+cp "$WORK/src/qe/configure.msg" "$EVIDENCE/build/qe.configure.msg" || true
+cp "$WORK/src/qe/config.log" "$EVIDENCE/build/qe.config.log" || true
+cp "$WORK/src/qe/make.inc" "$EVIDENCE/build/qe.make.inc" || true
 
 stage="qe_build"
 /usr/bin/time -v -o "$EVIDENCE/build/qe.make.time.txt" \
-  make -C "$WORK/src/qe/build" -j2 pw pp > "$EVIDENCE/build/qe.make.out" 2> "$EVIDENCE/build/qe.make.err"
-PW="$WORK/src/qe/build/bin/pw.x"
-PW2WAN="$WORK/src/qe/build/bin/pw2wannier90.x"
+  make -C "$WORK/src/qe" -j2 pw pp > "$EVIDENCE/build/qe.make.out" 2> "$EVIDENCE/build/qe.make.err"
+PW="$WORK/src/qe/bin/pw.x"
+PW2WAN="$WORK/src/qe/bin/pw2wannier90.x"
 test -x "$PW"
 test -x "$PW2WAN"
 
@@ -140,7 +140,7 @@ import json, pathlib, sys
 text = pathlib.Path(sys.argv[1]).read_text()
 start = text.lower().index('begin nnkpts')
 end = text.lower().index('end nnkpts', start)
-rows = [line.split() for line in text[start:].splitlines()[1:] if line.strip()][:13]
+rows = [line.split() for line in text[start:end].splitlines()[1:] if line.strip()]
 expected = [[str(i), '1', '0', '0', '0'] for i in range(1, 14)]
 if rows != expected:
     raise SystemExit(f'nnkpts mismatch: {rows!r}')
