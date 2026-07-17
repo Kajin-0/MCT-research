@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from acquire_browder_optica_table import (
+from tools.acquire_browder_optica_table import (
     TableParser,
     canonical_rows_digest,
     find_cdte_rows,
