@@ -1,0 +1,41 @@
+name: acquire-browder-optica-table
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/acquire-browder-optica-table.yml'
+      - 'literature/browder1972_optica_table_acquisition_contract.json'
+      - 'tools/acquire_browder_optica_table.py'
+      - 'data/experimental/browder1972_cdte_irtran6_alpha.csv'
+      - 'tests/test_browder_optica_acquisition.py'
+      - 'first_principles/a0/cdte_lattice_execution_decision.json'
+      - 'tools/derive_cdte_execution_lattice.py'
+      - 'tests/test_cdte_execution_lattice.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Acquire and validate official Optica table
+        run: |
+          python tools/acquire_browder_optica_table.py \
+            --contract literature/browder1972_optica_table_acquisition_contract.json \
+            --evidence-dir browder-optica-acquisition-evidence
+
+      - name: Upload digest-only table evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browder-1972-optica-table-evidence
+          path: browder-optica-acquisition-evidence
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
