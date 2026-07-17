@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "stage": "A0_static_phonon_readiness",
   "authorization": {
     "static_scf": true,
@@ -16,10 +16,7 @@
       "repository": "QEF/q-e",
       "tag": "qe-7.4.1",
       "commit": "500de340b820e1cb8c05f2d8bb8fced102f377c1",
-      "executables": [
-        "pw.x",
-        "ph.x"
-      ],
+      "executables": ["pw.x", "ph.x"],
       "installed_version_output": null,
       "executable_sha256": {},
       "release_specific_syntax_checked": false
@@ -28,9 +25,7 @@
       "repository": "abinit/abinit",
       "tag": "10.6.5",
       "commit": "d50172aacfc501b46cd33ae58fda139e674d40e3",
-      "executables": [
-        "abinit"
-      ],
+      "executables": ["abinit"],
       "installed_version_output": null,
       "executable_sha256": {},
       "release_specific_syntax_checked": false
@@ -40,16 +35,8 @@
     "prototype": "zincblende",
     "primitive_atoms": 2,
     "fractional_positions": {
-      "Cd": [
-        0.0,
-        0.0,
-        0.0
-      ],
-      "Te": [
-        0.25,
-        0.25,
-        0.25
-      ]
+      "Cd": [0.0, 0.0, 0.0],
+      "Te": [0.25, 0.25, 0.25]
     },
     "candidate_reference_lattice_constant_angstrom": 6.482,
     "candidate_reference_temperature_k": 300,
@@ -65,11 +52,63 @@
       "reported_standard_uncertainty_angstrom": null,
       "observable_definition": null,
       "reference_volume_temperature_k": 0,
+      "absolute_anchor_candidate": {
+        "citation": "M. G. Williams, R. D. Tomlinson, and M. J. Hampshire, X-ray determination of the lattice parameters and thermal expansion of cadmium telluride in the temperature range 20-420 C, Solid State Communications 7, 1831-1832 (1969)",
+        "doi": "10.1016/0038-1098(69)90296-8",
+        "source_sha256": "963891204abd0b3c434297eec3a1d337c7bc67a3b937eda4bdfc373746702bab",
+        "status": "primary_cdte_xray_measurement_acquired_audited",
+        "method": "Unicam 19 cm X-ray powder camera; 99.999 percent CdTe",
+        "anchor_temperature_k": 293.15,
+        "polynomial_anchor_lattice_constant_angstrom": 6.480841894,
+        "observed_anchor_lattice_constant_angstrom": 6.4809,
+        "conservative_anchor_bound_angstrom": 0.000579,
+        "execution_value_authorized": false,
+        "reason_not_authorized": "transformation from the anchor to 0 K remains dominated by the unresolved 90-293 K expansion integral"
+      },
       "transformation_to_reference": {
         "method": null,
-        "thermal_expansion_citation": "G. K. White, J. G. Collins, J. A. Birch, and T. F. Smith, J. Phys. C 13, 1649 (1980)",
-        "thermal_expansion_source_sha256": null,
-        "thermal_expansion_status": "primary_measurement_identified_not_acquired",
+        "thermal_expansion_citation": "T. F. Smith and G. K. White, The low-temperature thermal expansion and Gruneisen parameters of some tetrahedrally bonded solids, J. Phys. C: Solid State Phys. 8, 2031-2042 (1975)",
+        "thermal_expansion_doi": "10.1088/0022-3719/8/13/012",
+        "thermal_expansion_source_sha256": "521e58912b46c6fba70f6e7c24135d79e8aa50d8ddc93addbaf97c4d38f74237",
+        "thermal_expansion_status": "primary_cdte_measurement_acquired_audited_but_interval_incomplete",
+        "reported_cdte_coverage_k": [
+          [0, 33],
+          [55, 90],
+          [283, 283]
+        ],
+        "low_temperature_law": "alpha_L(T)=-(170+/-10)e-12*T^3 K^-1 below 4 K",
+        "direct_rows_used_through_k": 85,
+        "uncovered_interval_to_room_temperature_k": [90, 293.15],
+        "coverage_gap_status": "unresolved_primary_bridge_or_uncertainty_bounded_decision_memo_required",
+        "priority_bridge_candidates": [
+          {
+            "citation": "J. S. Browder and S. S. Ballard, Thermal expansion measurements on four optical materials from room temperature to 10 K, Applied Optics 11, 841-843 (1972)",
+            "doi": "10.1364/AO.11.000841",
+            "sample": "polycrystalline hot-pressed CdTe Irtran 6",
+            "coverage_k": [10, 300],
+            "status": "identified_not_acquired"
+          },
+          {
+            "citation": "Greenough and Palmer, Journal of Physics D 6, 587-592 (1973)",
+            "doi": "10.1088/0022-3727/6/5/315",
+            "sample": "single-crystal CdTe",
+            "coverage_k": [42, 300],
+            "status": "identified_not_acquired"
+          }
+        ],
+        "excluded_non_cdte_source": {
+          "citation": "J. G. Collins, G. K. White, J. A. Birch, and T. F. Smith, J. Phys. C 13, 1649-1656 (1980)",
+          "doi": "10.1088/0022-3719/13/9/011",
+          "reason": "reports ZnTe and HgTe, not CdTe"
+        },
+        "planning_diagnostic": {
+          "central_bridge": "linear alpha between 85 and 283 K",
+          "bounding_rule": "monotone endpoint envelope",
+          "a0_central_angstrom": 6.477028,
+          "a0_lower_angstrom": 6.474443,
+          "a0_upper_angstrom": 6.479614,
+          "authorization": "planning_diagnostic_only_not_execution_input"
+        },
         "integration_temperature_bounds_k": null,
         "uncertainty_propagation": null,
         "derivation_manifest": null
@@ -79,73 +118,25 @@
       "reference_temperature_k": 0,
       "temperature_dependent_electron_phonon_runs_use_one_volume": true,
       "quasiharmonic_volume_path_authorized_in_a0": false,
-      "volume_fractional_offsets": [
-        -0.005,
-        0.0,
-        0.005
-      ],
-      "lattice_scale_factors": [
-        0.9983305478136913,
-        1.0,
-        1.001663896579312
-      ],
+      "volume_fractional_offsets": [-0.005, 0.0, 0.005],
+      "lattice_scale_factors": [0.9983305478136913, 1.0, 1.001663896579312],
       "relationship": "a/a_ref = (V/V_ref)^(1/3)",
       "double_counting_rule": "Hold V_ref fixed for every electron-phonon temperature point. Any future quasiharmonic term must be calculated and reported separately as the static band-edge change along V(T), then added once."
     }
   },
   "convergence_ladders": {
     "selection_status": "declared_not_run",
-    "ecutwfc_ry": [
-      94,
-      102,
-      114
-    ],
+    "ecutwfc_ry": [94, 102, 114],
     "ecutrho_reference_ecutwfc_ry": 114,
-    "ecutrho_ratio": [
-      4,
-      5,
-      6
-    ],
-    "ecutrho_ry": [
-      456,
-      570,
-      684
-    ],
-    "k_grid_n": [
-      4,
-      6,
-      8,
-      10,
-      12
-    ],
-    "k_grid_shift": [
-      0,
-      0,
-      0
-    ],
+    "ecutrho_ratio": [4, 5, 6],
+    "ecutrho_ry": [456, 570, 684],
+    "k_grid_n": [4, 6, 8, 10, 12],
+    "k_grid_shift": [0, 0, 0],
     "total_valence_electrons": 36,
-    "nbnd": [
-      40,
-      48,
-      56,
-      64
-    ],
-    "empty_spinor_bands": [
-      4,
-      12,
-      20,
-      28
-    ],
-    "scf_conv_thr_ry": [
-      1e-08,
-      1e-10,
-      1e-12
-    ],
-    "ph_tr2": [
-      1e-10,
-      1e-12,
-      1e-14
-    ]
+    "nbnd": [40, 48, 56, 64],
+    "empty_spinor_bands": [4, 12, 20, 28],
+    "scf_conv_thr_ry": [1e-08, 1e-10, 1e-12],
+    "ph_tr2": [1e-10, 1e-12, 1e-14]
   },
   "convergence_protocol": {
     "document": "first_principles/a0/cdte_a0_convergence_protocol.md",
