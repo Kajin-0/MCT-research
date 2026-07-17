@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Certify a canonical Gamma6/Gamma8/Gamma7 basis from symmetry matrices.
+"""Certify the Novik Gamma6/Gamma8/Gamma7 basis from symmetry matrices.
 
 This is a deterministic group-theory protocol test. It does not analyze a
 material calculation. Full symmetry representation matrices are required;
@@ -51,30 +51,33 @@ def su2_from_proper_rotation(matrix: np.ndarray) -> np.ndarray:
 
 
 def coupled_p_basis() -> tuple[np.ndarray, np.ndarray]:
-    # Spherical orbitals in Cartesian (X,Y,Z), Condon-Shortley convention.
-    plus = np.array([-1.0, -1j, 0.0]) / math.sqrt(2.0)
-    zero = np.array([0.0, 0.0, 1.0])
-    minus = np.array([1.0, -1j, 0.0]) / math.sqrt(2.0)
+    """Return the explicit Gamma8 and Gamma7 states of Novik Eq. (4).
+
+    Cartesian orbital order is ``(X,Y,Z)`` and spin order is ``(up,down)``.
+    The phase of the second Gamma7 state is essential: changing it preserves
+    characters but breaks covariance of the published Kane Hamiltonian.
+    """
+    x = np.array([1.0, 0.0, 0.0])
+    y = np.array([0.0, 1.0, 0.0])
+    z = np.array([0.0, 0.0, 1.0])
     up = np.array([1.0, 0.0])
     down = np.array([0.0, 1.0])
     product = lambda orbital, spin: np.kron(orbital, spin)
 
     gamma8 = np.column_stack(
         [
-            product(plus, up),
-            math.sqrt(2.0 / 3.0) * product(zero, up)
-            + math.sqrt(1.0 / 3.0) * product(plus, down),
-            math.sqrt(2.0 / 3.0) * product(zero, down)
-            + math.sqrt(1.0 / 3.0) * product(minus, up),
-            product(minus, down),
+            product(x + 1j * y, up) / math.sqrt(2.0),
+            (product(x + 1j * y, down) - 2.0 * product(z, up))
+            / math.sqrt(6.0),
+            -(product(x - 1j * y, up) + 2.0 * product(z, down))
+            / math.sqrt(6.0),
+            -product(x - 1j * y, down) / math.sqrt(2.0),
         ]
     )
     gamma7 = np.column_stack(
         [
-            math.sqrt(1.0 / 3.0) * product(zero, up)
-            - math.sqrt(2.0 / 3.0) * product(plus, down),
-            math.sqrt(1.0 / 3.0) * product(zero, down)
-            - math.sqrt(2.0 / 3.0) * product(minus, up),
+            (product(x + 1j * y, down) + product(z, up)) / math.sqrt(3.0),
+            (product(x - 1j * y, up) - product(z, down)) / math.sqrt(3.0),
         ]
     )
     return gamma8, gamma7
@@ -93,9 +96,15 @@ def target_blocks(orthogonal: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.nd
 
 
 def time_reversal_blocks() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Return antiunitary matrices in the Novik/Kane phase convention.
+
+    The p-like Bloch sector carries the conventional extra minus sign relative
+    to the s-like sector. This reproduces the time-reversal unitary used by the
+    executable Novik Hamiltonian rather than the bare Cartesian-orbital K gauge.
+    """
     spin = np.array([[0.0, -1.0], [1.0, 0.0]], dtype=complex)
     gamma8_basis, gamma7_basis = coupled_p_basis()
-    p_spin = np.kron(np.eye(3), spin)
+    p_spin = -np.kron(np.eye(3), spin)
     return (
         spin,
         gamma8_basis.conj().T @ p_spin @ gamma8_basis.conj(),
@@ -161,6 +170,7 @@ def analyze() -> dict[str, object]:
 
     result: dict[str, object] = {
         "status": "analytical_protocol_only_not_material_data",
+        "basis_convention": "Novik_2005_Eq_4",
         "generators": ["C3_[111]", "S4_z"],
         "irreps": {},
     }
@@ -225,8 +235,8 @@ def analyze() -> dict[str, object]:
     result["decision"] = (
         "Characters identify Gamma6, Gamma8, and Gamma7 but cannot define their "
         "internal bases. Full C3 and S4 representation matrices give a unique complex "
-        "intertwiner in each irrep by Schur's lemma; time reversal removes its continuous "
-        "phase, leaving only conventional discrete signs."
+        "intertwiner in each irrep by Schur's lemma; Novik-convention time reversal "
+        "removes its continuous phase, leaving only conventional discrete signs."
     )
     return result
 
