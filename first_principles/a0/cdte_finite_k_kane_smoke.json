@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "stage": "cdte_static_finite_k_kane_method_smoke",
   "purpose": "Rotate the 13-point CdTe static smoke into the exact Novik basis, fix only the remaining discrete inter-irrep signs, apply two-radius matrix extrapolation, fit on [001] and [111], and reserve [110] as a closure holdout.",
   "pairs": {
@@ -38,7 +38,9 @@
   "thresholds": {
     "minimum_overlap_singular_value": 0.995,
     "maximum_time_reversal_pair_residual_ev": 1e-6,
+    "maximum_linear_training_relative_residual": 0.02,
     "maximum_linear_holdout_relative_residual": 0.05,
+    "maximum_quadratic_training_relative_residual": 0.25,
     "maximum_quadratic_holdout_relative_residual": 0.25
   },
   "authorization": {
@@ -53,5 +55,5 @@
     "hgte": false,
     "alloy": false
   },
-  "claim_boundary": "Any extracted numbers are static planning-geometry method-smoke values from unconverged PBE inputs. They may validate matrix reconstruction, phase/sign handling, two-radius extraction, and held-out closure only. They are not reference CdTe material parameters and do not authorize phonon, AHC, HgTe, or alloy work."
+  "claim_boundary": "Any extracted numbers are static planning-geometry method-smoke values from unconverged PBE inputs. The linear and quadratic parameter blocks are gated independently. Values in a failed block are not validated even as method-smoke parameters. No result is a reference CdTe material parameter, and no result authorizes phonon, AHC, HgTe, or alloy work."
 }
