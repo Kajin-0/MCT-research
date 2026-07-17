@@ -104,8 +104,8 @@ stage="qe_configure"
     ./configure --disable-parallel --enable-openmp --with-scalapack=no \
     > "$EVIDENCE/build/qe.configure.out" 2> "$EVIDENCE/build/qe.configure.err"
 )
-cp "$WORK/src/qe/configure.msg" "$EVIDENCE/build/qe.configure.msg" || true
-cp "$WORK/src/qe/config.log" "$EVIDENCE/build/qe.config.log" || true
+cp "$WORK/src/qe/install/configure.msg" "$EVIDENCE/build/qe.configure.msg" || true
+cp "$WORK/src/qe/install/config.log" "$EVIDENCE/build/qe.config.log" || true
 cp "$WORK/src/qe/make.inc" "$EVIDENCE/build/qe.make.inc" || true
 
 stage="qe_build"
@@ -148,11 +148,14 @@ import json, pathlib, sys
 text = pathlib.Path(sys.argv[1]).read_text()
 start = text.lower().index('begin nnkpts')
 end = text.lower().index('end nnkpts', start)
-rows = [line.split() for line in text[start:end].splitlines()[1:] if line.strip()]
+entries = [line.split() for line in text[start:end].splitlines()[1:] if line.strip()]
+if not entries or entries[0] != ['1']:
+    raise SystemExit(f'expected declared nntot=1, got {entries[:1]!r}')
+rows = entries[1:]
 expected = [[str(i), '1', '0', '0', '0'] for i in range(1, 14)]
 if rows != expected:
     raise SystemExit(f'nnkpts mismatch: {rows!r}')
-print(json.dumps({'status':'exact_gamma_star_verified','row_count':len(rows),'rows':rows}, indent=2))
+print(json.dumps({'status':'exact_gamma_star_verified','nntot':1,'row_count':len(rows),'rows':rows}, indent=2))
 PY
 
 export OMP_NUM_THREADS=2
