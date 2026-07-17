@@ -1,0 +1,105 @@
+{
+  "antiunitary_operation_count": 24,
+  "authorization": {
+    "all_antiunitary_validation": true,
+    "all_unitary_double_group_validation": true,
+    "alloy": false,
+    "canonical_gamma_basis": true,
+    "direct_wavefunction_irrep_assignment": true,
+    "electron_phonon_self_energy": false,
+    "finite_k_kane_parameter_fit": false,
+    "hgte": false,
+    "phonons": false,
+    "relative_inter_irrep_sign_fix": false
+  },
+  "claim_boundary": "Passing this gate validates the selected CdTe Gamma subspaces and their canonical internal bases under the complete generated Td double-group section. It does not establish converged physical CdTe Kane parameters, finite-k sign conventions, phonons, electron-phonon renormalization, HgTe, or alloy results.",
+  "double_group_element_count": 48,
+  "evidence_artifact": {
+    "artifact_id": 8411752451,
+    "artifact_sha256": "673860fcb5a37966ddca601ec7977b012bdf0e2e5389fc6ef8e3a806538f01b2",
+    "expires_at": "2026-08-16T15:36:33Z",
+    "workflow_run_id": 29592084036
+  },
+  "full_runtime_result_sha256": "bf246392ee62062b7c2bc1e127f14e64cf626bba583fc6988eae340d0436b555",
+  "generator_operation_indices": {
+    "C3_[111]": 41,
+    "S4_z": 23,
+    "pure_time_reversal": 2
+  },
+  "irreps": {
+    "Gamma6": {
+      "bands_one_based": [37, 38],
+      "generator_intertwiner_nullity": 1,
+      "generator_next_singular_value": 1.0000000000002205,
+      "generator_smallest_singular_value": 3.7831602394537307e-13,
+      "generator_symmetry_residual": 5.088164722527616e-13,
+      "intertwiner": [
+        [[-0.05210787545286827, -0.10319259202112664], [0.9851670327164679, -0.12681473067581653]],
+        [[-0.844200086000226, -0.5234140550892388], [-0.09016447364809294, 0.07234852744882028]]
+      ],
+      "intertwiner_unitarity_residual": 2.919287584996298e-16,
+      "maximum_antiunitary_residual": 1.5032601866096727e-12,
+      "maximum_unitary_residual": 1.6835990212378897e-12,
+      "probe_block_index": 2,
+      "pure_time_reversal_residual": 8.614714330407692e-16
+    },
+    "Gamma7": {
+      "bands_one_based": [31, 32],
+      "generator_intertwiner_nullity": 1,
+      "generator_next_singular_value": 1.0,
+      "generator_smallest_singular_value": 8.272046999712901e-16,
+      "generator_symmetry_residual": 9.51817968857363e-16,
+      "intertwiner": [
+        [[-0.38611531572281577, -0.417833109712632], [-0.5656134299381724, 0.5970024315408758]],
+        [[-0.6641300558017991, 0.4850378587005773], [-0.36529735277557723, -0.4361506490457322]]
+      ],
+      "intertwiner_unitarity_residual": 1.3738309013483032e-16,
+      "maximum_antiunitary_residual": 4.435684875175422e-15,
+      "maximum_unitary_residual": 4.182904297108549e-15,
+      "probe_block_index": 0,
+      "pure_time_reversal_residual": 6.923959209921681e-16
+    },
+    "Gamma8": {
+      "bands_one_based": [33, 34, 35, 36],
+      "generator_intertwiner_nullity": 1,
+      "generator_next_singular_value": 0.9999999999998794,
+      "generator_smallest_singular_value": 1.7808187921464389e-12,
+      "generator_symmetry_residual": 3.317328433505999e-12,
+      "intertwiner": [
+        [[0.6090721403661705, -0.0972606307290434], [-0.14551559547202642, 0.27941685881403167], [0.576271984108411, -0.023608819075843605], [0.019568793172551818, 0.43277386052331185]],
+        [[-0.2372269179771199, 0.4000273149030209], [0.0030698292392861834, 0.0558366429151889], [0.047108112005095994, 0.22072202736524757], [0.7990461745078676, 0.30193079604172895]],
+        [[-0.6064419187896078, -0.11048595651574826], [0.03781654711728903, 0.19560860864890936], [0.7021114248843048, 0.15571508188342625], [-0.14558217445209487, -0.20475943039799538]],
+        [[0.07076517812595856, 0.1352271288273788], [0.5788743172329748, 0.7230739808456292], [-0.2310961533781263, 0.21401580462080952], [-0.13899262849088215, -0.01572605346402166]]
+      ],
+      "intertwiner_unitarity_residual": 8.189070805870685e-16,
+      "maximum_antiunitary_residual": 6.195750072610022e-12,
+      "maximum_unitary_residual": 5.315026705097769e-12,
+      "probe_block_index": 1,
+      "pure_time_reversal_residual": 3.66658583520477e-12
+    }
+  },
+  "maximum_canonical_matrix_residual": 6.195750072610022e-12,
+  "maximum_operation_rotation_mapping_residual": 3.4721453107352435e-15,
+  "maximum_operation_spinor_lift_mapping_residual": 2.761644904721361e-15,
+  "operation_validation_summary": {
+    "all_operations_below_declared_threshold": true,
+    "omitted_from_committed_summary": "Per-operation records remain in the hashed workflow artifact; canonical intertwiners and maximum residuals are committed here.",
+    "operation_count": 48
+  },
+  "probe_data_file_schema_sha256": "72ece3ecc1ae2f4478b2f603166820c0dea19e0ebb1c8b5b30ad271240ab57fa",
+  "probe_json_sha256": "d2da969d345e0173a119ff0d5417c35e6e839e154cc12786b99c882e8d933e8c",
+  "remaining_freedom": "One relative discrete sign per inequivalent irrep remains. Fix those signs only with a declared linear-k Kane matrix-element convention.",
+  "schema_version": "1.0",
+  "selected_global_bands_one_based": [31, 32, 33, 34, 35, 36, 37, 38],
+  "space_group_name": "F-43m1'",
+  "space_group_number": "216.75",
+  "status": "validated_full_cdte_gamma_double_group_canonical_basis",
+  "unitary_operation_count": 24,
+  "upstream": {
+    "merged_probe_commit": "1ff2a76408a7914b73a5566a630d014023c3887f",
+    "probe_contract": "first_principles/a0/cdte_irrep_symmetry_probe.json",
+    "probe_workflow": ".github/workflows/cdte-irrep-symmetry-probe.yml",
+    "reference_artifact_id": 8400377373,
+    "reference_artifact_sha256": "7f84a4288a1bae05e94fc9ca8f790c72ff6ec4e52a4fc40a2bfdbac99839046b"
+  }
+}
