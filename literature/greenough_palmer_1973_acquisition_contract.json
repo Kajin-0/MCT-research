@@ -1,0 +1,41 @@
+{
+  "citation": {
+    "authors": [
+      "R. D. Greenough",
+      "S. B. Palmer"
+    ],
+    "title": "The elastic constants and thermal expansion of single-crystal CdTe",
+    "journal": "Journal of Physics D: Applied Physics",
+    "volume": 6,
+    "pages": "587-592",
+    "year": 1973,
+    "doi": "10.1088/0022-3727/6/5/315"
+  },
+  "acquisition": {
+    "source_url": "https://legacybk.s3.us-west-2.amazonaws.com/HTH-Archives/Cabinet%202/G/Greenough%2C%20R.D/Combined%20%28linked%29/Greenough%2C%20R.D.-9417-9419.pdf",
+    "expected_media_type": "application/pdf",
+    "expected_page_count": 6,
+    "minimum_size_bytes": 100000,
+    "maximum_size_bytes": 10000000,
+    "required_text_markers": [
+      "The elastic constants and thermal expansion of single-crystal",
+      "R D Greenough and S B Palmer",
+      "modified Bridgman technique",
+      "strain-gauge technique",
+      "relative errors in",
+      "63.7 K",
+      "79.0"
+    ]
+  },
+  "rights_and_storage": {
+    "commit_pdf_to_repository": false,
+    "upload_pdf_as_artifact": false,
+    "upload_full_text_as_artifact": false,
+    "preserve_only_digest_metadata_and_validation": true
+  },
+  "scientific_gate": {
+    "purpose": "Audit the preferred primary single-crystal CdTe thermal-expansion bridge over 4.2-300 K.",
+    "execution_lattice_authorized_by_acquisition_alone": false,
+    "required_follow_up": "Digitize or otherwise recover the published thermal-expansion curve and propagate its approximately 3 percent relative alpha uncertainty to the Williams room-temperature lattice anchor before selecting an execution lattice."
+  }
+}
