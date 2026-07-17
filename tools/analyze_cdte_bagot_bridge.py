@@ -72,7 +72,9 @@ def analyze(source_json: str | Path) -> dict[str, object]:
     )
     williams_293 = float(alpha_williams(20.0))
     browder = analyze_browder()
-    browder_adjusted_a0 = float(browder["adjusted_bridge"]["a0_a"])
+    browder_adjusted_a0 = float(
+        browder["zero_k_sensitivity"]["endpoint_adjusted_browder_shape_a0_a"]
+    )
     previous_linear_a0 = 6.477028
 
     spread = abs(a0 - browder_adjusted_a0)
