@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "status": "secondary_bagot_bridge_diagnostic_not_execution_authorized",
+  "source": {
+    "citation": "A. Bogucki et al., Physical Review B 105, 075412 (2022)",
+    "doi": "10.1103/PhysRevB.105.075412",
+    "arxiv": "2106.06451",
+    "location": "Appendix A, equations A2-A3 and Table II",
+    "source_status": "secondary_analytic_fit_exact_coefficients_recorded_source_bytes_not_hashed"
+  },
+  "underlying_primary_source": {
+    "citation": "D. Bagot, R. Granger, and S. Rolland, physica status solidi (b) 177, 295-308 (1993)",
+    "doi": "10.1002/pssb.2221770205",
+    "source_bytes_sha256": null,
+    "status": "identified_not_acquired"
+  },
+  "smith_white_direct_overlap": {
+    "rms_alpha_difference_1e6_per_k": 0.18347459547705605,
+    "maximum_absolute_alpha_difference_1e6_per_k": 0.3468363985047619,
+    "bagot_fit_alpha_283_1e6_per_k": 4.557894668437062,
+    "smith_white_alpha_283_1e6_per_k": 4.7
+  },
+  "williams_anchor_cross_check": {
+    "bagot_fit_alpha_293_15_1e6_per_k": 4.586521105953768,
+    "williams_alpha_293_15_1e6_per_k": 4.955871200000001,
+    "difference_1e6_per_k": -0.3693500940462329
+  },
+  "zero_temperature_diagnostic": {
+    "bagot_fit_integral_0_293_15": 0.0006813837842361474,
+    "williams_anchor_angstrom": 6.480841894,
+    "bagot_fit_a0_angstrom": 6.47642745755873,
+    "adjusted_browder_a0_angstrom": 6.476035479332049,
+    "bridge_model_spread_angstrom": 0.00039197822668057825,
+    "previous_linear_bridge_a0_angstrom": 6.477028,
+    "bagot_minus_previous_linear_angstrom": -0.0006005424412691691
+  },
+  "two_model_planning_envelope": {
+    "midpoint_angstrom": 6.476231468445389,
+    "model_half_spread_angstrom": 0.00019598911334028912,
+    "williams_anchor_bound_angstrom": 0.000579,
+    "conservative_sum_bound_angstrom": 0.0007749891133402891,
+    "conservative_lattice_fraction": 0.00011966667916616702,
+    "first_order_volume_fraction": 0.00035900003749850105,
+    "fraction_of_half_percent_volume_bracket": 0.07180000749970021,
+    "authorization": "sensitivity_diagnostic_only"
+  },
+  "decision": {
+    "bridge_plausibility_supported": true,
+    "numerical_geometry_narrow_relative_to_a0_volume_bracket": true,
+    "execution_bridge_authorized": false,
+    "remaining_blocker": "primary source provenance and uncertainty, not numerical sensitivity",
+    "next_gate": "Acquire and hash Bagot 1993 or Greenough-Palmer 1973; prefer Greenough for a morphology-consistent single-crystal execution bridge."
+  },
+  "authorization": {
+    "planning_bridge_diagnostic": true,
+    "execution_lattice_constant": false,
+    "new_electronic_structure_run": false,
+    "phonons": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "The coefficients are from a secondary analytic fit to literature CdTe expansion data. The result bounds planning sensitivity but does not close execution provenance or establish a validated zero-temperature CdTe lattice constant."
+}
