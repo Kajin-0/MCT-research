@@ -1,0 +1,10 @@
+&INPUTPP
+  prefix = 'cdte_kane'
+  outdir = './tmp'
+  seedname = 'cdte_kane'
+  spin_component = 'none'
+  wan_mode = 'standalone'
+  write_mmn = .true.
+  write_amn = .false.
+  write_unk = .false.
+/

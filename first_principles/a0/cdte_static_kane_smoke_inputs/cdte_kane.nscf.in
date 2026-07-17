@@ -1,0 +1,53 @@
+&CONTROL
+  calculation = 'nscf'
+  title = 'CdTe static Kane planning smoke: 13-point SOC NSCF'
+  prefix = 'cdte_kane'
+  pseudo_dir = './pseudo'
+  outdir = './tmp'
+  verbosity = 'high'
+  restart_mode = 'from_scratch'
+  disk_io = 'low'
+/
+&SYSTEM
+  ibrav = 0
+  nat = 2
+  ntyp = 2
+  nbnd = 40
+  ecutwfc = 94
+  ecutrho = 376
+  occupations = 'fixed'
+  noncolin = .true.
+  lspinorb = .true.
+  nosym = .true.
+  noinv = .true.
+  no_t_rev = .true.
+/
+&ELECTRONS
+  conv_thr = 1.0e-08
+  startingpot = 'file'
+/
+ATOMIC_SPECIES
+  Cd 112.414 Cd-sp_r.upf
+  Te 127.60 Te-d_r.upf
+ATOMIC_POSITIONS crystal
+  Cd 0 0 0
+  Te 0.25 0.25 0.25
+CELL_PARAMETERS angstrom
+  0 3.238 3.238
+  3.238 0 3.238
+  3.238 3.238 0
+K_POINTS crystal
+  13
+  0 0 0 1.0 ! 01 Gamma
+  0.005153437057316 0.005153437057316 0 1.0 ! 02 +001_h
+  -0.005153437057316 -0.005153437057316 0 1.0 ! 03 -001_h
+  0.002576718528658 0.002576718528658 0 1.0 ! 04 +001_h_over_2
+  -0.002576718528658 -0.002576718528658 0 1.0 ! 05 -001_h_over_2
+  0.005950676544586 0.005950676544586 0.005950676544586 1.0 ! 06 +111_h
+  -0.005950676544586 -0.005950676544586 -0.005950676544586 1.0 ! 07 -111_h
+  0.002975338272293 0.002975338272293 0.002975338272293 1.0 ! 08 +111_h_over_2
+  -0.002975338272293 -0.002975338272293 -0.002975338272293 1.0 ! 09 -111_h_over_2
+  0.003644030289646 0.003644030289646 0.007288060579292 1.0 ! 10 +110_h
+  -0.003644030289646 -0.003644030289646 -0.007288060579292 1.0 ! 11 -110_h
+  0.001822015144823 0.001822015144823 0.003644030289646 1.0 ! 12 +110_h_over_2
+  -0.001822015144823 -0.001822015144823 -0.003644030289646 1.0 ! 13 -110_h_over_2
