@@ -49,8 +49,40 @@ def test_repository_protocol_is_symmetric_and_fixed_volume() -> None:
     assert "added once" in protocol["double_counting_rule"]
 
 
-def test_planning_grid_is_explicitly_non_executable() -> None:
+def test_repository_bounded_execution_grid_is_auditable() -> None:
     specification = _load_specification()
+    result = grid_from_specification(specification)
+
+    assert result["reference_status"] == "execution_reference"
+    assert result["execution_authorized"] is True
+    assert result["reference_source_type"] == (
+        "primary_experimental_with_bounded_transform"
+    )
+    assert result["reference_lattice_constant_angstrom"] == pytest.approx(
+        6.476035479332049
+    )
+    assert result["reference_lattice_conservative_bound_angstrom"] == pytest.approx(
+        0.0018149594091957418
+    )
+    assert [point["volume_ratio"] for point in result["points"]] == pytest.approx(
+        [0.995, 1.0, 1.005]
+    )
+    for point in result["points"]:
+        assert math.isclose(
+            (
+                point["lattice_constant_angstrom"]
+                / result["reference_lattice_constant_angstrom"]
+            )
+            ** 3,
+            point["volume_ratio"],
+            rel_tol=0.0,
+            abs_tol=1e-14,
+        )
+
+
+def test_planning_grid_remains_explicitly_non_executable() -> None:
+    specification = copy.deepcopy(_load_specification())
+    specification["structure"]["execution_lattice_constant_angstrom"] = None
 
     with pytest.raises(ValueError, match="execution lattice is unresolved"):
         grid_from_specification(specification)
@@ -61,27 +93,26 @@ def test_planning_grid_is_explicitly_non_executable() -> None:
     )
     assert result["reference_status"] == "planning_candidate_only"
     assert result["execution_authorized"] is False
+    assert result["reference_source_type"] is None
+    assert result["reference_lattice_conservative_bound_angstrom"] is None
     assert result["reference_lattice_constant_angstrom"] == pytest.approx(6.482)
-    assert [point["volume_ratio"] for point in result["points"]] == pytest.approx(
-        [0.995, 1.0, 1.005]
-    )
 
 
 def test_primary_execution_anchor_generates_auditable_grid() -> None:
     specification = copy.deepcopy(_load_specification())
     structure = specification["structure"]
     structure["execution_lattice_constant_angstrom"] = 6.47
-    structure["execution_lattice_constant_source"].update(
-        {
-            "source_type": "primary_experimental",
-            "source_sha256": "a" * 64,
-        }
-    )
+    structure["execution_lattice_constant_source"] = {
+        "source_type": "primary_experimental",
+        "source_sha256": "a" * 64,
+    }
 
     result = grid_from_specification(specification)
 
     assert result["reference_status"] == "execution_reference"
     assert result["execution_authorized"] is True
+    assert result["reference_source_type"] == "primary_experimental"
+    assert result["reference_lattice_conservative_bound_angstrom"] is None
     for point in result["points"]:
         assert math.isclose(
             (point["lattice_constant_angstrom"] / 6.47) ** 3,
@@ -95,14 +126,21 @@ def test_execution_grid_rejects_nonhex_source_hash() -> None:
     specification = copy.deepcopy(_load_specification())
     structure = specification["structure"]
     structure["execution_lattice_constant_angstrom"] = 6.47
-    structure["execution_lattice_constant_source"].update(
-        {
-            "source_type": "primary_experimental",
-            "source_sha256": "z" * 64,
-        }
-    )
+    structure["execution_lattice_constant_source"] = {
+        "source_type": "primary_experimental",
+        "source_sha256": "z" * 64,
+    }
 
-    with pytest.raises(ValueError, match="primary experimental source SHA-256"):
+    with pytest.raises(ValueError, match="accepted primary source record and SHA-256"):
+        grid_from_specification(specification)
+
+
+def test_bounded_grid_rejects_failed_volume_gate() -> None:
+    specification = copy.deepcopy(_load_specification())
+    source = specification["structure"]["execution_lattice_constant_source"]
+    source["execution_uncertainty"]["volume_sensitivity_gate_passed"] = False
+
+    with pytest.raises(ValueError, match="accepted primary source record and SHA-256"):
         grid_from_specification(specification)
 
 

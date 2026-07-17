@@ -1,0 +1,125 @@
+{
+  "claim_boundary": "This value is an uncertainty-bounded fixed-volume reference for the declared A0 sensitivity bracket. It is not a universal or metrology-grade 0 K CdTe lattice constant and does not validate morphology independence.",
+  "cross_checks": {
+    "all_contained": true,
+    "comparison_lattices_angstrom": {
+      "bagot_bogucki_secondary_fit": 6.47642745755873,
+      "previous_endpoint_linear_bridge": 6.477027844498404,
+      "smith_below_10_then_browder": 6.475761132656422,
+      "smith_through_85_then_raw_browder": 6.475903772579934
+    },
+    "contained_by_total_bound": {
+      "bagot_bogucki_secondary_fit": true,
+      "previous_endpoint_linear_bridge": true,
+      "smith_below_10_then_browder": true,
+      "smith_through_85_then_raw_browder": true
+    },
+    "offsets_from_central_angstrom": {
+      "bagot_bogucki_secondary_fit": 0.00039197822668057825,
+      "previous_endpoint_linear_bridge": 0.000992365166355036,
+      "smith_below_10_then_browder": -0.0002743466756269797,
+      "smith_through_85_then_raw_browder": -0.00013170675211515714
+    }
+  },
+  "decision": {
+    "execution_lattice_conservative_bound_angstrom": 0.0018149594091957418,
+    "execution_lattice_constant_angstrom": 6.476035479332049,
+    "metrology_grade_zero_k_lattice_claim": false,
+    "new_electronic_structure_run_authorized_by_this_manifest": false,
+    "physical_volume_provenance_gate_passed_for_a0_sensitivity": true,
+    "quasiharmonic_path_authorized": false,
+    "remaining_a0_blockers": [
+      "installed runtime binary hashes and version outputs",
+      "release-specific rendered-input syntax validation",
+      "runtime pseudopotential-copy hash verification",
+      "rendered QE and ABINIT input manifests"
+    ]
+  },
+  "gate_components": {
+    "all_comparison_lattices_contained": true,
+    "morphology_bound_exceeds_bagot_crosscheck_offset": true,
+    "publisher_alpha_transcription_exact": true,
+    "publisher_temperature_transcription_exact": true,
+    "volume_bound_below_declared_limit": true
+  },
+  "reference_lattice": {
+    "central_angstrom": 6.476035479332049,
+    "conservative_absolute_bound_angstrom": 0.0018149594091957418,
+    "lower_conservative_bound_angstrom": 6.474220519922853,
+    "reference_temperature_k": 0.0,
+    "uncertainty_type": "conservative_absolute_bound_not_standard_uncertainty",
+    "upper_conservative_bound_angstrom": 6.477850438741245
+  },
+  "schema_version": "1.0",
+  "source_chain": {
+    "absolute_anchor": {
+      "citation": "M. G. Williams, R. D. Tomlinson, and M. J. Hampshire, X-ray determination of the lattice parameters and thermal expansion of cadmium telluride in the temperature range 20-420 C, Solid State Communications 7, 1831-1832 (1969)",
+      "conservative_absolute_bound_angstrom": 0.000579,
+      "doi": "10.1016/0038-1098(69)90296-8",
+      "lattice_constant_angstrom": 6.480841894,
+      "measurement_temperature_k": 293.15,
+      "source_sha256": "963891204abd0b3c434297eec3a1d337c7bc67a3b937eda4bdfc373746702bab"
+    },
+    "bridge_shape": {
+      "bridge_interval_used_k": [
+        85.0,
+        293.15
+      ],
+      "canonical_table_sha256": "832c7b191d1a93a5f828e63125ea8dcd18e42c998b33f77b3ee1239f54a5afe7",
+      "citation": {
+        "authors": [
+          "James Steve Browder",
+          "Stanley S. Ballard"
+        ],
+        "doi": "10.1364/AO.11.000841",
+        "issue": 4,
+        "journal": "Applied Optics",
+        "pages": "841-843",
+        "title": "Thermal Expansion Measurements on Four Optical Materials from Room Temperature to 10 K",
+        "volume": 11,
+        "year": 1972
+      },
+      "endpoint_adjustment": "linearly adjust Browder alpha to Smith-White at 85 K and Williams alpha at 293.15 K",
+      "material_form": "microcrystalline hot-pressed CdTe Irtran 6",
+      "publisher_table_exactly_matches_committed_csv": true,
+      "source_url": "https://opg.optica.org/ao/abstract.cfm?uri=ao-11-4-841",
+      "temperature_range_k": [
+        10.0,
+        300.0
+      ]
+    },
+    "low_temperature_expansion": {
+      "citation": "T. F. Smith and G. K. White, The low-temperature thermal expansion and Gruneisen parameters of some tetrahedrally bonded solids, J. Phys. C: Solid State Phys. 8, 2031-2042 (1975)",
+      "direct_data_used_through_k": 85.0,
+      "doi": "10.1088/0022-3719/8/13/012",
+      "source_sha256": "521e58912b46c6fba70f6e7c24135d79e8aa50d8ddc93addbaf97c4d38f74237"
+    }
+  },
+  "status": "authorized_for_fixed_volume_a0_sensitivity_not_metrology_reference",
+  "uncertainty_components": {
+    "combination_rule": "linear sum of absolute component bounds",
+    "morphology_transfer": {
+      "integral_bound": 0.00018941649999999998,
+      "interval_k": [
+        85.0,
+        293.15
+      ],
+      "interval_width_k": 208.14999999999998,
+      "largest_overlap_alpha_difference_1e6_per_k": 0.91,
+      "lattice_bound_angstrom": 0.0012267841572843113,
+      "rule": "apply the largest absolute Browder-minus-Smith alpha difference as a constant signed error over the entire unresolved interval"
+    },
+    "publisher_table_rounding_bound_angstrom": 9.1752519114305e-06,
+    "total_bound_angstrom": 0.0018149594091957418,
+    "williams_anchor_bound_angstrom": 0.000579
+  },
+  "volume_sensitivity_gate": {
+    "declared_maximum_fraction_of_offset": 0.2,
+    "fraction_of_intended_offset": 0.16820180670964469,
+    "intended_one_sided_a0_volume_offset": 0.005,
+    "lower_volume_fraction": -0.0008405377669657987,
+    "maximum_absolute_volume_fraction": 0.0008410090335482234,
+    "passed": true,
+    "upper_volume_fraction": 0.0008410090335482234
+  }
+}

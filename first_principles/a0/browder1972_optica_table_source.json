@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "citation": {
+    "authors": [
+      "James Steve Browder",
+      "Stanley S. Ballard"
+    ],
+    "title": "Thermal Expansion Measurements on Four Optical Materials from Room Temperature to 10 K",
+    "journal": "Applied Optics",
+    "volume": 11,
+    "issue": 4,
+    "pages": "841-843",
+    "year": 1972,
+    "doi": "10.1364/AO.11.000841"
+  },
+  "publisher_source": {
+    "url": "https://opg.optica.org/ao/abstract.cfm?uri=ao-11-4-841",
+    "source_location": "official Optica HTML Table I",
+    "table_title": "Coefficients of Linear Thermal Expansion (in Units of 10^-6/K) of Four ir-Transmitting Optical Materials",
+    "material_column": "CdTe (Irtran 6)",
+    "row_count": 25,
+    "temperature_range_k": [
+      10.0,
+      300.0
+    ],
+    "canonical_table_rows_sha256": "832c7b191d1a93a5f828e63125ea8dcd18e42c998b33f77b3ee1239f54a5afe7",
+    "committed_csv": "data/experimental/browder1972_cdte_irtran6_alpha.csv",
+    "committed_csv_exact_match": true,
+    "maximum_temperature_difference_k": 0.0,
+    "maximum_alpha_difference_1e6_per_k": 0.0
+  },
+  "acquisition_evidence": {
+    "workflow_run": 29621327382,
+    "artifact_id": 8422291894,
+    "artifact_digest": "sha256:c372af38ccb9c4cc86945f008ab0121fb29e01290e70cf01dbd6e07e8086b349",
+    "retrieved_at_utc": "2026-07-17T23:41:31.018826+00:00",
+    "retrieval_instance_html_sha256": "35314e5ff1d9b5c5711fb6c8abc9aff69c746e44b0c23331850147d679f3ce8b",
+    "publisher_page_is_dynamic": true,
+    "authoritative_data_identity": "canonical_table_rows_sha256",
+    "publisher_html_committed_or_uploaded": false
+  },
+  "sample": {
+    "material": "CdTe Irtran 6",
+    "form": "microcrystalline hot-pressed",
+    "manufacturer": "Eastman Kodak Co."
+  },
+  "measurement": {
+    "method": "three-terminal capacitance-type dilatometer incorporated into a cryostat",
+    "observable": "linear thermal expansion coefficient",
+    "units": "1e-6 K^-1"
+  },
+  "claim_boundary": "The canonical hash identifies the exact 25-row primary publisher table. The surrounding publisher HTML is dynamic and is not used as the source identity."
+}

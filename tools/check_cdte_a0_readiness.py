@@ -45,6 +45,17 @@ def _valid_sha256(value: Any) -> bool:
     return bool(_SHA256.fullmatch(str(value)))
 
 
+def _conservative_bound_complete(record: Any) -> bool:
+    return (
+        isinstance(record, dict)
+        and record.get("type")
+        == "conservative_absolute_bound_not_standard_uncertainty"
+        and _finite_number(record.get("conservative_absolute_bound_angstrom"))
+        and record["conservative_absolute_bound_angstrom"] >= 0
+        and _nonempty_string(record.get("provenance"))
+    )
+
+
 def _lattice_provenance_complete(
     lattice: Any,
     source: Any,
@@ -52,21 +63,35 @@ def _lattice_provenance_complete(
     if not (_finite_number(lattice) and lattice > 0 and isinstance(source, dict)):
         return False
 
+    source_type = source.get("source_type")
     measurement_temperature = source.get("measurement_temperature_k")
     reported_lattice = source.get("reported_lattice_constant_angstrom")
     reported_uncertainty = source.get("reported_standard_uncertainty_angstrom")
     reference_temperature = source.get("reference_volume_temperature_k")
 
+    direct_uncertainty_complete = (
+        source_type == "primary_experimental"
+        and _finite_number(reported_uncertainty)
+        and reported_uncertainty >= 0
+    )
+    bounded_anchor_complete = (
+        source_type == "primary_experimental_with_bounded_transform"
+        and reported_uncertainty is None
+        and _conservative_bound_complete(source.get("anchor_uncertainty"))
+    )
     anchor_complete = (
-        source.get("source_type") == "primary_experimental"
+        source_type
+        in {
+            "primary_experimental",
+            "primary_experimental_with_bounded_transform",
+        }
         and _nonempty_string(source.get("citation"))
         and _valid_sha256(source.get("source_sha256"))
         and _finite_number(measurement_temperature)
         and measurement_temperature >= 0
         and _finite_number(reported_lattice)
         and reported_lattice > 0
-        and _finite_number(reported_uncertainty)
-        and reported_uncertainty >= 0
+        and (direct_uncertainty_complete or bounded_anchor_complete)
         and _nonempty_string(source.get("observable_definition"))
         and _finite_number(reference_temperature)
         and reference_temperature >= 0
@@ -81,6 +106,8 @@ def _lattice_provenance_complete(
         abs_tol=1e-12,
     )
     if same_temperature:
+        if not direct_uncertainty_complete:
+            return False
         return math.isclose(
             float(lattice),
             float(reported_lattice),
@@ -109,7 +136,7 @@ def _lattice_provenance_complete(
             abs_tol=1e-12,
         )
     )
-    return (
+    transformation_complete = (
         _nonempty_string(transformation.get("method"))
         and _nonempty_string(transformation.get("thermal_expansion_citation"))
         and _valid_sha256(transformation.get("thermal_expansion_source_sha256"))
@@ -119,6 +146,32 @@ def _lattice_provenance_complete(
         and _nonempty_string(transformation.get("uncertainty_propagation"))
         and _nonempty_string(transformation.get("derivation_manifest"))
     )
+    if not transformation_complete:
+        return False
+
+    if source_type == "primary_experimental":
+        return True
+
+    execution_uncertainty = source.get("execution_uncertainty")
+    bounded_transformation_complete = (
+        transformation.get("uncertainty_model_status")
+        == "approved_conservative_interval_model"
+        and _finite_number(transformation.get("derived_reference_lattice_angstrom"))
+        and math.isclose(
+            float(lattice),
+            float(transformation["derived_reference_lattice_angstrom"]),
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        )
+        and _conservative_bound_complete(execution_uncertainty)
+        and execution_uncertainty.get(
+            "physical_volume_provenance_gate_passed_for_a0_sensitivity"
+        )
+        is True
+        and execution_uncertainty.get("volume_sensitivity_gate_passed") is True
+        and _nonempty_string(execution_uncertainty.get("decision_manifest"))
+    )
+    return bounded_transformation_complete
 
 
 def evaluate_readiness(
@@ -228,9 +281,9 @@ def evaluate_readiness(
         _lattice_provenance_complete(lattice, source),
         (
             "A positive execution lattice requires a hashed primary absolute "
-            "measurement with temperature and uncertainty. Extrapolation to the "
-            "reference temperature additionally requires a verified thermal-expansion "
-            "source and derivation manifest."
+            "measurement and either a reported standard uncertainty or an explicitly "
+            "approved conservative absolute bound. Extrapolation additionally requires "
+            "verified primary expansion data and an auditable derivation manifest."
         ),
     )
 
@@ -324,7 +377,7 @@ def evaluate_readiness(
 
     ready = all(check["passed"] for check in checks)
     return {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "stage": specification.get("stage"),
         "ready_for_execution": ready,
         "passed_checks": sum(check["passed"] for check in checks),

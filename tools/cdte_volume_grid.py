@@ -78,6 +78,43 @@ def build_volume_grid(
     return points
 
 
+def _execution_source_record(source: Any) -> tuple[bool, float | None, str | None]:
+    """Validate source identity needed to generate an execution-reference grid."""
+    if not isinstance(source, dict):
+        return False, None, None
+    source_type = source.get("source_type")
+    source_hash_valid = bool(
+        _SHA256.fullmatch(str(source.get("source_sha256", "")))
+    )
+    if source_type == "primary_experimental" and source_hash_valid:
+        return True, None, source_type
+    if source_type != "primary_experimental_with_bounded_transform" or not source_hash_valid:
+        return False, None, None
+
+    uncertainty = source.get("execution_uncertainty", {})
+    bound = uncertainty.get("conservative_absolute_bound_angstrom")
+    bounded_valid = (
+        isinstance(uncertainty, dict)
+        and uncertainty.get("type")
+        == "conservative_absolute_bound_not_standard_uncertainty"
+        and isinstance(bound, (int, float))
+        and math.isfinite(bound)
+        and bound >= 0
+        and uncertainty.get(
+            "physical_volume_provenance_gate_passed_for_a0_sensitivity"
+        )
+        is True
+        and uncertainty.get("volume_sensitivity_gate_passed") is True
+        and isinstance(uncertainty.get("decision_manifest"), str)
+        and bool(uncertainty["decision_manifest"].strip())
+    )
+    return (
+        bounded_valid,
+        float(bound) if bounded_valid else None,
+        source_type if bounded_valid else None,
+    )
+
+
 def grid_from_specification(
     specification: dict[str, Any],
     *,
@@ -92,16 +129,12 @@ def grid_from_specification(
 
     execution_lattice = structure.get("execution_lattice_constant_angstrom")
     source = structure.get("execution_lattice_constant_source", {})
-    source_is_primary = (
-        isinstance(source, dict)
-        and source.get("source_type") == "primary_experimental"
-        and bool(_SHA256.fullmatch(str(source.get("source_sha256", ""))))
-    )
+    source_valid, conservative_bound, source_type = _execution_source_record(source)
 
     if isinstance(execution_lattice, (int, float)) and execution_lattice > 0:
-        if not source_is_primary:
+        if not source_valid:
             raise ValueError(
-                "execution lattice requires a primary experimental source SHA-256"
+                "execution lattice requires an accepted primary source record and SHA-256"
             )
         reference_lattice = float(execution_lattice)
         reference_status = "execution_reference"
@@ -113,6 +146,8 @@ def grid_from_specification(
         reference_lattice = float(candidate)
         reference_status = "planning_candidate_only"
         execution_authorized = False
+        conservative_bound = None
+        source_type = None
     else:
         raise ValueError(
             "execution lattice is unresolved; pass --allow-planning-candidate only "
@@ -122,11 +157,13 @@ def grid_from_specification(
     offsets = protocol.get("volume_fractional_offsets")
     points = build_volume_grid(reference_lattice, offsets)
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "stage": specification.get("stage"),
         "reference_status": reference_status,
         "execution_authorized": execution_authorized,
         "reference_lattice_constant_angstrom": reference_lattice,
+        "reference_lattice_conservative_bound_angstrom": conservative_bound,
+        "reference_source_type": source_type,
         "reference_volume_temperature_k": protocol.get("reference_temperature_k"),
         "relationship": "a/a_ref = (V/V_ref)^(1/3)",
         "points": points,

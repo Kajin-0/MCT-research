@@ -1,0 +1,62 @@
+name: acquire-browder-optica-table
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/acquire-browder-optica-table.yml'
+      - 'literature/browder1972_optica_table_acquisition_contract.json'
+      - 'tools/acquire_browder_optica_table.py'
+      - 'data/experimental/browder1972_cdte_irtran6_alpha.csv'
+      - 'tests/test_browder_optica_acquisition.py'
+      - 'first_principles/a0/cdte_lattice_execution_decision.json'
+      - 'first_principles/a0/cdte_a0_run_spec.json'
+      - 'tools/analyze_cdte_browder_bridge.py'
+      - 'tools/derive_cdte_execution_lattice.py'
+      - 'tools/check_cdte_a0_readiness.py'
+      - 'tests/test_cdte_execution_lattice.py'
+      - 'tests/test_cdte_a0_readiness.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Acquire and validate official Optica table
+        run: |
+          python tools/acquire_browder_optica_table.py \
+            --contract literature/browder1972_optica_table_acquisition_contract.json \
+            --evidence-dir browder-optica-acquisition-evidence
+
+      - name: Install repository analysis dependencies
+        run: python -m pip install -e .
+
+      - name: Derive conservative A0 lattice decision
+        run: |
+          set +e
+          python -m tools.derive_cdte_execution_lattice \
+            --acquisition-json browder-optica-acquisition-evidence/acquisition.json \
+            --output-json browder-optica-acquisition-evidence/cdte_lattice_execution_decision.json \
+            > browder-optica-acquisition-evidence/derivation.stdout.txt \
+            2> browder-optica-acquisition-evidence/derivation.stderr.txt
+          status=$?
+          echo "$status" > browder-optica-acquisition-evidence/derivation.exit-status.txt
+          cat browder-optica-acquisition-evidence/derivation.stdout.txt
+          cat browder-optica-acquisition-evidence/derivation.stderr.txt >&2
+          exit "$status"
+
+      - name: Upload digest-only table and decision evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browder-1972-optica-table-evidence
+          path: browder-optica-acquisition-evidence
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
