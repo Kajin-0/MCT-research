@@ -1,0 +1,60 @@
+name: cdte-static-kane-runtime-smoke
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-static-kane-runtime-smoke.yml'
+      - 'tools/run_cdte_static_kane_smoke_ci.sh'
+      - 'tools/preserve_cdte_kane_runtime_evidence.sh'
+      - 'tools/check_wannier90_gamma_star_mmn.py'
+      - 'tools/extract_qe_ks_energies.py'
+      - 'first_principles/a0/cdte_static_kane_method_smoke.json'
+      - 'first_principles/a0/cdte_static_kane_smoke_inputs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  execute:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install serial build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gfortran make cmake git ca-certificates python3-numpy \
+            libopenblas-dev liblapack-dev libfftw3-dev
+
+      - name: Select committed Wannier90 runtime input
+        run: |
+          runtime='first_principles/a0/cdte_static_kane_smoke_inputs/cdte_kane.runtime.win'
+          target='first_principles/a0/cdte_static_kane_smoke_inputs/cdte_kane.win'
+          echo '58b9b9253084f5fef8a0f0aeecb22177278e78040826f64a4de79364379eedb4  '"$runtime" | sha256sum -c -
+          cp "$runtime" "$target"
+          cmp "$runtime" "$target"
+
+      - name: Build exact sources and execute smoke
+        run: bash tools/run_cdte_static_kane_smoke_ci.sh
+
+      - name: Preserve and hash full-precision ordered eigenvalues
+        run: |
+          bash tools/preserve_cdte_kane_runtime_evidence.sh
+          find cdte-kane-evidence -type f ! -name evidence_sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > cdte-kane-evidence/evidence_sha256.txt
+
+      - name: Upload all evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-static-kane-runtime-evidence
+          path: cdte-kane-evidence
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
