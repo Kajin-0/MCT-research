@@ -99,7 +99,7 @@
     "finite_k_contract_sha256": "182282281da72f6ad2f61f73efec6f703f667eec8465955b7322c42e7954fc6d",
     "mmn_sha256": "ee52a3d72f2c574299a0a01fde3365af3ed9eabbf7b9faadbd8f634f0ef413a0",
     "nnkp_sha256": "08e79be2264781cdf027a8df9f2d2d549255f108c7e47c4d58104715d78ec678",
-    "prior_art_mapping_git_blob_sha": "52beca53b65c7bc811d9d6ff916374a78bb7477b",
+    "prior_art_mapping_git_blob_sha": "5b78a82e9272fdf66907fce0d17e6e4be4ecc2ea",
     "residual_result_sha256": "13ee69890ae99182e5415436810a15a24137145da220ea529d0032f3d46dc1a1",
     "workflow_run_id": 29595776454
   },
