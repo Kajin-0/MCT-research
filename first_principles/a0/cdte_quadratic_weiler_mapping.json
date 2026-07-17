@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_quadratic_weiler_prior_art_mapping",
+  "status": "sector_dimension_mapping_established_template_normalization_pending",
+  "basis": "Novik_2005_Eq_4_Gamma6_plus_Gamma8_plus_Gamma7",
+  "scope": "homogeneous_zero_field_time_reversal_even_terms_quadratic_in_k",
+  "primary_prior_art": [
+    {
+      "authors": "M. H. Weiler, R. L. Aggarwal, B. Lax",
+      "journal": "Physical Review B",
+      "volume": 17,
+      "page": 3269,
+      "year": 1978,
+      "doi": "10.1103/PhysRevB.17.3269"
+    },
+    {
+      "authors": "H.-R. Trebin, U. Roessler, R. Ranvaud",
+      "title": "Quantum resonances in the valence bands of zinc-blende semiconductors. I. Theoretical aspects",
+      "journal": "Physical Review B",
+      "volume": 20,
+      "pages": "686-700",
+      "year": 1979,
+      "doi": "10.1103/PhysRevB.20.686"
+    }
+  ],
+  "modern_reference": {
+    "authors": "L. C. Lew Yan Voon, M. Willatzen",
+    "title": "The k.p Method: Electronic Properties of Semiconductors",
+    "publisher": "Springer",
+    "year": 2009,
+    "section": "5.7",
+    "doi": "10.1007/978-3-540-92872-0",
+    "use": "Reproduces and explains the Weiler parameter table; not treated as the originating primary source."
+  },
+  "complete_even_quadratic_space": {
+    "dimension": 10,
+    "sectors": {
+      "Gamma6-Gamma6": {
+        "dimension": 1,
+        "weiler_parameters": ["F"],
+        "repository_projector_sector": "66"
+      },
+      "Gamma6-Gamma8": {
+        "dimension": 2,
+        "weiler_parameters": ["N2", "G"],
+        "repository_projector_sector": "68"
+      },
+      "Gamma6-Gamma7": {
+        "dimension": 1,
+        "weiler_parameters": ["G_prime"],
+        "repository_projector_sector": "67"
+      },
+      "Gamma8-Gamma8": {
+        "dimension": 3,
+        "weiler_parameters": ["gamma1", "gamma2", "gamma3"],
+        "repository_projector_sector": "88"
+      },
+      "Gamma8-Gamma7": {
+        "dimension": 2,
+        "weiler_parameters": ["gamma2_prime", "gamma3_prime"],
+        "repository_projector_sector": "87"
+      },
+      "Gamma7-Gamma7": {
+        "dimension": 1,
+        "weiler_parameters": ["gamma1_prime"],
+        "repository_projector_sector": "77"
+      }
+    }
+  },
+  "conventional_repository_reduction": {
+    "dimension": 4,
+    "independent_parameters": ["F", "gamma1", "gamma2", "gamma3"],
+    "omitted_parameters": ["N2", "G", "G_prime"],
+    "imposed_relations_up_to_basis_and_normalization_convention": [
+      "gamma1_prime equals gamma1",
+      "gamma2_prime equals gamma2",
+      "gamma3_prime equals gamma3"
+    ]
+  },
+  "six_dimensions_relative_to_conventional_span": [
+    "N2",
+    "G",
+    "G_prime",
+    "independent_gamma1_prime",
+    "independent_gamma2_prime",
+    "independent_gamma3_prime"
+  ],
+  "novelty_decision": {
+    "complete_ten_dimensional_invariant_space": "established",
+    "six_additional_symmetry_directions": "established",
+    "direct_cdte_wavefunction_gauge_fixed_need_for_full_space": "candidate_methodological_or_material_specific_unconfirmed",
+    "converged_cdte_named_coefficients": "not_established",
+    "new_hamiltonian_form": "not_supported"
+  },
+  "remaining_gate": "Construct exact Weiler-normalized matrices in the fixed Novik basis and prove a full-rank linear transformation between those ten named templates and the independently generated projector basis before reporting named coefficient values.",
+  "authorization": {
+    "named_template_derivation": true,
+    "fit_existing_static_matrices": true,
+    "novel_invariant_claim": false,
+    "new_electronic_structure_run": false,
+    "phonons": false,
+    "electron_phonon_self_energy": false,
+    "hgte": false,
+    "alloy": false
+  }
+}
