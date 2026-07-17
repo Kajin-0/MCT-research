@@ -68,7 +68,18 @@ def test_audited_source_identity_and_fail_closed_gate() -> None:
     assert source["sample_and_measurement"][
         "reported_relative_alpha_uncertainty_fraction"
     ] == pytest.approx(0.03)
+    assert source["published_thermal_expansion_evidence"][
+        "figure_4_axis_range_kelvin"
+    ] == [50.0, 100.0]
+    assert source["published_thermal_expansion_evidence"][
+        "published_curve_covering_100_to_293_kelvin"
+    ] is False
     assert source["gate_decision"]["primary_source_acquired_and_hashed"] is True
     assert source["gate_decision"]["single_crystal_morphology_gate_passed"] is True
-    assert source["gate_decision"]["curve_digitization_complete"] is False
+    assert source["gate_decision"][
+        "high_temperature_90_to_293_kelvin_bridge_supplied"
+    ] is False
+    assert source["gate_decision"][
+        "digitizing_figures_4_and_5_would_close_high_temperature_bridge"
+    ] is False
     assert source["gate_decision"]["execution_lattice_authorized"] is False
