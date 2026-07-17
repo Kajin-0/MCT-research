@@ -98,21 +98,32 @@ def derive(acquisition_result: dict[str, Any]) -> dict[str, Any]:
         for name, offset in comparison_offsets.items()
     }
 
-    decision_passed = (
-        all(comparison_containment.values())
-        and maximum_volume_fraction <= declared_limit_fraction * intended_volume_offset
-        and morphology_lattice_bound > abs(
-            comparison_offsets["bagot_bogucki_secondary_fit"]
-        )
-        and table_validation.get("maximum_temperature_difference_k") == 0.0
-        and table_validation.get("maximum_alpha_difference_1e6_per_k") == 0.0
-    )
-    if not decision_passed:
-        raise RuntimeError("bounded CdTe lattice decision did not pass declared gates")
+    gate_components = {
+        "all_comparison_lattices_contained": all(comparison_containment.values()),
+        "volume_bound_below_declared_limit": (
+            maximum_volume_fraction
+            <= declared_limit_fraction * intended_volume_offset
+        ),
+        "morphology_bound_exceeds_bagot_crosscheck_offset": (
+            morphology_lattice_bound
+            > abs(comparison_offsets["bagot_bogucki_secondary_fit"])
+        ),
+        "publisher_temperature_transcription_exact": (
+            table_validation.get("maximum_temperature_difference_k") == 0.0
+        ),
+        "publisher_alpha_transcription_exact": (
+            table_validation.get("maximum_alpha_difference_1e6_per_k") == 0.0
+        ),
+    }
+    decision_passed = all(gate_components.values())
 
     return {
         "schema_version": "1.0",
-        "status": "authorized_for_fixed_volume_a0_sensitivity_not_metrology_reference",
+        "status": (
+            "authorized_for_fixed_volume_a0_sensitivity_not_metrology_reference"
+            if decision_passed
+            else "rejected_by_declared_fixed_volume_a0_sensitivity_gate"
+        ),
         "source_chain": {
             "absolute_anchor": {
                 "citation": anchor["citation"],
@@ -193,13 +204,19 @@ def derive(acquisition_result: dict[str, Any]) -> dict[str, Any]:
             "intended_one_sided_a0_volume_offset": intended_volume_offset,
             "fraction_of_intended_offset": fraction_of_volume_offset,
             "declared_maximum_fraction_of_offset": declared_limit_fraction,
-            "passed": maximum_volume_fraction
-            <= declared_limit_fraction * intended_volume_offset,
+            "passed": gate_components["volume_bound_below_declared_limit"],
         },
+        "gate_components": gate_components,
         "decision": {
-            "physical_volume_provenance_gate_passed_for_a0_sensitivity": True,
-            "execution_lattice_constant_angstrom": central,
-            "execution_lattice_conservative_bound_angstrom": total_bound,
+            "physical_volume_provenance_gate_passed_for_a0_sensitivity": (
+                decision_passed
+            ),
+            "execution_lattice_constant_angstrom": (
+                central if decision_passed else None
+            ),
+            "execution_lattice_conservative_bound_angstrom": (
+                total_bound if decision_passed else None
+            ),
             "metrology_grade_zero_k_lattice_claim": False,
             "quasiharmonic_path_authorized": False,
             "new_electronic_structure_run_authorized_by_this_manifest": False,
@@ -229,6 +246,10 @@ def main() -> None:
         json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     print(json.dumps(result, indent=2, sort_keys=True))
+    if result["decision"][
+        "physical_volume_provenance_gate_passed_for_a0_sensitivity"
+    ] is not True:
+        raise SystemExit("bounded CdTe lattice decision did not pass declared gates")
 
 
 if __name__ == "__main__":
