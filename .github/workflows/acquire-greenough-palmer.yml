@@ -1,0 +1,44 @@
+name: acquire-greenough-palmer-primary
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/acquire-greenough-palmer.yml'
+      - 'literature/greenough_palmer_1973_acquisition_contract.json'
+      - 'tools/acquire_greenough_palmer.py'
+      - 'tests/test_greenough_palmer_acquisition.py'
+      - 'docs/insights/greenough_palmer_1973_primary_audit.md'
+      - 'first_principles/a0/cdte_greenough_palmer_source.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install PDF inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils
+
+      - name: Acquire and validate primary source
+        run: |
+          python tools/acquire_greenough_palmer.py \
+            --contract literature/greenough_palmer_1973_acquisition_contract.json \
+            --evidence-dir greenough-palmer-acquisition-evidence
+
+      - name: Upload digest-only acquisition evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: greenough-palmer-1973-acquisition-evidence
+          path: greenough-palmer-acquisition-evidence
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
