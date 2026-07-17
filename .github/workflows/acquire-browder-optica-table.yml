@@ -34,6 +34,9 @@ jobs:
             --contract literature/browder1972_optica_table_acquisition_contract.json \
             --evidence-dir browder-optica-acquisition-evidence
 
+      - name: Install repository analysis dependencies
+        run: python -m pip install -e .
+
       - name: Derive conservative A0 lattice decision
         run: |
           python tools/derive_cdte_execution_lattice.py \
