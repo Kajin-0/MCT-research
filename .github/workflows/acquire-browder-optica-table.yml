@@ -9,8 +9,12 @@ on:
       - 'data/experimental/browder1972_cdte_irtran6_alpha.csv'
       - 'tests/test_browder_optica_acquisition.py'
       - 'first_principles/a0/cdte_lattice_execution_decision.json'
+      - 'first_principles/a0/cdte_a0_run_spec.json'
+      - 'tools/analyze_cdte_browder_bridge.py'
       - 'tools/derive_cdte_execution_lattice.py'
+      - 'tools/check_cdte_a0_readiness.py'
       - 'tests/test_cdte_execution_lattice.py'
+      - 'tests/test_cdte_a0_readiness.py'
   workflow_dispatch:
 
 permissions:
@@ -30,7 +34,13 @@ jobs:
             --contract literature/browder1972_optica_table_acquisition_contract.json \
             --evidence-dir browder-optica-acquisition-evidence
 
-      - name: Upload digest-only table evidence
+      - name: Derive conservative A0 lattice decision
+        run: |
+          python tools/derive_cdte_execution_lattice.py \
+            --acquisition-json browder-optica-acquisition-evidence/acquisition.json \
+            --output-json browder-optica-acquisition-evidence/cdte_lattice_execution_decision.json
+
+      - name: Upload digest-only table and decision evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
