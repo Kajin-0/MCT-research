@@ -5,7 +5,9 @@ on:
     paths:
       - '.github/workflows/cdte-static-kane-runtime-smoke.yml'
       - 'tools/run_cdte_static_kane_smoke_ci.sh'
+      - 'tools/preserve_cdte_kane_runtime_evidence.sh'
       - 'tools/check_wannier90_gamma_star_mmn.py'
+      - 'tools/extract_qe_ks_energies.py'
       - 'first_principles/a0/cdte_static_kane_method_smoke.json'
       - 'first_principles/a0/cdte_static_kane_smoke_inputs/**'
   workflow_dispatch:
@@ -40,6 +42,9 @@ jobs:
 
       - name: Build exact sources and execute smoke
         run: bash tools/run_cdte_static_kane_smoke_ci.sh
+
+      - name: Preserve full-precision ordered eigenvalues
+        run: bash tools/preserve_cdte_kane_runtime_evidence.sh
 
       - name: Upload all evidence
         if: always()
