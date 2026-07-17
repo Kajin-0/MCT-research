@@ -39,9 +39,17 @@ jobs:
 
       - name: Derive conservative A0 lattice decision
         run: |
+          set +e
           python tools/derive_cdte_execution_lattice.py \
             --acquisition-json browder-optica-acquisition-evidence/acquisition.json \
-            --output-json browder-optica-acquisition-evidence/cdte_lattice_execution_decision.json
+            --output-json browder-optica-acquisition-evidence/cdte_lattice_execution_decision.json \
+            > browder-optica-acquisition-evidence/derivation.stdout.txt \
+            2> browder-optica-acquisition-evidence/derivation.stderr.txt
+          status=$?
+          echo "$status" > browder-optica-acquisition-evidence/derivation.exit-status.txt
+          cat browder-optica-acquisition-evidence/derivation.stdout.txt
+          cat browder-optica-acquisition-evidence/derivation.stderr.txt >&2
+          exit "$status"
 
       - name: Upload digest-only table and decision evidence
         if: always()
