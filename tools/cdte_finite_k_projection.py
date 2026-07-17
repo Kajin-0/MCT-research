@@ -317,7 +317,7 @@ def _fit_group(
     if rank != len(names):
         raise RuntimeError(f"rank-deficient coefficient fit for {names}: {rank}")
     return dict(zip(names, solution.tolist(), strict=True)), {
-        "rank": rank,
+        "rank": int(rank),
         "condition_number": float(singular_values[0] / singular_values[-1]),
         "absolute_residual": float(np.linalg.norm(residual)),
         "relative_residual": float(
