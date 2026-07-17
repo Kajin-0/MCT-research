@@ -1,0 +1,138 @@
+{
+  "authorization": {
+    "alloy": false,
+    "denser_k_mesh": false,
+    "electron_phonon_self_energy": false,
+    "exhaustive_six_direction_subset_test": true,
+    "hgte": false,
+    "more_bands": false,
+    "new_electronic_structure_run": false,
+    "phonons": false,
+    "propose_compact_extension_if_supported": true,
+    "standard_weiler_parameter_values": false,
+    "use_complete_space_projection_as_target": true
+  },
+  "basis_diagnostics": {
+    "class_gram_residual": 5.875272348701104e-16,
+    "complete_projector_residual": 9.298651284056361e-15,
+    "conventional_plus_departure_orthogonality_residual": 6.284965050752057e-16
+  },
+  "claim_boundary": "This gate measures reduction error relative to the validated complete ten-dimensional static CdTe quadratic projection in repository normalization. It does not establish standard Weiler parameter values, converged material coefficients, uniqueness beyond the tested subset family, finite-temperature behavior, or authorization for new electronic-structure, phonon, HgTe, or alloy calculations.",
+  "decision": {
+    "all_six_departures_required_below_decision_threshold": true,
+    "decision_threshold": 0.1,
+    "interpretation": "No compact subset of the six established departures reproduces both the fitted and unused crystal directions below ten percent. The best five-departure model remains above ten percent, so the static smoke does not support a quantitatively accurate reduced extension smaller than the complete ten-dimensional space.",
+    "next_authorized_task": "Freeze the static quadratic model at the complete Weiler space, record the failure of compact reductions, and return program effort to independent data/provenance and CdTe A0 readiness rather than adding further static model complexity.",
+    "passed": true
+  },
+  "departure_order": [
+    "N2",
+    "G",
+    "G_prime",
+    "delta_gamma1",
+    "delta_gamma2",
+    "delta_gamma3"
+  ],
+  "frontier_by_departure_count": [
+    {
+      "departure_count": 0,
+      "departures": [],
+      "dimension": 4,
+      "maximum_holdout_relative_residual": 0.48526107161851556,
+      "maximum_training_or_holdout_relative_residual": 0.48526107161851556,
+      "training_relative_residual": 0.4819013049259116
+    },
+    {
+      "departure_count": 1,
+      "departures": ["delta_gamma3"],
+      "dimension": 5,
+      "maximum_holdout_relative_residual": 0.3889207625639997,
+      "maximum_training_or_holdout_relative_residual": 0.4157269664065492,
+      "training_relative_residual": 0.4157269664065492
+    },
+    {
+      "departure_count": 2,
+      "departures": ["delta_gamma2", "delta_gamma3"],
+      "dimension": 6,
+      "maximum_holdout_relative_residual": 0.3509137906284648,
+      "maximum_training_or_holdout_relative_residual": 0.3509137906284648,
+      "training_relative_residual": 0.33664797293028875
+    },
+    {
+      "departure_count": 3,
+      "departures": ["G_prime", "delta_gamma2", "delta_gamma3"],
+      "dimension": 7,
+      "maximum_holdout_relative_residual": 0.2666467160133236,
+      "maximum_training_or_holdout_relative_residual": 0.2768173182941512,
+      "training_relative_residual": 0.2768173182941512
+    },
+    {
+      "departure_count": 4,
+      "departures": ["G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"],
+      "dimension": 8,
+      "maximum_holdout_relative_residual": 0.19954801148564594,
+      "maximum_training_or_holdout_relative_residual": 0.20864765117534365,
+      "training_relative_residual": 0.20864765117534365
+    },
+    {
+      "departure_count": 5,
+      "departures": ["G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"],
+      "dimension": 9,
+      "maximum_holdout_relative_residual": 0.10465206776410411,
+      "maximum_training_or_holdout_relative_residual": 0.15222872166787788,
+      "training_relative_residual": 0.15222872166787788
+    },
+    {
+      "departure_count": 6,
+      "departures": ["N2", "G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"],
+      "dimension": 10,
+      "maximum_holdout_relative_residual": 7.33802007135476e-16,
+      "maximum_training_or_holdout_relative_residual": 7.33802007135476e-16,
+      "training_relative_residual": 5.667292299170105e-16
+    }
+  ],
+  "leave_one_departure_out": {
+    "G": {
+      "maximum_holdout_relative_residual": 0.16990395404631656,
+      "maximum_training_or_holdout_relative_residual": 0.16990395404631656,
+      "training_relative_residual": 0.1426893781623273
+    },
+    "G_prime": {
+      "maximum_holdout_relative_residual": 0.22812281186358366,
+      "maximum_training_or_holdout_relative_residual": 0.22812281186358366,
+      "training_relative_residual": 0.19158295845535694
+    },
+    "N2": {
+      "maximum_holdout_relative_residual": 0.10465206776410411,
+      "maximum_training_or_holdout_relative_residual": 0.15222872166787788,
+      "training_relative_residual": 0.15222872166787788
+    },
+    "delta_gamma1": {
+      "maximum_holdout_relative_residual": 0.17686453085006779,
+      "maximum_training_or_holdout_relative_residual": 0.18191752352804702,
+      "training_relative_residual": 0.18191752352804702
+    },
+    "delta_gamma2": {
+      "maximum_holdout_relative_residual": 0.16768682446789004,
+      "maximum_training_or_holdout_relative_residual": 0.2439201773521816,
+      "training_relative_residual": 0.2439201773521816
+    },
+    "delta_gamma3": {
+      "maximum_holdout_relative_residual": 0.29020501042364355,
+      "maximum_training_or_holdout_relative_residual": 0.29020501042364355,
+      "training_relative_residual": 0.243721064111628
+    }
+  },
+  "minimum_departure_count_by_residual_threshold": {
+    "0.01": 6,
+    "0.05": 6,
+    "0.1": 6,
+    "0.2": 5,
+    "0.25": 4
+  },
+  "normalization": "repository_orthonormal_class_normalization",
+  "schema_version": "1.0",
+  "status": "exhaustive_weiler_reduction_frontier_completed",
+  "subset_count": 64,
+  "target": "validated_complete_ten_dimensional_static_cdte_quadratic_projection"
+}
