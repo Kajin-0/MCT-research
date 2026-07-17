@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "stage": "secondary_bagot_cdte_expansion_fit",
+  "source": {
+    "authors": "A. Bogucki et al.",
+    "title": "Angle-resolved optically detected magnetic resonance as a tool for strain determination in nanostructures",
+    "journal": "Physical Review B",
+    "volume": 105,
+    "article": "075412",
+    "year": 2022,
+    "doi": "10.1103/PhysRevB.105.075412",
+    "arxiv": "2106.06451",
+    "location": "Appendix A, equations A2-A3 and Table II",
+    "status": "secondary_analytic_fit_to_literature_CdTe_data_exact_coefficients_recorded_source_bytes_not_hashed"
+  },
+  "underlying_cdte_data_source": {
+    "authors": "D. Bagot, R. Granger, S. Rolland",
+    "title": "Thermal Expansion Coefficient and Bond Strength in Hg1-xCdxTe and Hg1-xZnxTe",
+    "journal": "physica status solidi (b)",
+    "volume": 177,
+    "pages": "295-308",
+    "year": 1993,
+    "doi": "10.1002/pssb.2221770205",
+    "reported_scope": "thermal expansion variations in Hg1-xCdxTe and Hg1-xZnxTe between 4 and 280 K, including constituent binaries",
+    "source_bytes_sha256": null,
+    "status": "primary_source_identified_not_acquired"
+  },
+  "formula": {
+    "alpha_units": "1e-8 K^-1",
+    "expression": "alpha(T)=sum_i g_i*(s_i/T)^2*exp(s_i/T)/(exp(s_i/T)-1)^2",
+    "stable_equivalent": "exp(x)/(exp(x)-1)^2 = 1/[4*sinh(x/2)^2]",
+    "temperature_units": "K"
+  },
+  "coefficients": [
+    {"i": 1, "s_k": 222.02098, "g_reported": 883.96417},
+    {"i": 2, "s_k": -40.90023, "g_reported": -384.86715},
+    {"i": 3, "s_k": -13241.61, "g_reported": 1403.50696}
+  ],
+  "authorization": {
+    "planning_bridge_diagnostic": true,
+    "execution_thermal_expansion_chain": false,
+    "primary_bagot_parameter_claim": false,
+    "new_electronic_structure_run": false
+  },
+  "claim_boundary": "The formula and coefficients are reproduced from a secondary article that fitted literature CdTe expansion data. They can test bridge plausibility and source consistency, but cannot close execution provenance until the primary Bagot source, measurement details, and uncertainty are acquired and audited."
+}
