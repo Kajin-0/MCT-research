@@ -13,7 +13,6 @@ if __package__:
     from .analyze_cdte_browder_bridge import analyze as analyze_browder
     from .analyze_cdte_lattice_source_chain import (
         SMITH_ALPHA_1E8,
-        SMITH_DIRECT,
         SMITH_T_K,
         alpha_williams,
         lattice_a,
@@ -22,7 +21,6 @@ else:
     from analyze_cdte_browder_bridge import analyze as analyze_browder
     from analyze_cdte_lattice_source_chain import (
         SMITH_ALPHA_1E8,
-        SMITH_DIRECT,
         SMITH_T_K,
         alpha_williams,
         lattice_a,
@@ -50,8 +48,10 @@ def analyze(source_json: str | Path) -> dict[str, object]:
     source = json.loads(Path(source_json).read_text(encoding="utf-8"))
     coefficients = source["coefficients"]
 
+    # Smith and White identify the 57.5 K and 65 K rows as literature
+    # values reprinted for context rather than their direct CdTe measurements.
     direct_mask = (
-        SMITH_DIRECT
+        ~np.isin(SMITH_T_K, np.asarray([57.5, 65.0]))
         & (SMITH_T_K >= 2.0)
         & (SMITH_T_K <= 283.0)
     )
