@@ -1,0 +1,222 @@
+{
+  "authorization": {
+    "alloy": false,
+    "complete_quadratic_invariant_construction": true,
+    "denser_k_mesh": false,
+    "electron_phonon_self_energy": false,
+    "fit_existing_static_matrices": true,
+    "hgte": false,
+    "more_bands": false,
+    "new_electronic_structure_run": false,
+    "phonons": false,
+    "prior_art_mapping_next_if_passed": true,
+    "propose_new_material_parameters": false
+  },
+  "claim_boundary": "This gate proves the dimension and matrix closure of the complete Td- and time-reversal-allowed quadratic function space for the fixed Novik eight-band representation at the existing static CdTe smoke point. It does not establish novelty, identify standard physical names for the six additional combinations, validate converged material coefficients, or authorize deeper electronic-structure, phonon, HgTe, or alloy calculations.",
+  "decision": {
+    "all_three_additional_channel_groups_required": true,
+    "complete_space_passed": true,
+    "interpretation": "The complete ten-dimensional Td-covariant, time-reversal-even quadratic matrix space closes the existing static CdTe matrices, while the four-dimensional conventional Kane span does not. The six missing dimensions consist of two Gamma6-Gamma8 channels, one Gamma6-Gamma7 channel, and three additional valence/split-off combinations. This identifies model-form incompleteness at the static smoke level; it does not establish novel or converged material parameters.",
+    "next_authorized_task": "Map the six additional invariant combinations to published complete zincblende k.p conventions and perform a prior-art/physical-naming audit before proposing a reduced analytical extension."
+  },
+  "dimensions": {
+    "additional": 6,
+    "additional_groups": {
+      "Gamma6-Gamma7": 1,
+      "Gamma6-Gamma8": 2,
+      "valence-extra": 3
+    },
+    "complete": 10,
+    "conventional": 4,
+    "sectors": {
+      "66": 1,
+      "67": 1,
+      "68": 2,
+      "77": 1,
+      "87": 2,
+      "88": 3
+    }
+  },
+  "fits": {
+    "complete": {
+      "condition_number": 1.7320508075688783,
+      "design_rank": 10,
+      "dimension": 10,
+      "direction_relative_residuals": {
+        "001": 1.3710737183869776e-05,
+        "110": 8.624218212894124e-06,
+        "111": 1.3777198380046279e-05
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842422,
+        14.188340547535358,
+        6.114647205893188,
+        7.0195953758292475,
+        9.4249121173616,
+        -1.4378860008746703,
+        10.982899511078676,
+        -11.989843088978132
+      ],
+      "training_relative_residual": 1.3747859313872535e-05
+    },
+    "conventional": {
+      "condition_number": 1.7320508075688774,
+      "design_rank": 4,
+      "dimension": 4,
+      "direction_relative_residuals": {
+        "001": 0.4737645027786361,
+        "110": 0.4852581412713303,
+        "111": 0.4882514406419528
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842473,
+        14.188340547535358
+      ],
+      "training_relative_residual": 0.48190130507647316
+    },
+    "conventional_plus_67": {
+      "condition_number": 1.7320508075688774,
+      "design_rank": 5,
+      "dimension": 5,
+      "direction_relative_residuals": {
+        "001": 0.4737645027786361,
+        "110": 0.4282953252944446,
+        "111": 0.4154595058425762
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842473,
+        14.188340547535358,
+        9.424912117361595
+      ],
+      "training_relative_residual": 0.44218190586096834
+    },
+    "conventional_plus_68": {
+      "condition_number": 1.7320508075688774,
+      "design_rank": 6,
+      "dimension": 6,
+      "direction_relative_residuals": {
+        "001": 0.41476372682949164,
+        "110": 0.44233069968867433,
+        "111": 0.4493314551524129
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842473,
+        14.188340547535358,
+        6.114647205893184,
+        7.0195953758292475
+      ],
+      "training_relative_residual": 0.43439040677902657
+    },
+    "conventional_plus_valence": {
+      "condition_number": 1.7320508075688776,
+      "design_rank": 7,
+      "dimension": 7,
+      "direction_relative_residuals": {
+        "001": 0.22896256285162309,
+        "110": 0.30308017727730663,
+        "111": 0.3198024095959154
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.309240181084237,
+        14.188340547535365,
+        -1.4378860008746683,
+        10.98289951107867,
+        -11.989843088978136
+      ],
+      "training_relative_residual": 0.2832629034754344
+    },
+    "without_67": {
+      "condition_number": 1.7320508075688772,
+      "design_rank": 9,
+      "dimension": 9,
+      "direction_relative_residuals": {
+        "001": 1.3710737183929417e-05,
+        "110": 0.22811965736299322,
+        "111": 0.25648171179208096
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842387,
+        14.188340547535358,
+        6.114647205893187,
+        7.019595375829248,
+        -1.4378860008746694,
+        10.982899511078672,
+        -11.989843088978132
+      ],
+      "training_relative_residual": 0.1915829589305203
+    },
+    "without_68": {
+      "condition_number": 1.7320508075688779,
+      "design_rank": 8,
+      "dimension": 8,
+      "direction_relative_residuals": {
+        "001": 0.22896256285162309,
+        "110": 0.19954702668146007,
+        "111": 0.19102542471977063
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842436,
+        14.18834054753536,
+        9.424912117361606,
+        -1.4378860008746692,
+        10.982899511078674,
+        -11.989843088978139
+      ],
+      "training_relative_residual": 0.20864765160855145
+    },
+    "without_valence_extra": {
+      "condition_number": 1.7320508075688774,
+      "design_rank": 7,
+      "dimension": 7,
+      "direction_relative_residuals": {
+        "001": 0.41476372682949164,
+        "110": 0.3789694841092616,
+        "111": 0.3689388679651413
+      },
+      "orthonormal_basis_coefficients_ev_angstrom2": [
+        7.201148995341701,
+        -22.3507302851782,
+        -1.3092401810842473,
+        14.188340547535358,
+        6.114647205893184,
+        7.0195953758292475,
+        9.424912117361595
+      ],
+      "training_relative_residual": 0.38986022564257367
+    }
+  },
+  "input_sha256": {
+    "canonical_basis_result": "17a27c2b685b5b741cd5f0a34801d885102691bc36e6e7cb3bfd2477e0c6b86b",
+    "exact_qe_eigenvalues": "761a084a64afc07cfdf2990f7a43c21c9a80452c108766e36dc0d68e84f25452",
+    "finite_k_contract": "182282281da72f6ad2f61f73efec6f703f667eec8465955b7322c42e7954fc6d",
+    "invariant_contract": "104075a25401709d4537a665cd75d20d2727dd9488f972854f08f20ce1eff49c",
+    "mmn": "ee52a3d72f2c574299a0a01fde3365af3ed9eabbf7b9faadbd8f634f0ef413a0",
+    "nnkp": "08e79be2264781cdf027a8df9f2d2d549255f108c7e47c4d58104715d78ec678",
+    "residual_result": "13ee69890ae99182e5415436810a15a24137145da220ea529d0032f3d46dc1a1"
+  },
+  "minimum_overlap_singular_value": 0.9998818023370384,
+  "projector_diagnostics": {
+    "complete_basis_projector_residual": 9.471778254987311e-15,
+    "group_time_reversal_commutator": 3.7490140520878232e-16,
+    "idempotency_residual": 8.59255512464336e-15,
+    "maximum_conventional_template_projection_residual": 2.9742182425121106e-15,
+    "symmetry_residual": 6.3273263245429775e-15,
+    "trace": 10.000000000000005
+  },
+  "schema_version": "1.0",
+  "status": "complete_Td_time_reversal_even_quadratic_space_tested"
+}

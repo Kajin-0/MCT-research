@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_complete_quadratic_invariant_gate",
+  "purpose": "Construct the complete Td-covariant, time-reversal-even homogeneous quadratic matrix space in the fixed Novik Gamma6+Gamma8+Gamma7 basis, separate it from the conventional Kane span, and test training plus unused-[110] closure using only the existing static CdTe matrices.",
+  "upstream": {
+    "finite_k_pull_request": 82,
+    "residual_localization_pull_request": 83,
+    "workflow_run_id": 29595776454,
+    "artifact_id": 8413206166,
+    "artifact_sha256": "e0d8b95cb7b992b0cd78bf7329956988cb287c941b1e04b74884e2d71c8806d8"
+  },
+  "expected_total_dimension": 10,
+  "expected_conventional_dimension": 4,
+  "expected_sector_dimensions": {
+    "66": 1,
+    "68": 2,
+    "67": 1,
+    "88": 3,
+    "87": 2,
+    "77": 1
+  },
+  "thresholds": {
+    "maximum_projector_residual": 1e-10,
+    "maximum_complete_training_relative_residual": 0.001,
+    "maximum_complete_holdout_relative_residual": 0.001,
+    "maximum_design_condition_number": 10.0,
+    "maximum_reduced_holdout_relative_residual": 0.10
+  },
+  "authorization": {
+    "complete_quadratic_invariant_construction": true,
+    "fit_existing_static_matrices": true,
+    "prior_art_mapping_next_if_passed": true,
+    "propose_new_material_parameters": false,
+    "new_electronic_structure_run": false,
+    "denser_k_mesh": false,
+    "more_bands": false,
+    "phonons": false,
+    "electron_phonon_self_energy": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "This gate proves the dimension and matrix closure of the complete Td- and time-reversal-allowed quadratic function space for the fixed Novik eight-band representation at the existing static CdTe smoke point. It does not establish novelty, identify standard physical names for the six additional combinations, validate converged material coefficients, or authorize deeper electronic-structure, phonon, HgTe, or alloy calculations."
+}
