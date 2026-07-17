@@ -1,0 +1,36 @@
+&CONTROL
+  calculation = 'scf'
+  title = 'CdTe static Kane planning smoke: SCF'
+  prefix = 'cdte_kane'
+  pseudo_dir = './pseudo'
+  outdir = './tmp'
+  verbosity = 'high'
+  restart_mode = 'from_scratch'
+  disk_io = 'low'
+/
+&SYSTEM
+  ibrav = 0
+  nat = 2
+  ntyp = 2
+  nbnd = 40
+  ecutwfc = 94
+  ecutrho = 376
+  occupations = 'fixed'
+  noncolin = .true.
+  lspinorb = .true.
+/
+&ELECTRONS
+  conv_thr = 1.0e-08
+/
+ATOMIC_SPECIES
+  Cd 112.414 Cd-sp_r.upf
+  Te 127.60 Te-d_r.upf
+ATOMIC_POSITIONS crystal
+  Cd 0 0 0
+  Te 0.25 0.25 0.25
+CELL_PARAMETERS angstrom
+  0 3.238 3.238
+  3.238 0 3.238
+  3.238 3.238 0
+K_POINTS automatic
+  4 4 4 0 0 0

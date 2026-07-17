@@ -33,6 +33,7 @@ def test_static_kane_export_contract() -> None:
     points = spec["k_stencil"]["ordered_points"]
     win = spec["wavefunction_overlap_export"]["wannier90_win"]
     export = spec["wavefunction_overlap_export"]["pw2wannier90"]
+    rendered = spec["rendered_inputs"]
 
     assert len(points) == 13
     assert [point["index"] for point in points] == list(range(1, 14))
@@ -44,5 +45,8 @@ def test_static_kane_export_contract() -> None:
     assert len(win["export_only_parser_projections"]) == 4
     assert export["write_mmn"] is True
     assert export["write_amn"] is False
-    assert spec["readiness"]["rendered_inputs_committed"] is False
+    assert rendered["status"] == "committed_planning_inputs_not_execution_evidence"
+    assert len(rendered["file_sha256"]) == 4
+    assert spec["readiness"]["rendered_inputs_committed"] is True
+    assert spec["readiness"]["runtime_available"] is False
     assert spec["readiness"]["ready_for_execution"] is False

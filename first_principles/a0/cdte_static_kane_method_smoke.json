@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "stage": "static_kane_projection_method_smoke",
   "purpose": "Verify fixed-basis finite-k reconstruction, two-radius derivative extraction, and an unused-direction closure test. This is not a physical CdTe parameter result.",
   "authorization": {
@@ -42,7 +42,7 @@
     "ecutrho_ry": 376,
     "gamma_centered_scf_grid": [4, 4, 4],
     "nbnd": 40,
-    "conv_thr_ry": 1e-8,
+    "conv_thr_ry": 1e-08,
     "convergence_status": "planning_values_not_converged"
   },
   "required_pseudopotential_sha256": {
@@ -87,12 +87,7 @@
       "num_kpts": 13,
       "nntot": 1,
       "full_wannier_run_authorized": false,
-      "export_only_parser_projections": [
-        "Cd:s(u,d)",
-        "Te:s(u,d)",
-        "Cd:pz(u,d)",
-        "Te:pz(u,d)"
-      ],
+      "export_only_parser_projections": ["Cd:s(u,d)", "Te:s(u,d)", "Cd:pz(u,d)", "Te:pz(u,d)"],
       "projection_count_after_spinor_expansion": 8,
       "projection_scientific_role": "none; pw2wannier90 parses a consistent projection block even though write_amn=false"
     },
@@ -121,14 +116,7 @@
       "gamma_self_overlap_check": "The point-1 self-link must reproduce the 40-band identity within the measured numerical export tolerance.",
       "raw_mmn_sha256_required": true
     },
-    "execution_sequence": [
-      "SCF on the planning geometry",
-      "SOC NSCF on the exact ordered 13-point list",
-      "wannier90.x -pp with spinors=true, skip_B1_tests=true, export-only parser projections, and the explicit one-neighbor nnkpts star",
-      "pw2wannier90.x with spin_component=none write_mmn=true write_amn=false",
-      "validate mmn topology and Gamma self overlap before any subspace projection",
-      "form S_i from the conjugate transpose of each finite-point-to-Gamma block"
-    ]
+    "execution_sequence": ["SCF on the planning geometry", "SOC NSCF on the exact ordered 13-point list", "wannier90.x -pp with spinors=true, skip_B1_tests=true, export-only parser projections, and the explicit one-neighbor nnkpts star", "pw2wannier90.x with spin_component=none write_mmn=true write_amn=false", "validate mmn topology and Gamma self overlap before any subspace projection", "form S_i from the conjugate transpose of each finite-point-to-Gamma block"]
   },
   "fixed_basis_rule": {
     "reference_subspace": "Gamma6 plus Gamma8 plus Gamma7 spinor states at Gamma",
@@ -147,39 +135,27 @@
     "full_covariance_required": true,
     "no_refit_on_holdout": true
   },
-  "required_outputs": [
-    "actual_pw_x_pw2wannier90_x_and_wannier90_x_paths_versions_and_sha256",
-    "runtime_pseudopotential_sha256",
-    "input_output_and_environment_hash_manifest",
-    "wall_time_max_rss_scratch_and_output_size",
-    "ordered_13_point_coordinate_manifest",
-    "wannier90_win_and_generated_nnkp_sha256",
-    "raw_40_band_mmn_sha256_and_topology_validation",
-    "Gamma_40_band_self_overlap_residual",
-    "Gamma_irrep_and_band_order_assignment",
-    "eigenvalues_and_reference_overlaps_at_every_stencil_point",
-    "overlap_singular_values_for_12_and_16_state_windows",
-    "Hermiticity_and_time_reversal_residuals",
-    "parameters_from_h_from_h_over_2_and_Richardson_limit",
-    "full_parameter_covariance",
-    "unused_110_matrix_prediction_and_correlated_chi_square"
-  ],
+  "rendered_inputs": {
+    "directory": "first_principles/a0/cdte_static_kane_smoke_inputs",
+    "renderer": "tools/render_cdte_static_kane_inputs.py",
+    "pseudo_dir_literal": "./pseudo",
+    "outdir_literal": "./tmp",
+    "file_sha256": {
+      "cdte_kane.scf.in": "4f2dfd8f007b3893f8fb5ca09fb95f41e5ca20aa9c361b1a763bc427e8bcea01",
+      "cdte_kane.nscf.in": "e1e4f97c3460fa27ddecaf3734f9dda09a82207023465ffddca694a17c3f7e8f",
+      "cdte_kane.win": "969d1e2be2689749819a210583a2c0f9c48a5cbd49baa69dc9a0f5ba03cb4270",
+      "cdte_kane.pw2wan.in": "7cabfca312f3040f040e7f69580a1c47d30320b4af247a8d776498ad5b6c77a7"
+    },
+    "status": "committed_planning_inputs_not_execution_evidence"
+  },
+  "required_outputs": ["actual_pw_x_pw2wannier90_x_and_wannier90_x_paths_versions_and_sha256", "runtime_pseudopotential_sha256", "input_output_and_environment_hash_manifest", "wall_time_max_rss_scratch_and_output_size", "ordered_13_point_coordinate_manifest", "wannier90_win_and_generated_nnkp_sha256", "raw_40_band_mmn_sha256_and_topology_validation", "Gamma_40_band_self_overlap_residual", "Gamma_irrep_and_band_order_assignment", "eigenvalues_and_reference_overlaps_at_every_stencil_point", "overlap_singular_values_for_12_and_16_state_windows", "Hermiticity_and_time_reversal_residuals", "parameters_from_h_from_h_over_2_and_Richardson_limit", "full_parameter_covariance", "unused_110_matrix_prediction_and_correlated_chi_square"],
   "success_claim": "The static projection method executed coherently at one planning geometry and predicted the unused 110 direction without refitting.",
-  "prohibited_claims": [
-    "accepted or converged CdTe lattice constant",
-    "validated physical CdTe Kane parameters",
-    "temperature-dependent parameter result",
-    "phonon or electron-phonon result",
-    "HgTe or HgCdTe alloy transferability"
-  ],
+  "prohibited_claims": ["accepted or converged CdTe lattice constant", "validated physical CdTe Kane parameters", "temperature-dependent parameter result", "phonon or electron-phonon result", "HgTe or HgCdTe alloy transferability"],
   "readiness": {
     "runtime_available": false,
     "calculation_executed": false,
     "ready_for_execution": false,
-    "rendered_inputs_committed": false,
-    "blocking_reasons": [
-      "No verified installed pw.x, pw2wannier90.x, or wannier90.x executables are available in the current runtime.",
-      "Rendered SCF, NSCF, Wannier90 preprocessing, nnkp, and runtime byte-hash manifests do not yet exist."
-    ]
+    "rendered_inputs_committed": true,
+    "blocking_reasons": ["No verified installed pw.x, pw2wannier90.x, or wannier90.x executables are available in the current runtime.", "Generated nnkp, runtime pseudopotential byte verification, executable identity, and actual execution outputs do not yet exist."]
   }
 }
