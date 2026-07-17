@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_kane_double_group_gate",
+  "purpose": "Construct one globally consistent Td double-group lift from the matched C3[111] and S4z generators, recover the physical canonical Gamma6+Gamma8+Gamma7 intertwiners, and validate all CdTe unitary and antiunitary Gamma matrices before any finite-k Kane fit.",
+  "upstream": {
+    "probe_contract": "first_principles/a0/cdte_irrep_symmetry_probe.json",
+    "probe_workflow": ".github/workflows/cdte-irrep-symmetry-probe.yml",
+    "merged_probe_commit": "1ff2a76408a7914b73a5566a630d014023c3887f",
+    "reference_artifact_id": 8400377373,
+    "reference_artifact_sha256": "7f84a4288a1bae05e94fc9ca8f790c72ff6ec4e52a4fc40a2bfdbac99839046b"
+  },
+  "generators": [
+    {
+      "name": "C3_[111]",
+      "operation_index": 41,
+      "word_symbol": "C"
+    },
+    {
+      "name": "S4_z",
+      "operation_index": 23,
+      "word_symbol": "S"
+    }
+  ],
+  "pure_time_reversal_operation_index": 2,
+  "energy_blocks": [
+    {
+      "irrep": "Gamma7",
+      "bands_one_based": [31, 32],
+      "probe_block_index": 0
+    },
+    {
+      "irrep": "Gamma8",
+      "bands_one_based": [33, 34, 35, 36],
+      "probe_block_index": 1
+    },
+    {
+      "irrep": "Gamma6",
+      "bands_one_based": [37, 38],
+      "probe_block_index": 2
+    }
+  ],
+  "thresholds": {
+    "operation_rotation_frobenius": 1e-8,
+    "operation_spinor_frobenius": 1e-8,
+    "intertwiner_null_singular_value": 1e-8,
+    "next_singular_value_minimum": 0.5,
+    "all_operation_matrix_frobenius": 1e-8
+  },
+  "authorization": {
+    "direct_wavefunction_irrep_assignment": true,
+    "canonical_gamma_basis": true,
+    "all_unitary_double_group_validation": true,
+    "all_antiunitary_validation": true,
+    "relative_inter_irrep_sign_fix": false,
+    "finite_k_kane_parameter_fit": false,
+    "phonons": false,
+    "electron_phonon_self_energy": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "Passing this gate validates the selected CdTe Gamma subspaces and their canonical internal bases under the complete generated Td double-group section. It does not establish converged physical CdTe Kane parameters, finite-k sign conventions, phonons, electron-phonon renormalization, HgTe, or alloy results."
+}
