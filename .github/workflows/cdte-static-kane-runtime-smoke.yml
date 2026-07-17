@@ -43,8 +43,11 @@ jobs:
       - name: Build exact sources and execute smoke
         run: bash tools/run_cdte_static_kane_smoke_ci.sh
 
-      - name: Preserve full-precision ordered eigenvalues
-        run: bash tools/preserve_cdte_kane_runtime_evidence.sh
+      - name: Preserve and hash full-precision ordered eigenvalues
+        run: |
+          bash tools/preserve_cdte_kane_runtime_evidence.sh
+          find cdte-kane-evidence -type f ! -name evidence_sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > cdte-kane-evidence/evidence_sha256.txt
 
       - name: Upload all evidence
         if: always()
