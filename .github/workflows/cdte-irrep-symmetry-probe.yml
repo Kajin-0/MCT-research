@@ -27,7 +27,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            gfortran make cmake git ca-certificates python3-venv \
+            gfortran make cmake git ca-certificates python3-venv python3-numpy \
             libopenblas-dev liblapack-dev libfftw3-dev
 
       - name: Select committed Wannier90 runtime input
