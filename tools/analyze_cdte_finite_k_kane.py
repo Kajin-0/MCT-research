@@ -277,12 +277,26 @@ def analyze(
         thresholds["maximum_time_reversal_pair_residual_ev"]
     ):
         raise RuntimeError("canonical finite-k matrices fail time reversal")
-    closure_passed = (
-        maximum_linear_holdout
+
+    linear_training = float(two_diagnostics["linear"]["relative_residual"])
+    quadratic_training = float(two_diagnostics["quadratic"]["relative_residual"])
+    linear_passed = (
+        linear_training
+        <= float(thresholds["maximum_linear_training_relative_residual"])
+        and maximum_linear_holdout
         <= float(thresholds["maximum_linear_holdout_relative_residual"])
+    )
+    quadratic_passed = (
+        quadratic_training
+        <= float(thresholds["maximum_quadratic_training_relative_residual"])
         and maximum_quadratic_holdout
         <= float(thresholds["maximum_quadratic_holdout_relative_residual"])
     )
+    closure_passed = linear_passed and quadratic_passed
+    one_linear = float(one_diagnostics["linear"]["relative_residual"])
+    two_linear = float(two_diagnostics["linear"]["relative_residual"])
+    one_to_two_improvement = one_linear / max(two_linear, np.finfo(float).eps)
+
     return {
         "schema_version": "1.0",
         "status": (
@@ -324,15 +338,35 @@ def analyze(
         },
         "closure_decision": {
             "passed_declared_static_smoke_thresholds": closure_passed,
-            "maximum_linear_holdout_relative_error": maximum_linear_holdout,
-            "maximum_quadratic_holdout_relative_error": maximum_quadratic_holdout,
+            "linear_two_p": {
+                "passed": linear_passed,
+                "training_relative_residual": linear_training,
+                "maximum_holdout_relative_error": maximum_linear_holdout,
+                "one_p_to_two_p_training_residual_ratio": one_to_two_improvement,
+                "parameter_status": (
+                    "static_method_smoke_supported_not_converged_material_values"
+                    if linear_passed
+                    else "rejected_at_declared_static_smoke_threshold"
+                ),
+            },
+            "quadratic_conventional_kane": {
+                "passed": quadratic_passed,
+                "training_relative_residual": quadratic_training,
+                "maximum_holdout_relative_error": maximum_quadratic_holdout,
+                "parameter_status": (
+                    "static_method_smoke_supported_not_converged_material_values"
+                    if quadratic_passed
+                    else "F_and_gamma_values_not_validated_by_matrix_closure"
+                ),
+            },
             "interpretation": (
-                "The declared static two-P Kane manifold passes the unused "
-                "[110] smoke holdout."
+                "The complete declared static two-P Kane manifold passes the "
+                "training and unused [110] smoke gates."
                 if closure_passed
-                else "The static two-P Kane manifold is rejected at the "
-                "declared smoke threshold; do not increase computational depth "
-                "automatically."
+                else "At least one Kane parameter block fails the declared "
+                "matrix-closure gate. Retain passing blocks only as method-smoke "
+                "estimates, reject failed parameter blocks, and do not increase "
+                "computational depth automatically."
             ),
         },
         "reconstruction": reconstruction,
