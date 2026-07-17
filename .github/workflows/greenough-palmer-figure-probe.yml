@@ -1,0 +1,40 @@
+name: greenough-palmer-figure-probe
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/greenough-palmer-figure-probe.yml'
+      - 'tools/probe_greenough_palmer_figures.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install PDF rendering tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils python3-pil
+
+      - name: Render graphical-data page
+        run: |
+          python tools/probe_greenough_palmer_figures.py \
+            --contract literature/greenough_palmer_1973_acquisition_contract.json \
+            --source first_principles/a0/cdte_greenough_palmer_source.json \
+            --output-dir greenough-palmer-figure-probe
+
+      - name: Upload temporary figure probe
+        uses: actions/upload-artifact@v4
+        with:
+          name: greenough-palmer-figure-probe
+          path: greenough-palmer-figure-probe
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 6
