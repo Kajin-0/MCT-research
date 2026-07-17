@@ -1,0 +1,145 @@
+{
+  "aggregate": {
+    "broad_block_counts_at_5_percent": {
+      "001": 4,
+      "110": 5,
+      "111": 5
+    },
+    "direction_space_singular_values_ev_angstrom2": [
+      10.472775621771204,
+      7.810731235369597,
+      4.604163061272991
+    ],
+    "maximum_gamma6_diagonal_energy_fraction": 1.9072880698963398e-12,
+    "radius_correction_to_residual_ratio": 0.0012456226503604105,
+    "residual_frobenius_norm_ev_angstrom2": 13.852251410869432,
+    "richardson_correction_frobenius_norm_ev_angstrom2": 0.017254678115865917,
+    "state_space_significant_rank_at_10_percent": 8,
+    "state_space_singular_values_ev_angstrom2": [
+      6.67353000272681,
+      6.673484893409658,
+      5.2204259084191955,
+      5.220404867547841,
+      4.1989909545699335,
+      4.198938062507888,
+      2.5539937555957346,
+      2.553918986714571
+    ]
+  },
+  "claim_boundary": "This is an unconverged static CdTe residual-localization result. It does not identify a unique missing invariant, validate F or gamma values, establish reference CdTe parameters, or authorize denser k meshes, more bands, phonons, AHC, HgTe, or alloy calculations.",
+  "decision": {
+    "finite_radius_contamination_disfavored": true,
+    "gamma6_diagonal_residual_is_negligible": true,
+    "next_authorized_task": "Generate and rank the complete Td- and time-reversal-allowed quadratic invariant basis using the existing matrices only; do not launch new electronic-structure calculations.",
+    "residual_has_broad_block_support": true,
+    "residual_is_low_rank_under_10_percent_test": false
+  },
+  "directions": {
+    "001": {
+      "block_energy_fractions": {
+        "66": 1.9072880698963398e-12,
+        "67": 5.129545754794621e-10,
+        "68": 0.23356293199100667,
+        "77": 0.11118217458587817,
+        "87": 0.19988716907429344,
+        "88": 0.45536772383395996
+      },
+      "radius_correction_to_residual_ratio": 0.0018575312574845265,
+      "residual_frobenius_norm_ev_angstrom2": 7.3048082167633375,
+      "residual_relative_to_observed": 0.4737645027786361,
+      "residual_singular_values_ev_angstrom2": [
+        3.957786017159771,
+        3.957722302824884,
+        3.2239384862082363,
+        3.223904795155635,
+        0.7872579946493241,
+        0.7872458679350315,
+        0.05347075702273253,
+        0.05343482133840893
+      ],
+      "richardson_correction_frobenius_norm_ev_angstrom2": 0.013568909592567704,
+      "significant_rank_at_10_percent": 6
+    },
+    "110": {
+      "block_energy_fractions": {
+        "66": 4.687792438756594e-13,
+        "67": 0.220993632234218,
+        "68": 0.16910048789094434,
+        "77": 0.08856188516054063,
+        "87": 0.1590186921776037,
+        "88": 0.3623253025362244
+      },
+      "radius_correction_to_residual_ratio": 0.0011365252991170707,
+      "residual_frobenius_norm_ev_angstrom2": 8.184742575379396,
+      "residual_relative_to_observed": 0.4852581412713303,
+      "residual_singular_values_ev_angstrom2": [
+        4.538030880707352,
+        4.5380024853606855,
+        3.4219438154024138,
+        3.421915606183549,
+        1.0914403339739294,
+        1.091401779835239,
+        0.024656471451534826,
+        0.02462748432917447
+      ],
+      "richardson_correction_frobenius_norm_ev_angstrom2": 0.009302167003679291,
+      "significant_rank_at_10_percent": 6
+    },
+    "111": {
+      "block_energy_fractions": {
+        "66": 4.4543432317886744e-13,
+        "67": 0.27594704002395753,
+        "68": 0.15307183163862598,
+        "77": 0.08293601674696488,
+        "87": 0.1488596060611191,
+        "88": 0.33918550552888727
+      },
+      "radius_correction_to_residual_ratio": 0.0006152512459968372,
+      "residual_frobenius_norm_ev_angstrom2": 8.45781502759506,
+      "residual_relative_to_observed": 0.4882514406419528,
+      "residual_singular_values_ev_angstrom2": [
+        3.9757287919208313,
+        3.9756354667880958,
+        3.9700944222374233,
+        3.970071044744748,
+        1.4519105648649722,
+        1.4518261601921545,
+        1.4463033904715303,
+        1.4463012972563958
+      ],
+      "richardson_correction_frobenius_norm_ev_angstrom2": 0.005203681234138635,
+      "significant_rank_at_10_percent": 8
+    }
+  },
+  "input_sha256": {
+    "canonical_basis_result": "17a27c2b685b5b741cd5f0a34801d885102691bc36e6e7cb3bfd2477e0c6b86b",
+    "exact_qe_eigenvalues": "761a084a64afc07cfdf2990f7a43c21c9a80452c108766e36dc0d68e84f25452",
+    "mmn": "ee52a3d72f2c574299a0a01fde3365af3ed9eabbf7b9faadbd8f634f0ef413a0",
+    "nnkp": "08e79be2264781cdf027a8df9f2d2d549255f108c7e47c4d58104715d78ec678"
+  },
+  "minimum_overlap_singular_value": 0.9998818023370384,
+  "rejected_conventional_quadratic_fit_for_reproduction_only": {
+    "parameter_status": "not_validated_by_matrix_closure",
+    "parameters": {
+      "f": -0.11419021440305357,
+      "gamma1": 1.3827145348975407,
+      "gamma2": 0.028636183871066947,
+      "gamma3": 0.25338551890178057
+    },
+    "training_relative_residual": 0.49668672888620635
+  },
+  "schema_version": "1.0",
+  "sign_convention": {
+    "Gamma7": 1,
+    "Gamma8": -1
+  },
+  "status": "localized_static_cdte_quadratic_kane_residual",
+  "upstream": {
+    "artifact_id": 8413206166,
+    "artifact_sha256": "e0d8b95cb7b992b0cd78bf7329956988cb287c941b1e04b74884e2d71c8806d8",
+    "branch": "agent/cdte-finite-k-kane-smoke",
+    "head_sha": "26084d700cfc3e619e300a8b850f1ac391bdb810",
+    "pull_request": 82,
+    "workflow_run_id": 29595776454
+  }
+}
