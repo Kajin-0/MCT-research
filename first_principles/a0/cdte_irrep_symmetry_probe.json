@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_gamma_symmetry_matrix_probe",
+  "purpose": "Record the actual full unitary and antiunitary Gamma representation matrices before applying the canonical Kane intertwiners.",
+  "irrep": {
+    "version": "3.0.1",
+    "upstream_repository": "irreducible-representations/irrep",
+    "upstream_commit": "3317a1fc2f3d4c95eeee35a5b21c661fe38ab1ea",
+    "pypi_wheel": "irrep-3.0.1-py3-none-any.whl",
+    "pypi_wheel_sha256": "ece0760d7d9051d9e7c0e36cf903d83564b5ad924f2d25fa4d079b6c884cbfa6",
+    "pypi_sdist_sha256": "c5e3031446b9507bb1cd90edb8974956945f428bd5591c899327d0f7977bc8e7",
+    "citation_doi": "10.1016/j.cpc.2021.108226"
+  },
+  "qe_input": {
+    "upstream_stage": "static_kane_projection_method_smoke",
+    "selected_global_bands_one_based": [31, 32, 33, 34, 35, 36, 37, 38],
+    "energy_blocks_one_based": [[31, 32], [33, 36], [37, 38]],
+    "kpoints_loaded_zero_based": [0],
+    "include_time_reversal": true
+  },
+  "required_evidence": [
+    "exact IrRep wheel SHA-256",
+    "installed IrRep version and module path",
+    "complete pip freeze and pip inspect reports",
+    "QE data-file-schema.xml SHA-256",
+    "all unitary and antiunitary symmetry descriptors",
+    "raw and unitary full matrices for each of the three energy blocks",
+    "characters and unitarity residuals",
+    "all runtime exceptions preserved"
+  ],
+  "authorization": {
+    "raw_symmetry_matrix_probe": true,
+    "irrep_assignment": false,
+    "canonical_basis_rotation": false,
+    "kane_parameter_fit": false,
+    "phonons": false,
+    "electron_phonon_self_energy": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "success_claim": "The pinned IrRep/QE interface returned complete Gamma symmetry matrices with explicit conventions and no missing operation blocks.",
+  "prohibited_claims": [
+    "validated Gamma6 Gamma8 Gamma7 assignment",
+    "canonical Kane basis",
+    "physical or converged CdTe parameters",
+    "temperature-dependent result"
+  ]
+}
