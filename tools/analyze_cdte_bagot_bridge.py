@@ -9,14 +9,24 @@ from pathlib import Path
 
 import numpy as np
 
-from analyze_cdte_browder_bridge import analyze as analyze_browder
-from analyze_cdte_lattice_source_chain import (
-    SMITH_ALPHA_1E8,
-    SMITH_DIRECT,
-    SMITH_T_K,
-    alpha_williams,
-    lattice_a,
-)
+if __package__:
+    from .analyze_cdte_browder_bridge import analyze as analyze_browder
+    from .analyze_cdte_lattice_source_chain import (
+        SMITH_ALPHA_1E8,
+        SMITH_DIRECT,
+        SMITH_T_K,
+        alpha_williams,
+        lattice_a,
+    )
+else:
+    from analyze_cdte_browder_bridge import analyze as analyze_browder
+    from analyze_cdte_lattice_source_chain import (
+        SMITH_ALPHA_1E8,
+        SMITH_DIRECT,
+        SMITH_T_K,
+        alpha_williams,
+        lattice_a,
+    )
 
 
 def alpha_bagot_fit(temperature_k: np.ndarray | float, coefficients: list[dict]) -> np.ndarray:
