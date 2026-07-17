@@ -50,3 +50,25 @@ def test_contract_forbids_preserving_copyrighted_source() -> None:
     assert not contract["scientific_gate"][
         "execution_lattice_authorized_by_acquisition_alone"
     ]
+
+
+def test_audited_source_identity_and_fail_closed_gate() -> None:
+    source = json.loads(
+        Path("first_principles/a0/cdte_greenough_palmer_source.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert source["source"]["sha256"] == (
+        "3f6a2a39b2047d3d00c375a7441068ba88712429719b5826318876230bf46781"
+    )
+    assert source["source"]["size_bytes"] == 2232984
+    assert source["source"]["page_count"] == 6
+    assert source["source"]["copyrighted_source_committed_or_uploaded"] is False
+    assert source["sample_and_measurement"]["material"] == "single-crystal CdTe"
+    assert source["sample_and_measurement"][
+        "reported_relative_alpha_uncertainty_fraction"
+    ] == pytest.approx(0.03)
+    assert source["gate_decision"]["primary_source_acquired_and_hashed"] is True
+    assert source["gate_decision"]["single_crystal_morphology_gate_passed"] is True
+    assert source["gate_decision"]["curve_digitization_complete"] is False
+    assert source["gate_decision"]["execution_lattice_authorized"] is False
