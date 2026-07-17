@@ -30,6 +30,28 @@ jobs:
             gfortran make cmake git ca-certificates \
             libopenblas-dev liblapack-dev libfftw3-dev
 
+      - name: Add Wannier90 3.1 parser bookkeeping grid
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('first_principles/a0/cdte_static_kane_smoke_inputs/cdte_kane.win')
+          text = path.read_text(encoding='utf-8')
+          if 'mp_grid' in text.lower():
+              raise SystemExit('mp_grid already present; remove the runtime compatibility patch')
+          before_kpoints = text.split('begin kpoints', 1)[1].split('end kpoints', 1)[0]
+          before_nnkpts = text.split('begin nnkpts', 1)[1].split('end nnkpts', 1)[0]
+          text = text.replace(
+              'skip_B1_tests = true\n',
+              'skip_B1_tests = true\nmp_grid = 13 1 1\n',
+              1,
+          )
+          path.write_text(text, encoding='utf-8')
+          after = path.read_text(encoding='utf-8')
+          assert before_kpoints == after.split('begin kpoints', 1)[1].split('end kpoints', 1)[0]
+          assert before_nnkpts == after.split('begin nnkpts', 1)[1].split('end nnkpts', 1)[0]
+          PY
+
       - name: Build exact sources and execute smoke
         run: bash tools/run_cdte_static_kane_smoke_ci.sh
 
