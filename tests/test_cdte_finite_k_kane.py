@@ -169,12 +169,15 @@ def test_exact_two_p_smoke_recovers_parameters_and_holdout(
         paths["basis"],
         paths["contract"],
     )
+    json.dumps(result, sort_keys=True)
 
     assert result["minimum_overlap_singular_value"] > 1.0 - 1.0e-12
     assert result["maximum_time_reversal_pair_residual_ev"] < 1.0e-11
     assert result["sign_convention"]["selected"]["gamma8_sign"] == 1
     assert result["sign_convention"]["selected"]["gamma7_sign"] == 1
     assert result["closure_decision"]["passed_declared_static_smoke_thresholds"]
+    assert result["closure_decision"]["linear_two_p"]["passed"]
+    assert result["closure_decision"]["quadratic_conventional_kane"]["passed"]
     assert result["two_p"]["diagnostics"]["linear"]["relative_residual"] < 1.0e-10
     assert result["two_p"]["diagnostics"]["quadratic"]["relative_residual"] < 1.0e-8
     assert result["one_p"]["diagnostics"]["linear"]["relative_residual"] > 1.0e-3
