@@ -40,7 +40,7 @@ jobs:
       - name: Derive conservative A0 lattice decision
         run: |
           set +e
-          python tools/derive_cdte_execution_lattice.py \
+          python -m tools.derive_cdte_execution_lattice \
             --acquisition-json browder-optica-acquisition-evidence/acquisition.json \
             --output-json browder-optica-acquisition-evidence/cdte_lattice_execution_decision.json \
             > browder-optica-acquisition-evidence/derivation.stdout.txt \
