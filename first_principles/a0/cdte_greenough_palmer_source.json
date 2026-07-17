@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "source": {
     "authors": [
       "R. D. Greenough",
@@ -39,10 +39,27 @@
     "temperature_sensor": "gold +0.03 percent iron-chromel thermocouple calibrated against platinum resistance thermometer",
     "absolute_temperature_accuracy_kelvin": 0.25,
     "least_squares_temperature_interval_accuracy_kelvin": 0.02,
-    "measured_temperature_range_kelvin": [
+    "article_stated_overall_measurement_range_kelvin": [
       4.2,
       300.0
     ]
+  },
+  "published_thermal_expansion_evidence": {
+    "figure_probe_workflow_run": 29620272465,
+    "temporary_figure_probe_artifact_id": 8421949153,
+    "figure_4_quantity": "linear thermal expansion coefficient alpha along [100]",
+    "figure_4_axis_range_kelvin": [
+      50.0,
+      100.0
+    ],
+    "figure_5_quantity": "fractional change in lattice parameter along [100] relative to 90 K",
+    "figure_5_axis_range_kelvin_approximately": [
+      60.0,
+      91.0
+    ],
+    "numerical_table_printed": false,
+    "published_curve_covering_100_to_293_kelvin": false,
+    "scope_interpretation": "The paper states broad experimental coverage but publishes thermal-expansion graphical detail only around the 50-100 K anomaly. The printed article does not expose a numerical or graphical 100-293 K curve suitable for integration."
   },
   "reported_results": {
     "alpha_zero_crossing_kelvin": 63.7,
@@ -50,21 +67,22 @@
     "anomaly_peak_temperature_uncertainty_kelvin": 0.1,
     "anomaly_reproduced_in_second_sample_from_different_boule": true,
     "possible_hysteresis_above_and_below_anomaly": true,
-    "fractional_lattice_change_reference_temperature_kelvin": 90.0,
-    "thermal_expansion_data_form": "graphical in Figures 4 and 5; no numerical table printed"
+    "fractional_lattice_change_reference_temperature_kelvin": 90.0
   },
   "gate_decision": {
     "primary_source_acquired_and_hashed": true,
     "single_crystal_morphology_gate_passed": true,
-    "composition_provenance_gate_passed_for_bridge_source": true,
-    "curve_digitization_complete": false,
-    "uncertainty_propagation_complete": false,
+    "composition_provenance_gate_passed": true,
+    "low_temperature_anomaly_source_accepted": true,
+    "high_temperature_90_to_293_kelvin_bridge_supplied": false,
+    "digitizing_figures_4_and_5_would_close_high_temperature_bridge": false,
+    "low_temperature_digitization_priority": "deferred_low_marginal_value",
+    "uncertainty_propagation_for_execution_bridge_complete": false,
     "execution_lattice_authorized": false,
     "remaining_work": [
-      "Digitize Figure 4 alpha(T) or Figure 5 fractional lattice change versus temperature.",
-      "Cross-check the digitized integral against the published 90 K-referenced fractional lattice-change curve.",
-      "Propagate the reported approximately 3 percent relative alpha uncertainty and temperature uncertainty to the Williams 293.15 K absolute lattice anchor.",
-      "Test sensitivity to the narrow 79 K anomaly and any visible hysteresis."
+      "Acquire and hash Bagot, Granger, and Rolland 1993 or another primary CdTe source that publishes numerical or graphical thermal expansion over approximately 90-293 K.",
+      "Propagate the accepted full-range primary data to the Williams 293.15 K absolute lattice anchor.",
+      "Return to the Greenough-Palmer 79 K anomaly only if the final execution uncertainty becomes sensitive to the low-temperature integral."
     ]
   }
 }
