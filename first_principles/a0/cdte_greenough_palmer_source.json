@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "source": {
+    "authors": [
+      "R. D. Greenough",
+      "S. B. Palmer"
+    ],
+    "title": "The elastic constants and thermal expansion of single-crystal CdTe",
+    "journal": "Journal of Physics D: Applied Physics",
+    "volume": 6,
+    "pages": "587-592",
+    "year": 1973,
+    "doi": "10.1088/0022-3727/6/5/315",
+    "public_archive_url": "https://legacybk.s3.us-west-2.amazonaws.com/HTH-Archives/Cabinet%202/G/Greenough%2C%20R.D/Combined%20%28linked%29/Greenough%2C%20R.D.-9417-9419.pdf",
+    "retrieved_at_utc": "2026-07-17T23:12:55.346625+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "etag": "\"df0e24879acf099a58d419de47b82311\"",
+    "last_modified": "Mon, 24 Jun 2013 23:14:56 GMT",
+    "sha256": "3f6a2a39b2047d3d00c375a7441068ba88712429719b5826318876230bf46781",
+    "size_bytes": 2232984,
+    "page_count": 6,
+    "acquisition_workflow_run": 29620068138,
+    "acquisition_artifact_id": 8421878128,
+    "copyrighted_source_committed_or_uploaded": false
+  },
+  "sample_and_measurement": {
+    "material": "single-crystal CdTe",
+    "growth": "modified Bridgman technique",
+    "specimen_form": "plates with large faces on (110) planes",
+    "orientation_check": "Laue x-ray",
+    "observed_strain_or_twinning": false,
+    "maximum_possible_deviation_from_equiatomic_composition_fraction": 0.0001,
+    "thermal_expansion_direction": "[100]",
+    "thermal_expansion_method": "strain gauge comparing sample expansion with Spectrosil B quartz",
+    "reading_interval_kelvin": 0.3,
+    "temperature_stability_at_reading_kelvin": 0.01,
+    "reported_relative_alpha_uncertainty_fraction": 0.03,
+    "temperature_sensor": "gold +0.03 percent iron-chromel thermocouple calibrated against platinum resistance thermometer",
+    "absolute_temperature_accuracy_kelvin": 0.25,
+    "least_squares_temperature_interval_accuracy_kelvin": 0.02,
+    "measured_temperature_range_kelvin": [
+      4.2,
+      300.0
+    ]
+  },
+  "reported_results": {
+    "alpha_zero_crossing_kelvin": 63.7,
+    "anomaly_peak_kelvin": 79.0,
+    "anomaly_peak_temperature_uncertainty_kelvin": 0.1,
+    "anomaly_reproduced_in_second_sample_from_different_boule": true,
+    "possible_hysteresis_above_and_below_anomaly": true,
+    "fractional_lattice_change_reference_temperature_kelvin": 90.0,
+    "thermal_expansion_data_form": "graphical in Figures 4 and 5; no numerical table printed"
+  },
+  "gate_decision": {
+    "primary_source_acquired_and_hashed": true,
+    "single_crystal_morphology_gate_passed": true,
+    "composition_provenance_gate_passed_for_bridge_source": true,
+    "curve_digitization_complete": false,
+    "uncertainty_propagation_complete": false,
+    "execution_lattice_authorized": false,
+    "remaining_work": [
+      "Digitize Figure 4 alpha(T) or Figure 5 fractional lattice change versus temperature.",
+      "Cross-check the digitized integral against the published 90 K-referenced fractional lattice-change curve.",
+      "Propagate the reported approximately 3 percent relative alpha uncertainty and temperature uncertainty to the Williams 293.15 K absolute lattice anchor.",
+      "Test sensitivity to the narrow 79 K anomaly and any visible hysteresis."
+    ]
+  }
+}
