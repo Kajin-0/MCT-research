@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "stage": "static_kane_projection_method_smoke",
   "purpose": "Verify fixed-basis finite-k reconstruction, two-radius derivative extraction, and an unused-direction closure test. This is not a physical CdTe parameter result.",
   "authorization": {
@@ -21,7 +21,12 @@
       "Cd": [0.0, 0.0, 0.0],
       "Te": [0.25, 0.25, 0.25]
     },
-    "lattice_constant_angstrom": 6.4760,
+    "lattice_constant_angstrom": 6.476,
+    "primitive_cell_rows_angstrom": [
+      [0.0, 3.238, 3.238],
+      [3.238, 0.0, 3.238],
+      [3.238, 3.238, 0.0]
+    ],
     "status": "planning_geometry_only_not_physical_reference",
     "provenance_note": "Rounded central sensitivity estimate from the Williams-Smith/Browder source chain; the physical A0 lattice gate remains separate and closed."
   },
@@ -45,30 +50,51 @@
     "Te_UPF": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
   },
   "k_stencil": {
-    "coordinate_rule": "Every direction uses the same Cartesian |k| in inverse angstrom. For unit direction n, calculate plus/minus k*n and transform to crystal coordinates with the inverse reciprocal-lattice matrix used by the rendered pw.x input.",
+    "coordinate_rule": "Every direction uses the same Cartesian |k| in inverse angstrom. Crystal coordinates below are derived from the exact declared primitive cell and must not be recomputed from a different cell.",
     "cartesian_magnitudes_inverse_angstrom": [0.01, 0.005],
-    "training_directions": {
-      "001": [0.0, 0.0, 1.0],
-      "111": [0.5773502691896258, 0.5773502691896258, 0.5773502691896258]
-    },
-    "heldout_direction": {
-      "110": [0.7071067811865475, 0.7071067811865475, 0.0]
-    },
+    "training_directions": ["001", "111"],
+    "holdout_direction": "110",
     "both_signs_required": true,
     "point_count_including_gamma": 13,
+    "ordered_points": [
+      {"index": 1, "label": "Gamma", "crystal": [0.0, 0.0, 0.0]},
+      {"index": 2, "label": "+001_h", "crystal": [0.005153437057316, 0.005153437057316, 0.0]},
+      {"index": 3, "label": "-001_h", "crystal": [-0.005153437057316, -0.005153437057316, 0.0]},
+      {"index": 4, "label": "+001_h_over_2", "crystal": [0.002576718528658, 0.002576718528658, 0.0]},
+      {"index": 5, "label": "-001_h_over_2", "crystal": [-0.002576718528658, -0.002576718528658, 0.0]},
+      {"index": 6, "label": "+111_h", "crystal": [0.005950676544586, 0.005950676544586, 0.005950676544586]},
+      {"index": 7, "label": "-111_h", "crystal": [-0.005950676544586, -0.005950676544586, -0.005950676544586]},
+      {"index": 8, "label": "+111_h_over_2", "crystal": [0.002975338272293, 0.002975338272293, 0.002975338272293]},
+      {"index": 9, "label": "-111_h_over_2", "crystal": [-0.002975338272293, -0.002975338272293, -0.002975338272293]},
+      {"index": 10, "label": "+110_h", "crystal": [0.003644030289646, 0.003644030289646, 0.007288060579292]},
+      {"index": 11, "label": "-110_h", "crystal": [-0.003644030289646, -0.003644030289646, -0.007288060579292]},
+      {"index": 12, "label": "+110_h_over_2", "crystal": [0.001822015144823, 0.001822015144823, 0.003644030289646]},
+      {"index": 13, "label": "-110_h_over_2", "crystal": [-0.001822015144823, -0.001822015144823, -0.003644030289646]}
+    ],
     "richardson_rule": "X0=(4*X(h/2)-X(h))/3 for central odd derivatives and even curvatures"
   },
   "wavefunction_overlap_export": {
     "backend": "Wannier90 preprocessing plus Quantum ESPRESSO pw2wannier90.x",
     "purpose": "Export direct cell-periodic spinor overlaps without Wannierizing or assigning finite-k band labels.",
-    "nscf_kpoint_order": "Gamma is point 1; points 2 through 13 are the deterministic plus/minus h and h/2 stencil points recorded in the rendered manifest.",
+    "nscf_kpoint_order": "The NSCF, Wannier90 kpoints block, generated nnkp, mmn, and ordered_points ledger must have identical order.",
     "wannier90_win": {
       "spinors": true,
       "postproc_setup": true,
+      "skip_B1_tests": true,
       "explicit_nnkpts": true,
+      "num_bands": 40,
+      "num_wann": 8,
       "num_kpts": 13,
       "nntot": 1,
-      "full_wannier_run_authorized": false
+      "full_wannier_run_authorized": false,
+      "export_only_parser_projections": [
+        "Cd:s(u,d)",
+        "Te:s(u,d)",
+        "Cd:pz(u,d)",
+        "Te:pz(u,d)"
+      ],
+      "projection_count_after_spinor_expansion": 8,
+      "projection_scientific_role": "none; pw2wannier90 parses a consistent projection block even though write_amn=false"
     },
     "neighbor_star": {
       "gamma_self_link": [1, 1, 0, 0, 0],
@@ -87,11 +113,7 @@
       "norm_conserving_fully_relativistic_pseudopotentials_required": true
     },
     "mmn_contract": {
-      "expected_header": {
-        "num_bands": 40,
-        "num_kpts": 13,
-        "nntot": 1
-      },
+      "expected_header": {"num_bands": 40, "num_kpts": 13, "nntot": 1},
       "block_count": 13,
       "matrix_element_order": "first band index m varies fastest",
       "exported_orientation": "M_i=<u_i|u_Gamma>",
@@ -101,10 +123,10 @@
     },
     "execution_sequence": [
       "SCF on the planning geometry",
-      "SOC NSCF on the exact 13-point ordered list",
-      "wannier90.x -pp using spinors=true and the explicit one-neighbor nnkpts star",
+      "SOC NSCF on the exact ordered 13-point list",
+      "wannier90.x -pp with spinors=true, skip_B1_tests=true, export-only parser projections, and the explicit one-neighbor nnkpts star",
       "pw2wannier90.x with spin_component=none write_mmn=true write_amn=false",
-      "validate the mmn topology and Gamma self overlap before any subspace projection",
+      "validate mmn topology and Gamma self overlap before any subspace projection",
       "form S_i from the conjugate transpose of each finite-point-to-Gamma block"
     ]
   },
@@ -130,7 +152,7 @@
     "runtime_pseudopotential_sha256",
     "input_output_and_environment_hash_manifest",
     "wall_time_max_rss_scratch_and_output_size",
-    "ordered_13_point_cartesian_and_crystal_coordinate_manifest",
+    "ordered_13_point_coordinate_manifest",
     "wannier90_win_and_generated_nnkp_sha256",
     "raw_40_band_mmn_sha256_and_topology_validation",
     "Gamma_40_band_self_overlap_residual",
@@ -154,6 +176,7 @@
     "runtime_available": false,
     "calculation_executed": false,
     "ready_for_execution": false,
+    "rendered_inputs_committed": false,
     "blocking_reasons": [
       "No verified installed pw.x, pw2wannier90.x, or wannier90.x executables are available in the current runtime.",
       "Rendered SCF, NSCF, Wannier90 preprocessing, nnkp, and runtime byte-hash manifests do not yet exist."
