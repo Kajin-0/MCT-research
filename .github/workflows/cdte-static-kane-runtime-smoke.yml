@@ -1,0 +1,44 @@
+name: cdte-static-kane-runtime-smoke
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-static-kane-runtime-smoke.yml'
+      - 'tools/run_cdte_static_kane_smoke_ci.sh'
+      - 'tools/check_wannier90_gamma_star_mmn.py'
+      - 'first_principles/a0/cdte_static_kane_method_smoke.json'
+      - 'first_principles/a0/cdte_static_kane_smoke_inputs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  execute:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install serial build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gfortran make cmake git ca-certificates \
+            libopenblas-dev liblapack-dev libfftw3-dev
+
+      - name: Build exact sources and execute smoke
+        run: bash tools/run_cdte_static_kane_smoke_ci.sh
+
+      - name: Upload all evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-static-kane-runtime-evidence
+          path: cdte-kane-evidence
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
