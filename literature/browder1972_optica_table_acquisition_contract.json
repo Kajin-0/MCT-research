@@ -1,0 +1,41 @@
+{
+  "citation": {
+    "authors": [
+      "James Steve Browder",
+      "Stanley S. Ballard"
+    ],
+    "title": "Thermal Expansion Measurements on Four Optical Materials from Room Temperature to 10 K",
+    "journal": "Applied Optics",
+    "volume": 11,
+    "issue": 4,
+    "pages": "841-843",
+    "year": 1972,
+    "doi": "10.1364/AO.11.000841"
+  },
+  "acquisition": {
+    "source_url": "https://opg.optica.org/ao/abstract.cfm?uri=ao-11-4-841",
+    "expected_media_type_prefix": "text/html",
+    "minimum_size_bytes": 10000,
+    "maximum_size_bytes": 5000000,
+    "required_text_markers": [
+      "Thermal Expansion Measurements on Four Optical Materials from Room Temperature to 10 K",
+      "Coefficients of Linear Thermal Expansion",
+      "CdTe (Irtran 6)",
+      "three-terminal capacitance-type dilatometer",
+      "10-300 K"
+    ]
+  },
+  "table_validation": {
+    "committed_csv": "data/experimental/browder1972_cdte_irtran6_alpha.csv",
+    "expected_row_count": 25,
+    "temperature_column": "temperature_k",
+    "alpha_column": "alpha_1e6_per_k",
+    "expected_first_row": [10.0, -0.47],
+    "expected_last_row": [300.0, 5.3]
+  },
+  "rights_and_storage": {
+    "commit_publisher_html": false,
+    "upload_publisher_html_as_artifact": false,
+    "preserve_only_digest_metadata_and_table_validation": true
+  }
+}
