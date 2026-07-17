@@ -1,0 +1,101 @@
+name: cdte-irrep-symmetry-probe
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-irrep-symmetry-probe.yml'
+      - 'tools/probe_cdte_irrep_symmetry.py'
+      - 'first_principles/a0/cdte_irrep_symmetry_probe.json'
+      - 'tools/run_cdte_static_kane_smoke_ci.sh'
+      - 'first_principles/a0/cdte_static_kane_smoke_inputs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install runtime build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gfortran make cmake git ca-certificates python3-venv \
+            libopenblas-dev liblapack-dev libfftw3-dev
+
+      - name: Select committed Wannier90 runtime input
+        run: |
+          runtime='first_principles/a0/cdte_static_kane_smoke_inputs/cdte_kane.runtime.win'
+          target='first_principles/a0/cdte_static_kane_smoke_inputs/cdte_kane.win'
+          echo '58b9b9253084f5fef8a0f0aeecb22177278e78040826f64a4de79364379eedb4  '"$runtime" | sha256sum -c -
+          cp "$runtime" "$target"
+          cmp "$runtime" "$target"
+
+      - name: Build exact sources and execute CdTe smoke
+        run: bash tools/run_cdte_static_kane_smoke_ci.sh
+
+      - name: Install and record pinned IrRep
+        run: |
+          EVIDENCE="$GITHUB_WORKSPACE/irrep-probe-evidence"
+          VENV="$RUNNER_TEMP/irrep-venv"
+          WHEELS="$RUNNER_TEMP/irrep-wheel"
+          mkdir -p "$EVIDENCE/environment" "$EVIDENCE/raw" "$WHEELS"
+          python3 -m venv "$VENV"
+          "$VENV/bin/python" -m pip install --upgrade pip
+          "$VENV/bin/python" -m pip download --no-deps --only-binary=:all: \
+            --dest "$WHEELS" irrep==3.0.1
+          WHEEL="$WHEELS/irrep-3.0.1-py3-none-any.whl"
+          echo 'ece0760d7d9051d9e7c0e36cf903d83564b5ad924f2d25fa4d079b6c884cbfa6  '"$WHEEL" | sha256sum -c -
+          cp "$WHEEL" "$EVIDENCE/raw/"
+          "$VENV/bin/python" -m pip install --report "$EVIDENCE/environment/pip-install-report.json" "$WHEEL"
+          "$VENV/bin/python" -m pip freeze --all > "$EVIDENCE/environment/pip-freeze.txt"
+          "$VENV/bin/python" -m pip inspect > "$EVIDENCE/environment/pip-inspect.json"
+          "$VENV/bin/python" - <<'PY' > "$EVIDENCE/environment/irrep-identity.json"
+          import hashlib
+          import irrep
+          import json
+          from pathlib import Path
+
+          root = Path(irrep.__file__).resolve().parent
+          records = []
+          for path in sorted(root.rglob('*')):
+              if path.is_file():
+                  records.append({
+                      'path': str(path.relative_to(root)),
+                      'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                  })
+          print(json.dumps({
+              'version': irrep.__version__,
+              'module_file': str(Path(irrep.__file__).resolve()),
+              'package_files': records,
+          }, indent=2, sort_keys=True))
+          PY
+
+      - name: Probe full Gamma symmetry matrices
+        run: |
+          EVIDENCE="$GITHUB_WORKSPACE/irrep-probe-evidence"
+          PREFIX="$RUNNER_TEMP/cdte-kane-runtime/run/tmp/cdte_kane"
+          "$RUNNER_TEMP/irrep-venv/bin/python" tools/probe_cdte_irrep_symmetry.py \
+            "$PREFIX" --output-json "$EVIDENCE/raw/cdte_gamma_symmetry_probe.json" \
+            > "$EVIDENCE/raw/cdte_gamma_symmetry_probe.stdout.txt"
+          find "$EVIDENCE" -type f ! -name evidence_sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > "$EVIDENCE/evidence_sha256.txt"
+
+      - name: Upload probe evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-irrep-symmetry-probe-evidence
+          path: |
+            irrep-probe-evidence
+            cdte-kane-evidence
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
