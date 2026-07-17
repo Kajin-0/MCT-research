@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "stage": "cdte_quadratic_weiler_prior_art_mapping",
-  "status": "sector_dimension_mapping_established_template_normalization_pending",
+  "status": "sector_and_repository_class_templates_established_standard_normalization_pending",
   "basis": "Novik_2005_Eq_4_Gamma6_plus_Gamma8_plus_Gamma7",
   "scope": "homogeneous_zero_field_time_reversal_even_terms_quadratic_in_k",
   "primary_prior_art": [
@@ -85,6 +85,17 @@
     "independent_gamma2_prime",
     "independent_gamma3_prime"
   ],
+  "repository_class_template_result": {
+    "normalization": "repository_orthonormal_class_normalization",
+    "standard_weiler_parameter_normalization_validated": false,
+    "class_count": 10,
+    "class_gram_residual": 5.875272348701104e-16,
+    "class_projector_residual": 9.298651284056361e-15,
+    "conventional_relation_residual": 4.008946771883595e-16,
+    "static_cdte_training_relative_residual": 1.3747859313872535e-05,
+    "static_cdte_110_holdout_relative_residual": 8.624218212894124e-06,
+    "result_file": "first_principles/a0/cdte_weiler_class_reference_result.json"
+  },
   "novelty_decision": {
     "complete_ten_dimensional_invariant_space": "established",
     "six_additional_symmetry_directions": "established",
@@ -92,10 +103,12 @@
     "converged_cdte_named_coefficients": "not_established",
     "new_hamiltonian_form": "not_supported"
   },
-  "remaining_gate": "Construct exact Weiler-normalized matrices in the fixed Novik basis and prove a full-rank linear transformation between those ten named templates and the independently generated projector basis before reporting named coefficient values.",
+  "remaining_gate": "Derive exact conventional Weiler scale and sign matrices in the fixed Novik basis, prove their full-rank transformation to the validated repository class basis, and reproduce matrix closure before reporting standard named parameter values.",
   "authorization": {
     "named_template_derivation": true,
     "fit_existing_static_matrices": true,
+    "repository_orthonormal_class_coordinates": true,
+    "standard_weiler_parameter_values": false,
     "novel_invariant_claim": false,
     "new_electronic_structure_run": false,
     "phonons": false,

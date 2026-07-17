@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_weiler_class_template_gate",
+  "purpose": "Resolve the complete ten-dimensional quadratic projector into deterministic Weiler parameter classes in the exact Novik basis, prove the conventional four-parameter ties, and fit the existing static CdTe matrices in an explicitly orthonormal repository normalization before any standard-parameter numerical claim.",
+  "upstream": {
+    "finite_k_pull_request": 82,
+    "residual_localization_pull_request": 83,
+    "complete_invariant_pull_request": 84,
+    "prior_art_pull_request": 85,
+    "workflow_run_id": 29595776454,
+    "artifact_id": 8413206166,
+    "artifact_sha256": "e0d8b95cb7b992b0cd78bf7329956988cb287c941b1e04b74884e2d71c8806d8"
+  },
+  "class_order": [
+    {"name": "F", "sector": "66", "tensor_irrep": "A1"},
+    {"name": "N2", "sector": "68", "tensor_irrep": "E"},
+    {"name": "G", "sector": "68", "tensor_irrep": "T2"},
+    {"name": "G_prime", "sector": "67", "tensor_irrep": "T2"},
+    {"name": "gamma1", "sector": "88", "tensor_irrep": "A1"},
+    {"name": "gamma2", "sector": "88", "tensor_irrep": "E"},
+    {"name": "gamma3", "sector": "88", "tensor_irrep": "T2"},
+    {"name": "gamma2_prime", "sector": "87", "tensor_irrep": "E"},
+    {"name": "gamma3_prime", "sector": "87", "tensor_irrep": "T2"},
+    {"name": "gamma1_prime", "sector": "77", "tensor_irrep": "A1"}
+  ],
+  "normalization": {
+    "name": "repository_orthonormal_class_normalization",
+    "description": "Each class is the deterministic unit-norm vector obtained by projecting the declared tensor-irrep and matrix-sector product basis, orthonormalizing in repository ordering, and choosing the first nonzero coefficient positive.",
+    "units_of_fitted_coordinates": "eV angstrom^2",
+    "standard_weiler_parameter_normalization_validated": false
+  },
+  "thresholds": {
+    "maximum_class_gram_residual": 1e-10,
+    "maximum_class_projector_residual": 1e-10,
+    "maximum_conventional_relation_residual": 1e-10,
+    "maximum_training_relative_residual": 0.001,
+    "maximum_holdout_relative_residual": 0.001,
+    "maximum_design_condition_number": 10.0
+  },
+  "authorization": {
+    "deterministic_weiler_class_templates": true,
+    "fit_repository_orthonormal_class_coordinates": true,
+    "prove_conventional_parameter_ties": true,
+    "report_standard_weiler_parameter_values": false,
+    "claim_new_invariants": false,
+    "new_electronic_structure_run": false,
+    "denser_k_mesh": false,
+    "more_bands": false,
+    "phonons": false,
+    "electron_phonon_self_energy": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "Passing this gate names the ten established Weiler symmetry classes and reports coordinates only in an explicit repository orthonormal normalization. It does not establish the conventional Weiler numerical scale/sign normalization, converged CdTe material coefficients, novelty of the invariant algebra, finite-temperature behavior, or permission for deeper electronic-structure, phonon, HgTe, or alloy calculations."
+}
