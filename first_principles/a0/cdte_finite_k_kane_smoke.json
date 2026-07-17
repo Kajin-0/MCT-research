@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_static_finite_k_kane_method_smoke",
+  "purpose": "Rotate the 13-point CdTe static smoke into the exact Novik basis, fix only the remaining discrete inter-irrep signs, apply two-radius matrix extrapolation, fit on [001] and [111], and reserve [110] as a closure holdout.",
+  "pairs": {
+    "001": {
+      "unit_direction": [0.0, 0.0, 1.0],
+      "radius_inverse_angstrom": 0.01,
+      "plus_h": 2,
+      "minus_h": 3,
+      "plus_h_over_2": 4,
+      "minus_h_over_2": 5
+    },
+    "111": {
+      "unit_direction": [0.5773502691896258, 0.5773502691896258, 0.5773502691896258],
+      "radius_inverse_angstrom": 0.01,
+      "plus_h": 6,
+      "minus_h": 7,
+      "plus_h_over_2": 8,
+      "minus_h_over_2": 9
+    },
+    "110": {
+      "unit_direction": [0.7071067811865475, 0.7071067811865475, 0.0],
+      "radius_inverse_angstrom": 0.01,
+      "plus_h": 10,
+      "minus_h": 11,
+      "plus_h_over_2": 12,
+      "minus_h_over_2": 13
+    }
+  },
+  "training_directions": ["001", "111"],
+  "holdout_directions": ["110"],
+  "sign_convention": {
+    "Gamma6": 1,
+    "Gamma8": "choose the unique sign giving P8 > 0",
+    "Gamma7": "choose the unique sign giving P7 > 0"
+  },
+  "thresholds": {
+    "minimum_overlap_singular_value": 0.995,
+    "maximum_time_reversal_pair_residual_ev": 1e-6,
+    "maximum_linear_holdout_relative_residual": 0.05,
+    "maximum_quadratic_holdout_relative_residual": 0.25
+  },
+  "authorization": {
+    "static_method_smoke": true,
+    "relative_inter_irrep_sign_fix": true,
+    "two_radius_extrapolation": true,
+    "one_p_two_p_comparison": true,
+    "converged_physical_cdte_parameters": false,
+    "parameter_covariance_claim": false,
+    "phonons": false,
+    "electron_phonon_self_energy": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "Any extracted numbers are static planning-geometry method-smoke values from unconverged PBE inputs. They may validate matrix reconstruction, phase/sign handling, two-radius extraction, and held-out closure only. They are not reference CdTe material parameters and do not authorize phonon, AHC, HgTe, or alloy work."
+}
