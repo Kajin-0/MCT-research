@@ -1,8 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "stage": "cdte_kane_double_group_gate",
-  "purpose": "Construct one globally consistent Td double-group lift from the matched C3[111] and S4z generators, recover the physical canonical Gamma6+Gamma8+Gamma7 intertwiners, and validate all CdTe unitary and antiunitary Gamma matrices before any finite-k Kane fit.",
+  "purpose": "Construct one globally consistent Td double-group lift from the matched C3[111] and S4z generators, recover the physical canonical Gamma6+Gamma8+Gamma7 intertwiners in the exact Novik Eq. (4) convention, and validate all CdTe unitary and antiunitary Gamma matrices before any finite-k Kane fit.",
   "upstream": {
+    "basis_convention": "Novik_2005_Eq_4",
+    "basis_convention_pull_request": 80,
+    "basis_convention_merge_commit": "540f592d3cd6f58241693529b4af2d32e5c981ce",
     "probe_contract": "first_principles/a0/cdte_irrep_symmetry_probe.json",
     "probe_workflow": ".github/workflows/cdte-irrep-symmetry-probe.yml",
     "merged_probe_commit": "1ff2a76408a7914b73a5566a630d014023c3887f",
@@ -58,5 +61,5 @@
     "hgte": false,
     "alloy": false
   },
-  "claim_boundary": "Passing this gate validates the selected CdTe Gamma subspaces and their canonical internal bases under the complete generated Td double-group section. It does not establish converged physical CdTe Kane parameters, finite-k sign conventions, phonons, electron-phonon renormalization, HgTe, or alloy results."
+  "claim_boundary": "Passing this gate validates the selected CdTe Gamma subspaces and their canonical internal bases under the complete generated Td double-group section and exact Novik phase convention. It does not establish converged physical CdTe Kane parameters, finite-k sign conventions, phonons, electron-phonon renormalization, HgTe, or alloy results."
 }
