@@ -2,11 +2,13 @@
 
 ## Status
 
-The selected CdTe bands 31--38 now have a wavefunction-level, complete-double-group canonical-basis validation at the static Kane smoke geometry.
+The selected CdTe bands 31--38 have a wavefunction-level, complete-double-group canonical-basis validation at the static Kane smoke geometry.
 
 This is a method and basis result. It is not a converged physical CdTe parameter result.
 
-## Central-sign problem
+## Two distinct convention gates
+
+### Global double-group signs
 
 A spatial orthogonal matrix determines a spinor transformation only up to the central sign
 
@@ -14,15 +16,32 @@ A spatial orthogonal matrix determines a spinor transformation only up to the ce
 D(g_tilde)  or  -D(g_tilde).
 ```
 
-Choosing a principal SU(2) lift independently for every spatial operation produced order-one residuals for several twofold operations because those independent signs did not define one global double-group multiplication table.
+Choosing a principal SU(2) lift independently for every spatial operation produced order-one residuals for several twofold operations because those signs did not define one global multiplication table.
 
-The corrected construction uses only the already matched generators:
+The resolved construction uses only the matched generators:
 
 - `C3[111]`: IrRep operation 41;
 - `S4z`: IrRep operation 23;
 - pure time reversal: IrRep operation 2.
 
-Their target matrices generate the complete 48-element double group by multiplication. Each IrRep operation is mapped using both its Cartesian spatial matrix and its recorded spinor lift. This identifies which member of each central pair is used by the IrRep convention.
+Their matrices generate the complete 48-element double group. Each IrRep operation is mapped using both its Cartesian spatial matrix and recorded spinor lift, selecting one globally consistent member of every central pair.
+
+### Exact Kane basis phases
+
+A valid `Gamma6 + Gamma8 + Gamma7` representation is still insufficient for extracting conventional Kane parameters unless its internal phases match the Hamiltonian definition.
+
+PR #80 aligned the target states explicitly with Novik et al. Eq. (4). It corrected:
+
+- the sign of the second `Gamma7` basis vector;
+- the relative time-reversal phase of the p-like sector.
+
+These changes do not alter characters or irrep assignments. They are detected only by the stronger requirements
+
+```text
+D(g) H(k) D(g)^dagger = H(g k)
+```
+
+and exact agreement with the executable Kane time-reversal matrix.
 
 ## Canonical intertwiners
 
@@ -34,9 +53,7 @@ D_calc(g) W = W D_Kane(g)
 
 for `C3[111]` and `S4z`, then use pure time reversal to remove the remaining continuous phase.
 
-The generator-pair intertwiner has nullity exactly one in every block. The next singular value is approximately one, so the canonical solution is well separated from any additional continuous gauge freedom.
-
-The validated assignments are:
+The generator-pair intertwiner has nullity exactly one in every block. The next singular value is approximately one, so the solution is well separated from additional continuous gauge freedom.
 
 | Bands | Irrep |
 |---|---|
@@ -44,15 +61,15 @@ The validated assignments are:
 | 33--36 | Gamma8 |
 | 37--38 | Gamma6 |
 
-The exact intertwiners are recorded in:
+The corrected Novik-convention intertwiners are recorded in:
 
 ```text
 first_principles/a0/cdte_kane_double_group_reference_result.json
 ```
 
-## Complete runtime result
+## Corrected runtime result
 
-Workflow run `29592084036` rebuilt the pinned CdTe SOC calculation, reran the IrRep 3.0.1 wavefunction probe, generated all double-group lifts, and checked every matrix.
+Workflow run `29594001046` rebuilt the pinned CdTe SOC calculation, reran the IrRep 3.0.1 wavefunction probe, generated all double-group lifts, and checked every matrix in the exact Novik basis.
 
 | Quantity | Result |
 |---|---:|
@@ -63,39 +80,37 @@ Workflow run `29592084036` rebuilt the pinned CdTe SOC calculation, reran the Ir
 | Maximum spinor-lift mapping residual | 2.76e-15 |
 | Maximum canonical matrix residual | 6.20e-12 |
 
-Per-irrep maximum unitary and antiunitary residuals are:
-
-| Irrep | Unitary | Antiunitary |
+| Irrep | Maximum unitary residual | Maximum antiunitary residual |
 |---|---:|---:|
-| Gamma7 | 4.18e-15 | 4.44e-15 |
-| Gamma8 | 5.32e-12 | 6.20e-12 |
-| Gamma6 | 1.68e-12 | 1.50e-12 |
+| Gamma7 | 6.48e-15 | 6.69e-15 |
+| Gamma8 | 5.33e-12 | 6.20e-12 |
+| Gamma6 | 1.70e-12 | 1.52e-12 |
 
 The declared fail-closed threshold is `1e-8`.
 
 ## Evidence
 
-- merged implementation: PR #78;
-- workflow run: `29592084036`;
-- artifact ID: `8411752451`;
-- artifact SHA-256: `673860fcb5a37966ddca601ec7977b012bdf0e2e5389fc6ef8e3a806538f01b2`;
-- full runtime-result SHA-256: `bf246392ee62062b7c2bc1e127f14e64cf626bba583fc6988eae340d0436b555`;
-- raw probe JSON SHA-256: `d2da969d345e0173a119ff0d5417c35e6e839e154cc12786b99c882e8d933e8c`.
+- central-sign implementation: PR #78;
+- exact Novik phase correction: PR #80;
+- corrected workflow run: `29594001046`;
+- artifact ID: `8412517215`;
+- artifact SHA-256: `92b4a8cf56f0fa9983ccfea2a7b10c58920eb116895896e0dd767a45d49e4e08`;
+- full runtime-result SHA-256: `13fb8be6833d102a615c7af9d71485a8c205e63838315ce109832e265dfdadf7`;
+- raw probe JSON SHA-256: `ec8d0e0da40fcfe44fa0b629040be55dba8dcc803e090413564825128be663f0`;
+- QE schema SHA-256: `27ddf2a2c8e236a392047ecf32460a4ccb82886c12491b5f579b3fabe72c26d1`.
 
-The committed result omits the 48 per-operation records to avoid duplicating the full artifact, but retains the canonical intertwiners, hashes, maximum residuals, and claim boundary.
+The committed result omits the 48 per-operation records to avoid duplicating the full artifact, but retains the physical intertwiners, hashes, maximum residuals, and claim boundary.
 
-## Remaining freedom
+## Remaining freedom and next gate
 
-Symmetry and time reversal do not fix one discrete sign for each inequivalent irrep. Those relative signs must be fixed by a declared finite-k Kane convention.
+Symmetry and time reversal leave one discrete sign for each inequivalent irrep. The finite-k gate must:
 
-The next gate is therefore:
-
-1. rotate the existing finite-k fixed-basis matrices with the committed intertwiners;
-2. choose the relative signs so one declared `Gamma6 <-> Gamma8` linear-k element gives real positive `P8`;
-3. apply the published Gamma7 phase convention and record the corresponding sign of `P7`;
-4. perform the paired `+/-k` extraction at radii `h` and `h/2`;
+1. reconstruct the fixed-reference Hamiltonian from the Gamma-star overlaps and exact QE eigenvalues;
+2. rotate it with the corrected Novik-convention intertwiners;
+3. fix the relative signs by requiring the declared `P8` and `P7` matrix elements to be real and positive;
+4. perform paired `+/-k` extraction at `h` and `h/2`;
 5. train on `[001]` and `[111]`;
 6. require the unused `[110]` matrix and covariance holdout to pass;
-7. report both one-`P` and two-`P` closure residuals.
+7. compare one-`P` and two-`P` closure.
 
 No phonon, electron-phonon, HgTe, alloy, or converged physical CdTe claim is authorized by this result.

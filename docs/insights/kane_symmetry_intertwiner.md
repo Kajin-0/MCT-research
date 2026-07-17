@@ -6,13 +6,25 @@ The CdTe runtime smoke supplies an eight-state Gamma manifold and direct finite-
 
 Fitting conventional Kane matrix elements before resolving this gauge can rotate physical couplings into different matrix entries without changing any eigenvalue or character.
 
+A second requirement is equally important: the target irrep basis must use the exact phase convention of the executable Kane Hamiltonian. Two bases can have identical characters and symmetry content while assigning a different sign or phase to `P7` or `P8`.
+
 ## Target representation
 
-Use the conventional cubic axes and generate target double-group matrices from:
+Use the explicit eight-band states of Novik et al. Eq. (4), in the repository order
 
-- `Gamma6`: an `s` orbital times spin one-half;
-- `Gamma8`: the `j=3/2` subspace of Cartesian `p` orbitals times spin;
-- `Gamma7`: the `j=1/2` subspace of Cartesian `p` orbitals times spin.
+```text
+Gamma6(+1/2), Gamma6(-1/2),
+Gamma8(+3/2), Gamma8(+1/2), Gamma8(-1/2), Gamma8(-3/2),
+Gamma7(+1/2), Gamma7(-1/2).
+```
+
+The implementation constructs these states directly from Cartesian `(X,Y,Z)` orbitals and spin. The generated symmetry matrices must satisfy
+
+```text
+D(g) H_Kane(k) D(g)^dagger = H_Kane(g k)
+```
+
+for the complete executable one- and two-`P` Hamiltonians. This covariance test is the phase-convention gate that characters alone cannot provide.
 
 The two declared generators are proper `C3` about `[111]` and improper `S4` about `z`. Spin transforms axially under an improper polar operation `R`, through the proper rotation `det(R) R`.
 
@@ -24,11 +36,11 @@ Their target characters are:
 | Gamma8 | `-1` | `0` |
 | Gamma7 | `+1` | `-sqrt(2)` |
 
-The improper generator is essential for distinguishing the two spinor doublets.
+The improper generator distinguishes the two spinor doublets.
 
 ## Intertwiner theorem
 
-Let `Dcalc(g)` be a symmetry matrix in the arbitrary DFT eigenbasis and `DKane(g)` the target matrix. Solve
+Let `Dcalc(g)` be a symmetry matrix in the arbitrary DFT eigenbasis and `DKane(g)` the Novik-convention target matrix. Solve
 
 ```text
 Dcalc(g) W = W DKane(g)
@@ -44,10 +56,11 @@ For one copy of an irreducible representation, Schur's lemma gives one complex n
 
 The synthetic certificate shows:
 
-- one generator leaves a multidimensional gauge freedom;
+- one generator leaves multidimensional gauge freedom;
 - `C3` plus `S4` gives nullity exactly one for Gamma6, Gamma8, and Gamma7;
-- randomly rotated 2D, 4D, and 2D subspaces are recovered to approximately machine precision;
-- characters remain exactly unchanged under the random rotations and therefore cannot perform this task.
+- randomly rotated 2D, 4D, and 2D subspaces are recovered to machine precision;
+- characters remain unchanged under those rotations and cannot determine the internal basis;
+- a character-preserving phase error is rejected by the Hamiltonian covariance test.
 
 ## Time reversal and signs
 
@@ -57,24 +70,38 @@ For antiunitary time reversal represented by `A K`, require
 W^dagger Acalc W* = AKane.
 ```
 
-This fixes the continuous complex phase of each intertwiner. One discrete sign per inequivalent irrep remains. Those relative signs are conventional and must be fixed by a declared linear-k Kane matrix-element convention, for example requiring one selected `P8` element to be real and positive and then applying the published Gamma7 phase convention.
+`AKane` must be the same phase convention used by `mct_research.kane8.time_reversal_unitary()`. In particular, the p-like Bloch sector carries the conventional relative phase required by the published Novik matrix.
+
+Time reversal fixes the continuous complex phase of each intertwiner. One discrete sign per inequivalent irrep remains. Those relative signs are fixed only from finite-k Kane matrix elements, for example by requiring declared `P8` and `P7` elements to be real and positive.
+
+## Complete double-group section
+
+A spatial operation has two spinor lifts differing by the central minus sign. Independent principal SU(2) choices do not necessarily form one global multiplication table.
+
+The physical runtime therefore:
+
+1. matches the `C3[111]` and `S4z` lifts;
+2. generates all 48 double-group elements by multiplication;
+3. maps every IrRep operation using both its spatial rotation and recorded spinor lift;
+4. forms antiunitary targets by composition with matched time reversal;
+5. validates all 24 unitary and 24 antiunitary matrices.
+
+The corrected Novik-convention CdTe result passes with maximum canonical residual approximately `6.2e-12`.
 
 ## Physical implementation route
 
-IrRep provides a Quantum ESPRESSO parser and a `symm_matrix` routine that returns full symmetry matrices in the Bloch-eigenstate basis, not only traces. Its `BandStructure` object also exposes symmetry matrices by degenerate band block. Primary reference: M. Iraola et al., *Computer Physics Communications* **272**, 108226 (2022), DOI `10.1016/j.cpc.2021.108226`.
-
-Do not use Quantum ESPRESSO `pw2wannier90.x write_dmn` for this SOC gate. The interface documents `write_dmn`, but the maintained developer guidance states that noncollinear support is not implemented. The direct IrRep/QE wavefunction route is therefore the narrower auditable path.
+IrRep provides a Quantum ESPRESSO parser and a `symm_matrix` routine returning full matrices in the Bloch-eigenstate basis. The direct IrRep/QE wavefunction route is used because characters are insufficient and the relevant Wannier90 double-group export route is not used for this SOC gate.
 
 ## Next runtime gate
 
 At the existing planning geometry:
 
-1. Pin an exact IrRep source revision and dependency set.
-2. Read the completed QE `.save` directory before the runner is destroyed.
-3. Identify bands 31-32, 33-36, and 37-38 as the three energy-degenerate blocks, then verify their Gamma7, Gamma8, and Gamma6 characters.
-4. Export full `C3[111]`, `S4z`, and time-reversal matrices for each block.
-5. Solve the intertwiners and report nullspace singular values, unitarity, all-generator residuals, and phase-fixing residuals.
-6. Rotate the already reconstructed finite-k Hamiltonians into the canonical basis.
-7. Only then fit `P8`, `P7`, `F`, and `gamma1-3`.
+1. reconstruct exact finite-k fixed-reference Hamiltonians from the Gamma-star overlaps and exact QE eigenvalues;
+2. rotate them with the committed Novik-convention intertwiners;
+3. fix relative irrep signs using declared real-positive `P8` and `P7` elements;
+4. use paired `+/-k` points at `h` and `h/2` to remove leading finite-radius contamination;
+5. fit on `[001]` and `[111]`;
+6. hold out `[110]`;
+7. compare one-`P` and two-`P` closure and propagate the available numerical covariance.
 
-No phonon, AHC, HgTe, alloy, or physical-parameter claim is authorized by this analytical result.
+Only after that gate passes may the smoke report finite-k Kane parameters. No phonon, AHC, HgTe, alloy, or converged physical-parameter claim is authorized here.
