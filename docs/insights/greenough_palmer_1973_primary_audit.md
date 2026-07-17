@@ -15,7 +15,7 @@ ETag:    "df0e24879acf099a58d419de47b82311"
 
 The PDF and extracted full text were deleted before artifact upload. Only digest and validation metadata were preserved.
 
-## Why this source is materially stronger than the existing bridge proxies
+## Sample quality and measurement
 
 Greenough and Palmer report the first thermal-expansion measurement on **single-crystal** CdTe rather than hot-pressed or generic polycrystalline material. Their samples were:
 
@@ -24,10 +24,6 @@ Greenough and Palmer report the first thermal-expansion measurement on **single-
 - orientation-checked by Laue x-ray;
 - reported free of visible strain and twinning;
 - constrained to a maximum possible deviation from equiatomic composition of about `0.01%`.
-
-This removes the morphology-transfer objection that limits Browder and Ballard as an execution source.
-
-## Thermal-expansion measurement
 
 The linear expansion coefficient was measured along `[100]` with a strain gauge, comparing the CdTe sample against Spectrosil B quartz.
 
@@ -40,40 +36,53 @@ Reported controls and uncertainties:
 - absolute temperature accuracy approximately `+/-0.25 K`;
 - fitted temperature-interval accuracy approximately `+/-0.02 K`.
 
-## Reported physical features
+## Published thermal-expansion scope
+
+A one-day diagnostic rendering in workflow run `29620272465` was used to inspect the actual printed axes before attempting digitization.
+
+The result corrects the earlier acquisition-stage assumption:
+
+- Figure 4 publishes `alpha(T)` only from `50 K` to `100 K`;
+- Figure 5 publishes fractional lattice change only from approximately `60 K` to `91 K`, referenced to `90 K`;
+- no numerical table is printed;
+- no graphical `100-293 K` thermal-expansion curve is printed.
+
+The article states broad experimental coverage, but the printed thermal-expansion evidence is restricted to the low-temperature anomaly region. The source therefore cannot supply the missing `90-293 K` integral from the article as published.
+
+## Low-temperature physical features
 
 - `alpha(T)` crosses zero at `63.7 K`;
 - a sharp anomaly peaks at `79.0 +/- 0.1 K`;
 - the anomaly was reproduced in another sample cleaved from a different boule;
-- some runs showed hysteresis above and below the anomaly;
-- Figure 4 reports `alpha(T)`;
-- Figure 5 reports fractional lattice change along `[100]`, referenced to `90 K`.
+- some runs showed hysteresis above and below the anomaly.
 
-The paper tentatively attributes the anomaly to an abrupt change in ionicity, but this interpretation is not required for the lattice bridge.
+The paper tentatively attributes the anomaly to an abrupt change in ionicity. That interpretation is not required for the provenance decision.
 
 ## Gate decision
 
 ### Passed
 
-- primary article acquired;
-- exact source bytes identified by SHA-256;
+- primary article acquired and hashed;
 - single-crystal morphology accepted;
 - sample orientation and composition provenance accepted;
-- measurement uncertainty and temperature metrology identified.
+- measurement uncertainty and temperature metrology identified;
+- Greenough-Palmer accepted as the primary source for the `50-100 K` single-crystal anomaly.
 
-### Still open
+### Failed as the high-temperature bridge
 
-The numerical expansion data are plotted rather than tabulated. Therefore acquisition does not by itself select an execution lattice constant.
+Greenough-Palmer does **not** expose the required `90-293 K` numerical or graphical data. Digitizing Figures 4 and 5 would recover only low-temperature behavior and cannot close the controlling high-temperature bridge.
 
-The remaining bounded task is:
+The temporary figure-rendering workflow and script were therefore removed. Continuing to digitize this paper now would be a depth-first detour with low marginal value.
 
-1. digitize Figure 4 or Figure 5;
-2. use the other figure as an integral consistency check;
-3. propagate the reported approximately `3%` relative alpha uncertainty and temperature uncertainty to the Williams room-temperature absolute lattice anchor;
-4. test whether the narrow `79 K` anomaly has a material effect on the `0-293 K` integrated lattice change.
+### Remaining controlling task
 
-Until those steps pass, `execution_lattice_constant_angstrom` must remain unset and A0 execution readiness must remain false.
+Acquire and hash either:
+
+1. Bagot, Granger, and Rolland 1993, DOI `10.1002/pssb.2221770205`, if it publishes the required full-range CdTe data; or
+2. another primary CdTe source with numerical or graphical expansion data spanning approximately `90-293 K` and adequate morphology/uncertainty provenance.
+
+Then propagate that source to the Williams `293.15 K` absolute lattice anchor. Return to the Greenough-Palmer anomaly only if the final uncertainty becomes sensitive to the low-temperature integral.
 
 ## Program consequence
 
-The A0 blocker has narrowed from **missing primary single-crystal evidence** to **one graphical-data recovery and uncertainty-propagation task**. No proxy model expansion or first-principles calculation is justified before that task is completed.
+The source-acquisition effort produced a useful negative result: Greenough-Palmer resolves morphology and the low-temperature anomaly, but it was incorrectly prioritized as the missing high-temperature bridge. The A0 blocker remains primary `90-293 K` data, with Bagot now the leading acquisition target.
