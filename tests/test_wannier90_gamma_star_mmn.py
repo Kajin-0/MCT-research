@@ -1,8 +1,12 @@
+import json
 from pathlib import Path
 
 import numpy as np
 
 from tools.check_wannier90_gamma_star_mmn import read_mmn, validate
+
+
+SPEC = Path("first_principles/a0/cdte_static_kane_method_smoke.json")
 
 
 def test_gamma_star_mmn_roundtrip(tmp_path: Path) -> None:
@@ -22,3 +26,23 @@ def test_gamma_star_mmn_roundtrip(tmp_path: Path) -> None:
     summary = validate(path, expected_bands=2)
     assert summary["gamma_self_maximum_absolute_residual"] == 0.0
     assert summary["fixed_reference_orientation"] == "S_i=M_i.conjugate_transpose"
+
+
+def test_static_kane_export_contract() -> None:
+    spec = json.loads(SPEC.read_text(encoding="utf-8"))
+    points = spec["k_stencil"]["ordered_points"]
+    win = spec["wavefunction_overlap_export"]["wannier90_win"]
+    export = spec["wavefunction_overlap_export"]["pw2wannier90"]
+
+    assert len(points) == 13
+    assert [point["index"] for point in points] == list(range(1, 14))
+    assert points[0]["label"] == "Gamma"
+    assert points[-4]["label"] == "+110_h"
+    assert points[-1]["label"] == "-110_h_over_2"
+    assert win["num_wann"] == 8
+    assert win["projection_count_after_spinor_expansion"] == 8
+    assert len(win["export_only_parser_projections"]) == 4
+    assert export["write_mmn"] is True
+    assert export["write_amn"] is False
+    assert spec["readiness"]["rendered_inputs_committed"] is False
+    assert spec["readiness"]["ready_for_execution"] is False
