@@ -1,0 +1,115 @@
+{
+  "authorization": {
+    "claim_new_invariants": false,
+    "denser_k_mesh": false,
+    "deterministic_weiler_class_templates": true,
+    "electron_phonon_self_energy": false,
+    "fit_repository_orthonormal_class_coordinates": true,
+    "hgte": false,
+    "more_bands": false,
+    "new_electronic_structure_run": false,
+    "phonons": false,
+    "prove_conventional_parameter_ties": true,
+    "report_standard_weiler_parameter_values": false,
+    "alloy": false
+  },
+  "claim_boundary": "This result names the ten established Weiler symmetry classes and reports coordinates only in an explicit repository orthonormal normalization. It does not establish the conventional Weiler numerical scale/sign normalization, converged CdTe material coefficients, novelty of the invariant algebra, finite-temperature behavior, or permission for deeper electronic-structure, phonon, HgTe, or alloy calculations.",
+  "class_basis_diagnostics": {
+    "class_names": [
+      "F",
+      "N2",
+      "G",
+      "G_prime",
+      "gamma1",
+      "gamma2",
+      "gamma3",
+      "gamma2_prime",
+      "gamma3_prime",
+      "gamma1_prime"
+    ],
+    "gram_residual": 5.875272348701104e-16,
+    "projector_residual": 9.298651284056361e-15
+  },
+  "conventional_relation_diagnostics": {
+    "normalized_relation_residual": 4.008946771883595e-16,
+    "relations_in_repository_class_normalization": {
+      "f": "+F",
+      "gamma1": "-sqrt(2/3)*gamma1 - 1/sqrt(3)*gamma1_prime",
+      "gamma2": "-1/sqrt(3)*gamma2 - sqrt(2/3)*gamma2_prime",
+      "gamma3": "+1/sqrt(3)*gamma3 - sqrt(2/3)*gamma3_prime"
+    },
+    "raw_template_norms_ev_angstrom2_per_unit_parameter": {
+      "f": 18.66502422741735,
+      "gamma1": 16.16438514319544,
+      "gamma2": 45.71978539385832,
+      "gamma3": 55.995072682252044
+    }
+  },
+  "decision": {
+    "passed": true,
+    "standard_weiler_parameter_values_validated": false,
+    "interpretation": "The independently generated ten-dimensional projector separates deterministically into the established Weiler F, N2, G, G', gamma, and primed-gamma symmetry classes. The executable conventional four-parameter model is exactly the expected tied subspace. The static CdTe matrices require nonzero coordinates in all three omitted conduction-valence classes and in all three directions orthogonal to the conventional primed/unprimed gamma ties. Numerical coordinates are reported only in repository orthonormal class normalization.",
+    "next_authorized_task": "Derive and verify the exact conventional Weiler scale and sign normalization from primary matrix formulas, then test nested named physical reductions. Do not launch new electronic-structure work."
+  },
+  "fit": {
+    "condition_number": 1.7320508075688783,
+    "conventional_ties_and_departures": {
+      "omitted_conduction_valence_class_coordinates_ev_angstrom2": {
+        "G": 7.019595375829247,
+        "G_prime": 9.424912117361599,
+        "N2": 6.114647205893188
+      },
+      "tied_gamma_subspace_coordinates_ev_angstrom2": {
+        "gamma1": 22.3507302851782,
+        "gamma2": 1.3092401810842453,
+        "gamma3": 14.188340547535356
+      },
+      "untied_gamma_departure_coordinates_ev_angstrom2": {
+        "gamma1": 5.166950985725867,
+        "gamma2": -9.797663769137518,
+        "gamma3": -11.989843088978134
+      }
+    },
+    "design_rank": 10,
+    "direction_relative_residuals": {
+      "001": 1.3710737183869776e-05,
+      "110": 8.624218212894124e-06,
+      "111": 1.3777198380046279e-05
+    },
+    "repository_orthonormal_class_coordinates_ev_angstrom2": {
+      "F": 7.201148995341701,
+      "G": 7.019595375829247,
+      "G_prime": 9.424912117361599,
+      "N2": 6.114647205893188,
+      "gamma1": -15.266154316587347,
+      "gamma1_prime": -17.12299796039867,
+      "gamma2": -8.755649139563104,
+      "gamma2_prime": 4.587693683072508,
+      "gamma3": -1.5980236535369499,
+      "gamma3_prime": -18.507070681063738
+    },
+    "training_relative_residual": 1.3747859313872535e-05
+  },
+  "input_provenance": {
+    "artifact_id": 8413206166,
+    "artifact_sha256": "e0d8b95cb7b992b0cd78bf7329956988cb287c941b1e04b74884e2d71c8806d8",
+    "canonical_basis_result_sha256": "17a27c2b685b5b741cd5f0a34801d885102691bc36e6e7cb3bfd2477e0c6b86b",
+    "class_contract_git_blob_sha": "b49f5b5cd03d0df7e5f7d23b1a0d8f0646ea6cc1",
+    "exact_qe_eigenvalues_sha256": "761a084a64afc07cfdf2990f7a43c21c9a80452c108766e36dc0d68e84f25452",
+    "finite_k_contract_sha256": "182282281da72f6ad2f61f73efec6f703f667eec8465955b7322c42e7954fc6d",
+    "mmn_sha256": "ee52a3d72f2c574299a0a01fde3365af3ed9eabbf7b9faadbd8f634f0ef413a0",
+    "nnkp_sha256": "08e79be2264781cdf027a8df9f2d2d549255f108c7e47c4d58104715d78ec678",
+    "prior_art_mapping_git_blob_sha": "52beca53b65c7bc811d9d6ff916374a78bb7477b",
+    "residual_result_sha256": "13ee69890ae99182e5415436810a15a24137145da220ea529d0032f3d46dc1a1",
+    "workflow_run_id": 29595776454
+  },
+  "minimum_overlap_singular_value": 0.9998818023370384,
+  "normalization": {
+    "description": "Each class is the deterministic unit-norm vector obtained by projecting the declared tensor-irrep and matrix-sector product basis, orthonormalizing in repository ordering, and choosing the first nonzero coefficient positive.",
+    "name": "repository_orthonormal_class_normalization",
+    "standard_weiler_parameter_normalization_validated": false,
+    "units_of_fitted_coordinates": "eV angstrom^2"
+  },
+  "schema_version": "1.0",
+  "status": "deterministic_weiler_quadratic_classes_fit_in_repository_normalization"
+}
