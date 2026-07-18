@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "analysis": "minimum paired HgCdTe gap-identifiability dataset design",
+  "validated_head": "c35cb19d7726f58a2d36faa9a0efc9fa57e9b1f9",
+  "workflow_run_id": 29656588212,
+  "artifact_id": 8433051173,
+  "artifact_sha256": "5131b3fa84a53a0166c15a951d2541b536b3e97a264785dd2b2d25097bb6669e",
+  "linearized_parameter_count": 5,
+  "linearized_parameters": [
+    "latent gap intercept",
+    "latent composition slope",
+    "absorption-class offset",
+    "carrier-filling contribution",
+    "vacancy-edge contribution"
+  ],
+  "rank_progression": {
+    "current_secondary_absorption_only": 2,
+    "paired_gap_classes_only": 3,
+    "paired_plus_hall": 4,
+    "paired_plus_vacancy_proxy": 4,
+    "algebraic_three_specimen_minimum": 5,
+    "eight_specimen_factorial": 5
+  },
+  "algebraic_minimum": {
+    "specimen_count_per_temperature": 3,
+    "paired_gap_observation_count_per_temperature": 6,
+    "residual_degrees_of_freedom": 1,
+    "condition_number": 3.2627233713686215,
+    "maximum_leverage": 1.0,
+    "audit_grade": false
+  },
+  "recommended_audit_grade_design": {
+    "specimen_count": 8,
+    "candidate_family": "2^3 coded composition x carrier x vacancy factorial",
+    "paired_gap_observations_per_temperature": 16,
+    "temperature_blocks": ["low_temperature", "300K"],
+    "total_paired_gap_observations": 32,
+    "rank": 5,
+    "residual_degrees_of_freedom_per_temperature": 11,
+    "condition_number": 2.6180339887498953,
+    "maximum_leverage": 0.4375,
+    "information_determinant": 65535.99999999998,
+    "parameter_standard_error_per_1mev_noise": {
+      "latent_intercept_mev": 0.3535533905932738,
+      "latent_composition_slope_mev_per_coded_x": 0.25,
+      "absorption_class_offset_mev": 0.5,
+      "carrier_filling_scale_mev_per_proxy": 0.3535533905932738,
+      "vacancy_edge_scale_mev_per_proxy": 0.3535533905932738
+    }
+  },
+  "exhaustive_subset_search": {
+    "candidate_subset_count": 219,
+    "smallest_audit_grade_specimen_count": 8,
+    "qualifying_design_count": 1,
+    "eight_specimen_full_factorial_is_unique_qualifier": true,
+    "minimum_claim_scope": "declared two-level 2^3 candidate family and declared audit thresholds"
+  },
+  "composition_uncertainty_budget_for_2mev": {
+    "6K_maximum_sigma_x": 0.0011902678934214595,
+    "77K_maximum_sigma_x": 0.0012542246699589784,
+    "300K_maximum_sigma_x": 0.001506948066982972,
+    "practical_recommendation": "independent sigma_x approximately 1e-3 or better"
+  },
+  "decision": {
+    "existing_absorption_only_table_is_identifiable": false,
+    "three_specimens_are_algebraically_sufficient": true,
+    "three_specimens_are_audit_grade": false,
+    "eight_specimen_factorial_authorized_as_acquisition_target": true,
+    "new_gap_equation_authorized": false,
+    "new_observation_operator_authorized": false
+  }
+}

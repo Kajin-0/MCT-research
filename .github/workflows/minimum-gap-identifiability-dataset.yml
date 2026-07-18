@@ -1,0 +1,66 @@
+name: minimum-gap-identifiability-dataset
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/minimum-gap-identifiability-dataset.yml'
+      - 'tools/design_minimum_gap_identifiability_dataset.py'
+      - 'tools/audit_two_level_gap_design_minimum.py'
+      - 'tests/test_minimum_gap_identifiability_dataset.py'
+      - 'tests/test_two_level_gap_design_minimum.py'
+      - 'data/templates/paired_gap_identifiability_acquisition_template.csv'
+      - 'src/mct_research/gap_models.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  design-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute minimum-dataset design oracle
+        run: |
+          mkdir -p minimum-gap-identifiability-evidence
+          python -m tools.design_minimum_gap_identifiability_dataset \
+            --output-json minimum-gap-identifiability-evidence/result.json \
+            > minimum-gap-identifiability-evidence/stdout.txt \
+            2> minimum-gap-identifiability-evidence/stderr.txt
+          python -m tools.audit_two_level_gap_design_minimum \
+            --output-json minimum-gap-identifiability-evidence/subset-search.json \
+            > minimum-gap-identifiability-evidence/subset-search-stdout.txt \
+            2> minimum-gap-identifiability-evidence/subset-search-stderr.txt
+          python -m pytest -q \
+            tests/test_minimum_gap_identifiability_dataset.py \
+            tests/test_two_level_gap_design_minimum.py \
+            > minimum-gap-identifiability-evidence/pytest.txt \
+            2> minimum-gap-identifiability-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > minimum-gap-identifiability-evidence/python-version.txt
+          find minimum-gap-identifiability-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > minimum-gap-identifiability-evidence/sha256.txt
+
+      - name: Upload design evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: minimum-gap-identifiability-evidence
+          path: minimum-gap-identifiability-evidence
+          if-no-files-found: error
+          retention-days: 30
