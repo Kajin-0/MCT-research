@@ -82,7 +82,10 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
         for record in contract["thermal_parameter_scales"]
     ]
     temperatures = np.asarray(contract["temperature_grid_k"], dtype=float)
-    k_points = [np.asarray(item, dtype=float) for item in contract["k_points_inverse_angstrom"]]
+    k_points = [
+        np.asarray(item, dtype=float)
+        for item in contract["k_points_inverse_angstrom"]
+    ]
     thresholds = contract["thresholds"]
 
     derivative_spec = contract["quasiparticle_linearization"][
@@ -112,12 +115,15 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
     bracket_half_width = float(dynamical["bracket_half_width_ev"])
 
     for temperature in temperatures:
-        target_parameters = thermal_extended_parameters(base, scales, float(temperature))
+        target_parameters = thermal_extended_parameters(
+            base, scales, float(temperature)
+        )
         target_matrices = [
             hamiltonian_two_p(k_point, target_parameters) for k_point in k_points
         ]
         matrix_errors = []
         gamma_sigma0 = None
+        gamma_metric: dict[str, float] | None = None
         for index, (bare_matrix, target_matrix) in enumerate(
             zip(base_matrices, target_matrices, strict=True)
         ):
@@ -145,7 +151,7 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
                     maximum_gamma_symmetry_residual, gamma_residual
                 )
                 gamma_metric = metric_diagnostics
-        if gamma_sigma0 is None:
+        if gamma_sigma0 is None or gamma_metric is None:
             raise RuntimeError("Gamma point is missing from the oracle k-point set")
 
         recovered_parameters, two_p_diagnostics = fit_extended_kane_parameters(
@@ -182,7 +188,8 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
                 reference_ev=bare_edge,
                 offset_ev=edge_offset,
                 slope=float(model_spec["slope"]),
-                coupling_ev=float(model_spec["coupling_ev"]) * coupling_factor,
+                coupling_ev=float(model_spec["coupling_ev"])
+                * float(coupling_factor),
                 remote_ev=bare_edge + remote_offset,
             )
             exact_pole = solve_quasiparticle_pole(
@@ -208,8 +215,9 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
                 "exact_quasiparticle_pole_ev": exact_pole,
                 "linearized_quasiparticle_pole_ev": linearized_pole,
                 "linearization_error_ev": pole_error,
-                "quasiparticle_weight": 1.0
-                / (1.0 - self_energy.derivative(exact_pole)),
+                "quasiparticle_weight": float(
+                    1.0 / (1.0 - self_energy.derivative(exact_pole))
+                ),
             }
 
         temperature_records.append(
@@ -220,7 +228,9 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
                 "maximum_parameter_absolute_error": max(parameter_errors.values()),
                 "eta_p": float(target_parameters.eta_p),
                 "edge_energies_ev": target_edges,
-                "gap_shift_mev": 1000.0 * (target_parameters.eg - base.eg),
+                "gap_shift_mev": float(
+                    1000.0 * (target_parameters.eg - base.eg)
+                ),
                 "matrix_linearization_maximum_relative_error": max(matrix_errors),
                 "gamma_self_energy_symmetry_residual": gamma_irrep_covariance_residual(
                     gamma_sigma0
@@ -235,11 +245,18 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
     reduction = contract["thermal_reduction"]
     target_name = str(reduction["target_parameter"])
     target_shifts = np.asarray(
-        [record["target_parameters"][target_name] - getattr(base, target_name) for record in temperature_records],
+        [
+            record["target_parameters"][target_name] - getattr(base, target_name)
+            for record in temperature_records
+        ],
         dtype=float,
     )
-    training_indices = [int(value) for value in reduction["training_temperature_indices"]]
-    holdout_indices = [int(value) for value in reduction["holdout_temperature_indices"]]
+    training_indices = [
+        int(value) for value in reduction["training_temperature_indices"]
+    ]
+    holdout_indices = [
+        int(value) for value in reduction["holdout_temperature_indices"]
+    ]
     one_scales = [float(value) for value in reduction["one_scale_theta_k"]]
     two_scales = [float(value) for value in reduction["two_scale_theta_k"]]
     one_amplitudes, one_prediction, one_diagnostics = fit_fixed_bose_scales(
@@ -259,30 +276,48 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
     numerical_sigma = float(reduction["numerical_standard_uncertainty_mev"])
     improvement_sigma = (one_holdout_max - two_holdout_max) / numerical_sigma
     target_maximum_index = int(np.argmax(target_shifts))
-    turnover_detected = (
+    turnover_detected = bool(
         0 < target_maximum_index < len(target_shifts) - 1
         and target_shifts[-1] < target_shifts[target_maximum_index]
     )
 
     checks = {
-        "gamma_self_energy_symmetry": maximum_gamma_symmetry_residual
-        <= float(thresholds["maximum_gamma_symmetry_residual"]),
-        "matrix_quasiparticle_linearization": maximum_matrix_linearization_error
-        <= float(thresholds["maximum_matrix_linearization_relative_error"]),
-        "dynamical_pole_linearization": maximum_dynamical_pole_error
-        <= float(thresholds["maximum_dynamical_pole_linearization_error_ev"]),
-        "extended_parameter_recovery": maximum_parameter_error
-        <= float(thresholds["maximum_extended_parameter_absolute_error"]),
-        "two_p_matrix_closure": maximum_two_p_residual
-        <= float(thresholds["maximum_two_p_matrix_relative_residual"]),
-        "one_p_rejected": minimum_one_p_residual
-        >= float(thresholds["minimum_one_p_matrix_relative_residual"]),
-        "one_scale_heldout_failure": one_holdout_max
-        >= float(thresholds["minimum_one_scale_holdout_error_mev"]),
-        "two_scale_heldout_recovery": two_holdout_max
-        <= float(thresholds["maximum_two_scale_holdout_error_mev"]),
-        "second_scale_improvement": improvement_sigma
-        >= float(thresholds["minimum_second_scale_improvement_sigma"]),
+        "gamma_self_energy_symmetry": bool(
+            maximum_gamma_symmetry_residual
+            <= float(thresholds["maximum_gamma_symmetry_residual"])
+        ),
+        "matrix_quasiparticle_linearization": bool(
+            maximum_matrix_linearization_error
+            <= float(thresholds["maximum_matrix_linearization_relative_error"])
+        ),
+        "dynamical_pole_linearization": bool(
+            maximum_dynamical_pole_error
+            <= float(thresholds["maximum_dynamical_pole_linearization_error_ev"])
+        ),
+        "extended_parameter_recovery": bool(
+            maximum_parameter_error
+            <= float(thresholds["maximum_extended_parameter_absolute_error"])
+        ),
+        "two_p_matrix_closure": bool(
+            maximum_two_p_residual
+            <= float(thresholds["maximum_two_p_matrix_relative_residual"])
+        ),
+        "one_p_rejected": bool(
+            minimum_one_p_residual
+            >= float(thresholds["minimum_one_p_matrix_relative_residual"])
+        ),
+        "one_scale_heldout_failure": bool(
+            one_holdout_max
+            >= float(thresholds["minimum_one_scale_holdout_error_mev"])
+        ),
+        "two_scale_heldout_recovery": bool(
+            two_holdout_max
+            <= float(thresholds["maximum_two_scale_holdout_error_mev"])
+        ),
+        "second_scale_improvement": bool(
+            improvement_sigma
+            >= float(thresholds["minimum_second_scale_improvement_sigma"])
+        ),
         "signed_gap_turnover_detected": turnover_detected,
     }
     passed = all(checks.values())
@@ -318,7 +353,9 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
                 "holdout_absolute_errors_mev": one_holdout_errors_mev.tolist(),
                 "maximum_holdout_absolute_error_mev": one_holdout_max,
                 "diagnostics": one_diagnostics,
-                "signed_moments": signed_thermal_moments(one_amplitudes, one_scales),
+                "signed_moments": signed_thermal_moments(
+                    one_amplitudes, one_scales
+                ),
             },
             "two_scale": {
                 "theta_k": two_scales,
@@ -327,9 +364,11 @@ def analyze(contract_path: str | Path) -> dict[str, Any]:
                 "holdout_absolute_errors_mev": two_holdout_errors_mev.tolist(),
                 "maximum_holdout_absolute_error_mev": two_holdout_max,
                 "diagnostics": two_diagnostics,
-                "signed_moments": signed_thermal_moments(two_amplitudes, two_scales),
+                "signed_moments": signed_thermal_moments(
+                    two_amplitudes, two_scales
+                ),
             },
-            "second_scale_improvement_sigma": improvement_sigma,
+            "second_scale_improvement_sigma": float(improvement_sigma),
             "turnover_detected": turnover_detected,
             "turnover_temperature_k": float(temperatures[target_maximum_index]),
         },
