@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "status": "soc_finite_temperature_backend_reference_result",
+  "source_evidence": {
+    "workflow_run": 29651034170,
+    "artifact_id": 8431471817,
+    "artifact_digest": "sha256:607d8e5e0e8b858b0994ec97f9cba05e47ad404d6463a7e7c1f5539e002e635c",
+    "validated_head": "e472c7a9a063aceee130b011f77bb61e14a24153",
+    "input_contract_sha256": "299fa7cfff8846615b5ddfbdadb1a905eacb5ad66a8cd0582b46dc6d4623ded0"
+  },
+  "hard_gates": [
+    "soc_nonmagnetic",
+    "offdiagonal_eight_band_matrix",
+    "complete_thermal_effect",
+    "polar_long_range_control",
+    "fixed_or_reconstructable_gauge",
+    "heldout_validation_path"
+  ],
+  "ranking_by_documented_hard_gate_coverage": [
+    "qe_ph_postahc",
+    "epw_standard",
+    "zg_special_displacement",
+    "abinit_modern_eph",
+    "custom_soc_debye_waller",
+    "abinit_legacy_spinor"
+  ],
+  "route_summary": {
+    "qe_ph_postahc": {
+      "passed_hard_gates": 4,
+      "unresolved_hard_gates": ["soc_nonmagnetic", "polar_long_range_control"],
+      "failed_hard_gates": []
+    },
+    "epw_standard": {
+      "passed_hard_gates": 4,
+      "unresolved_hard_gates": ["offdiagonal_eight_band_matrix"],
+      "failed_hard_gates": ["complete_thermal_effect"]
+    },
+    "zg_special_displacement": {
+      "passed_hard_gates": 3,
+      "unresolved_hard_gates": [
+        "offdiagonal_eight_band_matrix",
+        "polar_long_range_control",
+        "fixed_or_reconstructable_gauge"
+      ],
+      "failed_hard_gates": []
+    },
+    "abinit_modern_eph": {
+      "passed_hard_gates": 3,
+      "unresolved_hard_gates": ["fixed_or_reconstructable_gauge"],
+      "failed_hard_gates": ["soc_nonmagnetic", "offdiagonal_eight_band_matrix"]
+    },
+    "abinit_legacy_spinor": {
+      "passed_hard_gates": 1,
+      "unresolved_hard_gates": [
+        "complete_thermal_effect",
+        "polar_long_range_control",
+        "fixed_or_reconstructable_gauge",
+        "heldout_validation_path"
+      ],
+      "failed_hard_gates": ["offdiagonal_eight_band_matrix"]
+    },
+    "custom_soc_debye_waller": {
+      "passed_hard_gates": 2,
+      "unresolved_hard_gates": [
+        "soc_nonmagnetic",
+        "offdiagonal_eight_band_matrix",
+        "complete_thermal_effect",
+        "polar_long_range_control"
+      ],
+      "failed_hard_gates": []
+    }
+  },
+  "decision": {
+    "direct_A1_backend_selected": false,
+    "direct_A1_backend_candidates": [],
+    "no_existing_route_closes_all_requirements": true,
+    "preferred_next_design": "zg_selected_band_matrix_reconstruction_oracle",
+    "secondary_design": "qe_ahc_nonmagnetic_soc_capability_test",
+    "automatic_additional_compute_authorized": false,
+    "interpretation": "No documented backend closes SOC, off-diagonal eight-band matrices, complete thermal renormalization, polar long-range control, gauge handling and held-out validation. Design a synthetic ZG selected-band matrix reconstruction oracle first; retain QE AHC SOC validation as a secondary path."
+  },
+  "claim_boundary": "This audit records documented and project-validated capability only. It does not prove that a route marked unverified is incapable. No backend is selected or authorized for real A1 execution."
+}

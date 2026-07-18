@@ -1,0 +1,56 @@
+name: soc-finite-temperature-backend-gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/soc-finite-temperature-backend-gate.yml'
+      - 'first_principles/decision_memos/soc_finite_temperature_backend_gate.json'
+      - 'tools/audit_soc_finite_temperature_backends.py'
+      - 'tests/test_soc_finite_temperature_backend_gate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute backend audit
+        run: |
+          mkdir -p soc-finite-temperature-backend-evidence
+          python tools/audit_soc_finite_temperature_backends.py \
+            --contract first_principles/decision_memos/soc_finite_temperature_backend_gate.json \
+            --output-json soc-finite-temperature-backend-evidence/result.json \
+            > soc-finite-temperature-backend-evidence/stdout.txt
+          python -m pytest -q tests/test_soc_finite_temperature_backend_gate.py \
+            > soc-finite-temperature-backend-evidence/pytest.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > soc-finite-temperature-backend-evidence/python-version.txt
+          find soc-finite-temperature-backend-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > soc-finite-temperature-backend-evidence/sha256.txt
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: soc-finite-temperature-backend-evidence
+          path: soc-finite-temperature-backend-evidence
+          if-no-files-found: error
+          retention-days: 30

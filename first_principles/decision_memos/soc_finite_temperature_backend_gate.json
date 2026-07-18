@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0",
+  "stage": "soc_finite_temperature_matrix_backend_gate",
+  "purpose": "Determine whether any available first-principles route can presently produce a provenance-bound finite-temperature eight-band HgCdTe-family matrix with spin-orbit coupling, complete thermal renormalization, polar long-range control, and auditable gauge handling.",
+  "target": {
+    "electronic_basis": "Novik_2005_Gamma6_Gamma8_Gamma7_eight_band",
+    "spin_orbit_required": true,
+    "offdiagonal_matrix_required": true,
+    "fan_and_debye_waller_or_controlled_total_required": true,
+    "polar_long_range_control_required": true,
+    "fixed_gauge_or_reconstructable_gauge_required": true,
+    "heldout_validation_required": true,
+    "mode_resolved_export_required_for_final_analytical_reduction": true
+  },
+  "status_values": ["pass", "fail", "unverified", "partial", "not_applicable"],
+  "hard_gates_for_direct_A1": [
+    "soc_nonmagnetic",
+    "offdiagonal_eight_band_matrix",
+    "complete_thermal_effect",
+    "polar_long_range_control",
+    "fixed_or_reconstructable_gauge",
+    "heldout_validation_path"
+  ],
+  "routes": {
+    "qe_ph_postahc": {
+      "description": "Quantum ESPRESSO ph.x electron_phonon='ahc' plus postahc.x using the pinned QE 7.4.1 source.",
+      "capabilities": {
+        "soc_nonmagnetic": "unverified",
+        "offdiagonal_eight_band_matrix": "pass",
+        "fan_term": "pass",
+        "debye_waller_term": "pass",
+        "complete_thermal_effect": "pass",
+        "polar_long_range_control": "unverified",
+        "fixed_or_reconstructable_gauge": "pass",
+        "mode_resolved_export": "pass",
+        "heldout_validation_path": "pass"
+      },
+      "evidence": [
+        "Pinned PHonon/PH/ahc.f90 exports ahc_gkk, upper Fan, and off-diagonal Debye-Waller matrices.",
+        "The implementation uses a generalized acoustic sum rule and a psi_gauge overlap matrix.",
+        "The same source states that magnetism, both collinear and noncollinear, is not implemented or not tested; no repository evidence validates the nonmagnetic SOC eight-band case.",
+        "The current CdTe PBE dielectric and Born response is rejected for long-range polar use."
+      ],
+      "blockers": [
+        "dedicated nonmagnetic SOC matrix validation absent",
+        "physical source and target long-range polar models absent",
+        "long-range correction of the Debye-Waller channel undefined"
+      ],
+      "execution_authorized": false
+    },
+    "epw_standard": {
+      "description": "EPW Wannier interpolation and electron self-energy with SOC and lpolar.",
+      "capabilities": {
+        "soc_nonmagnetic": "pass",
+        "offdiagonal_eight_band_matrix": "unverified",
+        "fan_term": "pass",
+        "debye_waller_term": "fail",
+        "complete_thermal_effect": "fail",
+        "polar_long_range_control": "pass",
+        "fixed_or_reconstructable_gauge": "pass",
+        "mode_resolved_export": "pass",
+        "heldout_validation_path": "pass"
+      },
+      "evidence": [
+        "EPW documents SOC spinor transformations, SOC workflows, lphase gauge handling, and lpolar long-range subtraction/restoration.",
+        "Official EPW documentation states that the standard electron self-energy currently computes only Fan-Migdal and not Debye-Waller.",
+        "The validated repository Fan vertex architecture is aligned with EPW polar interpolation."
+      ],
+      "blockers": [
+        "Debye-Waller absent from the standard self-energy path",
+        "off-diagonal eight-band self-energy export not validated",
+        "physical target long-range model absent"
+      ],
+      "execution_authorized": false
+    },
+    "abinit_modern_eph": {
+      "description": "ABINIT optdriver=7 modern EPH workflow for Fan plus Debye-Waller self-energy.",
+      "capabilities": {
+        "soc_nonmagnetic": "fail",
+        "offdiagonal_eight_band_matrix": "fail",
+        "fan_term": "pass",
+        "debye_waller_term": "pass",
+        "complete_thermal_effect": "pass",
+        "polar_long_range_control": "pass",
+        "fixed_or_reconstructable_gauge": "unverified",
+        "mode_resolved_export": "pass",
+        "heldout_validation_path": "pass"
+      },
+      "evidence": [
+        "ABINIT's modern EPH documentation provides Fan plus Debye-Waller and a polar Frohlich microzone correction.",
+        "The official EPH introduction states that spin-orbit coupling is not supported as of May 2026.",
+        "Published output is band-resolved rather than an audited off-diagonal eight-band matrix."
+      ],
+      "blockers": [
+        "modern EPH does not support SOC",
+        "off-diagonal eight-band matrix output absent"
+      ],
+      "execution_authorized": false
+    },
+    "abinit_legacy_spinor": {
+      "description": "Legacy ABINIT electron-phonon workflow retained for spinor compatibility.",
+      "capabilities": {
+        "soc_nonmagnetic": "pass",
+        "offdiagonal_eight_band_matrix": "fail",
+        "fan_term": "partial",
+        "debye_waller_term": "partial",
+        "complete_thermal_effect": "partial",
+        "polar_long_range_control": "unverified",
+        "fixed_or_reconstructable_gauge": "unverified",
+        "mode_resolved_export": "partial",
+        "heldout_validation_path": "partial"
+      },
+      "evidence": [
+        "ABINIT documents the legacy workflow as compatible with spinors and SOC.",
+        "The legacy workflow is deprecated and does not provide the required audited off-diagonal matrix interface."
+      ],
+      "blockers": [
+        "deprecated workflow",
+        "off-diagonal matrix interface absent",
+        "modern polar and gauge requirements unverified"
+      ],
+      "execution_authorized": false
+    },
+    "zg_special_displacement": {
+      "description": "ZG special-displacement supercells followed by standard SOC electronic-structure calculations and selected-band matrix reconstruction.",
+      "capabilities": {
+        "soc_nonmagnetic": "pass",
+        "offdiagonal_eight_band_matrix": "unverified",
+        "fan_term": "not_applicable",
+        "debye_waller_term": "not_applicable",
+        "complete_thermal_effect": "pass",
+        "polar_long_range_control": "unverified",
+        "fixed_or_reconstructable_gauge": "unverified",
+        "mode_resolved_export": "partial",
+        "heldout_validation_path": "pass"
+      },
+      "evidence": [
+        "ZG special displacements are combined with ordinary DFT calculations and official tutorials identify SOC as an available accuracy refinement.",
+        "The method provides the combined thermal electronic effect without an explicit Fan/Debye-Waller split.",
+        "ZG supports multiple configurations and single-phonon displacements, but degeneracy handling is not automatic.",
+        "No repository implementation yet reconstructs and symmetry-restores an eight-band matrix from distorted supercells."
+      ],
+      "blockers": [
+        "supercell-to-primitive eight-band matrix reconstruction unvalidated",
+        "degenerate-manifold gauge and symmetry restoration unvalidated",
+        "finite-size polar correction unvalidated",
+        "mode-resolved analytical reduction only partial"
+      ],
+      "execution_authorized": false
+    },
+    "custom_soc_debye_waller": {
+      "description": "New SOC-generalized Debye-Waller and long-range correction implementation.",
+      "capabilities": {
+        "soc_nonmagnetic": "unverified",
+        "offdiagonal_eight_band_matrix": "unverified",
+        "fan_term": "pass",
+        "debye_waller_term": "unverified",
+        "complete_thermal_effect": "unverified",
+        "polar_long_range_control": "unverified",
+        "fixed_or_reconstructable_gauge": "pass",
+        "mode_resolved_export": "pass",
+        "heldout_validation_path": "pass"
+      },
+      "evidence": [
+        "The generalized acoustic-sum-rule matrix formalism exists in the literature and in QE's scalar-tested AHC implementation.",
+        "No project implementation, independent test suite, or production provenance exists."
+      ],
+      "blockers": [
+        "major new scientific software implementation",
+        "SOC generalized-ASR derivation and validation absent",
+        "long-range Debye-Waller correction absent"
+      ],
+      "execution_authorized": false
+    }
+  },
+  "selection_policy": {
+    "direct_A1_backend_requires_every_hard_gate_pass": true,
+    "unverified_and_partial_do_not_count_as_pass": true,
+    "preferred_next_design": "zg_selected_band_matrix_reconstruction_oracle",
+    "rationale": "ZG is the only existing route that combines ordinary SOC electronic calculations with a total thermal effect, thereby avoiding dependence on an unvalidated explicit SOC Debye-Waller backend. Its matrix, gauge, symmetry, finite-size and polar-correction steps must be falsified synthetically before any execution.",
+    "secondary_design": "qe_ahc_nonmagnetic_soc_capability_test",
+    "secondary_rationale": "QE has the desired off-diagonal Fan and generalized-ASR Debye-Waller objects, but the nonmagnetic SOC case lacks dedicated validation and still requires a physical long-range correction strategy."
+  },
+  "authorization": {
+    "run_backend_audit": true,
+    "design_zg_matrix_oracle": true,
+    "design_qe_soc_capability_test": true,
+    "execute_zg_supercell": false,
+    "execute_qe_ahc": false,
+    "execute_epw": false,
+    "execute_abinit_eph": false,
+    "implement_custom_debye_waller": false,
+    "execute_A1": false,
+    "production_AHC": false,
+    "HgTe": false,
+    "alloy": false
+  },
+  "claim_boundary": "The audit reflects documented capabilities and explicit repository evidence as of 2026-07-18. A route marked pass is not thereby physically validated for CdTe. A route marked unverified may be technically capable but cannot be selected without a dedicated falsification test. No backend is authorized for real A1 execution by this contract."
+}
