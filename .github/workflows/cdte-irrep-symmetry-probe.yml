@@ -12,6 +12,7 @@ on:
       - 'tools/cdte_spectral_closure.py'
       - 'tools/analyze_cdte_finite_k_kane.py'
       - 'tools/analyze_cdte_spectral_closure.py'
+      - 'tools/analyze_cdte_corrected_static.py'
       - 'tests/test_cdte_kane_double_group.py'
       - 'tests/test_kane_symmetry_intertwiner.py'
       - 'tests/test_cdte_finite_k_kane.py'
@@ -141,6 +142,21 @@ jobs:
             --finite-result "$EVIDENCE/validated/cdte_finite_k_kane_result.json" \
             --output-json "$EVIDENCE/validated/cdte_spectral_closure_result.json" \
             > "$EVIDENCE/validated/cdte_spectral_closure_result.stdout.txt"
+
+      - name: Generate controlling corrected static record
+        run: |
+          EVIDENCE="$GITHUB_WORKSPACE/irrep-probe-evidence"
+          KANE="$GITHUB_WORKSPACE/cdte-kane-evidence/raw"
+          "$RUNNER_TEMP/irrep-venv/bin/python" tools/analyze_cdte_corrected_static.py \
+            --mmn "$KANE/cdte_kane.mmn" \
+            --nnkp "$KANE/cdte_kane.nnkp" \
+            --eigenvalues "$EVIDENCE/raw/cdte_kane_exact_eigenvalues.json" \
+            --basis-result "$EVIDENCE/validated/cdte_kane_double_group_result.json" \
+            --finite-k-contract first_principles/a0/cdte_finite_k_kane_smoke.json \
+            --finite-result "$EVIDENCE/validated/cdte_finite_k_kane_result.json" \
+            --spectral-result "$EVIDENCE/validated/cdte_spectral_closure_result.json" \
+            --output-json "$EVIDENCE/validated/cdte_corrected_static_result.json" \
+            > "$EVIDENCE/validated/cdte_corrected_static_result.stdout.txt"
 
       - name: Hash complete probe evidence
         if: always()
