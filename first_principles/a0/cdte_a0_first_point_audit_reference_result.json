@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "status": "cdte_a0_first_point_scientific_audit_reference",
+  "source_evidence": {
+    "physical_workflow_run": 29627408317,
+    "physical_artifact_id": 8424673407,
+    "physical_artifact_digest": "sha256:59a5284000e62af3f2ed6a0d6e4654db012760367b13155bf59276d2c84db46e",
+    "physical_head": "262c2acd014d38ce74d720250a6668659870fa2b",
+    "audit_workflow_run": 29641785186,
+    "audit_artifact_id": 8428837831,
+    "audit_artifact_digest": "sha256:8f84861719ba12e8ac9e7b9ec37d33ff4dbd2afb818f70ecb9e9c75a08e2635f",
+    "audit_head": "cb862e4e2c493f634187ca7cc32815cde197e79d"
+  },
+  "observables": {
+    "total_energy_ry": -560.29427515,
+    "scf_accuracy_ry": 4.5e-09,
+    "direct_gamma_gap_ev": 0.49730000000000096,
+    "pressure_kbar": 31.2,
+    "dielectric_eigenvalues": [62.326671426, 62.326671426, 62.326671426],
+    "dielectric_relative_anisotropy": 0.0,
+    "born_charge_sum_mean_e": -0.51611,
+    "raw_frequencies_cm1": [-183.63, -183.63, -183.63, 223.27, 223.27, 223.27],
+    "simple_asr_frequencies_cm1": [0.0, 0.0, 0.0, 283.52, 283.52, 283.52],
+    "maximum_raw_acoustic_absolute_frequency_cm1": 183.63,
+    "raw_optical_mean_cm1": 223.27,
+    "simple_asr_optical_mean_cm1": 283.52,
+    "asr_optical_relative_shift": 0.2698526447798628
+  },
+  "checks": {
+    "execution_pass": true,
+    "electronic_sanity_pass": true,
+    "response_numerical_sanity_pass": false,
+    "fixed_volume_interpretation_pass": false,
+    "failed_response_checks": ["raw_acoustic_translation", "born_charge_neutrality", "asr_optical_stability"],
+    "failed_fixed_volume_checks": ["bounded_static_pressure", "response_numerically_sane"]
+  },
+  "decision": {
+    "scientific_result_validated": false,
+    "a1_electron_phonon_authorized": false,
+    "next_authorized_diagnostic": {
+      "name": "same_geometry_stricter_response_point",
+      "ecutwfc_ry": 114,
+      "ecutrho_ry": 570,
+      "scf_conv_thr_ry": 1e-08,
+      "ph_tr2_ph": 1e-14,
+      "k_grid": [4, 4, 4],
+      "nbnd": 40,
+      "purpose": "Test whether acoustic, Born-charge and ASR violations are numerical before changing volume, functional, pseudopotential, q grid or material."
+    },
+    "interpretation": "The first A0 point is an execution pass and a physical-response sanity fail. Do not use its response as a physical reference and do not execute A1."
+  },
+  "claim_boundary": "This is one unconverged PBE planning point. Passing execution does not validate phonons, dielectric response, Born charges, pressure, a reference gap, or any electron-phonon quantity."
+}
