@@ -14,6 +14,9 @@
     "artifact_digest": "sha256:7835dddd59f042997daba935f15719030a31840f07516e3bc9b07c0150b14b9e",
     "artifact_created_at": "2026-07-18T00:55:47Z",
     "artifact_expires_at": "2026-08-17T00:55:47Z",
+    "status_file_sha256": "69664a5aafc4d65f180d628e97e51878384be06075f9b65826d894aec3079a32",
+    "runtime_result_sha256": "55d4fe8b5fea36dc1bb648bf227f332dd2303102712dd54df9d5dbb8d5573ba7",
+    "evidence_manifest_sha256": "1f49320998b96e261287d1d6d83003805f1c9d96f6b18a7ef19fd6b8bc88080f",
     "runner": {
       "operating_system": "Ubuntu 24.04.4 LTS",
       "runner_image": "ubuntu-24.04",
@@ -101,7 +104,7 @@
       "rendered_sha256": "120cecc862b5da4f6c5e849bd6787c31b49c18008cf3eb300e2823929d4c437a",
       "size_bytes": 739,
       "syntax_method": "pw.x nstep=0 initialization",
-      "syntax_output_sha256": "unknown_not_promoted_from_large_artifact",
+      "syntax_output_sha256": "6f7191245e4b586a95f78abfdb7ce3a1c9e7afb8463c6a1f99ed953becb748f0",
       "passed": true
     },
     "qe_ph": {
@@ -110,6 +113,7 @@
       "rendered_sha256": "a69cf2b60d49315004c15973d1cf63e898ce1fa7515aa32f11d0ae6054e8ecfc",
       "size_bytes": 412,
       "syntax_method": "all INPUTPH keys checked against pinned PHonon/Doc/INPUT_PH.def",
+      "syntax_record_sha256": "5df8d771cac57fcaa3e7ca8996e4a8117bf76532db696225db4ea796000cb126",
       "source_variable_count": 70,
       "input_keys": ["epsil", "fildyn", "ldisp", "niter_ph", "outdir", "prefix", "tr2_ph", "trans"],
       "missing_from_pinned_source": [],
