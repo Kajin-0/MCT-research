@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "stage": "polar_vertex_subtract_restore_oracle",
+  "purpose": "Validate subtraction of a source long-range polar electron-phonon vertex, interpolation of the remaining short-range vertex, restoration of a distinct target long-range vertex, and recomputation of Fan self-energy without losing short-range/long-range interference.",
+  "method_anchor": {
+    "strategy": "subtract long range from the full coarse-grid vertex before interpolation and restore long range after interpolation",
+    "epw_input_flag": "lpolar",
+    "primary_reference": "C. Verdi and F. Giustino, Phys. Rev. Lett. 115, 176401 (2015)",
+    "doi": "10.1103/PhysRevLett.115.176401",
+    "implementation_reference": "EPW polar interpolation tutorial and input documentation"
+  },
+  "synthetic_model": {
+    "material_status": "dimensionless synthetic oracle not CdTe or HgCdTe data",
+    "matrix_dimension": 8,
+    "random_seed": 20260718,
+    "short_range_scale": 0.12,
+    "short_range_directional_scale": 0.04,
+    "source_long_range_strength": 0.025,
+    "target_long_range_strength": 0.040,
+    "source_dielectric_tensor": [
+      [5.0, 0.0, 0.0],
+      [0.0, 7.0, 0.0],
+      [0.0, 0.0, 9.0]
+    ],
+    "target_dielectric_tensor": [
+      [7.5, 0.2, 0.0],
+      [0.2, 6.5, 0.1],
+      [0.0, 0.1, 8.0]
+    ],
+    "training_q_points": [
+      [0.040, 0.000, 0.000],
+      [-0.040, 0.000, 0.000],
+      [0.000, 0.050, 0.000],
+      [0.000, -0.050, 0.000],
+      [0.000, 0.000, 0.060],
+      [0.030, 0.030, 0.000],
+      [-0.025, 0.020, 0.035]
+    ],
+    "holdout_q_points": [
+      [0.025, -0.020, 0.015],
+      [-0.018, 0.027, -0.022],
+      [0.012, 0.019, 0.031]
+    ],
+    "fan_denominator_ev": 1.7
+  },
+  "thresholds": {
+    "maximum_short_range_training_relative_error": 1e-12,
+    "maximum_target_vertex_holdout_relative_error": 1e-12,
+    "maximum_fan_decomposition_closure_relative_error": 1e-12,
+    "minimum_naive_addition_relative_error": 0.1,
+    "minimum_missing_cross_term_relative_error": 0.01,
+    "minimum_source_target_long_range_difference": 0.05
+  },
+  "real_input_contract": {
+    "required_source_objects": [
+      "full_coarse_grid_electron_phonon_vertices_in_fixed_gauge",
+      "source_dielectric_tensor",
+      "source_born_charge_tensors",
+      "source_phonon_frequencies_and_eigenvectors",
+      "source_electronic_state_overlaps",
+      "source_q_point_and_reciprocal_lattice_conventions"
+    ],
+    "required_target_objects": [
+      "independently_provenanced_target_dielectric_tensor",
+      "independently_provenanced_target_born_charge_tensors",
+      "target_phonon_frequencies_and_eigenvectors_or_explicit_mapping",
+      "target_electronic_energy_denominator_strategy"
+    ],
+    "required_operations": [
+      "evaluate_source_long_range_vertex_in_exact_source_conventions",
+      "subtract_source_long_range_vertex_before_short_range_interpolation",
+      "validate_short_range_locality_and_heldout_interpolation",
+      "evaluate_target_long_range_vertex_in_same_electronic_gauge",
+      "restore_target_long_range_vertex_at_vertex_level",
+      "recompute_Fan_self_energy_from_complete_restored_vertex",
+      "retain_short_range_long_range_cross_terms",
+      "treat_Debye_Waller_with_a_separate_explicit_no_double_counting_derivation"
+    ]
+  },
+  "decision_policy": {
+    "fan_vertex_architecture_ready_requires_all_oracle_gates": true,
+    "direct_self_energy_component_replacement_is_forbidden": true,
+    "real_execution_requires_Debye_Waller_design": true,
+    "real_execution_requires_provenance_complete_source_and_target_long_range_models": true,
+    "automatic_calculation": false
+  },
+  "authorization": {
+    "run_synthetic_oracle": true,
+    "write_real_input_design": true,
+    "execute_real_subtraction_restoration": false,
+    "execute_A1": false,
+    "production_AHC": false,
+    "dense_EPW": false,
+    "HgTe": false,
+    "alloy": false
+  },
+  "claim_boundary": "A passing oracle validates algebra, interpolation bookkeeping and Fan cross-term preservation for known synthetic truth. It does not validate any physical long-range model, permit reuse of the current CdTe PBE vertex, solve the Debye-Waller correction, or authorize a real electron-phonon calculation."
+}
