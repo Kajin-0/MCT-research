@@ -88,13 +88,12 @@ def render_first_point(
     manifest_dir = output_dir / "manifests"
     parameter_dir.mkdir(parents=True, exist_ok=True)
 
-    common = {
-        "PREFIX": "cdte_a0_first",
-        "PSEUDO_DIR": str(pseudo_dir.resolve()),
-        "OUTDIR": str((output_dir / "qe-tmp").resolve()),
-    }
+    prefix = "cdte_a0_first"
+    outdir = str((output_dir / "qe-tmp").resolve())
     scf_parameters = {
-        **common,
+        "PREFIX": prefix,
+        "PSEUDO_DIR": str(pseudo_dir.resolve()),
+        "OUTDIR": outdir,
         "LATTICE_ANGSTROM": f"{settings['reference_lattice_angstrom']:.15f}",
         "ECUTWFC_RY": f"{settings['ecutwfc_ry']:.1f}",
         "ECUTRHO_RY": f"{settings['ecutrho_ry']:.1f}",
@@ -105,7 +104,8 @@ def render_first_point(
         "TE_UPF": pseudos["Te_upf"]["filename"],
     }
     ph_parameters = {
-        **common,
+        "PREFIX": prefix,
+        "OUTDIR": outdir,
         "FILDYN": str((output_dir / "cdte_a0_first.gamma.dyn").resolve()),
         "PH_TR2": f"{settings['ph_tr2']:.1e}",
     }
