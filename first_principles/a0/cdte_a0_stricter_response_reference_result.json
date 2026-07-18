@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "status": "cdte_a0_stricter_response_reference_result",
+  "source_evidence": {
+    "workflow_run": 29642078177,
+    "artifact_id": 8429313337,
+    "artifact_digest": "sha256:9d179462706990c94376cff2499a42bb89af27d297afe1f514e8da9ff171c227",
+    "head": "2121442f648c2c66b14cf12196bdb9478ef68aad"
+  },
+  "settings": {
+    "reference_lattice_angstrom": 6.476035479332049,
+    "ecutwfc_ry": 114.0,
+    "ecutrho_ry": 570.0,
+    "k_grid": [4, 4, 4],
+    "k_grid_shift": [0, 0, 0],
+    "nbnd": 40,
+    "scf_conv_thr_ry": 1e-8,
+    "ph_tr2": 1e-14
+  },
+  "baseline": {
+    "ecutrho_ry": 456.0,
+    "ph_tr2": 1e-10,
+    "pressure_kbar": 31.2,
+    "raw_acoustic_absolute_frequency_cm1": 183.63,
+    "born_charge_sum_mean_e": -0.51611,
+    "asr_optical_relative_shift": 0.2698526447798628,
+    "raw_optical_mean_cm1": 223.27,
+    "simple_asr_optical_mean_cm1": 283.52
+  },
+  "diagnostic": {
+    "total_energy_ry": -560.29427514,
+    "scf_accuracy_ry": 4.5e-9,
+    "direct_gamma_gap_ev": 0.49730000000000096,
+    "pressure_kbar": 31.2,
+    "dielectric_eigenvalues": [62.332890864, 62.332890864, 62.332890864],
+    "raw_frequencies_cm1": [20.55, 20.55, 20.55, 148.58, 148.58, 148.58],
+    "simple_asr_frequencies_cm1": [0.0, 0.0, 0.0, 147.17, 147.17, 147.17],
+    "raw_acoustic_absolute_frequency_cm1": 20.55,
+    "born_charge_sum_mean_e": -1.25251,
+    "asr_optical_relative_shift": 0.009489837124781431,
+    "raw_optical_mean_cm1": 148.58,
+    "simple_asr_optical_mean_cm1": 147.17,
+    "ph_convergence_count": 2
+  },
+  "ratios_to_baseline": {
+    "raw_acoustic": 0.11190981865708219,
+    "asr_optical_shift": 0.035166737507883,
+    "born_charge_sum": 2.4268276142682765
+  },
+  "collapse_checks": {
+    "raw_acoustic": true,
+    "asr_optical_shift": true,
+    "born_charge_sum": false,
+    "all_three_failed_response_metrics_materially_collapsed": false
+  },
+  "resources": {
+    "scf_wall_time": "0:01:11.95",
+    "ph_wall_time": "0:43:11.28",
+    "ph_maximum_resident_set_kbytes": 449088
+  },
+  "decision": {
+    "scientific_result_validated": false,
+    "a1_electron_phonon_authorized": false,
+    "automatic_additional_compute_authorized": false,
+    "interpretation": "Tightening ecutrho and tr2_ph materially reduced the acoustic and ASR optical diagnostics but worsened the raw Born-charge neutrality error. Stop numerical tightening and perform an analytical root-cause review of volume stress, pseudopotential response, and DFPT formulation before any further calculation."
+  },
+  "claim_boundary": "This one unconverged comparison identifies sensitivity to two numerical controls. It does not establish converged phonons, Born charges, dielectric response, equilibrium volume, a material reference, or A1 readiness."
+}
