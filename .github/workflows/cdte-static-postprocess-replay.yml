@@ -1,0 +1,90 @@
+name: cdte-static-postprocess-replay
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-static-postprocess-replay.yml'
+      - 'tools/cdte_finite_k_projection.py'
+      - 'tools/cdte_spectral_closure.py'
+      - 'tools/analyze_cdte_finite_k_kane.py'
+      - 'tools/analyze_cdte_spectral_closure.py'
+      - 'tools/analyze_cdte_corrected_static.py'
+      - 'tools/cdte_quadratic_invariant_space.py'
+      - 'tools/cdte_weiler_class_templates.py'
+      - 'tools/analyze_cdte_weiler_reductions.py'
+      - 'first_principles/a0/cdte_finite_k_kane_smoke.json'
+      - 'first_principles/a0/cdte_weiler_reduction_gate.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SOURCE_RUN_ID: '29640468978'
+      SOURCE_ARTIFACT_ID: '8428509605'
+      SOURCE_ARTIFACT_DIGEST: 'sha256:7e34882d03de1d45697586671bb8e77fc260a0993914e4ddafe3ebe1eb61ee4b'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install analysis package
+        run: python -m pip install -e .
+
+      - name: Download immutable raw evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: cdte-irrep-symmetry-probe-evidence
+          path: replay
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Record replay source identity
+        run: |
+          mkdir -p replay-result
+          {
+            echo "source_run_id=$SOURCE_RUN_ID"
+            echo "source_artifact_id=$SOURCE_ARTIFACT_ID"
+            echo "source_artifact_digest=$SOURCE_ARTIFACT_DIGEST"
+            sha256sum replay/cdte-kane-evidence/raw/cdte_kane.mmn
+            sha256sum replay/cdte-kane-evidence/raw/cdte_kane.nnkp
+            sha256sum replay/irrep-probe-evidence/raw/cdte_kane_exact_eigenvalues.json
+            sha256sum replay/irrep-probe-evidence/validated/cdte_kane_double_group_result.json
+          } > replay-result/source_identity.txt
+
+      - name: Replay controlling corrected static analysis
+        run: |
+          set +e
+          python tools/analyze_cdte_corrected_static.py \
+            --mmn replay/cdte-kane-evidence/raw/cdte_kane.mmn \
+            --nnkp replay/cdte-kane-evidence/raw/cdte_kane.nnkp \
+            --eigenvalues replay/irrep-probe-evidence/raw/cdte_kane_exact_eigenvalues.json \
+            --basis-result replay/irrep-probe-evidence/validated/cdte_kane_double_group_result.json \
+            --finite-k-contract first_principles/a0/cdte_finite_k_kane_smoke.json \
+            --finite-result replay/irrep-probe-evidence/validated/cdte_finite_k_kane_result.json \
+            --spectral-result replay/irrep-probe-evidence/validated/cdte_spectral_closure_result.json \
+            --output-json replay-result/cdte_corrected_static_result.json \
+            > replay-result/cdte_corrected_static_result.stdout.txt \
+            2> replay-result/cdte_corrected_static_result.stderr.txt
+          code=$?
+          echo "$code" > replay-result/exit_code.txt
+          exit "$code"
+
+      - name: Hash replay result
+        if: always()
+        run: |
+          find replay-result -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > replay-result/sha256.txt
+
+      - name: Upload replay result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-corrected-static-replay
+          path: replay-result
+          if-no-files-found: error
+          retention-days: 30
