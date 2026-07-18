@@ -1,0 +1,56 @@
+name: finite-temperature-matrix-oracle
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/finite-temperature-matrix-oracle.yml'
+      - 'src/mct_research/kane8.py'
+      - 'src/mct_research/thermal_kane.py'
+      - 'tools/run_finite_temperature_kane_oracle.py'
+      - 'tests/test_thermal_kane.py'
+      - 'first_principles/matrix_oracle/finite_temperature_kane_oracle.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  oracle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Execute finite-temperature matrix oracle
+        run: |
+          mkdir -p oracle-evidence
+          python tools/run_finite_temperature_kane_oracle.py \
+            --contract first_principles/matrix_oracle/finite_temperature_kane_oracle.json \
+            --output-json oracle-evidence/finite_temperature_kane_oracle_result.json \
+            > oracle-evidence/finite_temperature_kane_oracle_result.stdout.txt
+
+      - name: Record environment and evidence hashes
+        if: always()
+        run: |
+          python --version > oracle-evidence/python-version.txt
+          python -m pip freeze --all > oracle-evidence/pip-freeze.txt
+          find oracle-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > oracle-evidence/sha256.txt
+
+      - name: Upload oracle evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finite-temperature-kane-matrix-oracle-evidence
+          path: oracle-evidence
+          if-no-files-found: error
+          retention-days: 30

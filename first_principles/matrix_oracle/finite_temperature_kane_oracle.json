@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "stage": "finite_temperature_kane_matrix_oracle",
+  "purpose": "Falsify the complete finite-temperature Kane matrix pipeline with deterministic synthetic self-energies before authorizing any A1 electron-phonon calculation.",
+  "material_status": "synthetic_method_oracle_not_a_cdte_or_hgcdte_prediction",
+  "basis": "Novik_2005_Eq_4_Gamma6_Gamma8_Gamma7",
+  "temperature_grid_k": [0.0, 20.0, 50.0, 100.0, 200.0, 300.0],
+  "base_parameters": {
+    "ev": 7.986337000089527,
+    "eg": 0.4972157232164524,
+    "delta": 0.8592417011362832,
+    "p8": 6.772221951499152,
+    "p7": 6.201825720178372,
+    "f": -0.03298719451219489,
+    "gamma1": 1.5509204723011583,
+    "gamma2": -0.21577334261804118,
+    "gamma3": 0.317749225442553
+  },
+  "thermal_parameter_scales": [
+    {
+      "theta_k": 70.0,
+      "shifts": {
+        "ev": -0.001,
+        "eg": 0.004,
+        "delta": 0.0008,
+        "p8": 0.003,
+        "p7": 0.001,
+        "f": 0.001,
+        "gamma1": 0.005,
+        "gamma2": -0.002,
+        "gamma3": 0.003
+      }
+    },
+    {
+      "theta_k": 240.0,
+      "shifts": {
+        "ev": 0.003,
+        "eg": -0.018,
+        "delta": -0.002,
+        "p8": -0.008,
+        "p7": -0.002,
+        "f": -0.003,
+        "gamma1": -0.015,
+        "gamma2": 0.006,
+        "gamma3": -0.008
+      }
+    }
+  ],
+  "k_points_inverse_angstrom": [
+    [0.0, 0.0, 0.0],
+    [0.0, 0.0, 0.01],
+    [0.0, 0.0, -0.01],
+    [0.005773502691896258, 0.005773502691896258, 0.005773502691896258],
+    [-0.005773502691896258, -0.005773502691896258, -0.005773502691896258],
+    [0.007071067811865475, 0.007071067811865475, 0.0],
+    [-0.007071067811865475, -0.007071067811865475, 0.0],
+    [0.01, 0.0, 0.0],
+    [0.0, 0.01, 0.0]
+  ],
+  "quasiparticle_linearization": {
+    "reference_ev": 8.0,
+    "sigma_derivative_irreps": {
+      "Gamma6": 0.08,
+      "Gamma8": 0.04,
+      "Gamma7": 0.06
+    }
+  },
+  "dynamical_pole_oracle": {
+    "remote_offset_ev": 1.5,
+    "thermal_coupling_theta_k": 160.0,
+    "thermal_coupling_weight": 0.15,
+    "bracket_half_width_ev": 0.25,
+    "irreps": {
+      "Gamma6": {"slope": 0.08, "coupling_ev": 0.025},
+      "Gamma8": {"slope": 0.04, "coupling_ev": 0.020},
+      "Gamma7": {"slope": 0.06, "coupling_ev": 0.018}
+    }
+  },
+  "thermal_reduction": {
+    "target_parameter": "eg",
+    "training_temperature_indices": [1, 3, 5],
+    "holdout_temperature_indices": [2, 4],
+    "one_scale_theta_k": [70.0],
+    "two_scale_theta_k": [70.0, 240.0],
+    "numerical_standard_uncertainty_mev": 0.1
+  },
+  "thresholds": {
+    "maximum_gamma_symmetry_residual": 1e-12,
+    "maximum_matrix_linearization_relative_error": 1e-11,
+    "maximum_dynamical_pole_linearization_error_ev": 1e-6,
+    "maximum_extended_parameter_absolute_error": 1e-9,
+    "maximum_two_p_matrix_relative_residual": 1e-11,
+    "minimum_one_p_matrix_relative_residual": 1e-4,
+    "minimum_one_scale_holdout_error_mev": 2.0,
+    "maximum_two_scale_holdout_error_mev": 1e-8,
+    "minimum_second_scale_improvement_sigma": 3.0
+  },
+  "authorization": {
+    "synthetic_matrix_oracle": true,
+    "new_dft_or_dfpt": false,
+    "a1_electron_phonon": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "A passing oracle validates only the mathematics, symmetry, gauge convention, pole solver, matrix-parameter extraction and analytical-reduction logic of the finite-temperature pipeline. It is not a calculated CdTe or HgCdTe self-energy, does not validate any thermal parameter amplitude, and does not authorize A1, production AHC, dense EPW, HgTe or alloy work."
+}
