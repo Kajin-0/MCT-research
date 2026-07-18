@@ -1,0 +1,53 @@
+name: teppe-primary-gap-series
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/teppe-primary-gap-series.yml'
+      - 'tools/analyze_teppe2016_primary_gap_series.py'
+      - 'tests/test_teppe2016_primary_gap_series.py'
+      - 'data/experimental/teppe2016_primary_magneto_optical_gap_points.csv'
+      - 'src/mct_research/gap_models.py'
+      - 'src/mct_research/historical_gap_models.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+      - name: Execute primary-series audit
+        run: |
+          mkdir -p teppe-primary-gap-evidence
+          python -m tools.analyze_teppe2016_primary_gap_series \
+            --input-csv data/experimental/teppe2016_primary_magneto_optical_gap_points.csv \
+            --output-json teppe-primary-gap-evidence/result.json \
+            > teppe-primary-gap-evidence/stdout.txt \
+            2> teppe-primary-gap-evidence/stderr.txt
+          python -m pytest -q tests/test_teppe2016_primary_gap_series.py \
+            > teppe-primary-gap-evidence/pytest.txt \
+            2> teppe-primary-gap-evidence/pytest-stderr.txt
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > teppe-primary-gap-evidence/python-version.txt
+          find teppe-primary-gap-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > teppe-primary-gap-evidence/sha256.txt
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: teppe-primary-gap-evidence
+          path: teppe-primary-gap-evidence
+          if-no-files-found: error
+          retention-days: 30
