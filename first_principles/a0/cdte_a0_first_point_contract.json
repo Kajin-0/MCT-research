@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "stage": "A0_first_point_breadth_smoke",
+  "authorization": {
+    "one_qe_scf_point": true,
+    "gamma_eigenvalue_extraction": true,
+    "one_gamma_phonon_dielectric_born_point": true,
+    "convergence_claim": false,
+    "automatic_ladder_continuation": false,
+    "a1_electron_phonon": false,
+    "production_ahc": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "required_settings": {
+    "reference_lattice_angstrom": 6.476035479332049,
+    "ecutwfc_ry": 114.0,
+    "ecutrho_ry": 456.0,
+    "k_grid": [4, 4, 4],
+    "k_grid_shift": [0, 0, 0],
+    "nbnd": 40,
+    "scf_conv_thr_ry": 1e-8,
+    "ph_tr2": 1e-10,
+    "q_point": [0.0, 0.0, 0.0]
+  },
+  "execution_order": [
+    "verify_repository_readiness",
+    "build_pinned_quantum_espresso",
+    "verify_runtime_pseudopotentials",
+    "render_and_hash_inputs",
+    "execute_scf",
+    "require_scf_convergence_and_job_done",
+    "preserve_exact_qe_eigenvalues",
+    "execute_gamma_phonon_dielectric_born",
+    "require_phonon_job_done",
+    "run_dynmat_without_asr",
+    "run_dynmat_with_simple_asr",
+    "preserve_raw_outputs_and_resources"
+  ],
+  "hard_stops": [
+    "stop_if_repository_readiness_is_not_true",
+    "stop_if_any_runtime_pseudopotential_hash_differs",
+    "stop_if_rendered_settings_differ_from_required_settings",
+    "stop_if_scf_does_not_report_convergence_has_been_achieved",
+    "stop_if_scf_does_not_report_JOB_DONE",
+    "do_not_run_phonons_after_scf_failure",
+    "stop_if_phonon_does_not_report_JOB_DONE",
+    "do_not_continue_to_second_convergence_point_automatically"
+  ],
+  "required_evidence": [
+    "source_commit_and_submodule_manifest",
+    "runtime_executable_hashes",
+    "runtime_pseudopotential_hashes",
+    "rendered_input_hashes",
+    "scf_stdout_stderr_and_time",
+    "qe_data_file_schema_xml",
+    "ordered_raw_k_point_eigenvalues",
+    "phonon_stdout_stderr_and_time",
+    "raw_gamma_dynamical_matrix",
+    "dynmat_no_asr_output",
+    "dynmat_simple_asr_output",
+    "system_cpu_memory_disk_and_compiler_manifest",
+    "complete_evidence_sha256_manifest"
+  ],
+  "claim_boundary": {
+    "supported_after_success": "One fixed numerical CdTe A0 point executed with raw electronic, Gamma-response, and resource evidence.",
+    "not_supported": [
+      "cutoff convergence",
+      "charge_density_cutoff convergence",
+      "k_grid convergence",
+      "band_count convergence",
+      "iterative_threshold convergence",
+      "reference CdTe gap or band parameters",
+      "converged phonon frequencies",
+      "converged dielectric tensor or Born charges",
+      "electron_phonon_or_AHC_result",
+      "HgTe_or_alloy_result"
+    ]
+  }
+}
