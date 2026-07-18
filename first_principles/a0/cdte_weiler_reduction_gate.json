@@ -1,14 +1,14 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "stage": "cdte_weiler_reduction_frontier",
-  "purpose": "Exhaustively test all subsets of the six established quadratic directions removed by the conventional Kane reduction and determine whether a lower-dimensional extension can reproduce the validated complete-space CdTe matrix signal before introducing any new computation or analytical parameterization.",
+  "purpose": "Exhaustively test all subsets of the six established quadratic directions removed by the conventional Kane reduction and determine the minimum extension supported at declared matrix-accuracy thresholds without assuming in advance that all six are required.",
   "upstream": {
-    "finite_k_pull_request": 82,
+    "finite_k_pull_request": 101,
     "residual_localization_pull_request": 83,
     "complete_invariant_pull_request": 84,
     "prior_art_pull_request": 85,
     "weiler_class_pull_request": 86,
-    "class_result": "first_principles/a0/cdte_weiler_class_reference_result.json"
+    "class_result": "corrected selected-band polar result generated from the physical workflow"
   },
   "departure_order": [
     "N2",
@@ -18,8 +18,8 @@
     "delta_gamma2",
     "delta_gamma3"
   ],
-  "residual_thresholds": [0.25, 0.20, 0.10, 0.05, 0.01],
-  "decision_threshold": 0.10,
+  "residual_thresholds": [0.10, 0.05, 0.01, 0.005, 0.001],
+  "decision_threshold": 0.01,
   "thresholds": {
     "maximum_basis_orthogonality_residual": 1e-10,
     "maximum_full_space_residual": 1e-10,
@@ -28,7 +28,7 @@
   "authorization": {
     "exhaustive_six_direction_subset_test": true,
     "use_complete_space_projection_as_target": true,
-    "propose_compact_extension_if_supported": true,
+    "report_minimum_supported_subset_without_fixed_count": true,
     "standard_weiler_parameter_values": false,
     "new_electronic_structure_run": false,
     "denser_k_mesh": false,
@@ -38,5 +38,5 @@
     "hgte": false,
     "alloy": false
   },
-  "claim_boundary": "This gate measures reduction error relative to the validated complete ten-dimensional static CdTe quadratic projection in repository normalization. It does not establish standard Weiler parameter values, converged material coefficients, uniqueness beyond the tested subset family, finite-temperature behavior, or authorization for new electronic-structure, phonon, HgTe, or alloy calculations."
+  "claim_boundary": "This gate measures reduction error relative to the validated complete ten-dimensional static CdTe quadratic projection in repository normalization and the declared fixed-Gamma polar gauge. It reports the minimum subset meeting each threshold rather than assuming all six directions are required. It does not establish standard Weiler parameter values, converged material coefficients, uniqueness beyond the tested subset family, finite-temperature behavior, or authorization for new electronic-structure, phonon, HgTe, or alloy calculations."
 }
