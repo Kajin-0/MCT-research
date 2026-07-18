@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1",
-  "stage": "A0_byte_verified_selection",
+  "schema_version": "1.2",
+  "stage": "A0_runtime_verified_selection",
   "run_executed": false,
   "scientific_result_available": false,
   "upstream": {
@@ -55,6 +55,18 @@
     "sha256_recorded": true,
     "pseudopotential_files_committed": false
   },
+  "runtime_verification": {
+    "reference": "first_principles/a0/cdte_a0_runtime_readiness_reference.json",
+    "workflow_run_id": 29623698323,
+    "artifact_id": 8423244947,
+    "artifact_digest": "sha256:7835dddd59f042997daba935f15719030a31840f07516e3bc9b07c0150b14b9e",
+    "implementation_head_sha": "29f49cea2007d9c3dcb30df4b9b6fba6aa027daf",
+    "all_four_runtime_sha256_matches": true,
+    "qe_scf_initialization_passed": true,
+    "qe_ph_source_key_validation_passed": true,
+    "abinit_dry_run_passed": true,
+    "calculation_executed": false
+  },
   "cdte_cutoff_ladder_rydberg": {
     "rule": "maximum element hint after converting Hartree to Rydberg",
     "low": 94,
@@ -68,9 +80,9 @@
     "upstream_commit_pinned": true,
     "headers_primary_verified": true,
     "downloaded_byte_sha256_verified": true,
-    "runtime_file_hash_verified": false,
-    "qe_syntax_checked": false,
-    "abinit_syntax_checked": false,
+    "runtime_file_hash_verified": true,
+    "qe_syntax_checked": true,
+    "abinit_syntax_checked": true,
     "static_calculation_run": false,
     "phonon_calculation_run": false
   },

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "stage": "A0_static_phonon_readiness",
   "authorization": {
     "static_scf": true,
@@ -16,27 +16,48 @@
       "repository": "QEF/q-e",
       "tag": "qe-7.4.1",
       "commit": "500de340b820e1cb8c05f2d8bb8fced102f377c1",
-      "executables": ["pw.x", "ph.x"],
-      "installed_version_output": null,
-      "executable_sha256": {},
-      "release_specific_syntax_checked": false
+      "executables": [
+        "pw.x",
+        "ph.x"
+      ],
+      "installed_version_output": "Program PWSCF v.7.4.1; Program PHONON v.7.4.1",
+      "executable_sha256": {
+        "pw.x": "79338a906d5d2e4211dcf3cb5d71706a5bd7bd0dc7e685025485fd5317c609e3",
+        "ph.x": "57b99c18169f38ef9691387d56e7d3765be7226ff155bfbd1727ab81c1c396e4"
+      },
+      "release_specific_syntax_checked": true,
+      "validated_build_reference": "first_principles/a0/cdte_a0_runtime_readiness_reference.json"
     },
     "abinit": {
       "repository": "abinit/abinit",
       "tag": "10.6.5",
       "commit": "d50172aacfc501b46cd33ae58fda139e674d40e3",
-      "executables": ["abinit"],
-      "installed_version_output": null,
-      "executable_sha256": {},
-      "release_specific_syntax_checked": false
+      "executables": [
+        "abinit"
+      ],
+      "installed_version_output": "ABINIT 10.6.5",
+      "executable_sha256": {
+        "abinit": "b10a0fa2a0259b2d4525a0bbf1a7bf93e3056414ed90ffe5f12c6113584bb062"
+      },
+      "release_specific_syntax_checked": true,
+      "validated_build_reference": "first_principles/a0/cdte_a0_runtime_readiness_reference.json",
+      "parallel_io_status": "single_rank_dry_validation_passed_parallel_netcdf_io_not_available"
     }
   },
   "structure": {
     "prototype": "zincblende",
     "primitive_atoms": 2,
     "fractional_positions": {
-      "Cd": [0.0, 0.0, 0.0],
-      "Te": [0.25, 0.25, 0.25]
+      "Cd": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Te": [
+        0.25,
+        0.25,
+        0.25
+      ]
     },
     "candidate_reference_lattice_constant_angstrom": 6.482,
     "candidate_reference_temperature_k": 300,
@@ -93,11 +114,20 @@
         "bridge_source_record": "first_principles/a0/browder1972_optica_table_source.json",
         "bridge_canonical_table_sha256": "832c7b191d1a93a5f828e63125ea8dcd18e42c998b33f77b3ee1239f54a5afe7",
         "reported_cdte_coverage_k": [
-          [0, 85],
-          [85, 293.15]
+          [
+            0,
+            85
+          ],
+          [
+            85,
+            293.15
+          ]
         ],
         "low_temperature_law": "alpha_L(T)=-(170+/-10)e-12*T^3 K^-1 below 4 K",
-        "integration_temperature_bounds_k": [0, 293.15],
+        "integration_temperature_bounds_k": [
+          0,
+          293.15
+        ],
         "uncertainty_model_status": "approved_conservative_interval_model",
         "uncertainty_propagation": "first_principles/a0/cdte_lattice_execution_decision.json",
         "derivation_manifest": "first_principles/a0/cdte_lattice_execution_decision.json",
@@ -122,25 +152,73 @@
       "reference_temperature_k": 0,
       "temperature_dependent_electron_phonon_runs_use_one_volume": true,
       "quasiharmonic_volume_path_authorized_in_a0": false,
-      "volume_fractional_offsets": [-0.005, 0.0, 0.005],
-      "lattice_scale_factors": [0.9983305478136913, 1.0, 1.001663896579312],
+      "volume_fractional_offsets": [
+        -0.005,
+        0.0,
+        0.005
+      ],
+      "lattice_scale_factors": [
+        0.9983305478136913,
+        1.0,
+        1.001663896579312
+      ],
       "relationship": "a/a_ref = (V/V_ref)^(1/3)",
       "double_counting_rule": "Hold V_ref fixed for every electron-phonon temperature point. Any future quasiharmonic term must be calculated and reported separately as the static band-edge change along V(T), then added once."
     }
   },
   "convergence_ladders": {
     "selection_status": "declared_not_run",
-    "ecutwfc_ry": [94, 102, 114],
+    "ecutwfc_ry": [
+      94,
+      102,
+      114
+    ],
     "ecutrho_reference_ecutwfc_ry": 114,
-    "ecutrho_ratio": [4, 5, 6],
-    "ecutrho_ry": [456, 570, 684],
-    "k_grid_n": [4, 6, 8, 10, 12],
-    "k_grid_shift": [0, 0, 0],
+    "ecutrho_ratio": [
+      4,
+      5,
+      6
+    ],
+    "ecutrho_ry": [
+      456,
+      570,
+      684
+    ],
+    "k_grid_n": [
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "k_grid_shift": [
+      0,
+      0,
+      0
+    ],
     "total_valence_electrons": 36,
-    "nbnd": [40, 48, 56, 64],
-    "empty_spinor_bands": [4, 12, 20, 28],
-    "scf_conv_thr_ry": [1e-08, 1e-10, 1e-12],
-    "ph_tr2": [1e-10, 1e-12, 1e-14]
+    "nbnd": [
+      40,
+      48,
+      56,
+      64
+    ],
+    "empty_spinor_bands": [
+      4,
+      12,
+      20,
+      28
+    ],
+    "scf_conv_thr_ry": [
+      1e-08,
+      1e-10,
+      1e-12
+    ],
+    "ph_tr2": [
+      1e-10,
+      1e-12,
+      1e-14
+    ]
   },
   "convergence_protocol": {
     "document": "first_principles/a0/cdte_a0_convergence_protocol.md",
@@ -170,11 +248,18 @@
   },
   "runtime_inputs": {
     "pseudopotential_selection": "first_principles/a0/cdte_pseudopotential_selection.json",
-    "runtime_hash_manifest": null,
-    "runtime_hashes_verified": false,
-    "rendered_qe_scf_manifest": null,
-    "rendered_qe_phonon_manifest": null,
-    "rendered_abinit_manifest": null
+    "runtime_readiness_reference": "first_principles/a0/cdte_a0_runtime_readiness_reference.json",
+    "runtime_hash_manifest": "first_principles/a0/cdte_a0_runtime_readiness_reference.json#/runtime_pseudopotentials",
+    "runtime_hashes_verified": true,
+    "rendered_qe_scf_manifest": "first_principles/a0/cdte_a0_runtime_readiness_reference.json#/rendered_inputs/qe_scf",
+    "rendered_qe_phonon_manifest": "first_principles/a0/cdte_a0_runtime_readiness_reference.json#/rendered_inputs/qe_ph",
+    "rendered_abinit_manifest": "first_principles/a0/cdte_a0_runtime_readiness_reference.json#/rendered_inputs/abinit",
+    "verification_workflow_run_id": 29623698323,
+    "verification_artifact_id": 8423244947,
+    "verification_artifact_digest": "sha256:7835dddd59f042997daba935f15719030a31840f07516e3bc9b07c0150b14b9e",
+    "verification_implementation_head_sha": "29f49cea2007d9c3dcb30df4b9b6fba6aa027daf",
+    "validated_first_point_only": true,
+    "future_runtime_rule": "Rebuild or stage from the pinned source commits, rehash actual executables and pseudopotentials, and rerun release-specific input checks before execution. Do not assume a fresh ABINIT build is byte-identical because build metadata is embedded."
   },
   "required_a0_outputs": [
     "total_energy",
@@ -192,6 +277,9 @@
   "readiness_claim": {
     "calculation_executed": false,
     "scientific_result_available": false,
-    "ready_for_execution": false
+    "ready_for_execution": true,
+    "scope": "first declared A0 convergence point only",
+    "authorized_next_action": "execute the smallest A0 point and record raw observables; do not infer convergence from one point",
+    "a1_or_production_authorized": false
   }
 }

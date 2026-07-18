@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "status": "runtime_and_rendered_inputs_validated_no_scientific_run",
+  "verification": {
+    "pull_request": 96,
+    "implementation_head_sha": "29f49cea2007d9c3dcb30df4b9b6fba6aa027daf",
+    "pull_request_merge_test_sha": "bb02022bf55a0c02b6dcb9d663742f467ef7271f",
+    "merged_main_sha": "ef5a3df4110676ac4c8900e569f49a018459f2db",
+    "tests_workflow_run_id": 29623698271,
+    "runtime_workflow_run_id": 29623698323,
+    "runtime_job_id": 88023742262,
+    "artifact_id": 8423244947,
+    "artifact_name": "cdte-a0-runtime-readiness-evidence",
+    "artifact_digest": "sha256:7835dddd59f042997daba935f15719030a31840f07516e3bc9b07c0150b14b9e",
+    "artifact_created_at": "2026-07-18T00:55:47Z",
+    "artifact_expires_at": "2026-08-17T00:55:47Z",
+    "status_file_sha256": "69664a5aafc4d65f180d628e97e51878384be06075f9b65826d894aec3079a32",
+    "runtime_result_sha256": "55d4fe8b5fea36dc1bb648bf227f332dd2303102712dd54df9d5dbb8d5573ba7",
+    "evidence_manifest_sha256": "1f49320998b96e261287d1d6d83003805f1c9d96f6b18a7ef19fd6b8bc88080f",
+    "runner": {
+      "operating_system": "Ubuntu 24.04.4 LTS",
+      "runner_image": "ubuntu-24.04",
+      "runner_image_version": "20260714.240.1",
+      "runner_version": "2.335.1"
+    }
+  },
+  "source_identity": {
+    "quantum_espresso": {
+      "repository": "QEF/q-e",
+      "tag": "qe-7.4.1",
+      "commit": "500de340b820e1cb8c05f2d8bb8fced102f377c1"
+    },
+    "abinit": {
+      "repository": "abinit/abinit",
+      "tag": "10.6.5",
+      "commit": "d50172aacfc501b46cd33ae58fda139e674d40e3"
+    },
+    "pseudodojo": {
+      "repository": "PseudoDojo/ONCVPSP-PBE-FR-PDv0.4",
+      "commit": "7aa01a3fcf5ad226caf25bd387a9be9612be9f27"
+    }
+  },
+  "executables": {
+    "pw.x": {
+      "version_output": "Program PWSCF v.7.4.1",
+      "sha256": "79338a906d5d2e4211dcf3cb5d71706a5bd7bd0dc7e685025485fd5317c609e3",
+      "size_bytes": 23938536,
+      "hash_scope": "validated_build_instance"
+    },
+    "ph.x": {
+      "version_output": "Program PHONON v.7.4.1",
+      "sha256": "57b99c18169f38ef9691387d56e7d3765be7226ff155bfbd1727ab81c1c396e4",
+      "size_bytes": 25874024,
+      "hash_scope": "validated_build_instance"
+    },
+    "abinit": {
+      "version_output": "ABINIT 10.6.5",
+      "sha256": "b10a0fa2a0259b2d4525a0bbf1a7bf93e3056414ed90ffe5f12c6113584bb062",
+      "size_bytes": 37742184,
+      "hash_scope": "validated_build_instance_build_metadata_embedded"
+    }
+  },
+  "runtime_pseudopotentials": {
+    "Cd_upf": {
+      "upstream_path": "Cd/Cd-sp_r.upf",
+      "filename": "Cd-sp_r.upf",
+      "sha256": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+      "size_bytes": 335719
+    },
+    "Te_upf": {
+      "upstream_path": "Te/Te-d_r.upf",
+      "filename": "Te-d_r.upf",
+      "sha256": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519",
+      "size_bytes": 314907
+    },
+    "Cd_psp8": {
+      "upstream_path": "Cd/Cd-sp_r.psp8",
+      "filename": "Cd-sp_r.psp8",
+      "sha256": "5fe4fc81c64b1e0e912a6f362739a5d8d9cc47a26093f5e701f04c3973ced1e6",
+      "size_bytes": 461467
+    },
+    "Te_psp8": {
+      "upstream_path": "Te/Te-d_r.psp8",
+      "filename": "Te-d_r.psp8",
+      "sha256": "c306f620e606a618f94f81f8283f66575b01902b7d0051fc3aa8177876c13706",
+      "size_bytes": 423619
+    }
+  },
+  "selected_first_a0_point": {
+    "reference_lattice_angstrom": 6.476035479332049,
+    "ecutwfc_ry": 114.0,
+    "ecutrho_ry": 456.0,
+    "abinit_ecut_hartree": 57.0,
+    "k_grid": [4, 4, 4],
+    "k_grid_shift": [0, 0, 0],
+    "nbnd": 40,
+    "scf_conv_thr_ry": 1e-08,
+    "ph_tr2": 1e-10
+  },
+  "rendered_inputs": {
+    "qe_scf": {
+      "template_sha256": "30309c71732515c0d7f21af815d9345a23967a144bde233c8240cdb175799641",
+      "parameter_json_sha256": "410997167fc91adf5d07b59032493bbd730331764a518566ff0d535e55a0a639",
+      "rendered_sha256": "120cecc862b5da4f6c5e849bd6787c31b49c18008cf3eb300e2823929d4c437a",
+      "size_bytes": 739,
+      "syntax_method": "pw.x nstep=0 initialization",
+      "syntax_output_sha256": "6f7191245e4b586a95f78abfdb7ce3a1c9e7afb8463c6a1f99ed953becb748f0",
+      "passed": true
+    },
+    "qe_ph": {
+      "template_sha256": "ecc7d57822008773f08c395e31510d9892a7e5f361618c37babf957d18f8a854",
+      "parameter_json_sha256": "2ceeac33a1c4b42d49d4d88b6be8881d1744c53eaf81a022585ef0ca9d970989",
+      "rendered_sha256": "a69cf2b60d49315004c15973d1cf63e898ce1fa7515aa32f11d0ae6054e8ecfc",
+      "size_bytes": 412,
+      "syntax_method": "all INPUTPH keys checked against pinned PHonon/Doc/INPUT_PH.def",
+      "syntax_record_sha256": "5df8d771cac57fcaa3e7ca8996e4a8117bf76532db696225db4ea796000cb126",
+      "source_variable_count": 70,
+      "input_keys": ["epsil", "fildyn", "ldisp", "niter_ph", "outdir", "prefix", "tr2_ph", "trans"],
+      "missing_from_pinned_source": [],
+      "passed": true
+    },
+    "abinit": {
+      "template_sha256": "3d9a30d08dc803963842dbe84e84581ac7a9da0eb5fbe629c7e2ed7b9fd1bf7b",
+      "parameter_json_sha256": "451f09602c9b92bafe64d3c250973dadbf849e67526b386c0c166a37cc220870",
+      "rendered_sha256": "b874dc93ad695b604a3d2e8a1c6b5397bd7d385559be9b0bc4725af9a456cc6b",
+      "size_bytes": 529,
+      "syntax_method": "abinit input.abi --dry-run",
+      "syntax_output_sha256": "6c4b917724755330675814313fdd7e3630ccf0368974af3abf961df1da1a39fa",
+      "driver_skipped": true,
+      "passed": true
+    }
+  },
+  "validation": {
+    "runtime_hashes_verified": true,
+    "release_specific_syntax_checked": true,
+    "calculation_executed": false,
+    "scientific_result_available": false,
+    "python_3_11_tests_passed": true,
+    "python_3_13_tests_passed": true
+  },
+  "known_limitations": [
+    "ABINIT reported that the runner NetCDF library lacks parallel NetCDF-IO support; multi-rank ABINIT production output is not authorized by this record.",
+    "Executable SHA-256 values identify this validated build instance. A future rebuild, especially ABINIT with embedded build metadata, must be rehashed and recorded rather than assumed byte-identical.",
+    "The GitHub artifact is temporary; this compact record preserves decision-relevant hashes and provenance but not the executable binaries or full logs."
+  ],
+  "claim_boundary": {
+    "supported": "Exact pinned runtime sources, runtime pseudopotential bytes, deterministic first-point rendering, QE initialization, PH source-key validation, and ABINIT dry parsing passed without a scientific calculation.",
+    "not_supported": [
+      "cutoff convergence",
+      "k-grid convergence",
+      "band-count convergence",
+      "threshold convergence",
+      "CdTe band ordering or gap",
+      "phonon frequencies",
+      "dielectric tensor or Born charges",
+      "electron-phonon or AHC results",
+      "HgTe or alloy results"
+    ]
+  }
+}

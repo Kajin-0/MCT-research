@@ -1,8 +1,11 @@
-# CdTe A0: pseudopotential and execution-readiness gate
+# CdTe A0: bounded execution and convergence gate
 
-This directory implements only the authorized A0 preparation and static/phonon
-sanity stage from the CdTe thermal-moment decision memo. No electronic-structure
-calculation or scientific result is recorded here.
+This directory implements the authorized CdTe A0 static/phonon sanity stage from
+the thermal-moment decision memo.
+
+The physical-volume, pseudopotential-byte, runtime-build, and release-specific
+input gates are closed for the **first declared A0 convergence point only**. No
+scientific calculation or material result has yet been recorded.
 
 ## Authorization boundary
 
@@ -14,11 +17,16 @@ A0 permits only:
 - convergence and resource measurements needed to decide whether A1 is viable.
 
 A0 does not authorize the timed A1 electron-phonon smoke test, production AHC,
-dense EPW, HgTe, VCA, SQS, CPA, SCBA or alloy calculations.
+dense EPW, HgTe, VCA, SQS, CPA, SCBA, or alloy calculations.
+
+The current authorized next action is:
+
+> Execute the smallest declared A0 point and record raw observables. Do not infer
+> convergence from one point.
 
 ## Selected pseudopotentials
 
-The pinned upstream source is
+The pinned upstream source is:
 
 ```text
 PseudoDojo/ONCVPSP-PBE-FR-PDv0.4
@@ -40,24 +48,20 @@ Te/Te-d_r.psp8
 ```
 
 The headers identify norm-conserving PBE potentials with full relativity,
-spin-orbit data and nonlinear core correction. Cd has 20 valence electrons with
+spin-orbit data, and nonlinear core correction. Cd has 20 valence electrons with
 `4s 4p 4d 5s` represented; Te has 16 with `4d 5s 5p` represented.
 
-PR #42 downloaded the exact immutable upstream bytes in an isolated workflow,
-verified Git blob identities and published psp8 MD5 values, and recorded SHA-256
-values in:
+The exact immutable upstream bytes were independently acquired and verified in
+PR #42. PR #96 reconstructed all four runtime copies from the pinned commit and
+required their SHA-256 values to match the selection manifest.
 
-- `cdte_pseudopotential_hash_manifest.json`;
-- `cdte_pseudopotential_selection.json`;
-- `first_principles/pseudopotential_matrix.csv`.
-
-The pseudopotential payloads themselves are not committed. Every runtime copy
-must still be rehashed and match the recorded SHA-256 values.
+The pseudopotential payloads are not committed. Every future runtime copy must be
+rehash-verified before use.
 
 ## Cutoff-unit correction
 
 PseudoDojo publishes cutoff hints in Hartree. Quantum ESPRESSO accepts
-`ecutwfc` in Rydberg, so the hints must be multiplied by two.
+`ecutwfc` in Rydberg, so the hints are multiplied by two.
 
 | Element | low (Ha) | normal (Ha) | high (Ha) | low (Ry) | normal (Ry) | high (Ry) |
 |---|---:|---:|---:|---:|---:|---:|
@@ -72,13 +76,28 @@ Cd controls the compound starting ladder:
 
 These values are starting points, not convergence evidence.
 
-## Lattice and fixed-volume protocol
+## Bounded lattice and fixed-volume protocol
 
-`cdte_lattice_volume_protocol.md` defines the physical reference-volume gate.
-The `6.482 Angstrom` entry remains a planning value only. An execution lattice
-requires a hashed primary absolute measurement with temperature and uncertainty;
-a transformation to the 0 K reference additionally requires a verified primary
-thermal-expansion source and derivation manifest.
+The selected fixed-volume reference is:
+
+```text
+a_ref(0 K) = 6.476035479332049 Angstrom
+conservative absolute bound = +/-0.001814959409196 Angstrom
+```
+
+The bound corresponds to a maximum volume uncertainty of approximately
+`0.08410%`, or `16.82%` of the declared one-sided `0.5%` A0 volume perturbation.
+It is adequate for this sensitivity test but is not a metrology-grade universal
+CdTe lattice constant.
+
+The source chain combines:
+
+- the Williams 1969 primary absolute X-ray anchor;
+- Smith-White 1975 primary low-temperature single-crystal expansion;
+- the verified Browder-Ballard 1972 publisher table as the full-range bridge
+  shape;
+- an explicit morphology-transfer bound large enough to contain the existing
+  alternative bridge estimates.
 
 The sensitivity points are defined in volume:
 
@@ -86,27 +105,25 @@ The sensitivity points are defined in volume:
 Delta V / V = -0.005, 0, +0.005
 ```
 
-and are converted exactly through
+and converted exactly through:
 
 ```text
-a / a_ref = (V / V_ref)^(1/3).
+a / a_ref = (V / V_ref)^(1/3)
 ```
 
-Issue #46 tracks acquisition of the absolute anchor and primary CdTe
-thermal-expansion data.
+All electron-phonon temperatures must use one fixed `V_ref`. Any future
+quasiharmonic term must be calculated separately and added once.
 
 ## Declared convergence protocol
 
-`cdte_a0_convergence_protocol.md` declares, but does not execute or certify, the
-smallest sequential convergence plan:
+`cdte_a0_convergence_protocol.md` declares the smallest sequential plan:
 
-- `ecutrho/ecutwfc = 4, 5, 6` at `ecutwfc = 114 Ry`;
-- `ecutwfc = 94, 102, 114 Ry` after selecting the charge-density ratio;
-- Gamma-centered cubic k grids `4, 6, 8, 10, 12`;
-- noncollinear SOC band counts `40, 48, 56, 64` for the verified 36-electron
-  primitive cell;
-- tightening SCF and phonon thresholds;
-- one selected-versus-next-denser cross-factor recheck.
+1. `ecutrho/ecutwfc = 4, 5, 6` at `ecutwfc = 114 Ry`;
+2. `ecutwfc = 94, 102, 114 Ry` after selecting the density ratio;
+3. Gamma-centered cubic k grids `4, 6, 8, 10, 12`;
+4. SOC band counts `40, 48, 56, 64` for the verified 36-electron cell;
+5. tightening SCF and phonon thresholds;
+6. one selected-versus-next-denser cross-factor recheck.
 
 A setting is selected only after two successive refinements satisfy every
 applicable observable criterion. Failure at the largest declared point stops the
@@ -120,13 +137,12 @@ python tools/check_cdte_a0_convergence_protocol.py \
   --report-json runs/cdte_a0/convergence-protocol-report.json
 ```
 
-A passing protocol report means only that the proposed ladder is internally
-consistent. It does not mean that any numerical setting is converged.
+A passing protocol report establishes only that the ladder is internally
+consistent.
 
-## Exact code-source pins
+## Exact code and runtime evidence
 
-`cdte_a0_run_spec.json` pins the source trees selected for release-specific
-syntax and reproducibility work:
+The source trees are pinned to:
 
 ```text
 Quantum ESPRESSO qe-7.4.1
@@ -136,79 +152,70 @@ ABINIT 10.6.5
 commit d50172aacfc501b46cd33ae58fda139e674d40e3
 ```
 
-A source pin is not an installed-binary record. Before execution, archive:
+PR #96 built the pinned sources and validated the deterministic first-point
+inputs without a scientific run:
 
-- the complete version output;
-- SHA-256 for `pw.x`, `ph.x` and `abinit`;
-- compiler, MPI and linked-library versions;
-- release-specific syntax-check results for every rendered input.
-
-## Runtime pseudopotential inspection
-
-Acquire runtime copies from the immutable upstream commit, then inspect and hash
-every file. Example commands:
-
-```bash
-python tools/inspect_pseudopotential.py pseudos/Cd-sp_r.upf \
-  --format upf --expect-element Cd --expect-z-valence 20 \
-  --expect-functional PBE --require-fully-relativistic \
-  --require-spin-orbit --require-nlcc \
-  --output-json pseudos/Cd-sp_r.upf.inspect.json
-
-python tools/inspect_pseudopotential.py pseudos/Te-d_r.upf \
-  --format upf --expect-element Te --expect-z-valence 16 \
-  --expect-functional PBE --require-fully-relativistic \
-  --require-spin-orbit --require-nlcc \
-  --output-json pseudos/Te-d_r.upf.inspect.json
-
-python tools/inspect_pseudopotential.py pseudos/Cd-sp_r.psp8 \
-  --format psp8 --expect-element Cd --expect-z-valence 20 \
-  --expect-pspxc 11 --require-fully-relativistic --require-spin-orbit \
-  --output-json pseudos/Cd-sp_r.psp8.inspect.json
-
-python tools/inspect_pseudopotential.py pseudos/Te-d_r.psp8 \
-  --format psp8 --expect-element Te --expect-z-valence 16 \
-  --expect-pspxc 11 --require-fully-relativistic --require-spin-orbit \
-  --output-json pseudos/Te-d_r.psp8.inspect.json
+```text
+workflow run 29623698323
+artifact 8423244947
+artifact digest
+sha256:7835dddd59f042997daba935f15719030a31840f07516e3bc9b07c0150b14b9e
 ```
 
-The runtime SHA-256 values must equal the byte-verification manifest. Upstream
-Git SHA-1 and psp8 MD5 values are additional provenance anchors, not substitutes
-for runtime SHA-256 verification.
+The compact persistent record is:
 
-## Input rendering
-
-Use `tools/render_first_principles_input.py` only after runtime files pass
-inspection. Supply every pseudopotential through `--input-file` so its SHA-256
-enters the render manifest.
-
-```bash
-python tools/render_first_principles_input.py \
-  first_principles/templates/qe/cdte_scf.in \
-  runs/cdte_a0/scf.in \
-  --parameters-json runs/cdte_a0/scf.parameters.json \
-  --manifest-json runs/cdte_a0/scf.manifest.json \
-  --input-file Cd_UPF=pseudos/Cd-sp_r.upf \
-  --input-file Te_UPF=pseudos/Te-d_r.upf
+```text
+first_principles/a0/cdte_a0_runtime_readiness_reference.json
 ```
 
-The renderer fails on missing, unused or unresolved parameters. Rendering does
-not execute a code and does not establish release-specific syntax validity.
+It preserves source commits, executable hashes for the validated build instance,
+runtime pseudopotential hashes, rendered-input hashes, syntax-output hashes, and
+the no-calculation/no-result boundary.
+
+A current-head revalidation reproduced all three rendered-input hashes and all
+four pseudopotential hashes exactly. `pw.x` and `ph.x` also rebuilt
+byte-identically. ABINIT produced a different executable hash because its binary
+embeds build metadata; fresh ABINIT builds must be rehashed rather than assumed
+byte-identical.
+
+The GitHub runner's NetCDF library lacked parallel NetCDF-IO support. Single-rank
+ABINIT dry validation passed, but multi-rank ABINIT production output is not
+authorized by this record. Quantum ESPRESSO remains the primary A0 execution
+backend.
+
+## Validated first A0 point
+
+```text
+a_ref         = 6.476035479332049 Angstrom
+ecutwfc       = 114 Ry
+ecutrho       = 456 Ry
+ABINIT ecut   = 57 Ha
+k grid        = 4x4x4, unshifted
+nbnd          = 40
+SCF threshold = 1e-8 Ry
+PH threshold  = 1e-10
+```
+
+Release-specific checks passed:
+
+- QE `pw.x` completed `nstep=0` initialization and reported `JOB DONE`;
+- every rendered `INPUTPH` key exists in the pinned QE definition source;
+- ABINIT accepted the complete input with `input.abi --dry-run`, read both PSP8
+  files, completed consistency checks, and explicitly skipped the driver.
+
+These checks establish input and runtime readiness. They do not establish any
+physical observable.
 
 ## Fail-closed readiness check
 
-`cdte_a0_run_spec.json` is the machine-readable execution contract.
-`tools/check_cdte_a0_readiness.py` recomputes readiness rather than trusting a
-manually edited Boolean.
-
-Generate the current blocker report without authorizing execution:
+Generate the current report:
 
 ```bash
 python tools/check_cdte_a0_readiness.py \
   --report-json runs/cdte_a0/readiness-report.json
 ```
 
-Require every prerequisite before an execution wrapper proceeds:
+Require every prerequisite before execution:
 
 ```bash
 python tools/check_cdte_a0_readiness.py \
@@ -216,23 +223,28 @@ python tools/check_cdte_a0_readiness.py \
   --report-json runs/cdte_a0/readiness-report.json
 ```
 
-The strict command exits nonzero while any blocker remains. It also rejects any
-attempt to enable A1, AHC, dense EPW, HgTe or alloy work in the A0 record.
+The strict command also rejects any attempt to enable A1, AHC, dense EPW, HgTe,
+or alloy work in the A0 record.
 
-## Current blockers before A0 execution
+## Current state
 
-The convergence ladders are now declared but have not been run. The repository
-intentionally remains not ready because the following execution inputs are
-unresolved:
+Closed gates:
 
-1. installed QE/ABINIT version output and executable hashes;
-2. release-specific syntax checks against the pinned releases;
-3. the primary-experimental absolute lattice anchor and thermal-expansion
-   derivation tracked by Issue #46;
-4. runtime pseudopotential rehash and input-render manifests;
-5. static ordering, cutoff/k-grid/band convergence, phonon stability, dielectric
-   tensor and Born-charge results;
-6. measured resources before any larger calculation.
+- physical fixed-volume provenance and bounded uncertainty;
+- exact source-code pins;
+- upstream and runtime pseudopotential hashes;
+- installed runtime build records;
+- deterministic first-point rendering;
+- QE and ABINIT release-specific syntax checks;
+- finite sequential convergence protocol.
 
-No result should be inferred from the presence of templates, source pins,
-pseudopotential hashes, declared ladders or a successful validator unit test.
+Still unknown until calculations are run:
+
+- total energy, stress, forces, and Gamma ordering at the selected point;
+- cutoff, k-grid, band-count, and iterative-threshold convergence;
+- phonon stability and acoustic-sum-rule residual;
+- dielectric tensor and Born effective charges;
+- wall time, memory, and scratch requirements.
+
+No CdTe gap, phonon, dielectric, Born-charge, electron-phonon, HgTe, alloy, or
+analytical-equation claim follows from readiness alone.

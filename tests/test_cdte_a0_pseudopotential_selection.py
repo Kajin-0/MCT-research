@@ -14,15 +14,18 @@ def _read(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_selection_is_verified_but_not_executed() -> None:
+def test_selection_runtime_is_verified_but_science_is_not_executed() -> None:
     value = _read(SELECTION)
-    assert value["stage"] == "A0_byte_verified_selection"
+    assert value["stage"] == "A0_runtime_verified_selection"
     assert value["run_executed"] is False
     assert value["scientific_result_available"] is False
-    assert value["verification_state"]["downloaded_byte_sha256_verified"] is True
-    assert value["verification_state"]["runtime_file_hash_verified"] is False
-    assert value["verification_state"]["static_calculation_run"] is False
-    assert value["verification_state"]["phonon_calculation_run"] is False
+    state = value["verification_state"]
+    assert state["downloaded_byte_sha256_verified"] is True
+    assert state["runtime_file_hash_verified"] is True
+    assert state["qe_syntax_checked"] is True
+    assert state["abinit_syntax_checked"] is True
+    assert state["static_calculation_run"] is False
+    assert state["phonon_calculation_run"] is False
 
 
 def test_selection_hashes_match_manifest() -> None:
