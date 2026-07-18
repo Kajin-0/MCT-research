@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "analysis": "cross-source static HgCdTe composition-law audit",
+  "validated_head": "dd7872b2f1bcf967b0937d53851bcdbf166032d9",
+  "workflow_run_id": 29653370206,
+  "artifact_id": 8432129170,
+  "artifact_sha256": "7b7def156e98fe41d56d4b65fc632c4aaa413e8317e6e2fab3c9945ca8d88ccc",
+  "source_screen_rmse_mev": {
+    "chu_secondary_room_temperature": {
+      "hansen": 16.26639916257656,
+      "chu_1983": 3.256771621080479,
+      "laurenti": 11.69401462400455,
+      "provisional_hansen_pade": 11.991099243506273
+    },
+    "seiler_independent_low_temperature": {
+      "hansen": 3.8866718078537894,
+      "chu_1983": 15.97347157008666,
+      "laurenti": 11.750306290301406,
+      "provisional_hansen_pade": 4.176161297214725
+    }
+  },
+  "best_chu_fitted_static_corrections": {
+    "endpoint_two": {
+      "chu_leave_one_composition_out_rmse_mev": 2.824225348945601,
+      "seiler_transfer_rmse_mev": 6.691408836464548,
+      "transfers": false
+    },
+    "affine": {
+      "chu_leave_one_composition_out_rmse_mev": 2.9616857729793544,
+      "seiler_transfer_rmse_mev": 7.264666079265583,
+      "transfers": false
+    },
+    "quadratic": {
+      "chu_leave_one_composition_out_rmse_mev": 3.1382053164637105,
+      "seiler_transfer_rmse_mev": 6.815745731272522,
+      "transfers": false
+    }
+  },
+  "diagnostic_affine_composition_mapping": {
+    "intercept": -0.011249050163848332,
+    "slope": 1.0594349677667128,
+    "rms_composition_residual": 0.001596343393673721,
+    "chu_room_rmse_mev": 2.1493667718407248,
+    "seiler_transfer_rmse_mev": 8.84832220192542,
+    "transfers": false
+  },
+  "data_sufficiency": {
+    "primary_chu_point_table_recovered": false,
+    "chu_composition_metrology_recovered": false,
+    "chu_point_uncertainties_available": false,
+    "mutually_consistent_named_formula_found": false,
+    "universal_static_correction_found": false
+  },
+  "decision": {
+    "new_static_composition_polynomial_authorized": false,
+    "provisional_thermal_kernel_retained": true,
+    "chu_1983_retained_as_historical_comparator": true,
+    "source_specific_composition_calibration_is_plausible": true,
+    "next_required_evidence": [
+      "primary point-level Chu 1991 absorption gaps with composition method and uncertainty",
+      "an additional independently composed low-temperature x-Eg series",
+      "or new specimen-level composition and gap measurements on a common metrology scale"
+    ]
+  }
+}
