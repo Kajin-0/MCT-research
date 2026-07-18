@@ -32,7 +32,7 @@ jobs:
       - name: Execute Hansen-Pade crossover benchmark
         run: |
           mkdir -p hansen-pade-crossover-evidence
-          python tools/analyze_hansen_pade_crossover.py \
+          python -m tools.analyze_hansen_pade_crossover \
             --input-csv data/experimental/seiler1990_figure7_digitized.csv \
             --output-json hansen-pade-crossover-evidence/result.json \
             > hansen-pade-crossover-evidence/stdout.txt \
