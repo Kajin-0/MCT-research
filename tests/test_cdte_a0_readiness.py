@@ -8,6 +8,9 @@ from tools.check_cdte_a0_readiness import evaluate_readiness
 
 RUN_SPEC_PATH = Path("first_principles/a0/cdte_a0_run_spec.json")
 SELECTION_PATH = Path("first_principles/a0/cdte_pseudopotential_selection.json")
+RUNTIME_REFERENCE_PATH = Path(
+    "first_principles/a0/cdte_a0_runtime_readiness_reference.json"
+)
 
 
 def _load(path: Path) -> dict:
@@ -57,47 +60,53 @@ def _complete_specification() -> tuple[dict, dict]:
     return specification, selection
 
 
-def test_repository_a0_specification_fails_closed_on_unresolved_runtime() -> None:
-    report = evaluate_readiness(_load(RUN_SPEC_PATH), _load(SELECTION_PATH))
-
-    assert report["ready_for_execution"] is False
-    assert {
-        "quantum_espresso_installed_binary_recorded",
-        "quantum_espresso_release_syntax_checked",
-        "abinit_installed_binary_recorded",
-        "abinit_release_syntax_checked",
-        "runtime_pseudopotential_hashes_verified",
-        "render_manifests_recorded",
-    }.issubset(report["blocking_checks"])
-    assert {
-        "execution_lattice_constant_provenance",
-        "ecutrho_ladder_declared",
-        "k_grid_ladder_declared",
-        "band_count_ladder_declared",
-    }.isdisjoint(report["blocking_checks"])
-
-
-def test_source_release_tags_and_commits_are_immutable_pins() -> None:
+def test_repository_a0_specification_is_ready_without_result_claim() -> None:
     specification = _load(RUN_SPEC_PATH)
+    report = evaluate_readiness(specification, _load(SELECTION_PATH))
 
-    assert specification["source_code"]["quantum_espresso"] == {
-        "repository": "QEF/q-e",
-        "tag": "qe-7.4.1",
-        "commit": "500de340b820e1cb8c05f2d8bb8fced102f377c1",
-        "executables": ["pw.x", "ph.x"],
-        "installed_version_output": None,
-        "executable_sha256": {},
-        "release_specific_syntax_checked": False,
+    assert report["ready_for_execution"] is True
+    assert report["blocking_checks"] == []
+    assert report["passed_checks"] == report["total_checks"]
+    assert specification["readiness_claim"] == {
+        "calculation_executed": False,
+        "scientific_result_available": False,
+        "ready_for_execution": True,
+        "scope": "first declared A0 convergence point only",
+        "authorized_next_action": (
+            "execute the smallest A0 point and record raw observables; "
+            "do not infer convergence from one point"
+        ),
+        "a1_or_production_authorized": False,
     }
-    assert specification["source_code"]["abinit"] == {
-        "repository": "abinit/abinit",
-        "tag": "10.6.5",
-        "commit": "d50172aacfc501b46cd33ae58fda139e674d40e3",
-        "executables": ["abinit"],
-        "installed_version_output": None,
-        "executable_sha256": {},
-        "release_specific_syntax_checked": False,
+
+
+def test_source_release_pins_and_validated_build_hashes_are_recorded() -> None:
+    specification = _load(RUN_SPEC_PATH)
+    reference = _load(RUNTIME_REFERENCE_PATH)
+
+    qe = specification["source_code"]["quantum_espresso"]
+    assert qe["repository"] == "QEF/q-e"
+    assert qe["tag"] == "qe-7.4.1"
+    assert qe["commit"] == "500de340b820e1cb8c05f2d8bb8fced102f377c1"
+    assert qe["executable_sha256"] == {
+        "pw.x": "79338a906d5d2e4211dcf3cb5d71706a5bd7bd0dc7e685025485fd5317c609e3",
+        "ph.x": "57b99c18169f38ef9691387d56e7d3765be7226ff155bfbd1727ab81c1c396e4",
     }
+    assert qe["release_specific_syntax_checked"] is True
+
+    abinit = specification["source_code"]["abinit"]
+    assert abinit["repository"] == "abinit/abinit"
+    assert abinit["tag"] == "10.6.5"
+    assert abinit["commit"] == "d50172aacfc501b46cd33ae58fda139e674d40e3"
+    assert abinit["executable_sha256"] == {
+        "abinit": "b10a0fa2a0259b2d4525a0bbf1a7bf93e3056414ed90ffe5f12c6113584bb062"
+    }
+    assert abinit["release_specific_syntax_checked"] is True
+
+    assert reference["verification"]["runtime_workflow_run_id"] == 29623698323
+    assert reference["verification"]["artifact_id"] == 8423244947
+    assert reference["validation"]["calculation_executed"] is False
+    assert reference["validation"]["scientific_result_available"] is False
 
 
 def test_synthetic_complete_a0_record_passes() -> None:
