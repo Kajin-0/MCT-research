@@ -1,0 +1,41 @@
+{
+  "source_doi": "10.1038/ncomms12576",
+  "validated_analysis_head": "0a7ec2fb7909f1ef2eafc634c93e46c5666ed1c3",
+  "workflow_run": 29662261465,
+  "artifact_id": 8434677608,
+  "artifact_digest": "sha256:ba1b170e868385bdedb513d777d51977e140fd33a140be071f78b02b43c54264",
+  "point_count": 5,
+  "sample_a_reported_compositions": {
+    "main_text_and_figures": 0.175,
+    "methods": 0.170,
+    "difference": 0.005
+  },
+  "combined_five_point_rmse_mev": {
+    "figure_and_main_text_x_0p175": {
+      "laurenti": 4.200495693486347,
+      "hansen": 7.742160313234232,
+      "provisional_hansen_pade": 8.37748159526179,
+      "chu_1983": 16.746840342164504
+    },
+    "methods_x_0p170": {
+      "provisional_hansen_pade": 5.066541241467016,
+      "hansen": 5.353313823999478,
+      "laurenti": 8.951456275311518,
+      "chu_1983": 10.899211730892919
+    }
+  },
+  "sample_a_profiled_composition": {
+    "provisional_hansen_pade": {"x": 0.170466, "rmse_mev": 1.8557609204268397},
+    "hansen": {"x": 0.171075, "rmse_mev": 3.380410664992064},
+    "laurenti": {"x": 0.175068, "rmse_mev": 4.694731108270165},
+    "chu_1983": {"x": 0.1655, "rmse_mev": 2.3610224772631936}
+  },
+  "decision": {
+    "primary_benchmark_admitted": true,
+    "model_ranking_reverses_across_source_reported_compositions": true,
+    "strict_universal_model_promotion_authorized": false,
+    "provisional_hansen_pade_global_leading_claim_withdrawn": true,
+    "provisional_hansen_pade_retained_for_seiler_regime_only": true,
+    "next_required_evidence": "resolve Sample A composition from author/source records or independent metrology"
+  }
+}
