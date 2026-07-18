@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "status": "polar_vertex_decomposition_reference_result",
+  "source_evidence": {
+    "workflow_run": 29650741855,
+    "artifact_id": 8431388959,
+    "artifact_digest": "sha256:e75b7bb83a88ea06d174b14e45fd492877fca89ba72df1c863156fe3d42eec0d",
+    "validated_head": "6ac0fc096a7f8bf5724d53c2407e3f686e0b0842",
+    "input_contract_sha256": "2895de7b4e11291c286267ec2dae648155a9e096e07cf01d5d9fca122bac7445"
+  },
+  "metrics": {
+    "short_range_training_relative_error": 4.685954737136703e-16,
+    "maximum_target_vertex_holdout_relative_error": 1.3174390142283744e-16,
+    "minimum_naive_addition_relative_error": 0.46402911181994105,
+    "maximum_fan_decomposition_closure_relative_error": 1.9095920643094726e-16,
+    "minimum_missing_cross_term_relative_error": 0.3397137423816742,
+    "minimum_source_target_long_range_difference": 0.34140972094907346
+  },
+  "checks": {
+    "short_range_source_subtraction_and_fit": true,
+    "target_long_range_restoration_on_holdout": true,
+    "fan_component_closure_with_cross_term": true,
+    "naive_addition_detected_as_double_counting": true,
+    "missing_cross_term_detected": true,
+    "source_and_target_long_range_models_are_distinct": true
+  },
+  "decision": {
+    "fan_vertex_subtract_restore_architecture_ready": true,
+    "restore_at_vertex_level_before_self_energy": true,
+    "direct_self_energy_component_replacement_forbidden": true,
+    "short_range_long_range_cross_term_required": true,
+    "debye_waller_path_ready": false,
+    "real_source_long_range_model_selected": false,
+    "real_target_long_range_model_selected": false,
+    "real_A1_authorized": false,
+    "automatic_additional_compute_authorized": false,
+    "next_required_design": "Specify provenance-complete source and target long-range vertices, corrected electronic denominators, phonon-mode mapping, and a Debye-Waller no-double-counting construction."
+  },
+  "claim_boundary": "This result validates algebra, interpolation bookkeeping and Fan cross-term preservation for known synthetic truth. It does not validate a physical long-range model, permit reuse of the current CdTe PBE vertex, solve the Debye-Waller correction, or authorize a real electron-phonon calculation."
+}
