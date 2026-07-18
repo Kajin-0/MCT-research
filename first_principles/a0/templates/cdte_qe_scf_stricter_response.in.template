@@ -1,0 +1,37 @@
+&CONTROL
+  calculation = 'scf'
+  prefix = '@PREFIX@'
+  pseudo_dir = '@PSEUDO_DIR@'
+  outdir = '@OUTDIR@'
+  tprnfor = .true.
+  tstress = .true.
+  disk_io = 'low'
+  verbosity = 'high'
+/
+&SYSTEM
+  ibrav = 2
+  A = @LATTICE_ANGSTROM@
+  nat = 2
+  ntyp = 2
+  ecutwfc = @ECUTWFC_RY@
+  ecutrho = @ECUTRHO_RY@
+  nbnd = @NBND@
+  occupations = 'fixed'
+  noncolin = .true.
+  lspinorb = .true.
+  input_dft = 'PBE'
+/
+&ELECTRONS
+  conv_thr = @SCF_CONV_THR_RY@
+  electron_maxstep = 200
+  mixing_mode = 'plain'
+  mixing_beta = 0.3
+/
+ATOMIC_SPECIES
+Cd 112.414 @CD_UPF@
+Te 127.60  @TE_UPF@
+ATOMIC_POSITIONS crystal
+Cd 0.000000000000 0.000000000000 0.000000000000
+Te 0.250000000000 0.250000000000 0.250000000000
+K_POINTS automatic
+@KGRID@ @KGRID@ @KGRID@ 0 0 0

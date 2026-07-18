@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "stage": "A0_same_geometry_stricter_response_diagnostic",
+  "purpose": "Execute exactly one same-geometry CdTe response diagnostic to determine whether the failed acoustic, Born-charge and ASR gates are primarily numerical.",
+  "authorization": {
+    "one_qe_scf_point": true,
+    "gamma_eigenvalue_extraction": true,
+    "one_gamma_phonon_dielectric_born_point": true,
+    "scientific_audit": true,
+    "comparison_to_first_point": true,
+    "convergence_claim": false,
+    "automatic_ladder_continuation": false,
+    "volume_change": false,
+    "functional_change": false,
+    "pseudopotential_change": false,
+    "q_grid_change": false,
+    "a1_electron_phonon": false,
+    "production_ahc": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "required_settings": {
+    "reference_lattice_angstrom": 6.476035479332049,
+    "ecutwfc_ry": 114.0,
+    "ecutrho_ry": 570.0,
+    "k_grid": [4, 4, 4],
+    "k_grid_shift": [0, 0, 0],
+    "nbnd": 40,
+    "scf_conv_thr_ry": 1e-8,
+    "ph_tr2": 1e-14,
+    "q_point": [0.0, 0.0, 0.0]
+  },
+  "baseline": {
+    "reference_result": "first_principles/a0/cdte_a0_first_point_audit_reference_result.json",
+    "ecutrho_ry": 456.0,
+    "ph_tr2": 1e-10
+  },
+  "material_collapse_criteria": {
+    "maximum_acoustic_ratio_to_baseline": 0.5,
+    "maximum_born_sum_ratio_to_baseline": 0.5,
+    "maximum_asr_optical_shift_ratio_to_baseline": 0.5,
+    "require_all_three": true
+  },
+  "hard_stops": [
+    "stop_if_repository_readiness_is_not_true",
+    "stop_if_any_runtime_pseudopotential_hash_differs",
+    "stop_if_rendered_settings_differ_from_required_settings",
+    "stop_if_scf_does_not_converge_or_report_JOB_DONE",
+    "do_not_run_phonons_after_scf_failure",
+    "stop_if_phonon_does_not_report_JOB_DONE",
+    "do_not_continue_to_any_additional_point_automatically"
+  ],
+  "decision_policy": {
+    "if_all_three_violations_collapse": "record that numerical response controls materially affect the failed A0 gates; require a separate decision before A1 or any broader convergence work",
+    "if_violations_do_not_all_collapse": "record that ecutrho/tr2 tightening is insufficient; stop and reassess volume/pseudopotential/response formulation analytically before any further compute"
+  },
+  "claim_boundary": "This single comparison can identify whether two declared numerical controls materially reduce the failed response diagnostics. It cannot establish converged phonons, dielectric response, Born charges, a reference gap, equilibrium volume, A1 readiness, or a material prediction."
+}
