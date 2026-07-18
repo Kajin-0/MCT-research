@@ -1,0 +1,61 @@
+name: gap-observation-identifiability
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/gap-observation-identifiability.yml'
+      - 'tools/analyze_gap_observation_identifiability.py'
+      - 'tests/test_gap_observation_identifiability.py'
+      - 'data/evidence/hgcdte_gap_observation_mechanisms.csv'
+      - 'data/experimental/chu_sher_2008_table4_4_room_temperature_gap.csv'
+      - 'src/mct_research/gap_models.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute observation-operator identifiability audit
+        run: |
+          mkdir -p gap-observation-identifiability-evidence
+          python -m tools.analyze_gap_observation_identifiability \
+            --chu-csv data/experimental/chu_sher_2008_table4_4_room_temperature_gap.csv \
+            --mechanism-csv data/evidence/hgcdte_gap_observation_mechanisms.csv \
+            --output-json gap-observation-identifiability-evidence/result.json \
+            > gap-observation-identifiability-evidence/stdout.txt \
+            2> gap-observation-identifiability-evidence/stderr.txt
+          python -m pytest -q tests/test_gap_observation_identifiability.py \
+            > gap-observation-identifiability-evidence/pytest.txt \
+            2> gap-observation-identifiability-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > gap-observation-identifiability-evidence/python-version.txt
+          find gap-observation-identifiability-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > gap-observation-identifiability-evidence/sha256.txt
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gap-observation-identifiability-evidence
+          path: gap-observation-identifiability-evidence
+          if-no-files-found: error
+          retention-days: 30
