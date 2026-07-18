@@ -1,0 +1,81 @@
+name: cdte-a0-scientific-audit-replay
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-a0-scientific-audit-replay.yml'
+      - 'tools/audit_cdte_a0_first_point.py'
+      - 'tests/test_cdte_a0_first_point_audit.py'
+      - 'first_principles/a0/cdte_a0_first_point_audit_contract.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      SOURCE_RUN_ID: '29627408317'
+      SOURCE_ARTIFACT_ID: '8424673407'
+      SOURCE_ARTIFACT_DIGEST: 'sha256:59a5284000e62af3f2ed6a0d6e4654db012760367b13155bf59276d2c84db46e'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Download immutable A0 evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: cdte-a0-first-point-evidence
+          path: source-evidence
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Audit the raw first point
+        run: |
+          mkdir -p audit-evidence
+          python tools/audit_cdte_a0_first_point.py \
+            --scf source-evidence/raw/scf.out \
+            --ph source-evidence/raw/ph.out \
+            --dynmat-no-asr source-evidence/raw/dynmat-no-asr.out \
+            --dynmat-simple-asr source-evidence/raw/dynmat-simple-asr.out \
+            --calculation-state source-evidence/validated/calculation-state.json \
+            --contract first_principles/a0/cdte_a0_first_point_audit_contract.json \
+            --output-json audit-evidence/cdte_a0_first_point_audit_result.json \
+            > audit-evidence/cdte_a0_first_point_audit_result.stdout.txt
+
+      - name: Record source identity and hashes
+        if: always()
+        run: |
+          {
+            echo "source_run_id=$SOURCE_RUN_ID"
+            echo "source_artifact_id=$SOURCE_ARTIFACT_ID"
+            echo "source_artifact_digest=$SOURCE_ARTIFACT_DIGEST"
+            sha256sum source-evidence/raw/scf.out
+            sha256sum source-evidence/raw/ph.out
+            sha256sum source-evidence/raw/dynmat-no-asr.out
+            sha256sum source-evidence/raw/dynmat-simple-asr.out
+            sha256sum source-evidence/validated/calculation-state.json
+          } > audit-evidence/source_identity.txt
+          python --version > audit-evidence/python-version.txt
+          find audit-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > audit-evidence/sha256.txt
+
+      - name: Upload A0 audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-a0-scientific-audit-evidence
+          path: audit-evidence
+          if-no-files-found: error
+          retention-days: 30
