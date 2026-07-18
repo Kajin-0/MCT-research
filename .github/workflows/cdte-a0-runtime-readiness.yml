@@ -16,6 +16,10 @@ on:
       - 'tests/test_cdte_a0_runtime_inputs.py'
   workflow_dispatch:
 
+concurrency:
+  group: cdte-a0-runtime-readiness-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
