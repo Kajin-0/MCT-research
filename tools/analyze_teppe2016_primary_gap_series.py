@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Audit primary Teppe 2016 HgCdTe gap points under both reported compositions.
+"""Audit primary Teppe 2016 HgCdTe gap points with composition precision preserved.
 
-The paper reports Sample A as x=0.175 in the main text/figures and x=0.170 in
-Methods.  This tool preserves both hypotheses and fails closed on universal
-model promotion when the discrepancy reverses the model ranking.
+The paper repeatedly uses x=0.175 for Sample A in the scientific analysis and
+figures, while Methods summarizes the layer as x=0.17.  The latter is treated as
+a lower-precision sensitivity value, not as an independent x=0.170 measurement.
 """
 from __future__ import annotations
 
@@ -43,8 +43,8 @@ def load_points(path: str | Path) -> list[dict[str, Any]]:
                     "temperature_k": float(row["temperature_k"]),
                     "gap_ev": float(row["gap_ev"]),
                     "gap_sigma_ev": float(row["gap_sigma_ev"]) if row["gap_sigma_ev"] else None,
-                    "composition_figure": float(row["composition_figure"]),
-                    "composition_methods": float(row["composition_methods"]),
+                    "composition_primary_nominal": float(row["composition_primary_nominal"]),
+                    "composition_methods_summary": float(row["composition_methods_summary"]),
                     "provenance_status": row["provenance_status"],
                 }
             )
@@ -92,43 +92,54 @@ def analyze(path: str | Path) -> dict[str, Any]:
         "laurenti": laurenti_gap_ev,
         "chu_1983": chu_1983_gap_ev,
     }
-    hypotheses: dict[str, Any] = {}
+    interpretations: dict[str, Any] = {}
     winners: dict[str, str] = {}
     for label, field in (
-        ("figure_and_main_text_x_0p175", "composition_figure"),
-        ("methods_x_0p170", "composition_methods"),
+        ("primary_nominal_x_0p175", "composition_primary_nominal"),
+        ("lower_precision_methods_sensitivity_x_0p17", "composition_methods_summary"),
     ):
         result = {name: evaluate(rows, model, field) for name, model in models.items()}
-        hypotheses[label] = result
+        interpretations[label] = result
         winners[label] = min(result, key=lambda name: result[name]["rmse_mev"])
 
     fitted = {
         name: best_sample_a_composition(rows, model) for name, model in models.items()
     }
-    ranking_reverses = len(set(winners.values())) > 1
+    ranking_changes = len(set(winners.values())) > 1
     return {
         "source": {
             "doi": "10.1038/ncomms12576",
             "point_count": len(rows),
-            "sample_a_composition_main_text_and_figures": 0.175,
-            "sample_a_composition_methods": 0.170,
-            "composition_conflict_delta_x": 0.005,
+            "sample_a_primary_nominal_composition": 0.175,
+            "sample_a_methods_lower_precision_summary": 0.17,
+            "numerical_difference_if_methods_summary_is_treated_as_exact": 0.005,
             "measurement_class": "magneto_optical_zero_field_intercept",
+            "precision_interpretation": (
+                "x=0.175 is repeatedly used in the main analysis and figures; "
+                "x=0.17 appears once as a lower-precision Methods summary"
+            ),
         },
-        "reported_composition_hypotheses": hypotheses,
-        "winner_by_hypothesis": winners,
+        "composition_precision_interpretations": interpretations,
+        "winner_by_interpretation": winners,
         "sample_a_profiled_composition": fitted,
         "decision": {
-            "model_ranking_reverses_across_reported_compositions": ranking_reverses,
+            "model_ranking_changes_under_lower_precision_sensitivity": ranking_changes,
+            "methods_value_is_independent_exact_composition_measurement": False,
+            "primary_nominal_composition_for_benchmark": 0.175,
             "strict_universal_model_promotion_authorized": False,
             "provisional_hansen_pade_retained_for_seiler_regime_only": True,
             "provisional_hansen_pade_global_leading_claim_withdrawn": True,
+            "laurenti_global_promotion_authorized": False,
             "teppe_series_admitted_as_primary_benchmark": True,
-            "next_required_evidence": "resolve Sample A composition from author/source records or independent metrology",
+            "next_required_evidence": (
+                "sample-level composition uncertainty or independent composition metrology"
+            ),
         },
         "claim_boundary": (
-            "Exact point labels are primary, but the source contains an internal "
-            "0.005 composition inconsistency that reverses the aggregate model ranking."
+            "The exact gap labels are primary and x=0.175 is the best-supported "
+            "nominal composition. The lower-precision x=0.17 Methods summary shows "
+            "that plausible composition uncertainty can still alter model ranking; "
+            "it is not treated as a separate exact measurement."
         ),
     }
 
