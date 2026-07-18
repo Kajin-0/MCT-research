@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_a0_first_point_scientific_audit",
+  "purpose": "Separate execution success from response numerical sanity and fixed-volume physical interpretability before any A1 electron-phonon calculation is authorized.",
+  "source": {
+    "workflow_run": 29627408317,
+    "artifact_id": 8424673407,
+    "artifact_digest": "sha256:59a5284000e62af3f2ed6a0d6e4654db012760367b13155bf59276d2c84db46e",
+    "head": "262c2acd014d38ce74d720250a6668659870fa2b"
+  },
+  "thresholds": {
+    "maximum_scf_accuracy_ry": 1e-8,
+    "minimum_direct_gamma_gap_ev": 0.1,
+    "maximum_absolute_pressure_kbar_for_unqualified_physical_interpretation": 10.0,
+    "maximum_raw_acoustic_absolute_frequency_cm1": 10.0,
+    "maximum_born_charge_sum_absolute_e": 0.05,
+    "maximum_asr_optical_relative_shift": 0.05,
+    "minimum_dielectric_eigenvalue": 1.0,
+    "maximum_dielectric_relative_anisotropy": 0.01,
+    "maximum_optical_triplet_relative_spread": 0.01
+  },
+  "required_execution": {
+    "scf_converged": true,
+    "gamma_phonon_executed": true,
+    "dynmat_no_asr_completed": true,
+    "dynmat_simple_asr_completed": true,
+    "gamma_eigenvalues_preserved": true,
+    "dielectric_and_born_requested": true
+  },
+  "decision_policy": {
+    "a1_requires_execution_pass": true,
+    "a1_requires_response_numerical_sanity_pass": true,
+    "a1_requires_fixed_volume_interpretation_pass": true,
+    "automatic_next_point": false,
+    "only_authorized_diagnostic_after_failure": {
+      "name": "same_geometry_stricter_response_point",
+      "ecutwfc_ry": 114,
+      "ecutrho_ry": 570,
+      "scf_conv_thr_ry": 1e-8,
+      "ph_tr2_ph": 1e-14,
+      "k_grid": [4, 4, 4],
+      "nbnd": 40,
+      "purpose": "Test whether acoustic, Born-charge and ASR violations are numerical before changing volume, functional, pseudopotential, q grid or material."
+    }
+  },
+  "authorization": {
+    "audit_existing_artifact": true,
+    "same_geometry_stricter_response_point_if_gate_fails": true,
+    "volume_ladder": false,
+    "a1_electron_phonon": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "This audit classifies one unconverged PBE planning point. Passing execution does not validate phonons, dielectric response, Born charges, pressure, a reference gap, or any electron-phonon quantity. Failure authorizes only the single declared same-geometry response diagnostic; all broader escalation requires a new decision record."
+}
