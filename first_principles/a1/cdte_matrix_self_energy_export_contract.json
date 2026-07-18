@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_a1_matrix_self_energy_export_gate",
+  "purpose": "Define the minimum real electron-phonon export that can populate the validated finite-temperature Kane pipeline and falsify a scalar-edge-only or one-P thermal model before production AHC.",
+  "prerequisite": {
+    "audit_stage": "cdte_a0_first_point_scientific_audit_completed",
+    "required_decision": "a1_electron_phonon_authorized",
+    "required_value": true
+  },
+  "basis": {
+    "name": "Novik_2005_Eq_4_Gamma6_Gamma8_Gamma7",
+    "gauge": "selected_band_polar_fixed_Gamma_reference",
+    "matrix_dimension": 8,
+    "state_order": ["Gamma6_+1/2", "Gamma6_-1/2", "Gamma8_+3/2", "Gamma8_+1/2", "Gamma8_-1/2", "Gamma8_-3/2", "Gamma7_+1/2", "Gamma7_-1/2"]
+  },
+  "temperature_grid_k": [0.0, 20.0, 50.0, 100.0, 200.0, 300.0],
+  "k_points_inverse_angstrom": {
+    "Gamma": [0.0, 0.0, 0.0],
+    "+001": [0.0, 0.0, 0.005],
+    "-001": [0.0, 0.0, -0.005],
+    "+111": [0.002886751345948129, 0.002886751345948129, 0.002886751345948129],
+    "-111": [-0.002886751345948129, -0.002886751345948129, -0.002886751345948129],
+    "+110": [0.003535533905932738, 0.003535533905932738, 0.0],
+    "-110": [-0.003535533905932738, -0.003535533905932738, 0.0]
+  },
+  "time_reversal_pairs": [["+001", "-001"], ["+111", "-111"], ["+110", "-110"]],
+  "training_directions": ["001", "111"],
+  "holdout_directions": ["110"],
+  "required_components": {
+    "fan_real_ev": true,
+    "fan_imag_ev": true,
+    "debye_waller_real_ev": true,
+    "fan_derivative_real": true,
+    "total_real_ev": true,
+    "mode_resolved_gamma_frequency_bins": true,
+    "fan_and_debye_waller_separately_provenanced": true
+  },
+  "thresholds": {
+    "maximum_matrix_symmetry_residual": 1e-10,
+    "maximum_component_closure_residual_ev": 1e-10,
+    "maximum_time_reversal_residual": 1e-8,
+    "maximum_gamma_td_residual": 1e-8,
+    "maximum_positive_damping_eigenvalue_ev": 1e-10,
+    "minimum_quasiparticle_metric_eigenvalue": 0.2,
+    "maximum_mode_gap_identity_residual_ev": 1e-12,
+    "minimum_frequency_bin_count": 2
+  },
+  "authorization": {
+    "validate_export_schema": true,
+    "execute_a1": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "Acceptance means only that a real A1 export is complete, provenance-bound, causal, symmetry-consistent, time-reversal-consistent and numerically suitable for the already validated matrix pipeline. It does not validate convergence, material accuracy, novelty, HgTe/alloy transfer, or production AHC."
+}
