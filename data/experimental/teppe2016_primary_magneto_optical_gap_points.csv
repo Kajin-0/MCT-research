@@ -1,6 +1,6 @@
-sample,temperature_k,gap_ev,gap_sigma_ev,composition_figure,composition_methods,measurement_class,source_location,source_doi,provenance_status,claim_boundary
-A,2,0.005,0.002,0.175,0.170,magneto_optical_zero_field_intercept,"main text and Figure 2a",10.1038/ncomms12576,primary_exact_label,"composition is internally inconsistent between figure/text and Methods"
-A,57,0.028,,0.175,0.170,magneto_optical_zero_field_intercept,Figure 2b,10.1038/ncomms12576,primary_exact_figure_label,"composition is internally inconsistent between figure/text and Methods"
-A,77,0.036,,0.175,0.170,magneto_optical_zero_field_intercept,Figure 2c,10.1038/ncomms12576,primary_exact_figure_label,"composition is internally inconsistent between figure/text and Methods"
-A,120,0.056,,0.175,0.170,magneto_optical_zero_field_intercept,Figure 2d,10.1038/ncomms12576,primary_exact_figure_label,"composition is internally inconsistent between figure/text and Methods"
+sample,temperature_k,gap_ev,gap_sigma_ev,composition_primary_nominal,composition_methods_summary,measurement_class,source_location,source_doi,provenance_status,claim_boundary
+A,2,0.005,0.002,0.175,0.17,magneto_optical_zero_field_intercept,"main text and Figure 2a",10.1038/ncomms12576,primary_exact_label,"x=0.175 is repeated in analysis and figures; Methods gives lower-precision x=0.17"
+A,57,0.028,,0.175,0.17,magneto_optical_zero_field_intercept,Figure 2b,10.1038/ncomms12576,primary_exact_figure_label,"x=0.175 is repeated in analysis and figures; Methods gives lower-precision x=0.17"
+A,77,0.036,,0.175,0.17,magneto_optical_zero_field_intercept,Figure 2c,10.1038/ncomms12576,primary_exact_figure_label,"x=0.175 is repeated in analysis and figures; Methods gives lower-precision x=0.17"
+A,120,0.056,,0.175,0.17,magneto_optical_zero_field_intercept,Figure 2d,10.1038/ncomms12576,primary_exact_figure_label,"x=0.175 is repeated in analysis and figures; Methods gives lower-precision x=0.17"
 B,77,0.000,,0.155,0.155,magneto_optical_gap_closure,"main text and Figure 3c",10.1038/ncomms12576,primary_exact_transition_statement,"zero-gap transition point; no pointwise uncertainty reported"

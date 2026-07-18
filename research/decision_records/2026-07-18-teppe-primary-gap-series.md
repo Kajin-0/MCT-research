@@ -1,49 +1,42 @@
 # Teppe 2016 primary magneto-optical gap-series decision
 
 **Date:** 2026-07-18  
-**Primary source:** Teppe et al., Nature Communications 7, 12576 (2016), DOI `10.1038/ncomms12576`
+**Clarified:** 2026-07-18  
+**Source:** DOI `10.1038/ncomms12576`
 
-## Evidence admitted
+## Primary gap evidence
 
-Five exact primary-source statements or figure labels are admitted:
-
-- Sample A: 5 +/- 2 meV at 2 K;
-- Sample A: 28 meV at 57 K;
-- Sample A: 36 meV at 77 K;
-- Sample A: 56 meV at 120 K;
+- Sample A: 5 +/- 2 meV at 2 K.
+- Sample A: 28 meV at 57 K.
+- Sample A: 36 meV at 77 K.
+- Sample A: 56 meV at 120 K.
 - Sample B: zero gap at 77 K.
 
-These are magneto-optical zero-field-intercept or gap-closure measurements, not absorption-edge estimates.
+These are magneto-optical gap observations.
 
-## Source inconsistency
+## Composition precision
 
-Sample A is labeled `x=0.175` in the main text and figures but `x=0.170` in Methods. The difference is large enough to reverse the aggregate model ranking.
+The paper repeatedly uses `x=0.175` for Sample A in its analysis and figures. Methods gives the lower-precision summary `x=0.17`.
 
-Using the figure/text composition, Laurenti has the lowest combined five-point RMSE (`4.2005 meV`). Using the Methods composition, the provisional Hansen-Pade model has the lowest RMSE (`5.0665 meV`), narrowly ahead of Hansen (`5.3533 meV`).
+The benchmark therefore uses `x=0.175` as the nominal composition. The value `0.17` is retained only as a sensitivity interpretation and is not represented as an independent exact `0.170` measurement.
 
-When Sample A composition is profiled separately for each equation, the provisional Hansen-Pade model prefers `x=0.170466` and reaches `1.8558 meV` RMSE, while Laurenti prefers `x=0.175068` and reaches `4.6947 meV`.
+At nominal `x=0.175`, Laurenti gives the lowest combined five-point RMSE: `4.2005 meV`.
+
+If the lower-precision Methods summary is evaluated numerically as `x=0.17`, provisional Hansen-Pade gives the lowest RMSE: `5.0665 meV`, narrowly ahead of Hansen at `5.3533 meV`.
+
+The ranking is therefore sensitive to composition at the `0.005` scale, but the source does not establish two exact conflicting compositions.
 
 ## Decision
 
-1. Admit the Teppe series as primary benchmark evidence.
-2. Withdraw the statement that the provisional Hansen-Pade model is the globally leading HgCdTe gap law.
-3. Retain it only as the leading constrained model within the Seiler specimen regime on which it was validated.
-4. Do not promote Laurenti from the Teppe comparison because its ranking depends on selecting one side of the source's unresolved composition conflict.
-5. Do not refit any coefficient to these five points.
-6. Reopen strict model selection only after Sample A composition is resolved from author records, growth records, or independent metrology.
-
-## Interpretation
-
-This result strengthens the repository's existing conclusion that composition provenance is a first-order part of the observation operator. A `0.005` composition ambiguity is comparable to several meV of gap error and can dominate differences among analytical temperature laws.
-
-## Reproducibility
-
-- validated analysis head: `0a7ec2fb7909f1ef2eafc634c93e46c5666ed1c3`
-- workflow run: `29662261465`
-- artifact: `8434677608`
-- digest: `sha256:ba1b170e868385bdedb513d777d51977e140fd33a140be071f78b02b43c54264`
-- compact result: `validation/teppe2016_primary_gap_series_reference_result.json`
+1. Admit the primary gap points.
+2. Use `x=0.175` as the nominal source value.
+3. Keep `x=0.17` only as a sensitivity case.
+4. Do not claim a globally leading model.
+5. Retain provisional Hansen-Pade only within its Seiler validation regime.
+6. Do not promote Laurenti globally from this single series.
+7. Do not refit coefficients to these points.
+8. Require sample-level composition uncertainty or independent metrology for strict ranking.
 
 ## Claim boundary
 
-The gap labels are primary evidence. The composition is not internally consistent within the same publication. The audit therefore supports a provenance and identifiability conclusion, not a universal equation ranking.
+The gap points and nominal `x=0.175` are primary evidence. Independent composition uncertainty is unavailable. The result supports composition-sensitivity analysis, not an internal-conflict claim.
