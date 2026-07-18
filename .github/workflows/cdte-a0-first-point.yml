@@ -1,0 +1,59 @@
+name: cdte-a0-first-point
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-a0-first-point.yml'
+      - 'first_principles/a0/cdte_a0_first_point_contract.json'
+      - 'first_principles/a0/cdte_a0_run_spec.json'
+      - 'first_principles/a0/cdte_pseudopotential_selection.json'
+      - 'first_principles/a0/templates/cdte_qe_scf_first_point.in.template'
+      - 'first_principles/a0/templates/cdte_qe_ph_gamma_first_point.in.template'
+      - 'tools/check_cdte_a0_readiness.py'
+      - 'tools/render_first_principles_input.py'
+      - 'tools/render_cdte_a0_runtime_inputs.py'
+      - 'tools/render_cdte_a0_first_point.py'
+      - 'tools/extract_qe_ks_energies.py'
+      - 'tools/run_cdte_a0_first_point_ci.sh'
+      - 'tests/test_cdte_a0_first_point.py'
+  workflow_dispatch:
+
+concurrency:
+  group: cdte-a0-first-point-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  first-point:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install build and analysis dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential gfortran make cmake git ca-certificates \
+            python3-venv python3-pip python3-numpy pkg-config file time \
+            libopenblas-dev liblapack-dev libfftw3-dev
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Execute bounded CdTe A0 first point
+        run: bash tools/run_cdte_a0_first_point_ci.sh
+
+      - name: Upload first-point evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-a0-first-point-evidence
+          path: cdte-a0-first-point-evidence
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
