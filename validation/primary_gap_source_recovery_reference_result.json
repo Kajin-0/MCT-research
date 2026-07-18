@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "analysis": "primary HgCdTe gap source recovery audit",
+  "source_evidence": {
+    "validated_head": "8314ee900cda3b8f471a5550a6c49eccec8a3e53",
+    "workflow_run_id": 29665629915,
+    "artifact_id": 8435639774,
+    "artifact_digest": "sha256:e14a02b902c16a38a0ec6989826ef51a5962a176438b2e3fd1e3c43efb8217ee"
+  },
+  "counts": {
+    "source_count": 8,
+    "primary_source_count": 7,
+    "authorized_primary_fit_source_count": 0,
+    "conditional_primary_source_count": 1,
+    "blocked_primary_source_count": 6,
+    "screen_only_source_count": 1
+  },
+  "source_classification": {
+    "blocked": [
+      "chu_mi_tang_infrared_physics",
+      "chu_mi_tang_jap",
+      "scott_jap",
+      "schmit_stelzer_jap",
+      "hansen_schmit_casselman_jap",
+      "chu_xu_tang_apl"
+    ],
+    "conditional": [
+      "seiler_lowney_littler_yoon_jvst"
+    ],
+    "screen_only": [
+      "chu_sher_table_4_4_secondary"
+    ],
+    "authorized": []
+  },
+  "priority_recovery_targets": [
+    {
+      "source_id": "chu_mi_tang_jap",
+      "doi": "10.1063/1.350867",
+      "reason": "Its x=0.170-0.443 range matches the secondary eight-point table and its operational gap definition is known, but the primary point table, composition method and uncertainties are missing."
+    },
+    {
+      "source_id": "chu_mi_tang_infrared_physics",
+      "doi": "10.1016/0020-0891(91)90110-2",
+      "reason": "It discusses Burstein-Moss and Urbach effects over x=0.165-0.45 and 4.2-300 K, but the sample-level evidence is missing."
+    },
+    {
+      "source_id": "hansen_schmit_casselman_jap",
+      "doi": "10.1063/1.330018",
+      "reason": "The final formula combines 22 studies, but the source ledger, measurement definitions, weights and uncertainties are not recovered."
+    }
+  ],
+  "decision": {
+    "new_static_refit_authorized": false,
+    "secondary_table_is_fit_authority": false,
+    "abstract_formula_is_point_level_evidence": false,
+    "provisional_hansen_pade_model_retained": true,
+    "reason": "No two independent primary point sources satisfy the full-text, point-data, composition-metrology, uncertainty and measurement-definition requirements."
+  },
+  "reopen_condition": "Recover at least two independent primary point-level sources satisfying all evidence requirements, or execute the validated paired eight-specimen acquisition design."
+}
