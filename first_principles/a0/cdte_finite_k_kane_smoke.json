@@ -1,7 +1,14 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "stage": "cdte_static_finite_k_kane_method_smoke",
-  "purpose": "Rotate the 13-point CdTe static smoke into the exact Novik basis, fix only the remaining discrete inter-irrep signs, apply two-radius matrix extrapolation, fit on [001] and [111], and reserve [110] as a closure holdout.",
+  "purpose": "Rotate the selected eight-band CdTe static smoke into the exact Novik basis using an isospectral polar/parallel-transport reconstruction, fix only the remaining discrete inter-irrep signs, apply two-radius matrix extrapolation, fit on [001] and [111], and reserve [110] as a closure holdout.",
+  "reconstruction": {
+    "scientific_mode": "selected_band_polar",
+    "diagnostic_mode": "all_state_bare_projection",
+    "selected_bands_one_based": [31, 32, 33, 34, 35, 36, 37, 38],
+    "scientific_interpretation": "The selected-band polar Hamiltonian is exactly isospectral to the target DFT manifold in the fixed Gamma reference basis.",
+    "diagnostic_interpretation": "The all-state construction approaches P_Gamma H(k) P_Gamma and is retained only to quantify the superseded quadratic-order reconstruction error."
+  },
   "pairs": {
     "001": {
       "unit_direction": [0.0, 0.0, 1.0],
@@ -37,6 +44,7 @@
   },
   "thresholds": {
     "minimum_overlap_singular_value": 0.995,
+    "maximum_selected_eigenvalue_absolute_error_ev": 1e-10,
     "maximum_time_reversal_pair_residual_ev": 1e-6,
     "maximum_linear_training_relative_residual": 0.02,
     "maximum_linear_holdout_relative_residual": 0.05,
@@ -45,6 +53,8 @@
   },
   "authorization": {
     "static_method_smoke": true,
+    "selected_band_polar_reconstruction": true,
+    "all_state_bare_projection_scientific_use": false,
     "relative_inter_irrep_sign_fix": true,
     "two_radius_extrapolation": true,
     "one_p_two_p_comparison": true,
@@ -55,5 +65,5 @@
     "hgte": false,
     "alloy": false
   },
-  "claim_boundary": "Any extracted numbers are static planning-geometry method-smoke values from unconverged PBE inputs. The linear and quadratic parameter blocks are gated independently. Values in a failed block are not validated even as method-smoke parameters. No result is a reference CdTe material parameter, and no result authorizes phonon, AHC, HgTe, or alloy work."
+  "claim_boundary": "Any extracted numbers are static planning-geometry method-smoke values from unconverged PBE inputs in the explicitly stated fixed-Gamma polar gauge. The reconstruction must remain isospectral to selected bands 31-38. The linear and quadratic parameter blocks are gated independently. Values in a failed block are not validated even as method-smoke parameters. Individual matrix coefficients are representation-dependent under additional smooth k-dependent unitary changes of effective basis. No result is a reference CdTe material parameter, and no result authorizes phonon, AHC, HgTe, alloy, or higher-band static work."
 }
