@@ -223,13 +223,16 @@ def analyze(
         and max(item["condition_number"] for item in records)
         <= float(thresholds["maximum_design_condition_number"])
         and threshold_record is not None
-        and threshold_record["departure_count"] == 6
     )
     if not gate_passed:
         raise RuntimeError("Weiler reduction frontier gate failed")
 
+    minimum_count = int(threshold_record["departure_count"])
+    minimum_departures = list(threshold_record["departures"])
+    n2_required = "N2" in minimum_departures
+    all_six_required = minimum_count == len(DEPARTURE_NAMES)
     return {
-        "schema_version": "1.0",
+        "schema_version": "2.0",
         "status": "exhaustive_weiler_reduction_frontier_completed",
         "target": {
             "source": str(class_result_path),
@@ -251,21 +254,23 @@ def analyze(
         "all_subsets": records,
         "decision": {
             "passed": gate_passed,
-            "all_six_departures_required_below_decision_threshold": true,
             "decision_threshold": decision_threshold,
+            "minimum_departure_count_below_decision_threshold": minimum_count,
+            "minimum_departures_below_decision_threshold": minimum_departures,
+            "all_six_departures_required_below_decision_threshold": all_six_required,
+            "n2_required_below_decision_threshold": n2_required,
             "best_five_departure_model": frontier[5],
             "interpretation": (
-                "No compact subset of the six established departures reproduces "
-                "both the fitted and unused crystal directions below ten percent. "
-                "The best five-departure model remains above ten percent, so the "
-                "static smoke does not support a quantitatively accurate reduced "
-                "extension smaller than the complete ten-dimensional space."
+                f"The minimum tested extension below {decision_threshold:.3g} relative "
+                f"matrix residual uses {minimum_count} established departures: "
+                + ", ".join(minimum_departures)
+                + ". The required count is an output of the exhaustive subset test, "
+                "not a fixed gate assumption."
             ),
             "next_authorized_task": (
-                "Freeze the static quadratic model at the complete Weiler space, "
-                "record the failure of compact reductions, and return program effort "
-                "to independent data/provenance and CdTe A0 readiness rather than "
-                "adding further static model complexity."
+                "Record the corrected subset frontier and return program effort to "
+                "finite-temperature matrix self-energy design or independent data "
+                "validation rather than adding static computational depth."
             ),
         },
         "authorization": contract["authorization"],
