@@ -2,10 +2,10 @@
   "schema_version": "1.0",
   "analysis": "modern primary HgCdTe absorption evidence audit",
   "source_evidence": {
-    "validated_head": "2e4509df5a5d80cd9ac0511e3e021197223eaac2",
-    "workflow_run_id": 29665985175,
-    "artifact_id": 8435740076,
-    "artifact_digest": "sha256:b57920ef7e4a38b5e9627996bba7255814ff5b9cda6bad98eaa5c278e6cad461"
+    "validated_head": "2a2036b2d628d42c148c5e61848e287e4b8330e0",
+    "workflow_run_id": 29666081672,
+    "artifact_id": 8435766786,
+    "artifact_digest": "sha256:2c48774075e9ce4a68f40389932f868c140aa670657e0f7546ffd8351f97bc9a"
   },
   "counts": {
     "source_count": 5,
