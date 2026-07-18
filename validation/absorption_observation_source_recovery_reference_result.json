@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "analysis": "modern primary HgCdTe absorption evidence audit",
+  "source_evidence": {
+    "validated_head": "2a2036b2d628d42c148c5e61848e287e4b8330e0",
+    "workflow_run_id": 29666081672,
+    "artifact_id": 8435766786,
+    "artifact_digest": "sha256:2c48774075e9ce4a68f40389932f868c140aa670657e0f7546ffd8351f97bc9a"
+  },
+  "counts": {
+    "source_count": 5,
+    "observation_authorized_count": 0,
+    "observation_conditional_count": 2,
+    "observation_blocked_count": 2,
+    "observation_review_only_count": 1,
+    "static_gap_authorized_count": 0,
+    "cross_method_source_count": 2,
+    "carrier_complete_source_count": 1,
+    "figure_manifest_count": 7,
+    "digitization_ready_figure_count": 0
+  },
+  "classification": {
+    "conditional_observation_sources": [
+      "chang_grein_sivananthan_flatte_2006",
+      "moazzami_phillips_lee_et_al_2005"
+    ],
+    "blocked_sources": [
+      "moazzami_phillips_lee_et_al_2004",
+      "yue_chen_li_et_al_2012"
+    ],
+    "review_only_sources": [
+      "yue_ma_hong_et_al_2019"
+    ],
+    "authorized_observation_sources": [],
+    "authorized_static_gap_sources": []
+  },
+  "decision": {
+    "observation_model_research_authorized": true,
+    "production_observation_model_authorized": false,
+    "new_static_gap_refit_authorized": false,
+    "figure_digitization_authorized_now": false,
+    "retain_measurement_class_separation": true,
+    "reason": "Two primary studies support absorption-model method development, but no machine-readable curve archive with independent composition and uncertainty supports a production correction or static gap refit."
+  },
+  "next_target": "Build a formula-level absorption observation-model benchmark before any specimen-level curve fitting."
+}
