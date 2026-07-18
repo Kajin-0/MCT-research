@@ -56,15 +56,17 @@ def test_diagnostic_predictors_do_not_identify_a_mechanism() -> None:
     result = analyze(CHU, MECHANISMS)
     predictors = result["diagnostic_predictors"]
 
+    # Least-squares details can differ at the final few ulps across NumPy/Python
+    # runner combinations; the scientific conclusion is insensitive to 1e-9 meV.
     assert predictors["composition_x"]["leave_one_out_metrics"][
         "rmse_mev"
-    ] == pytest.approx(2.9616857729793544, abs=1e-11)
+    ] == pytest.approx(2.9616857729793544, abs=1e-9)
     assert predictors["alpha_at_gap_cm1"]["leave_one_out_metrics"][
         "rmse_mev"
-    ] == pytest.approx(4.015106930829681, abs=1e-11)
+    ] == pytest.approx(4.015106930829681, abs=1e-9)
     assert predictors["composition_x_plus_alpha_at_gap"][
         "leave_one_out_metrics"
-    ]["rmse_mev"] == pytest.approx(2.9308430707547215, abs=1e-11)
+    ]["rmse_mev"] == pytest.approx(2.9308430707547215, abs=1e-9)
 
     assert result["identification_checks"][
         "composition_and_alpha_at_gap_are_separable"
