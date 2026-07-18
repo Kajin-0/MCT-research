@@ -1,0 +1,5 @@
+mechanism,observable_shift_sign,reported_scale_mev,required_context,source_doi,evidence_status,claim_boundary
+hg_vacancy_absorption_edge,negative,9-12,"Hg-vacancy-rich material; absorption edge can lie below the actual band gap",10.1063/1.2221411,primary_article,"Scale and direction are reported for specific samples; not a universal correction"
+absorption_edge_extraction_method,either,<=2,"Comparison of alpha-based, derivative and Z50 criteria in the cited HgCdTe study",10.1063/1.2221411,primary_article,"Method-to-method scatter in that study does not bound all laboratories or sample classes"
+burstein_moss_band_filling,positive,not_fixed,"Degenerate n-type material; requires carrier density and nonparabolic band structure",10.1016/0020-0891(80)90053-6,primary_article,"Sign is established; magnitude cannot be inferred without carrier statistics"
+chu_intrinsic_absorption_fit,not_assigned,not_fixed,"Thin bulk-derived HgCdTe samples; Eg obtained by fitting intrinsic absorption curves",10.1016/0020-0891(91)90110-2,primary_abstract_secondary_point_table,"Sample-level carrier density, composition metrology and fit covariance are not recovered"
