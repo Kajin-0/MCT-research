@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "status": "finite_temperature_kane_matrix_oracle_reference",
+  "material_status": "synthetic_method_oracle_not_a_cdte_or_hgcdte_prediction",
+  "source_evidence": {
+    "workflow_run": 29641452536,
+    "artifact_id": 8428743550,
+    "artifact_digest": "sha256:3b5586418f649b5aa077527fae02de6a62ee1b4c42efaf3b8f929bdb6c7712c9",
+    "validated_head": "77f5551a28349b79dfbcf45892d746cbd804ce2c"
+  },
+  "input_sha256": {
+    "contract": "85c3eedc63d74784fd8eac296d08b2c2830365a2a61679d480452ada7076b4a9"
+  },
+  "aggregate_diagnostics": {
+    "maximum_gamma_self_energy_symmetry_residual": 0.0,
+    "maximum_matrix_linearization_relative_error": 1.375089300405315e-16,
+    "maximum_dynamical_pole_linearization_error_ev": 5.606447750494681e-09,
+    "maximum_extended_parameter_absolute_error": 1.1461796789458134e-11,
+    "maximum_two_p_matrix_relative_residual": 4.264895857130218e-16,
+    "minimum_one_p_matrix_relative_residual": 0.0002266042026692118
+  },
+  "checks": {
+    "gamma_self_energy_symmetry": true,
+    "matrix_quasiparticle_linearization": true,
+    "dynamical_pole_linearization": true,
+    "extended_parameter_recovery": true,
+    "two_p_matrix_closure": true,
+    "one_p_rejected": true,
+    "one_scale_heldout_failure": true,
+    "two_scale_heldout_recovery": true,
+    "second_scale_improvement": true,
+    "signed_gap_turnover_detected": true
+  },
+  "thermal_reduction": {
+    "target_parameter": "eg",
+    "temperatures_k": [0.0, 20.0, 50.0, 100.0, 200.0, 300.0],
+    "training_indices": [1, 3, 5],
+    "holdout_indices": [2, 4],
+    "target_shifts_mev": [
+      0.0,
+      0.24888008105861115,
+      2.3197571823699303,
+      4.299795113613392,
+      3.5735418018527088,
+      1.06634491875357
+    ],
+    "turnover_detected": true,
+    "turnover_temperature_k": 100.0,
+    "one_scale": {
+      "theta_k": [70.0],
+      "fitted_amplitudes_ev": [0.00026877439118077717],
+      "training_relative_residual": 0.8793109740614895,
+      "holdout_absolute_errors_mev": [
+        2.1438116507533143,
+        2.2908159401962296
+      ],
+      "maximum_holdout_absolute_error_mev": 2.2908159401962296,
+      "signed_moments": {
+        "-1": 3.839634159725388e-06,
+        "0": 0.00026877439118077717,
+        "1": 0.0188142073826544
+      }
+    },
+    "two_scale": {
+      "theta_k": [70.0, 240.0],
+      "fitted_amplitudes_ev": [
+        0.00399999999999999,
+        -0.01799999999999993
+      ],
+      "condition_number": 37.83205243974977,
+      "training_relative_residual": 3.0773190829078433e-15,
+      "holdout_absolute_errors_mev": [
+        2.7755575615628914e-14,
+        8.239936510889834e-14
+      ],
+      "maximum_holdout_absolute_error_mev": 8.239936510889834e-14,
+      "signed_moments": {
+        "-1": -1.7857142857142716e-05,
+        "0": -0.01399999999999994,
+        "1": -4.039999999999984
+      }
+    },
+    "second_scale_improvement_sigma": 22.90815940196147
+  },
+  "decision": {
+    "passed": true,
+    "matrix_pipeline_ready_for_real_input": true,
+    "a1_electron_phonon_authorized": false,
+    "validated_capabilities": [
+      "Td-symmetric Gamma matrix self-energy",
+      "positive-metric quasiparticle linearization",
+      "exact rational dynamical pole solution",
+      "full extended-Kane parameter recovery",
+      "one-P versus two-P discrimination",
+      "held-out fixed-scale thermal reduction",
+      "signed thermal moments and turnover detection"
+    ],
+    "next_authorized_task": "Define the smallest real-input A1 export and physical sanity gates needed to populate this validated matrix pipeline."
+  },
+  "authorization": {
+    "synthetic_matrix_oracle": true,
+    "new_dft_or_dfpt": false,
+    "a1_electron_phonon": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "A passing oracle validates only the mathematics, symmetry, gauge convention, pole solver, matrix-parameter extraction and analytical-reduction logic of the finite-temperature pipeline. It is not a calculated CdTe or HgCdTe self-energy, does not validate any thermal parameter amplitude, and does not authorize A1, production AHC, dense EPW, HgTe or alloy work."
+}
