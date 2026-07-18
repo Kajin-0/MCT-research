@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "hansen_pade_one_scale_candidate_rejected",
+  "source_evidence": {
+    "workflow_run": 29652063833,
+    "artifact_id": 8431754615,
+    "artifact_digest": "sha256:d5f3812f7f3f10d662ad888f4f5b43ba49c7db1e9025d5b0ff970ec3e468d8ca",
+    "validated_head": "c85d22332dc2c8b655c61b4198ac2fff16a4b0b4"
+  },
+  "candidate_equation": "Eg_eV(x,T)=-0.302+1.93*x-0.81*x^2+0.832*x^3+5.35e-4*(1-2*x)*T^3/(T^2+tau^2)",
+  "pooled_heldout_shape_rmse_mev": {
+    "hansen_linear": 1.8238791405944592,
+    "published_seiler": 1.0611342503655434,
+    "trained_seiler": 0.7862170252431177,
+    "fixed_slope_pade": 1.343199196362721,
+    "free_slope_pade_diagnostic": 0.8125768057804023
+  },
+  "fixed_slope_crossover_stability": {
+    "fold_tau_k": [20.10086373950342, 17.79156545511231, 17.864682533350297],
+    "max_to_min_ratio": 1.129797363262801
+  },
+  "free_slope_diagnostic_stability": {
+    "fold_tau_k": [22.895897979461626, 17.57261730694585, 14.659108791665053],
+    "tau_max_to_min_ratio": 1.561888809535262,
+    "fold_slope_mev_per_k": [0.5864792234595961, 0.5982723108346639, 0.594599589048067],
+    "slope_max_to_min_ratio": 1.0201082781850332
+  },
+  "independent_composition_absolute_test": {
+    "heldout_sample": 3,
+    "composition_x": 0.259,
+    "composition_sigma_x": 0.0015,
+    "tau_trained_on_samples_1_and_2_k": 17.864682533350297,
+    "rmse_mev": {
+      "hansen_linear": 1.84639552041886,
+      "published_seiler": 1.4038275966966325,
+      "fixed_slope_pade": 0.9367345702731157
+    },
+    "fixed_slope_pade_rmse_range_within_composition_uncertainty_mev": [0.8642346762185812, 2.973333236223773]
+  },
+  "promotion_checks": {
+    "shape_rmse_improves_over_hansen_by_20_percent": true,
+    "shape_rmse_within_20_percent_of_two_parameter_seiler": false,
+    "crossover_stable_within_factor_two": true,
+    "absolute_sample3_beats_hansen": true,
+    "absolute_sample3_not_worse_than_published_seiler_by_more_than_1mev": true
+  },
+  "decision": {
+    "candidate_promoted": false,
+    "reason": "The fixed Hansen slope yields a stable one-parameter crossover and improves both held-out shape and the independent-composition absolute specimen, but its pooled shape RMSE remains approximately 70.8 percent above the trained two-parameter Seiler family.",
+    "next_candidate": "Eg_eV(x,T)=Eg0_Hansen(x)+alpha*(1-2*x)*T^3/(T^2+tau^2)",
+    "next_candidate_parameterization": "Fit one global alpha and one global tau with leakage-safe specimen holdouts; treat alpha and tau as effective coefficients, not identified microscopic constants."
+  },
+  "claim_boundary": "Only three temperature-series specimens are available. The shape test profiles one additive specimen offset, and the absolute test uses only sample 3 as an independently composed series. This result is a model-selection decision, not a novelty claim."
+}
