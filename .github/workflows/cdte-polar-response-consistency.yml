@@ -1,0 +1,56 @@
+name: cdte-polar-response-consistency
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-polar-response-consistency.yml'
+      - 'first_principles/a0/cdte_polar_response_consistency_contract.json'
+      - 'tools/analyze_cdte_polar_response_consistency.py'
+      - 'tests/test_cdte_polar_response_consistency.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consistency:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute polar-response consistency analysis
+        run: |
+          mkdir -p cdte-polar-response-consistency-evidence
+          python tools/analyze_cdte_polar_response_consistency.py \
+            --contract first_principles/a0/cdte_polar_response_consistency_contract.json \
+            --output-json cdte-polar-response-consistency-evidence/result.json \
+            > cdte-polar-response-consistency-evidence/stdout.txt
+          python -m pytest -q tests/test_cdte_polar_response_consistency.py \
+            > cdte-polar-response-consistency-evidence/pytest.txt
+
+      - name: Record environment and evidence hashes
+        if: always()
+        run: |
+          python --version > cdte-polar-response-consistency-evidence/python-version.txt
+          find cdte-polar-response-consistency-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > cdte-polar-response-consistency-evidence/sha256.txt
+
+      - name: Upload consistency evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-polar-response-consistency-evidence
+          path: cdte-polar-response-consistency-evidence
+          if-no-files-found: error
+          retention-days: 30
