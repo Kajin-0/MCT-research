@@ -9,7 +9,6 @@ from typing import Any
 
 import numpy as np
 
-from analyze_cdte_finite_k_kane import select_signs
 from cdte_finite_k_projection import (
     SELECTED_BAND_POLAR,
     _apply_signs,
@@ -30,7 +29,6 @@ from cdte_weiler_class_templates import (
     conventional_tied_and_departure_coordinates,
 )
 from analyze_cdte_weiler_reductions import (
-    DEPARTURE_NAMES,
     build_departure_basis,
     enumerate_reductions,
     summarize_frontier,
@@ -245,11 +243,11 @@ def analyze(
         },
         "decision": {
             "passed": corrected_gate_passed,
-            "conventional_quadratic_matrix_model_fails": true,
-            "conventional_quadratic_spectral_model_fails_declared_gate": true,
-            "five_departures_sufficient_below_one_percent": true,
-            "n2_required_below_one_percent": false,
-            "all_six_required_below_one_per_mille": true,
+            "conventional_quadratic_matrix_model_fails": True,
+            "conventional_quadratic_spectral_model_fails_declared_gate": True,
+            "five_departures_sufficient_below_one_percent": True,
+            "n2_required_below_one_percent": False,
+            "all_six_required_below_one_per_mille": True,
             "supersedes": [
                 "approximately 49 percent conventional quadratic residual",
                 "large N2 coordinate",
