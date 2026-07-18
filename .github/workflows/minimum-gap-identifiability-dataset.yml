@@ -5,7 +5,9 @@ on:
     paths:
       - '.github/workflows/minimum-gap-identifiability-dataset.yml'
       - 'tools/design_minimum_gap_identifiability_dataset.py'
+      - 'tools/audit_two_level_gap_design_minimum.py'
       - 'tests/test_minimum_gap_identifiability_dataset.py'
+      - 'tests/test_two_level_gap_design_minimum.py'
       - 'data/templates/paired_gap_identifiability_acquisition_template.csv'
       - 'src/mct_research/gap_models.py'
   workflow_dispatch:
@@ -36,7 +38,13 @@ jobs:
             --output-json minimum-gap-identifiability-evidence/result.json \
             > minimum-gap-identifiability-evidence/stdout.txt \
             2> minimum-gap-identifiability-evidence/stderr.txt
-          python -m pytest -q tests/test_minimum_gap_identifiability_dataset.py \
+          python -m tools.audit_two_level_gap_design_minimum \
+            --output-json minimum-gap-identifiability-evidence/subset-search.json \
+            > minimum-gap-identifiability-evidence/subset-search-stdout.txt \
+            2> minimum-gap-identifiability-evidence/subset-search-stderr.txt
+          python -m pytest -q \
+            tests/test_minimum_gap_identifiability_dataset.py \
+            tests/test_two_level_gap_design_minimum.py \
             > minimum-gap-identifiability-evidence/pytest.txt \
             2> minimum-gap-identifiability-evidence/pytest-stderr.txt
 
