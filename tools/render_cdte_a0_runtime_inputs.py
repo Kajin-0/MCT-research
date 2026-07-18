@@ -35,11 +35,12 @@ def pseudo_records(selection: dict[str, Any], pseudo_dir: Path) -> dict[str, dic
     records: dict[str, dict[str, Any]] = {}
     for element in ("Cd", "Te"):
         entry = selection["elements"][element]
-        for kind, source_key, hash_key in (
-            ("upf", "upf", "upf_sha256"),
-            ("psp8", "psp8", "psp8_sha256"),
+        for kind, path_key, hash_key in (
+            ("upf", "upf_path", "upf_sha256"),
+            ("psp8", "psp8_path", "psp8_sha256"),
         ):
-            filename = Path(entry["source_files"][source_key]).name
+            source_path = str(entry[path_key])
+            filename = Path(source_path).name
             path = pseudo_dir / filename
             if not path.is_file():
                 raise FileNotFoundError(path)
@@ -50,6 +51,7 @@ def pseudo_records(selection: dict[str, Any], pseudo_dir: Path) -> dict[str, dic
                     f"{element} {kind} hash mismatch: {digest} != {expected}"
                 )
             records[f"{element}_{kind}"] = {
+                "upstream_path": source_path,
                 "path": str(path),
                 "filename": filename,
                 "sha256": digest,
