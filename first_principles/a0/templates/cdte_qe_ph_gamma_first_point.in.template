@@ -1,0 +1,10 @@
+&INPUTPH
+  prefix = '@PREFIX@'
+  outdir = '@OUTDIR@'
+  fildyn = '@FILDYN@'
+  tr2_ph = @PH_TR2@
+  ldisp = .false.
+  trans = .true.
+  epsil = .true.
+/
+0.0 0.0 0.0
