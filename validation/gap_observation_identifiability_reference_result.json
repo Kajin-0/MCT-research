@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "analysis": "HgCdTe gap observation-operator identifiability audit",
+  "validated_head": "602af3ca01cc02a3d776ef31ce5e30de47f2067f",
+  "workflow_run_id": 29656215390,
+  "artifact_id": 8432943974,
+  "artifact_sha256": "746763d1dc28b2f6c85e3655b549984ec29aa401d2bf3cfe48edd1761a4cb613",
+  "residual_definition": "reported_Chu_absorption_fit_gap_minus_provisional_latent_gap",
+  "source_residuals": {
+    "mean_signed_mev": 9.039188186513025,
+    "rmse_mev": 11.991099243506273,
+    "maximum_absolute_mev": 20.47160631056699,
+    "positive_count": 7,
+    "negative_count": 1,
+    "constant_offset_removed_rmse_mev": 7.87905692303464,
+    "correlation_with_composition_x": 0.9611683700850845,
+    "correlation_with_alpha_at_gap": 0.9287975776520855
+  },
+  "confounding": {
+    "composition_alpha_at_gap_correlation": 0.9847966555523553,
+    "variance_inflation_factor": 33.139415598489734,
+    "normalized_condition_number": 11.4258479988876,
+    "composition_and_alpha_at_gap_are_separable": false
+  },
+  "leave_one_out_predictor_rmse_mev": {
+    "composition_x": 2.9616857729793504,
+    "alpha_at_gap_cm1": 4.015106930829679,
+    "composition_x_plus_alpha_at_gap": 2.9308430707431254
+  },
+  "mechanism_decisions": {
+    "hg_vacancy_absorption_edge": {
+      "sign_compatible": false,
+      "identified": false,
+      "reason": "reported vacancy mechanism lowers the apparent absorption edge"
+    },
+    "absorption_edge_extraction_method": {
+      "magnitude_sufficient": false,
+      "identified": false,
+      "reported_method_scatter_upper_mev": 2.0
+    },
+    "burstein_moss_band_filling": {
+      "sign_compatible": true,
+      "identified": false,
+      "reason": "sample carrier density and carrier type are unavailable"
+    },
+    "source_specific_composition_or_fit_definition": {
+      "plausible": true,
+      "identified": false,
+      "reason": "composition and alpha_at_gap are confounded"
+    }
+  },
+  "decision": {
+    "universal_material_law_change_authorized": false,
+    "production_observation_operator_identified": false,
+    "hg_vacancy_explanation_rejected_by_sign": true,
+    "burstein_moss_retained_as_plausible_but_unidentified": true,
+    "measurement_class_metadata_must_be_preserved": true,
+    "next_required_evidence": [
+      "sample-level carrier density and carrier type for the Chu absorption specimens",
+      "primary absorption-fit definition and covariance for each reported gap",
+      "composition measurements independent of a gap formula",
+      "paired magneto-optical and absorption measurements on common material"
+    ]
+  }
+}
