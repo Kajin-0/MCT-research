@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Reconstruct and gate the static CdTe finite-k Kane method smoke.
 
-This tool consumes exact QE eigenvalues, the Wannier90 Gamma-star overlap file,
-and the physical Gamma canonical intertwiners. It fixes only the remaining
-discrete inter-irrep signs, applies two-radius matrix extrapolation, trains on
-[001] and [111], and holds [110] out. The output is a method-smoke result, not a
-converged CdTe parameter claim.
+The scientific reconstruction is the selected-band polar/parallel-transport
+Hamiltonian. It is exactly isospectral to the selected eight DFT bands in the
+fixed Gamma reference basis. The former all-state construction is retained only
+as a diagnostic approximation to P_Gamma H(k) P_Gamma.
 """
 from __future__ import annotations
 
@@ -22,7 +21,9 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "tools"))
 
 from cdte_finite_k_projection import (
+    ALL_STATE_BARE_PROJECTION,
     PARAMETER_GROUPS,
+    SELECTED_BAND_POLAR,
     _apply_signs,
     _coefficient_templates,
     _fit_group,
@@ -210,6 +211,27 @@ def select_signs(
     return matrices, {"selected": selected_summary, "candidates": summary}
 
 
+def _reconstruction_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "mode": records[0]["reconstruction_mode"],
+        "interpretation": records[0]["reconstruction_interpretation"],
+        "minimum_overlap_singular_value": min(
+            item["minimum_overlap_singular_value"] for item in records
+        ),
+        "maximum_overlap_singular_value": max(
+            item["maximum_overlap_singular_value"] for item in records
+        ),
+        "maximum_selected_eigenvalue_absolute_error_ev": max(
+            item["maximum_selected_eigenvalue_absolute_error_ev"] for item in records
+        ),
+        "maximum_selected_eigenvalue_residual_ev": max(
+            item["projected_vs_selected_eigenvalue_residual_ev"] for item in records
+        ),
+        "finite_state_count_used": records[0]["finite_state_count_used"],
+        "available_state_count": records[0]["available_state_count"],
+    }
+
+
 def analyze(
     mmn_path: str | Path,
     nnkp_path: str | Path,
@@ -226,16 +248,36 @@ def analyze(
         raise ValueError("canonical basis result is not in the exact Novik convention")
     reduced, cartesian = _read_nnkp(nnkp_path)
     kpoint_diagnostics = _validate_kpoint_contract(cartesian, contract)
+
+    reconstruction_contract = contract.get("reconstruction", {})
+    scientific_mode = reconstruction_contract.get(
+        "scientific_mode", SELECTED_BAND_POLAR
+    )
+    diagnostic_mode = reconstruction_contract.get(
+        "diagnostic_mode", ALL_STATE_BARE_PROJECTION
+    )
     matrices, reconstruction = reconstruct_canonical_matrices(
-        mmn_path, eigenvalues, basis
+        mmn_path, eigenvalues, basis, mode=scientific_mode
     )
-    minimum_overlap = min(
-        item["minimum_overlap_singular_value"] for item in reconstruction
+    _, diagnostic_reconstruction = reconstruct_canonical_matrices(
+        mmn_path, eigenvalues, basis, mode=diagnostic_mode
     )
-    if minimum_overlap < float(
-        contract["thresholds"]["minimum_overlap_singular_value"]
-    ):
+    scientific_summary = _reconstruction_summary(reconstruction)
+    diagnostic_summary = _reconstruction_summary(diagnostic_reconstruction)
+
+    thresholds = contract["thresholds"]
+    minimum_overlap = scientific_summary["minimum_overlap_singular_value"]
+    if minimum_overlap < float(thresholds["minimum_overlap_singular_value"]):
         raise RuntimeError("selected finite-k subspace fails the overlap closure gate")
+    maximum_isospectral_error = scientific_summary[
+        "maximum_selected_eigenvalue_absolute_error_ev"
+    ]
+    if maximum_isospectral_error > float(
+        thresholds["maximum_selected_eigenvalue_absolute_error_ev"]
+    ):
+        raise RuntimeError(
+            "scientific finite-k reconstruction is not isospectral to selected bands"
+        )
 
     training = list(contract["training_directions"])
     holdouts = list(contract["holdout_directions"])
@@ -272,7 +314,6 @@ def analyze(
     maximum_quadratic_holdout = max(
         record["quadratic_relative_error"] for record in two_holdout.values()
     )
-    thresholds = contract["thresholds"]
     if max(pair_residuals.values()) > float(
         thresholds["maximum_time_reversal_pair_residual_ev"]
     ):
@@ -298,7 +339,7 @@ def analyze(
     one_to_two_improvement = one_linear / max(two_linear, np.finfo(float).eps)
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "2.0",
         "status": (
             "static_cdte_finite_k_kane_method_smoke_"
             "not_converged_material_parameters"
@@ -313,7 +354,18 @@ def analyze(
         "k_points_reduced": reduced.tolist(),
         "k_points_cartesian_inverse_angstrom": cartesian.tolist(),
         "kpoint_contract_diagnostics": kpoint_diagnostics,
+        "reconstruction_mode": scientific_mode,
         "minimum_overlap_singular_value": minimum_overlap,
+        "maximum_selected_eigenvalue_absolute_error_ev": maximum_isospectral_error,
+        "reconstruction_comparison": {
+            "scientific": scientific_summary,
+            "diagnostic_bare_projection": diagnostic_summary,
+            "decision": (
+                "Use selected_band_polar for scientific coefficients. Retain the "
+                "all-state P_Gamma H(k) P_Gamma construction only to quantify the "
+                "quadratic-order error caused by the superseded method."
+            ),
+        },
         "maximum_time_reversal_pair_residual_ev": max(pair_residuals.values()),
         "time_reversal_pair_residuals_ev": pair_residuals,
         "sign_convention": sign_result,
@@ -370,6 +422,13 @@ def analyze(
             ),
         },
         "reconstruction": reconstruction,
+        "gauge_boundary": (
+            "The polar construction is invariant to source eigenvector phases and "
+            "unitary rotations inside exactly degenerate selected eigenspaces. "
+            "Individual matrix coefficients remain representation-dependent under "
+            "additional smooth k-dependent unitary changes of the effective basis; "
+            "the fixed Gamma-reference polar gauge must be stated with any values."
+        ),
         "covariance_status": (
             "not_available_for_physical_parameter_uncertainty_in_this_static_smoke"
         ),
