@@ -171,6 +171,8 @@ def test_exact_two_p_smoke_recovers_parameters_and_holdout(
     )
     json.dumps(result, sort_keys=True)
 
+    assert result["reconstruction_mode"] == projection.SELECTED_BAND_POLAR
+    assert result["maximum_selected_eigenvalue_absolute_error_ev"] < 1.0e-12
     assert result["minimum_overlap_singular_value"] > 1.0 - 1.0e-12
     assert result["maximum_time_reversal_pair_residual_ev"] < 1.0e-11
     assert result["sign_convention"]["selected"]["gamma8_sign"] == 1
@@ -197,7 +199,9 @@ def test_exact_two_p_smoke_recovers_parameters_and_holdout(
         assert recovered[name] == pytest.approx(getattr(expected, name), abs=2.0e-7)
 
 
-def test_projection_retains_remote_band_contribution(tmp_path: Path) -> None:
+def test_selected_band_polar_isospectral_while_all_state_returns_bare_projection(
+    tmp_path: Path,
+) -> None:
     basis = _basis_result()
     theta = 0.2
     transform = np.eye(40, dtype=complex)
@@ -217,18 +221,76 @@ def test_projection_retains_remote_band_contribution(tmp_path: Path) -> None:
             for index in range(1, 14)
         ],
     }
-    matrices, diagnostics = projection.reconstruct_canonical_matrices(
-        mmn_path, payload, basis
+    selected, selected_diagnostics = projection.reconstruct_canonical_matrices(
+        mmn_path,
+        payload,
+        basis,
+        mode=projection.SELECTED_BAND_POLAR,
     )
-    expected = (
+    bare, bare_diagnostics = projection.reconstruct_canonical_matrices(
+        mmn_path,
+        payload,
+        basis,
+        mode=projection.ALL_STATE_BARE_PROJECTION,
+    )
+    expected_bare = (
         math.cos(theta) ** 2 * energies[30]
         + math.sin(theta) ** 2 * energies[39]
     )
 
     # Probe row 30 is the first Gamma7 state, reordered to canonical index 6.
-    assert matrices[0][6, 6].real == pytest.approx(expected, abs=1.0e-12)
-    assert diagnostics[0]["finite_state_count_used"] == 40
-    assert abs(expected - energies[30]) > 0.1
+    assert selected[0][6, 6].real == pytest.approx(energies[30], abs=1.0e-12)
+    assert bare[0][6, 6].real == pytest.approx(expected_bare, abs=1.0e-12)
+    assert selected_diagnostics[0]["finite_state_count_used"] == 8
+    assert bare_diagnostics[0]["finite_state_count_used"] == 40
+    assert selected_diagnostics[0]["maximum_selected_eigenvalue_absolute_error_ev"] < 1.0e-12
+    assert bare_diagnostics[0]["maximum_selected_eigenvalue_absolute_error_ev"] > 0.1
+
+
+def test_coupled_two_level_model_falsifies_all_state_effective_interpretation() -> None:
+    delta = 2.0
+    velocity = 1.3
+    k = 0.08
+    exact = np.asarray([[0.0, velocity * k], [velocity * k, delta]])
+    energies, eigenvectors = np.linalg.eigh(exact)
+    full_overlap = eigenvectors[0:1, :]
+    selected_overlap = full_overlap[:, :1]
+
+    selected, _ = projection.reconstruct_fixed_basis(
+        selected_overlap, np.diag(energies[:1])
+    )
+    bare, _ = projection.reconstruct_fixed_basis(
+        full_overlap, np.diag(energies)
+    )
+
+    assert selected[0, 0].real == pytest.approx(energies[0], abs=1.0e-14)
+    assert bare[0, 0].real == pytest.approx(exact[0, 0], abs=1.0e-14)
+    assert energies[0] == pytest.approx(
+        -(velocity * velocity / delta) * k * k,
+        rel=0.02,
+    )
+    assert abs(selected[0, 0] - bare[0, 0]) > 1.0e-3
+
+
+def test_selected_polar_is_invariant_to_admissible_source_gauge() -> None:
+    rng = np.random.default_rng(20260718)
+    raw = rng.normal(size=(8, 8)) + 1j * rng.normal(size=(8, 8))
+    overlap = np.linalg.qr(raw)[0]
+    energies = np.asarray([-2.0, -2.0, -0.7, -0.7, 0.2, 0.9, 1.4, 2.3])
+    reference, _ = projection.reconstruct_fixed_basis(overlap, np.diag(energies))
+
+    rotation = np.eye(8, dtype=complex)
+    angle = 0.43
+    rotation[:2, :2] = np.asarray(
+        [[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]]
+    )
+    phases = np.diag(np.exp(1j * np.linspace(0.1, 1.7, 8)))
+    gauge = rotation @ phases
+    transformed, _ = projection.reconstruct_fixed_basis(
+        overlap @ gauge,
+        gauge.conj().T @ np.diag(energies) @ gauge,
+    )
+    np.testing.assert_allclose(transformed, reference, atol=1.0e-12)
 
 
 def test_kpoint_contract_fails_on_wrong_direction() -> None:
