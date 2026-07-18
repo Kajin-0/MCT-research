@@ -1,0 +1,162 @@
+{
+  "claim_boundary": "This is an unconverged static PBE planning-geometry method smoke. The matrix result is stated in the fixed-Gamma polar gauge; the spectral failure is basis invariant. No coefficient is a reference CdTe material parameter and no HgTe, alloy, phonon, AHC or higher-band work is authorized.",
+  "decision": {
+    "all_six_required_below_one_per_mille": true,
+    "conventional_quadratic_matrix_model_fails": true,
+    "conventional_quadratic_spectral_model_fails_declared_gate": true,
+    "five_departures_sufficient_below_one_percent": true,
+    "n2_required_below_one_percent": false,
+    "next_authorized_task": "Record this corrected result and return effort to finite-temperature matrix self-energy design or independent empirical validation. Do not spend additional compute on static band-count convergence.",
+    "passed": true,
+    "supersedes": [
+      "approximately 49 percent conventional quadratic residual",
+      "large N2 coordinate",
+      "all six departures required below ten percent",
+      "120-band convergence run for the all-state reconstruction"
+    ]
+  },
+  "frontier_by_departure_count": [
+    {
+      "condition_number": 1.7320508075688774,
+      "departure_count": 0,
+      "departures": [],
+      "design_rank": 4,
+      "dimension": 4,
+      "direction_relative_residuals": {"001": 0.11815247204399928, "110": 0.3321121256311948, "111": 0.3673859125498112},
+      "maximum_holdout_relative_residual": 0.3321121256311948,
+      "maximum_training_or_holdout_relative_residual": 0.3321121256311948,
+      "training_relative_residual": 0.287044301031891
+    },
+    {
+      "condition_number": 1.7320508075688774,
+      "departure_count": 1,
+      "departures": ["G"],
+      "design_rank": 5,
+      "dimension": 5,
+      "direction_relative_residuals": {"001": 0.11815247204399928, "110": 0.19694206619326302, "111": 0.21247387775354032},
+      "maximum_holdout_relative_residual": 0.19694206619326302,
+      "maximum_training_or_holdout_relative_residual": 0.19694206619326302,
+      "training_relative_residual": 0.17775178449772125
+    },
+    {
+      "condition_number": 1.7320508075688774,
+      "departure_count": 2,
+      "departures": ["G", "G_prime"],
+      "design_rank": 6,
+      "dimension": 6,
+      "direction_relative_residuals": {"001": 0.11815247204399928, "110": 0.10393001814697689, "111": 0.09996137026081299},
+      "maximum_holdout_relative_residual": 0.10393001814697689,
+      "maximum_training_or_holdout_relative_residual": 0.10824136021609217,
+      "training_relative_residual": 0.10824136021609217
+    },
+    {
+      "condition_number": 1.732050807568878,
+      "departure_count": 3,
+      "departures": ["G", "G_prime", "delta_gamma1"],
+      "design_rank": 7,
+      "dimension": 7,
+      "direction_relative_residuals": {"001": 0.06090416321777529, "110": 0.04941236474817133, "111": 0.04600766675648788},
+      "maximum_holdout_relative_residual": 0.04941236474817133,
+      "maximum_training_or_holdout_relative_residual": 0.05299688704216816,
+      "training_relative_residual": 0.05299688704216816
+    },
+    {
+      "condition_number": 1.7320508075688779,
+      "departure_count": 4,
+      "departures": ["G", "G_prime", "delta_gamma1", "delta_gamma3"],
+      "design_rank": 8,
+      "dimension": 8,
+      "direction_relative_residuals": {"001": 0.06090416321777536, "110": 0.02750144529517072, "111": 1.2635606085629369e-05},
+      "maximum_holdout_relative_residual": 0.02750144529517072,
+      "maximum_training_or_holdout_relative_residual": 0.04014523384985259,
+      "training_relative_residual": 0.04014523384985259
+    },
+    {
+      "condition_number": 1.7320508075688774,
+      "departure_count": 5,
+      "departures": ["G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"],
+      "design_rank": 9,
+      "dimension": 9,
+      "direction_relative_residuals": {"001": 0.0020094911433451205, "110": 0.0009077588396256806, "111": 1.2635606085627234e-05},
+      "maximum_holdout_relative_residual": 0.0009077588396256806,
+      "maximum_training_or_holdout_relative_residual": 0.001324598534771645,
+      "training_relative_residual": 0.001324598534771645
+    },
+    {
+      "condition_number": 1.7320508075688779,
+      "departure_count": 6,
+      "departures": ["N2", "G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"],
+      "design_rank": 10,
+      "dimension": 10,
+      "direction_relative_residuals": {"001": 1.2433110613800613e-05, "110": 7.956152925249276e-06, "111": 1.2635606085633013e-05},
+      "maximum_holdout_relative_residual": 7.956152925249276e-06,
+      "maximum_training_or_holdout_relative_residual": 1.254802646838034e-05,
+      "training_relative_residual": 1.254802646838034e-05
+    }
+  ],
+  "gauge_invariant_conventional_spectral_closure": {
+    "fixed_parameters": {"delta": 0.8592417011362832, "eg": 0.4972157232164524, "ev": 7.986337000089527, "p7": 6.201825720178372, "p8": 6.772221951499152},
+    "gauge_status": "unitary_basis_invariant_spectral_observable",
+    "heldout": {"110": {"absolute_residual_ev": 0.0009228935435831669, "maximum_absolute_error_ev": 0.0004218250798482259, "relative_residual": 0.0440343320279686, "target_shift_norm_ev": 0.020958499904051842}},
+    "initial_matrix_fit_quadratic_parameters": {"f": -0.03298719451219489, "gamma1": 1.5509204723011583, "gamma2": -0.21577334261804118, "gamma3": 0.317749225442553},
+    "interpretation": "The conventional tied quadratic model is tested against basis-invariant selected-band dispersions, not only against polar-gauge matrix entries.",
+    "maximum_holdout_relative_residual": 0.0440343320279686,
+    "metric": "sorted_selected_eigenvalue_shifts_relative_l2",
+    "passed_declared_spectral_gate": false,
+    "spectral_fit_quadratic_parameters": {"f": -0.036545692939162176, "gamma1": 1.5484132432559046, "gamma2": -0.2492502549882682, "gamma3": 0.36128320075032266},
+    "training": {"absolute_residual_ev": 0.0009593584501918518, "accepted_steps": 5, "converged": true, "final_damping": 4.115226337448559e-07, "iterations": 7, "maximum_absolute_error_ev": 0.0004477026681328766, "relative_residual": 0.03258906465724607, "target_shift_norm_ev": 0.029438048016469893}
+  },
+  "input_sha256": {
+    "canonical_basis_result": "ee4b56841085b376137ff1e8fabd753079c1093eacbb635db6dfb4416bde5ea7",
+    "exact_qe_eigenvalues": "ca1c87c6882e19903b747dcdf5a66db0d70f2c5a920bf6b39794298b7357e2e2",
+    "finite_k_contract": "3b58bd8d13aaf91247232af213f48750782d52a2999790fd596af8ec03a8d4e4",
+    "finite_k_result": "998a1c3648505adc5fc7491430278abe9ae3d54e988ff728cff8a167aa60dfae",
+    "mmn": "f2933784a32f90e8963790d951dee84a98612b19f75fb4ca0ff26e2af9227ad7",
+    "nnkp": "b3b61ff5ee77c271691a6b19e006dd3003bc33c308e1ac12bc77a7f539ee262a",
+    "spectral_result": "5ccabb79b434a9d2e9683509ab19d89d0ca6984cb2d50c0db0ba0cefc46c3c58"
+  },
+  "linear": {
+    "claim_status": "robust static method-smoke reproduction in the stated fixed basis; the complete four-linear-invariant structure is established prior art",
+    "eta_p": 0.08792880152058646,
+    "maximum_two_p_holdout_relative_residual": 0.008201766436966695,
+    "p7_ev_angstrom": 6.201825720178372,
+    "p8_ev_angstrom": 6.772221951499152,
+    "two_p_training_relative_residual": 0.008201798425721114
+  },
+  "minimum_model_by_residual_threshold": {
+    "0.001": {"departure_count": 6, "departures": ["N2", "G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"], "maximum_training_or_holdout_relative_residual": 1.254802646838034e-05},
+    "0.005": {"departure_count": 5, "departures": ["G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"], "maximum_training_or_holdout_relative_residual": 0.001324598534771645},
+    "0.01": {"departure_count": 5, "departures": ["G", "G_prime", "delta_gamma1", "delta_gamma2", "delta_gamma3"], "maximum_training_or_holdout_relative_residual": 0.001324598534771645},
+    "0.05": {"departure_count": 4, "departures": ["G", "G_prime", "delta_gamma1", "delta_gamma3"], "maximum_training_or_holdout_relative_residual": 0.04014523384985259},
+    "0.1": {"departure_count": 3, "departures": ["G", "G_prime", "delta_gamma1"], "maximum_training_or_holdout_relative_residual": 0.05299688704216816}
+  },
+  "quadratic_matrix_closure_in_polar_gauge": {
+    "complete_dimension": 10,
+    "complete_direction_relative_residuals": {"001": 1.2433110613839863e-05, "110": 7.956152925332628e-06, "111": 1.2635606085618078e-05},
+    "complete_maximum_holdout_relative_residual": 7.956152925332628e-06,
+    "complete_training_relative_residual": 1.2548026468388734e-05,
+    "conventional_dimension": 4,
+    "conventional_direction_relative_residuals": {"001": 0.11815247204399928, "110": 0.3321121256311948, "111": 0.3673859125498112},
+    "conventional_maximum_holdout_relative_residual": 0.3321121256311948,
+    "conventional_training_relative_residual": 0.287044301031891,
+    "gauge_boundary": "Matrix coordinates and Frobenius matrix residuals are properties of the declared fixed-Gamma polar gauge. They are not invariant under arbitrary additional smooth k-dependent unitary transformations.",
+    "repository_orthonormal_class_coordinates_ev_angstrom2": {"F": 8.71680532894403, "G": 11.941759024408384, "G_prime": 7.470413485599615, "N2": 0.057300843171511004, "gamma1": -22.136164348582945, "gamma1_prime": -12.116688444762223, "gamma2": 7.112879645462259, "gamma2_prime": 7.052678571719574, "gamma3": 11.769190074283639, "gamma3_prime": -13.469065483847963}
+  },
+  "reconstruction": {
+    "interpretation": "The finite-k Hamiltonian is the selected-eight polar transport in the fixed Novik Gamma reference basis and is exactly isospectral to the selected DFT manifold.",
+    "maximum_selected_eigenvalue_absolute_error_ev": 3.375077994860476e-14,
+    "minimum_selected_overlap_singular_value": 0.9998015324122207,
+    "scientific_mode": "selected_band_polar"
+  },
+  "schema_version": "1.0",
+  "source_evidence": {
+    "physical_artifact_digest": "sha256:7e34882d03de1d45697586671bb8e77fc260a0993914e4ddafe3ebe1eb61ee4b",
+    "physical_artifact_id": 8428509605,
+    "physical_workflow_run": 29640468978,
+    "replay_artifact_digest": "sha256:97f37480d7f808908518cb0684862e31a96406ed598f726cc6b11a914ea25100",
+    "replay_artifact_id": 8428562021,
+    "replay_workflow_run": 29640863618,
+    "validated_head": "4aa98de0d8f34c2fe123c4f0c64c26cec3264941"
+  },
+  "status": "corrected_static_cdte_kane_reference"
+}
