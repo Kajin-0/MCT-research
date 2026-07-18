@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "stage": "cdte_a0_polar_response_consistency",
+  "purpose": "Separate short-range Gamma optical dynamics from long-range polar screening after the stricter CdTe response point reduced acoustic and ASR sensitivity but failed raw Born-charge neutrality.",
+  "calculation": {
+    "source_result": "first_principles/a0/cdte_a0_stricter_response_reference_result.json",
+    "lattice_angstrom": 6.476035479332049,
+    "direct_gamma_gap_ev": 0.49730000000000096,
+    "epsilon_infinity": 62.332890864,
+    "raw_born_charge_sum_e": -1.25251,
+    "asr_corrected_born_charge_magnitude_e": 3.53169,
+    "raw_to_frequency_cm1": 148.58,
+    "simple_asr_to_frequency_cm1": 147.17,
+    "pressure_kbar": 31.2
+  },
+  "literature_anchor": {
+    "status": "screening_and_polar_consistency_anchor_not_metrology_standard",
+    "temperature_context": "approximately room temperature",
+    "direct_gap_ev": 1.529,
+    "epsilon_infinity": 7.05,
+    "to_frequency_cm1": 141.0,
+    "lo_frequency_cm1": 167.0,
+    "cadmium_atomic_mass_u": 112.414,
+    "tellurium_atomic_mass_u": 127.60,
+    "sources": [
+      {
+        "quantity": "fundamental TO and LO response",
+        "citation": "M. Schall, M. Walther, and P. U. Jepsen, Phys. Rev. B 64, 094301 (2001)",
+        "doi": "10.1103/PhysRevB.64.094301"
+      },
+      {
+        "quantity": "high-frequency dielectric constant",
+        "citation": "CdTe literature value tabulated as epsilon_infinity = 7.05 in RSC Adv. 9, 21220 (2019), citing S. M. Hosseini, Physica B 403, 1907 (2008)",
+        "doi": "10.1039/C8RA10101A"
+      },
+      {
+        "quantity": "room-temperature direct optical gap",
+        "citation": "Temperature dependence of the fundamental absorption edge in CdTe, Solid State Commun. 13, 63 (1973)",
+        "doi": "10.1016/0038-1098(73)90068-9"
+      }
+    ]
+  },
+  "thresholds": {
+    "maximum_to_relative_error_for_planning": 0.05,
+    "minimum_gap_ratio_for_electronic_screening": 0.8,
+    "minimum_dielectric_ratio": 0.5,
+    "maximum_dielectric_ratio": 2.0,
+    "maximum_lo_relative_error": 0.05,
+    "minimum_polar_strength_ratio": 0.7,
+    "maximum_polar_strength_ratio": 1.3,
+    "maximum_raw_born_charge_sum_absolute_e": 0.05,
+    "maximum_absolute_pressure_kbar_for_reference_interpretation": 10.0
+  },
+  "decision_policy": {
+    "short_range_to_planning_requires_to_gate_only": true,
+    "long_range_polar_use_requires_gap_dielectric_lo_polar_and_raw_born_gates": true,
+    "current_pbe_polar_ahc_requires_long_range_polar_use": true,
+    "hybrid_long_range_short_range_design_may_be_authorized_when_to_passes_and_long_range_fails": true,
+    "automatic_calculation": false
+  },
+  "authorization": {
+    "run_consistency_analysis": true,
+    "design_hybrid_long_range_short_range_decomposition_if_indicated": true,
+    "execute_additional_dft_or_dfpt": false,
+    "execute_a1": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "claim_boundary": "The literature values are bounded consistency anchors. Passing the TO gate supports only planning-level plausibility of the short-range Gamma optical dynamics at this stressed, unconverged PBE point. It does not establish a reference phonon. Failing the electronic and polar gates rejects the current setup for long-range polar AHC but does not by itself select a replacement functional or correction scheme."
+}

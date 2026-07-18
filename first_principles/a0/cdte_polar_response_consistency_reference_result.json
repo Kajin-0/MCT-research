@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "status": "cdte_polar_response_consistency_reference_result",
+  "source_evidence": {
+    "workflow_run": 29650462868,
+    "artifact_id": 8431307393,
+    "artifact_digest": "sha256:e696be43af2668c6fdb40ca24be34ecdcc4245081847f3f219925abd363c4c26",
+    "validated_head": "793783f467f07455e9b2778c0fc2cdae4cb3e10d",
+    "input_contract_sha256": "7e9d3759962aa266a530576472d6c4a770558ff45b8e6ed0f0e2daa19552bc15"
+  },
+  "derived": {
+    "primitive_volume_m3": 6.789967051461162e-29,
+    "reduced_mass_kg": 9.923927858184005e-26,
+    "reference_inferred_born_charge_magnitude_e": 2.1577283410001624,
+    "calculated_lo_frequency_cm1": 155.19483750248767,
+    "gap_ratio": 0.32524525833878415,
+    "dielectric_ratio": 8.841544803404256,
+    "to_relative_error": 0.043758865248226864,
+    "lo_relative_error": 0.07068959579348699,
+    "reference_polar_strength_z2_over_epsilon": 0.6603959707170657,
+    "calculated_polar_strength_z2_over_epsilon": 0.20010036568516695,
+    "polar_strength_ratio": 0.3030005853426023
+  },
+  "checks": {
+    "short_range_to_planning": true,
+    "electronic_gap_screening": false,
+    "dielectric_screening": false,
+    "lo_consistency": false,
+    "polar_strength_consistency": false,
+    "raw_born_neutrality": false,
+    "reference_pressure": false
+  },
+  "decision": {
+    "short_range_gamma_to_planning_usable": true,
+    "short_range_gamma_to_is_reference_value": false,
+    "raw_born_response_converged": false,
+    "long_range_polar_response_usable": false,
+    "current_pbe_polar_ahc_authorized": false,
+    "hybrid_long_range_short_range_design_authorized": true,
+    "automatic_additional_compute_authorized": false,
+    "interpretation": "The tightened point gives a planning-level plausible Gamma TO frequency, but its semilocal electronic gap, macroscopic dielectric screening, raw Born neutrality, LO consistency and long-range polar strength do not form one physically consistent polar response. The current PBE point is rejected for polar AHC. A separately validated short-range/long-range decomposition may be designed, but no calculation is authorized by this result."
+  },
+  "claim_boundary": "The anchors are bounded consistency references rather than metrology-grade universal constants. The result rejects the present setup for long-range polar AHC; it does not prove that the band-gap error alone causes every response failure, establish a reference CdTe TO mode, or select a replacement functional, pseudopotential or correction scheme."
+}
