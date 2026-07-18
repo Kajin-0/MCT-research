@@ -202,7 +202,7 @@ stage="abinit_dry_run"
 (
   cd "$EVIDENCE/rendered"
   /usr/bin/time -v -o "$EVIDENCE/syntax/abinit-dry.time.txt" \
-    "$ABINIT" --dry-run inputs/cdte_abinit_dry.abi \
+    "$ABINIT" inputs/cdte_abinit_dry.abi --dry-run \
     > "$EVIDENCE/syntax/abinit-dry.out" \
     2> "$EVIDENCE/syntax/abinit-dry.err"
 )
