@@ -1,0 +1,31 @@
+# CdTe A0 fixed-volume dry-run input
+output_file "cdte_a0_dry.abo"
+pp_dirpath "@PSEUDO_DIR@"
+pseudos "@CD_PSP8@, @TE_PSP8@"
+
+natom 2
+ntypat 2
+typat 1 2
+znucl 48 52
+
+acell 3*@LATTICE_ANGSTROM@ angstrom
+rprim
+  0.0 0.5 0.5
+  0.5 0.0 0.5
+  0.5 0.5 0.0
+xred
+  0.000000000000 0.000000000000 0.000000000000
+  0.250000000000 0.250000000000 0.250000000000
+
+ecut @ECUT_HA@
+nband @NBAND@
+ngkpt @KGRID@ @KGRID@ @KGRID@
+nshiftk 1
+shiftk 0.0 0.0 0.0
+
+nsppol 1
+nspden 1
+nspinor 2
+so_psp 1 1
+occopt 1
+tolvrs @TOLVRS@
