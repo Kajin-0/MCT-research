@@ -8,25 +8,30 @@ A contribution is classified at the level of a precise claim, not by whether the
 
 ## Current matrix
 
-| ID | Proposed claim or contribution | Current class | Evidence already identified | Main missing search |
+| ID | Proposed claim or contribution | Current class | Evidence already identified | Main missing search or validation |
 |---|---|---|---|---|
 | C01 | Decompose $E_g(T)$ into electron–phonon and quasiharmonic terms | established | Allen–Heine–Cardona literature; Krishnamurthy 1995 explicitly treats electron–phonon interaction and separately discusses lattice dilation | exact modern Fan/Debye–Waller/quasiharmonic decomposition for HgTe, CdTe, and HgCdTe |
 | C02 | Replace Hansen's exactly linear temperature term with a nonlinear low-temperature thermal law | established in HgCdTe | Laurenti 1990 derives a composition-dependent Varshni form $T^2/[T+B(x)]$ from primary absorption-edge data | independent out-of-sample comparison of Laurenti with modern composition-calibrated datasets |
 | C03 | Calculate electron–phonon band-edge shifts and temperature-dependent gaps for HgCdTe | established in HgCdTe | Krishnamurthy et al. 1995 calculate band-edge shifts, gap, band offsets, hyperbolic dispersion parameters, and effective mass | modern first-principles comparison and uncertainty analysis |
-| C04 | Project a finite-temperature matrix self-energy into an 8-band Kane basis | uncertain | generalized matrix AHC and standard Kane downfolding exist separately | direct prior example for HgTe/HgCdTe or another narrow-gap system |
-| C05 | Derive $T$-dependent $E_g,\Delta,P,F,\gamma_i$ from matrix AHC | candidate novel, unconfirmed and narrower | Krishnamurthy already gives $E_g(T)$, electron mass, and two hyperbolic dispersion parameters for Hg$_{0.78}$Cd$_{0.22}$Te | determine whether any prior work renormalizes the complete symmetry-resolved Kane Hamiltonian or momentum/Luttinger parameters |
-| C06 | Test one-$P$ closure against separate effective $P_8$ and $P_7$ | candidate methodological, unconfirmed | nested model derived and executable here | equivalent multi-coupling finite-$T$ Kane literature |
-| C07 | $P_{\mathrm{fit}}=(2P_8+P_7)/3$ under the declared Frobenius metric | derived but metric-specific; novelty uncertain | exact repository derivation | prior invariant-projection literature |
+| C04 | Project a finite-temperature matrix self-energy into an 8-band Kane basis | uncertain | generalized matrix AHC and static symmetry-adapted k.p extraction/downfolding are established separately | direct prior finite-temperature full-matrix example for HgTe/HgCdTe or another narrow-gap system |
+| C05 | Derive $T$-dependent $E_g,\Delta,P,F,\gamma_i$ from matrix AHC | candidate novel, unconfirmed and narrower | Krishnamurthy already gives $E_g(T)$, electron mass, and two hyperbolic dispersion parameters; DFT2kp establishes complete static CdTe extraction | determine whether prior work renormalizes the complete symmetry-resolved Kane Hamiltonian or momentum/Luttinger parameters with temperature |
+| C06 | Resolve the complete CdTe linear invariant space and quantify the two-$P$ reduction | established structure; independent repository reproduction | DFT2kp publishes four CdTe linear coefficients; repository projector gives four one-dimensional sectors and reduces the two-$P$ residual from approximately 0.82018% to approximately $2\times10^{-7}$ | explicit coefficient/gauge mapping and independent numerical convergence |
+| C07 | $P_{\mathrm{fit}}=(2P_8+P_7)/3$ under the declared Frobenius metric | derived but metric-specific; novelty not supported | exact repository derivation; multi-coupling zincblende Hamiltonians are prior art | retain only as an internal reduction identity |
 | C08 | Temperature primarily changes $E_g$ while Kane velocity remains nearly constant | established experimentally over measured ranges | Teppe et al. 2016 report $\tilde c=(1.07\pm0.05)\times10^6$ m/s for two near-critical samples | broader composition, strain, temperature, and complete-8-band limits |
 | C09 | Average cubic symmetry permits a true $\Gamma_6$–$\Gamma_8$ crossing and forbids generic mixing at $\Gamma$ | established representation theory | zincblende double-group symmetry | disorder/strain exceptions |
 | C10 | Use multiple SQS configurations and restore average cubic symmetry | established methodology | SQS and group averaging are standard | HgCdTe electron–phonon application |
 | C11 | Treat the inversion region through a disorder-averaged spectral function rather than one sharp gap | uncertain to incremental | alloy spectral functions and CPA are established generally; Laurenti discusses CPA consistency at the band edge | HgCdTe-specific temperature-dependent inversion treatment with quantified broadening |
 | C12 | Derive a compact composition-dependent spectral-moment model from the gap-coupling spectrum | candidate novel, unconfirmed and narrowed | Laurenti already supplies nonlinear composition-dependent thermal curvature; oscillator reductions are established generally | prior HgCdTe spectral-moment equations and proof of held-out improvement beyond Laurenti |
 | C13 | Outperform Hansen and Laurenti under leave-one-composition-out and held-out-temperature validation | empirical result, not yet established | common protocol defined; Hansen Table I and selected later values recovered | complete source-level datasets, uncertainties, and independent composition calibration |
-| C14 | Current matrix covariance propagation is exact conditional on a fixed estimated gauge | established linear uncertainty propagation | repository derivation and tests | uncertainty of the estimated gauge remains excluded |
+| C14 | Propagate matrix covariance through gauge alignment and invariant fitting | implementation requires correction before statistical claims | deterministic linear transforms are valid for a fixed gauge, but the current 128-real-component storage duplicates an 8x8 Hermitian matrix's 64 independent real degrees of freedom | implement an independent-Hermitian 64D covariance schema and include gauge uncertainty |
 | C15 | A diagonal self-energy table is insufficient to validate a finite-temperature Kane Hamiltonian | established information-content statement | dimensional/information argument | application examples useful but not required for principle |
 | C16 | Near inversion, composition uncertainty must be propagated as uncertainty in the explanatory variable | established statistical necessity; HgCdTe consequence quantified here | exact sensitivity $dT_c/dx=-(\partial_xE_g)/(\partial_TE_g)$ and primary papers showing percent-level composition revisions | source-specific composition-error distributions |
 | C17 | A resolved finite-$T$ turnover in $E_g(T)$ requires competing signed thermal channels and cannot be represented by Hansen, Laurenti, or one fixed-sign oscillator | mathematical limitation established; HgCdTe occurrence uncertain | monotonicity proof; Krishnamurthy Table II contains a shallow 1–20 K decrease followed by an increase | high-precision low-temperature experiment and modern calculation establishing whether the approximately 1 meV feature is physical |
+| C18 | Construct the complete ten-dimensional zincblende quadratic invariant space and extract CdTe coefficients | established prior art | Weiler/Trebin classes; DFT2kp publishes a complete ten-coefficient CdTe Hamiltonian | convention mapping only; not a novelty target |
+| C19 | Show that the conventional tied four-dimensional quadratic Kane/Luttinger model fails for CdTe | candidate comparative diagnostic, not a new Hamiltonian | selected-band polar reconstruction gives approximately 28.7% training and 33.2% [110] error; independently published DFT2kp coefficients also strongly reject the tied subspace | complete gauge audit, numerical convergence, and a held-out physical observable |
+| C20 | Five established quadratic departure directions suffice while $N_2$ is negligible | current smoke result; not universal | selected-band polar reconstruction reduces the worst residual to approximately 0.201% with $G,G',\delta\gamma_1,\delta\gamma_2,\delta\gamma_3$; DFT2kp gives the same qualitative hierarchy | reproduce after implementation correction, gauge mapping, and independent numerical setup |
+| C21 | The all-state overlap reconstruction is a valid downfolded eight-band Hamiltonian | falsified | in the complete-state limit the formula converges to $P_\Gamma H(\mathbf k)P_\Gamma$; archived matrices miss selected eigenvalues by 0.55–1.03 meV at $|k|=0.01\ \AA^{-1}$ with $k^2$ scaling | replace with selected-band polar/ispectral reconstruction and add a two-level falsification test |
+| C22 | Individual finite-k quadratic coefficients are unique material observables | uncertain and generally gauge-dependent | selected-band polar transport defines one auditable gauge, while smooth $k$-dependent unitaries preserve energies but can change matrix coefficients | quantify allowed gauge variation and prioritize gauge-invariant observables/subspace distances |
 
 ## Hansen empirical baseline: primary-paper audit
 
@@ -125,6 +130,32 @@ Teppe et al. 2016 provide a near-inversion constraint based on far-infrared magn
 At the nominal point, Hansen predicts $+9.21$ meV and $T_c\approx52$ K, whereas Laurenti predicts $-0.0478$ meV and $T_c=77.124$ K. The Laurenti agreement verifies the transcription because Teppe used Laurenti; it is not independent validation of Laurenti’s physical accuracy.
 
 The higher-Cd Teppe sample is also labeled both $x=0.17$ and $x=0.175$. That difference shifts either historical equation by roughly 9 meV, demonstrating that composition provenance can dominate low-gap model rankings.
+
+## Static k.p prior-art and method correction
+
+The controlling static audit is recorded in:
+
+```text
+research/decision_records/2026-07-18-static-kane-method-audit.md
+```
+
+Nearest prior methods:
+
+- DFT2kp, Cassiano et al., arXiv:2306.08554 / SciPost Physics Codebases 25 (2024);
+- Jocić and Vukmirović (2020), symmetry-adapted ab-initio k.p construction;
+- VASP2KP (2023), automatic symmetry and k.p extraction.
+
+The audit establishes:
+
+1. the complete linear space is four-dimensional, not the repository's former two-dimensional two-$P$ space;
+2. the complete quadratic space is ten-dimensional and established prior art;
+3. the all-state reconstruction converges to the bare $P_\Gamma H(\mathbf k)P_\Gamma$ block rather than an isospectral effective Hamiltonian;
+4. the selected-eight polar construction preserves the target DFT bands exactly;
+5. the corrected tied-quadratic failure is approximately 30–33%;
+6. five established departure directions suffice at smoke level, while $N_2$ is negligible;
+7. individual matrix coefficients require an explicit gauge definition and sensitivity audit.
+
+The former approximately 49% residual, large $N_2$, all-six-required conclusion, and proposed 120-band run are superseded.
 
 ## Search clusters
 
