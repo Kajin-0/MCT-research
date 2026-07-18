@@ -1,0 +1,74 @@
+name: two-parameter-hansen-pade
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/two-parameter-hansen-pade.yml'
+      - 'tools/analyze_two_parameter_hansen_pade.py'
+      - 'tests/test_two_parameter_hansen_pade.py'
+      - 'tools/screen_provisional_hansen_pade_historical.py'
+      - 'tests/test_provisional_hansen_pade_historical.py'
+      - 'src/mct_research/gap_models.py'
+      - 'src/mct_research/__init__.py'
+      - 'tests/test_gap_models.py'
+      - 'tools/analyze_hansen_pade_crossover.py'
+      - 'data/experimental/seiler1990_figure7_digitized.csv'
+      - 'data/experimental/seiler1990_table2_low_temperature_magneto_optical.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute two-parameter Hansen-Pade benchmark
+        run: |
+          mkdir -p two-parameter-hansen-pade-evidence
+          python -m tools.analyze_two_parameter_hansen_pade \
+            --figure7-csv data/experimental/seiler1990_figure7_digitized.csv \
+            --low-temperature-csv data/experimental/seiler1990_table2_low_temperature_magneto_optical.csv \
+            --output-json two-parameter-hansen-pade-evidence/result.json \
+            > two-parameter-hansen-pade-evidence/stdout.txt \
+            2> two-parameter-hansen-pade-evidence/stderr.txt
+          python -m tools.screen_provisional_hansen_pade_historical \
+            --input-csv data/experimental/seiler1990_table2_low_temperature_magneto_optical.csv \
+            --output-json two-parameter-hansen-pade-evidence/historical-screen.json \
+            > two-parameter-hansen-pade-evidence/historical-screen.stdout.txt \
+            2> two-parameter-hansen-pade-evidence/historical-screen.stderr.txt
+          python -m pytest -q \
+            tests/test_two_parameter_hansen_pade.py \
+            tests/test_provisional_hansen_pade_historical.py \
+            tests/test_gap_models.py \
+            > two-parameter-hansen-pade-evidence/pytest.txt \
+            2> two-parameter-hansen-pade-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > two-parameter-hansen-pade-evidence/python-version.txt
+          find two-parameter-hansen-pade-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > two-parameter-hansen-pade-evidence/sha256.txt
+
+      - name: Upload benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: two-parameter-hansen-pade-evidence
+          path: two-parameter-hansen-pade-evidence
+          if-no-files-found: error
+          retention-days: 30

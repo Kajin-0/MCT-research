@@ -46,11 +46,14 @@ from .dataio import (
     save_matrix_dataset,
 )
 from .gap_models import (
+    HANSEN_PADE_ALPHA_EV_PER_K,
+    HANSEN_PADE_TAU_K,
     bracketed_root,
     critical_composition,
     critical_temperature_k,
     hansen_gap_ev,
     laurenti_gap_ev,
+    provisional_hansen_pade_gap_ev,
 )
 from .gauge import (
     AlignmentDiagnostics,
@@ -112,6 +115,8 @@ __all__ = [
     "ExtendedKaneParameters",
     "GapBenchmarkData",
     "GaugeAlignmentError",
+    "HANSEN_PADE_ALPHA_EV_PER_K",
+    "HANSEN_PADE_TAU_K",
     "HoldoutFold",
     "KANE_IRREP_BLOCKS",
     "KaneParameters",
@@ -166,6 +171,7 @@ __all__ = [
     "process_record",
     "project_covariance",
     "procrustes_unitary",
+    "provisional_hansen_pade_gap_ev",
     "real_linear_map",
     "residual_metrics",
     "rotate_covariance",

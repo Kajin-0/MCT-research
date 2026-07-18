@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "status": "two_parameter_hansen_pade_leading_provisional_model",
+  "source_evidence": {
+    "workflow_run": 29652606029,
+    "artifact_id": 8431908170,
+    "artifact_digest": "sha256:99dbf84f4f532f9e2fea5d7d4e19bc34a45e10e6be58f158213cfdfbc43eb82a",
+    "validated_head": "db68c689e4e0634e88e652f208a477978a31b03e"
+  },
+  "equation": "Eg_eV(x,T)=-0.302+1.93*x-0.81*x^2+0.832*x^3+alpha*(1-2*x)*T^3/(T^2+tau^2)",
+  "default_coefficients": {
+    "alpha_ev_per_k": 0.0005918273117836612,
+    "alpha_mev_per_k": 0.5918273117836612,
+    "tau_k": 18.059294367159467
+  },
+  "fold_stability": {
+    "alpha_mev_per_k": [0.5864792234595961, 0.5982723108346639, 0.594599589048067],
+    "alpha_mean_mev_per_k": 0.593117041114109,
+    "alpha_sample_standard_deviation_mev_per_k": 0.006034636544901306,
+    "alpha_max_to_min_ratio": 1.0201082781850332,
+    "tau_k": [22.895897979461626, 17.57261730694585, 14.659108791665053],
+    "tau_mean_k": 18.375874692690843,
+    "tau_sample_standard_deviation_k": 4.147576746186902,
+    "tau_max_to_min_ratio": 1.561888809535262
+  },
+  "pooled_heldout_shape_rmse_mev": {
+    "hansen_linear": 1.8238791405944592,
+    "published_seiler": 1.0611342503655434,
+    "trained_seiler": 0.7862170252431177,
+    "provisional_hansen_pade": 0.8125768057804023
+  },
+  "independent_sample3_absolute_rmse_mev": {
+    "hansen_linear": 1.84639552041886,
+    "published_seiler": 1.4038275966966325,
+    "provisional_hansen_pade": 1.0397625706319893
+  },
+  "independent_low_temperature_samples_3_to_5_rmse_mev": {
+    "hansen_linear": 3.8866718078537885,
+    "published_seiler": 4.914290415706682,
+    "laurenti": 11.750306290301417,
+    "provisional_hansen_pade": 4.176161297214716
+  },
+  "historical_table2_all_rows": {
+    "count": 18,
+    "hansen_rmse_mev": 6.501751601579949,
+    "hansen_mae_mev": 4.723255477333335,
+    "published_seiler_rmse_mev": 7.439961982281788,
+    "laurenti_rmse_mev": 6.981839345366698,
+    "provisional_hansen_pade_rmse_mev": 6.599688542657205,
+    "provisional_hansen_pade_mae_mev": 4.411611340659113
+  },
+  "promotion_checks": {
+    "shape_rmse_within_10_percent_of_trained_seiler": true,
+    "shape_rmse_beats_published_seiler": true,
+    "alpha_stable_within_5_percent": true,
+    "tau_stable_within_factor_two": true,
+    "absolute_sample3_beats_hansen": true,
+    "absolute_sample3_beats_published_seiler": true,
+    "low_temperature_nominal_rmse_not_worse_than_hansen_by_more_than_0p5mev": true,
+    "historical_all_rows_screen_passed": true
+  },
+  "prior_art_boundary": {
+    "new_functional_family": false,
+    "reason": "The candidate is the A=0 zero-anchored constrained member of the Seiler 1990 rational family (A+T^3)/(B+T^2), with an independently fitted prefactor alpha and B=tau^2.",
+    "potential_contribution": "A more stable, zero-anchored two-coefficient reparameterization with specimen-level transfer evidence and explicit composition-uncertainty limits.",
+    "primary_prior_art_doi": "10.1116/1.576952",
+    "general_bandgap_temperature_model_dois": [
+      "10.1016/0031-8914(67)90062-6",
+      "10.1002/pssb.200301752"
+    ]
+  },
+  "decision": {
+    "leading_analytical_candidate": true,
+    "implemented_as_provisional_library_model": true,
+    "production_equation_authorized": false,
+    "static_zero_temperature_composition_law_is_next_controlling_problem": true,
+    "reason": "The thermal form transfers nearly as well as the trained Seiler family and improves the independently composed temperature series, but the broader low-temperature table remains limited by the inherited Hansen zero-temperature composition polynomial."
+  },
+  "claim_boundary": "The model is fitted primarily from three Seiler temperature-series specimens. Specimen offsets are profiled for shape validation, only sample 3 supplies an independently composed absolute series, and most legacy Table 2 compositions are not audited. Alpha and tau are effective coefficients, and no novelty or universal-production claim is supported."
+}
