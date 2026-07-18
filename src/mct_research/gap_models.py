@@ -1,4 +1,4 @@
-"""Analytical HgCdTe band-gap baselines.
+"""Analytical HgCdTe band-gap baselines and provisional candidates.
 
 The functions in this module return the signed zone-centre gap in electron volts,
 with ``x`` denoting Cd mole fraction in Hg(1-x)Cd(x)Te and ``temperature_k`` in
@@ -8,6 +8,12 @@ The Laurenti expression is a high-confidence reconstruction of the equation
 reproduced by Teppe et al. (2016). Its original data, fitting procedure, validity
 range, and coefficient uncertainties have not yet been reconstructed from the
 1990 primary paper.
+
+The Hansen-Pade function is explicitly provisional. Its two thermal coefficients
+were selected by specimen-level cross-validation of the Seiler 1990 temperature
+series and have not yet received broad historical or independent-source
+validation. Structurally it is a zero-anchored constrained member of the Seiler
+rational family, not a new functional family.
 """
 
 from __future__ import annotations
@@ -18,6 +24,11 @@ import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
 GapValue = float | NDArray[np.float64]
+
+# Provisional all-specimen shape fit from PR #110.  These values are effective
+# empirical coefficients, not identified microscopic phonon parameters.
+HANSEN_PADE_ALPHA_EV_PER_K = 5.918273117836612e-4
+HANSEN_PADE_TAU_K = 18.059294367159467
 
 
 def _validated_inputs(
@@ -41,18 +52,62 @@ def _scalar_or_array(value: NDArray[np.float64]) -> GapValue:
     return float(value) if value.ndim == 0 else value
 
 
+def _hansen_zero_temperature_gap(composition: NDArray[np.float64]) -> NDArray[np.float64]:
+    return np.asarray(
+        -0.302
+        + 1.930 * composition
+        - 0.810 * composition**2
+        + 0.832 * composition**3,
+        dtype=float,
+    )
+
+
 def hansen_gap_ev(x: ArrayLike, temperature_k: ArrayLike) -> GapValue:
     """Return the Hansen-Schmit-Casselman signed gap in eV."""
 
     composition, temperature = _validated_inputs(x, temperature_k)
-    gap = (
-        -0.302
-        + 1.930 * composition
-        - 0.810 * composition**2
-        + 0.832 * composition**3
-        + 5.35e-4 * temperature * (1.0 - 2.0 * composition)
+    gap = _hansen_zero_temperature_gap(composition) + 5.35e-4 * temperature * (
+        1.0 - 2.0 * composition
     )
     return _scalar_or_array(gap)
+
+
+def provisional_hansen_pade_gap_ev(
+    x: ArrayLike,
+    temperature_k: ArrayLike,
+    *,
+    alpha_ev_per_k: float = HANSEN_PADE_ALPHA_EV_PER_K,
+    tau_k: float = HANSEN_PADE_TAU_K,
+) -> GapValue:
+    """Return the provisional zero-anchored Hansen-Pade signed gap in eV.
+
+    The analytical form is
+
+    ``Eg = Eg_Hansen(x,0) + alpha*(1-2*x)*T^3/(T^2+tau^2)``.
+
+    The default fit gives ``alpha=5.918273117836612e-4 eV/K`` and
+    ``tau=18.059294367159467 K``.  It was selected from three Seiler 1990
+    temperature-series specimens using specimen-level holdouts.  Only one of
+    those series has an independently reported composition, so this function is
+    a leading research candidate rather than a production reference equation.
+
+    At low temperature the thermal increment is cubic and has zero initial
+    slope. At high temperature its slope approaches
+    ``alpha*(1-2*x)``. ``alpha`` and ``tau`` are effective fit coefficients.
+    """
+
+    composition, temperature = _validated_inputs(x, temperature_k)
+    alpha = float(alpha_ev_per_k)
+    tau = float(tau_k)
+    if not np.isfinite(alpha) or alpha <= 0.0:
+        raise ValueError("alpha_ev_per_k must be finite and positive")
+    if not np.isfinite(tau) or tau <= 0.0:
+        raise ValueError("tau_k must be finite and positive")
+
+    thermal = alpha * (1.0 - 2.0 * composition) * temperature**3 / (
+        temperature**2 + tau**2
+    )
+    return _scalar_or_array(_hansen_zero_temperature_gap(composition) + thermal)
 
 
 def laurenti_gap_ev(x: ArrayLike, temperature_k: ArrayLike) -> GapValue:
