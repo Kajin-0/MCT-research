@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "stage": "zg_selected_band_matrix_reconstruction_oracle",
+  "purpose": "Test whether distorted-supercell SOC eigenpairs can be unfolded into a primitive-cell finite-temperature eight-band matrix in the fixed Gamma reference gauge, with displacement pairing, configurational averaging, symmetry restoration and held-out directional validation.",
+  "method_anchor": {
+    "route": "special displacement method followed by ordinary SOC electronic-structure calculations",
+    "primary_reference": "M. Zacharias and F. Giustino, Phys. Rev. Research 2, 013357 (2020)",
+    "zg_capabilities": [
+      "temperature-dependent special displacement configurations",
+      "multiple configurations per temperature",
+      "single-phonon displacement generation",
+      "ordinary downstream electronic-structure calculations including SOC"
+    ],
+    "known_boundary": "ZG does not by itself supply the primitive eight-band matrix, degenerate gauge restoration, finite-size polar correction or complete mode-resolved analytical reduction."
+  },
+  "synthetic_model": {
+    "material_status": "synthetic method oracle not CdTe or HgCdTe data",
+    "primitive_dimension": 8,
+    "supercell_dimension": 16,
+    "random_seed": 2026071807,
+    "temperatures_k": [0.0, 100.0, 300.0],
+    "base_extended_kane_parameters": {
+      "ev": 0.0,
+      "eg": 0.32,
+      "delta": 0.92,
+      "p8": 7.05,
+      "p7": 6.35,
+      "f": -0.12,
+      "gamma1": 4.6,
+      "gamma2": 1.25,
+      "gamma3": 1.72
+    },
+    "thermal_scales": [
+      {
+        "theta_k": 75.0,
+        "shifts": {
+          "eg": 0.0040,
+          "delta": -0.0010,
+          "p8": 0.030,
+          "p7": 0.010,
+          "gamma1": 0.020
+        }
+      },
+      {
+        "theta_k": 235.0,
+        "shifts": {
+          "eg": -0.0180,
+          "delta": 0.0025,
+          "p8": -0.055,
+          "p7": 0.020,
+          "gamma2": -0.015,
+          "gamma3": 0.025
+        }
+      }
+    ],
+    "k_points_inverse_angstrom": {
+      "Gamma": [0.0, 0.0, 0.0],
+      "+001": [0.0, 0.0, 0.005],
+      "-001": [0.0, 0.0, -0.005],
+      "+111": [0.002886751345948129, 0.002886751345948129, 0.002886751345948129],
+      "-111": [-0.002886751345948129, -0.002886751345948129, -0.002886751345948129],
+      "+110": [0.003535533905932738, 0.003535533905932738, 0.0],
+      "-110": [-0.003535533905932738, -0.003535533905932738, 0.0]
+    },
+    "training_labels": ["Gamma", "+001", "-001", "+111", "-111"],
+    "holdout_labels": ["+110", "-110"],
+    "time_reversal_pairs": [["+001", "-001"], ["+111", "-111"], ["+110", "-110"]],
+    "configuration_pair_count": 3,
+    "odd_displacement_artifact_scale_ev": 0.006,
+    "zero_mean_configuration_artifact_scale_ev": 0.003,
+    "finite_supercell_symmetry_artifact_scale_ev": 0.002,
+    "selected_state_leakage_sine_range": [0.08, 0.28],
+    "remote_energy_range_ev": [2.0, 4.0],
+    "degeneracy_tolerance_ev": 1e-9
+  },
+  "thresholds": {
+    "minimum_selected_overlap_singular_value": 0.95,
+    "maximum_per_configuration_reconstruction_relative_error": 1e-12,
+    "minimum_unpaired_configuration_relative_error": 1e-3,
+    "maximum_paired_configuration_relative_error": 5e-2,
+    "minimum_pre_restoration_symmetry_residual": 1e-4,
+    "maximum_post_restoration_symmetry_residual": 1e-12,
+    "maximum_final_matrix_relative_error": 1e-12,
+    "maximum_extended_parameter_absolute_error": 1e-10,
+    "maximum_training_fit_relative_residual": 1e-12,
+    "maximum_holdout_matrix_relative_error": 1e-12,
+    "minimum_naive_eigenvalue_only_matrix_relative_error": 1e-3
+  },
+  "required_operations": [
+    "select_supercell_states_by_primitive_reference_weight",
+    "polar_align_selected_eigenspace_to_fixed_primitive_reference",
+    "retain_invariant_result_under_eigenvector_phases_and_degenerate_rotations",
+    "pair_positive_and_negative_special_displacements",
+    "average_multiple_configuration_pairs",
+    "restore_Gamma_irrep_covariance",
+    "restore_time_reversal_between_plus_and_minus_k",
+    "fit_extended_Kane_parameters_on_Gamma_001_111",
+    "validate_unused_110_direction",
+    "reject_eigenvalue_only_matrix_reconstruction"
+  ],
+  "decision_policy": {
+    "matrix_reconstruction_design_ready_requires_all_gates": true,
+    "real_ZG_execution_requires_supercell_finite_size_and_polar_correction_design": true,
+    "real_ZG_execution_requires_primitive_supercell_overlap_export": true,
+    "real_ZG_execution_requires_configuration_count_stop_rule": true,
+    "automatic_calculation": false
+  },
+  "authorization": {
+    "run_synthetic_oracle": true,
+    "write_real_ZG_export_contract": true,
+    "execute_ZG": false,
+    "execute_supercell_DFT": false,
+    "execute_A1": false,
+    "production_AHC": false,
+    "HgTe": false,
+    "alloy": false
+  },
+  "claim_boundary": "A passing oracle validates reconstruction and averaging for known synthetic truth. It does not establish that a practical supercell is large enough, that polar finite-size corrections are controlled, that a real ZG configuration samples the required ensemble, or that a real CdTe/HgCdTe matrix is accurate."
+}
