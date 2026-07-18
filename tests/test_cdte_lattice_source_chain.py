@@ -58,7 +58,7 @@ def test_run_spec_records_bounded_primary_source_chain_and_exclusion():
     assert source["execution_uncertainty"]["volume_sensitivity_gate_passed"] is True
 
 
-def test_bounded_source_chain_passes_provenance_but_runtime_still_blocks():
+def test_bounded_source_chain_and_runtime_are_ready_for_first_a0_point():
     specification = json.loads(
         (ROOT / "first_principles/a0/cdte_a0_run_spec.json").read_text(
             encoding="utf-8"
@@ -72,15 +72,9 @@ def test_bounded_source_chain_passes_provenance_but_runtime_still_blocks():
     )
     report = evaluate_readiness(specification, selection)
 
-    assert not report["ready_for_execution"]
+    assert report["ready_for_execution"] is True
+    assert report["blocking_checks"] == []
     assert "execution_lattice_constant_provenance" not in report["blocking_checks"]
-    assert {
-        "quantum_espresso_installed_binary_recorded",
-        "quantum_espresso_release_syntax_checked",
-        "abinit_installed_binary_recorded",
-        "abinit_release_syntax_checked",
-        "runtime_pseudopotential_hashes_verified",
-        "render_manifests_recorded",
-    }.issubset(report["blocking_checks"])
     assert specification["structure"]["execution_lattice_constant_angstrom"] > 0
-    assert not specification["readiness_claim"]["ready_for_execution"]
+    assert specification["readiness_claim"]["ready_for_execution"] is True
+    assert specification["readiness_claim"]["a1_or_production_authorized"] is False
