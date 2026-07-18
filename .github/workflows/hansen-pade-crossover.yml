@@ -1,0 +1,57 @@
+name: hansen-pade-crossover
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hansen-pade-crossover.yml'
+      - 'tools/analyze_hansen_pade_crossover.py'
+      - 'tests/test_hansen_pade_crossover.py'
+      - 'data/experimental/seiler1990_figure7_digitized.csv'
+      - 'tools/analyze_seiler1990_heldout_shape.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute Hansen-Pade crossover benchmark
+        run: |
+          mkdir -p hansen-pade-crossover-evidence
+          python tools/analyze_hansen_pade_crossover.py \
+            --input-csv data/experimental/seiler1990_figure7_digitized.csv \
+            --output-json hansen-pade-crossover-evidence/result.json \
+            > hansen-pade-crossover-evidence/stdout.txt
+          python -m pytest -q tests/test_hansen_pade_crossover.py \
+            > hansen-pade-crossover-evidence/pytest.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > hansen-pade-crossover-evidence/python-version.txt
+          find hansen-pade-crossover-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > hansen-pade-crossover-evidence/sha256.txt
+
+      - name: Upload benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hansen-pade-crossover-evidence
+          path: hansen-pade-crossover-evidence
+          if-no-files-found: error
+          retention-days: 30
