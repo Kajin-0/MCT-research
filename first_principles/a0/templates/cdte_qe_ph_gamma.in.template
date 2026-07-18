@@ -1,0 +1,12 @@
+CdTe A0 Gamma-point phonon and dielectric sanity input
+&INPUTPH
+  prefix = '@PREFIX@'
+  outdir = '@OUTDIR@'
+  fildyn = '@FILDYN@'
+  tr2_ph = @PH_TR2@
+  niter_ph = @NITER_PH@
+  trans = .true.
+  epsil = .true.
+  ldisp = .false.
+/
+0.0 0.0 0.0
