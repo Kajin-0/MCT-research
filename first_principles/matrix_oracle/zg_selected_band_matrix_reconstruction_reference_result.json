@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "status": "zg_selected_band_matrix_reconstruction_reference_result",
+  "source_evidence": {
+    "workflow_run": 29651328986,
+    "artifact_id": 8431551243,
+    "artifact_digest": "sha256:df61798f1cf4eac0ed08d1fcfb9fa23a38230dd3015519b10ee60a8e13253f49",
+    "validated_head": "bfa22593633451382a25d10534e0b4c6ab7f037b"
+  },
+  "metrics": {
+    "minimum_selected_overlap_singular_value": 0.9600132262650526,
+    "maximum_per_configuration_reconstruction_relative_error": 7.227854990069555e-15,
+    "minimum_unpaired_configuration_relative_error": 0.0053536868793178545,
+    "maximum_paired_configuration_relative_error": 0.0030032387280498484,
+    "minimum_pre_restoration_symmetry_residual": 0.0028990640885725367,
+    "maximum_post_restoration_symmetry_residual": 0.0,
+    "maximum_final_matrix_relative_error": 7.182483709310235e-16,
+    "maximum_extended_parameter_absolute_error": 1.0717648990521411e-11,
+    "maximum_training_fit_relative_residual": 1.7437775737076403e-15,
+    "maximum_holdout_matrix_relative_error": 1.913039508576525e-15,
+    "minimum_naive_eigenvalue_only_matrix_relative_error": 1.8000503289448997
+  },
+  "checks": {
+    "selected_subspace_is_well_conditioned": true,
+    "polar_reconstruction_recovers_each_configuration": true,
+    "unpaired_special_displacement_is_rejected": true,
+    "paired_configuration_is_bounded": true,
+    "finite_supercell_symmetry_breaking_is_detected": true,
+    "symmetry_restoration_closes": true,
+    "final_primitive_matrix_is_recovered": true,
+    "extended_parameters_are_recovered": true,
+    "training_matrix_fit_closes": true,
+    "unused_110_direction_is_predicted": true,
+    "eigenvalue_only_reconstruction_is_rejected": true
+  },
+  "decision": {
+    "selected_band_supercell_reconstruction_ready": true,
+    "displacement_pairing_required": true,
+    "multiple_configuration_averaging_required": true,
+    "Gamma_and_time_reversal_restoration_required": true,
+    "eigenvalue_only_ZG_analysis_forbidden": true,
+    "real_ZG_export_contract_design_authorized": true,
+    "real_ZG_execution_authorized": false,
+    "finite_size_polar_correction_ready": false,
+    "configuration_count_stop_rule_ready": false,
+    "automatic_additional_compute_authorized": false,
+    "next_required_design": "Define the real primitive/supercell overlap export, supercell-size and configuration-count convergence gates, and a polar finite-size correction before any ZG supercell calculation is authorized."
+  },
+  "claim_boundary": "This result validates reconstruction and averaging for known synthetic truth. It does not establish that a practical supercell is large enough, that polar finite-size corrections are controlled, that a real ZG configuration samples the required ensemble, or that a real CdTe/HgCdTe matrix is accurate."
+}
