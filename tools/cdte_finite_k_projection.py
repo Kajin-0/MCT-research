@@ -22,6 +22,11 @@ from mct_research.kane8 import (  # noqa: E402
 )
 
 LABEL_ORDER = ("Gamma6", "Gamma8", "Gamma7")
+SELECTED_BAND_POLAR = "selected_band_polar"
+ALL_STATE_BARE_PROJECTION = "all_state_bare_projection"
+RECONSTRUCTION_MODES = (SELECTED_BAND_POLAR, ALL_STATE_BARE_PROJECTION)
+SELECTED_BAND_SLICE = slice(30, 38)
+SELECTED_BANDS_ONE_BASED = list(range(31, 39))
 PARAMETER_GROUPS = {
     "zone_center": ("ev", "eg", "delta"),
     "linear_one_p": ("p",),
@@ -95,7 +100,7 @@ def _validate_kpoint_contract(
 
 def _canonical_columns(result: dict[str, Any]) -> np.ndarray:
     selected = result["selected_global_bands_one_based"]
-    if selected != list(range(31, 39)):
+    if selected != SELECTED_BANDS_ONE_BASED:
         raise ValueError("expected contiguous selected bands 31--38")
     by_probe = sorted(
         result["irreps"].items(), key=lambda item: item[1]["probe_block_index"]
@@ -151,11 +156,46 @@ def _all_eigenvalues(
     return values_by_k
 
 
+def _reconstruction_payload(
+    full_overlap: np.ndarray,
+    all_energies: np.ndarray,
+    mode: str,
+) -> tuple[np.ndarray, np.ndarray, int, str]:
+    if mode == SELECTED_BAND_POLAR:
+        overlap = full_overlap[:, SELECTED_BAND_SLICE]
+        energies = all_energies[SELECTED_BAND_SLICE]
+        interpretation = (
+            "isospectral selected-band polar transport in the fixed Gamma basis; "
+            "remote-band physics is retained through the selected eigenpairs"
+        )
+        return overlap, energies, 8, interpretation
+    if mode == ALL_STATE_BARE_PROJECTION:
+        interpretation = (
+            "diagnostic-only finite-state approximation to P_Gamma H(k) P_Gamma; "
+            "this is not an isospectral low-energy effective Hamiltonian"
+        )
+        return full_overlap, all_energies, int(all_energies.size), interpretation
+    raise ValueError(
+        f"unknown reconstruction mode {mode!r}; expected one of {RECONSTRUCTION_MODES}"
+    )
+
+
 def reconstruct_canonical_matrices(
     mmn_path: str | Path,
     eigenvalue_payload: dict[str, Any],
     basis_result: dict[str, Any],
-) -> tuple[list[np.ndarray], list[dict[str, float]]]:
+    *,
+    mode: str = SELECTED_BAND_POLAR,
+) -> tuple[list[np.ndarray], list[dict[str, Any]]]:
+    """Reconstruct finite-k matrices in the exact canonical Gamma basis.
+
+    ``selected_band_polar`` is the scientific mode. It polar-aligns only bands
+    31--38 and is exactly isospectral to those selected DFT eigenvalues.
+
+    ``all_state_bare_projection`` is retained solely as a diagnostic. In the
+    complete-state limit it approaches ``P_Gamma H(k) P_Gamma`` and therefore
+    must not be interpreted as a downfolded eight-band Hamiltonian.
+    """
     nbnd, nk, nntot, blocks = read_mmn(mmn_path)
     if (nbnd, nk, nntot) != (40, 13, 1):
         raise ValueError("expected the committed 40-band, 13-point Gamma star")
@@ -174,31 +214,41 @@ def reconstruct_canonical_matrices(
     energies = _all_eigenvalues(eigenvalue_payload, expected_bands=nbnd)
     canonical = _canonical_columns(basis_result)
     matrices = []
-    diagnostics = []
+    diagnostics: list[dict[str, Any]] = []
     for source in range(1, 14):
         # Wannier90 stores M(source,Gamma). The fixed-reference overlap is
-        # S=M^dagger, restricted on the eight Gamma reference rows while
-        # retaining all 40 finite-k eigenstates. Keeping all columns preserves
-        # remote-band contributions to the projected effective Hamiltonian.
-        overlap = by_source[source].conj().T[30:38, :]
+        # S=M^dagger restricted to the eight Gamma reference rows.
+        full_overlap = by_source[source].conj().T[SELECTED_BAND_SLICE, :]
+        overlap, target_energies, state_count, interpretation = _reconstruction_payload(
+            full_overlap, energies[source - 1], mode
+        )
         fixed, singular_values = reconstruct_fixed_basis(
-            overlap, np.diag(energies[source - 1])
+            overlap, np.diag(target_energies)
         )
         matrix = canonical.conj().T @ fixed @ canonical
         matrix = 0.5 * (matrix + matrix.conj().T)
         matrices.append(matrix)
-        selected = np.sort(energies[source - 1][30:38])
+        selected = np.sort(energies[source - 1][SELECTED_BAND_SLICE])
+        reconstructed = np.linalg.eigvalsh(matrix)
+        difference = reconstructed - selected
         diagnostics.append(
             {
+                "reconstruction_mode": mode,
+                "reconstruction_interpretation": interpretation,
                 "minimum_overlap_singular_value": float(np.min(singular_values)),
                 "maximum_overlap_singular_value": float(np.max(singular_values)),
                 "hermiticity_residual": float(
                     np.linalg.norm(matrix - matrix.conj().T)
                 ),
                 "projected_vs_selected_eigenvalue_residual_ev": float(
-                    np.linalg.norm(np.linalg.eigvalsh(matrix) - selected)
+                    np.linalg.norm(difference)
                 ),
-                "finite_state_count_used": int(nbnd),
+                "maximum_selected_eigenvalue_absolute_error_ev": float(
+                    np.max(np.abs(difference))
+                ),
+                "finite_state_count_used": state_count,
+                "available_state_count": int(nbnd),
+                "selected_bands_one_based": SELECTED_BANDS_ONE_BASED,
             }
         )
     return matrices, diagnostics
