@@ -76,7 +76,6 @@ clone_exact "https://github.com/abinit/abinit.git" "$ABINIT_COMMIT" "$WORK/src/a
 clone_exact "https://github.com/PseudoDojo/ONCVPSP-PBE-FR-PDv0.4.git" "$PSEUDO_COMMIT" "$WORK/src/pseudo"
 
 git -C "$WORK/src/qe" submodule update --init --recursive
-git -C "$WORK/src/abinit" submodule update --init --recursive || true
 
 cat > "$EVIDENCE/runtime/source_identity.json" <<EOF
 {
@@ -130,6 +129,17 @@ PW="$WORK/src/qe/bin/pw.x"
 PH="$WORK/src/qe/bin/ph.x"
 test -x "$PW"
 test -x "$PH"
+
+stage="abinit_prepare_generated_sources"
+(
+  cd "$WORK/src/abinit"
+  python3 config/scripts/make-cppopts-dumper \
+    > "$EVIDENCE/build/abinit.make-cppopts-dumper.out" \
+    2> "$EVIDENCE/build/abinit.make-cppopts-dumper.err"
+)
+test -s "$WORK/src/abinit/shared/common/src/14_hidewrite/m_cppopts_dumper.F90"
+sha256sum "$WORK/src/abinit/shared/common/src/14_hidewrite/m_cppopts_dumper.F90" \
+  > "$EVIDENCE/build/abinit.generated-source.sha256.txt"
 
 stage="abinit_configure"
 mkdir -p "$WORK/build/abinit"
