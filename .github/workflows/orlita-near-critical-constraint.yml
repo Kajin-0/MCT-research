@@ -1,0 +1,53 @@
+name: orlita-near-critical-constraint
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/orlita-near-critical-constraint.yml'
+      - 'tools/analyze_orlita2014_near_critical_constraint.py'
+      - 'tests/test_orlita2014_near_critical_constraint.py'
+      - 'data/experimental/orlita2014_primary_near_critical_constraint.csv'
+      - 'src/mct_research/gap_models.py'
+      - 'src/mct_research/historical_gap_models.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+      - name: Execute Orlita constraint audit
+        run: |
+          mkdir -p orlita-near-critical-evidence
+          python -m tools.analyze_orlita2014_near_critical_constraint \
+            --input-csv data/experimental/orlita2014_primary_near_critical_constraint.csv \
+            --output-json orlita-near-critical-evidence/result.json \
+            > orlita-near-critical-evidence/stdout.txt \
+            2> orlita-near-critical-evidence/stderr.txt
+          python -m pytest -q tests/test_orlita2014_near_critical_constraint.py \
+            > orlita-near-critical-evidence/pytest.txt \
+            2> orlita-near-critical-evidence/pytest-stderr.txt
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > orlita-near-critical-evidence/python-version.txt
+          find orlita-near-critical-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > orlita-near-critical-evidence/sha256.txt
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: orlita-near-critical-evidence
+          path: orlita-near-critical-evidence
+          if-no-files-found: error
+          retention-days: 30
