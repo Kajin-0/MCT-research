@@ -1,0 +1,59 @@
+name: primary-gap-source-recovery
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/primary-gap-source-recovery.yml'
+      - 'data/evidence/hgcdte_primary_gap_source_recovery.csv'
+      - 'tools/audit_primary_gap_source_recovery.py'
+      - 'tests/test_primary_gap_source_recovery.py'
+      - 'research/active_progress.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute source recovery audit
+        run: |
+          mkdir -p primary-gap-source-recovery-evidence
+          python -m tools.audit_primary_gap_source_recovery \
+            --input-csv data/evidence/hgcdte_primary_gap_source_recovery.csv \
+            --output-json primary-gap-source-recovery-evidence/result.json \
+            > primary-gap-source-recovery-evidence/stdout.txt \
+            2> primary-gap-source-recovery-evidence/stderr.txt
+          python -m pytest -q tests/test_primary_gap_source_recovery.py \
+            > primary-gap-source-recovery-evidence/pytest.txt \
+            2> primary-gap-source-recovery-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > primary-gap-source-recovery-evidence/python-version.txt
+          find primary-gap-source-recovery-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > primary-gap-source-recovery-evidence/sha256.txt
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: primary-gap-source-recovery-evidence
+          path: primary-gap-source-recovery-evidence
+          if-no-files-found: error
+          retention-days: 30
