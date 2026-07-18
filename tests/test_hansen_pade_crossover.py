@@ -77,9 +77,15 @@ def test_analysis_is_deterministic_and_leakage_safe() -> None:
     assert absolute["composition_sigma_x"] == pytest.approx(0.0015)
     assert absolute["tau_k"] > 0.0
 
+    expected_metric_keys = {
+        "mean_signed_mev",
+        "mae_mev",
+        "rmse_mev",
+        "maximum_absolute_mev",
+    }
     for model, metrics in absolute["metrics"].items():
         assert model in {"hansen_linear", "published_seiler", "fixed_slope_pade"}
-        assert metrics["count"] == 9
+        assert set(metrics) == expected_metric_keys
         assert np.isfinite(metrics["rmse_mev"])
 
 
