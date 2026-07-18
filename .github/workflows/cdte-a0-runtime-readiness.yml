@@ -1,0 +1,52 @@
+name: cdte-a0-runtime-readiness
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-a0-runtime-readiness.yml'
+      - 'first_principles/a0/cdte_a0_run_spec.json'
+      - 'first_principles/a0/cdte_pseudopotential_selection.json'
+      - 'first_principles/a0/templates/**'
+      - 'tools/render_first_principles_input.py'
+      - 'tools/render_cdte_a0_runtime_inputs.py'
+      - 'tools/validate_qe_ph_input_against_source.py'
+      - 'tools/summarize_cdte_a0_runtime_readiness.py'
+      - 'tools/run_cdte_a0_runtime_readiness_ci.sh'
+      - 'tools/cdte_volume_grid.py'
+      - 'tests/test_cdte_a0_runtime_inputs.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  runtime:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential gfortran cmake ninja-build git ca-certificates \
+            python3-venv python3-pip pkg-config file time \
+            libopenblas-dev liblapack-dev libfftw3-dev \
+            libnetcdf-dev libnetcdff-dev libhdf5-dev libxc-dev libxml2-dev
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Validate pinned A0 runtimes and rendered inputs
+        run: bash tools/run_cdte_a0_runtime_readiness_ci.sh
+
+      - name: Upload runtime-readiness evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-a0-runtime-readiness-evidence
+          path: cdte-a0-runtime-readiness-evidence
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
