@@ -10,12 +10,16 @@ from typing import Any
 
 
 _ASSIGNMENT = re.compile(r"^\s*([A-Za-z][A-Za-z0-9_]*)\s*=", re.MULTILINE)
+_INPUTPH = re.compile(
+    r"&INPUTPH\b(.*?)^\s*/\s*$",
+    flags=re.IGNORECASE | re.DOTALL | re.MULTILINE,
+)
 
 
 def input_keys(rendered_input: str) -> list[str]:
-    match = re.search(r"&INPUTPH\b(.*?)/", rendered_input, flags=re.IGNORECASE | re.DOTALL)
+    match = _INPUTPH.search(rendered_input)
     if not match:
-        raise ValueError("rendered input does not contain an &INPUTPH namelist")
+        raise ValueError("rendered input does not contain a terminated &INPUTPH namelist")
     keys = sorted(set(name.casefold() for name in _ASSIGNMENT.findall(match.group(1))))
     if not keys:
         raise ValueError("&INPUTPH namelist has no assignments")
