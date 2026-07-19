@@ -65,18 +65,18 @@ def test_manuscript_numbers_are_tied_to_frozen_tables() -> None:
 
 
 def test_manuscript_preserves_claim_boundaries() -> None:
-    text = DRAFT.read_text(encoding="utf-8")
+    text = DRAFT.read_text(encoding="utf-8").lower()
     required = (
-        "No single fitted edge is selected.",
-        "does not establish a preferred universal HgCdTe gap equation",
+        "no single fitted edge is selected.",
+        "does not establish a preferred universal hgcdte gap equation",
         "do not support a universal absorption correction",
         "no corrected or production edge is selected",
         "not a universal optimal-design proof",
-        "Specimen-level composition uncertainty is unreported",
+        "specimen-level composition uncertainty is unreported",
     )
     for statement in required:
         assert statement in text
-    assert "universal replacement for Hansen is demonstrated" not in text
+    assert "universal replacement for hansen is demonstrated" not in text
     assert "production-ready edge" not in text
 
 
