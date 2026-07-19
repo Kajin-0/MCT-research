@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-19  
-**Controlling branch:** `agent/absorption-edge-uncertainty-contract`
+**Controlling branch:** `agent/regenerate-hamiltonian-statistics-64d`
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`.
 
@@ -35,32 +35,20 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
+- Measurement model, fit window, threshold, carrier state, tail treatment, and an edge-model uncertainty envelope must accompany absorption-derived gaps.
 - Historical primary fit-authority count remains zero; Seiler is conditional and the Chu-Sher table is screen-only.
 - The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target.
 
-## Absorption-edge uncertainty contract
-
-- The reusable export contract is `hgcdte_absorption_edge_uncertainty`, schema `1.0`.
-- Every absorption-derived edge must preserve composition provenance, temperature, observable definition, modality, extraction method, edge model, fit window, threshold when used, carrier state, tail treatment, source locator, and evidence class.
-- Each record requires at least one same-record sensitivity reanalysis. Stored envelopes are recomputed on load and inconsistent or tampered envelopes are rejected.
-- The sensitivity envelope reports central, minimum, maximum, asymmetric deviations, total span, and factor-specific ranges.
-- Source-reported standard uncertainty remains separate. It is not combined in quadrature with model or threshold sensitivity without an explicit probabilistic model.
-- The four-record synthetic reference uses seven alternatives per record and produces total spans of `30.5011-46.1483 meV`. This is a method-oracle stress test, not a production uncertainty assignment.
-- Cross-specimen scatter or unrelated literature formulas do not qualify as same-record observation-model sensitivity.
-
 ## Authorized next work
 
-1. Continue primary point-data recovery and archive calibrated source figures before digitization.
-2. Apply the absorption contract to experimental primary spectra only after point data, composition provenance, and exact source calibration are available.
-3. Add thickness, optical-transfer, and carrier-filling sensitivity only when the required source metadata are declared.
-4. Preserve the provisional thermal law without adding parameters.
-5. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
+1. Build a reusable absorption edge-uncertainty export contract.
+2. Continue primary point-data recovery and archive calibrated source figures before digitization.
+3. Preserve the provisional thermal law without adding parameters.
+4. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
 
 ## Explicitly unauthorized
 
 - treating old redundant Hamiltonian degrees of freedom or variance-scaled standard errors as current;
-- treating the absorption sensitivity envelope as a confidence interval, probability distribution, or universal correction;
-- substituting cross-specimen or cross-source scatter for same-record sensitivity;
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
 - A1 execution, further response-threshold tightening, 120-band static reruns, or unsupported novelty claims.
