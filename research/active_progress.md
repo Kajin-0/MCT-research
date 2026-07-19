@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-19  
-**Controlling ref:** `main`
+**Controlling ref:** `main` plus draft manuscript asset PR
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`. This file records the program-level decisions that control new work.
 
@@ -62,31 +62,48 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 - The exporter returns all valid candidates, exclusions, separate model/threshold envelopes, a combined envelope, and the SHA-256 of the complete input assumptions.
 - The candidate ensemble includes fractional-power models and fixed thresholds. The prior-art Chu 1994 Kane-region model may be enabled within `0.170 <= x <= 0.443` and `77 <= T <= 300 K`.
 - The exporter never selects a recommended or corrected material gap.
-- Deterministic seven-candidate example: combined span `19.95223 meV`, model-family span `9.14375 meV`, threshold span `9.95726 meV`, and half-range `9.97612 meV`.
 - Research uncertainty export is authorized. Production correction and single-edge selection remain forbidden.
+
+## Real-spectrum manuscript result
+
+Two Moazzami 2005 solid-IRSE traces now pass the complete contract:
+
+```text
+x=0.226, T=300 K, d=15.40 um, 125 derived points
+x=0.310, T=300 K, d=4.95 um, 115 derived points
+```
+
+- Fractional/Chu fitted-model spans are `6.414 meV` and `6.830 meV`.
+- Coordinate perturbation moves every fitted-model edge by less than `0.891 meV`.
+- Fixed thresholds through `4000 cm^-1` remain below the declared `5 meV` coordinate-sensitivity gate.
+- The `5000 cm^-1` crossing for `x=0.310` shifts by `5.694 meV` and is excluded from precision claims.
+- Operational threshold choice changes the nominal closest material comparator. No threshold is identified with the latent gap.
+- Published Seiler 1990 is nominally closest for every fractional/Chu fitted edge, but its advantage over Hansen is only `0.177-0.255 meV`.
+- Because specimen-level composition uncertainty is unreported and both spectra come from one study, the Seiler-Hansen ordering is descriptive only. Strict material-law ranking is not authorized.
+- Chang 2006 remains a useful low-temperature target, but its plotted experimental markers overlap fitted curves. Forced digitization is unauthorized without raw points or a cleaner source asset.
 
 ## Manuscript freeze
 
-Breadth-first exploration is complete. New work is controlled by one immediate manuscript objective:
+Breadth-first exploration is complete. The active manuscript objective remains:
 
 > **Observation-model uncertainty and identifiability in HgCdTe bandgap extraction.**
 
-The manuscript must combine the validated absorption contract, the demonstrated multi-meV model/threshold sensitivity, cross-source identifiability limits, and the paired acquisition design. It becomes submission-grade only after application to real calibrated spectra.
+The real-spectrum submission gate is now satisfied. The active phase is manuscript assembly, not data screening.
 
 No additional source-specific screen, synthetic oracle, empirical coefficient, or ledger-only PR is authorized unless it changes at least one controlling decision:
 
 1. authorizes or falsifies the provisional thermal model using independent primary evidence;
-2. changes the absorption observation-model conclusion on a real spectrum;
+2. changes the absorption observation-model conclusion on a clean real spectrum;
 3. independently reproduces or rejects the static CdTe matrix result;
 4. opens a physically valid finite-temperature backend route;
 5. changes the minimum experimental acquisition design.
 
 ## Authorized next work
 
-1. Select `2-4` real primary HgCdTe absorption spectra with recoverable calibration, composition, temperature, thickness, and carrier metadata.
-2. Apply the complete uncertainty ensemble, including fractional-power, threshold, and Chu 1994 candidates where source-domain gates permit.
-3. Demonstrate whether observation-model uncertainty changes an actual material-model ranking or conclusion.
-4. Freeze manuscript figures, tables, claim language, and evidence checklist around that result.
+1. Freeze the deterministic manuscript tables and first three data figures around the Moazzami result.
+2. Build the identifiability diagram and paired-acquisition-design figure from the already authorized analytical framework.
+3. Draft and freeze methods, results, discussion, limitations, and claim/evidence-boundary text.
+4. Add a low-temperature or independent cross-laboratory application only if raw or cleanly separable primary data become available; do not resume broad source accumulation.
 5. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
 
 ## Explicitly unauthorized
@@ -95,7 +112,9 @@ No additional source-specific screen, synthetic oracle, empirical coefficient, o
 - treating old redundant Hamiltonian degrees of freedom or variance-scaled standard errors as current;
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
+- strict Seiler-versus-Hansen ranking from the two Moazzami specimens;
 - single-edge selection from the uncertainty ensemble;
+- forced digitization of overlapping Chang 2006 points;
 - broad source accumulation without a manuscript-critical data target;
 - additional micro-PRs that only restate an unchanged authorization boundary;
 - A1 execution, further response-threshold tightening, 120-band static reruns, alloy production work, or unsupported novelty claims.
