@@ -17,9 +17,11 @@ def _section(name: str, next_name: str) -> str:
 
 
 def test_irpt_abstract_is_within_250_words() -> None:
-    abstract = _section("Abstract", "Keywords").split("**Word count:**", 1)[0]
+    section = _section("Abstract", "Keywords")
+    abstract, declared = section.split("**Word count:**", 1)
     words = re.findall(r"\b[\w−–-]+(?:\.[\w]+)?\b", abstract)
-    assert len(words) == 220
+    declared_count = int(declared.strip())
+    assert declared_count == len(words)
     assert len(words) <= 250
     assert "6.414" in abstract
     assert "6.830" in abstract
