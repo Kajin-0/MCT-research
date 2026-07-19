@@ -1,0 +1,5 @@
+record_id,composition_x,temperature_k,reported_edge_ev,minimum_edge_ev,maximum_edge_ev,lower_deviation_mev,upper_deviation_mev,span_mev,sensitivity_count,varied_factors,evidence_class
+synthetic_x0.21_T80K_threshold1500,0.21,80.0,0.1106222226599749,0.090050916007612,0.12055199170742924,20.571306652362896,9.929769047454338,30.501075699817235,7,fixed_threshold;model_family,synthetic_method_benchmark
+synthetic_x0.31_T80K_threshold1500,0.31,80.0,0.2761514529701197,0.2450205349705044,0.28925976211540977,31.130917999615313,13.108309145290043,44.23922714490536,7,fixed_threshold;model_family,synthetic_method_benchmark
+synthetic_x0.21_T300K_threshold1500,0.21,300.0,0.19122903385772727,0.16420903457851857,0.20339218368191506,27.0199992792087,12.163149824187785,39.18314910339649,7,fixed_threshold;model_family,synthetic_method_benchmark
+synthetic_x0.31_T300K_threshold1500,0.31,300.0,0.3272426377339217,0.29452231955144315,0.34067058649835347,32.72031818247856,13.427948764431763,46.14826694691032,7,fixed_threshold;model_family,synthetic_method_benchmark
