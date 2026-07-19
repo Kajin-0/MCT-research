@@ -20,7 +20,7 @@ For $x=0.310$, the fitted candidates span 289.670--296.500~meV, a full range of 
 \subsection{Digitization sensitivity does not explain the model spread}
 \label{sec:digitization-result}
 
-Across both spectra, the maximum coherent coordinate-induced shift of any fitted-model edge is 0.891~meV. This is substantially smaller than the 6.414--6.830~meV fitted-model spans. The observation-model dependence therefore survives the declared digitization uncertainty.
+Across both spectra, the maximum coherent coordinate-induced shift of any fitted-model edge is 0.891~meV. This is substantially smaller than the 6.414--6.830~meV fitted-model spans. Under the declared four-corner audit, the observation-model dependence therefore survives the digitization-coordinate uncertainty.
 
 Every fixed threshold through 4000~cm$^{-1}$ remains below the 5~meV coordinate-shift gate. The 5000~cm$^{-1}$ crossing for $x=0.310$ shifts by 5.694~meV and is excluded from precision plots and threshold-based claims.
 
@@ -31,7 +31,7 @@ Figure~\ref{fig:edge-candidates} displays all extracted edges by observation def
 
 For $x=0.226$, published Seiler is nominally closest at 400 and 600~cm$^{-1}$, Laurenti is closest near 800--1000~cm$^{-1}$, and the provisional Hansen--Pade relation is closest at higher crossings. For $x=0.310$, published Seiler remains nominally closest through 1000~cm$^{-1}$, the provisional relation is closest at 2000~cm$^{-1}$, and Laurenti is closest at 3000~cm$^{-1}$ and above.
 
-Thus, a material-model ranking can be reversed by changing only the declared observation definition. This does not imply that high-threshold crossings better estimate the latent gap. It demonstrates that the ranking is conditional on what was called the edge.
+Thus, the nominal closest material comparator changes when only the declared observation definition changes. This does not imply that high-threshold crossings better estimate the latent gap. It demonstrates that the apparent ranking is conditional on what was called the edge.
 
 \begin{figure*}[t]
   \centering
@@ -61,16 +61,16 @@ Published Seiler is therefore nominally closer to every fitted-model edge, but t
 \subsection{Audit-grade acquisition target}
 \label{sec:design-result}
 
-The identifiability structure is summarized in Fig.~\ref{fig:identifiability}. The paired design in Fig.~\ref{fig:acquisition-design} separates the common latent gap from observation-class, carrier, and vacancy terms by construction. Eight specimen states are repeated at low and room temperature, and both modalities are applied to every specimen. Independent composition metrology, Hall state, a vacancy-sensitive proxy, raw absorption data, extraction covariance, and processing history are required.
+The identifiability structure is summarized in Fig.~\ref{fig:identifiability}. The paired design in Fig.~\ref{fig:acquisition-design} separates the common latent gap from observation-class, carrier, and vacancy terms by construction. Eight specimen states are repeated in target 6~K and 300~K blocks, and both modalities are applied to every specimen. Independent composition metrology, Hall state, a vacancy-sensitive proxy, raw absorption data, extraction covariance, and processing history are required.
 
-The design does not assume that the five-term local model is physically complete. It supplies the minimum redundancy needed to test that model under the declared gates.
+The design does not assume that the five-term local model is physically complete. It supplies the redundancy and contrasts required by the declared audit gates.
 
 \begin{figure*}[t]
   \centering
   \IfFileExists{figures/figure4_identifiability.pdf}{%
     \includegraphics[width=0.98\textwidth]{figures/figure4_identifiability.pdf}%
   }{\fbox{\parbox[c][58mm][c]{0.94\textwidth}{\centering Figure 4 PDF export pending from frozen SVG}}}
-  \caption{Identifiability diagram separating the latent material gap from method, carrier, vacancy, and measurement terms. Same-specimen magneto-optical and absorption observations remove the common latent term in the paired difference. The decomposition does not authorize a universal correction.}
+  \caption{Identifiability diagram separating the latent material gap from method, carrier, vacancy, and measurement terms. Same-specimen calibrated magneto-optical and absorption-derived observations remove the common latent term in the paired difference. The decomposition does not authorize a universal correction.}
   \label{fig:identifiability}
 \end{figure*}
 
@@ -79,7 +79,7 @@ The design does not assume that the five-term local model is physically complete
   \IfFileExists{figures/figure5_paired_acquisition_design.pdf}{%
     \includegraphics[width=0.98\textwidth]{figures/figure5_paired_acquisition_design.pdf}%
   }{\fbox{\parbox[c][58mm][c]{0.94\textwidth}{\centering Figure 5 PDF export pending from frozen SVG}}}
-  \caption{Audit-grade paired $2\times2\times2$ acquisition design. Eight composition--carrier--vacancy specimen states receive paired magneto-optical and absorption measurements in low- and room-temperature blocks, producing 32 observations. Numerical diagnostics are read directly from the validated design oracle.}
+  \caption{Audit-grade paired $2\times2\times2$ complete-factorial acquisition design. Eight composition--carrier--vacancy specimen states receive paired calibrated magneto-optical and absorption-derived measurements in target 6~K and 300~K blocks, producing 32 observations. Numerical diagnostics are read directly from the validated design oracle.}
   \label{fig:acquisition-design}
 \end{figure*}
 
