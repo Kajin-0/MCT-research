@@ -29,9 +29,12 @@ def test_every_irpt_input_exists() -> None:
     for tex_path in _tex_files():
         text = tex_path.read_text(encoding="utf-8")
         for relative in re.findall(r"\\input\{([^}]+)\}", text):
-            target = tex_path.parent / f"{relative}.tex"
+            candidate = Path(relative)
+            if candidate.suffix != ".tex":
+                candidate = candidate.with_suffix(".tex")
+            target = tex_path.parent / candidate
             if not target.exists():
-                target = IRPT / f"{relative}.tex"
+                target = IRPT / candidate
             assert target.exists(), f"missing input {relative} referenced by {tex_path}"
 
 
