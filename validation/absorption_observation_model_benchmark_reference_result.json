@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "analysis": "formula-level HgCdTe absorption observation-model benchmark",
+  "source_evidence": {
+    "validated_head": "0f25ec2fb05aef2593c3b9b641fb31dd3d047579",
+    "workflow_run_id": 29666474755,
+    "artifact_id": 8435870604,
+    "artifact_digest": "sha256:d61b725913e9293b17f1e2e2ab3ac568a80f7a589dac1e75cc5fc10b21c6faa8"
+  },
+  "nominal_scenarios": [
+    {
+      "composition_x": 0.21,
+      "temperature_k": 80.0,
+      "moazzami_free_edge_bias_mev": 0.00375,
+      "moazzami_linear_edge_bias_mev": -8.09875,
+      "nonparabolic_free_power_edge_bias_mev": -11.3625,
+      "threshold_1500_edge_bias_mev": 9.2088066524,
+      "threshold_600_to_2000_spread_mev": 18.6229876336
+    },
+    {
+      "composition_x": 0.31,
+      "temperature_k": 80.0,
+      "moazzami_free_edge_bias_mev": 0.00375,
+      "moazzami_linear_edge_bias_mev": -4.8525,
+      "nonparabolic_free_power_edge_bias_mev": -15.34375,
+      "threshold_1500_edge_bias_mev": 15.7871679996,
+      "threshold_600_to_2000_spread_mev": 28.0799641411
+    },
+    {
+      "composition_x": 0.21,
+      "temperature_k": 300.0,
+      "moazzami_free_edge_bias_mev": 0.00375,
+      "moazzami_linear_edge_bias_mev": -0.55625,
+      "nonparabolic_free_power_edge_bias_mev": -13.68125,
+      "threshold_1500_edge_bias_mev": 13.3387492792,
+      "threshold_600_to_2000_spread_mev": 24.8040326595
+    },
+    {
+      "composition_x": 0.31,
+      "temperature_k": 300.0,
+      "moazzami_free_edge_bias_mev": 0.00375,
+      "moazzami_linear_edge_bias_mev": -0.9675,
+      "nonparabolic_free_power_edge_bias_mev": -15.9475,
+      "threshold_1500_edge_bias_mev": 16.7728181825,
+      "threshold_600_to_2000_spread_mev": 29.3345958059
+    }
+  ],
+  "sensitivity": {
+    "case_count": 36,
+    "threshold_1000_bias_mev": {
+      "minimum": 0.4525128125,
+      "median": 4.6072596252,
+      "maximum": 9.7259004619
+    },
+    "threshold_1500_bias_mev": {
+      "minimum": 3.7586482862,
+      "median": 13.0608157080,
+      "maximum": 21.9653282960
+    },
+    "threshold_2000_bias_mev": {
+      "minimum": 10.9272669933,
+      "median": 24.7482536922,
+      "maximum": 35.8771780777
+    }
+  },
+  "comparison": {
+    "existing_chu_mean_signed_residual_mev": 9.0391881865,
+    "nominal_1500_threshold_bias_minimum_mev": 9.2088066524,
+    "nominal_1500_threshold_bias_maximum_mev": 16.7728181825
+  },
+  "decision": {
+    "measurement_definition_can_generate_multi_mev_edge_bias": true,
+    "synthetic_bias_scale_overlaps_existing_cross_source_discrepancy": true,
+    "production_observation_correction_authorized": false,
+    "static_gap_refit_authorized": false,
+    "required_reporting": [
+      "measurement model",
+      "fit window",
+      "absorption threshold",
+      "carrier state",
+      "tail model",
+      "edge-model uncertainty envelope"
+    ]
+  },
+  "claim_boundary": "Synthetic formula comparison only; no specimen diagnosis or universal correction is authorized."
+}
