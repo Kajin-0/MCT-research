@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kajin-0/MCT-research/schemas/absorption-edge-uncertainty-input-1.0.json",
+  "title": "HgCdTe absorption edge uncertainty input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "specimen_id",
+    "measurement_id",
+    "source",
+    "metadata",
+    "analysis_assumptions",
+    "spectrum"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "specimen_id": {"type": "string", "minLength": 1},
+    "measurement_id": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "reference", "calibration_record"],
+      "properties": {
+        "kind": {"type": "string", "minLength": 1},
+        "reference": {"type": "string", "minLength": 1},
+        "calibration_record": {"type": "string", "minLength": 1}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "modality",
+        "temperature_k",
+        "thickness_um",
+        "composition_x",
+        "composition_sigma_x",
+        "composition_method",
+        "carrier_type",
+        "carrier_density_cm3",
+        "carrier_density_status",
+        "tail_model"
+      ],
+      "properties": {
+        "modality": {"type": "string", "minLength": 1},
+        "temperature_k": {"type": "number", "minimum": 0},
+        "thickness_um": {"type": ["number", "null"]},
+        "composition_x": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "composition_sigma_x": {"type": ["number", "null"], "minimum": 0},
+        "composition_method": {"type": "string", "minLength": 1},
+        "carrier_type": {"enum": ["n", "p", "intrinsic", "unknown"]},
+        "carrier_density_cm3": {"type": ["number", "null"], "minimum": 0},
+        "carrier_density_status": {"type": "string", "minLength": 1},
+        "tail_model": {"type": "string", "minLength": 1}
+      }
+    },
+    "analysis_assumptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fit_absorption_window_cm1",
+        "edge_search_bounds_ev",
+        "thresholds_cm1",
+        "fractional_power_exponents"
+      ],
+      "properties": {
+        "fit_absorption_window_cm1": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "number", "exclusiveMinimum": 0}
+        },
+        "edge_search_bounds_ev": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "number"}
+        },
+        "thresholds_cm1": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "number", "exclusiveMinimum": 0}
+        },
+        "fractional_power_exponents": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {"const": "free"},
+              {"type": "number", "minimum": 0.2, "maximum": 1.5}
+            ]
+          }
+        }
+      }
+    },
+    "spectrum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["energy_ev", "absorption_cm1"],
+      "properties": {
+        "energy_ev": {"type": "array", "minItems": 3, "items": {"type": "number"}},
+        "absorption_cm1": {
+          "type": "array",
+          "minItems": 3,
+          "items": {"type": "number", "exclusiveMinimum": 0}
+        }
+      }
+    }
+  }
+}

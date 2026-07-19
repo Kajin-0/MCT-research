@@ -1,0 +1,29 @@
+{
+  "analysis": "absorption edge model-ensemble uncertainty export",
+  "evidence": {
+    "head": "a6b2d5c041c76ef0a9601305e3feb5fda59fa562",
+    "workflow_run": 29667950404,
+    "artifact": 8436340042,
+    "digest": "sha256:24a1a552717063e4cdf117dbe6e9ad4223d1605d2660181a871806fefe97b7d4",
+    "input_sha256": "04428b5b432f50ad09f3361d98d315d980c3dd82689a4edfe5f12402cbb53e8f"
+  },
+  "example": {
+    "candidate_count": 7,
+    "minimum_edge_ev": 0.09185625,
+    "maximum_edge_ev": 0.1118084831364636,
+    "descriptive_median_edge_ev": 0.1018512212350228,
+    "combined_full_span_mev": 19.952233136463605,
+    "combined_half_range_mev": 9.976116568231802,
+    "model_family_span_mev": 9.143750000000006,
+    "threshold_span_mev": 9.957261901440805,
+    "free_fractional_power_edge_ev": 0.099999,
+    "free_fractional_power_exponent": 0.7000437944393216
+  },
+  "decision": {
+    "research_use_only": true,
+    "production_correction_authorized": false,
+    "single_corrected_gap_selected": false,
+    "full_candidate_ensemble_required": true,
+    "edge_model_uncertainty_envelope_required": true
+  }
+}
