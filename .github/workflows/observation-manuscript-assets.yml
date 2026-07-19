@@ -33,6 +33,7 @@ jobs:
             tests/test_moazzami2005_comparator_rows.py \
             tests/test_observation_manuscript_assets.py \
             tests/test_observation_manuscript_conceptual_figures.py \
+            tests/test_observation_manuscript_draft.py \
             2>&1 | tee generated/pytest.txt
       - uses: actions/upload-artifact@v4
         if: always()
