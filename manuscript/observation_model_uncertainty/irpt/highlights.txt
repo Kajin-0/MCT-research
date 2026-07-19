@@ -1,0 +1,5 @@
+Observation models shift fitted HgCdTe absorption edges by 6.4-6.8 meV.
+Digitization uncertainty shifts fitted edges by no more than 0.9 meV.
+Fixed absorption definitions reverse the nominal closest gap relation.
+Seiler-Hansen ordering is unresolved without composition uncertainty.
+A paired design separates gap, carrier, vacancy, and method terms.
