@@ -1,0 +1,93 @@
+name: absorption-edge-uncertainty-contract
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/absorption-edge-uncertainty-contract.yml'
+      - 'src/mct_research/absorption_observation.py'
+      - 'src/mct_research/__init__.py'
+      - 'tools/build_absorption_edge_uncertainty_contract.py'
+      - 'tools/benchmark_absorption_observation_models.py'
+      - 'tests/test_absorption_edge_uncertainty_contract.py'
+      - 'validation/absorption_edge_uncertainty_contract_reference.json'
+      - 'validation/absorption_edge_uncertainty_contract_reference.csv'
+      - 'validation/absorption_edge_uncertainty_contract_summary.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Regenerate contract evidence
+        run: |
+          mkdir -p absorption-edge-contract-evidence
+          python -m tools.build_absorption_edge_uncertainty_contract \
+            --output-json absorption-edge-contract-evidence/contract.json \
+            --output-csv absorption-edge-contract-evidence/contract.csv \
+            --summary-json absorption-edge-contract-evidence/summary.json \
+            > absorption-edge-contract-evidence/stdout.txt \
+            2> absorption-edge-contract-evidence/stderr.txt
+
+      - name: Verify committed references
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          pairs = [
+              (
+                  Path('absorption-edge-contract-evidence/contract.json'),
+                  Path('validation/absorption_edge_uncertainty_contract_reference.json'),
+              ),
+              (
+                  Path('absorption-edge-contract-evidence/summary.json'),
+                  Path('validation/absorption_edge_uncertainty_contract_summary.json'),
+              ),
+          ]
+          for generated, reference in pairs:
+              generated_payload = json.loads(generated.read_text(encoding='utf-8'))
+              reference_payload = json.loads(reference.read_text(encoding='utf-8'))
+              if generated_payload != reference_payload:
+                  raise SystemExit(f'JSON reference mismatch: {generated} != {reference}')
+          PY
+          cmp \
+            absorption-edge-contract-evidence/contract.csv \
+            validation/absorption_edge_uncertainty_contract_reference.csv
+
+      - name: Run focused tests
+        run: |
+          python -m pytest -q tests/test_absorption_edge_uncertainty_contract.py \
+            > absorption-edge-contract-evidence/pytest.txt \
+            2> absorption-edge-contract-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > absorption-edge-contract-evidence/python-version.txt
+          find absorption-edge-contract-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > absorption-edge-contract-evidence/sha256.txt
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: absorption-edge-contract-evidence
+          path: absorption-edge-contract-evidence
+          if-no-files-found: error
+          retention-days: 30
