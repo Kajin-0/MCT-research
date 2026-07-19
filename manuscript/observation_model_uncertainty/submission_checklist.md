@@ -1,7 +1,7 @@
 # Submission-readiness checklist
 
 **Manuscript:** Observation-model uncertainty and identifiability in HgCdTe bandgap extraction  
-**Status:** scientific asset gate satisfied; editorial and bibliography work remains
+**Status:** scientific asset and core bibliography gates satisfied; journal formatting and final editorial review remain
 
 ## Scientific submission gate
 
@@ -32,13 +32,21 @@
 - [x] Working manuscript draft with abstract through conclusions and captions.
 - [x] Claim-guard tests derive reported numerical values from the frozen CSV tables.
 
+## Verified bibliography gate
+
+- [x] Verify the complete Hansen citation.
+- [x] Verify the complete Seiler citation.
+- [x] Verify the complete Laurenti citation and retain the reconstruction limitation.
+- [x] Verify the complete Chu 1994 citation.
+- [x] Verify the complete Moazzami 2005 citation.
+- [x] Add an HgCdTe-specific primary carrier-filling/Burstein-Moss reference.
+- [x] Add an HgCdTe-specific primary mercury-vacancy absorption-edge reference.
+- [x] Record reference roles and authority limits in `verified_references.md`.
+
 ## Required before journal submission
 
-- [ ] Verify the complete Hansen primary citation from the primary source.
-- [ ] Verify the complete Laurenti primary citation and retain the reconstruction limitation.
-- [ ] Verify complete author, title, journal, volume, page, and year metadata for all references.
-- [ ] Add primary references for carrier-filling and vacancy-edge mechanisms only after exact source verification.
 - [ ] Select the target journal and apply its manuscript template, reference style, length limits, and figure requirements.
+- [ ] Render the verified reference ledger in the target journal's bibliography style.
 - [ ] Add author names, affiliations, corresponding-author details, acknowledgments, funding, conflict-of-interest, and contribution statements.
 - [ ] Perform a line-by-line technical review against Tables 1-5 and the claim-boundary record.
 - [ ] Perform a final typography and notation pass: `band gap` versus `bandgap`, Hg(1-x)Cd(x)Te notation, units, symbols, and significant figures.
