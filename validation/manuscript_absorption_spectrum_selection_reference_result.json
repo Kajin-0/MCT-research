@@ -1,0 +1,28 @@
+{
+  "analysis_authorized_now": true,
+  "chu_1994_domain_spectrum_count": 3,
+  "composition_values": [0.21, 0.226, 0.31],
+  "cross_method_spectrum_count": 2,
+  "digitization_ready_spectrum_count": 2,
+  "low_temperature_spectrum_count": 1,
+  "machine_readable_spectrum_count": 2,
+  "near_room_temperature_spectrum_count": 2,
+  "schema_version": "1.0",
+  "selection_gate_passed": true,
+  "selection_gates": {
+    "at_least_two_compositions": true,
+    "at_least_two_independent_sources": true,
+    "at_least_two_primary_spectra": true,
+    "chu_1994_domain_case": true,
+    "low_temperature_coverage": true,
+    "near_room_temperature_coverage": true,
+    "same_specimen_cross_method_case": true
+  },
+  "source_count": 2,
+  "source_ids": [
+    "chang_grein_sivananthan_flatte_2006",
+    "moazzami_phillips_lee_et_al_2005"
+  ],
+  "spectrum_count": 3,
+  "temperature_range_k": [80.0, 300.0]
+}

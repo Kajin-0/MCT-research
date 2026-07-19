@@ -1,0 +1,55 @@
+{
+  "axis_calibration": {
+    "absorption_anchor_1": {"absorption_cm1": 1000.0, "pixel_y": 172},
+    "absorption_anchor_2": {"absorption_cm1": 100.0, "pixel_y": 329},
+    "absorption_axis": "log10",
+    "energy_anchor_1": {"energy_ev": 0.28, "pixel_x": 132},
+    "energy_anchor_2": {"energy_ev": 0.3, "pixel_x": 189},
+    "energy_axis": "linear",
+    "energy_ev_per_pixel": 0.00035087719298245617,
+    "log10_absorption_per_pixel": -0.006369426751592357
+  },
+  "claim_boundary": "The derived points reproduce the visible solid IRSE trace at the resolution of the embedded figure. They are not instrument-export data and do not recover unreported composition, carrier, or point uncertainties.",
+  "contract_analysis_assumptions": {
+    "edge_search_bounds_ev": [0.27, 0.2965],
+    "fit_absorption_window_cm1": [600.0, 5000.0],
+    "fractional_power_exponents": ["free", 0.5, 0.7, 0.849, 1.0],
+    "include_chu_1994_kane_region": true,
+    "thresholds_cm1": [400.0, 600.0, 800.0, 1000.0, 2000.0, 3000.0, 4000.0, 5000.0]
+  },
+  "curve_extraction": {
+    "centerline": "per-column median followed by nondecreasing isotonic regression in log10(alpha)",
+    "connected_component_identifier": 15,
+    "energy_sigma_ev": 0.0005263157894736842,
+    "energy_sigma_pixels": 1.5,
+    "foreground_definition": "embedded-image pixel value above midpoint after grayscale decode",
+    "masked_rectangles_xyxy": [[0,0,104,390],[0,330,494,390],[115,20,280,70],[360,95,470,135],[272,177,452,300]],
+    "maximum_declared_log10_absorption_sigma": 0.025477707006369428,
+    "sampling_interval_pixels": 3,
+    "vertical_sigma_rule": "min((component pixel half-thickness + 1), 4) pixels"
+  },
+  "embedded_figure": {
+    "height_px": 390,
+    "pdf_image_xref": 24,
+    "pixel_encoding": "1-bit monochrome embedded image",
+    "sha256": "a61a86cd8daa16eb806823e3957ae76c6af70164f44fe56daad08edf9367ba0e",
+    "width_px": 494
+  },
+  "schema_version": "1.0",
+  "source_reference": {
+    "citation": "K. Moazzami et al., Journal of Electronic Materials 34, 773-778 (2005)",
+    "copyrighted_source_committed": false,
+    "doi": "10.1007/s11664-005-0019-3",
+    "figure": "6b",
+    "pdf_page_zero_based": 4,
+    "pdf_sha256": "ddc04c3749e533abafc0ba36e7cb5ce2817446c257f8d8bf69d9e2f341ca47ff"
+  },
+  "specimen": {
+    "carrier_state": "not reported",
+    "composition_source": "Figure 5 exact label associated with the Figure 6 specimen",
+    "composition_x": 0.31,
+    "measurement_curve": "solid IRSE curve",
+    "temperature_k": 300.0,
+    "thickness_um": 4.95
+  }
+}

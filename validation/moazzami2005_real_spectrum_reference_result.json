@@ -1,0 +1,114 @@
+{
+  "claim_boundary": "The ranking change is caused by declared observation definitions applied to digitized primary-figure curves. Fixed-threshold crossings are operational edge definitions, not direct estimates of the latent band gap.",
+  "decision": {
+    "contract_gate_passed": true,
+    "fixed_threshold_candidates_change_material_model_winner": true,
+    "fractional_power_candidates_alone_change_material_model_winner": false,
+    "fractional_power_model_span_mev_range": [
+      6.414375,
+      6.830375
+    ],
+    "material_model_winner_changes_across_declared_observation_candidates": true,
+    "real_spectrum_count": 2,
+    "single_edge_selection_authorized": false,
+    "universal_correction_authorized": false
+  },
+  "schema_version": "1.0",
+  "specimens": [
+    {
+      "boundary_limited_model_candidates": [
+        "fractional_power_p_0.5",
+        "chu_1994_kane_region"
+      ],
+      "combined_envelope": {
+        "candidate_count": 14,
+        "descriptive_median_edge_ev": 0.1876025050139033,
+        "full_span_mev": 89.86546847177787,
+        "half_range_mev": 44.93273423588894,
+        "maximum_edge_ev": 0.27095109347177787,
+        "minimum_edge_ev": 0.181085625
+      },
+      "composition_x": 0.226,
+      "digitized_point_count": 125,
+      "measurement_id": "figure6a_irse_digitized",
+      "model_candidate_winners": [
+        "hansen"
+      ],
+      "model_family_envelope": {
+        "candidate_count": 6,
+        "descriptive_median_edge_ev": 0.184935625,
+        "full_span_mev": 6.414375,
+        "half_range_mev": 3.2071875,
+        "maximum_edge_ev": 0.1875,
+        "minimum_edge_ev": 0.181085625
+      },
+      "model_predictions_mev": {
+        "hansen": 190.36636243200002,
+        "laurenti": 191.0177437537777,
+        "provisional_hansen_pade": 199.35746700618657
+      },
+      "specimen_id": "moazzami2005_x0.226",
+      "temperature_k": 300.0,
+      "threshold_candidate_winners": [
+        "hansen",
+        "laurenti",
+        "provisional_hansen_pade"
+      ],
+      "threshold_envelope": {
+        "candidate_count": 8,
+        "descriptive_median_edge_ev": 0.20062197423212064,
+        "full_span_mev": 87.82708705047776,
+        "half_range_mev": 43.91354352523888,
+        "maximum_edge_ev": 0.27095109347177787,
+        "minimum_edge_ev": 0.1831240064213001
+      }
+    },
+    {
+      "boundary_limited_model_candidates": [
+        "chu_1994_kane_region"
+      ],
+      "combined_envelope": {
+        "candidate_count": 14,
+        "descriptive_median_edge_ev": 0.2964911748730871,
+        "full_span_mev": 62.02586755483236,
+        "half_range_mev": 31.01293377741618,
+        "maximum_edge_ev": 0.35169549255483235,
+        "minimum_edge_ev": 0.289669625
+      },
+      "composition_x": 0.31,
+      "digitized_point_count": 115,
+      "measurement_id": "figure6b_irse_digitized",
+      "model_candidate_winners": [
+        "hansen"
+      ],
+      "model_family_envelope": {
+        "candidate_count": 6,
+        "descriptive_median_edge_ev": 0.29451581250000003,
+        "full_span_mev": 6.830375,
+        "half_range_mev": 3.4151875,
+        "maximum_edge_ev": 0.2965,
+        "minimum_edge_ev": 0.289669625
+      },
+      "model_predictions_mev": {
+        "hansen": 304.23511199999996,
+        "laurenti": 316.7589308689798,
+        "provisional_hansen_pade": 310.46981955144315
+      },
+      "specimen_id": "moazzami2005_x0.310",
+      "temperature_k": 300.0,
+      "threshold_candidate_winners": [
+        "hansen",
+        "laurenti",
+        "provisional_hansen_pade"
+      ],
+      "threshold_envelope": {
+        "candidate_count": 8,
+        "descriptive_median_edge_ev": 0.30752169699386167,
+        "full_span_mev": 59.47006490030881,
+        "half_range_mev": 29.735032450154407,
+        "maximum_edge_ev": 0.35169549255483235,
+        "minimum_edge_ev": 0.29222542765452353
+      }
+    }
+  ]
+}
