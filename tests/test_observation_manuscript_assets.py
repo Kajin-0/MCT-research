@@ -20,6 +20,11 @@ ASSET_NAMES = {
     "table4_material_model_comparison.csv",
     "table5_claim_boundaries.csv",
 }
+FROZEN_ASSET_NAMES = ASSET_NAMES | {
+    "figure4_identifiability.svg",
+    "figure5_paired_acquisition_design.svg",
+    "conceptual_figure_summary.json",
+}
 
 
 def _row_count(path: Path) -> int:
@@ -73,6 +78,6 @@ def test_frozen_asset_hash_manifest_matches_committed_bytes() -> None:
     for line in (FROZEN / "SHA256SUMS").read_text(encoding="utf-8").splitlines():
         digest, name = line.split(maxsplit=1)
         manifest[name] = digest
-    assert set(manifest) == ASSET_NAMES
+    assert set(manifest) == FROZEN_ASSET_NAMES
     for name, expected in manifest.items():
         assert sha256((FROZEN / name).read_bytes()).hexdigest() == expected
