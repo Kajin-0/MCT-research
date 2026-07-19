@@ -1,0 +1,78 @@
+{
+  "claim_boundary": "Secondary screen only. The table's primary source attribution, composition metrology, fit interval, and uncertainties are not recovered.",
+  "composition_range": [
+    0.2,
+    0.443
+  ],
+  "decision": {
+    "coefficient_refit_authorized": false,
+    "global_model_ranking_authorized": false,
+    "primary_fit_authority": false,
+    "provisional_model_is_last_under_all_declared_operators": true,
+    "screen_identifies_operator_dependence": true
+  },
+  "operator_metrics": {
+    "local_derivative_at_300_k": {
+      "chu_1983": {
+        "mean_signed_residual_1e4_ev_per_k": -0.0244951,
+        "rmse_1e4_ev_per_k": 0.10519840925460804
+      },
+      "hansen": {
+        "mean_signed_residual_1e4_ev_per_k": -0.10133,
+        "rmse_1e4_ev_per_k": 0.14347938179404038
+      },
+      "laurenti": {
+        "mean_signed_residual_1e4_ev_per_k": -0.15421937182715484,
+        "rmse_1e4_ev_per_k": 0.17576187240942515
+      },
+      "provisional_hansen_pade": {
+        "mean_signed_residual_1e4_ev_per_k": -0.3157856441605392,
+        "rmse_1e4_ev_per_k": 0.3304251569461194
+      }
+    },
+    "secant_4p2_to_300_k": {
+      "chu_1983": {
+        "mean_signed_residual_1e4_ev_per_k": -0.024495099999999864,
+        "rmse_1e4_ev_per_k": 0.10519840925460815
+      },
+      "hansen": {
+        "mean_signed_residual_1e4_ev_per_k": -0.10133000000000028,
+        "rmse_1e4_ev_per_k": 0.14347938179404066
+      },
+      "laurenti": {
+        "mean_signed_residual_1e4_ev_per_k": -0.010767241984854601,
+        "rmse_1e4_ev_per_k": 0.08250460716651327
+      },
+      "provisional_hansen_pade": {
+        "mean_signed_residual_1e4_ev_per_k": -0.3291856363648034,
+        "rmse_1e4_ev_per_k": 0.34404129132741246
+      }
+    },
+    "secant_80_to_300_k": {
+      "chu_1983": {
+        "mean_signed_residual_1e4_ev_per_k": -0.02449510000000001,
+        "rmse_1e4_ev_per_k": 0.10519840925460798
+      },
+      "hansen": {
+        "mean_signed_residual_1e4_ev_per_k": -0.10133000000000034,
+        "rmse_1e4_ev_per_k": 0.14347938179404043
+      },
+      "laurenti": {
+        "mean_signed_residual_1e4_ev_per_k": -0.12069714109541893,
+        "rmse_1e4_ev_per_k": 0.14589468803620115
+      },
+      "provisional_hansen_pade": {
+        "mean_signed_residual_1e4_ev_per_k": -0.33542984217051874,
+        "rmse_1e4_ev_per_k": 0.350414613150575
+      }
+    }
+  },
+  "provisional_alpha_relative_to_hansen_slope_amplitude": 0.10621927436198364,
+  "schema_version": "1.0",
+  "source_record_count": 10,
+  "winners_by_operator": {
+    "local_derivative_at_300_k": "chu_1983",
+    "secant_4p2_to_300_k": "laurenti",
+    "secant_80_to_300_k": "chu_1983"
+  }
+}
