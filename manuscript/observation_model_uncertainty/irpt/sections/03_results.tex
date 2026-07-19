@@ -1,0 +1,90 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Fitted observation-model spread}
+\label{sec:model-spread}
+
+Figure~\ref{fig:spectrum-models} shows the first real spectrum and all fitted observation candidates. For $x=0.226$, the fitted fractional-power and Chu candidates span 181.086--187.500~meV, a full range of 6.414~meV. The $p=0.5$ and Chu candidates reach the upper edge-search boundary and are flagged as boundary-limited.
+
+For $x=0.310$, the fitted candidates span 289.670--296.500~meV, a full range of 6.830~meV. The Chu candidate is boundary-limited. The model-family spread is therefore similar for the two compositions despite their different nominal gaps and film thicknesses. No single fitted edge is selected.
+
+\begin{figure*}[t]
+  \centering
+  \IfFileExists{figures/figure1_spectrum_models.pdf}{%
+    \includegraphics[width=0.92\textwidth]{figures/figure1_spectrum_models.pdf}%
+  }{\fbox{\parbox[c][55mm][c]{0.88\textwidth}{\centering Figure 1 PDF export pending from frozen SVG}}}
+  \caption{Digitized Moazzami 2005 Fig.~6a IRSE spectrum at $x=0.226$ and 300~K with every fitted observation-model candidate. Boundary-limited candidates are retained as diagnostics. No fitted curve is selected as the latent material gap.}
+  \label{fig:spectrum-models}
+\end{figure*}
+
+\subsection{Digitization sensitivity does not explain the model spread}
+\label{sec:digitization-result}
+
+Across both spectra, the maximum coherent coordinate-induced shift of any fitted-model edge is 0.891~meV. This is substantially smaller than the 6.414--6.830~meV fitted-model spans. The observation-model dependence therefore survives the declared digitization uncertainty.
+
+Every fixed threshold through 4000~cm$^{-1}$ remains below the 5~meV coordinate-shift gate. The 5000~cm$^{-1}$ crossing for $x=0.310$ shifts by 5.694~meV and is excluded from precision plots and threshold-based claims.
+
+\subsection{Observation definition changes the nominal material comparator}
+\label{sec:ranking-result}
+
+Figure~\ref{fig:edge-candidates} displays all extracted edges by observation definition. For every fitted fractional-power and Chu candidate, the published Seiler relation is nominally closest for both specimens. Fixed absorption crossings produce a different result.
+
+For $x=0.226$, published Seiler is nominally closest at 400 and 600~cm$^{-1}$, Laurenti is closest near 800--1000~cm$^{-1}$, and the provisional Hansen--Pade relation is closest at higher crossings. For $x=0.310$, published Seiler remains nominally closest through 1000~cm$^{-1}$, the provisional relation is closest at 2000~cm$^{-1}$, and Laurenti is closest at 3000~cm$^{-1}$ and above.
+
+Thus, a material-model ranking can be reversed by changing only the declared observation definition. This does not imply that high-threshold crossings better estimate the latent gap. It demonstrates that the ranking is conditional on what was called the edge.
+
+\begin{figure*}[t]
+  \centering
+  \IfFileExists{figures/figure2_edge_candidates.pdf}{%
+    \includegraphics[width=0.98\textwidth]{figures/figure2_edge_candidates.pdf}%
+  }{\fbox{\parbox[c][58mm][c]{0.94\textwidth}{\centering Figure 2 PDF export pending from frozen SVG}}}
+  \caption{Extracted edge versus observation definition for $x=0.226$ and $x=0.310$. The upper group contains fitted fractional-power and Chu candidates; the lower group contains fixed absorption crossings. Open markers denote boundary-limited fits.}
+  \label{fig:edge-candidates}
+\end{figure*}
+
+\subsection{The Seiler--Hansen fitted-edge ordering is not identified}
+\label{sec:seiler-result}
+
+At $x=0.226$ and 300~K, the Hansen and published Seiler predictions are 190.366 and 190.112~meV, respectively, a separation of 0.255~meV. At $x=0.310$ and 300~K, the predictions are 304.235 and 304.059~meV, a separation of 0.177~meV.
+
+Published Seiler is therefore nominally closer to every fitted-model edge, but the margin over Hansen is sub-meV. The source does not report specimen-level composition uncertainty, and the two spectra are not independent cross-laboratory records. The data do not identify a strict Seiler-over-Hansen material-law ranking. Figure~\ref{fig:residual-intervals} places that sub-meV comparator separation in the context of the wider observation-definition intervals.
+
+\begin{figure*}[t]
+  \centering
+  \IfFileExists{figures/figure3_material_residual_envelopes.pdf}{%
+    \includegraphics[width=0.92\textwidth]{figures/figure3_material_residual_envelopes.pdf}%
+  }{\fbox{\parbox[c][55mm][c]{0.88\textwidth}{\centering Figure 3 PDF export pending from frozen SVG}}}
+  \caption{Residual intervals relative to Hansen, published Seiler, Laurenti, and provisional Hansen--Pade predictions. Narrow dark intervals show the fitted-model envelope; wider gray intervals show stable 400--4000~cm$^{-1}$ threshold definitions. These intervals represent observation-definition sensitivity, not statistical confidence intervals.}
+  \label{fig:residual-intervals}
+\end{figure*}
+
+\subsection{Audit-grade acquisition target}
+\label{sec:design-result}
+
+The identifiability structure is summarized in Fig.~\ref{fig:identifiability}. The paired design in Fig.~\ref{fig:acquisition-design} separates the common latent gap from observation-class, carrier, and vacancy terms by construction. Eight specimen states are repeated at low and room temperature, and both modalities are applied to every specimen. Independent composition metrology, Hall state, a vacancy-sensitive proxy, raw absorption data, extraction covariance, and processing history are required.
+
+The design does not assume that the five-term local model is physically complete. It supplies the minimum redundancy needed to test that model under the declared gates.
+
+\begin{figure*}[t]
+  \centering
+  \IfFileExists{figures/figure4_identifiability.pdf}{%
+    \includegraphics[width=0.98\textwidth]{figures/figure4_identifiability.pdf}%
+  }{\fbox{\parbox[c][58mm][c]{0.94\textwidth}{\centering Figure 4 PDF export pending from frozen SVG}}}
+  \caption{Identifiability diagram separating the latent material gap from method, carrier, vacancy, and measurement terms. Same-specimen magneto-optical and absorption observations remove the common latent term in the paired difference. The decomposition does not authorize a universal correction.}
+  \label{fig:identifiability}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \IfFileExists{figures/figure5_paired_acquisition_design.pdf}{%
+    \includegraphics[width=0.98\textwidth]{figures/figure5_paired_acquisition_design.pdf}%
+  }{\fbox{\parbox[c][58mm][c]{0.94\textwidth}{\centering Figure 5 PDF export pending from frozen SVG}}}
+  \caption{Audit-grade paired $2\times2\times2$ acquisition design. Eight composition--carrier--vacancy specimen states receive paired magneto-optical and absorption measurements in low- and room-temperature blocks, producing 32 observations. Numerical diagnostics are read directly from the validated design oracle.}
+  \label{fig:acquisition-design}
+\end{figure*}
+
+\input{tables/table1_specimen_provenance.tex}
+\input{tables/table2_candidate_definitions.tex}
+\input{tables/table3_edge_ensemble.tex}
+\input{tables/table4_material_model_comparison.tex}
+\input{tables/table5_claim_boundaries.tex}
