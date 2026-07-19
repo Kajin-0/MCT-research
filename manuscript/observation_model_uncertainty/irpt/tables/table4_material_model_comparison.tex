@@ -1,10 +1,12 @@
 \begin{table*}[t]
 \centering
+\small
+\setlength{\tabcolsep}{4pt}
 \caption{Material-gap predictions and fitted observation-model residual intervals. Residual is extracted edge minus model prediction. Strict material-law ranking is not authorized for either specimen.}
 \label{tab:model-comparison}
-\begin{tabular}{lllll}
+\begin{tabularx}{\textwidth}{@{}rYrp{0.27\textwidth}c@{}}
 \toprule
-$x$ & Comparator & Prediction (meV) & Fitted residual interval (meV) & Strict rank \\
+$x$ & Comparator & Prediction (meV) & Fitted residual interval (meV) & Strict ranking? \\
 \midrule
 0.226 & Hansen & 190.366 & [-9.281, -2.866] & no \\
 0.226 & Seiler 1990 & 190.112 & [-9.026, -2.612] & no \\
@@ -16,5 +18,5 @@ $x$ & Comparator & Prediction (meV) & Fitted residual interval (meV) & Strict ra
 0.310 & Laurenti & 316.759 & [-27.089, -20.259] & no \\
 0.310 & Provisional Hansen--Pade & 310.470 & [-20.800, -13.970] & no \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table*}

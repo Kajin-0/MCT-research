@@ -6,6 +6,7 @@ on:
       - '.github/workflows/irpt-latex-manuscript.yml'
       - 'manuscript/observation_model_uncertainty/**'
       - 'tools/build_observation_model_irpt_tables.py'
+      - 'tools/build_observation_model_irpt_submission_tables.py'
       - 'tests/test_irpt_*.py'
       - 'tests/test_observation_model_irpt_tables.py'
   workflow_dispatch:
@@ -51,10 +52,17 @@ jobs:
           cp manuscript/observation_model_uncertainty/irpt/manuscript.blg "$evidence/" 2>/dev/null || true
           cp manuscript/observation_model_uncertainty/irpt/manuscript.pdf "$evidence/" 2>/dev/null || true
           if [ -f "$evidence/manuscript.pdf" ]; then
-            pdfinfo "$evidence/manuscript.pdf" > "$evidence/pdfinfo.txt"
+            if command -v pdfinfo >/dev/null 2>&1; then
+              pdfinfo "$evidence/manuscript.pdf" > "$evidence/pdfinfo.txt"
+            else
+              {
+                file "$evidence/manuscript.pdf"
+                stat --printf='size_bytes=%s\n' "$evidence/manuscript.pdf"
+              } > "$evidence/pdfinfo.txt"
+            fi
           fi
           find "$evidence" -type f ! -name sha256.txt -print0 \
-            | sort -z | xargs -0 sha256sum > "$evidence/sha256.txt"
+            | sort -z | xargs -0 -r sha256sum > "$evidence/sha256.txt"
 
       - uses: actions/upload-artifact@v4
         if: always()
