@@ -27,7 +27,7 @@ def test_verified_reference_ledger_contains_each_required_doi_once() -> None:
 def test_verified_reference_ledger_preserves_authority_boundaries() -> None:
     required = (
         "strict material-law ranking is not identified",
-        "not a fitted universal correction",
+        "not as a fitted universal correction",
         "boundary-limited fits are not treated as identified edges",
         "Copyrighted source pages and source figures are not redistributed",
         "not a separately published material law",
