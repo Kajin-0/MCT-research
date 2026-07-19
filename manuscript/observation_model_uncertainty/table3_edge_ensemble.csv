@@ -18,7 +18,7 @@ moazzami2005_x0.310,fractional_power_p_0.5,fitted_absorption_model,296.347625,Fa
 moazzami2005_x0.310,fractional_power_p_0.7,fitted_absorption_model,295.24787499999996,False,0.579316,published_seiler,hansen,0.17655559568868284
 moazzami2005_x0.310,fractional_power_p_0.849,fitted_absorption_model,293.78375,False,0.625691,published_seiler,hansen,0.17655559568868284
 moazzami2005_x0.310,fractional_power_p_1,fitted_absorption_model,291.763125,False,0.678691,published_seiler,hansen,0.17655559568868284
-moazzami2005_x0.310,chu_1994_kane_region,fitted_absorption_model,296.5,True,0.526316,published_seiler,hansen,0.176555559568868284
+moazzami2005_x0.310,chu_1994_kane_region,fitted_absorption_model,296.5,True,0.526316,published_seiler,hansen,0.17655559568868284
 moazzami2005_x0.310,threshold_400_cm-1,fixed_absorption_threshold,292.2254276545235,False,1.121962,published_seiler,hansen,0.17655559568868284
 moazzami2005_x0.310,threshold_600_cm-1,fixed_absorption_threshold,296.4823497461743,False,1.268021,published_seiler,hansen,0.17655559568868284
 moazzami2005_x0.310,threshold_800_cm-1,fixed_absorption_threshold,299.8583339767367,False,1.292163,published_seiler,hansen,0.17655559568868284
