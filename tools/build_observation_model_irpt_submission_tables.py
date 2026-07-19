@@ -37,7 +37,11 @@ def table1(rows: list[dict[str, str]]) -> str:
         r"\midrule",
     ]
     for row in rows:
-        sigma = row["composition_sigma_x"] or "not reported"
+        sigma = (
+            latex_escape(row["composition_sigma_x"])
+            if row["composition_sigma_x"]
+            else r"\textemdash{}"
+        )
         carrier = f'{row["carrier_type"]}; density not reported'
         body.append(
             " & ".join(
@@ -46,7 +50,7 @@ def table1(rows: list[dict[str, str]]) -> str:
                     f'{float(row["temperature_k"]):.0f}',
                     f'{float(row["thickness_um"]):.2f}',
                     row["digitized_point_count"],
-                    latex_escape(sigma),
+                    sigma,
                     latex_escape(carrier),
                     source_panel(row["source"]),
                 )
@@ -59,22 +63,21 @@ def table1(rows: list[dict[str, str]]) -> str:
 
 def table3(rows: list[dict[str, str]]) -> str:
     body = [
+        r"\begin{landscape}",
         r"\begingroup",
         r"\footnotesize",
-        r"\setlength{\tabcolsep}{1.5pt}",
+        r"\setlength{\tabcolsep}{4pt}",
         r"\setlength{\LTleft}{0pt}",
         r"\setlength{\LTright}{0pt}",
-        r"\begin{longtable}{@{}p{0.05\textwidth}p{0.19\textwidth}p{0.07\textwidth}rrrrp{0.14\textwidth}@{}}",
+        r"\begin{longtable}{@{}rp{1.85in}p{0.75in}rrrrp{1.65in}@{}}",
         r"\caption{Complete extracted-edge ensemble. Coordinate shift is the maximum absolute shift over the declared coherent digitization perturbations. Boundary-limited candidates are retained but are not treated as identified edges.}\label{tab:edge-ensemble}\\",
         r"\toprule",
-        r"$x$ & Candidate & Type & Edge & Bound? & Shift & Lead & Closest comparator \\",
-        r" & & & (meV) & & (meV) & (meV) & \\",
+        r"$x$ & Candidate & Type & Edge (meV) & Bound? & Shift (meV) & Lead (meV) & Closest comparator \\",
         r"\midrule",
         r"\endfirsthead",
         r"\multicolumn{8}{c}{\tablename\ \thetable{} -- continued}\\",
         r"\toprule",
-        r"$x$ & Candidate & Type & Edge & Bound? & Shift & Lead & Closest comparator \\",
-        r" & & & (meV) & & (meV) & (meV) & \\",
+        r"$x$ & Candidate & Type & Edge (meV) & Bound? & Shift (meV) & Lead (meV) & Closest comparator \\",
         r"\midrule",
         r"\endhead",
         r"\midrule",
@@ -105,7 +108,12 @@ def table3(rows: list[dict[str, str]]) -> str:
             )
             + r" \\"
         )
-    body += [r"\end{longtable}", r"\endgroup", ""]
+    body += [
+        r"\end{longtable}",
+        r"\endgroup",
+        r"\end{landscape}",
+        "",
+    ]
     return "\n".join(body)
 
 
