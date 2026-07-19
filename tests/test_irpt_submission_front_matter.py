@@ -4,9 +4,9 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FRONT_MATTER = ROOT / (
-    "manuscript/observation_model_uncertainty/irpt_submission_front_matter.md"
-)
+BASE = ROOT / "manuscript/observation_model_uncertainty"
+FRONT_MATTER = BASE / "irpt_submission_front_matter.md"
+IRPT = BASE / "irpt"
 TEXT = FRONT_MATTER.read_text(encoding="utf-8")
 
 
@@ -49,15 +49,24 @@ def test_irpt_keywords_meet_count_gate() -> None:
 
 def test_irpt_highlights_are_three_to_five_and_at_most_85_characters() -> None:
     block = _section("Highlights", "Data availability statement")
-    highlights = [
+    markdown_highlights = [
         line.removeprefix("- ")
         for line in block.splitlines()
         if line.startswith("- ")
     ]
-    assert 3 <= len(highlights) <= 5
-    assert all(len(item) <= 85 for item in highlights)
-    assert any("6.4–6.8 meV" in item for item in highlights)
-    assert any("0.9 meV" in item for item in highlights)
+    standalone = [
+        line.strip()
+        for line in (IRPT / "highlights.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    assert 3 <= len(markdown_highlights) <= 5
+    assert len(standalone) == len(markdown_highlights)
+    assert all(len(item) <= 85 for item in markdown_highlights)
+    assert all(len(item) <= 85 for item in standalone)
+    normalized_markdown = [item.replace("–", "-") for item in markdown_highlights]
+    assert standalone == normalized_markdown
+    assert any("6.4-6.8 meV" in item for item in standalone)
+    assert any("0.9 meV" in item for item in standalone)
 
 
 def test_irpt_required_declarations_are_present_and_fail_closed() -> None:
@@ -76,3 +85,24 @@ def test_irpt_required_declarations_are_present_and_fail_closed() -> None:
     assert "[FUNDING STATEMENT REQUIRED" in TEXT
     assert "[COMPETING-INTEREST STATEMENT REQUIRED" in TEXT
     assert "[INSERT PUBLIC ARCHIVE DOI OR FINAL REPOSITORY URL" in TEXT
+
+
+def test_irpt_cover_letter_is_fail_closed_and_scientifically_aligned() -> None:
+    letter = (IRPT / "cover_letter.md").read_text(encoding="utf-8")
+    for value in ("6.414–6.830", "0.891", "0.177–0.255"):
+        assert value in letter
+    for claim in (
+        "does not claim a universal absorption correction",
+        "selected production edge",
+        "universal replacement for Hansen",
+    ):
+        assert claim in letter
+    for placeholder in (
+        "[DATE REQUIRED]",
+        "[CONFIRM BEFORE SUBMISSION:",
+        "[CONFIRM OR REVISE:",
+        "[CORRESPONDING AUTHOR NAME]",
+        "[AFFILIATION]",
+        "[EMAIL]",
+    ):
+        assert placeholder in letter
