@@ -1,0 +1,76 @@
+name: manuscript-absorption-spectrum-selection
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/manuscript-absorption-spectrum-selection.yml'
+      - 'data/manuscript/absorption_spectrum_selection.csv'
+      - 'tools/audit_manuscript_absorption_spectrum_selection.py'
+      - 'tests/test_manuscript_absorption_spectrum_selection.py'
+      - 'validation/manuscript_absorption_spectrum_selection_reference_result.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+      - name: Execute selection audit
+        run: |
+          mkdir -p manuscript-spectrum-selection-evidence
+          python -m tools.audit_manuscript_absorption_spectrum_selection \
+            --selection-csv data/manuscript/absorption_spectrum_selection.csv \
+            --output-json manuscript-spectrum-selection-evidence/result.json \
+            > manuscript-spectrum-selection-evidence/stdout.txt \
+            2> manuscript-spectrum-selection-evidence/stderr.txt
+      - name: Verify compact reference
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('manuscript-spectrum-selection-evidence/result.json').read_text())
+          reference = json.loads(Path('validation/manuscript_absorption_spectrum_selection_reference_result.json').read_text())
+          compact = {key: result[key] for key in (
+              'schema_version', 'spectrum_count', 'source_count', 'source_ids',
+              'composition_values', 'temperature_range_k',
+              'low_temperature_spectrum_count',
+              'near_room_temperature_spectrum_count',
+              'cross_method_spectrum_count',
+              'chu_1994_domain_spectrum_count',
+              'digitization_ready_spectrum_count',
+              'machine_readable_spectrum_count', 'selection_gates',
+              'selection_gate_passed', 'analysis_authorized_now')}
+          if compact != reference:
+              raise SystemExit('compact result differs from reference')
+          PY
+      - name: Run focused tests
+        run: |
+          python -m pytest -q tests/test_manuscript_absorption_spectrum_selection.py \
+            > manuscript-spectrum-selection-evidence/pytest.txt \
+            2> manuscript-spectrum-selection-evidence/pytest-stderr.txt
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > manuscript-spectrum-selection-evidence/python-version.txt
+          find manuscript-spectrum-selection-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > manuscript-spectrum-selection-evidence/sha256.txt
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-spectrum-selection-evidence
+          path: manuscript-spectrum-selection-evidence
+          if-no-files-found: error
+          retention-days: 30
