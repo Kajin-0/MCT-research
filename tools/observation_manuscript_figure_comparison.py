@@ -58,7 +58,9 @@ def build_edge_svg(comparison: dict[str, Any]) -> str:
     template = comparison["specimens"][0]["candidates"]
     row_h = (height - top - bottom) / len(template)
     body = [
-        '<text x="35" y="34" class="title">Figure 2. Extracted edge depends on observation definition</text>'
+        '<text x="35" y="34" class="title">Figure 2. Extracted edge depends on observation definition</text>',
+        '<circle cx="52" cy="58" r="5.2" fill="white" stroke="#111" stroke-width="1.8"/>',
+        '<text x="65" y="62" class="small">boundary-limited fit</text>',
     ]
     for index, row in enumerate(template):
         y = top + (index + 0.5) * row_h
@@ -100,23 +102,29 @@ def build_edge_svg(comparison: dict[str, Any]) -> str:
                 )
             else:
                 body.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="4.5" fill="#111"/>')
-    body += [
-        '<text x="642" y="688" text-anchor="middle" class="label">Extracted edge (meV)</text>',
-        '<circle cx="930" cy="55" r="5.2" fill="white" stroke="#111" stroke-width="1.8"/>',
-        '<text x="943" y="59" class="small">boundary-limited fit</text>',
-    ]
+    body.append(
+        '<text x="642" y="688" text-anchor="middle" class="label">Extracted edge (meV)</text>'
+    )
     return wrap(width, height, "Extracted edge by observation definition", body)
 
 
 def build_residual_svg(base: dict[str, Any], comparison: dict[str, Any]) -> str:
     width, height = 1050, 670
-    left, top, plot_w, plot_h = 90, 90, 925, 480
-    ymin, ymax = -130.0, 30.0
+    left, top, plot_w, plot_h = 90, 105, 925, 465
+    ymin, ymax = -35.0, 60.0
     ymap = lambda value: top + plot_h * (ymax - value) / (ymax - ymin)
     body = [
-        '<text x="35" y="34" class="title">Figure 3. Material-model residual intervals from the observation ensemble</text>'
+        '<text x="35" y="34" class="title">Figure 3. Material-model residual intervals from the observation ensemble</text>',
+        '<line x1="475" y1="58" x2="515" y2="58" stroke="#111" stroke-width="3"/>',
+        '<text x="523" y="62" class="small">fitted-model envelope</text>',
+        '<line x1="705" y1="58" x2="745" y2="58" stroke="#999" stroke-width="7"/>',
+        '<text x="753" y="62" class="small">400-4000 cm-1 thresholds</text>',
+        '<line x1="475" y1="82" x2="515" y2="82" stroke="#111" stroke-width="3"/>',
+        '<text x="523" y="86" class="small">x=0.226</text>',
+        '<line x1="620" y1="82" x2="660" y2="82" stroke="#111" stroke-width="3" stroke-dasharray="5 4"/>',
+        '<text x="668" y="86" class="small">x=0.310</text>',
     ]
-    for tick in (-120, -90, -60, -30, 0, 30):
+    for tick in (-30, -15, 0, 15, 30, 45, 60):
         y = ymap(float(tick))
         body += [
             f'<line x1="{left}" y1="{y:.2f}" x2="1015" y2="{y:.2f}" class="grid"/>',
@@ -125,7 +133,7 @@ def build_residual_svg(base: dict[str, Any], comparison: dict[str, Any]) -> str:
     body += [
         f'<line x1="{left}" y1="{ymap(0):.2f}" x2="1015" y2="{ymap(0):.2f}" stroke="#111" stroke-width="1.8"/>',
         f'<line x1="{left}" y1="{top}" x2="{left}" y2="570" class="axis"/>',
-        '<text transform="translate(27 330) rotate(-90)" text-anchor="middle" class="label">Observation edge minus model prediction (meV)</text>',
+        '<text transform="translate(27 337) rotate(-90)" text-anchor="middle" class="label">Observation edge minus model prediction (meV)</text>',
     ]
     group_w = plot_w / len(MODEL_ORDER)
     for model_index, model in enumerate(MODEL_ORDER):
@@ -157,11 +165,7 @@ def build_residual_svg(base: dict[str, Any], comparison: dict[str, Any]) -> str:
                 f'y2="{ymap(high):.2f}" stroke="#111" stroke-width="3" '
                 f'stroke-linecap="round" stroke-dasharray="{dash}"/>',
             ]
-    body += [
-        '<line x1="570" y1="55" x2="610" y2="55" stroke="#111" stroke-width="3"/>',
-        '<text x="618" y="59" class="small">fitted-model envelope</text>',
-        '<line x1="780" y1="55" x2="820" y2="55" stroke="#999" stroke-width="7"/>',
-        '<text x="828" y="59" class="small">400-4000 cm-1 thresholds</text>',
-        '<text x="552" y="652" text-anchor="middle" class="small">Intervals are observation-definition sensitivity, not statistical confidence intervals.</text>',
-    ]
+    body.append(
+        '<text x="552" y="652" text-anchor="middle" class="small">Intervals are observation-definition sensitivity, not statistical confidence intervals.</text>'
+    )
     return wrap(width, height, "Material-model residual intervals", body)
