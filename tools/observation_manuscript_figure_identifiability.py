@@ -30,7 +30,6 @@ def build_identifiability_svg() -> str:
         _text(35, 36, "Figure 4. What an absorption-derived HgCdTe edge actually measures", "title", "start"),
     ]
 
-    # State variables and latent material quantity.
     body += [
         _box(45, 110, 190, 92),
         _text(140, 137, "Specimen state", "panel"),
@@ -42,7 +41,6 @@ def build_identifiability_svg() -> str:
         _arrow(235, 156, 315, 156),
     ]
 
-    # Paired observation classes.
     body += [
         _box(655, 82, 270, 105),
         _text(790, 112, "Magneto-optical observation", "panel"),
@@ -61,25 +59,21 @@ def build_identifiability_svg() -> str:
         _text(600, 216, "same specimen", "small", "end"),
     ]
 
-    # Observation-specific terms and required evidence.
     terms = [
         (
             70,
-            435,
             "Δmethod",
             "fit family • window • threshold",
             "tail treatment • calibration",
         ),
         (
             340,
-            435,
             "Δcarrier",
             "Hall type • n or p • mobility",
             "Burstein-Moss / filling state",
         ),
         (
             610,
-            435,
             "Δvacancy",
             "vacancy-sensitive proxy",
             "anneal and processing history",
@@ -94,7 +88,6 @@ def build_identifiability_svg() -> str:
             _arrow(x + 117.5, 430, 820 if x < 500 else 1005, 368),
         ]
 
-    # Paired difference and claim boundary.
     body += [
         _box(900, 430, 295, 112, "result"),
         _text(1047.5, 458, "Paired same-specimen difference", "panel"),
