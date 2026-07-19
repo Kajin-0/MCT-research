@@ -39,6 +39,7 @@ from .composition_uncertainty import (
     oscillator_composition_derivative_matrix,
 )
 from .dataio import (
+    COVARIANCE_COORDINATE_SYSTEM,
     MatrixDataset,
     MatrixRecord,
     file_sha256,
@@ -64,6 +65,18 @@ from .gauge import (
     procrustes_unitary,
     rotate_operator,
 )
+from .hermitian import (
+    LEGACY_COMPLEX_CARTESIAN_DIMENSION,
+    MATRIX_DIMENSION,
+    OBSERVATION_DIMENSION,
+    complex_cartesian_vector,
+    hermitian_linear_map,
+    hermitian_vector,
+    hermiticity_residual,
+    legacy_covariance_to_hermitian,
+    matrix_from_complex_cartesian_vector,
+    matrix_from_hermitian_vector,
+)
 from .kane8 import (
     ALPHA_EV_A2,
     ExtendedKaneParameters,
@@ -82,7 +95,6 @@ from .pipeline import (
     rotation_from_overlap,
 )
 from .projection import (
-    OBSERVATION_DIMENSION,
     closure_residual,
     covariance_whitener,
     design_diagnostics,
@@ -104,6 +116,7 @@ from .symmetry import (
 __all__ = [
     "ALPHA_EV_A2",
     "AlignmentDiagnostics",
+    "COVARIANCE_COORDINATE_SYSTEM",
     "CompositionAwareGapData",
     "CompositionAwareGapFit",
     "CompositionCrossValidationResult",
@@ -120,8 +133,10 @@ __all__ = [
     "HoldoutFold",
     "KANE_IRREP_BLOCKS",
     "KaneParameters",
+    "LEGACY_COMPLEX_CARTESIAN_DIMENSION",
     "LinearEqualityConstraints",
     "LinearGapFit",
+    "MATRIX_DIMENSION",
     "MatrixDataset",
     "MatrixRecord",
     "NetcdfFieldMap",
@@ -135,6 +150,7 @@ __all__ = [
     "closure_residual",
     "coefficient_constraint",
     "combine_constraints",
+    "complex_cartesian_vector",
     "covariance_whitener",
     "critical_composition",
     "critical_temperature_k",
@@ -154,14 +170,20 @@ __all__ = [
     "hamiltonian",
     "hamiltonian_two_p",
     "hansen_gap_ev",
+    "hermitian_linear_map",
+    "hermitian_vector",
+    "hermiticity_residual",
     "hermitize",
     "laurenti_gap_ev",
     "leave_one_composition_group_out",
     "leave_one_group_out",
     "leave_one_source_out",
+    "legacy_covariance_to_hermitian",
     "load_jsonl_matrix_export",
     "load_matrix_dataset",
     "load_netcdf_matrix_export",
+    "matrix_from_complex_cartesian_vector",
+    "matrix_from_hermitian_vector",
     "named_composition_holdout_cross_validation",
     "named_holdout_cross_validation",
     "oscillator_composition_derivative_matrix",
