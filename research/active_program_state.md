@@ -6,6 +6,8 @@
 
 The finite-k workflow uses the isospectral selected-band polar Hamiltonian. The zincblende linear and quadratic spaces and the finite-temperature reconstruction oracles are tested. The present CdTe response calculation is not suitable for a production polar electron-phonon result.
 
+Hermitian `8 x 8` matrix covariance now uses the independent `hermitian_frobenius_64` coordinate system under dataset schema `2.0`. Legacy schema `1.0` covariance is migrated explicitly; new 128D covariance exports are rejected. This corrects the statistical coordinate space but does not estimate physical covariance or propagate gauge uncertainty.
+
 ## Provisional HgCdTe thermal model
 
 `Eg(x,T) = Eg_Hansen(x,0) + alpha (1-2x) T^3/(T^2 + tau^2)`
@@ -24,6 +26,6 @@ No global equation ranking is supported without sample-level composition uncerta
 
 ## Evidence boundary
 
-Further useful work consists of recovering primary datasets with explicit composition provenance, obtaining composition uncertainty for the Teppe specimens, correcting covariance storage from redundant 128D coordinates to 64 independent Hermitian coordinates, and preparing paired experimental acquisition when a practical collaboration exists.
+Further useful work consists of recovering primary datasets with explicit composition provenance, obtaining composition uncertainty for the Teppe specimens, building the validated absorption observation-model uncertainty contract, estimating physical 64D matrix covariance from declared convergence ensembles, and preparing paired experimental acquisition when a practical collaboration exists.
 
-Additional empirical coefficients, source-specific composition remapping, and production finite-temperature calculations from the current CdTe response state are outside the present evidence boundary.
+Additional empirical coefficients, source-specific composition remapping, covariance-based confidence claims from synthetic matrices, and production finite-temperature calculations from the current CdTe response state are outside the present evidence boundary.
