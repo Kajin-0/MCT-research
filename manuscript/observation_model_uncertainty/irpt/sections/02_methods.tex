@@ -1,0 +1,92 @@
+\section{Observation model and methods}
+\label{sec:methods}
+
+\subsection{Latent gap and measured edge}
+\label{sec:observation-model}
+
+For a specimen with independently measured composition $x$ and temperature $T$, we represent a magneto-optical observation as
+\begin{equation}
+  y_{\mathrm{MO}} = E_g(x,T) + \epsilon_{\mathrm{MO}},
+  \label{eq:magneto-optical}
+\end{equation}
+and an intrinsic-absorption-derived edge as
+\begin{equation}
+  y_{\mathrm{abs}} = E_g(x,T)
+  + \Delta_{\mathrm{method}}
+  + \Delta_{\mathrm{carrier}}
+  + \Delta_{\mathrm{vacancy}}
+  + \epsilon_{\mathrm{abs}}.
+  \label{eq:absorption-observation}
+\end{equation}
+The terms in Eq.~\eqref{eq:absorption-observation} form an identifiability decomposition, not a set of universal correction functions. $\Delta_{\mathrm{method}}$ includes the fit family, fit window, threshold, tail treatment, and calibration convention. $\Delta_{\mathrm{carrier}}$ represents carrier-state contributions such as band filling \cite{Sarusi1989}. $\Delta_{\mathrm{vacancy}}$ represents defect-state contributions that can alter the optical edge \cite{Yue2006}. For paired measurements on the same specimen,
+\begin{equation}
+  y_{\mathrm{abs}} - y_{\mathrm{MO}}
+  = \Delta_{\mathrm{method}} + \Delta_{\mathrm{carrier}}
+  + \Delta_{\mathrm{vacancy}} + \epsilon,
+  \label{eq:paired-difference}
+\end{equation}
+so the common latent term is removed. Without paired modalities and independent specimen-state measurements, the contributions in Eq.~\eqref{eq:absorption-observation} can remain aliased.
+
+\subsection{Experimental spectra and provenance}
+\label{sec:spectra}
+
+The present application uses the solid infrared spectroscopic ellipsometry traces in Fig.~6 of Moazzami \emph{et al.} \cite{Moazzami2005}. The first specimen has reported composition $x=0.226$, temperature 300~K, thickness 15.40~$\mu$m, and 125 digitized points. The second has $x=0.310$, temperature 300~K, thickness 4.95~$\mu$m, and 115 digitized points.
+
+The curves were recovered from embedded bitmap objects in the primary PDF. The calibration records preserve source hashes, axis anchors, curve masks, centerline rules, sampling interval, and uncertainty floors. Copyrighted source pages and source figures are not redistributed. Specimen-level composition uncertainty, carrier type, and carrier density were not reported and remain explicitly missing.
+
+\subsection{Edge-extraction ensemble}
+\label{sec:edge-ensemble}
+
+The fitted candidate ensemble contains a free fractional-power model, fixed powers $p=0.5$, $0.7$, and $1.0$, the exponent reported for each source panel, and the provenance-bound Chu 1994 Kane-region form \cite{Chu1994}. The fractional-power family is
+\begin{equation}
+  \alpha(E) = A\frac{(E-E_g)^p}{E}, \qquad E>E_g.
+  \label{eq:fractional-power}
+\end{equation}
+The Chu candidate is
+\begin{equation}
+  \alpha(E) = \alpha_g \exp\!\left(\sqrt{\beta(x,T)(E-E_g)}\right),
+  \label{eq:chu}
+\end{equation}
+with the source-supported parameterization
+\begin{equation}
+  \beta(x,T) = -1 + 0.083T + (21-0.13T)x.
+  \label{eq:chu-beta}
+\end{equation}
+Equation~\eqref{eq:chu} is admitted only for $0.170\leq x\leq0.443$ and $77\leq T\leq300$~K. A fit reaching a declared search bound is exported as boundary-limited rather than identified.
+
+Operational fixed-threshold candidates are defined as the first interpolated crossings from 400 to 5000~cm$^{-1}$. These crossings are observation definitions, not assumed estimators of the latent gap. Precision comparisons use thresholds through 4000~cm$^{-1}$ because the 5000~cm$^{-1}$ crossing for one specimen exceeds the declared coordinate-sensitivity gate.
+
+\subsection{Digitization-coordinate sensitivity}
+\label{sec:digitization}
+
+Four coherent perturbation corners combine positive and negative energy-axis uncertainty with positive and negative pointwise logarithmic-absorption uncertainty. The model-fit point population is held fixed to the base 600--5000~cm$^{-1}$ window so the audit isolates coordinate uncertainty rather than fit-window membership changes.
+
+The digitization stop rule is 5~meV. Fitted-model conclusions are classified as stable only when their coordinate shifts remain below 1~meV. Fixed-threshold precision claims are restricted to crossings whose coordinate shifts remain below 5~meV.
+
+\subsection{Material-gap comparators}
+\label{sec:comparators}
+
+Four material-gap relations are evaluated at each reported composition and temperature: Hansen \cite{Hansen1982}, published Seiler \cite{Seiler1990}, Laurenti \cite{Laurenti1990}, and a provisional constrained Hansen--Pade relation. The published Seiler comparator is
+\begin{equation}
+  E_g(x,T) = E_{g,\mathrm{Hansen}}(x,0)
+  + 5.35\times10^{-4}(1-2x)\frac{A+T^3}{B+T^2},
+  \label{eq:seiler}
+\end{equation}
+where $A=-1822$~K$^3$ and $B=255.2$~K$^2$.
+
+The provisional relation retains the Hansen zero-temperature polynomial and uses
+\begin{equation}
+  E_g(x,T) = E_{g,\mathrm{Hansen}}(x,0)
+  + \alpha(1-2x)\frac{T^3}{T^2+\tau^2},
+  \label{eq:provisional}
+\end{equation}
+with $\alpha=5.918273117836612\times10^{-4}$~eV/K and $\tau=18.059294367159467$~K. It is a constrained member of the Seiler rational-temperature family, not a new functional family or production equation.
+
+For each observation candidate, the nominal closest comparator is the relation with the smallest absolute residual. A strict material-law ranking is authorized only if the ordering remains identified after observation-model and specimen-metadata uncertainty. That condition is not met by the present records.
+
+\subsection{Paired acquisition-design analysis}
+\label{sec:design}
+
+A local linearized identifiability model contains five coefficients: latent intercept, latent composition slope, absorption-class offset, carrier contribution, and vacancy contribution. The validated acquisition oracle evaluates the full two-level factorial over composition, carrier proxy, and vacancy proxy. Each of eight specimen states receives paired magneto-optical and intrinsic-absorption measurements at a low-temperature block and at 300~K.
+
+Per temperature block, the design contains 16 observations, rank $5/5$, 11 residual degrees of freedom, condition number 2.618, and maximum leverage 0.4375. The two-temperature design contains 32 gap observations. This establishes the unique audit-grade subset only within the declared two-level $2^3$ candidate family and numerical gates; it is not a universal optimal-design proof.
