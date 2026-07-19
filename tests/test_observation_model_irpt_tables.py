@@ -39,6 +39,7 @@ def test_irpt_tables_preserve_records_and_layout(tmp_path: Path) -> None:
     assert _csv_count("table1_specimen_provenance.csv") == 2
     assert t1.count("Moazzami 2005, Fig.~6") == 2
     assert t1.count("density not reported") == 2
+    assert t1.count(r"\textemdash{}") == 2
     assert r"\begin{tabularx}{\textwidth}" in t1
 
     assert _csv_count("table2_candidate_definitions.csv") == 4
@@ -50,8 +51,9 @@ def test_irpt_tables_preserve_records_and_layout(tmp_path: Path) -> None:
     assert t3.count(" & fit & ") == 12
     assert t3.count(" & threshold & ") == 16
     assert t3.count(" & yes & ") == 3
+    assert r"\begin{landscape}" in t3
     assert r"\footnotesize" in t3
-    assert r"\setlength{\tabcolsep}{1.5pt}" in t3
+    assert r"\setlength{\tabcolsep}{4pt}" in t3
     assert "Closest comparator" in t3
     assert "fixed thresh-" not in t3
 
