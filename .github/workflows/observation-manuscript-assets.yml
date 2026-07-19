@@ -23,7 +23,7 @@ jobs:
           python -m tools.analyze_moazzami2005_manuscript_comparators --repository-root . --output-json material-comparator-analysis.json
           python -m tools.build_observation_model_manuscript_assets --repository-root . --output-dir generated
           python -m tools.build_observation_model_conceptual_figures --output-dir conceptual-generated
-          python -m tools.build_observation_model_irpt_tables --repository-root . --output-dir irpt-tables-generated
+          python -m tools.build_observation_model_irpt_submission_tables --repository-root . --output-dir irpt-tables-generated
       - name: Focused tests
         shell: bash
         run: |
