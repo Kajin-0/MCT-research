@@ -43,6 +43,12 @@ TRUE = KaneParameters(
     gamma3=1.5,
 )
 
+# The ratio is theoretically fixed by the degrees-of-freedom change, but the
+# two covariance paths use separate LAPACK factorizations. Different supported
+# Python/NumPy runner images can therefore differ at the few-ulp level. This
+# remains far tighter than any physical parameter precision in the audit.
+STANDARD_ERROR_RATIO_TOLERANCE = 1.0e-8
+
 
 def _synthetic_matrices() -> list[np.ndarray]:
     rng = np.random.default_rng(20260719)
@@ -57,7 +63,9 @@ def _synthetic_matrices() -> list[np.ndarray]:
     return matrices
 
 
-def _systems(matrices: list[np.ndarray]) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+def _systems(
+    matrices: list[np.ndarray],
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     old_rows: list[np.ndarray] = []
     old_targets: list[np.ndarray] = []
     new_rows: list[np.ndarray] = []
@@ -66,10 +74,14 @@ def _systems(matrices: list[np.ndarray]) -> tuple[np.ndarray, np.ndarray, np.nda
     for k_point, matrix in zip(K_POINTS, matrices, strict=True):
         templates = parameter_templates(k_point)
         old_rows.append(
-            np.column_stack([complex_vector(templates[name]) for name in PARAMETER_NAMES])
+            np.column_stack(
+                [complex_vector(templates[name]) for name in PARAMETER_NAMES]
+            )
         )
         new_rows.append(
-            np.column_stack([hermitian_vector(templates[name]) for name in PARAMETER_NAMES])
+            np.column_stack(
+                [hermitian_vector(templates[name]) for name in PARAMETER_NAMES]
+            )
         )
         residual = matrix - hamiltonian(k_point, zero)
         old_targets.append(complex_vector(residual))
@@ -84,7 +96,9 @@ def _systems(matrices: list[np.ndarray]) -> tuple[np.ndarray, np.ndarray, np.nda
 
 def _legacy_unweighted(matrices: list[np.ndarray]) -> dict[str, Any]:
     old_design, old_target, _, _ = _systems(matrices)
-    solution, _, rank, singular_values = np.linalg.lstsq(old_design, old_target, rcond=None)
+    solution, _, rank, singular_values = np.linalg.lstsq(
+        old_design, old_target, rcond=None
+    )
     residual = old_target - old_design @ solution
     sse = float(residual @ residual)
     dof = old_design.shape[0] - rank
@@ -109,7 +123,9 @@ def _legacy_unweighted(matrices: list[np.ndarray]) -> dict[str, Any]:
 def _current_unweighted(matrices: list[np.ndarray]) -> dict[str, Any]:
     fitted, diagnostics = fit_parameters(K_POINTS, matrices)
     return {
-        "parameters": {name: float(getattr(fitted, name)) for name in PARAMETER_NAMES},
+        "parameters": {
+            name: float(getattr(fitted, name)) for name in PARAMETER_NAMES
+        },
         "rank": int(diagnostics["rank"]),
         "observation_count": int(diagnostics["observation_count"]),
         "degrees_of_freedom": int(diagnostics["degrees_of_freedom"]),
@@ -125,8 +141,10 @@ def _current_unweighted(matrices: list[np.ndarray]) -> dict[str, Any]:
     }
 
 
-def _absolute_covariance_equivalence(matrices: list[np.ndarray]) -> dict[str, Any]:
-    old_design, old_target, new_design, new_target = _systems(matrices)
+def _absolute_covariance_equivalence(
+    matrices: list[np.ndarray],
+) -> dict[str, Any]:
+    old_design, old_target, _, _ = _systems(matrices)
     sigma = 3.0e-5
     covariance_64 = sigma**2 * np.eye(64)
     covariance_128 = hermitian_covariance_to_legacy(covariance_64)
@@ -153,30 +171,43 @@ def _absolute_covariance_equivalence(matrices: list[np.ndarray]) -> dict[str, An
         matrices,
         covariances=[covariance_64 for _ in K_POINTS],
     )
-    new_solution = np.asarray([getattr(fitted, name) for name in PARAMETER_NAMES])
+    new_solution = np.asarray(
+        [getattr(fitted, name) for name in PARAMETER_NAMES]
+    )
     new_parameter_covariance = np.asarray(diagnostics["parameter_covariance"])
 
     embedding = hermitian_embedding()
-    embedding_residual = float(np.linalg.norm(embedding.T @ embedding - np.eye(64)))
+    embedding_residual = float(
+        np.linalg.norm(embedding.T @ embedding - np.eye(64))
+    )
     return {
         "sigma_per_hermitian_coordinate": sigma,
         "legacy_covariance_rank": int(np.linalg.matrix_rank(covariance_128)),
         "legacy_covariance_dimension": 128,
         "current_covariance_dimension": 64,
         "embedding_orthonormality_residual": embedding_residual,
-        "maximum_parameter_difference": float(np.max(np.abs(old_solution - new_solution))),
-        "chi_square_difference": float(abs(old_chi_square - diagnostics["chi_square"])),
+        "maximum_parameter_difference": float(
+            np.max(np.abs(old_solution - new_solution))
+        ),
+        "chi_square_difference": float(
+            abs(old_chi_square - diagnostics["chi_square"])
+        ),
         "parameter_covariance_frobenius_difference": float(
-            np.linalg.norm(old_parameter_covariance - new_parameter_covariance)
+            np.linalg.norm(
+                old_parameter_covariance - new_parameter_covariance
+            )
         ),
         "legacy_pseudoinverse_chi_square": old_chi_square,
         "current_64d_chi_square": float(diagnostics["chi_square"]),
         "current_degrees_of_freedom": int(diagnostics["degrees_of_freedom"]),
-        "current_reduced_chi_square": float(diagnostics["reduced_chi_square"]),
+        "current_reduced_chi_square": float(
+            diagnostics["reduced_chi_square"]
+        ),
         "interpretation": (
-            "A physically embedded rank-64 legacy covariance is equivalent to the 64D "
-            "covariance when treated with its Moore-Penrose pseudoinverse. The former "
-            "eigenvalue-floor interpretation of the 64 null directions was not calibrated."
+            "A physically embedded rank-64 legacy covariance is equivalent to "
+            "the 64D covariance when treated with its Moore-Penrose pseudoinverse. "
+            "The former eigenvalue-floor interpretation of the 64 null directions "
+            "was not calibrated."
         ),
     }
 
@@ -189,8 +220,17 @@ def _inventory(path: str | Path) -> dict[str, Any]:
     counts: dict[str, int] = {}
     for row in rows:
         counts[row["disposition"]] = counts.get(row["disposition"], 0) + 1
-    affected = [row["artifact_or_path"] for row in rows if row["disposition"] == "regenerated"]
-    return {"row_count": len(rows), "counts_by_disposition": counts, "regenerated": affected, "rows": rows}
+    affected = [
+        row["artifact_or_path"]
+        for row in rows
+        if row["disposition"] == "regenerated"
+    ]
+    return {
+        "row_count": len(rows),
+        "counts_by_disposition": counts,
+        "regenerated": affected,
+        "rows": rows,
+    }
 
 
 def analyze(inventory_path: str | Path) -> dict[str, Any]:
@@ -198,34 +238,60 @@ def analyze(inventory_path: str | Path) -> dict[str, Any]:
     old = _legacy_unweighted(matrices)
     new = _current_unweighted(matrices)
     parameter_difference = max(
-        abs(old["parameters"][name] - new["parameters"][name]) for name in PARAMETER_NAMES
+        abs(old["parameters"][name] - new["parameters"][name])
+        for name in PARAMETER_NAMES
     )
-    sse_difference = abs(old["chi_square_numeric_sse"] - new["chi_square_numeric_sse"])
+    sse_difference = abs(
+        old["chi_square_numeric_sse"] - new["chi_square_numeric_sse"]
+    )
     dof_ratio = old["degrees_of_freedom"] / new["degrees_of_freedom"]
     se_ratios = {
-        name: new["parameter_standard_errors"][name] / old["parameter_standard_errors"][name]
+        name: new["parameter_standard_errors"][name]
+        / old["parameter_standard_errors"][name]
         for name in PARAMETER_NAMES
     }
     expected_se_ratio = float(np.sqrt(dof_ratio))
-    maximum_se_ratio_error = max(abs(value - expected_se_ratio) for value in se_ratios.values())
+    maximum_se_ratio_error = max(
+        abs(value - expected_se_ratio) for value in se_ratios.values()
+    )
     absolute = _absolute_covariance_equivalence(matrices)
     inventory = _inventory(inventory_path)
 
     checks = {
         "point_estimates_preserved": parameter_difference <= 1.0e-10,
         "numeric_sse_preserved": sse_difference <= 1.0e-18,
-        "old_observation_count_is_128_per_matrix": old["observation_count"] == 128 * len(K_POINTS),
-        "new_observation_count_is_64_per_matrix": new["observation_count"] == 64 * len(K_POINTS),
-        "new_dof_is_64N_minus_rank": new["degrees_of_freedom"] == 64 * len(K_POINTS) - new["rank"],
-        "variance_scaled_standard_error_ratio_matches_dof": maximum_se_ratio_error <= 1.0e-10,
-        "embedded_absolute_covariance_preserves_parameters": absolute["maximum_parameter_difference"] <= 1.0e-10,
-        "embedded_absolute_covariance_preserves_chi_square": absolute["chi_square_difference"] <= 1.0e-8,
-        "embedded_absolute_covariance_preserves_parameter_covariance": absolute["parameter_covariance_frobenius_difference"] <= 1.0e-10,
-        "no_committed_physical_statistics_require_value_replacement": inventory["counts_by_disposition"].get("regenerated", 0) == 2,
+        "old_observation_count_is_128_per_matrix": old["observation_count"]
+        == 128 * len(K_POINTS),
+        "new_observation_count_is_64_per_matrix": new["observation_count"]
+        == 64 * len(K_POINTS),
+        "new_dof_is_64N_minus_rank": new["degrees_of_freedom"]
+        == 64 * len(K_POINTS) - new["rank"],
+        "variance_scaled_standard_error_ratio_matches_dof": maximum_se_ratio_error
+        <= STANDARD_ERROR_RATIO_TOLERANCE,
+        "embedded_absolute_covariance_preserves_parameters": absolute[
+            "maximum_parameter_difference"
+        ]
+        <= 1.0e-10,
+        "embedded_absolute_covariance_preserves_chi_square": absolute[
+            "chi_square_difference"
+        ]
+        <= 1.0e-8,
+        "embedded_absolute_covariance_preserves_parameter_covariance": absolute[
+            "parameter_covariance_frobenius_difference"
+        ]
+        <= 1.0e-10,
+        "no_committed_physical_statistics_require_value_replacement": inventory[
+            "counts_by_disposition"
+        ].get("regenerated", 0)
+        == 2,
     }
     if not all(checks.values()):
         failed = [name for name, passed in checks.items() if not passed]
-        raise RuntimeError(f"64D statistics regeneration audit failed: {failed}")
+        raise RuntimeError(
+            "64D statistics regeneration audit failed: "
+            f"{failed}; maximum_standard_error_ratio_error="
+            f"{maximum_se_ratio_error:.17g}"
+        )
 
     return {
         "schema_version": "1.0",
@@ -241,7 +307,11 @@ def analyze(inventory_path: str | Path) -> dict[str, Any]:
             "expected_current_to_legacy_standard_error_ratio": expected_se_ratio,
             "standard_error_ratios": se_ratios,
             "maximum_standard_error_ratio_error": maximum_se_ratio_error,
-            "reduced_chi_square_ratio_current_to_legacy": new["reduced_chi_square"] / old["reduced_chi_square"],
+            "standard_error_ratio_tolerance": STANDARD_ERROR_RATIO_TOLERANCE,
+            "reduced_chi_square_ratio_current_to_legacy": new[
+                "reduced_chi_square"
+            ]
+            / old["reduced_chi_square"],
         },
         "absolute_covariance_equivalence": absolute,
         "repository_inventory": inventory,
@@ -253,9 +323,10 @@ def analyze(inventory_path: str | Path) -> dict[str, Any]:
             "legacy_variance_scaled_standard_errors_retain_validity": False,
             "committed_physical_hamiltonian_statistical_values_replaced": False,
             "reason": (
-                "The current committed physical static records are deterministic matrix "
-                "fits without calibrated Hamiltonian covariance. Only the runtime projection "
-                "statistics API and its synthetic validation required regeneration."
+                "The current committed physical static records are deterministic "
+                "matrix fits without calibrated Hamiltonian covariance. Only the "
+                "runtime projection statistics API and its synthetic validation "
+                "required regeneration."
             ),
         },
     }
