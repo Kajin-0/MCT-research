@@ -7,6 +7,7 @@ from tools.build_observation_model_irpt_tables import TABLE_FILENAMES, build
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "manuscript/observation_model_uncertainty"
+FROZEN = SOURCE / "irpt/tables"
 
 
 def _csv_count(name: str) -> int:
@@ -78,3 +79,10 @@ def test_irpt_table_labels_match_manuscript_inputs(tmp_path: Path) -> None:
     }
     for name, label in expected_labels.items():
         assert label in (tmp_path / name).read_text(encoding="utf-8")
+
+
+def test_frozen_irpt_tables_match_a_fresh_rebuild(tmp_path: Path) -> None:
+    build(ROOT, tmp_path)
+    assert {path.name for path in FROZEN.iterdir()} == set(TABLE_FILENAMES)
+    for name in TABLE_FILENAMES:
+        assert (FROZEN / name).read_bytes() == (tmp_path / name).read_bytes()
