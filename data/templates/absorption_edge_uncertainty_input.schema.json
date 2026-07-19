@@ -91,6 +91,11 @@
               {"type": "number", "minimum": 0.2, "maximum": 1.5}
             ]
           }
+        },
+        "include_chu_1994_kane_region": {
+          "type": "boolean",
+          "default": false,
+          "description": "Opt in to the provenance-bound Chu 1994 Kane-region candidate within 0.170<=x<=0.443 and 77<=T<=300 K."
         }
       }
     },

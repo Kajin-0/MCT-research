@@ -1,5 +1,16 @@
 """Executable analytical models for HgCdTe research."""
 
+from .absorption_edge_uncertainty import (
+    CHU_1994_COMPOSITION_RANGE,
+    CHU_1994_SOURCE_DOI,
+    CHU_1994_TEMPERATURE_RANGE_K,
+    CONTRACT_VERSION as ABSORPTION_EDGE_CONTRACT_VERSION,
+    analyze_absorption_edge_contract,
+    chu_1994_beta_ev_inverse,
+    fit_chu_1994_kane_edge,
+    fit_fractional_power_edge,
+    threshold_edge_ev,
+)
 from .analytical_benchmark import (
     CrossValidationResult,
     GapBenchmarkData,
@@ -120,8 +131,12 @@ from .symmetry import (
 )
 
 __all__ = [
+    "ABSORPTION_EDGE_CONTRACT_VERSION",
     "ALPHA_EV_A2",
     "AlignmentDiagnostics",
+    "CHU_1994_COMPOSITION_RANGE",
+    "CHU_1994_SOURCE_DOI",
+    "CHU_1994_TEMPERATURE_RANGE_K",
     "COMPLEX_OBSERVATION_DIMENSION",
     "CompositionAwareGapData",
     "CompositionAwareGapFit",
@@ -152,8 +167,10 @@ __all__ = [
     "ResidualMetrics",
     "SCHEMA_VERSION",
     "align_basis",
+    "analyze_absorption_edge_contract",
     "bose_occupation_basis",
     "bracketed_root",
+    "chu_1994_beta_ev_inverse",
     "closure_residual",
     "coefficient_constraint",
     "combine_constraints",
@@ -170,8 +187,10 @@ __all__ = [
     "extended_closure_residual",
     "extended_design_diagnostics",
     "file_sha256",
+    "fit_chu_1994_kane_edge",
     "fit_composition_aware_gap_model",
     "fit_extended_parameters",
+    "fit_fractional_power_edge",
     "fit_linear_gap_model",
     "fit_parameters",
     "forbidden_gamma_coupling_norm",
@@ -212,6 +231,7 @@ __all__ = [
     "rotate_operator",
     "rotation_from_overlap",
     "save_matrix_dataset",
+    "threshold_edge_ev",
     "time_reversal_pair_residual",
     "time_reversal_pair_symmetrize",
     "time_reversal_residual",
