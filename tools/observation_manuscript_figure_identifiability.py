@@ -26,7 +26,7 @@ def build_identifiability_svg() -> str:
     width, height = 1240, 760
     body: list[str] = [
         '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#444"/></marker></defs>',
-        '<style>text{font-family:Arial,sans-serif;fill:#111}.title{font-size:21px;font-weight:700}.panel{font-size:17px;font-weight:700}.label{font-size:15px}.small{font-size:12px}.equation{font-size:16px;font-family:Arial,sans-serif}.box{fill:white;stroke:#222;stroke-width:1.6}.latent{fill:#f2f2f2;stroke:#111;stroke-width:2}.term{fill:#fafafa;stroke:#666;stroke-width:1.4}.result{fill:#ededed;stroke:#111;stroke-width:2}.arrow{stroke:#444;stroke-width:1.6}.dashed{stroke:#777;stroke-width:1.4;stroke-dasharray:6 5}</style>',
+        '<style>text{font-family:Arial,sans-serif;fill:#111}.title{font-size:21px;font-weight:700}.panel{font-size:17px;font-weight:700}.label{font-size:15px}.small{font-size:12px}.equation{font-size:16px;font-family:Arial,sans-serif}.box{fill:white;stroke:#222;stroke-width:1.6}.latent{fill:#f2f2f2;stroke:#111;stroke-width:2}.term{fill:#fafafa;stroke:#666;stroke-width:1.4}.result{fill:#ededed;stroke:#111;stroke-width:2}.arrow{stroke:#444;stroke-width:1.6}.dashed{stroke:#777;stroke-width:1.4;stroke-dasharray:6 5}.derived{fill:none;stroke:#444;stroke-width:1.5;stroke-dasharray:5 4}</style>',
         _text(35, 36, "Figure 4. What an absorption-derived HgCdTe edge actually measures", "title", "start"),
     ]
 
@@ -98,6 +98,9 @@ def build_identifiability_svg() -> str:
             "= Δmethod + Δcarrier + Δvacancy + noise",
             "small",
         ),
+        '<polyline points="925,134 1212,134 1212,405 1125,430" class="derived" marker-end="url(#arrowhead)"/>',
+        '<polyline points="1100,368 1100,405 1080,430" class="derived" marker-end="url(#arrowhead)"/>',
+        _text(1202, 283, "derived comparison", "small", "end"),
         '<line x1="45" y1="600" x2="1195" y2="600" stroke="#bbb"/>',
         _text(
             620,
