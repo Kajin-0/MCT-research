@@ -13,6 +13,9 @@ import numpy as np
 from numpy.typing import NDArray
 
 CONTRACT_VERSION = "1.0"
+CHU_1994_COMPOSITION_RANGE = (0.170, 0.443)
+CHU_1994_TEMPERATURE_RANGE_K = (77.0, 300.0)
+CHU_1994_SOURCE_DOI = "10.1063/1.356464"
 
 
 def _canonical_digest(value: Mapping[str, Any]) -> str:
@@ -26,7 +29,12 @@ def _required(mapping: Mapping[str, Any], key: str, *, context: str) -> Any:
     return mapping[key]
 
 
-def _finite_vector(value: Any, *, name: str, positive: bool = False) -> NDArray[np.float64]:
+def _finite_vector(
+    value: Any,
+    *,
+    name: str,
+    positive: bool = False,
+) -> NDArray[np.float64]:
     array = np.asarray(value, dtype=float)
     if array.ndim != 1 or array.size < 3:
         raise ValueError(f"{name} must be a one-dimensional array with at least 3 values")
@@ -115,6 +123,84 @@ def fit_fractional_power_edge(
     }
 
 
+def chu_1994_beta_ev_inverse(composition_x: float, temperature_k: float) -> float:
+    """Return the Chu 1994 Kane-region curvature parameter.
+
+    The provenance-bound prior-art law is
+
+    ``beta(x,T) = -1 + 0.083*T + (21 - 0.13*T)*x``.
+
+    Its use here is restricted to the composition and temperature range reported
+    by the source family. It is an observation-model candidate, not a gap law.
+    """
+
+    composition = float(composition_x)
+    temperature = float(temperature_k)
+    if not np.isfinite(composition) or not np.isfinite(temperature):
+        raise ValueError("Chu 1994 composition and temperature must be finite")
+    if not CHU_1994_COMPOSITION_RANGE[0] <= composition <= CHU_1994_COMPOSITION_RANGE[1]:
+        raise ValueError(
+            "Chu 1994 candidate requires composition_x in "
+            f"[{CHU_1994_COMPOSITION_RANGE[0]}, {CHU_1994_COMPOSITION_RANGE[1]}]"
+        )
+    if not CHU_1994_TEMPERATURE_RANGE_K[0] <= temperature <= CHU_1994_TEMPERATURE_RANGE_K[1]:
+        raise ValueError(
+            "Chu 1994 candidate requires temperature_k in "
+            f"[{CHU_1994_TEMPERATURE_RANGE_K[0]}, "
+            f"{CHU_1994_TEMPERATURE_RANGE_K[1]}]"
+        )
+    beta = -1.0 + 0.083 * temperature + (21.0 - 0.13 * temperature) * composition
+    if beta <= 0.0:
+        raise ValueError("Chu 1994 beta is nonpositive at the declared x,T point")
+    return float(beta)
+
+
+def fit_chu_1994_kane_edge(
+    energy_ev: NDArray[np.float64],
+    absorption_cm1: NDArray[np.float64],
+    *,
+    edge_bounds_ev: tuple[float, float],
+    composition_x: float,
+    temperature_k: float,
+    grid_points: int = 4001,
+) -> dict[str, float]:
+    """Fit the Chu 1994 Kane-region observation law.
+
+    The candidate model is
+
+    ``alpha = alpha_g * exp(sqrt(beta(x,T) * (E-Eg)))``.
+
+    ``beta`` is fixed by the source law. ``Eg`` is found by deterministic grid
+    search and ``log(alpha_g)`` is solved analytically at each edge candidate.
+    """
+
+    lower, upper = (float(edge_bounds_ev[0]), float(edge_bounds_ev[1]))
+    if not np.isfinite(lower) or not np.isfinite(upper) or lower >= upper:
+        raise ValueError("edge search bounds must be finite and ordered")
+    if upper >= float(np.min(energy_ev)):
+        raise ValueError("edge search upper bound must be below the fitted energy range")
+    if grid_points < 101:
+        raise ValueError("grid_points must be at least 101")
+    beta = chu_1994_beta_ev_inverse(composition_x, temperature_k)
+    target = np.log(absorption_cm1)
+    best: tuple[float, float, float] | None = None
+    for edge in np.linspace(lower, upper, grid_points):
+        predictor = np.sqrt(beta * (energy_ev - edge))
+        log_alpha_g = float(np.mean(target - predictor))
+        predicted = log_alpha_g + predictor
+        mse = float(np.mean((target - predicted) ** 2))
+        if best is None or mse < best[0]:
+            best = (mse, float(edge), float(np.exp(log_alpha_g)))
+    if best is None:
+        raise RuntimeError("no valid Chu 1994 Kane-region edge candidate")
+    return {
+        "edge_ev": best[1],
+        "alpha_g_cm1": best[2],
+        "beta_ev_inverse": beta,
+        "log_mean_square_error": best[0],
+    }
+
+
 def _validate_contract(payload: Mapping[str, Any]) -> dict[str, Any]:
     if str(_required(payload, "schema_version", context="contract")) != CONTRACT_VERSION:
         raise ValueError(f"schema_version must be {CONTRACT_VERSION!r}")
@@ -158,11 +244,19 @@ def _validate_contract(payload: Mapping[str, Any]) -> dict[str, Any]:
 
     assumptions = dict(_required(payload, "analysis_assumptions", context="contract"))
     fit_window = np.asarray(
-        _required(assumptions, "fit_absorption_window_cm1", context="analysis_assumptions"),
+        _required(
+            assumptions,
+            "fit_absorption_window_cm1",
+            context="analysis_assumptions",
+        ),
         dtype=float,
     )
     bounds = np.asarray(
-        _required(assumptions, "edge_search_bounds_ev", context="analysis_assumptions"),
+        _required(
+            assumptions,
+            "edge_search_bounds_ev",
+            context="analysis_assumptions",
+        ),
         dtype=float,
     )
     thresholds = np.asarray(
@@ -170,8 +264,15 @@ def _validate_contract(payload: Mapping[str, Any]) -> dict[str, Any]:
         dtype=float,
     )
     exponents = list(
-        _required(assumptions, "fractional_power_exponents", context="analysis_assumptions")
+        _required(
+            assumptions,
+            "fractional_power_exponents",
+            context="analysis_assumptions",
+        )
     )
+    include_chu = assumptions.get("include_chu_1994_kane_region", False)
+    if not isinstance(include_chu, bool):
+        raise ValueError("include_chu_1994_kane_region must be boolean")
     if fit_window.shape != (2,) or not np.all(np.isfinite(fit_window)) or not fit_window[0] < fit_window[1]:
         raise ValueError("fit_absorption_window_cm1 must contain two ordered values")
     if bounds.shape != (2,) or not np.all(np.isfinite(bounds)) or not bounds[0] < bounds[1]:
@@ -190,8 +291,18 @@ def _validate_contract(payload: Mapping[str, Any]) -> dict[str, Any]:
                 raise ValueError("fractional power exponents must lie in [0.2, 1.5]")
             normalized_exponents.append(number)
 
+    if include_chu:
+        if metadata["composition_x"] is None:
+            raise ValueError(
+                "Chu 1994 candidate requires a measured or declared composition_x"
+            )
+        chu_1994_beta_ev_inverse(float(metadata["composition_x"]), temperature)
+
     spectrum = dict(_required(payload, "spectrum", context="contract"))
-    energy = _finite_vector(_required(spectrum, "energy_ev", context="spectrum"), name="energy_ev")
+    energy = _finite_vector(
+        _required(spectrum, "energy_ev", context="spectrum"),
+        name="energy_ev",
+    )
     absorption = _finite_vector(
         _required(spectrum, "absorption_cm1", context="spectrum"),
         name="absorption_cm1",
@@ -216,6 +327,7 @@ def _validate_contract(payload: Mapping[str, Any]) -> dict[str, Any]:
         "bounds": bounds,
         "thresholds": thresholds,
         "exponents": normalized_exponents,
+        "include_chu_1994_kane_region": include_chu,
         "energy": energy,
         "absorption": absorption,
         "mask": mask,
@@ -252,8 +364,41 @@ def analyze_absorption_edge_contract(payload: Mapping[str, Any]) -> dict[str, An
             edge_bounds_ev=tuple(validated["bounds"]),
             exponent=exponent,
         )
-        identifier = "fractional_power_free" if exponent is None else f"fractional_power_p_{exponent:g}"
-        model_candidates.append({"candidate_id": identifier, "method": "fractional_power_fit", **fit})
+        identifier = (
+            "fractional_power_free"
+            if exponent is None
+            else f"fractional_power_p_{exponent:g}"
+        )
+        model_candidates.append(
+            {"candidate_id": identifier, "method": "fractional_power_fit", **fit}
+        )
+
+    if validated["include_chu_1994_kane_region"]:
+        chu_fit = fit_chu_1994_kane_edge(
+            fit_energy,
+            fit_absorption,
+            edge_bounds_ev=tuple(validated["bounds"]),
+            composition_x=float(validated["metadata"]["composition_x"]),
+            temperature_k=float(validated["metadata"]["temperature_k"]),
+        )
+        model_candidates.append(
+            {
+                "candidate_id": "chu_1994_kane_region",
+                "method": "chu_1994_kane_region_fit",
+                "source_doi": CHU_1994_SOURCE_DOI,
+                "model_expression": (
+                    "alpha=alpha_g*exp(sqrt(beta(x,T)*(E-Eg)))"
+                ),
+                "beta_expression": (
+                    "-1+0.083*T+(21-0.13*T)*x"
+                ),
+                "source_validity_range": {
+                    "composition_x": list(CHU_1994_COMPOSITION_RANGE),
+                    "temperature_k": list(CHU_1994_TEMPERATURE_RANGE_K),
+                },
+                **chu_fit,
+            }
+        )
 
     threshold_candidates: list[dict[str, Any]] = []
     excluded: list[dict[str, str]] = []
@@ -294,6 +439,9 @@ def analyze_absorption_edge_contract(payload: Mapping[str, Any]) -> dict[str, An
             "thresholds_cm1": validated["thresholds"].tolist(),
             "fractional_power_exponents": [
                 "free" if value is None else value for value in validated["exponents"]
+            ],
+            "include_chu_1994_kane_region": validated[
+                "include_chu_1994_kane_region"
             ],
             "fit_point_count": int(np.count_nonzero(mask)),
         },
