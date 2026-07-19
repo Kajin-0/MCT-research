@@ -20,7 +20,7 @@ Teppe 2016 contributes five primary magneto-optical gap points. Sample A uses no
 
 Orlita 2014 contributes a carrier-coupled primary constraint at approximately `1.8 K`: a graded `x approximately 0.17` plateau of roughly `3.2 um`, a low-field model improved by `Eg=4 meV`, `EF approximately 15-17 meV`, and `n approximately (2-3)e14 cm^-3`.
 
-At nominal `x=0.17`, Laurenti predicts `2.9560 meV` and is the closest local comparator. The equivalent compositions required by the screened models span `0.163392-0.170573`, so local ranking is dominated by unrecovered homogeneous composition uncertainty.
+At nominal `x=0.17`, Laurenti predicts `2.9560 meV` and is the closest local comparator. Equivalent compositions required by the screened models span `0.163392-0.170573`, so local ranking is dominated by unrecovered homogeneous composition uncertainty.
 
 The Orlita and Teppe records share the Mikhailov/Dvoretskii MBE and magneto-optical lineage. They are not independent cross-laboratory validation. Orlita is conditional evidence, not an exact homogeneous point.
 
@@ -28,10 +28,20 @@ The Orlita and Teppe records share the Mikhailov/Dvoretskii MBE and magneto-opti
 
 Absorption-derived records preserve calibrated raw spectra, complete measurement metadata, every declared model and threshold candidate, exclusions, and separate/combined sensitivity envelopes. The exporter never selects a corrected material gap.
 
+The candidate ensemble contains fractional-power fits, fixed thresholds, and an optional Chu 1994 Kane-region model with a fail-closed source range of `0.170 <= x <= 0.443` and `77 <= T <= 300 K`.
+
+## Manuscript program
+
+Breadth-first development is frozen. The immediate research product is:
+
+> **Observation-model uncertainty and identifiability in HgCdTe bandgap extraction.**
+
+The manuscript must apply the existing contract to `2-4` real calibrated primary spectra, preserve complete specimen metadata, and show whether the model/threshold ensemble changes a real material-model ranking or conclusion.
+
+The static CdTe selected-band result remains the parallel higher-value computational target, but only one independently converged reproduction is authorized. Full AHC, alloy calculations, additional empirical coefficients, and new source-specific screens are deferred.
+
 ## Evidence boundary
 
 The central source ledger contains zero authorized primary fit sources, two conditional primary sources, six blocked primary sources, and one secondary screen.
 
-Further useful work consists of recovering primary datasets with explicit composition provenance, obtaining homogeneous composition and carrier-aware uncertainty for near-critical specimens, archiving calibrated source figures before digitization, and preparing paired experimental acquisition when a practical collaboration exists.
-
-Additional empirical coefficients, source-specific composition remapping, global model promotion, treating source-lineage-related records as independent validation, and production finite-temperature calculations from the current CdTe response state are outside the present evidence boundary.
+New work must close a manuscript-critical evidence gap. Additional source accumulation, synthetic oracles, or ledger-only changes are not authorized unless they change a controlling scientific decision.
