@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Orlita 2014 carrier-coupled near-critical HgCdTe constraint",
+  "source_doi": "10.1038/nphys2857",
+  "historical_source_specific_validation": {
+    "validated_analysis_head": "7835810f78082d4c1a4c3bc0ee6a8df78855ed12",
+    "workflow_run": 29662896606,
+    "artifact_id": 8434859963,
+    "artifact_digest": "sha256:cc8a23aaa3440c726ccf8e1d1b589b549b8dce6064930f50845a973d1d73c55f"
+  },
+  "source_constraint": {
+    "temperature_k": 1.8,
+    "composition_nominal": 0.17,
+    "composition_status": "approximate graded plateau",
+    "gap_mev": 4.0,
+    "gap_status": "value improving low-field magneto-optical model",
+    "fermi_energy_mev": [15.0, 17.0],
+    "carrier_density_cm3": [200000000000000.0, 300000000000000.0],
+    "plateau_thickness_um": 3.2,
+    "composition_method": "in situ single-wavelength ellipsometry",
+    "source_lineage": "Mikhailov/Dvoretskii MBE and magneto-optical lineage"
+  },
+  "nominal_x_0p17_prediction_mev": {
+    "laurenti": 2.9559968781933095,
+    "provisional_hansen_pade": 6.785532107209771,
+    "hansen": 7.414196000000007,
+    "chu_1983": 15.76752950000003
+  },
+  "composition_for_4mev_gap": {
+    "laurenti": 0.17057311346319876,
+    "provisional_hansen_pade": 0.16838738404572456,
+    "hansen": 0.16802141519260283,
+    "chu_1983": 0.1633919898205551
+  },
+  "maximum_model_equivalent_composition_offset": 0.006608010179444913,
+  "decision": {
+    "primary_constraint_admitted": true,
+    "central_source_recovery_status": "conditional",
+    "exact_homogeneous_composition_gap_point": false,
+    "carrier_state_is_part_of_observation_operator": true,
+    "near_critical_source_family_leading_comparator": "laurenti",
+    "independent_cross_laboratory_validation": false,
+    "global_model_promotion_authorized": false,
+    "coefficient_refit_authorized": false,
+    "new_static_refit_authorized": false
+  },
+  "claim_boundary": "The source gives an approximate graded composition, a model-selected small gap and optically inferred carrier statistics. It constrains the near-critical source family but is not an exact homogeneous composition-gap calibration point."
+}
