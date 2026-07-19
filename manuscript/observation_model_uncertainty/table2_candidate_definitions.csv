@@ -1,0 +1,5 @@
+candidate_id,definition,source_domain
+fractional_power_free,alpha=A(E-Eg)^p/E; p fitted,declared fit window
+fractional_power_fixed,alpha=A(E-Eg)^p/E; p fixed,"p=0.5, 0.7, source-panel p, 1.0"
+chu_1994_kane_region,"alpha=alpha_g exp(sqrt(beta(x,T)(E-Eg)))",0.170<=x<=0.443; 77<=T<=300 K
+fixed_absorption_threshold,first interpolated alpha crossing,400-5000 cm-1; 5000 flagged where coordinate-sensitive
