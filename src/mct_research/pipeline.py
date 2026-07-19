@@ -1,5 +1,4 @@
 """Gauge- and covariance-consistent preprocessing of imported matrices."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
@@ -8,8 +7,13 @@ from typing import Callable, Sequence
 import numpy as np
 from numpy.typing import NDArray
 
-from .dataio import MatrixRecord, OBSERVATION_DIMENSION
+from .dataio import MatrixRecord
 from .gauge import AlignmentDiagnostics, KANE_IRREP_BLOCKS, rotate_operator
+from .matrix_coordinates import (
+    complex_real_linear_map,
+    covariance_linear_map,
+    hermitian_real_linear_map,
+)
 from .symmetry import gamma_irrep_residual, gamma_irrep_symmetrize
 
 ComplexMatrix = NDArray[np.complex128]
@@ -87,39 +91,36 @@ def rotation_from_overlap(
 def real_linear_map(
     transform: Callable[[ComplexMatrix], ComplexMatrix],
 ) -> RealMatrix:
-    """Return the 128x128 real representation of a complex-linear matrix map."""
+    """Return the legacy 128D real representation of a general matrix map."""
 
-    mapping = np.zeros((OBSERVATION_DIMENSION, OBSERVATION_DIMENSION), dtype=float)
-    for column in range(OBSERVATION_DIMENSION):
-        basis = np.zeros((8, 8), dtype=np.complex128)
-        if column < 64:
-            basis.reshape(-1)[column] = 1.0
-        else:
-            basis.reshape(-1)[column - 64] = 1.0j
-        transformed = np.asarray(transform(basis), dtype=np.complex128).reshape(-1)
-        mapping[:, column] = np.concatenate((transformed.real, transformed.imag))
-    return mapping
+    return complex_real_linear_map(transform)
+
+
+def hermitian_linear_map(
+    transform: Callable[[ComplexMatrix], ComplexMatrix],
+) -> RealMatrix:
+    """Return the 64D representation of a Hermiticity-preserving matrix map."""
+
+    return hermitian_real_linear_map(transform)
 
 
 def rotate_covariance(covariance: RealMatrix, rotation: ComplexMatrix) -> RealMatrix:
-    """Transform matrix covariance consistently with ``O -> U^dagger O U``."""
+    """Transform 64D Hermitian or 128D complex covariance under ``U^dagger O U``."""
 
     covariance = np.asarray(covariance, dtype=float)
-    linear_map = real_linear_map(lambda operator: rotate_operator(operator, rotation))
-    transformed = linear_map @ covariance @ linear_map.T
-    return 0.5 * (transformed + transformed.T)
+    return covariance_linear_map(
+        covariance,
+        lambda operator: rotate_operator(operator, rotation),
+    )
 
 
 def project_covariance(
     covariance: RealMatrix,
     transform: Callable[[ComplexMatrix], ComplexMatrix],
 ) -> RealMatrix:
-    """Push a covariance through a linear matrix projection."""
+    """Push a 64D Hermitian or 128D complex covariance through a linear map."""
 
-    covariance = np.asarray(covariance, dtype=float)
-    linear_map = real_linear_map(transform)
-    transformed = linear_map @ covariance @ linear_map.T
-    return 0.5 * (transformed + transformed.T)
+    return covariance_linear_map(np.asarray(covariance, dtype=float), transform)
 
 
 def process_record(
@@ -166,6 +167,9 @@ def process_record(
             **record.metadata,
             "processed": True,
             "gamma_symmetry_restored": symmetry_before is not None,
+            "covariance_coordinate_dimension": (
+                None if covariance is None else int(covariance.shape[0])
+            ),
         },
     )
     diagnostics = ProcessingDiagnostics(
