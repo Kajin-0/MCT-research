@@ -1,8 +1,8 @@
 """Matrix-level projection onto one-P and two-P bulk Kane manifolds.
 
 The fitting routines support ordinary least squares, scalar point weights, and
-full covariance-weighted generalized least squares over the real-vectorized
-complex Hamiltonian matrices.
+full covariance-weighted generalized least squares over 64 independent,
+Frobenius-isometric coordinates of Hermitian 8x8 Hamiltonians.
 """
 
 from __future__ import annotations
@@ -13,6 +13,7 @@ from typing import Iterable, Mapping, Sequence, TypeVar
 import numpy as np
 from numpy.typing import NDArray
 
+from .hermitian import OBSERVATION_DIMENSION, hermitian_vector
 from .kane8 import (
     ExtendedKaneParameters,
     KaneParameters,
@@ -23,7 +24,6 @@ from .kane8 import (
 ParameterType = TypeVar("ParameterType", KaneParameters, ExtendedKaneParameters)
 PARAMETER_NAMES = tuple(field.name for field in fields(KaneParameters))
 EXTENDED_PARAMETER_NAMES = tuple(field.name for field in fields(ExtendedKaneParameters))
-OBSERVATION_DIMENSION = 2 * 8 * 8
 
 
 class ProjectionError(RuntimeError):
@@ -31,13 +31,9 @@ class ProjectionError(RuntimeError):
 
 
 def real_vector(matrix: NDArray[np.complex128]) -> NDArray[np.float64]:
-    """Stack real and imaginary parts of an 8x8 complex matrix."""
+    """Return the 64 independent Frobenius-isometric Hermitian coordinates."""
 
-    matrix = np.asarray(matrix, dtype=np.complex128)
-    if matrix.shape != (8, 8):
-        raise ValueError(f"matrix must have shape (8, 8), got {matrix.shape}")
-    flat = matrix.reshape(-1)
-    return np.concatenate((flat.real, flat.imag))
+    return hermitian_vector(matrix)
 
 
 _real_vector = real_vector
@@ -70,7 +66,7 @@ def covariance_whitener(
     *,
     relative_floor: float = 1.0e-12,
 ) -> tuple[NDArray[np.float64], Mapping[str, float]]:
-    """Return a symmetric inverse-square-root whitener for one covariance.
+    """Return a symmetric inverse-square-root whitener for one 64D covariance.
 
     Eigenvalues below ``relative_floor * lambda_max`` are clipped to that
     floor. The regularization is explicit in the returned diagnostics because
@@ -108,11 +104,14 @@ def covariance_whitener(
         clipped = np.maximum(diagonal, tolerance)
         whitener = np.diag(1.0 / np.sqrt(clipped))
         diagnostics = {
+            "coordinate_system": "hermitian_frobenius_64",
             "minimum_eigenvalue": minimum,
             "maximum_eigenvalue": maximum,
             "regularization_floor": tolerance,
             "regularized_eigenvalues": float(np.count_nonzero(diagonal < tolerance)),
-            "condition_number_after_regularization": float(np.max(clipped) / np.min(clipped)),
+            "condition_number_after_regularization": float(
+                np.max(clipped) / np.min(clipped)
+            ),
             "diagonal_fast_path": True,
         }
         return whitener, diagnostics
@@ -128,11 +127,14 @@ def covariance_whitener(
     clipped = np.maximum(eigenvalues, tolerance)
     whitener = (eigenvectors * (1.0 / np.sqrt(clipped))) @ eigenvectors.T
     diagnostics = {
+        "coordinate_system": "hermitian_frobenius_64",
         "minimum_eigenvalue": float(np.min(eigenvalues)),
         "maximum_eigenvalue": maximum,
         "regularization_floor": tolerance,
         "regularized_eigenvalues": float(np.count_nonzero(eigenvalues < tolerance)),
-        "condition_number_after_regularization": float(np.max(clipped) / np.min(clipped)),
+        "condition_number_after_regularization": float(
+            np.max(clipped) / np.min(clipped)
+        ),
         "diagonal_fast_path": False,
     }
     return whitener, diagnostics
@@ -303,6 +305,7 @@ def _fit_model(
     diagnostics: dict[str, object] = {
         "rank": float(rank),
         "observation_count": float(a.shape[0]),
+        "observation_coordinate_system": "hermitian_frobenius_64",
         "condition_number": float(singular_values[0] / singular_values[-1]),
         "absolute_residual": residual_norm,
         "relative_residual": float(residual_norm / target_norm),
@@ -450,6 +453,8 @@ def _design_diagnostics(
     return {
         "rank": rank,
         "parameter_count": len(parameter_names),
+        "observation_dimension_per_matrix": OBSERVATION_DIMENSION,
+        "observation_coordinate_system": "hermitian_frobenius_64",
         "condition_number": condition_number,
         "singular_values": singular_values,
         "covariance_diagnostics": covariance_diagnostics,
