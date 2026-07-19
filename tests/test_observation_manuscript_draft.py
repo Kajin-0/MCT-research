@@ -70,7 +70,7 @@ def test_manuscript_preserves_claim_boundaries() -> None:
         "no single fitted edge is selected.",
         "does not establish a preferred universal hgcdte gap equation",
         "do not support a universal absorption correction",
-        "no corrected or production edge is selected",
+        "no candidate is promoted as the corrected or production edge",
         "not a universal optimal-design proof",
         "specimen-level composition uncertainty is unreported",
     )
