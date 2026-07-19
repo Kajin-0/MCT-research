@@ -1,0 +1,24 @@
+{
+  "all_records_cover_threshold_and_model_family": true,
+  "claim_boundary": "Observation metadata and same-record sensitivity only; no universal edge correction or latent-gap refit is authorized.",
+  "contract": "hgcdte_absorption_edge_uncertainty",
+  "maximum_envelope_span_mev": 46.14826694691032,
+  "maximum_lower_deviation_mev": 32.72031818247856,
+  "maximum_upper_deviation_mev": 13.427948764431763,
+  "minimum_envelope_span_mev": 30.501075699817235,
+  "production_correction_authorized": false,
+  "record_count": 4,
+  "roundtrip_required_fields": [
+    "measurement modality",
+    "edge model",
+    "analysis window",
+    "fixed threshold when used",
+    "carrier state",
+    "tail treatment",
+    "same-record sensitivity estimates"
+  ],
+  "schema_version": "1.0",
+  "sensitivity_estimates_per_record": [
+    7
+  ]
+}
