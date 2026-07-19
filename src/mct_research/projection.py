@@ -1,10 +1,10 @@
 """Matrix-level projection onto one-P and two-P bulk Kane manifolds.
 
-The fitting routines support ordinary least squares, scalar point weights, and
-full covariance-weighted generalized least squares over the real-vectorized
-complex Hamiltonian matrices.
+Kane Hamiltonians are Hermitian. Their statistical representation therefore uses
+64 orthonormal real Hermitian coordinates rather than the redundant 128-entry
+real/imaginary representation of a general complex matrix. Euclidean residuals
+in this coordinate system equal matrix Frobenius residuals exactly.
 """
-
 from __future__ import annotations
 
 from dataclasses import fields
@@ -19,11 +19,15 @@ from .kane8 import (
     hamiltonian,
     hamiltonian_two_p,
 )
+from .matrix_coordinates import (
+    HERMITIAN_OBSERVATION_DIMENSION,
+    hermitian_vector,
+)
 
 ParameterType = TypeVar("ParameterType", KaneParameters, ExtendedKaneParameters)
 PARAMETER_NAMES = tuple(field.name for field in fields(KaneParameters))
 EXTENDED_PARAMETER_NAMES = tuple(field.name for field in fields(ExtendedKaneParameters))
-OBSERVATION_DIMENSION = 2 * 8 * 8
+OBSERVATION_DIMENSION = HERMITIAN_OBSERVATION_DIMENSION
 
 
 class ProjectionError(RuntimeError):
@@ -31,13 +35,9 @@ class ProjectionError(RuntimeError):
 
 
 def real_vector(matrix: NDArray[np.complex128]) -> NDArray[np.float64]:
-    """Stack real and imaginary parts of an 8x8 complex matrix."""
+    """Return the 64 orthonormal real coordinates of a Hermitian 8x8 matrix."""
 
-    matrix = np.asarray(matrix, dtype=np.complex128)
-    if matrix.shape != (8, 8):
-        raise ValueError(f"matrix must have shape (8, 8), got {matrix.shape}")
-    flat = matrix.reshape(-1)
-    return np.concatenate((flat.real, flat.imag))
+    return hermitian_vector(np.asarray(matrix, dtype=np.complex128))
 
 
 _real_vector = real_vector
@@ -61,29 +61,28 @@ def parameter_templates(k: Iterable[float]) -> dict[str, NDArray[np.complex128]]
     return _templates(k, KaneParameters, PARAMETER_NAMES, hamiltonian)
 
 
-def extended_parameter_templates(k: Iterable[float]) -> dict[str, NDArray[np.complex128]]:
-    return _templates(k, ExtendedKaneParameters, EXTENDED_PARAMETER_NAMES, hamiltonian_two_p)
+def extended_parameter_templates(
+    k: Iterable[float],
+) -> dict[str, NDArray[np.complex128]]:
+    return _templates(
+        k,
+        ExtendedKaneParameters,
+        EXTENDED_PARAMETER_NAMES,
+        hamiltonian_two_p,
+    )
 
 
 def covariance_whitener(
     covariance: NDArray[np.float64],
     *,
     relative_floor: float = 1.0e-12,
-) -> tuple[NDArray[np.float64], Mapping[str, float]]:
-    """Return a symmetric inverse-square-root whitener for one covariance.
-
-    Eigenvalues below ``relative_floor * lambda_max`` are clipped to that
-    floor. The regularization is explicit in the returned diagnostics because
-    a poorly conditioned covariance can otherwise dominate the inferred
-    parameter uncertainty.
-    """
+) -> tuple[NDArray[np.float64], Mapping[str, float | bool]]:
+    """Return a symmetric inverse-square-root whitener for one 64D covariance."""
 
     covariance = np.asarray(covariance, dtype=float)
-    if covariance.shape != (OBSERVATION_DIMENSION, OBSERVATION_DIMENSION):
-        raise ValueError(
-            "each covariance must have shape "
-            f"({OBSERVATION_DIMENSION}, {OBSERVATION_DIMENSION})"
-        )
+    expected = (OBSERVATION_DIMENSION, OBSERVATION_DIMENSION)
+    if covariance.shape != expected:
+        raise ValueError(f"each covariance must have shape {expected}")
     if not np.all(np.isfinite(covariance)):
         raise ValueError("covariance contains non-finite values")
     if not 0.0 < relative_floor < 1.0:
@@ -107,12 +106,14 @@ def covariance_whitener(
         tolerance = relative_floor * maximum
         clipped = np.maximum(diagonal, tolerance)
         whitener = np.diag(1.0 / np.sqrt(clipped))
-        diagnostics = {
+        diagnostics: dict[str, float | bool] = {
             "minimum_eigenvalue": minimum,
             "maximum_eigenvalue": maximum,
             "regularization_floor": tolerance,
             "regularized_eigenvalues": float(np.count_nonzero(diagonal < tolerance)),
-            "condition_number_after_regularization": float(np.max(clipped) / np.min(clipped)),
+            "condition_number_after_regularization": float(
+                np.max(clipped) / np.min(clipped)
+            ),
             "diagonal_fast_path": True,
         }
         return whitener, diagnostics
@@ -121,10 +122,9 @@ def covariance_whitener(
     maximum = float(np.max(eigenvalues))
     if maximum <= 0.0:
         raise ValueError("covariance must have at least one positive eigenvalue")
-    tolerance = relative_floor * maximum
     if float(np.min(eigenvalues)) < -1.0e-10 * maximum:
         raise ValueError("covariance is not positive semidefinite")
-
+    tolerance = relative_floor * maximum
     clipped = np.maximum(eigenvalues, tolerance)
     whitener = (eigenvectors * (1.0 / np.sqrt(clipped))) @ eigenvectors.T
     diagnostics = {
@@ -132,7 +132,9 @@ def covariance_whitener(
         "maximum_eigenvalue": maximum,
         "regularization_floor": tolerance,
         "regularized_eigenvalues": float(np.count_nonzero(eigenvalues < tolerance)),
-        "condition_number_after_regularization": float(np.max(clipped) / np.min(clipped)),
+        "condition_number_after_regularization": float(
+            np.max(clipped) / np.min(clipped)
+        ),
         "diagonal_fast_path": False,
     }
     return whitener, diagnostics
@@ -143,7 +145,6 @@ def _validate_inputs(k_points, matrices, weights, covariances):
         raise ValueError("k_points and matrices must have equal length")
     if not k_points:
         raise ValueError("at least one k point is required")
-
     weights_array = (
         np.ones(len(k_points), dtype=float)
         if weights is None
@@ -153,7 +154,6 @@ def _validate_inputs(k_points, matrices, weights, covariances):
         raise ValueError("weights must contain one value per k point")
     if np.any(weights_array <= 0.0) or not np.all(np.isfinite(weights_array)):
         raise ValueError("weights must be finite and strictly positive")
-
     if covariances is not None and len(covariances) != len(k_points):
         raise ValueError("covariances must contain one matrix per k point")
     return weights_array
@@ -182,7 +182,6 @@ def _build_whitened_system(
         matrix = np.asarray(matrix, dtype=np.complex128)
         if matrix.shape != (8, 8):
             raise ValueError(f"each matrix must have shape (8, 8), got {matrix.shape}")
-
         templates = _templates(k, parameter_type, parameter_names, model)
         design = np.column_stack(
             [real_vector(templates[name]) for name in parameter_names]
@@ -222,7 +221,6 @@ def _parameter_uncertainty(
     cutoff = 1.0e-15 if rcond is None else rcond
     inverse_normal = np.linalg.pinv(normal, rcond=cutoff, hermitian=True)
     degrees_of_freedom = max(design.shape[0] - rank, 0)
-
     if covariance_is_absolute:
         scale = 1.0
     elif degrees_of_freedom > 0:
@@ -237,7 +235,6 @@ def _parameter_uncertainty(
     standard_errors = dict(
         zip(parameter_names, standard_errors_array.tolist(), strict=True)
     )
-
     denominator = np.outer(standard_errors_array, standard_errors_array)
     correlation = np.divide(
         parameter_covariance,
@@ -277,20 +274,17 @@ def _fit_model(
         covariances=covariances,
         covariance_floor=covariance_floor,
     )
-
     solution, residuals, rank, singular_values = np.linalg.lstsq(a, b, rcond=rcond)
     if rank < len(parameter_names):
         raise ProjectionError(
             f"rank-deficient Kane projection: rank={rank}, required={len(parameter_names)}"
         )
 
-    predicted = a @ solution
-    residual_vector = b - predicted
+    residual_vector = b - a @ solution
     residual_sum_squares = float(residual_vector @ residual_vector)
     residual_norm = float(np.sqrt(residual_sum_squares))
     target_norm = max(float(np.linalg.norm(b)), np.finfo(float).eps)
     params = parameter_type(**dict(zip(parameter_names, solution, strict=True)))
-
     uncertainty = _parameter_uncertainty(
         a,
         residual_sum_squares,
@@ -303,6 +297,8 @@ def _fit_model(
     diagnostics: dict[str, object] = {
         "rank": float(rank),
         "observation_count": float(a.shape[0]),
+        "coordinate_dimension_per_matrix": float(OBSERVATION_DIMENSION),
+        "coordinate_system": "orthonormal_hermitian_64",
         "condition_number": float(singular_values[0] / singular_values[-1]),
         "absolute_residual": residual_norm,
         "relative_residual": float(residual_norm / target_norm),
@@ -369,7 +365,6 @@ def _closure_residual(k_points, matrices, params, model, *, weights):
         raise ValueError("k_points and matrices must have equal length")
     if not k_points:
         raise ValueError("at least one k point is required")
-
     weights_array = (
         np.ones(len(k_points), dtype=float)
         if weights is None
@@ -380,7 +375,7 @@ def _closure_residual(k_points, matrices, params, model, *, weights):
 
     gamma_reference = None
     for k, matrix in zip(k_points, matrices, strict=True):
-        if np.linalg.norm(np.asarray(tuple(k), dtype=float)) < 1e-15:
+        if np.linalg.norm(np.asarray(tuple(k), dtype=float)) < 1.0e-15:
             gamma_reference = np.asarray(matrix, dtype=np.complex128)
             break
 
@@ -390,21 +385,14 @@ def _closure_residual(k_points, matrices, params, model, *, weights):
         target = np.asarray(matrix, dtype=np.complex128)
         residual = target - model(k, params)
         numerator += float(weight * np.linalg.norm(residual, ord="fro") ** 2)
-        reference_difference = target if gamma_reference is None else target - gamma_reference
-        denominator += float(weight * np.linalg.norm(reference_difference, ord="fro") ** 2)
-
+        reference = target if gamma_reference is None else target - gamma_reference
+        denominator += float(weight * np.linalg.norm(reference, ord="fro") ** 2)
     if denominator <= np.finfo(float).eps:
         return 0.0 if numerator <= np.finfo(float).eps else float("inf")
     return float(np.sqrt(numerator / denominator))
 
 
-def closure_residual(
-    k_points,
-    matrices,
-    params: KaneParameters,
-    *,
-    weights=None,
-) -> float:
+def closure_residual(k_points, matrices, params: KaneParameters, *, weights=None) -> float:
     return _closure_residual(k_points, matrices, params, hamiltonian, weights=weights)
 
 
@@ -415,7 +403,13 @@ def extended_closure_residual(
     *,
     weights=None,
 ) -> float:
-    return _closure_residual(k_points, matrices, params, hamiltonian_two_p, weights=weights)
+    return _closure_residual(
+        k_points,
+        matrices,
+        params,
+        hamiltonian_two_p,
+        weights=weights,
+    )
 
 
 def _design_diagnostics(
@@ -450,6 +444,9 @@ def _design_diagnostics(
     return {
         "rank": rank,
         "parameter_count": len(parameter_names),
+        "observation_count": int(a.shape[0]),
+        "coordinate_dimension_per_matrix": OBSERVATION_DIMENSION,
+        "coordinate_system": "orthonormal_hermitian_64",
         "condition_number": condition_number,
         "singular_values": singular_values,
         "covariance_diagnostics": covariance_diagnostics,
