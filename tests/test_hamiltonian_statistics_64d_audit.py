@@ -4,7 +4,10 @@ from pathlib import Path
 
 import pytest
 
-from tools.audit_hamiltonian_statistics_64d import analyze
+from tools.audit_hamiltonian_statistics_64d import (
+    STANDARD_ERROR_RATIO_TOLERANCE,
+    analyze,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "data/evidence/hamiltonian_statistics_64d_inventory.csv"
@@ -48,7 +51,7 @@ def test_variance_scaled_standard_errors_increase_by_expected_ratio() -> None:
         "expected_current_to_legacy_standard_error_ratio"
     ] == pytest.approx(expected, abs=1e-14)
     for ratio in audit["comparison"]["standard_error_ratios"].values():
-        assert ratio == pytest.approx(expected, abs=1e-10)
+        assert ratio == pytest.approx(expected, abs=STANDARD_ERROR_RATIO_TOLERANCE)
     assert audit["decision"]["legacy_variance_scaled_standard_errors_retain_validity"] is False
 
 
