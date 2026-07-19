@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-19  
-**Controlling branch:** `agent/regenerate-hamiltonian-statistics-64d`
+**Controlling branch:** `agent/export-absorption-edge-uncertainty`
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`.
 
@@ -17,10 +17,8 @@ Detailed results live in `research/decision_records/` and `validation/*_referenc
 - Hermitian `8x8` Hamiltonians use 64 orthonormal real coordinates; general complex dynamical operators retain 128.
 - Dataset schema `2.0` stores covariance dimension `0`, `64`, or `128`; schema `1.0` remains readable through explicit migration.
 - Old-versus-new regeneration confirms fitted parameters and Frobenius SSE are unchanged to numerical precision.
-- For six matrices and eight parameters, residual degrees of freedom change from `760` to `376`.
-- Unweighted reduced chi-square and variance scale increase by `2.0212765957`; variance-scaled standard errors increase by `1.4217160742`.
-- Correct pseudoinverse treatment of a rank-64 covariance embedded in 128D reproduces the native 64D parameters, chi-square, and parameter covariance.
-- No committed physical static record contains calibrated Hamiltonian covariance statistics requiring numerical replacement. The affected surface was the runtime projection statistics API and synthetic validation.
+- For six matrices and eight parameters, residual degrees of freedom change from `760` to `376`; variance-scaled standard errors increase by `1.4217160742`.
+- No committed physical static record contains calibrated Hamiltonian covariance statistics requiring numerical replacement.
 
 ## HgCdTe gap program
 
@@ -35,14 +33,21 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
-- Measurement model, fit window, threshold, carrier state, tail treatment, and an edge-model uncertainty envelope must accompany absorption-derived gaps.
 - Historical primary fit-authority count remains zero; Seiler is conditional and the Chu-Sher table is screen-only.
 - The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target.
 
+## Absorption edge uncertainty contract
+
+- Every absorption-derived edge record must explicitly preserve source calibration, modality, temperature, thickness, composition provenance, carrier state, tail treatment, fit window, search bounds, model exponents, thresholds, and the raw spectrum.
+- The validated exporter returns all declared model and threshold candidates, exclusions, separate model/threshold envelopes, a combined envelope, and the SHA-256 of the full input assumptions.
+- It never selects a recommended or corrected material gap.
+- Deterministic example: seven candidates span `19.95223 meV`; model-family span is `9.14375 meV`, threshold span is `9.95726 meV`, and the half-range is `9.97612 meV`.
+- Research uncertainty export is authorized. Production correction and single-edge selection remain forbidden.
+
 ## Authorized next work
 
-1. Build a reusable absorption edge-uncertainty export contract.
-2. Continue primary point-data recovery and archive calibrated source figures before digitization.
+1. Continue primary point-data recovery and archive calibrated source figures before digitization.
+2. Apply the uncertainty contract only to native digital or calibrated spectra with complete metadata.
 3. Preserve the provisional thermal law without adding parameters.
 4. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
 
@@ -51,4 +56,5 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 - treating old redundant Hamiltonian degrees of freedom or variance-scaled standard errors as current;
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
+- single-edge selection from the uncertainty ensemble;
 - A1 execution, further response-threshold tightening, 120-band static reruns, or unsupported novelty claims.
