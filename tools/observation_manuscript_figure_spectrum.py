@@ -41,7 +41,7 @@ def label(identifier: str) -> str:
 
 
 def polyline(points: list[tuple[float, float]], attrs: str) -> str:
-    values = " ".join(f"{x:.2f},{y:.2f}" for x, y in points)
+    values = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
     return f'<polyline points="{values}" fill="none" {attrs}/>'
 
 
@@ -87,7 +87,7 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
         ),
     ]
     patterns = ("", "9 5", "3 4", "12 4 3 4", "2 3", "7 3 2 3")
-    samples = np.linspace(xmin, xmax, 420)
+    samples = np.linspace(xmin, xmax, 160)
     for index, candidate in enumerate(candidates):
         values = curve(candidate, samples)
         valid = (
