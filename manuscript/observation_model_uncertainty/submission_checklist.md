@@ -1,7 +1,7 @@
 # Submission-readiness checklist
 
-**Manuscript:** Observation-model uncertainty and identifiability in HgCdTe bandgap extraction  
-**Status:** scientific asset and core bibliography gates satisfied; journal formatting and final editorial review remain
+**Manuscript:** Observation-model uncertainty and identifiability in HgCdTe band-gap extraction  
+**Status:** scientific, bibliography, and target-journal gates satisfied; LaTeX conversion and author-specific declarations remain
 
 ## Scientific submission gate
 
@@ -43,14 +43,26 @@
 - [x] Add an HgCdTe-specific primary mercury-vacancy absorption-edge reference.
 - [x] Record reference roles and authority limits in `verified_references.md`.
 
+## Target-journal gate
+
+- [x] Select *Infrared Physics & Technology* as the primary target.
+- [x] Record *Journal of Electronic Materials* as fallback and *Journal of Applied Physics* as stretch target.
+- [x] Confirm the research-paper scope includes infrared materials, characterization, semiconductor physics, and validated modeling.
+- [x] Reduce the submission abstract to 220 words, below the 250-word limit.
+- [x] Provide seven keywords.
+- [x] Provide five highlights, each no longer than 85 characters.
+- [x] Add data-availability and generative-AI declaration language.
+- [x] Preserve fail-closed placeholders for author, affiliation, funding, conflict, CRediT, acknowledgment, archive, and reviewer details.
+
 ## Required before journal submission
 
-- [ ] Select the target journal and apply its manuscript template, reference style, length limits, and figure requirements.
-- [ ] Render the verified reference ledger in the target journal's bibliography style.
+- [ ] Convert the working manuscript to editable Elsevier LaTeX with numbered cross-references.
+- [ ] Render the verified reference ledger in Elsevier numeric bibliography style.
 - [ ] Add author names, affiliations, corresponding-author details, acknowledgments, funding, conflict-of-interest, and contribution statements.
 - [ ] Perform a line-by-line technical review against Tables 1-5 and the claim-boundary record.
-- [ ] Perform a final typography and notation pass: `band gap` versus `bandgap`, Hg(1-x)Cd(x)Te notation, units, symbols, and significant figures.
+- [ ] Perform a final typography and notation pass: `band gap` versus `bandgap`, Hg1−xCdxTe notation, units, symbols, and significant figures.
 - [ ] Export journal-ready raster or vector figures from the frozen SVGs without altering data content.
+- [ ] Add final alt text for all figures.
 - [ ] Confirm all focused and full repository workflows pass on the final merge head.
 
 ## Optional strengthening evidence
