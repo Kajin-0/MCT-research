@@ -1,0 +1,11 @@
+{
+  "figure4_source": "declared paired observation equation and claim boundary",
+  "figure5_source": "validated minimum-gap-identifiability design oracle",
+  "generated_files": [
+    "figure4_identifiability.svg",
+    "figure5_paired_acquisition_design.svg"
+  ],
+  "new_empirical_model_introduced": false,
+  "schema_version": "1.0",
+  "universal_correction_authorized": false
+}
