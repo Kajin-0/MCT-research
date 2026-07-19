@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-18  
-**Controlling branch:** `agent/benchmark-absorption-observation-models`
+**Controlling branch:** `agent/hermitian-covariance-schema`
 
 Detailed derivations and exact artifacts are preserved in dated decision records and `validation/*_reference_result.json`. This file states the controlling program position.
 
@@ -67,6 +67,16 @@ tau   = 18.059294367159467 K
 - Across 36 Urbach/amplitude sensitivity cases, the median threshold bias is `4.61 meV` at `1000 cm^-1`, `13.06 meV` at `1500 cm^-1`, and `24.75 meV` at `2000 cm^-1`.
 - This establishes synthetic scale compatibility, not a diagnosis or universal correction.
 
+## Hermitian matrix covariance schema
+
+- Hermitian `8 x 8` matrices now use 64 independent real coordinates instead of redundant 128D real/imaginary storage.
+- `hvec` uses `sqrt(2)`-scaled upper-triangle coordinates and exactly preserves the Frobenius inner product.
+- Matrix dataset schema `2.0` stores `64 x 64` covariance under `hermitian_frobenius_64`.
+- Schema `1.0` archives remain readable through an explicit `128D -> Hermitize -> 64D` migration recorded in provenance; new exports reject 128D covariance.
+- Unitary gauge rotation induces an orthogonal 64D map, so covariance trace is preserved without duplicated entries.
+- GLS observation count and residual degrees of freedom now use 64 coordinates per matrix. Statistical claims from the old redundant covariance representation are superseded.
+- Covariance on a general non-Hermitian self-energy remains unsupported and fail-closed; gauge uncertainty is not yet propagated.
+
 ## Controlling decision
 
 - **Observation-model research is authorized.**
@@ -74,15 +84,16 @@ tau   = 18.059294367159467 K
 - **Production observation correction is not authorized.**
 - **Static material-gap refitting remains unauthorized.**
 - Every absorption-derived gap must preserve model, fit window, threshold, carrier state, tail treatment, and an edge-model uncertainty envelope.
+- Hermitian matrix statistical analysis must use the schema-2 independent 64D coordinates.
 
 ## Authorized next work
 
-1. Correct matrix covariance from redundant 128D storage to 64 independent Hermitian coordinates.
-2. Convert the validated observation benchmark into a reusable uncertainty-envelope/export contract without promoting a universal correction.
-3. Continue primary point-data recovery, including the composition/growth sources underlying Moazzami 2005.
-4. Archive exact source page images and calibration before figure digitization.
-5. Preserve the provisional thermal law without adding parameters.
-6. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
+1. Convert the validated observation benchmark into a reusable uncertainty-envelope/export contract without promoting a universal correction.
+2. Continue primary point-data recovery, including the composition/growth sources underlying Moazzami 2005.
+3. Archive exact source page images and calibration before figure digitization.
+4. Preserve the provisional thermal law without adding parameters.
+5. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
+6. Estimate physical 64D covariance only from declared convergence ensembles; do not invent gauge uncertainty.
 
 ## Explicitly unauthorized
 
@@ -90,4 +101,5 @@ tau   = 18.059294367159467 K
 - treating abstracts, formulas, secondary tables, or webpage previews as point-level fit authority;
 - universal source, composition, Burstein-Moss, vacancy, threshold, or model-family corrections from current metadata;
 - production absorption correction without machine-readable common-specimen evidence;
+- covariance-based physical confidence claims from synthetic diagonal matrices or legacy redundant 128D coordinates;
 - A1 execution, further response-threshold tightening, 120-band static reruns, or broad novelty claims unsupported by the recorded evidence.
