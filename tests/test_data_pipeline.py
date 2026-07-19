@@ -10,6 +10,7 @@ from mct_research.dataio import (
     load_matrix_dataset,
     save_matrix_dataset,
 )
+from mct_research.hermitian import OBSERVATION_DIMENSION
 from mct_research.kane8 import KaneParameters, hamiltonian
 from mct_research.pipeline import process_record, rotate_covariance
 from mct_research.projection import PARAMETER_NAMES, fit_parameters
@@ -56,7 +57,7 @@ def test_dataset_roundtrip_and_integrity(tmp_path) -> None:
         matrix=np.diag(np.arange(8, dtype=float)).astype(np.complex128),
         frequency_ev=None,
         basis_overlap=np.eye(8, dtype=np.complex128),
-        covariance=1.0e-8 * np.eye(128),
+        covariance=1.0e-8 * np.eye(OBSERVATION_DIMENSION),
         metadata={"code": "synthetic", "replicate": 1},
     )
     dataset = MatrixDataset(
@@ -80,7 +81,7 @@ def test_dataset_roundtrip_and_integrity(tmp_path) -> None:
 def test_unitary_covariance_rotation_preserves_total_variance() -> None:
     rng = np.random.default_rng(22)
     rotation = random_unitary(8, rng)
-    diagonal = np.linspace(1.0e-8, 4.0e-8, 128)
+    diagonal = np.linspace(1.0e-8, 4.0e-8, OBSERVATION_DIMENSION)
     covariance = np.diag(diagonal)
     transformed = rotate_covariance(covariance, rotation)
 
@@ -113,7 +114,9 @@ def test_end_to_end_random_gauge_symmetry_and_gls_recovery() -> None:
 
         raw = gauge.conjugate().T @ physical @ gauge
         overlap = gauge.conjugate().T
-        covariance = (1.0e-10 * (1.0 + 0.1 * index)) * np.eye(128)
+        covariance = (1.0e-10 * (1.0 + 0.1 * index)) * np.eye(
+            OBSERVATION_DIMENSION
+        )
         raw_records.append(
             MatrixRecord(
                 composition=0.0,
@@ -152,3 +155,7 @@ def test_end_to_end_random_gauge_symmetry_and_gls_recovery() -> None:
         assert error < 0.01 * standard_errors[name]
     assert fit_diagnostics["relative_residual"] < 1e-8
     assert fit_diagnostics["rank"] == 8.0
+    assert fit_diagnostics["observation_count"] == len(k_grid()) * 64
+    assert fit_diagnostics["observation_coordinate_system"] == (
+        "hermitian_frobenius_64"
+    )
