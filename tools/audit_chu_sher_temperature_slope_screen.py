@@ -26,8 +26,6 @@ from mct_research.gap_models import (
 )
 from mct_research.historical_gap_models import chu_1983_gap_ev
 
-GapModel = Callable[[np.ndarray, float], np.ndarray]
-
 
 def _as_array(value: object) -> np.ndarray:
     return np.asarray(value, dtype=float)
@@ -178,14 +176,19 @@ def analyze(path: str | Path) -> dict[str, object]:
             np.max(np.abs(values - values[0])) / 1.0e-4
         )
 
-    pade_ranks = [ranking.index("provisional_hansen_pade") + 1 for ranking in rankings.values()]
+    pade_ranks = [
+        ranking.index("provisional_hansen_pade") + 1
+        for ranking in rankings.values()
+    ]
     winner_changes = len({ranking[0] for ranking in rankings.values()}) > 1
     result = {
         "schema_version": "1.0",
         "analysis": "secondary Chu-Sher Table 3.7 HgCdTe temperature-slope screen",
         "source_record_count": len(rows),
         "composition_range": [float(composition.min()), float(composition.max())],
-        "observed_temperature_coefficients_1e4_ev_per_k": observed.tolist(),
+        "observed_temperature_coefficients_1e4_ev_per_k": (
+            observed / 1.0e-4
+        ).tolist(),
         "operator_results": operator_results,
         "cross_operator_diagnostics": {
             "linear_model_maximum_operator_difference_1e4_ev_per_k": (
