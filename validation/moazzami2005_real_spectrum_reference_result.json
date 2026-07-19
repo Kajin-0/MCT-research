@@ -22,10 +22,10 @@
       ],
       "combined_envelope": {
         "candidate_count": 14,
-        "descriptive_median_edge_ev": 0.18760250513405946,
-        "full_span_mev": 89.86546849815916,
-        "half_range_mev": 44.93273424907958,
-        "maximum_edge_ev": 0.27095109349815916,
+        "descriptive_median_edge_ev": 0.1876025050139033,
+        "full_span_mev": 89.86546847177787,
+        "half_range_mev": 44.93273423588894,
+        "maximum_edge_ev": 0.27095109347177787,
         "minimum_edge_ev": 0.181085625
       },
       "composition_x": 0.226,
@@ -56,11 +56,11 @@
       ],
       "threshold_envelope": {
         "candidate_count": 8,
-        "descriptive_median_edge_ev": 0.20062197421820796,
-        "full_span_mev": 87.8270873463541,
-        "half_range_mev": 43.91354367317705,
-        "maximum_edge_ev": 0.27095109349815916,
-        "minimum_edge_ev": 0.18312400615180505
+        "descriptive_median_edge_ev": 0.20062197423212064,
+        "full_span_mev": 87.82708705047776,
+        "half_range_mev": 43.91354352523888,
+        "maximum_edge_ev": 0.27095109347177787,
+        "minimum_edge_ev": 0.1831240064213001
       }
     },
     {
@@ -69,10 +69,10 @@
       ],
       "combined_envelope": {
         "candidate_count": 14,
-        "descriptive_median_edge_ev": 0.29649117490342275,
-        "full_span_mev": 62.02586788160147,
-        "half_range_mev": 31.012933940800735,
-        "maximum_edge_ev": 0.35169549288160146,
+        "descriptive_median_edge_ev": 0.2964911748730871,
+        "full_span_mev": 62.02586755483236,
+        "half_range_mev": 31.01293377741618,
+        "maximum_edge_ev": 0.35169549255483235,
         "minimum_edge_ev": 0.289669625
       },
       "composition_x": 0.31,
@@ -103,11 +103,11 @@
       ],
       "threshold_envelope": {
         "candidate_count": 8,
-        "descriptive_median_edge_ev": 0.30752169698499265,
-        "full_span_mev": 59.47006511632108,
-        "half_range_mev": 29.73503255816054,
-        "maximum_edge_ev": 0.35169549288160146,
-        "minimum_edge_ev": 0.2922254277652804
+        "descriptive_median_edge_ev": 0.30752169699386167,
+        "full_span_mev": 59.47006490030881,
+        "half_range_mev": 29.735032450154407,
+        "maximum_edge_ev": 0.35169549255483235,
+        "minimum_edge_ev": 0.29222542765452353
       }
     }
   ]
