@@ -134,7 +134,7 @@ def build_acquisition_svg() -> str:
         _text(
             620,
             735,
-            "Unique audit-grade subset within the declared two-level 2^3 candidate family; not a universal optimal-design proof.",
+            "Audit-grade complete factorial within the declared two-level 2^3 candidate family; not a universal optimal-design proof.",
             "small",
         ),
     ]
