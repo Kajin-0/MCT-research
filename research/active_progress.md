@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-19  
-**Controlling ref:** `main` plus draft manuscript asset PR
+**Controlling ref:** `main` plus draft manuscript PR #131
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`. This file records the program-level decisions that control new work.
 
@@ -66,7 +66,7 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 
 ## Real-spectrum manuscript result
 
-Two Moazzami 2005 solid-IRSE traces now pass the complete contract:
+Two Moazzami 2005 solid-IRSE traces pass the complete contract:
 
 ```text
 x=0.226, T=300 K, d=15.40 um, 125 derived points
@@ -84,27 +84,32 @@ x=0.310, T=300 K, d=4.95 um, 115 derived points
 
 ## Manuscript freeze
 
-Breadth-first exploration is complete. The active manuscript objective remains:
+Breadth-first exploration is complete. The active manuscript objective is:
 
-> **Observation-model uncertainty and identifiability in HgCdTe bandgap extraction.**
+> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
 
-The real-spectrum submission gate is now satisfied. The active phase is manuscript assembly, not data screening.
+The scientific, bibliography, target-journal, deterministic-asset, editable-LaTeX, technical-review, and PDF-render gates are satisfied in draft PR #131.
 
-No additional source-specific screen, synthetic oracle, empirical coefficient, or ledger-only PR is authorized unless it changes at least one controlling decision:
+The reviewed manuscript head is `a249c30d21c8f0a46c36ca91d6c85f8cce1ad2bf`:
 
-1. authorizes or falsifies the provisional thermal model using independent primary evidence;
-2. changes the absorption observation-model conclusion on a clean real spectrum;
-3. independently reproduces or rejects the static CdTe matrix result;
-4. opens a physically valid finite-temperature backend route;
-5. changes the minimum experimental acquisition design.
+```text
+focused manuscript workflow   29704457275   success
+Python 3.11/3.13 workflow     29704457252   success
+IRPT LaTeX workflow            29704457256   success
+PDF artifact                   8447468840    18 pages, visually inspected
+```
+
+No further scientific implementation, source screening, figure generation, or manuscript restructuring is authorized for this submission unless it corrects an identified defect or changes a controlling conclusion.
 
 ## Authorized next work
 
-1. Freeze the deterministic manuscript tables and first three data figures around the Moazzami result.
-2. Build the identifiability diagram and paired-acquisition-design figure from the already authorized analytical framework.
-3. Draft and freeze methods, results, discussion, limitations, and claim/evidence-boundary text.
-4. Add a low-temperature or independent cross-laboratory application only if raw or cleanly separable primary data become available; do not resume broad source accumulation.
-5. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+1. Supply and verify author names, affiliations, corresponding-author details, and postal address.
+2. Add the public archive DOI or final repository URL.
+3. Confirm funding, competing-interest, acknowledgment, and CRediT statements.
+4. Select conflict-free suggested reviewers.
+5. Perform the author-controlled final approval, then mark PR #131 ready and merge or submit the package.
+6. Add low-temperature, native-export, or independent cross-laboratory evidence only if it becomes available cleanly and changes a controlling conclusion; do not resume broad source accumulation.
+7. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
 
 ## Explicitly unauthorized
 
