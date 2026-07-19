@@ -1,0 +1,30 @@
+field,value,unit_or_status,provenance
+source_id,phillips_moazzami_kim_edwall_lee_arias_2003,identifier,repository_assigned
+title,Uniformity of optical absorption in HgCdTe epilayer measured by infrared spectromicroscopy,text,primary_article
+doi,10.1063/1.1625776,doi,primary_article
+stable_repository_handle,https://hdl.handle.net/2027.42/69699,url,University_of_Michigan_Deep_Blue
+full_text_recovered,true,boolean,primary_article
+growth_method,molecular_beam_epitaxy,text,primary_article
+substrate,CdZnTe_211,text,primary_article
+in_situ_growth_control,spectroscopic_ellipsometry_feedback,text,primary_article
+nominal_composition_x,0.226,mole_fraction,room_temperature_IR_transmission
+layer_thickness,15.8,um,room_temperature_IR_transmission
+measurement_temperature,room_temperature,text,primary_article
+beam_diameter,9,um,primary_article
+spatial_step,10,um,primary_article
+area_scan_size,200_x_200,um,primary_article
+area_scan_point_count,400,count,primary_article
+absorption_map_wavenumber,1558,cm-1,primary_article
+mean_absorption_coefficient,887,cm-1,primary_article
+absorption_standard_deviation,24.6,cm-1,primary_article
+reported_absorption_relative_variation,2.8,percent,primary_article
+composition_extraction_threshold,1000,cm-1,primary_article
+composition_reference_relations,Hansen_1982_and_Price_Boyd_1993,text,primary_article
+extracted_composition_mean,0.2256,mole_fraction,derived_from_absorption_threshold
+extracted_composition_standard_deviation,0.0003,mole_fraction,derived_from_absorption_threshold
+spectrometer_resolution,4,cm-1,primary_article
+equivalent_composition_resolution,0.00036,mole_fraction,primary_article
+independent_composition_metrology,false,boolean,evidence_audit
+static_gap_fit_authority,blocked,status,evidence_audit
+observation_uniformity_authority,conditional,status,evidence_audit
+confounders,"thickness; composition; absorption coefficient; interface reflections; measurement drift",text,primary_article
