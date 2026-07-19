@@ -1,0 +1,35 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\journal{Infrared Physics \& Technology}
+\graphicspath{{figures/}}
+\sisetup{detect-all=true, range-phrase=--, range-units=single}
+
+\begin{document}
+
+\begin{frontmatter}
+\input{frontmatter}
+\end{frontmatter}
+
+\input{sections/01_introduction}
+\input{sections/02_methods}
+\input{sections/03_results}
+\input{sections/04_discussion}
+\input{sections/05_limitations}
+\input{sections/06_conclusions}
+\input{declarations}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}
