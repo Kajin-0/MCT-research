@@ -172,12 +172,12 @@ def test_chu_1994_candidate_recovers_its_generating_edge() -> None:
     temperature = 80.0
     alpha_g = 700.0
     beta = chu_1994_beta_ev_inverse(composition, temperature)
-    energy = np.linspace(0.1001, 0.25, 1001)
+    energy = np.linspace(0.101, 0.25, 1001)
     absorption = alpha_g * np.exp(np.sqrt(beta * (energy - edge)))
     fit = fit_chu_1994_kane_edge(
         energy,
         absorption,
-        edge_bounds_ev=(0.09, 0.101),
+        edge_bounds_ev=(0.09, 0.1005),
         composition_x=composition,
         temperature_k=temperature,
     )
