@@ -46,10 +46,11 @@ jobs:
       - name: Verify committed references
         run: |
           python - <<'PY'
+          import csv
           import json
           from pathlib import Path
 
-          pairs = [
+          json_pairs = [
               (
                   Path('absorption-edge-contract-evidence/contract.json'),
                   Path('validation/absorption_edge_uncertainty_contract_reference.json'),
@@ -59,15 +60,23 @@ jobs:
                   Path('validation/absorption_edge_uncertainty_contract_summary.json'),
               ),
           ]
-          for generated, reference in pairs:
+          for generated, reference in json_pairs:
               generated_payload = json.loads(generated.read_text(encoding='utf-8'))
               reference_payload = json.loads(reference.read_text(encoding='utf-8'))
               if generated_payload != reference_payload:
                   raise SystemExit(f'JSON reference mismatch: {generated} != {reference}')
+
+          csv_paths = (
+              Path('absorption-edge-contract-evidence/contract.csv'),
+              Path('validation/absorption_edge_uncertainty_contract_reference.csv'),
+          )
+          rows = []
+          for path in csv_paths:
+              with path.open('r', encoding='utf-8', newline='') as handle:
+                  rows.append(list(csv.DictReader(handle)))
+          if rows[0] != rows[1]:
+              raise SystemExit(f'CSV reference mismatch: {csv_paths[0]} != {csv_paths[1]}')
           PY
-          cmp \
-            absorption-edge-contract-evidence/contract.csv \
-            validation/absorption_edge_uncertainty_contract_reference.csv
 
       - name: Run focused tests
         run: |
