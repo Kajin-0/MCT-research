@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-19  
-**Controlling branch:** `agent/export-absorption-edge-uncertainty`
+**Controlling branch:** `agent/integrate-orlita2014-constraint`
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`.
 
@@ -33,8 +33,30 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
-- Historical primary fit-authority count remains zero; Seiler is conditional and the Chu-Sher table is screen-only.
 - The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target.
+
+## Primary evidence state
+
+The centralized recovery ledger now contains:
+
+```text
+all sources                         9
+primary sources                     8
+authorized primary fit sources      0
+conditional primary sources         2
+blocked primary sources             6
+screen-only sources                 1
+```
+
+Conditional primary sources are Seiler 1990 and Orlita 2014.
+
+Orlita 2014 adds a carrier-coupled near-critical constraint at approximately `1.8 K`: a graded plateau near `x approximately 0.17`, a low-field model improved by `Eg=4 meV`, `EF approximately 15-17 meV`, and `n approximately (2-3)e14 cm^-3`.
+
+At nominal `x=0.17`, Laurenti is the closest local comparator, but the model-equivalent composition offsets span from `+0.000573` to `-0.006608`. The source is therefore composition-sensitive, carrier-coupled and not an exact homogeneous calibration point.
+
+Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage. They are not independent cross-laboratory validation sets.
+
+The static-law reopening gate remains closed because Orlita lacks point uncertainty and homogeneous independent composition uncertainty, and no two independent primary sources satisfy all evidence requirements.
 
 ## Absorption edge uncertainty contract
 
@@ -47,12 +69,14 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 ## Authorized next work
 
 1. Continue primary point-data recovery and archive calibrated source figures before digitization.
-2. Apply the uncertainty contract only to native digital or calibrated spectra with complete metadata.
-3. Preserve the provisional thermal law without adding parameters.
-4. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
+2. Obtain homogeneous composition and carrier-aware uncertainty for near-critical primary specimens.
+3. Apply the uncertainty contract only to native digital or calibrated spectra with complete metadata.
+4. Preserve the provisional thermal law without adding parameters.
+5. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
 
 ## Explicitly unauthorized
 
+- treating Orlita as an exact homogeneous point or independent cross-laboratory validation;
 - treating old redundant Hamiltonian degrees of freedom or variance-scaled standard errors as current;
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
