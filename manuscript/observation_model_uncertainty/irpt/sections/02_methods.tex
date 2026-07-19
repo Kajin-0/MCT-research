@@ -4,12 +4,12 @@
 \subsection{Latent gap and measured edge}
 \label{sec:observation-model}
 
-For a specimen with independently measured composition $x$ and temperature $T$, we represent a magneto-optical observation as
+For a specimen with independently measured composition $x$ and temperature $T$, let $y_{\mathrm{MO}}$ denote a calibrated magneto-optical gap estimate after the method-specific field model and calibration have been applied. We write
 \begin{equation}
   y_{\mathrm{MO}} = E_g(x,T) + \epsilon_{\mathrm{MO}},
   \label{eq:magneto-optical}
 \end{equation}
-and an intrinsic-absorption-derived edge as
+where $\epsilon_{\mathrm{MO}}$ includes the residual uncertainty of that calibrated estimate. An absorption-derived edge is represented as
 \begin{equation}
   y_{\mathrm{abs}} = E_g(x,T)
   + \Delta_{\mathrm{method}}
@@ -25,7 +25,7 @@ The terms in Eq.~\eqref{eq:absorption-observation} form an identifiability decom
   + \Delta_{\mathrm{vacancy}} + \epsilon,
   \label{eq:paired-difference}
 \end{equation}
-so the common latent term is removed. Without paired modalities and independent specimen-state measurements, the contributions in Eq.~\eqref{eq:absorption-observation} can remain aliased.
+where $\epsilon=\epsilon_{\mathrm{abs}}-\epsilon_{\mathrm{MO}}$. The common latent term is removed, but residual method and measurement uncertainty remains. Without paired modalities and independent specimen-state measurements, the contributions in Eq.~\eqref{eq:absorption-observation} can remain aliased.
 
 \subsection{Experimental spectra and provenance}
 \label{sec:spectra}
@@ -47,7 +47,7 @@ The Chu candidate is
   \alpha(E) = \alpha_g \exp\!\left(\sqrt{\beta(x,T)(E-E_g)}\right),
   \label{eq:chu}
 \end{equation}
-with the source-supported parameterization
+with $E$ and $E_g$ in electronvolts, $T$ in kelvin, and $\beta$ in eV$^{-1}$. The source-supported parameterization is
 \begin{equation}
   \beta(x,T) = -1 + 0.083T + (21-0.13T)x.
   \label{eq:chu-beta}
@@ -66,17 +66,41 @@ The digitization stop rule is 5~meV. Fitted-model conclusions are classified as 
 \subsection{Material-gap comparators}
 \label{sec:comparators}
 
-Four material-gap relations are evaluated at each reported composition and temperature: Hansen \cite{Hansen1982}, published Seiler \cite{Seiler1990}, Laurenti \cite{Laurenti1990}, and a provisional constrained Hansen--Pade relation. The published Seiler comparator is
+All comparator equations return the signed zone-centre gap in electronvolts, with $x$ the Cd mole fraction and $T$ in kelvin. The Hansen--Schmit--Casselman relation \cite{Hansen1982} is
 \begin{equation}
-  E_g(x,T) = E_{g,\mathrm{Hansen}}(x,0)
+\begin{split}
+  E_{g,\mathrm{H}}(x,T) ={}& -0.302 + 1.930x - 0.810x^2 + 0.832x^3 \\
+  &+ 5.35\times10^{-4}(1-2x)T.
+\end{split}
+  \label{eq:hansen}
+\end{equation}
+
+The published Seiler relation \cite{Seiler1990} retains the Hansen zero-temperature polynomial and replaces the linear thermal term with
+\begin{equation}
+  E_{g,\mathrm{S}}(x,T) = E_{g,\mathrm{H}}(x,0)
   + 5.35\times10^{-4}(1-2x)\frac{A+T^3}{B+T^2},
   \label{eq:seiler}
 \end{equation}
 where $A=-1822$~K$^3$ and $B=255.2$~K$^2$.
 
-The provisional relation retains the Hansen zero-temperature polynomial and uses
+The reconstructed Laurenti relation \cite{Laurenti1990} is
 \begin{equation}
-  E_g(x,T) = E_{g,\mathrm{Hansen}}(x,0)
+\begin{split}
+  E_{g,\mathrm{L}}(x,T) ={}& -0.303(1-x)+1.606x-0.132x(1-x) \\
+  &+10^{-4}\,a(x)\frac{T^2}{T+b(x)},
+\end{split}
+  \label{eq:laurenti}
+\end{equation}
+with
+\begin{align}
+  a(x) &= 6.3(1-x)-3.25x-5.92x(1-x), \\
+  b(x) &= 11(1-x)+78.7x \quad \text{K}.
+\end{align}
+The analytical expression is a high-confidence reconstruction of the published relation, but the original coefficient covariance and validity limits were not reconstructed; it is therefore retained as a historical comparator rather than fit authority.
+
+The provisional constrained Hansen--Pade relation retains the Hansen zero-temperature polynomial and uses
+\begin{equation}
+  E_{g,\mathrm{P}}(x,T) = E_{g,\mathrm{H}}(x,0)
   + \alpha(1-2x)\frac{T^3}{T^2+\tau^2},
   \label{eq:provisional}
 \end{equation}
@@ -87,6 +111,6 @@ For each observation candidate, the nominal closest comparator is the relation w
 \subsection{Paired acquisition-design analysis}
 \label{sec:design}
 
-A local linearized identifiability model contains five coefficients: latent intercept, latent composition slope, absorption-class offset, carrier contribution, and vacancy contribution. The validated acquisition oracle evaluates the full two-level factorial over composition, carrier proxy, and vacancy proxy. Each of eight specimen states receives paired magneto-optical and intrinsic-absorption measurements at a low-temperature block and at 300~K.
+A local linearized identifiability model contains five coefficients: latent intercept, latent composition slope, absorption-class offset, carrier contribution, and vacancy contribution. The validated acquisition oracle evaluates the complete two-level factorial over composition, carrier proxy, and vacancy proxy. Each of eight specimen states receives paired magneto-optical and absorption-derived measurements in a target 6~K block and a 300~K block.
 
-Per temperature block, the design contains 16 observations, rank $5/5$, 11 residual degrees of freedom, condition number 2.618, and maximum leverage 0.4375. The two-temperature design contains 32 gap observations. This establishes the unique audit-grade subset only within the declared two-level $2^3$ candidate family and numerical gates; it is not a universal optimal-design proof.
+Per temperature block, the design contains 16 observations, rank $5/5$, 11 residual degrees of freedom, condition number 2.618, and maximum leverage 0.4375. The two-temperature design contains 32 gap observations. This is the unique audit-grade complete factorial within the declared two-level $2^3$ candidate family and numerical gates; it is not a universal optimal-design proof.
