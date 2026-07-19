@@ -1,0 +1,24 @@
+{
+  "claim_boundary": "This validates the coordinate algebra and schema migration only. It does not estimate physical matrix covariance or propagate gauge uncertainty.",
+  "covariance_coordinate_system": "hermitian_frobenius_64",
+  "failures": {},
+  "frobenius_inner_product_abs_error": 1.1102230246251565e-15,
+  "gates": {
+    "frobenius_inner_product_abs_error": 1e-12,
+    "legacy_identity_covariance_max_abs_error": 1e-12,
+    "roundtrip_max_abs": 1e-12,
+    "unitary_map_orthogonality_frobenius": 1e-11
+  },
+  "independent_dimension": 64,
+  "legacy_dimension": 128,
+  "legacy_identity_covariance_max_abs_error": 2.220446049250313e-16,
+  "legacy_reads_project_to_64d": true,
+  "matrix_dimension": 8,
+  "new_writes_accept_legacy_128d": false,
+  "nonhermitian_covariance_supported": false,
+  "passed": true,
+  "roundtrip_max_abs": 2.220446049250313e-16,
+  "schema_version": "2.0",
+  "unitary_map_determinant_abs": 1.0000000000000009,
+  "unitary_map_orthogonality_frobenius": 6.389024783644714e-15
+}
