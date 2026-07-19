@@ -8,8 +8,9 @@ from typing import Callable, Sequence
 import numpy as np
 from numpy.typing import NDArray
 
-from .dataio import MatrixRecord, OBSERVATION_DIMENSION
+from .dataio import MatrixRecord
 from .gauge import AlignmentDiagnostics, KANE_IRREP_BLOCKS, rotate_operator
+from .hermitian import OBSERVATION_DIMENSION, hermitian_linear_map
 from .symmetry import gamma_irrep_residual, gamma_irrep_symmetrize
 
 ComplexMatrix = NDArray[np.complex128]
@@ -87,24 +88,25 @@ def rotation_from_overlap(
 def real_linear_map(
     transform: Callable[[ComplexMatrix], ComplexMatrix],
 ) -> RealMatrix:
-    """Return the 128x128 real representation of a complex-linear matrix map."""
+    """Return the 64x64 map induced on independent Hermitian coordinates."""
 
-    mapping = np.zeros((OBSERVATION_DIMENSION, OBSERVATION_DIMENSION), dtype=float)
-    for column in range(OBSERVATION_DIMENSION):
-        basis = np.zeros((8, 8), dtype=np.complex128)
-        if column < 64:
-            basis.reshape(-1)[column] = 1.0
-        else:
-            basis.reshape(-1)[column - 64] = 1.0j
-        transformed = np.asarray(transform(basis), dtype=np.complex128).reshape(-1)
-        mapping[:, column] = np.concatenate((transformed.real, transformed.imag))
-    return mapping
+    return hermitian_linear_map(transform)
+
+
+def _validated_covariance(covariance: RealMatrix) -> RealMatrix:
+    candidate = np.asarray(covariance, dtype=float)
+    expected = (OBSERVATION_DIMENSION, OBSERVATION_DIMENSION)
+    if candidate.shape != expected:
+        raise ValueError(f"covariance must have shape {expected}, got {candidate.shape}")
+    if not np.all(np.isfinite(candidate)):
+        raise ValueError("covariance contains non-finite values")
+    return candidate
 
 
 def rotate_covariance(covariance: RealMatrix, rotation: ComplexMatrix) -> RealMatrix:
-    """Transform matrix covariance consistently with ``O -> U^dagger O U``."""
+    """Transform covariance consistently with ``O -> U^dagger O U``."""
 
-    covariance = np.asarray(covariance, dtype=float)
+    covariance = _validated_covariance(covariance)
     linear_map = real_linear_map(lambda operator: rotate_operator(operator, rotation))
     transformed = linear_map @ covariance @ linear_map.T
     return 0.5 * (transformed + transformed.T)
@@ -114,9 +116,9 @@ def project_covariance(
     covariance: RealMatrix,
     transform: Callable[[ComplexMatrix], ComplexMatrix],
 ) -> RealMatrix:
-    """Push a covariance through a linear matrix projection."""
+    """Push covariance through a Hermiticity-preserving linear projection."""
 
-    covariance = np.asarray(covariance, dtype=float)
+    covariance = _validated_covariance(covariance)
     linear_map = real_linear_map(transform)
     transformed = linear_map @ covariance @ linear_map.T
     return 0.5 * (transformed + transformed.T)
@@ -166,6 +168,9 @@ def process_record(
             **record.metadata,
             "processed": True,
             "gamma_symmetry_restored": symmetry_before is not None,
+            "covariance_coordinate_system": (
+                None if covariance is None else "hermitian_frobenius_64"
+            ),
         },
     )
     diagnostics = ProcessingDiagnostics(
