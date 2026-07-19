@@ -52,8 +52,9 @@ def test_irpt_tables_preserve_records_and_layout(tmp_path: Path) -> None:
     assert t3.count(" & threshold & ") == 16
     assert t3.count(" & yes & ") == 3
     assert r"\begin{landscape}" in t3
-    assert r"\footnotesize" in t3
-    assert r"\setlength{\tabcolsep}{4pt}" in t3
+    assert r"\scriptsize" in t3
+    assert r"\renewcommand{\arraystretch}{0.95}" in t3
+    assert r"\setlength{\tabcolsep}{3pt}" in t3
     assert "Closest comparator" in t3
     assert "fixed thresh-" not in t3
 
