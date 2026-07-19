@@ -11,6 +11,7 @@ FIGURE_NAMES = {
     "figure4_identifiability.svg",
     "figure5_paired_acquisition_design.svg",
 }
+CONCEPTUAL_ASSET_NAMES = FIGURE_NAMES | {"conceptual_figure_summary.json"}
 
 
 def test_conceptual_figure_bundle_is_deterministic(tmp_path: Path) -> None:
@@ -18,11 +19,8 @@ def test_conceptual_figure_bundle_is_deterministic(tmp_path: Path) -> None:
     second = tmp_path / "second"
     build(first)
     build(second)
-    assert {path.name for path in first.iterdir()} == {
-        *FIGURE_NAMES,
-        "conceptual_figure_summary.json",
-    }
-    for name in FIGURE_NAMES | {"conceptual_figure_summary.json"}:
+    assert {path.name for path in first.iterdir()} == CONCEPTUAL_ASSET_NAMES
+    for name in CONCEPTUAL_ASSET_NAMES:
         assert (first / name).read_bytes() == (second / name).read_bytes()
 
 
@@ -46,6 +44,8 @@ def test_acquisition_figure_reads_the_validated_design_oracle(tmp_path: Path) ->
     assert "residual DOF  11" in text
     assert "condition number  2.618" in text
     assert "max leverage  0.4375" in text
+    assert "vac low" in text
+    assert "vac high" in text
     for specimen in range(1, 9):
         assert text.count(f">S{specimen}<") == 2
 
@@ -58,3 +58,9 @@ def test_conceptual_summary_preserves_claim_boundaries(tmp_path: Path) -> None:
         (tmp_path / "conceptual_figure_summary.json").read_text(encoding="utf-8")
     )
     assert persisted == summary
+
+
+def test_frozen_conceptual_assets_match_a_fresh_rebuild(tmp_path: Path) -> None:
+    build(tmp_path)
+    for name in sorted(CONCEPTUAL_ASSET_NAMES):
+        assert (FROZEN / name).read_bytes() == (tmp_path / name).read_bytes()
