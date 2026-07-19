@@ -1,5 +1,4 @@
 """Versioned, integrity-checked storage for projected electronic matrices."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -11,11 +10,19 @@ from typing import Any, Mapping
 import numpy as np
 from numpy.typing import NDArray
 
-OBSERVATION_DIMENSION = 128
-SCHEMA_VERSION = "1.0"
-_ALLOWED_KINDS = {
-    "hamiltonian",
-    "quasiparticle_hamiltonian",
+from .matrix_coordinates import (
+    COMPLEX_OBSERVATION_DIMENSION,
+    HERMITIAN_OBSERVATION_DIMENSION,
+    hermitian_residual,
+    legacy_covariance_to_hermitian,
+)
+
+OBSERVATION_DIMENSION = HERMITIAN_OBSERVATION_DIMENSION
+MAX_COVARIANCE_DIMENSION = COMPLEX_OBSERVATION_DIMENSION
+SCHEMA_VERSION = "2.0"
+LEGACY_SCHEMA_VERSION = "1.0"
+HAMILTONIAN_MATRIX_KINDS = {"hamiltonian", "quasiparticle_hamiltonian"}
+_ALLOWED_KINDS = HAMILTONIAN_MATRIX_KINDS | {
     "self_energy_fan",
     "self_energy_dw",
     "self_energy_total",
@@ -43,9 +50,14 @@ def _complex_matrix(value: ComplexMatrix, *, name: str) -> ComplexMatrix:
 
 def _covariance(value: RealMatrix, *, name: str) -> RealMatrix:
     array = np.asarray(value, dtype=float)
-    expected = (OBSERVATION_DIMENSION, OBSERVATION_DIMENSION)
-    if array.shape != expected:
-        raise ValueError(f"{name} must have shape {expected}, got {array.shape}")
+    allowed = {
+        (HERMITIAN_OBSERVATION_DIMENSION, HERMITIAN_OBSERVATION_DIMENSION),
+        (COMPLEX_OBSERVATION_DIMENSION, COMPLEX_OBSERVATION_DIMENSION),
+    }
+    if array.shape not in allowed:
+        raise ValueError(
+            f"{name} must have shape (64, 64) or (128, 128), got {array.shape}"
+        )
     if not np.all(np.isfinite(array)):
         raise ValueError(f"{name} contains non-finite values")
     symmetric = 0.5 * (array + array.T)
@@ -64,6 +76,25 @@ def _covariance(value: RealMatrix, *, name: str) -> RealMatrix:
     if minimum < -1.0e-10 * maximum:
         raise ValueError(f"{name} must be positive semidefinite")
     return symmetric
+
+
+def _normalize_covariance(
+    covariance: RealMatrix | None,
+    *,
+    matrix_kind: str,
+    matrix: ComplexMatrix,
+) -> RealMatrix | None:
+    if covariance is None:
+        return None
+    value = _covariance(covariance, name="covariance")
+    if matrix_kind in HAMILTONIAN_MATRIX_KINDS and value.shape[0] == 128:
+        value = legacy_covariance_to_hermitian(value)
+    if value.shape[0] == 64 and hermitian_residual(matrix) > 1.0e-8:
+        raise ValueError(
+            "64D covariance requires a Hermitian matrix; use 128D coordinates for "
+            "a general complex operator"
+        )
+    return value
 
 
 @dataclass(frozen=True)
@@ -104,12 +135,18 @@ class MatrixRecord:
             raise ValueError("frequency_ev must be finite when supplied")
         metadata = dict(self.metadata)
         _json_text(metadata, name="metadata")
+        matrix = _complex_matrix(self.matrix, name="matrix")
+        covariance = _normalize_covariance(
+            self.covariance,
+            matrix_kind=self.matrix_kind,
+            matrix=matrix,
+        )
 
         object.__setattr__(self, "composition", composition)
         object.__setattr__(self, "temperature_k", temperature)
         object.__setattr__(self, "volume_a3", volume)
         object.__setattr__(self, "k_inv_a", k)
-        object.__setattr__(self, "matrix", _complex_matrix(self.matrix, name="matrix"))
+        object.__setattr__(self, "matrix", matrix)
         object.__setattr__(self, "frequency_ev", frequency)
         object.__setattr__(
             self,
@@ -118,13 +155,7 @@ class MatrixRecord:
             if self.basis_overlap is None
             else _complex_matrix(self.basis_overlap, name="basis_overlap"),
         )
-        object.__setattr__(
-            self,
-            "covariance",
-            None
-            if self.covariance is None
-            else _covariance(self.covariance, name="covariance"),
-        )
+        object.__setattr__(self, "covariance", covariance)
         object.__setattr__(self, "metadata", metadata)
 
 
@@ -142,13 +173,25 @@ class MatrixDataset:
             raise ValueError("dataset must contain at least one record")
         provenance = dict(self.provenance)
         _json_text(provenance, name="provenance")
-        if self.schema_version != SCHEMA_VERSION:
+        version = str(self.schema_version)
+        if version not in {SCHEMA_VERSION, LEGACY_SCHEMA_VERSION}:
             raise ValueError(
-                f"unsupported schema_version {self.schema_version!r}; "
-                f"expected {SCHEMA_VERSION!r}"
+                f"unsupported schema_version {version!r}; expected "
+                f"{SCHEMA_VERSION!r} or legacy {LEGACY_SCHEMA_VERSION!r}"
             )
+        if version == LEGACY_SCHEMA_VERSION:
+            provenance = {
+                **provenance,
+                "schema_migration": {
+                    "from": LEGACY_SCHEMA_VERSION,
+                    "to": SCHEMA_VERSION,
+                    "hamiltonian_covariance": "legacy_128_to_hermitian_64",
+                },
+            }
+            version = SCHEMA_VERSION
         object.__setattr__(self, "records", records)
         object.__setattr__(self, "provenance", provenance)
+        object.__setattr__(self, "schema_version", version)
 
 
 def file_sha256(path: str | Path) -> str:
@@ -162,13 +205,12 @@ def file_sha256(path: str | Path) -> str:
 
 
 def save_matrix_dataset(path: str | Path, dataset: MatrixDataset) -> str:
-    """Write a compressed NPZ dataset and return its SHA-256 digest."""
+    """Write one schema-v2 compressed NPZ dataset and return its digest."""
 
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     records = dataset.records
     count = len(records)
-
     matrices = np.stack([record.matrix for record in records])
     overlap_present = np.asarray(
         [record.basis_overlap is not None for record in records], dtype=bool
@@ -177,14 +219,19 @@ def save_matrix_dataset(path: str | Path, dataset: MatrixDataset) -> str:
     covariance_present = np.asarray(
         [record.covariance is not None for record in records], dtype=bool
     )
+    covariance_dimension = np.asarray(
+        [0 if record.covariance is None else record.covariance.shape[0] for record in records],
+        dtype=np.int16,
+    )
     covariances = np.zeros(
-        (count, OBSERVATION_DIMENSION, OBSERVATION_DIMENSION), dtype=float
+        (count, MAX_COVARIANCE_DIMENSION, MAX_COVARIANCE_DIMENSION), dtype=float
     )
     for index, record in enumerate(records):
         if record.basis_overlap is not None:
             overlaps[index] = record.basis_overlap
         if record.covariance is not None:
-            covariances[index] = record.covariance
+            dimension = record.covariance.shape[0]
+            covariances[index, :dimension, :dimension] = record.covariance
 
     frequencies = np.asarray(
         [np.nan if record.frequency_ev is None else record.frequency_ev for record in records],
@@ -193,10 +240,9 @@ def save_matrix_dataset(path: str | Path, dataset: MatrixDataset) -> str:
     metadata = np.asarray(
         [_json_text(record.metadata, name="metadata") for record in records], dtype=str
     )
-
     np.savez_compressed(
         path,
-        schema_version=np.asarray(dataset.schema_version),
+        schema_version=np.asarray(SCHEMA_VERSION),
         provenance_json=np.asarray(_json_text(dataset.provenance, name="provenance")),
         composition=np.asarray([record.composition for record in records], dtype=float),
         temperature_k=np.asarray([record.temperature_k for record in records], dtype=float),
@@ -210,10 +256,28 @@ def save_matrix_dataset(path: str | Path, dataset: MatrixDataset) -> str:
         basis_overlap_real=overlaps.real,
         basis_overlap_imag=overlaps.imag,
         covariance_present=covariance_present,
+        covariance_dimension=covariance_dimension,
         covariance=covariances,
         metadata_json=metadata,
     )
     return file_sha256(path)
+
+
+def _common_shapes(count: int) -> dict[str, tuple[int, ...]]:
+    return {
+        "temperature_k": (count,),
+        "volume_a3": (count,),
+        "k_inv_a": (count, 3),
+        "matrix_kind": (count,),
+        "frequency_ev": (count,),
+        "matrix_real": (count, 8, 8),
+        "matrix_imag": (count, 8, 8),
+        "basis_overlap_present": (count,),
+        "basis_overlap_real": (count, 8, 8),
+        "basis_overlap_imag": (count, 8, 8),
+        "covariance_present": (count,),
+        "metadata_json": (count,),
+    }
 
 
 def load_matrix_dataset(
@@ -221,7 +285,7 @@ def load_matrix_dataset(
     *,
     expected_sha256: str | None = None,
 ) -> MatrixDataset:
-    """Load and validate a dataset, optionally checking its SHA-256 digest."""
+    """Load schema v2 or migrate one schema-v1 dataset in memory."""
 
     path = Path(path)
     actual_digest = file_sha256(path)
@@ -232,32 +296,34 @@ def load_matrix_dataset(
 
     with np.load(path, allow_pickle=False) as data:
         version = str(data["schema_version"].item())
-        if version != SCHEMA_VERSION:
+        if version not in {SCHEMA_VERSION, LEGACY_SCHEMA_VERSION}:
             raise ValueError(
-                f"unsupported schema_version {version!r}; expected {SCHEMA_VERSION!r}"
+                f"unsupported schema_version {version!r}; expected {SCHEMA_VERSION!r} "
+                f"or legacy {LEGACY_SCHEMA_VERSION!r}"
             )
         provenance = json.loads(str(data["provenance_json"].item()))
         composition = np.asarray(data["composition"], dtype=float)
         count = composition.size
-
-        required_shapes = {
-            "temperature_k": (count,),
-            "volume_a3": (count,),
-            "k_inv_a": (count, 3),
-            "matrix_kind": (count,),
-            "frequency_ev": (count,),
-            "matrix_real": (count, 8, 8),
-            "matrix_imag": (count, 8, 8),
-            "basis_overlap_present": (count,),
-            "basis_overlap_real": (count, 8, 8),
-            "basis_overlap_imag": (count, 8, 8),
-            "covariance_present": (count,),
-            "covariance": (count, OBSERVATION_DIMENSION, OBSERVATION_DIMENSION),
-            "metadata_json": (count,),
-        }
+        required_shapes = _common_shapes(count)
+        if version == SCHEMA_VERSION:
+            required_shapes |= {
+                "covariance_dimension": (count,),
+                "covariance": (
+                    count,
+                    MAX_COVARIANCE_DIMENSION,
+                    MAX_COVARIANCE_DIMENSION,
+                ),
+            }
+        else:
+            required_shapes["covariance"] = (
+                count,
+                COMPLEX_OBSERVATION_DIMENSION,
+                COMPLEX_OBSERVATION_DIMENSION,
+            )
         for name, shape in required_shapes.items():
-            if data[name].shape != shape:
-                raise ValueError(f"invalid shape for {name}: {data[name].shape}, expected {shape}")
+            if name not in data or data[name].shape != shape:
+                actual = None if name not in data else data[name].shape
+                raise ValueError(f"invalid shape for {name}: {actual}, expected {shape}")
 
         records: list[MatrixRecord] = []
         for index in range(count):
@@ -270,7 +336,17 @@ def load_matrix_dataset(
                 )
             covariance = None
             if bool(data["covariance_present"][index]):
-                covariance = np.asarray(data["covariance"][index], dtype=float)
+                if version == LEGACY_SCHEMA_VERSION:
+                    covariance = np.asarray(data["covariance"][index], dtype=float)
+                else:
+                    dimension = int(data["covariance_dimension"][index])
+                    if dimension not in {64, 128}:
+                        raise ValueError(
+                            f"invalid covariance dimension {dimension} at record {index}"
+                        )
+                    covariance = np.asarray(
+                        data["covariance"][index, :dimension, :dimension], dtype=float
+                    )
             records.append(
                 MatrixRecord(
                     composition=float(composition[index]),
@@ -289,6 +365,19 @@ def load_matrix_dataset(
                 )
             )
 
+    if version == LEGACY_SCHEMA_VERSION:
+        provenance = {
+            **provenance,
+            "schema_migration": {
+                "from": LEGACY_SCHEMA_VERSION,
+                "to": SCHEMA_VERSION,
+                "source_sha256": actual_digest,
+                "hamiltonian_covariance": "legacy_128_to_hermitian_64",
+                "complex_self_energy_covariance": "retained_128",
+            },
+        }
     return MatrixDataset(
-        records=tuple(records), provenance=provenance, schema_version=version
+        records=tuple(records),
+        provenance=provenance,
+        schema_version=SCHEMA_VERSION,
     )
