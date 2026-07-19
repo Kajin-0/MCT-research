@@ -10,6 +10,7 @@ import numpy as np
 from numpy.typing import NDArray
 
 from .dataio import MatrixDataset, MatrixRecord
+from .hermitian import OBSERVATION_DIMENSION
 
 ComplexArray = NDArray[np.complex128]
 _ALLOWED_MATRIX_KINDS = {
@@ -51,7 +52,8 @@ class NetcdfFieldMap:
 
     A full matrix must be provided either as one complex variable or as
     separate real and imaginary variables. The converter intentionally has no
-    ABINIT- or EPW-specific guessed defaults.
+    ABINIT- or EPW-specific guessed defaults. Covariance, when present, must be
+    the explicit 64x64 ``hermitian_frobenius_64`` representation.
     """
 
     k_inv_a: str
@@ -194,7 +196,10 @@ def dataset_from_arrays(
     covariance_array = None
     if covariances is not None:
         covariance_array = _as_record_array(
-            covariances, count, name="covariance", trailing_shape=(128, 128)
+            covariances,
+            count,
+            name="covariance",
+            trailing_shape=(OBSERVATION_DIMENSION, OBSERVATION_DIMENSION),
         ).astype(float)
 
     if record_metadata is None:
@@ -302,7 +307,9 @@ def load_jsonl_matrix_export(
 
         covariance_present.append("covariance" in raw)
         covariances.append(
-            np.asarray(raw.get("covariance", np.eye(128)), dtype=float)
+            np.asarray(
+                raw.get("covariance", np.eye(OBSERVATION_DIMENSION)), dtype=float
+            )
         )
         metadata.append(raw.get("metadata", {}))
 
