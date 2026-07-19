@@ -14,30 +14,35 @@ def test_selected_spectra_close_the_coverage_gate() -> None:
     result = audit(SELECTION)
     assert result["spectrum_count"] == 3
     assert result["source_count"] == 2
-    assert result["composition_values"] == [0.21, 0.22, 0.31]
+    assert result["composition_values"] == [0.21, 0.226, 0.31]
     assert result["temperature_range_k"] == [80.0, 300.0]
     assert result["selection_gate_passed"] is True
 
 
-def test_selection_does_not_authorize_analysis() -> None:
+def test_two_moazzami_spectra_authorize_real_spectrum_analysis() -> None:
     result = audit(SELECTION)
-    assert result["digitization_ready_spectrum_count"] == 0
-    assert result["machine_readable_spectrum_count"] == 0
-    assert result["analysis_authorized_now"] is False
+    assert result["digitization_ready_spectrum_count"] == 2
+    assert result["machine_readable_spectrum_count"] == 2
+    assert result["analysis_authorized_now"] is True
 
 
-def test_acquisition_status_matches_selected_spectra_and_remains_fail_closed() -> None:
+def test_acquisition_status_preserves_one_blocked_and_two_complete_records() -> None:
     with SELECTION.open(newline="", encoding="utf-8") as stream:
         selected = {row["spectrum_id"] for row in csv.DictReader(stream)}
     with ACQUISITION.open(newline="", encoding="utf-8") as stream:
-        acquisition_rows = list(csv.DictReader(stream))
+        rows = list(csv.DictReader(stream))
 
-    assert {row["spectrum_id"] for row in acquisition_rows} == selected
-    assert all(row["primary_full_text_resolved"] == "true" for row in acquisition_rows)
-    assert all(row["figure_caption_verified"] == "true" for row in acquisition_rows)
-    assert all(row["local_raster_available"] == "false" for row in acquisition_rows)
-    assert all(row["axis_calibration_available"] == "false" for row in acquisition_rows)
-    assert all(row["machine_readable_points_available"] == "false" for row in acquisition_rows)
-    assert {
-        row["acquisition_status"] for row in acquisition_rows
-    } == {"primary_source_resolved_raster_blocked"}
+    assert {row["spectrum_id"] for row in rows} == selected
+    by_id = {row["spectrum_id"]: row for row in rows}
+    chang = by_id["chang2006_x021_80k"]
+    assert chang["local_raster_available"] == "true"
+    assert chang["axis_calibration_available"] == "false"
+    assert chang["machine_readable_points_available"] == "false"
+    assert chang["acquisition_status"] == "primary_figure_recovered_point_separation_blocked"
+
+    for spectrum_id in ("moazzami2005_x022_300k", "moazzami2005_x031_300k"):
+        row = by_id[spectrum_id]
+        assert row["local_raster_available"] == "true"
+        assert row["axis_calibration_available"] == "true"
+        assert row["machine_readable_points_available"] == "true"
+        assert row["acquisition_status"] == "contract_complete_digitized_primary_figure"
