@@ -39,6 +39,7 @@ jobs:
             tests/test_irpt_submission_front_matter.py \
             tests/test_observation_model_irpt_tables.py \
             tests/test_irpt_latex_package.py \
+            tests/test_irpt_technical_review.py \
             2>&1 | tee generated/pytest.txt
       - uses: actions/upload-artifact@v4
         if: always()
