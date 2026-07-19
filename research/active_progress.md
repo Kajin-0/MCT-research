@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-18  
-**Controlling branch:** `agent/recover-modern-primary-absorption-evidence`
+**Controlling branch:** `agent/benchmark-absorption-observation-models`
 
 Detailed derivations and exact artifacts are preserved in dated decision records and `validation/*_reference_result.json`. This file states the controlling program position.
 
@@ -57,26 +57,37 @@ tau   = 18.059294367159467 K
 - Classification: `0` observation-authorized, `2` observation-conditional, `2` blocked, `1` review-only, and `0` static-gap-authorized sources.
 - Seven figures are registered for possible digitization; none is authorized until exact primary page images and axis-calibration records are archived.
 
+## Absorption observation-model benchmark
+
+- The exact Moazzami fractional-power family recovers its generating edge within approximately `0.00375 meV`, so the deterministic fit itself does not create multi-meV bias.
+- Forcing a linear exponent produces scenario-dependent shifts from approximately `-0.56` to `-8.10 meV`.
+- A free power law fitted to a source-inspired Urbach/nonparabolic reference still shifts the inferred edge by approximately `-11.36` to `-15.95 meV`.
+- Defining the edge at `alpha=1500 cm^-1` produces positive nominal biases of `9.21-16.77 meV`, overlapping the sign and scale of the existing `+9.04 meV` Chu/provisional mean discrepancy.
+- Changing only the threshold from `600` to `2000 cm^-1` spans `18.62-29.33 meV` across the nominal scenarios.
+- Across 36 Urbach/amplitude sensitivity cases, the median threshold bias is `4.61 meV` at `1000 cm^-1`, `13.06 meV` at `1500 cm^-1`, and `24.75 meV` at `2000 cm^-1`.
+- This establishes synthetic scale compatibility, not a diagnosis or universal correction.
+
 ## Controlling decision
 
 - **Observation-model research is authorized.**
+- **Measurement definition can generate multi-meV inferred-edge bias.**
 - **Production observation correction is not authorized.**
 - **Static material-gap refitting remains unauthorized.**
-- Measurement classes must remain explicit.
+- Every absorption-derived gap must preserve model, fit window, threshold, carrier state, tail treatment, and an edge-model uncertainty envelope.
 
 ## Authorized next work
 
-1. Build a formula-level absorption benchmark covering Urbach/nonparabolic behavior, the Moazzami fractional-power law, measurement-method transfer, and edge sensitivity to tails, filling, thickness, and thresholds.
-2. Continue primary point-data recovery, including the composition/growth sources underlying Moazzami 2005.
-3. Archive exact source page images and calibration before figure digitization.
-4. Preserve the provisional thermal law without adding parameters.
-5. Correct matrix covariance from redundant 128D storage to 64 independent Hermitian coordinates.
+1. Correct matrix covariance from redundant 128D storage to 64 independent Hermitian coordinates.
+2. Convert the validated observation benchmark into a reusable uncertainty-envelope/export contract without promoting a universal correction.
+3. Continue primary point-data recovery, including the composition/growth sources underlying Moazzami 2005.
+4. Archive exact source page images and calibration before figure digitization.
+5. Preserve the provisional thermal law without adding parameters.
 6. Keep the ZG route at method-readiness status until real-export, finite-size, and polar gates pass.
 
 ## Explicitly unauthorized
 
 - additional empirical gap coefficients from current data or uncalibrated figures;
 - treating abstracts, formulas, secondary tables, or webpage previews as point-level fit authority;
-- universal source, composition, Burstein-Moss, or vacancy corrections from current metadata;
+- universal source, composition, Burstein-Moss, vacancy, threshold, or model-family corrections from current metadata;
 - production absorption correction without machine-readable common-specimen evidence;
 - A1 execution, further response-threshold tightening, 120-band static reruns, or broad novelty claims unsupported by the recorded evidence.
