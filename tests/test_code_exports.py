@@ -12,6 +12,7 @@ from mct_research.code_exports import (
     dataset_from_arrays,
     load_jsonl_matrix_export,
 )
+from mct_research.hermitian import OBSERVATION_DIMENSION
 
 
 def _defaults() -> ExportDefaults:
@@ -35,6 +36,28 @@ def test_dataset_from_arrays_broadcasts_defaults() -> None:
     assert len(dataset.records) == 2
     assert dataset.records[1].temperature_k == 77.0
     assert dataset.records[1].matrix[0, 0] == 2.0
+
+
+def test_dataset_from_arrays_accepts_only_64d_covariance() -> None:
+    matrix = np.eye(8, dtype=complex)
+    dataset = dataset_from_arrays(
+        matrices=matrix,
+        k_inv_a=[0.0, 0.0, 0.0],
+        defaults=_defaults(),
+        provenance={"code": "synthetic"},
+        covariances=np.eye(OBSERVATION_DIMENSION),
+    )
+    assert dataset.records[0].covariance is not None
+    assert dataset.records[0].covariance.shape == (64, 64)
+
+    with pytest.raises(ExportFormatError, match="covariance must have shape"):
+        dataset_from_arrays(
+            matrices=matrix,
+            k_inv_a=[0.0, 0.0, 0.0],
+            defaults=_defaults(),
+            provenance={"code": "legacy"},
+            covariances=np.eye(128),
+        )
 
 
 def test_jsonl_rejects_diagonal_only_self_energy(tmp_path) -> None:
