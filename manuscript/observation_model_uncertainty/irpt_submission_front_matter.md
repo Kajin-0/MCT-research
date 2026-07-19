@@ -19,7 +19,7 @@ Observation-model uncertainty and identifiability in HgCdTe band-gap extraction
 
 Band-gap relations for Hg1−xCdxTe are often compared at the few-meV level, yet an absorption-derived edge depends on the observation definition and specimen state. We applied a fail-closed extraction ensemble to two calibrated primary-figure infrared spectroscopic ellipsometry spectra at 300 K: x=0.226 with thickness 15.40 μm and x=0.310 with thickness 4.95 μm. The ensemble included free and fixed fractional-power models, the source-panel exponent, a provenance-bound Chu Kane-region form, and fixed absorption crossings. Fitted observation-model choice produced edge spans of 6.414 and 6.830 meV. Coherent digitization-coordinate perturbations shifted every fitted-model edge by at most 0.891 meV, so digitization uncertainty did not explain the multi-meV model dependence. Fixed absorption crossings produced wider operational envelopes and changed the nominal closest material-gap comparator. The published Seiler relation was nominally closest for every fitted-model edge, but its advantage over Hansen was only 0.177–0.255 meV. Because specimen-level composition uncertainty was unreported and both spectra came from one study, that ordering was descriptive rather than an identified material-law ranking. We formulate the measured absorption edge as a latent gap plus method, carrier, vacancy, and measurement terms, then derive an audit-grade paired 2 × 2 × 2 acquisition design. The results require explicit reporting of observation definition and specimen state in meV-scale HgCdTe comparisons; they do not support a universal absorption correction, selected production edge, or universal replacement for Hansen.
 
-**Word count:** 220
+**Word count:** 222
 
 ## Keywords
 
