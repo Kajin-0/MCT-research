@@ -1,0 +1,12 @@
+artifact_or_path,analysis_class,uses_matrix_coordinate_covariance,disposition,reason
+src/mct_research/projection.py,Hermitian Kane projection statistics,true,regenerated,"Observation count, degrees of freedom, reduced chi-square, and variance-scaled parameter uncertainty now use 64D Hermitian coordinates."
+tests/test_hermitian_covariance_coordinates.py,synthetic coordinate and schema validation,true,regenerated,"Directly validates 64D coordinates, covariance migration, rotations, projections, and fitting counts."
+tools/analyze_kane_heldout_covariance_gate.py,synthetic scalar GLS holdout,false,unaffected,"Uses a 9x8 scalar design and 9x9 training covariance; no 8x8 matrix vectorization."
+tools/analyze_cdte_quadratic_invariants.py,deterministic matrix invariant closure,false,unaffected,"Reports rank, condition number, coefficients, and Frobenius residuals without statistical covariance."
+tools/analyze_cdte_weiler_classes.py,deterministic Weiler class fit,false,unaffected,"Uses deterministic orthonormal class projection and Frobenius residuals; no chi-square or parameter covariance."
+tools/analyze_cdte_corrected_static.py,controlling corrected static result,false,unaffected,"Persists deterministic selected-band eigenvalue, rank, condition, coordinate, and Frobenius residual results only."
+tools/analyze_cdte_spectral_closure.py,gauge-invariant spectral closure,false,unaffected,"Fits eigenvalue shifts, not matrix-coordinate covariance."
+first_principles/a0/cdte_corrected_static_reference_result.json,controlling physical static record,false,unaffected,"Contains deterministic point estimates and residual gates; no Hamiltonian statistical covariance or calibrated chi-square."
+tools/analyze_hansen_pade_crossover.py,scalar empirical gap regression,false,out_of_scope,"Scalar specimen-level regression; unrelated to 8x8 Hermitian matrix coordinates."
+tools/analyze_two_parameter_hansen_pade.py,scalar empirical gap regression,false,out_of_scope,"Scalar specimen-level regression; unrelated to 8x8 Hermitian matrix coordinates."
+tools/analyze_static_composition_cross_source.py,scalar cross-source regression,false,out_of_scope,"Scalar gap residual analysis; unrelated to 8x8 Hermitian matrix coordinates."

@@ -1,0 +1,28 @@
+{
+  "analysis": "Hamiltonian statistics regeneration after 64D migration",
+  "evidence": {
+    "head": "469f45c3bff877a8b5e943e48a37a213a11c8fa1",
+    "workflow_run": 29667599043,
+    "artifact": 8436220417,
+    "digest": "sha256:835039da2d2bc8b7afa356315ef91e25b0a0e44d5c73a8ff6013953578429fc0"
+  },
+  "results": {
+    "legacy_observations": 768,
+    "current_observations": 384,
+    "legacy_dof": 760,
+    "current_dof": 376,
+    "maximum_parameter_difference": 1.2452261444195756e-12,
+    "sse_difference": 4.235164736271502e-21,
+    "reduced_chi_square_ratio": 2.0212765957447094,
+    "standard_error_ratio": 1.4217160742372863,
+    "absolute_covariance_parameter_difference": 6.265821195228227e-13,
+    "absolute_covariance_chi_square_difference": 2.1373125491663814e-11
+  },
+  "decision": {
+    "point_estimates_valid": true,
+    "frobenius_residuals_valid": true,
+    "legacy_dof_valid": false,
+    "legacy_variance_scaled_standard_errors_valid": false,
+    "physical_static_values_replaced": false
+  }
+}

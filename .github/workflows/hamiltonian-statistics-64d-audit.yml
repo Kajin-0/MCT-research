@@ -1,0 +1,60 @@
+name: hamiltonian-statistics-64d-audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hamiltonian-statistics-64d-audit.yml'
+      - 'data/evidence/hamiltonian_statistics_64d_inventory.csv'
+      - 'tools/audit_hamiltonian_statistics_64d.py'
+      - 'tests/test_hamiltonian_statistics_64d_audit.py'
+      - 'src/mct_research/projection.py'
+      - 'src/mct_research/matrix_coordinates.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute statistics regeneration audit
+        run: |
+          mkdir -p hamiltonian-statistics-64d-evidence
+          python -m tools.audit_hamiltonian_statistics_64d \
+            --inventory-csv data/evidence/hamiltonian_statistics_64d_inventory.csv \
+            --output-json hamiltonian-statistics-64d-evidence/result.json \
+            > hamiltonian-statistics-64d-evidence/stdout.txt \
+            2> hamiltonian-statistics-64d-evidence/stderr.txt
+          python -m pytest -q tests/test_hamiltonian_statistics_64d_audit.py \
+            > hamiltonian-statistics-64d-evidence/pytest.txt \
+            2> hamiltonian-statistics-64d-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > hamiltonian-statistics-64d-evidence/python-version.txt
+          find hamiltonian-statistics-64d-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > hamiltonian-statistics-64d-evidence/sha256.txt
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hamiltonian-statistics-64d-evidence
+          path: hamiltonian-statistics-64d-evidence
+          if-no-files-found: error
+          retention-days: 30
