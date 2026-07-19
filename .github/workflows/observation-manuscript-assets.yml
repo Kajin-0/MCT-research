@@ -22,6 +22,7 @@ jobs:
         run: |
           python -m tools.analyze_moazzami2005_manuscript_comparators --repository-root . --output-json material-comparator-analysis.json
           python -m tools.build_observation_model_manuscript_assets --repository-root . --output-dir generated
+          python -m tools.build_observation_model_conceptual_figures --output-dir conceptual-generated
       - name: Focused tests
         shell: bash
         run: |
@@ -31,6 +32,7 @@ jobs:
             tests/test_moazzami2005_seiler_comparator.py \
             tests/test_moazzami2005_comparator_rows.py \
             tests/test_observation_manuscript_assets.py \
+            tests/test_observation_manuscript_conceptual_figures.py \
             2>&1 | tee generated/pytest.txt
       - uses: actions/upload-artifact@v4
         if: always()
@@ -38,6 +40,7 @@ jobs:
           name: observation-manuscript-assets
           path: |
             generated
+            conceptual-generated
             material-comparator-analysis.json
           if-no-files-found: error
           retention-days: 30
