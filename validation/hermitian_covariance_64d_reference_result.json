@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Hermitian covariance coordinate migration",
+  "evidence": {
+    "head": "c9a771aa4874aef2bdea15829ccf6c3b2c0d361d",
+    "workflow_run": 29667196531,
+    "artifact": 8436086962,
+    "artifact_digest": "sha256:c9429ac4ce567fefaffbd75233c839289d8199fbc0849848fd532f95bd7ede6a"
+  },
+  "representations": {
+    "hermitian_hamiltonian_dimension": 64,
+    "general_complex_operator_dimension": 128,
+    "dataset_schema": "2.0",
+    "legacy_dataset_schema": "1.0",
+    "stored_dimension_values": [0, 64, 128]
+  },
+  "validation": {
+    "focused_tests": 10,
+    "focused_tests_passed": true,
+    "norm_preserving_round_trip": true,
+    "covariance_round_trip": true,
+    "unitary_rotation": true,
+    "symmetry_projection_psd": true,
+    "v1_migration": true,
+    "v2_mixed_dimension_round_trip": true,
+    "legacy_export_conversion": true
+  },
+  "decision": {
+    "use_64d_for_hamiltonian_statistics": true,
+    "retain_128d_for_general_complex_statistics": true,
+    "support_v1_loading": true,
+    "supersede_redundant_hamiltonian_statistics": true,
+    "preserve_frobenius_fit_point_estimates": true
+  }
+}

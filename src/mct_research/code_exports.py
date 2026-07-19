@@ -9,12 +9,14 @@ from typing import Any, Mapping, Sequence
 import numpy as np
 from numpy.typing import NDArray
 
-from .dataio import MatrixDataset, MatrixRecord
+from .dataio import HAMILTONIAN_MATRIX_KINDS, MatrixDataset, MatrixRecord
+from .matrix_coordinates import (
+    COMPLEX_OBSERVATION_DIMENSION,
+    HERMITIAN_OBSERVATION_DIMENSION,
+)
 
 ComplexArray = NDArray[np.complex128]
-_ALLOWED_MATRIX_KINDS = {
-    "hamiltonian",
-    "quasiparticle_hamiltonian",
+_ALLOWED_MATRIX_KINDS = HAMILTONIAN_MATRIX_KINDS | {
     "self_energy_fan",
     "self_energy_dw",
     "self_energy_total",
@@ -47,12 +49,7 @@ class ExportDefaults:
 
 @dataclass(frozen=True)
 class NetcdfFieldMap:
-    """Explicit mapping from NetCDF variables to full-matrix export fields.
-
-    A full matrix must be provided either as one complex variable or as
-    separate real and imaginary variables. The converter intentionally has no
-    ABINIT- or EPW-specific guessed defaults.
-    """
+    """Explicit mapping from NetCDF variables to full-matrix export fields."""
 
     k_inv_a: str
     matrix: str | None = None
@@ -68,9 +65,9 @@ class NetcdfFieldMap:
     covariance: str | None = None
 
     def __post_init__(self) -> None:
-        complex_matrix = self.matrix is not None
+        complex_matrix_representation = self.matrix is not None
         split_matrix = self.matrix_real is not None or self.matrix_imag is not None
-        if complex_matrix == split_matrix:
+        if complex_matrix_representation == split_matrix:
             raise ValueError(
                 "specify exactly one matrix representation: `matrix` or both "
                 "`matrix_real` and `matrix_imag`"
@@ -82,7 +79,9 @@ class NetcdfFieldMap:
             self.basis_overlap_real is not None or self.basis_overlap_imag is not None
         )
         if complex_overlap and split_overlap:
-            raise ValueError("basis overlap must use complex or split representation, not both")
+            raise ValueError(
+                "basis overlap must use complex or split representation, not both"
+            )
         if split_overlap and (
             self.basis_overlap_real is None or self.basis_overlap_imag is None
         ):
@@ -128,6 +127,29 @@ def _complex_records(real: Any, imag: Any, count: int, *, name: str) -> ComplexA
     return np.asarray(result, dtype=np.complex128)
 
 
+def _covariance_records(value: Any, count: int) -> np.ndarray:
+    array = np.asarray(value, dtype=float)
+    allowed_dimensions = {
+        HERMITIAN_OBSERVATION_DIMENSION,
+        COMPLEX_OBSERVATION_DIMENSION,
+    }
+    if array.ndim == 2 and count == 1 and array.shape[0] in allowed_dimensions:
+        if array.shape[0] != array.shape[1]:
+            raise ExportFormatError("covariance must be square")
+        array = array.reshape((1,) + array.shape)
+    if array.ndim != 3 or array.shape[0] != count:
+        raise ExportFormatError(
+            "covariance must have shape (N,64,64) or (N,128,128)"
+        )
+    if array.shape[1] != array.shape[2] or array.shape[1] not in allowed_dimensions:
+        raise ExportFormatError(
+            "covariance must have shape (N,64,64) or (N,128,128)"
+        )
+    if not np.all(np.isfinite(array)):
+        raise ExportFormatError("covariance contains non-finite values")
+    return array
+
+
 def dataset_from_arrays(
     *,
     matrices: Any,
@@ -142,7 +164,12 @@ def dataset_from_arrays(
     covariances: Any | None = None,
     record_metadata: Sequence[Mapping[str, Any]] | None = None,
 ) -> MatrixDataset:
-    """Build a validated MatrixDataset from explicit array-valued fields."""
+    """Build a validated MatrixDataset from explicit array-valued fields.
+
+    Covariance may use native 64D Hermitian coordinates or legacy/general 128D
+    complex coordinates. MatrixRecord performs the explicit 128-to-64 migration
+    for Hamiltonian-like matrix kinds.
+    """
 
     matrices_array = np.asarray(matrices, dtype=np.complex128)
     if matrices_array.shape == (8, 8):
@@ -157,7 +184,6 @@ def dataset_from_arrays(
     k_array = _as_record_array(
         k_inv_a, count, name="k_inv_a", trailing_shape=(3,)
     ).astype(float)
-
     temperature_array = _as_record_array(
         defaults.temperature_k if temperatures_k is None else temperatures_k,
         count,
@@ -190,12 +216,7 @@ def dataset_from_arrays(
         overlap_array = _as_record_array(
             basis_overlaps, count, name="basis_overlap", trailing_shape=(8, 8)
         ).astype(np.complex128)
-
-    covariance_array = None
-    if covariances is not None:
-        covariance_array = _as_record_array(
-            covariances, count, name="covariance", trailing_shape=(128, 128)
-        ).astype(float)
+    covariance_array = None if covariances is None else _covariance_records(covariances, count)
 
     if record_metadata is None:
         metadata_values = [dict(defaults.metadata or {}) for _ in range(count)]
@@ -245,9 +266,7 @@ def load_jsonl_matrix_export(
                     f"invalid JSON on line {line_number}: {exc}"
                 ) from exc
             if not isinstance(value, dict):
-                raise ExportFormatError(
-                    f"line {line_number} must contain a JSON object"
-                )
+                raise ExportFormatError(f"line {line_number} must contain a JSON object")
             records_raw.append(value)
     if not records_raw:
         raise ExportFormatError("JSONL export contains no records")
@@ -264,6 +283,11 @@ def load_jsonl_matrix_export(
     covariance_present: list[bool] = []
     metadata: list[Mapping[str, Any]] = []
 
+    default_covariance_dimension = (
+        HERMITIAN_OBSERVATION_DIMENSION
+        if defaults.matrix_kind in HAMILTONIAN_MATRIX_KINDS
+        else COMPLEX_OBSERVATION_DIMENSION
+    )
     for index, raw in enumerate(records_raw):
         if "matrix_real" not in raw or "matrix_imag" not in raw:
             raise ExportFormatError(
@@ -302,7 +326,13 @@ def load_jsonl_matrix_export(
 
         covariance_present.append("covariance" in raw)
         covariances.append(
-            np.asarray(raw.get("covariance", np.eye(128)), dtype=float)
+            np.asarray(
+                raw.get(
+                    "covariance",
+                    np.eye(default_covariance_dimension, dtype=float),
+                ),
+                dtype=float,
+            )
         )
         metadata.append(raw.get("metadata", {}))
 
@@ -310,6 +340,10 @@ def load_jsonl_matrix_export(
         raise ExportFormatError("basis overlap must be supplied for every record or none")
     if any(covariance_present) and not all(covariance_present):
         raise ExportFormatError("covariance must be supplied for every record or none")
+    if all(covariance_present) and len({value.shape for value in covariances}) != 1:
+        raise ExportFormatError(
+            "all JSONL covariance records must use the same coordinate dimension"
+        )
 
     return dataset_from_arrays(
         matrices=np.stack(matrices),
@@ -333,12 +367,7 @@ def load_netcdf_matrix_export(
     defaults: ExportDefaults,
     provenance: Mapping[str, Any],
 ) -> MatrixDataset:
-    """Load a full-matrix NetCDF export using an explicit variable mapping.
-
-    This function does not assume that a standard ABINIT ``SIGEPH.nc`` or EPW
-    text self-energy file contains off-diagonal matrices. The caller must
-    identify variables that genuinely represent the full complex 8x8 object.
-    """
+    """Load a full-matrix NetCDF export using an explicit variable mapping."""
 
     try:
         from netCDF4 import Dataset  # type: ignore[import-not-found]
@@ -360,9 +389,7 @@ def load_netcdf_matrix_export(
             return np.asarray(variables[name][:])
 
         if fields.matrix is not None:
-            matrices = np.asarray(
-                read(fields.matrix, required=True), dtype=np.complex128
-            )
+            matrices = np.asarray(read(fields.matrix, required=True), dtype=np.complex128)
         else:
             matrix_real = read(fields.matrix_real, required=True)
             matrix_imag = read(fields.matrix_imag, required=True)
@@ -379,7 +406,6 @@ def load_netcdf_matrix_export(
         compositions = read(fields.composition)
         frequencies = read(fields.frequency_ev)
         covariances = read(fields.covariance)
-
         overlaps = None
         if fields.basis_overlap is not None:
             overlaps = np.asarray(
