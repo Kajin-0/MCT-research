@@ -72,8 +72,14 @@ def _temperature_panel(
                 band_y = y + 10 + vacancy_index * 58
                 body += [
                     _box(x + 10, band_y, 145, 50, "subcell"),
-                    _text(x + 23, band_y + 20, "V-" if vacancy < 0 else "V+", "tiny", "start"),
-                    _text(x + 82.5, band_y + 20, specimen.replace("factorial_", "S"), "small"),
+                    _text(
+                        x + 18,
+                        band_y + 20,
+                        "vac low" if vacancy < 0 else "vac high",
+                        "tiny",
+                        "start",
+                    ),
+                    _text(x + 105, band_y + 20, specimen.replace("factorial_", "S"), "small"),
                     _text(x + 82.5, band_y + 40, "MO  <->  ABS", "tiny"),
                 ]
 
