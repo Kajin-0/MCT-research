@@ -127,7 +127,8 @@ def test_projection_uses_64_observations_per_matrix() -> None:
     ]
     matrices = [hamiltonian(k, parameters) for k in k_points]
     fitted, diagnostics = fit_parameters(k_points, matrices)
-    assert fitted == pytest.approx(parameters, abs=1e-10)
+    for name in parameters.__dataclass_fields__:
+        assert getattr(fitted, name) == pytest.approx(getattr(parameters, name), abs=1e-10)
     assert diagnostics["observation_count"] == 64 * len(k_points)
     assert diagnostics["coordinate_dimension_per_matrix"] == 64
     assert diagnostics["coordinate_system"] == "orthonormal_hermitian_64"
