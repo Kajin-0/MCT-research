@@ -1,0 +1,74 @@
+{
+  "analysis": "Moazzami 2005 digitization-coordinate sensitivity audit",
+  "claim_boundary": "This audit perturbs the calibrated figure coordinates, not physical composition, carrier, instrument, or source-model uncertainty.",
+  "decision": {
+    "all_model_candidate_shifts_below_1mev": true,
+    "all_thresholds_through_4000cm1_below_5mev": true,
+    "calibration_sensitive_threshold_candidates": [
+      "threshold_5000_cm-1"
+    ],
+    "maximum_model_candidate_shift_mev": 0.890691,
+    "model_family_conclusion_survives_digitization_bounds": true,
+    "threshold_5000_requires_separate_caution": true
+  },
+  "method": "four coherent corners using plus/minus maximum energy uncertainty and plus/minus pointwise log10 absorption uncertainty; the model-fit point population is fixed to the base 600-5000 cm^-1 window",
+  "schema_version": "1.0",
+  "specimens": [
+    {
+      "coherent_energy_shift_mev": 0.526316,
+      "corner_count": 4,
+      "maximum_model_candidate_shift_mev": 0.890691,
+      "maximum_threshold_candidate_shift_mev": 3.954054,
+      "model_candidate_max_shift_mev": {
+        "chu_1994_kane_region": 0.526316,
+        "fractional_power_free": 0.622566,
+        "fractional_power_p_0.5": 0.526316,
+        "fractional_power_p_0.7": 0.643191,
+        "fractional_power_p_0.872": 0.773816,
+        "fractional_power_p_1": 0.890691
+      },
+      "point_count": 125,
+      "specimen_id": "moazzami2005_x0.226",
+      "threshold_candidate_max_shift_mev": {
+        "threshold_1000_cm-1": 1.283395,
+        "threshold_2000_cm-1": 1.880024,
+        "threshold_3000_cm-1": 2.964714,
+        "threshold_4000_cm-1": 3.1843,
+        "threshold_400_cm-1": 1.181324,
+        "threshold_5000_cm-1": 3.954054,
+        "threshold_600_cm-1": 1.130872,
+        "threshold_800_cm-1": 1.286568
+      },
+      "threshold_candidates_exceeding_5mev_shift": []
+    },
+    {
+      "coherent_energy_shift_mev": 0.526316,
+      "corner_count": 4,
+      "maximum_model_candidate_shift_mev": 0.678691,
+      "maximum_threshold_candidate_shift_mev": 5.693642,
+      "model_candidate_max_shift_mev": {
+        "chu_1994_kane_region": 0.526316,
+        "fractional_power_free": 0.552816,
+        "fractional_power_p_0.5": 0.546191,
+        "fractional_power_p_0.7": 0.579316,
+        "fractional_power_p_0.849": 0.625691,
+        "fractional_power_p_1": 0.678691
+      },
+      "point_count": 115,
+      "specimen_id": "moazzami2005_x0.310",
+      "threshold_candidate_max_shift_mev": {
+        "threshold_1000_cm-1": 1.159648,
+        "threshold_2000_cm-1": 1.938138,
+        "threshold_3000_cm-1": 1.692965,
+        "threshold_4000_cm-1": 3.642528,
+        "threshold_400_cm-1": 1.121962,
+        "threshold_5000_cm-1": 5.693642,
+        "threshold_600_cm-1": 1.268021,
+        "threshold_800_cm-1": 1.292163
+      },
+      "threshold_candidates_exceeding_5mev_shift": [
+        "threshold_5000_cm-1"
+      ]
+    }
+  ]
+}
