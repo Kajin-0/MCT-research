@@ -4,7 +4,10 @@ from pathlib import Path
 
 import pytest
 
-from tools.audit_hamiltonian_statistics_64d import analyze
+from tools.audit_hamiltonian_statistics_64d import (
+    STANDARD_ERROR_RATIO_TOLERANCE,
+    analyze,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "data/evidence/hamiltonian_statistics_64d_inventory.csv"
@@ -19,8 +22,12 @@ def test_point_estimates_and_numeric_sse_are_preserved() -> None:
     comparison = audit["comparison"]
     assert comparison["maximum_parameter_difference"] <= 1e-10
     assert comparison["numeric_sse_difference"] <= 1e-18
-    assert audit["decision"]["deterministic_static_point_estimates_retain_validity"] is True
-    assert audit["decision"]["deterministic_frobenius_residuals_retain_validity"] is True
+    assert audit["decision"][
+        "deterministic_static_point_estimates_retain_validity"
+    ] is True
+    assert audit["decision"][
+        "deterministic_frobenius_residuals_retain_validity"
+    ] is True
 
 
 def test_observation_count_and_degrees_of_freedom_are_corrected() -> None:
@@ -47,9 +54,16 @@ def test_variance_scaled_standard_errors_increase_by_expected_ratio() -> None:
     assert audit["comparison"][
         "expected_current_to_legacy_standard_error_ratio"
     ] == pytest.approx(expected, abs=1e-14)
+    assert audit["comparison"]["standard_error_ratio_tolerance"] == (
+        STANDARD_ERROR_RATIO_TOLERANCE
+    )
     for ratio in audit["comparison"]["standard_error_ratios"].values():
-        assert ratio == pytest.approx(expected, abs=1e-10)
-    assert audit["decision"]["legacy_variance_scaled_standard_errors_retain_validity"] is False
+        assert ratio == pytest.approx(
+            expected, abs=STANDARD_ERROR_RATIO_TOLERANCE
+        )
+    assert audit["decision"][
+        "legacy_variance_scaled_standard_errors_retain_validity"
+    ] is False
 
 
 def test_absolute_covariance_subspace_statistics_are_equivalent() -> None:
