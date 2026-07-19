@@ -2,10 +2,10 @@
   "schema_version": "1.0",
   "analysis": "Hermitian covariance coordinate migration",
   "evidence": {
-    "head": "b3c3eaac9e11a1e13e4bc2840d9e481103c7a485",
-    "workflow_run": 29667041548,
-    "artifact": 8436037457,
-    "artifact_digest": "sha256:2953a3a5a00efb34ec29191efad1acfd3c7112aa8f459ff25bd04971826ffc36"
+    "head": "c9a771aa4874aef2bdea15829ccf6c3b2c0d361d",
+    "workflow_run": 29667196531,
+    "artifact": 8436086962,
+    "artifact_digest": "sha256:c9429ac4ce567fefaffbd75233c839289d8199fbc0849848fd532f95bd7ede6a"
   },
   "representations": {
     "hermitian_hamiltonian_dimension": 64,
