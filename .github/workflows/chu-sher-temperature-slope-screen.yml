@@ -1,0 +1,148 @@
+name: chu-sher-temperature-slope-screen
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/chu-sher-temperature-slope-screen.yml'
+      - 'data/experimental/chu_sher_2008_table3_7_temperature_coefficients.csv'
+      - 'tools/audit_chu_sher_temperature_slope_screen.py'
+      - 'tests/test_chu_sher_temperature_slope_screen.py'
+      - 'validation/chu_sher_temperature_slope_screen_reference_result.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package
+        run: python -m pip install -e ".[test]"
+
+      - name: Execute secondary slope audit
+        run: |
+          mkdir -p chu-sher-temperature-slope-evidence
+          python -m tools.audit_chu_sher_temperature_slope_screen \
+            --input-csv data/experimental/chu_sher_2008_table3_7_temperature_coefficients.csv \
+            --output-json chu-sher-temperature-slope-evidence/result.json \
+            > chu-sher-temperature-slope-evidence/stdout.txt \
+            2> chu-sher-temperature-slope-evidence/stderr.txt
+
+      - name: Verify compact reference
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          result = json.loads(
+              Path('chu-sher-temperature-slope-evidence/result.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          reference = json.loads(
+              Path(
+                  'validation/chu_sher_temperature_slope_screen_reference_result.json'
+              ).read_text(encoding='utf-8')
+          )
+          compact = {
+              'schema_version': result['schema_version'],
+              'source_record_count': result['source_record_count'],
+              'composition_range': result['composition_range'],
+              'winners_by_operator': result['cross_operator_diagnostics'][
+                  'winners_by_operator'
+              ],
+              'provisional_alpha_relative_to_hansen_slope_amplitude': result[
+                  'cross_operator_diagnostics'
+              ]['provisional_alpha_relative_to_hansen_slope_amplitude'],
+              'decision': {
+                  key: result['decision'][key]
+                  for key in (
+                      'primary_fit_authority',
+                      'coefficient_refit_authorized',
+                      'global_model_ranking_authorized',
+                      'screen_identifies_operator_dependence',
+                      'provisional_model_is_last_under_all_declared_operators',
+                  )
+              },
+              'operator_metrics': {
+                  operator: {
+                      model: {
+                          key: payload['metrics'][key]
+                          for key in (
+                              'mean_signed_residual_1e4_ev_per_k',
+                              'rmse_1e4_ev_per_k',
+                          )
+                      }
+                      for model, payload in operator_payload['models'].items()
+                  }
+                  for operator, operator_payload in result['operator_results'].items()
+              },
+              'claim_boundary': result['claim_boundary'],
+          }
+
+          def compare(actual, expected, path='root'):
+              if isinstance(actual, bool) or isinstance(expected, bool):
+                  if actual is not expected:
+                      raise SystemExit(f'boolean mismatch at {path}')
+                  return
+              if isinstance(actual, (int, float)) and isinstance(expected, (int, float)):
+                  if not math.isclose(float(actual), float(expected), rel_tol=1e-12, abs_tol=1e-12):
+                      raise SystemExit(
+                          f'numeric mismatch at {path}: {actual!r} != {expected!r}'
+                      )
+                  return
+              if type(actual) is not type(expected):
+                  raise SystemExit(f'type mismatch at {path}')
+              if isinstance(actual, dict):
+                  if set(actual) != set(expected):
+                      raise SystemExit(f'key mismatch at {path}')
+                  for key in actual:
+                      compare(actual[key], expected[key], f'{path}.{key}')
+                  return
+              if isinstance(actual, list):
+                  if len(actual) != len(expected):
+                      raise SystemExit(f'length mismatch at {path}')
+                  for index, (left, right) in enumerate(
+                      zip(actual, expected, strict=True)
+                  ):
+                      compare(left, right, f'{path}[{index}]')
+                  return
+              if actual != expected:
+                  raise SystemExit(f'value mismatch at {path}')
+
+          compare(compact, reference)
+          PY
+
+      - name: Run focused tests
+        run: |
+          python -m pytest -q tests/test_chu_sher_temperature_slope_screen.py \
+            > chu-sher-temperature-slope-evidence/pytest.txt \
+            2> chu-sher-temperature-slope-evidence/pytest-stderr.txt
+
+      - name: Record environment and hashes
+        if: always()
+        run: |
+          python --version > chu-sher-temperature-slope-evidence/python-version.txt
+          find chu-sher-temperature-slope-evidence -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum \
+            > chu-sher-temperature-slope-evidence/sha256.txt
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chu-sher-temperature-slope-evidence
+          path: chu-sher-temperature-slope-evidence
+          if-no-files-found: error
+          retention-days: 30
