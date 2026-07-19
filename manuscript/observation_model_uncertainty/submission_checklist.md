@@ -1,7 +1,7 @@
 # Submission-readiness checklist
 
 **Manuscript:** Observation-model uncertainty and identifiability in HgCdTe band-gap extraction  
-**Status:** scientific, bibliography, and target-journal gates satisfied; LaTeX conversion and author-specific declarations remain
+**Status:** scientific, bibliography, target-journal, LaTeX, technical-review, and render gates satisfied; author-supplied submission metadata remains
 
 ## Scientific submission gate
 
@@ -24,7 +24,7 @@
 - [x] Figure 2: extracted edge versus observation definition.
 - [x] Figure 3: material-model residual intervals.
 - [x] Figure 4: latent-gap and observation-term identifiability diagram.
-- [x] Figure 5: paired `2 x 2 x 2` acquisition design.
+- [x] Figure 5: paired complete-factorial `2 x 2 x 2` acquisition design.
 - [x] Tables 1-5 required by Issue #129.
 - [x] Machine-readable real-spectrum and conceptual summaries.
 - [x] Byte-for-byte rebuild tests for every generated asset.
@@ -48,22 +48,33 @@
 - [x] Select *Infrared Physics & Technology* as the primary target.
 - [x] Record *Journal of Electronic Materials* as fallback and *Journal of Applied Physics* as stretch target.
 - [x] Confirm the research-paper scope includes infrared materials, characterization, semiconductor physics, and validated modeling.
-- [x] Reduce the submission abstract to 220 words, below the 250-word limit.
+- [x] Reduce the submission abstract below the 250-word limit.
 - [x] Provide seven keywords.
 - [x] Provide five highlights, each no longer than 85 characters.
 - [x] Add data-availability and generative-AI declaration language.
 - [x] Preserve fail-closed placeholders for author, affiliation, funding, conflict, CRediT, acknowledgment, archive, and reviewer details.
 
-## Required before journal submission
+## Manuscript production gate
 
-- [ ] Convert the working manuscript to editable Elsevier LaTeX with numbered cross-references.
-- [ ] Render the verified reference ledger in Elsevier numeric bibliography style.
-- [ ] Add author names, affiliations, corresponding-author details, acknowledgments, funding, conflict-of-interest, and contribution statements.
-- [ ] Perform a line-by-line technical review against Tables 1-5 and the claim-boundary record.
-- [ ] Perform a final typography and notation pass: `band gap` versus `bandgap`, Hg1−xCdxTe notation, units, symbols, and significant figures.
-- [ ] Export journal-ready raster or vector figures from the frozen SVGs without altering data content.
-- [ ] Add final alt text for all figures.
-- [ ] Confirm all focused and full repository workflows pass on the final merge head.
+- [x] Convert the working manuscript to editable Elsevier LaTeX with numbered cross-references.
+- [x] Render the verified reference ledger in Elsevier numeric bibliography style.
+- [x] Perform a line-by-line technical review against Tables 1-5 and the claim-boundary record.
+- [x] Perform a final typography and notation pass: `band gap` versus `bandgap`, Hg1-xCdxTe notation, units, symbols, and significant figures.
+- [x] Export journal-ready vector figures from the frozen SVGs without altering data content.
+- [x] Add final alt text for all figures.
+- [x] Compile the full manuscript under TeX Live 2026.
+- [x] Render and inspect every PDF page for clipping, overlap, broken glyphs, and table overflow.
+- [x] Confirm all focused and full repository workflows pass on the reviewed head.
+
+## Author-supplied fields required before submission
+
+- [ ] Replace author, affiliation, corresponding-author, and postal-address placeholders.
+- [ ] Add the public archive DOI or final repository URL.
+- [ ] Confirm the funding statement.
+- [ ] Confirm the competing-interest statement.
+- [ ] Assign CRediT roles.
+- [ ] Confirm acknowledgments or explicitly omit them.
+- [ ] Select conflict-free suggested reviewers.
 
 ## Optional strengthening evidence
 
