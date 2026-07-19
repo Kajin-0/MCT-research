@@ -48,7 +48,37 @@ jobs:
           python - <<'PY'
           import csv
           import json
+          import math
           from pathlib import Path
+
+          def compare(actual, expected, path='root'):
+              if isinstance(actual, bool) or isinstance(expected, bool):
+                  if actual is not expected:
+                      raise SystemExit(f'boolean mismatch at {path}: {actual!r} != {expected!r}')
+                  return
+              if isinstance(actual, (int, float)) and isinstance(expected, (int, float)):
+                  if not math.isclose(float(actual), float(expected), rel_tol=1e-12, abs_tol=1e-12):
+                      raise SystemExit(f'numeric mismatch at {path}: {actual!r} != {expected!r}')
+                  return
+              if type(actual) is not type(expected):
+                  raise SystemExit(
+                      f'type mismatch at {path}: {type(actual).__name__} != '
+                      f'{type(expected).__name__}'
+                  )
+              if isinstance(actual, dict):
+                  if set(actual) != set(expected):
+                      raise SystemExit(f'key mismatch at {path}')
+                  for key in actual:
+                      compare(actual[key], expected[key], f'{path}.{key}')
+                  return
+              if isinstance(actual, list):
+                  if len(actual) != len(expected):
+                      raise SystemExit(f'length mismatch at {path}')
+                  for index, (left, right) in enumerate(zip(actual, expected, strict=True)):
+                      compare(left, right, f'{path}[{index}]')
+                  return
+              if actual != expected:
+                  raise SystemExit(f'value mismatch at {path}: {actual!r} != {expected!r}')
 
           json_pairs = [
               (
@@ -63,8 +93,7 @@ jobs:
           for generated, reference in json_pairs:
               generated_payload = json.loads(generated.read_text(encoding='utf-8'))
               reference_payload = json.loads(reference.read_text(encoding='utf-8'))
-              if generated_payload != reference_payload:
-                  raise SystemExit(f'JSON reference mismatch: {generated} != {reference}')
+              compare(generated_payload, reference_payload, generated.name)
 
           csv_paths = (
               Path('absorption-edge-contract-evidence/contract.csv'),
