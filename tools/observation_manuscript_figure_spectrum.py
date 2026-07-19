@@ -76,18 +76,23 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
             f'<line x1="{left}" y1="{y:.2f}" x2="{left+plot_w}" y2="{y:.2f}" class="grid"/>',
             f'<text x="87" y="{y+5:.2f}" text-anchor="end" class="label">10^{exponent}</text>',
         ]
+    display_energy = np.append(energy[::2], energy[-1])
+    display_absorption = np.append(absorption[::2], absorption[-1])
     body += [
         f'<line x1="{left}" y1="{top+plot_h}" x2="{left+plot_w}" y2="{top+plot_h}" class="axis"/>',
         f'<line x1="{left}" y1="{top}" x2="{left}" y2="{top+plot_h}" class="axis"/>',
         '<text x="525" y="628" text-anchor="middle" class="label">Photon energy (eV)</text>',
         '<text transform="translate(28 320) rotate(-90)" text-anchor="middle" class="label">Absorption coefficient (cm-1)</text>',
         polyline(
-            [(xmap(float(e)), ymap(float(a))) for e, a in zip(energy, absorption, strict=True)],
+            [
+                (xmap(float(e)), ymap(float(a)))
+                for e, a in zip(display_energy, display_absorption, strict=True)
+            ],
             'stroke="#111" stroke-width="2.4"',
         ),
     ]
     patterns = ("", "9 5", "3 4", "12 4 3 4", "2 3", "7 3 2 3")
-    samples = np.linspace(xmin, xmax, 160)
+    samples = np.linspace(xmin, xmax, 60)
     for index, candidate in enumerate(candidates):
         values = curve(candidate, samples)
         valid = (
@@ -98,7 +103,10 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
         dash = f' stroke-dasharray="{patterns[index]}"' if patterns[index] else ""
         body.append(
             polyline(
-                [(xmap(float(e)), ymap(float(a))) for e, a in zip(samples[valid], values[valid], strict=True)],
+                [
+                    (xmap(float(e)), ymap(float(a)))
+                    for e, a in zip(samples[valid], values[valid], strict=True)
+                ],
                 f'stroke="#666" stroke-width="1.5"{dash}',
             )
         )
@@ -110,7 +118,7 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
     body += [
         '<line x1="615" y1="230" x2="657" y2="230" stroke="#111" stroke-width="2.4"/>',
         '<text x="664" y="234" class="small">digitized IRSE trace</text>',
-        '<text x="108" y="610" class="small">Observation models are compared; none is selected as the material gap.</text>',
+        '<text x="108" y="610" class="small">Display vertices are reduced; the full digitized spectrum remains the fit authority.</text>',
     ]
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
