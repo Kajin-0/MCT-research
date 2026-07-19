@@ -23,6 +23,7 @@ jobs:
           python -m tools.analyze_moazzami2005_manuscript_comparators --repository-root . --output-json material-comparator-analysis.json
           python -m tools.build_observation_model_manuscript_assets --repository-root . --output-dir generated
           python -m tools.build_observation_model_conceptual_figures --output-dir conceptual-generated
+          python -m tools.build_observation_model_irpt_tables --repository-root . --output-dir irpt-tables-generated
       - name: Focused tests
         shell: bash
         run: |
@@ -35,6 +36,8 @@ jobs:
             tests/test_observation_manuscript_conceptual_figures.py \
             tests/test_observation_manuscript_draft.py \
             tests/test_observation_manuscript_references.py \
+            tests/test_irpt_submission_front_matter.py \
+            tests/test_observation_model_irpt_tables.py \
             2>&1 | tee generated/pytest.txt
       - uses: actions/upload-artifact@v4
         if: always()
@@ -43,6 +46,7 @@ jobs:
           path: |
             generated
             conceptual-generated
+            irpt-tables-generated
             material-comparator-analysis.json
           if-no-files-found: error
           retention-days: 30
