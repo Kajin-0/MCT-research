@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Mroczkowski 1983 publisher-abstract vacancy-conditioned tail constraint",
+  "source": {
+    "title": "Optical absorption edge in Hg0.7Cd0.3Te",
+    "authors": [
+      "J. A. Mroczkowski",
+      "D. A. Nelson",
+      "R. Murosako",
+      "P. H. Zimmermann"
+    ],
+    "journal": "Journal of Vacuum Science & Technology A",
+    "volume": 1,
+    "issue": 3,
+    "pages": "1756-1760",
+    "year": 1983,
+    "doi": "10.1116/1.572210",
+    "publisher_record_recovered": true,
+    "publisher_abstract_recovered": true,
+    "primary_full_text_recovered": false,
+    "copyrighted_source_content_committed": false,
+    "publisher_record_fingerprint_sha256": "3bff3953d0395730cd6d07f6444ffd90e009bdfec7ba633365c56fe796b440d3"
+  },
+  "measurement_class": "vacancy_conditioned_exponential_tail_slope",
+  "model": {
+    "expression": "alpha_e=alpha_0*exp[k*(E-E_0)]",
+    "reported_parameter": "k",
+    "reported_parameter_units": "eV^-1",
+    "derived_characteristic_quantity": "1/k",
+    "derived_characteristic_quantity_semantics": "exponential e-fold energy, not a material-gap shift"
+  },
+  "common_metadata": {
+    "composition_nominal_x": 0.3,
+    "composition_uncertainty": null,
+    "composition_method": "not reported in accessible publisher abstract",
+    "carrier_type": "p",
+    "temperature_context": "ambient temperature",
+    "temperature_K": null,
+    "specimen_count": null,
+    "same_physical_specimen_contrast_established": false,
+    "matched_specimen_design_established": false,
+    "fit_window_reported": false,
+    "slope_uncertainty_reported": false
+  },
+  "reported_endpoints": [
+    {
+      "state_id": "high_purity_p_type",
+      "state_description": "high-purity p-type Hg0.7Cd0.3Te",
+      "acceptor_concentration_cm3": null,
+      "acceptor_concentration_status": "not reported in accessible publisher abstract",
+      "tail_slope_k_eV_inverse": 148.0,
+      "tail_slope_sigma_eV_inverse": null,
+      "value_status": "exact_publisher_abstract"
+    },
+    {
+      "state_id": "stoichiometrically_doped_vacancy_rich",
+      "state_description": "stoichiometrically doped p-type Hg0.7Cd0.3Te with native Hg-vacancy acceptors",
+      "acceptor_concentration_cm3": 2.0e16,
+      "acceptor_concentration_status": "approximate publisher-abstract value",
+      "tail_slope_k_eV_inverse": 105.0,
+      "tail_slope_sigma_eV_inverse": null,
+      "value_status": "exact_publisher_abstract"
+    }
+  ],
+  "source_interpretation": {
+    "reported_mechanism": "valence-band tailing associated with native Hg-vacancy acceptor defects",
+    "mechanism_status": "primary-source interpretation",
+    "independent_causal_identification_established": false
+  },
+  "decision": {
+    "vacancy_conditioned_tail_mechanism_evidence_authorized": true,
+    "paired_protocol_vacancy_covariate_priority_strengthened": true,
+    "complete_absorption_operator_implementation_authorized": false,
+    "latent_material_gap_point_authorized": false,
+    "universal_vacancy_correction_authorized": false,
+    "within_specimen_paired_contrast_established": false,
+    "uncertainty_weighted_fitting_authorized": false,
+    "full_text_recovery_priority": "high"
+  },
+  "reopening_requirements": [
+    "primary full text",
+    "specimen inventory and lineage",
+    "measurement temperature for each endpoint",
+    "acceptor-density assignment for each specimen or state",
+    "growth and stoichiometric-processing history",
+    "composition measurement method and uncertainty",
+    "spectral fit windows and slope uncertainties",
+    "comparison design identifying same, matched, or independent specimens"
+  ]
+}
