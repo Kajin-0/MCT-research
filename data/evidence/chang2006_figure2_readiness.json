@@ -37,8 +37,9 @@
     },
     "energy_segments": [
       {"start_eV": 0.088, "stop_eV": 0.160, "point_count": 55},
-      {"start_eV": 0.165, "stop_eV": 0.400, "point_count": 50}
+      {"start_eV": 0.165, "stop_eV": 0.398, "point_count": 50}
     ],
+    "source_domain_upper_margin_at_truth_eV": 0.002,
     "hypothetical_coordinate_uncertainty": {
       "sigma_energy_eV": 0.0005,
       "sigma_log_absorption": 0.03
