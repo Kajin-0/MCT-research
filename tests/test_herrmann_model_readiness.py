@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import copy
 import json
 from pathlib import Path
 
@@ -63,14 +62,14 @@ def test_table_is_secondary_validation_not_gap_fit_evidence() -> None:
     assert audit(INPUT)["copyrighted_source_files_committed"] is False
 
 
-def test_missing_dependency_inventory_is_fail_closed() -> None:
+def test_missing_dependency_inventory_is_fail_closed(tmp_path: Path) -> None:
     payload = load_payload()
     payload["missing_dependencies"] = payload["missing_dependencies"][:-1]
     with pytest.raises(ValueError, match="missing-dependency inventory"):
-        audit(write_payload(Path(pytest.ensuretemp("herrmann_missing_dep")), payload))
+        audit(write_payload(tmp_path, payload))
 
 
-def test_operator_cannot_be_promoted_without_new_sources(tmp_path: Path) -> None:
+def test_model_cannot_be_promoted_without_new_sources(tmp_path: Path) -> None:
     payload = load_payload()
     payload["decision"]["implementation_authorized"] = True
     with pytest.raises(ValueError, match="implementation_authorized"):
