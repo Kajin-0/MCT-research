@@ -1,0 +1,408 @@
+{
+  "schema_version": "1.0",
+  "landscape_id": "hgcdte_paired_gap_public_candidates_2026-07-20",
+  "parent_feasibility_id": "hgcdte_paired_gap_feasibility_v1",
+  "controlling_issue": 163,
+  "evidence_access_date": "2026-07-20",
+  "evidence_scope": "official_public_webpages_only",
+  "status_boundary": {
+    "candidate_status": "public_evidence_only",
+    "confirmed_role_count": 0,
+    "confirmed_gate_count": 0,
+    "direct_contact_performed": false,
+    "access_assumed": false,
+    "endorsement_claimed": false,
+    "hard_uncertainty_gate_inferred": false,
+    "feasibility_template_modified": false
+  },
+  "target_roles": [
+    "material_provider",
+    "composition_thickness_metrology",
+    "hall_state_metrology",
+    "vacancy_metrology",
+    "absorption_laboratory",
+    "magneto_optical_laboratory",
+    "data_archive_infrastructure"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "uic_microphysics_laboratory",
+      "organization": "University of Illinois Chicago Microphysics Laboratory",
+      "candidate_status": "public_evidence_only",
+      "priority": 1,
+      "candidate_roles": ["material_provider"],
+      "official_sources": [
+        {
+          "source_id": "uic_materials_physics",
+          "url": "https://phys.uic.edu/our-research/materials-physics/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "UIC identifies the Microphysics Laboratory as the only U.S. university laboratory performing fundamental HgCdTe molecular-beam-epitaxy research.",
+            "The laboratory is described as emphasizing II-VI materials and infrared-sensing devices."
+          ]
+        },
+        {
+          "source_id": "uic_sivananthan_profile",
+          "url": "https://phys.uic.edu/profiles/sivananthan-sivalingam/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The laboratory is described as having pioneered HgCdTe MBE growth, characterization, and device fabrication.",
+            "Current public contact information is provided for the professor emeritus associated with the laboratory."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "HgCdTe MBE growth research",
+        "HgCdTe characterization lineage",
+        "HgCdTe device-fabrication lineage"
+      ],
+      "unresolved_hard_gates": [
+        "external collaboration and specimen availability",
+        "two target composition levels and specimen count",
+        "independent specimen-level sigma_x",
+        "carrier and vacancy-state inventory",
+        "geometry compatible with both optical modalities",
+        "data and publication rights",
+        "cost and schedule"
+      ],
+      "contact_action": "request a non-confidential capability and specimen-availability discussion",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "ut_austin_epma",
+      "organization": "University of Texas at Austin E-beam Lab",
+      "candidate_status": "public_evidence_only",
+      "priority": 1,
+      "candidate_roles": ["composition_thickness_metrology"],
+      "official_sources": [
+        {
+          "source_id": "ut_epma_capability",
+          "url": "https://www.jsg.utexas.edu/ebeam/instruments/epma/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The JEOL JXA-8200 EPMA has five wavelength-dispersive spectrometers and quantitative analysis software.",
+            "The facility describes precision to hundreds of ppm for multi-element analysis under suitable conditions.",
+            "Beam diameter can be varied from approximately 0.7 to 50 micrometers."
+          ]
+        },
+        {
+          "source_id": "ut_ebeam_access",
+          "url": "https://www.jsg.utexas.edu/ebeam/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The laboratory welcomes users beyond UT Austin and publishes an external-academic electron-microprobe rate.",
+            "Assisted analysis is available at a higher rate."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "external academic EPMA access",
+        "quantitative WDS analysis",
+        "micrometer-scale point analysis and mapping",
+        "published external-academic rate"
+      ],
+      "state_alteration_risks": [
+        "flat polished surface required",
+        "conductive grounding or carbon coating normally required",
+        "high vacuum required",
+        "electron-beam surface temperature may exceed 100 to 200 C"
+      ],
+      "unresolved_hard_gates": [
+        "HgCdTe and Hg volatility acceptance",
+        "validated HgCdTe standards and matrix corrections",
+        "absolute specimen-level sigma_x <= 0.0015",
+        "beam-induced Hg loss or composition drift",
+        "non-destructive compatibility with subsequent paired measurements",
+        "thickness measurement route and uncertainty",
+        "native data, calibration, and covariance release"
+      ],
+      "contact_action": "request an HgCdTe-specific analytical feasibility review before any specimen preparation",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "utk_electromagnetic_properties_lab",
+      "organization": "University of Tennessee Knoxville Electromagnetic Properties Lab",
+      "candidate_status": "public_evidence_only",
+      "priority": 1,
+      "candidate_roles": ["hall_state_metrology"],
+      "official_sources": [
+        {
+          "source_id": "utk_ppms_hall",
+          "url": "https://research.utk.edu/iamm/about/core-facilities/electromagnetic-properties-lab/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The facility offers PPMS Hall measurements down to 1.8 K and magnetic fields to 9 T.",
+            "A DynaCool system offers Hall measurements down to 1.8 K and fields to 14 T.",
+            "The facility is available to external partners and clients and publishes assisted external rates."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "low-temperature Hall measurement",
+        "external assisted access",
+        "magnetic-field-dependent transport"
+      ],
+      "unresolved_hard_gates": [
+        "HgCdTe sample and Hg-material acceptance",
+        "contact fabrication and removal sequence",
+        "low-resistance high-mobility measurement uncertainty",
+        "sample-temperature uncertainty at 6 K and 300 K",
+        "technical-repeat and covariance delivery",
+        "pre-post state-drift compatibility",
+        "geometry and current-density limits"
+      ],
+      "contact_action": "request an assisted HgCdTe van-der-Pauw/Hall feasibility review",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "uic_ppms",
+      "organization": "University of Illinois Chicago PPMS",
+      "candidate_status": "public_evidence_only",
+      "priority": 2,
+      "candidate_roles": ["hall_state_metrology"],
+      "official_sources": [
+        {
+          "source_id": "uic_ppms_2025",
+          "url": "https://phys.uic.edu/news-stories/quantum-design-physical-property-measurement-system-installed-at-uic/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "UIC reports a PPMS installed in 2025 with electrical-transport capability down to 1.8 K and fields to 14 T.",
+            "The instrument is described as supporting research at UIC and other institutions."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "low-temperature electrical transport",
+        "potential co-location with the HgCdTe material laboratory"
+      ],
+      "unresolved_hard_gates": [
+        "Hall or van-der-Pauw option publicly verified",
+        "external access mechanism",
+        "HgCdTe measurement uncertainty",
+        "contact and geometry compatibility",
+        "native data and covariance release"
+      ],
+      "contact_action": "ask whether the installed transport options include audit-grade Hall measurements for HgCdTe",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "wsu_positron_annihilation_spectrometer",
+      "organization": "Washington State University Institute of Materials Research",
+      "candidate_status": "public_evidence_only",
+      "priority": 1,
+      "candidate_roles": ["vacancy_metrology"],
+      "official_sources": [
+        {
+          "source_id": "wsu_pas",
+          "url": "https://materialsresearch.wsu.edu/positronannihilationspectrometer/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The facility describes PAS as sensitive to vacancy and vacancy-related defects and defect complexes.",
+            "Its 0 to 70 keV beam can provide depth-resolved measurements from the surface to approximately 10 to 20 micrometers, density dependent.",
+            "The page reports experience with CdTe and CdZnTe among many materials."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "depth-resolved vacancy-sensitive PAS",
+        "Doppler and coincident-Doppler measurements",
+        "beam-based lifetime measurements",
+        "CdTe and CdZnTe experience"
+      ],
+      "unresolved_hard_gates": [
+        "HgCdTe-specific vacancy assignment",
+        "quantitative proxy calibration and uncertainty",
+        "sensitivity to the target Hg-vacancy state range",
+        "6 K and 300 K state measurement or transfer model",
+        "sample geometry and substrate effects",
+        "external access, cost, and turnaround",
+        "native spectrum and covariance release"
+      ],
+      "contact_action": "request an HgCdTe-specific vacancy-proxy and depth-sensitivity feasibility discussion",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "ncsu_positron_user_facility",
+      "organization": "North Carolina State University Positron User Facility",
+      "candidate_status": "public_evidence_only",
+      "priority": 2,
+      "candidate_roles": ["vacancy_metrology"],
+      "official_sources": [
+        {
+          "source_id": "ncsu_positron_user_facility",
+          "url": "https://nrp.ne.ncsu.edu/user-facilities-services/positron-user-facility/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The user facility offers positron-annihilation lifetime and Doppler-broadening spectroscopy.",
+            "The facility describes semiconductor and optoelectronic applications including vacancy complexes, native defects, and deep-level defect mapping.",
+            "An intense positron beam supports depth-dependent studies."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "user-facility PAS access",
+        "PALS and Doppler-broadening spectroscopy",
+        "semiconductor vacancy-defect application scope"
+      ],
+      "unresolved_hard_gates": [
+        "HgCdTe-specific calibration",
+        "quantitative vacancy-proxy uncertainty",
+        "film and substrate geometry compatibility",
+        "6 K and 300 K protocol compatibility",
+        "native data and covariance release",
+        "cost and scheduling route"
+      ],
+      "contact_action": "request a comparative HgCdTe feasibility assessment if the WSU route is unavailable or non-quantitative",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "national_maglab_ir_thz",
+      "organization": "National High Magnetic Field Laboratory DC Field Facility",
+      "candidate_status": "public_evidence_only",
+      "priority": 1,
+      "candidate_roles": ["absorption_laboratory", "magneto_optical_laboratory"],
+      "official_sources": [
+        {
+          "source_id": "maglab_ir_thz_capability",
+          "url": "https://nationalmaglab.org/user-facilities/dc-field/measurement-techniques/magneto-optics-ir-thz-dc/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "Bruker FTIR systems support infrared transmission and reflectance from 10 to 6000 cm-1 with resolution better than 0.03 cm-1.",
+            "The public configuration supports fields to 35 T or 17.5 T and temperatures of 4.2 to 8 K depending on magnet and probe.",
+            "Up to four samples can be loaded in one cool-down in the 17.5 T optical system."
+          ]
+        },
+        {
+          "source_id": "maglab_user_access",
+          "url": "https://nationalmaglab.org/user-facilities/dc-field",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "The DC Field Facility states that magnets are open to scientists through a competitive proposal process.",
+            "The facility publishes proposal deadlines and user-program contacts."
+          ]
+        },
+        {
+          "source_id": "maglab_requesting_time",
+          "url": "https://nationalmaglab.org/user-resources/requesting-magnet-time/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "New users submit a magnet-time proposal followed by experiment documentation after approval.",
+            "A FAIR data-management form is part of the proposal documentation."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "low-temperature infrared transmission and reflectance",
+        "high-field infrared magneto-optics",
+        "broad far-IR to mid-IR range",
+        "competitive user-access route",
+        "potential single-facility coverage of both optical classes"
+      ],
+      "time_sensitive_public_information": {
+        "next_listed_proposal_deadline": "2026-11-13",
+        "target_cycle": "2027_spring",
+        "source_url": "https://nationalmaglab.org/user-facilities/dc-field"
+      },
+      "unresolved_hard_gates": [
+        "HgCdTe sample and Hg-material safety acceptance",
+        "300 K paired absorption and magneto-optical operation",
+        "same-area registration across zero-field and high-field measurements",
+        "sample-temperature uncertainty at both blocks",
+        "polarization and transition-family configuration",
+        "native interferogram, calibration, residual, and covariance release",
+        "specimen geometry and mounting limits",
+        "proposal competitiveness and schedule"
+      ],
+      "contact_action": "request a technical pre-proposal discussion before the next listed proposal deadline",
+      "readiness_effect": "none"
+    },
+    {
+      "candidate_id": "zenodo_archive_infrastructure",
+      "organization": "Zenodo",
+      "candidate_status": "public_evidence_only",
+      "priority": 1,
+      "candidate_roles": ["data_archive_infrastructure"],
+      "official_sources": [
+        {
+          "source_id": "zenodo_home",
+          "url": "https://zenodo.org/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "Zenodo assigns a DOI to published uploads and provides versioning, restricted-access, usage statistics, and GitHub integration.",
+            "The service is operated by CERN and OpenAIRE."
+          ]
+        },
+        {
+          "source_id": "zenodo_records_help",
+          "url": "https://help.zenodo.org/docs/deposit/about-records/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "Zenodo accepts arbitrary file formats and guarantees bit-level rather than functional preservation.",
+            "Published records receive DataCite DOIs."
+          ]
+        },
+        {
+          "source_id": "zenodo_policies",
+          "url": "https://about.zenodo.org/policies/",
+          "accessed": "2026-07-20",
+          "public_claims": [
+            "Zenodo describes versioned data files, retained original content, multiple replicas, tape backup, and checksum-based fixity checks."
+          ]
+        }
+      ],
+      "publicly_supported_capabilities": [
+        "persistent DOI",
+        "dataset versioning",
+        "open or restricted access",
+        "GitHub preservation integration",
+        "bit-level preservation"
+      ],
+      "unresolved_hard_gates": [
+        "accountable archive owner",
+        "raw-data rights and embargo policy for all partners",
+        "large-file and proprietary-format strategy",
+        "project-side SHA-256 manifest and independent verification",
+        "repository-independent backup",
+        "retention and withdrawal requirements in collaboration agreements"
+      ],
+      "contact_action": "select an accountable archive owner and define the project data-release policy before deposit",
+      "readiness_effect": "none"
+    }
+  ],
+  "role_coverage": {
+    "material_provider": ["uic_microphysics_laboratory"],
+    "composition_thickness_metrology": ["ut_austin_epma"],
+    "hall_state_metrology": ["utk_electromagnetic_properties_lab", "uic_ppms"],
+    "vacancy_metrology": ["wsu_positron_annihilation_spectrometer", "ncsu_positron_user_facility"],
+    "absorption_laboratory": ["national_maglab_ir_thz"],
+    "magneto_optical_laboratory": ["national_maglab_ir_thz"],
+    "data_archive_infrastructure": ["zenodo_archive_infrastructure"]
+  },
+  "recommended_contact_sequence": [
+    "uic_microphysics_laboratory",
+    "national_maglab_ir_thz",
+    "wsu_positron_annihilation_spectrometer",
+    "ut_austin_epma",
+    "utk_electromagnetic_properties_lab",
+    "ncsu_positron_user_facility",
+    "uic_ppms",
+    "zenodo_archive_infrastructure"
+  ],
+  "controlling_blockers": [
+    "no direct facility responses",
+    "no accountable partner owners",
+    "no HgCdTe-specific sigma_x demonstration",
+    "no quantified Hg-vacancy proxy transfer uncertainty",
+    "no documented 6 K and 300 K same-area optical workflow",
+    "no agreed native-data, covariance, rights, cost, or schedule commitments"
+  ],
+  "decision": {
+    "public_candidate_landscape_authorized": true,
+    "candidate_endorsement_authorized": false,
+    "role_confirmation_authorized": false,
+    "gate_confirmation_authorized": false,
+    "feasibility_readiness_promotion_authorized": false,
+    "direct_outreach_performed": false,
+    "next_action": "documented_candidate_outreach"
+  }
+}
