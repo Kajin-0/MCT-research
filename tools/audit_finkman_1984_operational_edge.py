@@ -18,7 +18,9 @@ from mct_research.finkman_1984_operational_edge import (
     SOURCE_DOI,
     TEMPERATURE_RANGE_K,
     absorption_cm1_at_energy,
+    composition_from_zero_intercept_wavenumber_300k_500um,
     energy_at_absorption_cm1,
+    energy_ev_to_wavenumber_cm1,
     operational_edge_500_cm1,
     published_eq11_operational_edge_ev,
     zero_intercept_absorption_cm1,
@@ -102,6 +104,10 @@ def audit(path: str | Path) -> dict[str, Any]:
         raise ValueError("operational edge cannot be promoted to a latent gap")
     if semantics.get("exact_detector_equivalence_claimed") is not False:
         raise ValueError("approximate detector relationship cannot be made exact")
+    if semantics.get("published_equation_11_is_rounded_closed_form") is not True:
+        raise ValueError("Eq. (11) rounding semantics changed")
+    if semantics.get("machine_exact_equality_with_equation_10_at_alpha500") is not False:
+        raise ValueError("rounded Eq. (11) cannot be declared machine-identical to Eq. (10)")
 
     zero = payload["zero_intercept"]
     _require_close(zero["reference_thickness_um"], 500.0, "zero-intercept thickness")
@@ -112,6 +118,10 @@ def audit(path: str | Path) -> dict[str, Any]:
     )
     if zero.get("interchangeable_with_alpha_500_edge") is not False:
         raise ValueError("zero-intercept and alpha=500 edges cannot be interchangeable")
+    if zero.get("equation_13_input_quantity") != "zero_intercept_cut_on_wavenumber_cm1":
+        raise ValueError("Eq. (13) zero-intercept wavenumber semantics changed")
+    if zero.get("absorption_coefficient_and_cut_on_wavenumber_are_distinct") is not True:
+        raise ValueError("zero-intercept absorption and wavenumber were conflated")
 
     decision = payload["decision"]
     if decision != EXPECTED_DECISION:
@@ -164,10 +174,20 @@ def audit(path: str | Path) -> dict[str, Any]:
         for x in x_grid
         for temperature in t_grid
     ]
+    maximum_eq11_residual = max(abs(value) for value in eq11_residuals_mev)
+    _require_close(
+        semantics["maximum_rounding_residual_meV_in_declared_domain"],
+        maximum_eq11_residual,
+        "Eq. (11) rounding residual",
+    )
 
     zero_intercept_rows: list[dict[str, float]] = []
     for x in (0.215, 0.29):
         zero_energy = zero_intercept_energy_ev(500.0, 300.0, x)
+        zero_wavenumber = energy_ev_to_wavenumber_cm1(zero_energy)
+        recovered_composition = composition_from_zero_intercept_wavenumber_300k_500um(
+            zero_wavenumber
+        )
         threshold_energy = operational_edge_500_cm1(300.0, x)
         zero_intercept_rows.append(
             {
@@ -176,6 +196,9 @@ def audit(path: str | Path) -> dict[str, Any]:
                 "thickness_um": 500.0,
                 "zero_intercept_absorption_cm1": zero_intercept_absorption_cm1(500.0),
                 "zero_intercept_energy_eV": zero_energy,
+                "zero_intercept_cut_on_wavenumber_cm1": zero_wavenumber,
+                "eq13_recovered_composition_x": recovered_composition,
+                "eq13_recovery_error_x": recovered_composition - x,
                 "alpha_500_operational_edge_eV": threshold_energy,
                 "zero_intercept_minus_alpha500_meV": 1000.0
                 * (zero_energy - threshold_energy),
@@ -203,7 +226,7 @@ def audit(path: str | Path) -> dict[str, Any]:
         "published_eq11_rounding_residual_meV": {
             "minimum": float(min(eq11_residuals_mev)),
             "maximum": float(max(eq11_residuals_mev)),
-            "maximum_absolute": float(max(abs(value) for value in eq11_residuals_mev)),
+            "maximum_absolute": float(maximum_eq11_residual),
         },
         "zero_intercept_rows": zero_intercept_rows,
         "thickness_rows": thickness_rows,
