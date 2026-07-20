@@ -1,0 +1,116 @@
+\section{Observation model and methods}
+\label{sec:methods}
+
+\subsection{Latent gap and measured edge}
+\label{sec:observation-model}
+
+For a specimen with independently measured composition $x$ and temperature $T$, let $y_{\mathrm{MO}}$ denote a calibrated magneto-optical gap estimate after the method-specific field model and calibration have been applied. We write
+\begin{equation}
+  y_{\mathrm{MO}} = E_g(x,T) + \epsilon_{\mathrm{MO}},
+  \label{eq:magneto-optical}
+\end{equation}
+where $\epsilon_{\mathrm{MO}}$ includes the residual uncertainty of that calibrated estimate. An absorption-derived edge is represented as
+\begin{equation}
+  y_{\mathrm{abs}} = E_g(x,T)
+  + \Delta_{\mathrm{method}}
+  + \Delta_{\mathrm{carrier}}
+  + \Delta_{\mathrm{vacancy}}
+  + \epsilon_{\mathrm{abs}}.
+  \label{eq:absorption-observation}
+\end{equation}
+The terms in Eq.~\eqref{eq:absorption-observation} form an identifiability decomposition, not a set of universal correction functions. $\Delta_{\mathrm{method}}$ includes the fit family, fit window, threshold, tail treatment, and calibration convention. $\Delta_{\mathrm{carrier}}$ represents carrier-state contributions such as band filling \cite{Sarusi1989}. $\Delta_{\mathrm{vacancy}}$ represents defect-state contributions that can alter the optical edge \cite{Yue2006}. For paired measurements on the same specimen,
+\begin{equation}
+  y_{\mathrm{abs}} - y_{\mathrm{MO}}
+  = \Delta_{\mathrm{method}} + \Delta_{\mathrm{carrier}}
+  + \Delta_{\mathrm{vacancy}} + \epsilon,
+  \label{eq:paired-difference}
+\end{equation}
+where $\epsilon=\epsilon_{\mathrm{abs}}-\epsilon_{\mathrm{MO}}$. The common latent term is removed, but residual method and measurement uncertainty remains. Without paired modalities and independent specimen-state measurements, the contributions in Eq.~\eqref{eq:absorption-observation} can remain aliased.
+
+\subsection{Experimental spectra and provenance}
+\label{sec:spectra}
+
+The present application uses the solid infrared spectroscopic ellipsometry traces in Fig.~6 of Moazzami \emph{et al.} \cite{Moazzami2005}. The first specimen has reported composition $x=0.226$, temperature 300~K, thickness 15.40~$\mu$m, and 125 digitized points. The second has $x=0.310$, temperature 300~K, thickness 4.95~$\mu$m, and 115 digitized points.
+
+The curves were recovered from embedded bitmap objects in the primary PDF. The calibration records preserve source hashes, axis anchors, curve masks, centerline rules, sampling interval, and uncertainty floors. Copyrighted source pages and source figures are not redistributed. Specimen-level composition uncertainty, carrier type, and carrier density were not reported and remain explicitly missing.
+
+\subsection{Edge-extraction ensemble}
+\label{sec:edge-ensemble}
+
+The fitted candidate ensemble contains a free fractional-power model, fixed powers $p=0.5$, $0.7$, and $1.0$, the exponent reported for each source panel, and the provenance-bound Chu 1994 Kane-region form \cite{Chu1994}. The fractional-power family is
+\begin{equation}
+  \alpha(E) = A\frac{(E-E_g)^p}{E}, \qquad E>E_g.
+  \label{eq:fractional-power}
+\end{equation}
+The Chu candidate is
+\begin{equation}
+  \alpha(E) = \alpha_g \exp\!\left(\sqrt{\beta(x,T)(E-E_g)}\right),
+  \label{eq:chu}
+\end{equation}
+with $E$ and $E_g$ in electronvolts, $T$ in kelvin, and $\beta$ in eV$^{-1}$. The source-supported parameterization is
+\begin{equation}
+  \beta(x,T) = -1 + 0.083T + (21-0.13T)x.
+  \label{eq:chu-beta}
+\end{equation}
+Equation~\eqref{eq:chu} is admitted only for $0.170\leq x\leq0.443$ and $77\leq T\leq300$~K. A fit reaching a declared search bound is exported as boundary-limited rather than identified.
+
+Operational fixed-threshold candidates are defined as the first interpolated crossings from 400 to 5000~cm$^{-1}$. These crossings are observation definitions, not assumed estimators of the latent gap. Precision comparisons use thresholds through 4000~cm$^{-1}$ because the 5000~cm$^{-1}$ crossing for one specimen exceeds the declared coordinate-sensitivity gate.
+
+\subsection{Digitization-coordinate sensitivity}
+\label{sec:digitization}
+
+Four coherent perturbation corners combine positive and negative energy-axis uncertainty with positive and negative pointwise logarithmic-absorption uncertainty. The model-fit point population is held fixed to the base 600--5000~cm$^{-1}$ window so the audit isolates coordinate uncertainty rather than fit-window membership changes.
+
+The digitization stop rule is 5~meV. Fitted-model conclusions are classified as stable only when their coordinate shifts remain below 1~meV. Fixed-threshold precision claims are restricted to crossings whose coordinate shifts remain below 5~meV.
+
+\subsection{Material-gap comparators}
+\label{sec:comparators}
+
+All comparator equations return the signed zone-centre gap in electronvolts, with $x$ the Cd mole fraction and $T$ in kelvin. The Hansen--Schmit--Casselman relation \cite{Hansen1982} is
+\begin{equation}
+\begin{split}
+  E_{g,\mathrm{H}}(x,T) ={}& -0.302 + 1.930x - 0.810x^2 + 0.832x^3 \\
+  &+ 5.35\times10^{-4}(1-2x)T.
+\end{split}
+  \label{eq:hansen}
+\end{equation}
+
+The published Seiler relation \cite{Seiler1990} retains the Hansen zero-temperature polynomial and replaces the linear thermal term with
+\begin{equation}
+  E_{g,\mathrm{S}}(x,T) = E_{g,\mathrm{H}}(x,0)
+  + 5.35\times10^{-4}(1-2x)\frac{A+T^3}{B+T^2},
+  \label{eq:seiler}
+\end{equation}
+where $A=-1822$~K$^3$ and $B=255.2$~K$^2$.
+
+The reconstructed Laurenti relation \cite{Laurenti1990} is
+\begin{equation}
+\begin{split}
+  E_{g,\mathrm{L}}(x,T) ={}& -0.303(1-x)+1.606x-0.132x(1-x) \\
+  &+10^{-4}\,a(x)\frac{T^2}{T+b(x)},
+\end{split}
+  \label{eq:laurenti}
+\end{equation}
+with
+\begin{align}
+  a(x) &= 6.3(1-x)-3.25x-5.92x(1-x), \\
+  b(x) &= 11(1-x)+78.7x \quad \text{K}.
+\end{align}
+The analytical expression is a high-confidence reconstruction of the published relation, but the original coefficient covariance and validity limits were not reconstructed; it is therefore retained as a historical comparator rather than fit authority.
+
+The provisional constrained Hansen--Pade relation retains the Hansen zero-temperature polynomial and uses
+\begin{equation}
+  E_{g,\mathrm{P}}(x,T) = E_{g,\mathrm{H}}(x,0)
+  + \alpha(1-2x)\frac{T^3}{T^2+\tau^2},
+  \label{eq:provisional}
+\end{equation}
+with $\alpha=5.918273117836612\times10^{-4}$~eV/K and $\tau=18.059294367159467$~K. It is a constrained member of the Seiler rational-temperature family, not a new functional family or production equation.
+
+For each observation candidate, the nominal closest comparator is the relation with the smallest absolute residual. A strict material-law ranking is authorized only if the ordering remains identified after observation-model and specimen-metadata uncertainty. That condition is not met by the present records.
+
+\subsection{Paired acquisition-design analysis}
+\label{sec:design}
+
+A local linearized identifiability model contains five coefficients: latent intercept, latent composition slope, absorption-class offset, carrier contribution, and vacancy contribution. The validated acquisition oracle evaluates the complete two-level factorial over composition, carrier proxy, and vacancy proxy. Each of eight specimen states receives paired magneto-optical and absorption-derived measurements in a target 6~K block and a 300~K block.
+
+Per temperature block, the design contains 16 observations, rank $5/5$, 11 residual degrees of freedom, condition number 2.618, and maximum leverage 0.4375. The two-temperature design contains 32 gap observations. This is the unique audit-grade complete factorial within the declared two-level $2^3$ candidate family and numerical gates; it is not a universal optimal-design proof.

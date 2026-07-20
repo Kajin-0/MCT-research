@@ -1,0 +1,73 @@
+name: irpt-latex-manuscript
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/irpt-latex-manuscript.yml'
+      - 'manuscript/observation_model_uncertainty/**'
+      - 'tools/build_observation_model_irpt_tables.py'
+      - 'tools/build_observation_model_irpt_submission_tables.py'
+      - 'tests/test_irpt_*.py'
+      - 'tests/test_observation_model_irpt_tables.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Compile IRPT manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript.tex
+          working_directory: manuscript/observation_model_uncertainty/irpt
+          work_in_root_file_dir: true
+          texlive_version: 2026
+          os: debian
+          extra_system_packages: librsvg2-bin
+          pre_compile: |
+            mkdir -p figures
+            for name in \
+              figure1_spectrum_models \
+              figure2_edge_candidates \
+              figure3_material_residual_envelopes \
+              figure4_identifiability \
+              figure5_paired_acquisition_design
+            do
+              rsvg-convert -f pdf -o "figures/${name}.pdf" "../${name}.svg"
+            done
+
+      - name: Record PDF evidence
+        if: always()
+        shell: bash
+        run: |
+          evidence=manuscript/observation_model_uncertainty/irpt/build-evidence
+          mkdir -p "$evidence"
+          cp manuscript/observation_model_uncertainty/irpt/manuscript.log "$evidence/" 2>/dev/null || true
+          cp manuscript/observation_model_uncertainty/irpt/manuscript.blg "$evidence/" 2>/dev/null || true
+          cp manuscript/observation_model_uncertainty/irpt/manuscript.pdf "$evidence/" 2>/dev/null || true
+          if [ -f "$evidence/manuscript.pdf" ]; then
+            if command -v pdfinfo >/dev/null 2>&1; then
+              pdfinfo "$evidence/manuscript.pdf" > "$evidence/pdfinfo.txt"
+            else
+              {
+                file "$evidence/manuscript.pdf"
+                stat --printf='size_bytes=%s\n' "$evidence/manuscript.pdf"
+              } > "$evidence/pdfinfo.txt"
+            fi
+          fi
+          find "$evidence" -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 -r sha256sum > "$evidence/sha256.txt"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irpt-latex-manuscript
+          path: manuscript/observation_model_uncertainty/irpt/build-evidence
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,39 @@
+{
+  "analysis": "complete material-model comparator screen for Moazzami 2005 spectra",
+  "claim_boundary": "Published Seiler is the nominal closest comparator for every fitted absorption-model edge, but its advantage over Hansen is only 0.18-0.25 meV. Without specimen-level composition uncertainty this does not identify a preferred material law. Fixed-threshold definitions still change the nominal winner, and no threshold is promoted as the latent gap.",
+  "decision": {
+    "all_fitted_model_candidates_nominally_prefer_published_seiler": true,
+    "hansen_seiler_prediction_separation_mev_range": [
+      0.17655559568868284,
+      0.2546117537825978
+    ],
+    "minimum_fitted_candidate_nominal_winner_margin_mev": 0.17655559568868284,
+    "nominal_winner_changes_across_observation_definitions": true,
+    "published_seiler_comparator_included": true,
+    "reason_strict_ranking_is_not_authorized": "both specimens lack specimen-level composition uncertainty and come from one source study; nominal comparator margins are sub-meV",
+    "single_corrected_edge_authorized": false,
+    "strict_material_model_ranking_authorized": false,
+    "universal_gap_law_promotion_authorized": false
+  },
+  "digitization_decision": {
+    "all_model_candidate_shifts_below_1mev": true,
+    "all_thresholds_through_4000cm1_below_5mev": true,
+    "calibration_sensitive_threshold_candidates": [
+      "threshold_5000_cm-1"
+    ],
+    "maximum_model_candidate_shift_mev": 0.890691,
+    "model_family_conclusion_survives_digitization_bounds": true,
+    "threshold_5000_requires_separate_caution": true
+  },
+  "generated_files": [
+    "figure1_spectrum_models.svg",
+    "figure2_edge_candidates.svg",
+    "figure3_material_residual_envelopes.svg",
+    "table1_specimen_provenance.csv",
+    "table2_candidate_definitions.csv",
+    "table3_edge_ensemble.csv",
+    "table4_material_model_comparison.csv",
+    "table5_claim_boundaries.csv"
+  ],
+  "schema_version": "1.0"
+}

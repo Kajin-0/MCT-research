@@ -69,29 +69,47 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 - Deterministic seven-candidate example: combined span `19.95223 meV`, model-family span `9.14375 meV`, threshold span `9.95726 meV`, and half-range `9.97612 meV`.
 - Research uncertainty export is authorized. Production correction and single-edge selection remain forbidden.
 
+## Real-spectrum manuscript result
+
+Two Moazzami 2005 solid-IRSE traces pass the complete contract:
+
+```text
+x=0.226, T=300 K, d=15.40 um, 125 derived points
+x=0.310, T=300 K, d=4.95 um, 115 derived points
+```
+
+- Fractional/Chu fitted-model spans are `6.414 meV` and `6.830 meV`.
+- Coordinate perturbation moves every fitted-model edge by less than `0.891 meV`.
+- Fixed thresholds through `4000 cm^-1` remain below the declared `5 meV` coordinate-sensitivity gate.
+- The `5000 cm^-1` crossing for `x=0.310` shifts by `5.694 meV` and is excluded from precision claims.
+- Operational threshold choice changes the nominal closest material comparator. No threshold is identified with the latent gap.
+- Published Seiler 1990 is nominally closest for every fractional/Chu fitted edge, but its advantage over Hansen is only `0.177-0.255 meV`.
+- Because specimen-level composition uncertainty is unreported and both spectra come from one study, the Seiler-Hansen ordering is descriptive only. Strict material-law ranking is not authorized.
+
 ## Manuscript freeze
 
-Breadth-first exploration is complete. New work is controlled by one immediate manuscript objective:
+Breadth-first exploration is complete. The active manuscript objective is:
 
-> **Observation-model uncertainty and identifiability in HgCdTe bandgap extraction.**
+> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
 
-The manuscript must combine the validated absorption contract, the demonstrated multi-meV model/threshold sensitivity, cross-source identifiability limits, and the paired acquisition design. It becomes submission-grade only after application to real calibrated spectra.
+The scientific, bibliography, deterministic-asset, editable-LaTeX, technical-review, and rendered-PDF gates are satisfied in draft PR #131. The manuscript already treats the Hansen-Padé relation only as a provisional comparator and does not claim broad transfer superiority, so the Chu 1991 result does not require expansion of the manuscript scope.
 
-No additional source-specific screen, synthetic oracle, empirical coefficient, or ledger-only PR is authorized unless it changes at least one controlling decision:
+PR #131 remains draft because author-specific submission fields are unresolved:
 
-1. authorizes or falsifies the provisional thermal model using independent primary evidence;
-2. changes the absorption observation-model conclusion on a real spectrum;
-3. independently reproduces or rejects the static CdTe matrix result;
-4. opens a physically valid finite-temperature backend route;
-5. changes the minimum experimental acquisition design.
+- author list, affiliations, corresponding author, and postal address;
+- public archive DOI or final repository URL;
+- funding, competing-interest, acknowledgment, and CRediT statements;
+- conflict-free suggested reviewers.
+
+The branch must preserve the current `main` evidence state before final merge or submission. Technical workflows must be rerun after synchronization.
 
 ## Authorized next work
 
-1. Select `2-4` real primary HgCdTe absorption spectra with recoverable calibration, composition, temperature, thickness, and carrier metadata.
-2. Apply the complete uncertainty ensemble, including fractional-power, threshold, and Chu 1994 candidates where source-domain gates permit.
-3. Demonstrate whether observation-model uncertainty changes an actual material-model ranking or conclusion.
-4. Freeze manuscript figures, tables, claim language, and evidence checklist around that result.
-5. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+1. Keep PR #131 synchronized with `main` without changing its central claim or frozen numerical results.
+2. Complete only the author-supplied administrative fields required for journal submission.
+3. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if a full Herrmann observation operator remains manuscript-critical.
+4. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+5. Reopen material-law development only with paired or observation-class-controlled independent evidence.
 
 ## Explicitly unauthorized
 
