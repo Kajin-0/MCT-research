@@ -1,0 +1,157 @@
+{
+  "analysis": "paired HgCdTe gap-acquisition contract audit",
+  "composition": {
+    "completed_methods": false,
+    "hard_maximum_pass": true,
+    "hard_maximum_sigma_x": 0.0015,
+    "high_mean_sigma_x": 0.0005,
+    "high_mean_x": 0.3,
+    "low_mean_sigma_x": 0.0005,
+    "low_mean_x": 0.24,
+    "maximum_sigma_x": 0.001,
+    "reference_x": 0.27,
+    "scale_x": 0.03,
+    "separation_sigma": 84.8528137423857,
+    "target_pass": true,
+    "target_sigma_x": 0.001
+  },
+  "decision": {
+    "claim_boundary": "A pass validates the declared local five-parameter acquisition contract. It does not prove physical completeness, define a universal vacancy observable, or authorize a universal absorption correction.",
+    "completed_package_audit_grade": false,
+    "gates": {
+      "all_temperatures": true,
+      "carrier_vacancy_correlation": true,
+      "composition_hard_maximum": true,
+      "design_rank_conditioning_leverage": true,
+      "factor_separation": true,
+      "processing_frozen": true,
+      "single_carrier_polarity": true,
+      "state_drift": true,
+      "technical_replicates": true
+    },
+    "planning_template_valid": true,
+    "structural_contract_passed": true
+  },
+  "input_sha256": "2f353caecdbedcef2514b316fb1a58e94c701d3c8454b143f417d71f8ba4efcb",
+  "inventory": {
+    "completed_observation_count": 0,
+    "modality_count": 2,
+    "primary_observation_count": 32,
+    "specimen_count": 8,
+    "temperature_block_count": 2
+  },
+  "mode": "planning",
+  "package_status": "planning_template",
+  "protocol_id": "hgcdte_paired_gap_2x2x2_v1",
+  "schema_version": "1.0",
+  "temperature_blocks": {
+    "T006": {
+      "carrier_factor": {
+        "center": 15.0,
+        "half_span": 1.0,
+        "high_mean": 16.0,
+        "high_mean_sigma": 0.025,
+        "low_mean": 14.0,
+        "low_mean_sigma": 0.025,
+        "separation_sigma": 56.568542494923804
+      },
+      "carrier_polarity": "n",
+      "carrier_polarity_pass": true,
+      "carrier_vacancy_correlation": 0.0,
+      "carrier_vacancy_correlation_pass": true,
+      "design_diagnostics": {
+        "condition_number": 2.6180339887498953,
+        "maximum_leverage": 0.4375,
+        "observation_count": 16,
+        "parameter_count": 5,
+        "parameter_standard_error_per_unit_noise": {
+          "absorption_class_offset": 0.5,
+          "carrier_contribution": 0.3535533905932738,
+          "latent_composition_slope": 0.25,
+          "latent_intercept": 0.3535533905932738,
+          "vacancy_contribution": 0.3535533905932738
+        },
+        "rank": 5,
+        "residual_degrees_of_freedom": 11,
+        "singular_values": [
+          4.576491222541474,
+          3.9999999999999996,
+          2.8284271247461903,
+          2.82842712474619,
+          1.7480640977952837
+        ]
+      },
+      "design_pass": true,
+      "factor_separation_pass": true,
+      "observation_count": 16,
+      "paired_specimen_count": 8,
+      "processing_frozen_pass": true,
+      "specimen_count": 8,
+      "state_drift_pass": true,
+      "target_temperature_K": 6.0,
+      "vacancy_factor": {
+        "center": 0.0,
+        "half_span": 1.0,
+        "high_mean": 1.0,
+        "high_mean_sigma": 0.05,
+        "low_mean": -1.0,
+        "low_mean_sigma": 0.05,
+        "separation_sigma": 28.284271247461902
+      }
+    },
+    "T300": {
+      "carrier_factor": {
+        "center": 15.0,
+        "half_span": 1.0,
+        "high_mean": 16.0,
+        "high_mean_sigma": 0.025,
+        "low_mean": 14.0,
+        "low_mean_sigma": 0.025,
+        "separation_sigma": 56.568542494923804
+      },
+      "carrier_polarity": "n",
+      "carrier_polarity_pass": true,
+      "carrier_vacancy_correlation": 0.0,
+      "carrier_vacancy_correlation_pass": true,
+      "design_diagnostics": {
+        "condition_number": 2.6180339887498945,
+        "maximum_leverage": 0.4375,
+        "observation_count": 16,
+        "parameter_count": 5,
+        "parameter_standard_error_per_unit_noise": {
+          "absorption_class_offset": 0.5,
+          "carrier_contribution": 0.3535533905932738,
+          "latent_composition_slope": 0.25,
+          "latent_intercept": 0.3535533905932738,
+          "vacancy_contribution": 0.3535533905932738
+        },
+        "rank": 5,
+        "residual_degrees_of_freedom": 11,
+        "singular_values": [
+          4.576491222541474,
+          3.9999999999999996,
+          2.8284271247461894,
+          2.8284271247461894,
+          1.7480640977952844
+        ]
+      },
+      "design_pass": true,
+      "factor_separation_pass": true,
+      "observation_count": 16,
+      "paired_specimen_count": 8,
+      "processing_frozen_pass": true,
+      "specimen_count": 8,
+      "state_drift_pass": true,
+      "target_temperature_K": 300.0,
+      "vacancy_factor": {
+        "center": 0.0,
+        "half_span": 1.0,
+        "high_mean": 1.0,
+        "high_mean_sigma": 0.05,
+        "low_mean": -1.0,
+        "low_mean_sigma": 0.05,
+        "separation_sigma": 28.284271247461902
+      }
+    }
+  }
+}

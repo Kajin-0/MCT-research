@@ -1,0 +1,337 @@
+{
+  "claim_boundary": "Planning labels do not substitute for measured composition, carrier, vacancy, calibration, covariance, or state-transfer records.",
+  "collaboration": {
+    "absorption_lab": "PLANNING_REQUIRED",
+    "analysis_owner": "PLANNING_REQUIRED",
+    "composition_metrology_lab": "PLANNING_REQUIRED",
+    "data_archive": "PLANNING_REQUIRED",
+    "hall_and_defect_lab": "PLANNING_REQUIRED",
+    "magneto_optical_lab": "PLANNING_REQUIRED",
+    "material_provider": "PLANNING_REQUIRED"
+  },
+  "description": "Eight same-specimen states with paired magneto-optical and absorption measurements at 6 K and 300 K.",
+  "design": {
+    "carrier_vacancy_max_abs_correlation": 0.5,
+    "composition_reference_x": 0.27,
+    "composition_scale_x": 0.03,
+    "composition_sigma_hard_maximum_x": 0.0015,
+    "composition_sigma_target_x": 0.001,
+    "maximum_condition_number": 5.0,
+    "maximum_leverage": 0.5,
+    "minimum_factor_separation_sigma": 3.0,
+    "temperature_blocks": [
+      {
+        "block_id": "T006",
+        "maximum_absolute_deviation_K": 0.2,
+        "maximum_temperature_sigma_K": 0.1,
+        "target_temperature_K": 6.0
+      },
+      {
+        "block_id": "T300",
+        "maximum_absolute_deviation_K": 0.5,
+        "maximum_temperature_sigma_K": 0.2,
+        "target_temperature_K": 300.0
+      }
+    ]
+  },
+  "observation_plan": {
+    "orders": {
+      "T006": [
+        "S04:absorption",
+        "S01:magneto_optical",
+        "S03:magneto_optical",
+        "S07:absorption",
+        "S01:absorption",
+        "S08:magneto_optical",
+        "S02:absorption",
+        "S06:magneto_optical",
+        "S06:absorption",
+        "S07:magneto_optical",
+        "S04:magneto_optical",
+        "S02:magneto_optical",
+        "S03:absorption",
+        "S08:absorption",
+        "S05:magneto_optical",
+        "S05:absorption"
+      ],
+      "T300": [
+        "S01:absorption",
+        "S07:absorption",
+        "S05:magneto_optical",
+        "S08:magneto_optical",
+        "S04:magneto_optical",
+        "S05:absorption",
+        "S07:magneto_optical",
+        "S03:absorption",
+        "S03:magneto_optical",
+        "S08:absorption",
+        "S01:magneto_optical",
+        "S06:magneto_optical",
+        "S02:magneto_optical",
+        "S04:absorption",
+        "S02:absorption",
+        "S06:absorption"
+      ]
+    },
+    "technical_replicate_target": 3
+  },
+  "protocol_id": "hgcdte_paired_gap_2x2x2_v1",
+  "schema_version": "1.0",
+  "specimens": [
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.24
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S01",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": -1,
+        "composition": -1,
+        "vacancy": -1
+      },
+      "specimen_id": "S01",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.24
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S02",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": -1,
+        "composition": -1,
+        "vacancy": 1
+      },
+      "specimen_id": "S02",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.24
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S03",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": 1,
+        "composition": -1,
+        "vacancy": -1
+      },
+      "specimen_id": "S03",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.24
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S04",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": 1,
+        "composition": -1,
+        "vacancy": 1
+      },
+      "specimen_id": "S04",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.3
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S05",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": -1,
+        "composition": 1,
+        "vacancy": -1
+      },
+      "specimen_id": "S05",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.3
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S06",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": -1,
+        "composition": 1,
+        "vacancy": 1
+      },
+      "specimen_id": "S06",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.3
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S07",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": 1,
+        "composition": 1,
+        "vacancy": -1
+      },
+      "specimen_id": "S07",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    },
+    {
+      "composition": {
+        "calibration_id": "PLANNING",
+        "method": "planning_target",
+        "sigma_x": 0.001,
+        "value_x": 0.3
+      },
+      "lineage": {
+        "contact_state": "PLANNING_REQUIRED",
+        "coupon_id": "S08",
+        "growth_method": "PLANNING_REQUIRED",
+        "growth_run_id": "PLANNING_REQUIRED",
+        "passivation": "PLANNING_REQUIRED",
+        "processing_history": [],
+        "storage_history": "PLANNING_REQUIRED",
+        "wafer_id": "PLANNING_REQUIRED"
+      },
+      "nominal_codes": {
+        "carrier": 1,
+        "composition": 1,
+        "vacancy": 1
+      },
+      "specimen_id": "S08",
+      "thickness": {
+        "lateral_uniformity_fraction": null,
+        "method": "PLANNING_REQUIRED",
+        "sigma_um": null,
+        "value_um": null
+      }
+    }
+  ],
+  "state_plan": {
+    "carrier": {
+      "high_density_cm3": 1e+16,
+      "low_density_cm3": 100000000000000.0,
+      "polarity": "n",
+      "sigma_log10_density": 0.05
+    },
+    "vacancy_proxy": {
+      "high_value": 1.0,
+      "low_value": -1.0,
+      "sigma": 0.1,
+      "units": "coded planning target"
+    }
+  },
+  "status": "planning_template"
+}
