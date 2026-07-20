@@ -34,7 +34,10 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 - Chu 1991 provides an independent `x=0.276`, 6-300 K absorption-turning-point series. The observed same-specimen shift is `61 meV`; Hansen predicts `70.466 meV` and the provisional Padé law predicts `79.096 meV`.
 - Anchored thermal-increment MAE is `7.215 meV` for Hansen and `11.725 meV` for the provisional Padé law. Across the conservative `x=0.276 +/- 0.005` interval, the minimum Padé MAE (`10.829 meV`) exceeds the maximum Hansen MAE (`8.011 meV`).
 - The provisional Padé law therefore does not retain its previously claimed broad cross-source transfer advantage. It must not be described as the leading candidate without this qualification.
-- This result does not select Hansen or another universal law because the source is an absorption turning-point observation class with printed figure labels, not an observation-class-controlled latent-gap series.
+- The Chu 1991 eight-specimen 300 K composition series separates absolute turning-point agreement from composition shape. Raw non-circular MAE favors Schmit-Stelzer (`8.579 meV`), while leave-one-specimen-out transfer of one source-class offset favors Seiler (`4.186 meV`) and Hansen (`4.277 meV`).
+- Seiler and Hansen differ by only `0.091 meV` in offset-transfer MAE and are not distinguishable. The provisional Padé value is `7.479 meV`.
+- Across a shared `delta_x = +/-0.005` composition-bias sweep, the minimum Padé offset-transfer MAE (`7.424 meV`) exceeds the maximum Hansen MAE (`4.320 meV`) by `3.104 meV`.
+- These Chu results do not select Hansen, Seiler, or another universal law because the source reports absorption turning points, printed figure labels, incomplete specimen-state metadata, and a circular Chu-equation lineage.
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
 - The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target for separating latent gap, observation class, carrier state, and vacancy state.
@@ -69,7 +72,11 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 - Deterministic seven-candidate example: combined span `19.95223 meV`, model-family span `9.14375 meV`, threshold span `9.95726 meV`, and half-range `9.97612 meV`.
 - Research uncertainty export is authorized. Production correction and single-edge selection remain forbidden.
 
-## Real-spectrum manuscript result
+## Completed manuscript milestone
+
+PR #131 merged the submission-oriented manuscript:
+
+> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
 
 Two Moazzami 2005 solid-IRSE traces pass the complete contract:
 
@@ -86,30 +93,23 @@ x=0.310, T=300 K, d=4.95 um, 115 derived points
 - Published Seiler 1990 is nominally closest for every fractional/Chu fitted edge, but its advantage over Hansen is only `0.177-0.255 meV`.
 - Because specimen-level composition uncertainty is unreported and both spectra come from one study, the Seiler-Hansen ordering is descriptive only. Strict material-law ranking is not authorized.
 
-## Manuscript freeze
+Issue #129 is complete. Journal submission and author declarations are external administrative actions rather than active research-development work.
 
-Breadth-first exploration is complete. The active manuscript objective is:
+## Active research track
 
-> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
+Issue #132 is the controlling post-manuscript evidence program:
 
-The scientific, bibliography, deterministic-asset, editable-LaTeX, technical-review, and rendered-PDF gates are satisfied in draft PR #131. The manuscript already treats the Hansen-Padé relation only as a provisional comparator and does not claim broad transfer superiority, so the Chu 1991 result does not require expansion of the manuscript scope.
+> **Integrate historical HgCdTe magneto-optical and edge-observation evidence.**
 
-PR #131 remains draft because author-specific submission fields are unresolved:
-
-- author list, affiliations, corresponding author, and postal address;
-- public archive DOI or final repository URL;
-- funding, competing-interest, acknowledgment, and CRediT statements;
-- conflict-free suggested reviewers.
-
-The branch must preserve the current `main` evidence state before final merge or submission. Technical workflows must be rerun after synchronization.
+New work must change a controlling decision by separating observation classes, specimen lineage, composition uncertainty, carrier state, or defect state. Additional unpaired literature accumulation is not sufficient.
 
 ## Authorized next work
 
-1. Keep PR #131 synchronized with `main` without changing its central claim or frozen numerical results.
-2. Complete only the author-supplied administrative fields required for journal submission.
-3. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if a full Herrmann observation operator remains manuscript-critical.
-4. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
-5. Reopen material-law development only with paired or observation-class-controlled independent evidence.
+1. Prioritize paired or same-specimen cross-modality evidence that can estimate an observation-class offset without pooling unlike measurements.
+2. Use the Chu 1991 composition result as a prototype for leakage-safe nuisance-offset transfer, not as a universal correction.
+3. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if the complete operator can be reconstructed without hybrid assumptions.
+4. In parallel only, execute one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+5. Reopen material-law development only after independent observation-class-controlled evidence exceeds propagated composition and measurement uncertainty.
 
 ## Explicitly unauthorized
 
@@ -117,7 +117,8 @@ The branch must preserve the current `main` evidence state before final merge or
 - treating old redundant Hamiltonian degrees of freedom or variance-scaled standard errors as current;
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
+- treating a fitted Chu source offset as transferable outside that source and observation class;
 - single-edge selection from the uncertainty ensemble;
-- broad source accumulation without a manuscript-critical data target;
+- broad source accumulation without a decision-changing target;
 - additional micro-PRs that only restate an unchanged authorization boundary;
 - A1 execution, further response-threshold tightening, 120-band static reruns, alloy production work, or unsupported novelty claims.
