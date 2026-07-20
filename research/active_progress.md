@@ -135,6 +135,14 @@ At nominal `x=0.17`, Laurenti is the closest local comparator, but model-equival
 
 Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage. They are not independent cross-laboratory validation sets. The static-law reopening gate remains closed.
 
+### Guldner-Weiler 1977 primary magneto-optical core
+
+- The recovered Guldner Part I/II papers contribute seven exact 4.2 K composition/interaction-gap anchors from primary text or captions: `x=0.025/-261 meV`, `0.050/-207`, `0.115/-90`, `0.150/-30`, `0.185/+35`, `0.250/+161`, and `0.280/+208`. The complete Figure 11 trend remains figure-only.
+- Guldner reports density and electron-microprobe composition methods and a zero-gap crossing `x0=0.165+/-0.005`, but no specimen-level `sigma_x` for the individual anchors. The interaction gaps remain Pidgeon-Brown/VCA model-conditioned observations.
+- Weiler reports approximately `3 meV` fitted-gap uncertainty for ten magnetoreflectance specimens at 24 and 91 K, while composition uncertainty is `0.005-0.015`. Its own `dEg/dx=1.88-0.001*T` relation propagates this to `8.945-27.840 meV`, so composition uncertainty dominates the nominal gap-fit precision.
+- Weiler also reports an interband/intraband discrepancy up to about `4 meV` near `60 kG`; Guldner parameters better describe the intraband result but fit Weiler interband data more poorly. This is retained as observable/model-class dependence, not as a universal correction.
+- Independent-laboratory qualitative comparison is authorized. Few-meV cross-laboratory ranking, default pooling, trend-point digitization, and universal material-law fitting remain blocked.
+
 ## Absorption-edge uncertainty contract
 
 - Every absorption-derived edge record must preserve source calibration, modality, temperature, thickness, composition provenance, carrier state, tail treatment, fit window, search bounds, model definitions, thresholds, and the raw spectrum.
