@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Guldner-Weiler 1977 primary magneto-optical evidence boundary",
+  "sources": [
+    {
+      "source_id": "guldner_1977_part_i",
+      "source_lineage_id": "guldner_rigaux_ens_magnetooptics_1977",
+      "title": "Magnetooptical Investigation of Hg1-xCdxTe Mixed Crystals I. Semimetallic Configuration",
+      "doi": "10.1002/pssb.2220810225",
+      "journal": "physica status solidi (b)",
+      "volume": 81,
+      "pages": "615-627",
+      "year": 1977,
+      "primary_full_text_recovered": true,
+      "copyrighted_source_committed": false
+    },
+    {
+      "source_id": "guldner_1977_part_ii",
+      "source_lineage_id": "guldner_rigaux_ens_magnetooptics_1977",
+      "title": "Magnetooptical Investigation of Hg1-xCdxTe Mixed Crystals II. Semiconducting Configuration and Semimetal-Semiconductor Transition",
+      "doi": "10.1002/pssb.2220820115",
+      "journal": "physica status solidi (b)",
+      "volume": 82,
+      "pages": "149-158",
+      "year": 1977,
+      "primary_full_text_recovered": true,
+      "copyrighted_source_committed": false
+    },
+    {
+      "source_id": "weiler_1977",
+      "source_lineage_id": "weiler_aggarwal_lax_mit_magnetoreflectance_1977",
+      "title": "Interband magnetoreflectance in semiconducting Hg1-xCdxTe alloys",
+      "doi": "10.1103/PhysRevB.16.3603",
+      "journal": "Physical Review B",
+      "volume": 16,
+      "pages": "3603-3607",
+      "year": 1977,
+      "primary_full_text_recovered": true,
+      "copyrighted_source_committed": false
+    }
+  ],
+  "guldner": {
+    "measurement_class": "magneto_interband_fit",
+    "temperature_K": 4.2,
+    "composition_method": ["density", "electron_microprobe"],
+    "specimen_level_composition_uncertainty_reported": false,
+    "growth": "modified_Bridgman_p_type",
+    "processing": "Hg_saturated_anneal_to_reduce_Hg_vacancies",
+    "anneal_temperature_C_expression": "180+400*x",
+    "infrared_sample_thickness_um_approx": 2.0,
+    "maximum_field_kG": 60.0,
+    "spectral_regions_meV": [[0.0, 16.0], [120.0, 370.0]],
+    "geometries": ["Faraday", "Voigt"],
+    "model": {
+      "family": "Pidgeon-Brown_8_band_virtual_crystal",
+      "spin_orbit_splitting_eV_fixed": 1.0,
+      "inversion_asymmetry_neglected": true,
+      "Gamma8_anisotropy_neglected": true,
+      "interaction_gap_is_model_conditioned": true
+    },
+    "zero_gap_crossing": {
+      "composition_x": 0.165,
+      "composition_sigma": 0.005,
+      "temperature_K": 4.2,
+      "value_status": "exact_text"
+    },
+    "exact_primary_anchors": [
+      {"composition_x": 0.025, "interaction_gap_meV": -261.0, "source_id": "guldner_1977_part_i", "source_location": "Figure 3 caption", "value_status": "exact_caption"},
+      {"composition_x": 0.050, "interaction_gap_meV": -207.0, "source_id": "guldner_1977_part_i", "source_location": "Figure 3 caption", "value_status": "exact_caption"},
+      {"composition_x": 0.115, "interaction_gap_meV": -90.0, "source_id": "guldner_1977_part_i", "source_location": "Section 4.2 and Figure 8", "value_status": "exact_text"},
+      {"composition_x": 0.150, "interaction_gap_meV": -30.0, "source_id": "guldner_1977_part_ii", "source_location": "Figures 8-9", "value_status": "exact_caption"},
+      {"composition_x": 0.185, "interaction_gap_meV": 35.0, "source_id": "guldner_1977_part_ii", "source_location": "Figure 10 caption", "value_status": "exact_caption"},
+      {"composition_x": 0.250, "interaction_gap_meV": 161.0, "source_id": "guldner_1977_part_ii", "source_location": "Figures 1-4 captions", "value_status": "exact_caption"},
+      {"composition_x": 0.280, "interaction_gap_meV": 208.0, "source_id": "guldner_1977_part_ii", "source_location": "Figure 7 caption and text", "value_status": "exact_caption"}
+    ],
+    "full_figure_11_series": {
+      "value_status": "figure_only",
+      "numeric_ingestion_authorized": false,
+      "secondary_transcriptions_available": true,
+      "secondary_transcriptions_are_primary_equivalent": false
+    }
+  },
+  "weiler": {
+    "measurement_class": "magnetoreflectance_fit",
+    "sample_count": 10,
+    "composition_range": [0.175, 0.269],
+    "temperatures_K": [24.0, 91.0],
+    "maximum_field_kG": 150.0,
+    "geometry": "Faraday_circular_polarization",
+    "gap_fit_uncertainty_meV_approx": 3.0,
+    "composition_provenance": {
+      "microprobe": {
+        "used_for_most_samples": true,
+        "sigma_x_range": [0.006, 0.015],
+        "dominant_source": "alloy_inhomogeneity"
+      },
+      "room_temperature_transmission_cut_on": {
+        "used_for_remaining_samples": true,
+        "sigma_x": 0.005,
+        "threshold_percent_of_maximum_transmission_approx": 92.0,
+        "calibrated_to": "Cominco_chemical_assay_curve",
+        "independent_material_gap_validation": false
+      }
+    },
+    "exact_example": {
+      "composition_x": 0.213,
+      "composition_sigma": 0.006,
+      "temperature_K": 24.0,
+      "value_status": "exact_text"
+    },
+    "quasi_Ge_parameters": {
+      "Ep_eV": {"value": 17.9, "sigma": 0.2},
+      "gamma1": {"value": 2.5, "sigma": 0.4},
+      "gamma2": {"value": -0.3, "sigma": 0.2},
+      "gamma3": {"value": 0.5, "sigma": 0.1},
+      "kappa": {"value": -1.2, "sigma": 0.1},
+      "F": {"value": -0.7, "sigma": 0.3}
+    },
+    "equation_10": {
+      "expression": "Eg_eV=-0.31+1.88*x+5e-4*(1-2*x)*T_K",
+      "composition_derivative_expression": "dEg_dx_eV_per_x=1.88-0.001*T_K"
+    },
+    "interband_intraband_discrepancy": {
+      "maximum_energy_meV_approx": 4.0,
+      "field_kG_approx": 60.0,
+      "source_interpretation": "Guldner parameters better match intraband data but fit Weiler interband data more poorly",
+      "model_observable_class_discrepancy": true
+    },
+    "per_specimen_gap_series": {
+      "value_status": "figure_only",
+      "numeric_ingestion_authorized": false
+    }
+  },
+  "decision": {
+    "primary_magneto_optical_source_recovery": true,
+    "exact_guldner_primary_anchors_authorized": true,
+    "full_guldner_figure_11_series_authorized": false,
+    "weiler_per_specimen_figure_points_authorized": false,
+    "independent_laboratory_qualitative_comparison_authorized": true,
+    "few_meV_quantitative_cross_lab_ranking_authorized": false,
+    "composition_uncertainty_dominates_gap_fit_precision": true,
+    "default_cross_modality_pooling_authorized": false,
+    "universal_material_law_fit_authorized": false,
+    "copyrighted_source_content_committed": false
+  }
+}
