@@ -113,13 +113,29 @@ def absorption_cm1_at_energy(
 
 
 def operational_edge_500_cm1(temperature_k: float, composition_x: float) -> float:
-    """Return the source-defined detector-related 500 cm^-1 operational edge."""
+    """Return Eq. (10) at the source's detector-related 500 cm^-1 threshold."""
 
     return energy_at_absorption_cm1(
         OPERATIONAL_EDGE_THRESHOLD_CM1,
         temperature_k,
         composition_x,
     )
+
+
+def published_eq11_operational_edge_ev(
+    temperature_k: float,
+    composition_x: float,
+) -> float:
+    """Return the separately rounded closed form printed as source Eq. (11).
+
+    The rounded coefficients make this form differ from Eq. (10) evaluated at
+    500 cm^-1 by up to approximately 0.257 meV in the declared source domain.
+    """
+
+    temperature = _validate_temperature(temperature_k)
+    x = _validate_composition(composition_x)
+    thermal = (7.68e-4 * temperature + 6.29e-2) * (1.0 - 2.14 * x) / (1.0 + x)
+    return source_edge_origin_ev(x) + thermal
 
 
 def zero_intercept_absorption_cm1(thickness_um: float) -> float:
