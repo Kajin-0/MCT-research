@@ -1,6 +1,6 @@
 # Active research progress
 
-**Last updated:** 2026-07-19  
+**Last updated:** 2026-07-20  
 **Controlling ref:** `main`
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`. This file records the program-level decisions that control new work.
@@ -66,7 +66,53 @@ It is a constrained Seiler-family parameterization, not a new functional family 
 - These Chu results do not select Hansen, Seiler, or another universal law because the source reports absorption turning points, printed figure labels, incomplete specimen-state metadata, and a circular Chu-equation lineage.
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
-- The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target for separating latent gap, observation class, carrier state, and vacancy state.
+
+## Paired HgCdTe acquisition protocol
+
+The audit-grade acquisition target is now frozen as an executable collaboration contract:
+
+```text
+2 measured composition levels
+x 2 achieved carrier-density levels
+x 2 achieved vacancy-proxy levels
+= 8 physical specimens
+
+8 specimens x 2 paired modalities x 2 temperature blocks
+= 32 primary gap observations
+```
+
+The same physical specimens and co-registered areas receive magneto-optical and absorption measurements at target `6 K` and `300 K`. Nominal low/high labels are planning metadata only; analysis covariates are calculated from measured continuous composition, carrier-density, and vacancy-proxy values.
+
+For each temperature block, the balanced planning design gives:
+
+```text
+observation count             16
+parameter count               5
+design rank                   5
+residual degrees of freedom   11
+condition number              2.6180339887
+maximum leverage              0.4375
+carrier-vacancy correlation   0.0
+```
+
+The completed-package gates require:
+
+```text
+composition sigma_x target             <= 0.0010
+composition sigma_x hard maximum       <= 0.0015
+carrier low/high separation            >= 3 combined sigma
+vacancy low/high separation            >= 3 combined sigma
+abs(carrier-vacancy correlation)       <= 0.5
+one carrier polarity per core block    required
+processing between paired modalities   forbidden
+pre/post state drift                    <= predeclared limit
+technical replicates                    target 3, hard minimum 2
+co-registered paired measurement area  required
+```
+
+Every observation must preserve native raw-data identity, calibration, sample temperature and uncertainty, extraction method, software commit, covariance, and analysis-record provenance. Witness-coupon state assignment requires an explicit witness ID and quantified transfer uncertainty.
+
+Authorized conclusion: the repository now contains a collaboration-ready method for acquiring observation-class-controlled evidence under an identifiable local five-parameter model. Unauthorized conclusion: that this model is physically complete, that one vacancy observable is universal, that one absorption edge is corrected, or that the eight-specimen single-lineage core establishes external transfer.
 
 ## Primary evidence state
 
@@ -123,19 +169,21 @@ Issue #129 is complete. Journal submission and author declarations are external 
 
 ## Active research track
 
-Issue #132 is the controlling post-manuscript evidence program:
+Issue #132 remains the controlling post-manuscript evidence program:
 
 > **Integrate historical HgCdTe magneto-optical and edge-observation evidence.**
 
-New work must change a controlling decision by separating observation classes, specimen lineage, composition uncertainty, carrier state, or defect state. Additional unpaired literature accumulation is not sufficient.
+Issue #141 freezes the acquisition contract that can resolve the observation-class, carrier-state, vacancy-state, and composition-provenance confounding exposed by the historical evidence program.
+
+New work must either secure protocol-compliant paired evidence or change a controlling decision by separating observation classes, specimen lineage, composition uncertainty, carrier state, or defect state. Additional unpaired literature accumulation is not sufficient.
 
 ## Authorized next work
 
-1. Prioritize paired or same-specimen cross-modality evidence that can estimate an observation-class offset without pooling unlike measurements.
-2. Use the Chu 1991 composition result as a prototype for leakage-safe nuisance-offset transfer, not as a universal correction.
-3. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if the complete operator can be reconstructed without hybrid assumptions.
-4. Convert the paired `2 x 2 x 2` acquisition design into a collaboration-ready experimental protocol with metrology, processing, calibration, and covariance requirements.
-5. Reopen material-law development only after independent observation-class-controlled evidence exceeds propagated composition and measurement uncertainty.
+1. Use the paired protocol as the external collaboration handoff and obtain a documented feasibility review from candidate material, composition, Hall/defect, absorption, and magneto-optical partners.
+2. Build a pre-screening pool large enough to achieve two separated carrier levels and two separated vacancy-proxy levels without changing carrier polarity or exceeding the carrier-vacancy correlation gate.
+3. Prioritize existing paired or same-specimen cross-modality evidence only when specimen lineage, measured composition, carrier state, vacancy proxy, temperature, and extraction provenance are recoverable.
+4. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if the complete operator can be reconstructed without hybrid assumptions.
+5. Reopen material-law development only after independent observation-class-controlled evidence exceeds propagated composition and measurement uncertainty and remains stable under leave-one-specimen-out analysis.
 
 ## Explicitly unauthorized
 
@@ -144,6 +192,11 @@ New work must change a controlling decision by separating observation classes, s
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
 - treating a fitted Chu source offset as transferable outside that source and observation class;
+- treating nominal processing labels as achieved carrier or vacancy covariates;
+- substituting different specimens or unregistered measurement areas for the paired observations;
+- irreversible processing between paired modalities;
+- relaxing state-separation, correlation, composition-uncertainty, provenance, or drift gates after inspecting results;
+- claiming the local five-parameter protocol model is physically complete or externally transferable before holdout evidence;
 - additional static post-processing replication on the same physical artifact;
 - claiming static electronic-structure convergence from the independent post-processing result;
 - single-edge selection from the uncertainty ensemble;
