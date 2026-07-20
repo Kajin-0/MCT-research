@@ -30,9 +30,8 @@ jobs:
           import tarfile
 
           parts = sorted(Path('.github').glob('paired_protocol_bundle.part*'))
-          if [part.name for part in parts] != [
-              f'paired_protocol_bundle.part{index:02d}' for index in range(9)
-          ]:
+          expected_names = [f'paired_protocol_bundle.part{index:02d}' for index in range(9)]
+          if [part.name for part in parts] != expected_names:
               raise SystemExit(f'unexpected chunk inventory: {[part.name for part in parts]}')
           encoded = b''.join(part.read_bytes() for part in parts)
           if len(encoded) != 25392:
@@ -66,6 +65,8 @@ jobs:
           path = Path('tests/test_hgcdte_paired_gap_protocol.py')
           text = path.read_text(encoding='utf-8')
           marker = 'def test_frozen_reference_audit_matches_planning_result() -> None:\n'
+          old = '    assert reference["temperature_blocks"] == result["temperature_blocks"]\n'
+          new = '    assert_nested_close(reference["temperature_blocks"], result["temperature_blocks"])\n'
           helper = '''def assert_nested_close(left: object, right: object) -> None:
               if isinstance(left, dict):
                   assert isinstance(right, dict)
@@ -87,8 +88,6 @@ jobs:
 
 
 '''
-          old = '    assert reference["temperature_blocks"] == result["temperature_blocks"]\n'
-          new = '    assert_nested_close(reference["temperature_blocks"], result["temperature_blocks"])\n'
           if marker not in text or old not in text:
               raise SystemExit('expected frozen-reference assertion was not found')
           if 'def assert_nested_close(' not in text:
@@ -96,6 +95,20 @@ jobs:
           text = text.replace(old, new, 1)
           path.write_text(text, encoding='utf-8')
           PY
+
+      - name: Upload extracted protocol package
+        uses: actions/upload-artifact@v4
+        with:
+          name: paired-hgcdte-protocol-package
+          path: |
+            protocols/hgcdte_paired_gap_acquisition_protocol.md
+            data/templates/hgcdte_paired_gap_acquisition_template.json
+            tools/audit_hgcdte_paired_gap_acquisition.py
+            data/derived/hgcdte_paired_gap_protocol_reference_audit.json
+            tests/test_hgcdte_paired_gap_protocol.py
+            research/decision_records/2026-07-19-paired-hgcdte-acquisition-protocol.md
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Install validation dependencies
         run: python -m pip install -e . pytest
@@ -115,60 +128,35 @@ jobs:
           import math
           from pathlib import Path
 
-          expected = json.loads(
-              Path('data/derived/hgcdte_paired_gap_protocol_reference_audit.json')
-              .read_text(encoding='utf-8')
-          )
-          actual = json.loads(
-              Path('/tmp/regenerated_reference.json').read_text(encoding='utf-8')
-          )
-          differences = []
+          expected = json.loads(Path('data/derived/hgcdte_paired_gap_protocol_reference_audit.json').read_text(encoding='utf-8'))
+          actual = json.loads(Path('/tmp/regenerated_reference.json').read_text(encoding='utf-8'))
 
           def compare(left, right, path='$'):
               if isinstance(left, bool) or isinstance(right, bool):
-                  if type(left) is not type(right) or left != right:
-                      differences.append((path, left, right, 'boolean mismatch'))
+                  assert type(left) is type(right) and left == right, path
                   return
               if isinstance(left, int) or isinstance(right, int):
-                  if type(left) is not type(right) or left != right:
-                      differences.append((path, left, right, 'integer mismatch'))
+                  assert type(left) is type(right) and left == right, path
                   return
               if isinstance(left, float) or isinstance(right, float):
-                  if not isinstance(left, (int, float)) or not isinstance(right, (int, float)):
-                      differences.append((path, left, right, 'numeric type mismatch'))
-                      return
-                  if not math.isclose(float(left), float(right), rel_tol=1e-10, abs_tol=1e-12):
-                      differences.append((path, left, right, 'float tolerance exceeded'))
+                  assert isinstance(left, (int, float)) and isinstance(right, (int, float)), path
+                  assert math.isclose(float(left), float(right), rel_tol=1e-10, abs_tol=1e-12), path
                   return
               if isinstance(left, dict) or isinstance(right, dict):
-                  if not isinstance(left, dict) or not isinstance(right, dict):
-                      differences.append((path, type(left).__name__, type(right).__name__, 'mapping mismatch'))
-                      return
-                  if set(left) != set(right):
-                      differences.append((path, sorted(left), sorted(right), 'key mismatch'))
-                      return
+                  assert isinstance(left, dict) and isinstance(right, dict), path
+                  assert set(left) == set(right), path
                   for key in sorted(left):
                       compare(left[key], right[key], f'{path}.{key}')
                   return
               if isinstance(left, list) or isinstance(right, list):
-                  if not isinstance(left, list) or not isinstance(right, list):
-                      differences.append((path, type(left).__name__, type(right).__name__, 'list mismatch'))
-                      return
-                  if len(left) != len(right):
-                      differences.append((path, len(left), len(right), 'length mismatch'))
-                      return
+                  assert isinstance(left, list) and isinstance(right, list), path
+                  assert len(left) == len(right), path
                   for index, (left_item, right_item) in enumerate(zip(left, right, strict=True)):
                       compare(left_item, right_item, f'{path}[{index}]')
                   return
-              if type(left) is not type(right) or left != right:
-                  differences.append((path, left, right, 'value mismatch'))
+              assert type(left) is type(right) and left == right, path
 
           compare(expected, actual)
-          if differences:
-              for difference in differences[:20]:
-                  print(difference)
-              raise SystemExit(f'{len(differences)} reference differences exceeded tolerance')
-          print('Reference audit reproduced with identical structure and all floats within rtol=1e-10, atol=1e-12.')
           PY
 
       - name: Run focused paired-protocol tests
