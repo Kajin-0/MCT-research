@@ -46,11 +46,15 @@ def test_source_readiness_gate_is_closed() -> None:
 
 
 def test_declared_synthetic_sampling_and_range_are_deterministic() -> None:
+    payload = load_payload()
+    assert payload["synthetic_screen"]["source_domain_upper_margin_at_truth_eV"] == pytest.approx(
+        0.002
+    )
     result = audit(INPUT)
     assert result["synthetic_point_count"] == 105
     assert result["synthetic_tail_point_count_at_truth"] == 14
     assert result["synthetic_absorption_range_cm1"] == pytest.approx(
-        [525.9907333699302, 22945.053992721336],
+        [525.9907333699302, 22828.283320324157],
         rel=1e-12,
         abs=1e-12,
     )
@@ -65,20 +69,20 @@ def test_local_weighted_identifiability_matches_reference() -> None:
         "log_amplitude",
     ]
     assert result["weighted_jacobian_condition_number"] == pytest.approx(
-        255.6884697507069,
+        256.1138212167682,
         rel=1e-8,
     )
     errors = result["linearized_standard_errors"]
-    assert errors["edge_meV"] == pytest.approx(0.34545, rel=2e-4)
-    assert errors["relative_urbach_width"] == pytest.approx(0.02416477, rel=2e-6)
-    assert errors["relative_hyperbola_b"] == pytest.approx(0.01844270, rel=2e-6)
-    assert errors["relative_amplitude"] == pytest.approx(0.01299676, rel=2e-6)
+    assert errors["edge_meV"] == pytest.approx(0.34567444, rel=2e-7)
+    assert errors["relative_urbach_width"] == pytest.approx(0.0241671902, rel=2e-7)
+    assert errors["relative_hyperbola_b"] == pytest.approx(0.0185020186, rel=2e-7)
+    assert errors["relative_amplitude"] == pytest.approx(0.0130587056, rel=2e-7)
     correlations = result["correlations"]
-    assert correlations["edge_log_urbach_width"] == pytest.approx(0.73098464, rel=2e-7)
-    assert correlations["edge_log_hyperbola_b"] == pytest.approx(0.80113858, rel=2e-7)
+    assert correlations["edge_log_urbach_width"] == pytest.approx(0.730956113, rel=2e-8)
+    assert correlations["edge_log_hyperbola_b"] == pytest.approx(0.801165572, rel=2e-8)
     assert correlations["log_hyperbola_b_log_amplitude"] == pytest.approx(
-        -0.92953996,
-        rel=2e-7,
+        -0.930115592,
+        rel=2e-8,
     )
 
 
@@ -94,8 +98,8 @@ def test_transferred_urbach_width_can_bias_edge_by_mev_scale() -> None:
     for scale, expected in expected_biases.items():
         assert records[scale]["edge_bias_meV"] == pytest.approx(expected, abs=0.006)
     assert records[1.1]["root_mean_square_log_residual"] == pytest.approx(
-        0.0201320835,
-        rel=1e-7,
+        0.020129709231006543,
+        rel=1e-9,
     )
 
 
@@ -103,7 +107,7 @@ def test_transferred_hyperbola_b_can_bias_edge_while_fit_looks_close() -> None:
     records = profile_map(audit(INPUT)["fixed_hyperbola_b_profiles"])
     expected_biases = {
         0.9: -0.975,
-        0.95: -0.470,
+        0.95: -0.465,
         1.0: 0.000,
         1.03: 0.265,
         1.05: 0.435,
@@ -112,8 +116,8 @@ def test_transferred_hyperbola_b_can_bias_edge_while_fit_looks_close() -> None:
     for scale, expected in expected_biases.items():
         assert records[scale]["edge_bias_meV"] == pytest.approx(expected, abs=0.006)
     assert records[1.03]["root_mean_square_log_residual"] == pytest.approx(
-        0.00568234195,
-        rel=1e-7,
+        0.005663499044781064,
+        rel=1e-9,
     )
     assert audit(INPUT)["visually_small_residual_can_mask_mev_scale_edge_bias"] is True
 
