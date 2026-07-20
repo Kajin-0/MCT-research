@@ -1,7 +1,7 @@
 # Active research progress
 
 **Last updated:** 2026-07-19  
-**Controlling ref:** `main` plus draft manuscript PR #131
+**Controlling ref:** `main`
 
 Detailed results live in `research/decision_records/` and `validation/*_reference_result.json`. This file records the program-level decisions that control new work.
 
@@ -22,7 +22,7 @@ Detailed results live in `research/decision_records/` and `validation/*_referenc
 
 ## HgCdTe gap program
 
-The leading provisional temperature law remains:
+The previously leading provisional temperature law is retained as an archived candidate:
 
 ```text
 Eg(x,T) = Eg_Hansen(x,0) + 5.918273117836612e-4
@@ -31,6 +31,10 @@ Eg(x,T) = Eg_Hansen(x,0) + 5.918273117836612e-4
 
 It is a constrained Seiler-family parameterization, not a new functional family or production equation.
 
+- Chu 1991 provides an independent `x=0.276`, 6-300 K absorption-turning-point series. The observed same-specimen shift is `61 meV`; Hansen predicts `70.466 meV` and the provisional Padé law predicts `79.096 meV`.
+- Anchored thermal-increment MAE is `7.215 meV` for Hansen and `11.725 meV` for the provisional Padé law. Across the conservative `x=0.276 +/- 0.005` interval, the minimum Padé MAE (`10.829 meV`) exceeds the maximum Hansen MAE (`8.011 meV`).
+- The provisional Padé law therefore does not retain its previously claimed broad cross-source transfer advantage. It must not be described as the leading candidate without this qualification.
+- This result does not select Hansen or another universal law because the source is an absorption turning-point observation class with printed figure labels, not an observation-class-controlled latent-gap series.
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
 - The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target for separating latent gap, observation class, carrier state, and vacancy state.
@@ -62,6 +66,7 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 - The exporter returns all valid candidates, exclusions, separate model/threshold envelopes, a combined envelope, and the SHA-256 of the complete input assumptions.
 - The candidate ensemble includes fractional-power models and fixed thresholds. The prior-art Chu 1994 Kane-region model may be enabled within `0.170 <= x <= 0.443` and `77 <= T <= 300 K`.
 - The exporter never selects a recommended or corrected material gap.
+- Deterministic seven-candidate example: combined span `19.95223 meV`, model-family span `9.14375 meV`, threshold span `9.95726 meV`, and half-range `9.97612 meV`.
 - Research uncertainty export is authorized. Production correction and single-edge selection remain forbidden.
 
 ## Real-spectrum manuscript result
@@ -80,7 +85,6 @@ x=0.310, T=300 K, d=4.95 um, 115 derived points
 - Operational threshold choice changes the nominal closest material comparator. No threshold is identified with the latent gap.
 - Published Seiler 1990 is nominally closest for every fractional/Chu fitted edge, but its advantage over Hansen is only `0.177-0.255 meV`.
 - Because specimen-level composition uncertainty is unreported and both spectra come from one study, the Seiler-Hansen ordering is descriptive only. Strict material-law ranking is not authorized.
-- Chang 2006 remains a useful low-temperature target, but its plotted experimental markers overlap fitted curves. Forced digitization is unauthorized without raw points or a cleaner source asset.
 
 ## Manuscript freeze
 
@@ -88,28 +92,24 @@ Breadth-first exploration is complete. The active manuscript objective is:
 
 > **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
 
-The scientific, bibliography, target-journal, deterministic-asset, editable-LaTeX, technical-review, and PDF-render gates are satisfied in draft PR #131.
+The scientific, bibliography, deterministic-asset, editable-LaTeX, technical-review, and rendered-PDF gates are satisfied in draft PR #131. The manuscript already treats the Hansen-Padé relation only as a provisional comparator and does not claim broad transfer superiority, so the Chu 1991 result does not require expansion of the manuscript scope.
 
-The reviewed manuscript head is `a249c30d21c8f0a46c36ca91d6c85f8cce1ad2bf`:
+PR #131 remains draft because author-specific submission fields are unresolved:
 
-```text
-focused manuscript workflow   29704457275   success
-Python 3.11/3.13 workflow     29704457252   success
-IRPT LaTeX workflow            29704457256   success
-PDF artifact                   8447468840    18 pages, visually inspected
-```
+- author list, affiliations, corresponding author, and postal address;
+- public archive DOI or final repository URL;
+- funding, competing-interest, acknowledgment, and CRediT statements;
+- conflict-free suggested reviewers.
 
-No further scientific implementation, source screening, figure generation, or manuscript restructuring is authorized for this submission unless it corrects an identified defect or changes a controlling conclusion.
+The branch must preserve the current `main` evidence state before final merge or submission. Technical workflows must be rerun after synchronization.
 
 ## Authorized next work
 
-1. Supply and verify author names, affiliations, corresponding-author details, and postal address.
-2. Add the public archive DOI or final repository URL.
-3. Confirm funding, competing-interest, acknowledgment, and CRediT statements.
-4. Select conflict-free suggested reviewers.
-5. Perform the author-controlled final approval, then mark PR #131 ready and merge or submit the package.
-6. Add low-temperature, native-export, or independent cross-laboratory evidence only if it becomes available cleanly and changes a controlling conclusion; do not resume broad source accumulation.
-7. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+1. Keep PR #131 synchronized with `main` without changing its central claim or frozen numerical results.
+2. Complete only the author-supplied administrative fields required for journal submission.
+3. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if a full Herrmann observation operator remains manuscript-critical.
+4. In parallel only, define one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+5. Reopen material-law development only with paired or observation-class-controlled independent evidence.
 
 ## Explicitly unauthorized
 
@@ -117,9 +117,7 @@ No further scientific implementation, source screening, figure generation, or ma
 - treating old redundant Hamiltonian degrees of freedom or variance-scaled standard errors as current;
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
-- strict Seiler-versus-Hansen ranking from the two Moazzami specimens;
 - single-edge selection from the uncertainty ensemble;
-- forced digitization of overlapping Chang 2006 points;
 - broad source accumulation without a manuscript-critical data target;
 - additional micro-PRs that only restate an unchanged authorization boundary;
 - A1 execution, further response-threshold tightening, 120-band static reruns, alloy production work, or unsupported novelty claims.
