@@ -1,0 +1,34 @@
+{
+  "candidate_count": 8,
+  "candidate_role_assignments": 9,
+  "confirmed_gate_count": 0,
+  "confirmed_role_count": 0,
+  "controlling_blocker_count": 6,
+  "covered_role_count": 7,
+  "days_from_evidence_date_to_maglab_deadline": 116,
+  "decision": {
+    "candidate_endorsement_authorized": false,
+    "direct_outreach_performed": false,
+    "feasibility_readiness_promotion_authorized": false,
+    "gate_confirmation_authorized": false,
+    "next_action": "documented_candidate_outreach",
+    "public_candidate_landscape_authorized": true,
+    "role_confirmation_authorized": false
+  },
+  "feasibility_readiness_promoted": false,
+  "landscape_id": "hgcdte_paired_gap_public_candidates_2026-07-20",
+  "next_maglab_deadline": "2026-11-13",
+  "official_source_count": 14,
+  "priority_1_candidate_count": 6,
+  "priority_2_candidate_count": 2,
+  "recommended_first_contact_ids": [
+    "uic_microphysics_laboratory",
+    "national_maglab_ir_thz",
+    "wsu_positron_annihilation_spectrometer",
+    "ut_austin_epma",
+    "utk_electromagnetic_properties_lab"
+  ],
+  "schema_version": "1.0",
+  "target_role_count": 7,
+  "unresolved_candidate_gate_count": 53
+}
