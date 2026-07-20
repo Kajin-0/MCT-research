@@ -27,6 +27,7 @@ LN_ALPHA0_X_COEFFICIENT = 53.61
 E0_CONSTANT_EV = -0.3424
 E0_X_COEFFICIENT_EV = 1.838
 E0_X4_COEFFICIENT_EV = 0.148
+_BOUNDARY_TOLERANCE_CM1 = 1.0e-9
 
 
 def _finite(value: float, *, name: str) -> float:
@@ -58,12 +59,13 @@ def _validate_temperature(temperature_k: float) -> float:
 
 def _validate_absorption(absorption_cm1: float) -> float:
     absorption = _finite(absorption_cm1, name="absorption_cm1")
-    if not ABSORPTION_RANGE_CM1[0] <= absorption <= ABSORPTION_RANGE_CM1[1]:
+    lower, upper = ABSORPTION_RANGE_CM1
+    if absorption < lower - _BOUNDARY_TOLERANCE_CM1 or absorption > upper + _BOUNDARY_TOLERANCE_CM1:
         raise ValueError(
             "Finkman 1984 operator requires absorption_cm1 in "
-            f"[{ABSORPTION_RANGE_CM1[0]}, {ABSORPTION_RANGE_CM1[1]}]"
+            f"[{lower}, {upper}]"
         )
-    return absorption
+    return min(max(absorption, lower), upper)
 
 
 def source_edge_origin_ev(composition_x: float) -> float:
