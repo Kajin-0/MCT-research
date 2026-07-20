@@ -7,180 +7,50 @@ on:
       - '.github/workflows/bootstrap-paired-hgcdte-protocol.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  materialize:
+  extract:
     runs-on: ubuntu-24.04
-    if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - name: Check out pull-request branch
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
+      - uses: actions/checkout@v7
 
-      - name: Verify and decode audited protocol package
+      - name: Verify package identity
+        shell: bash
+        run: |
+          cat .github/paired_protocol_bundle.part* > /tmp/paired_protocol.b64
+          test "$(wc -c < /tmp/paired_protocol.b64)" -eq 25392
+          echo "a6ddc3fc75d510bfc2607bd04a9adbf890d4d1cc0978897583c314c09b661eeb  /tmp/paired_protocol.b64" | sha256sum -c -
+          base64 --decode /tmp/paired_protocol.b64 > /tmp/paired_protocol.tar.gz
+          test "$(wc -c < /tmp/paired_protocol.tar.gz)" -eq 19043
+          echo "4db730c660c8d91c4e9c750317e3f1cb0360998478b67bead41fb452a3dd03e7  /tmp/paired_protocol.tar.gz" | sha256sum -c -
+
+      - name: Extract package safely
         run: |
           python - <<'PY'
-          import base64
-          import hashlib
-          import io
           from pathlib import Path
           import tarfile
 
-          parts = sorted(Path('.github').glob('paired_protocol_bundle.part*'))
-          expected_names = [f'paired_protocol_bundle.part{index:02d}' for index in range(9)]
-          if [part.name for part in parts] != expected_names:
-              raise SystemExit(f'unexpected chunk inventory: {[part.name for part in parts]}')
-          encoded = b''.join(part.read_bytes() for part in parts)
-          if len(encoded) != 25392:
-              raise SystemExit(f'encoded length changed: {len(encoded)}')
-          encoded_digest = hashlib.sha256(encoded).hexdigest()
-          if encoded_digest != 'a6ddc3fc75d510bfc2607bd04a9adbf890d4d1cc0978897583c314c09b661eeb':
-              raise SystemExit(f'encoded digest mismatch: {encoded_digest}')
-          archive = base64.b64decode(encoded, validate=True)
-          archive_digest = hashlib.sha256(archive).hexdigest()
-          if len(archive) != 19043 or archive_digest != '4db730c660c8d91c4e9c750317e3f1cb0360998478b67bead41fb452a3dd03e7':
-              raise SystemExit(
-                  f'archive identity mismatch: length={len(archive)} sha256={archive_digest}'
-              )
-          with tarfile.open(fileobj=io.BytesIO(archive), mode='r:gz') as stream:
-              root = Path('.').resolve()
+          root = Path('extracted').resolve()
+          root.mkdir()
+          with tarfile.open('/tmp/paired_protocol.tar.gz', 'r:gz') as stream:
               for member in stream.getmembers():
                   target = (root / member.name).resolve()
                   if root not in target.parents and target != root:
                       raise SystemExit(f'unsafe archive member: {member.name}')
-              stream.extractall('.')
-          for part in parts:
-              part.unlink()
-          Path('.github/workflows/bootstrap-paired-hgcdte-protocol.yml').unlink()
+              stream.extractall(root)
           PY
 
-      - name: Normalize cross-BLAS frozen-result assertion
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path('tests/test_hgcdte_paired_gap_protocol.py')
-          text = path.read_text(encoding='utf-8')
-          marker = 'def test_frozen_reference_audit_matches_planning_result() -> None:\n'
-          old = '    assert reference["temperature_blocks"] == result["temperature_blocks"]\n'
-          new = '    assert_nested_close(reference["temperature_blocks"], result["temperature_blocks"])\n'
-          helper = '''def assert_nested_close(left: object, right: object) -> None:
-              if isinstance(left, dict):
-                  assert isinstance(right, dict)
-                  assert set(left) == set(right)
-                  for key in left:
-                      assert_nested_close(left[key], right[key])
-                  return
-              if isinstance(left, list):
-                  assert isinstance(right, list)
-                  assert len(left) == len(right)
-                  for left_item, right_item in zip(left, right, strict=True):
-                      assert_nested_close(left_item, right_item)
-                  return
-              if isinstance(left, float):
-                  assert isinstance(right, (int, float))
-                  assert math.isclose(left, float(right), rel_tol=1e-10, abs_tol=1e-12)
-                  return
-              assert left == right
-
-
-'''
-          if marker not in text or old not in text:
-              raise SystemExit('expected frozen-reference assertion was not found')
-          if 'def assert_nested_close(' not in text:
-              text = text.replace(marker, helper + marker, 1)
-          text = text.replace(old, new, 1)
-          path.write_text(text, encoding='utf-8')
-          PY
-
-      - name: Upload extracted protocol package
+      - name: Upload extracted package
         uses: actions/upload-artifact@v4
         with:
           name: paired-hgcdte-protocol-package
           path: |
-            protocols/hgcdte_paired_gap_acquisition_protocol.md
-            data/templates/hgcdte_paired_gap_acquisition_template.json
-            tools/audit_hgcdte_paired_gap_acquisition.py
-            data/derived/hgcdte_paired_gap_protocol_reference_audit.json
-            tests/test_hgcdte_paired_gap_protocol.py
-            research/decision_records/2026-07-19-paired-hgcdte-acquisition-protocol.md
+            extracted/protocols/hgcdte_paired_gap_acquisition_protocol.md
+            extracted/data/templates/hgcdte_paired_gap_acquisition_template.json
+            extracted/tools/audit_hgcdte_paired_gap_acquisition.py
+            extracted/data/derived/hgcdte_paired_gap_protocol_reference_audit.json
+            extracted/tests/test_hgcdte_paired_gap_protocol.py
+            extracted/research/decision_records/2026-07-19-paired-hgcdte-acquisition-protocol.md
           if-no-files-found: error
           retention-days: 30
-
-      - name: Install validation dependencies
-        run: python -m pip install -e . pytest
-
-      - name: Regenerate planning reference audit
-        run: |
-          python tools/audit_hgcdte_paired_gap_acquisition.py \
-            --input-json data/templates/hgcdte_paired_gap_acquisition_template.json \
-            --mode planning \
-            --output-json /tmp/regenerated_reference.json \
-            > /tmp/paired_protocol_audit.txt
-
-      - name: Compare planning reference semantically
-        run: |
-          python - <<'PY'
-          import json
-          import math
-          from pathlib import Path
-
-          expected = json.loads(Path('data/derived/hgcdte_paired_gap_protocol_reference_audit.json').read_text(encoding='utf-8'))
-          actual = json.loads(Path('/tmp/regenerated_reference.json').read_text(encoding='utf-8'))
-
-          def compare(left, right, path='$'):
-              if isinstance(left, bool) or isinstance(right, bool):
-                  assert type(left) is type(right) and left == right, path
-                  return
-              if isinstance(left, int) or isinstance(right, int):
-                  assert type(left) is type(right) and left == right, path
-                  return
-              if isinstance(left, float) or isinstance(right, float):
-                  assert isinstance(left, (int, float)) and isinstance(right, (int, float)), path
-                  assert math.isclose(float(left), float(right), rel_tol=1e-10, abs_tol=1e-12), path
-                  return
-              if isinstance(left, dict) or isinstance(right, dict):
-                  assert isinstance(left, dict) and isinstance(right, dict), path
-                  assert set(left) == set(right), path
-                  for key in sorted(left):
-                      compare(left[key], right[key], f'{path}.{key}')
-                  return
-              if isinstance(left, list) or isinstance(right, list):
-                  assert isinstance(left, list) and isinstance(right, list), path
-                  assert len(left) == len(right), path
-                  for index, (left_item, right_item) in enumerate(zip(left, right, strict=True)):
-                      compare(left_item, right_item, f'{path}[{index}]')
-                  return
-              assert type(left) is type(right) and left == right, path
-
-          compare(expected, actual)
-          PY
-
-      - name: Run focused paired-protocol tests
-        run: |
-          set -o pipefail
-          pytest -vv tests/test_hgcdte_paired_gap_protocol.py \
-            2>&1 | tee /tmp/paired_protocol_pytest.txt
-
-      - name: Upload validation diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: paired-hgcdte-protocol-validation
-          path: |
-            /tmp/paired_protocol_audit.txt
-            /tmp/regenerated_reference.json
-            /tmp/paired_protocol_pytest.txt
-          if-no-files-found: warn
-          retention-days: 7
-
-      - name: Commit generated protocol files
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Freeze paired HgCdTe acquisition protocol'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
