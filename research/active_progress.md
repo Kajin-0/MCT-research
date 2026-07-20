@@ -142,6 +142,8 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 - The candidate ensemble includes fractional-power models and fixed thresholds. The prior-art Chu 1994 Kane-region model may be enabled within `0.170 <= x <= 0.443` and `77 <= T <= 300 K`.
 - The Chang 2006 nonparabolic-Urbach operator may be enabled only within `0.21 <= x <= 0.23`, `77 <= T <= 80 K`, and `-0.020 <= E-Eg <= 0.300 eV`. It requires explicit provenance-bound `W` and `b`, continuity normalization at `E0=Eg+W/2`, and separate tail/intrinsic branch coverage.
 - The Chang candidate is an observation-model sensitivity operator, not a material-gap law. Free joint fitting of `W`, `b`, and `Eg` is not authorized in the current tranche.
+- Chang 2006 Figure 2 is not authorized as a quantitative operator validation dataset: the caption reports `80 K` while the body reports `77 K`, native numerical data and calibration are absent, and same-specimen `W` and `b` are not tabulated. The reported `b=103+/-2 meV` belongs to a separate `x=0.23`, `77 K` calculation and cannot be transferred as exact for the `x=0.21` figure.
+- A declared synthetic Figure-2-like screen gives a weighted Jacobian condition number of `255.7`, `corr(Eg,ln W)=0.731`, and `corr(Eg,ln b)=0.801`. Fixed `W` errors of `+/-10-20%` move the recovered edge by approximately `0.8-1.7 meV` while retaining visually small residuals. These are sensitivity diagnostics, not real-specimen uncertainties.
 - The recovered Herrmann 1992/1993 chain does not define a complete executable model: the high-energy Anderson branch, explicit band-filling factors, carrier-density/quasi-Fermi mapping, and Kane parameter conventions remain external. Hybrid implementation is blocked.
 - Herrmann 1993 Table I is preserved only as an eight-row secondary model-validation comparison. Its transition-offset MAE is `2.35 meV` with a maximum absolute error of `8.4 meV`; its transition-absorption comparison spans a maximum factor error of `2.865`. The table is not independent gap fit evidence.
 - The exporter never selects a recommended or corrected material gap.
@@ -185,9 +187,10 @@ New work must either secure protocol-compliant paired evidence or change a contr
 
 1. Use the paired protocol as the external collaboration handoff and obtain a documented feasibility review from candidate material, composition, Hall/defect, absorption, and magneto-optical partners.
 2. Build a pre-screening pool large enough to achieve two separated carrier levels and two separated vacancy-proxy levels without changing carrier polarity or exceeding the carrier-vacancy correlation gate.
-3. Prioritize existing paired or same-specimen cross-modality evidence only when specimen lineage, measured composition, carrier state, vacancy proxy, temperature, and extraction provenance are recoverable.
-4. The Herrmann implementation path is blocked until Anderson 1977/1980, the full 1992 precursor, explicit `BFF_lh`/`BFF_hh`, carrier-density to quasi-Fermi mapping, and composition-dependent Kane conventions are recovered and jointly audited.
-5. Reopen material-law development only after independent observation-class-controlled evidence exceeds propagated composition and measurement uncertainty and remains stable under leave-one-specimen-out analysis.
+3. Recover native Chang 2006 Figure 2 absorption data, calibration, resolved temperature, and same-specimen `W` and `b` provenance before any quantitative operator validation or gap inference.
+4. Prioritize existing paired or same-specimen cross-modality evidence only when specimen lineage, measured composition, carrier state, vacancy proxy, temperature, and extraction provenance are recoverable.
+5. The Herrmann implementation path is blocked until Anderson 1977/1980, the full 1992 precursor, explicit `BFF_lh`/`BFF_hh`, carrier-density to quasi-Fermi mapping, and composition-dependent Kane conventions are recovered and jointly audited.
+6. Reopen material-law development only after independent observation-class-controlled evidence exceeds propagated composition and measurement uncertainty and remains stable under leave-one-specimen-out analysis.
 
 ## Explicitly unauthorized
 
@@ -204,6 +207,8 @@ New work must either secure protocol-compliant paired evidence or change a contr
 - additional static post-processing replication on the same physical artifact;
 - claiming static electronic-structure convergence from the independent post-processing result;
 - single-edge selection from the uncertainty ensemble;
+- quantitative gap inference or operator validation from Chang 2006 Figure 2 without native data, resolved temperature, and same-specimen `W` and `b`;
+- transferring the reported `x=0.23` Chang value of `b` as an exact input for the `x=0.21` Figure 2 specimen;
 - broad source accumulation without a decision-changing target;
 - additional micro-PRs that only restate an unchanged authorization boundary;
 - A1 execution, further response-threshold tightening, 120-band static reruns, alloy production work, or unsupported novelty claims.
