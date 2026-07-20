@@ -246,8 +246,8 @@ def audit(path: str | Path) -> dict[str, Any]:
     amplitude = float(truth["amplitude_cm1"])
     energy = _energy_grid(screen["energy_segments"])
     declared_upper_margin = float(
-    screen["source_domain_upper_margin_at_truth_eV"]
-)
+        screen["source_domain_upper_margin_at_truth_eV"]
+    )
     actual_upper_margin = float(
         CHANG_2006_RELATIVE_ENERGY_RANGE_EV[1] - (float(np.max(energy)) - edge)
     )
