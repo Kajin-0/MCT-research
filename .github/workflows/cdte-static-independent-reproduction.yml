@@ -1,0 +1,117 @@
+name: cdte-static-independent-reproduction
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/cdte-static-independent-reproduction.yml'
+      - 'tools/reproduce_cdte_static_independent.py'
+      - 'tests/test_cdte_static_independent_reproduction.py'
+      - 'first_principles/a0/cdte_finite_k_kane_smoke.json'
+      - 'first_principles/a0/cdte_corrected_static_reference_result.json'
+      - 'first_principles/a0/cdte_independent_static_reproduction.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      SOURCE_RUN_ID: '29640468978'
+      SOURCE_ARTIFACT_ID: '8428509605'
+      SOURCE_ARTIFACT_DIGEST: 'sha256:7e34882d03de1d45697586671bb8e77fc260a0993914e4ddafe3ebe1eb61ee4b'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install analysis package
+        run: python -m pip install -e . pytest
+
+      - name: Run focused synthetic tests
+        run: pytest -q tests/test_cdte_static_independent_reproduction.py
+
+      - name: Download immutable physical evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: cdte-irrep-symmetry-probe-evidence
+          path: evidence
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Record source identity
+        run: |
+          mkdir -p independent-result
+          {
+            echo "source_run_id=$SOURCE_RUN_ID"
+            echo "source_artifact_id=$SOURCE_ARTIFACT_ID"
+            echo "source_artifact_digest=$SOURCE_ARTIFACT_DIGEST"
+            sha256sum evidence/cdte-kane-evidence/raw/cdte_kane.mmn
+            sha256sum evidence/cdte-kane-evidence/raw/cdte_kane.nnkp
+            sha256sum evidence/irrep-probe-evidence/raw/cdte_kane_exact_eigenvalues.json
+            sha256sum evidence/irrep-probe-evidence/raw/cdte_gamma_symmetry_probe.json
+            sha256sum evidence/irrep-probe-evidence/validated/cdte_kane_double_group_result.json
+          } > independent-result/source_identity.txt
+
+      - name: Run independent SVD and symmetry reproduction
+        run: |
+          python tools/reproduce_cdte_static_independent.py \
+            --mmn evidence/cdte-kane-evidence/raw/cdte_kane.mmn \
+            --nnkp evidence/cdte-kane-evidence/raw/cdte_kane.nnkp \
+            --eigenvalues evidence/irrep-probe-evidence/raw/cdte_kane_exact_eigenvalues.json \
+            --basis-result evidence/irrep-probe-evidence/validated/cdte_kane_double_group_result.json \
+            --symmetry-probe evidence/irrep-probe-evidence/raw/cdte_gamma_symmetry_probe.json \
+            --finite-k-contract first_principles/a0/cdte_finite_k_kane_smoke.json \
+            --reference-result first_principles/a0/cdte_corrected_static_reference_result.json \
+            --output-json independent-result/cdte_independent_static_reproduction.json \
+            > independent-result/cdte_independent_static_reproduction.stdout.txt
+
+      - name: Verify decision and independence boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('independent-result/cdte_independent_static_reproduction.json')
+              .read_text(encoding='utf-8')
+          )
+          assert result['decision']['passed'] is True
+          assert result['kpoint_contract']['holdout_used_in_training'] is False
+          assert result['invariant_spaces']['linear_dimension'] == 4
+          assert result['invariant_spaces']['quadratic_dimension'] == 10
+          boundary = result['independence_boundary']
+          assert boundary['independent_svd_polar_reconstruction'] is True
+          assert boundary['independent_symmetry_projector_from_raw_operations'] is True
+          assert boundary['imports_existing_static_postprocessing_modules'] is False
+          assert boundary['independent_electronic_structure_calculation'] is False
+          PY
+
+      - name: Compare frozen output when present
+        if: hashFiles('first_principles/a0/cdte_independent_static_reproduction.json') != ''
+        run: |
+          cmp \
+            first_principles/a0/cdte_independent_static_reproduction.json \
+            independent-result/cdte_independent_static_reproduction.json
+
+      - name: Hash reproduction evidence
+        if: always()
+        run: |
+          find independent-result -type f ! -name sha256.txt -print0 \
+            | sort -z | xargs -0 sha256sum > independent-result/sha256.txt
+
+      - name: Upload independent reproduction
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdte-independent-static-reproduction
+          path: independent-result
+          if-no-files-found: error
+          retention-days: 30
