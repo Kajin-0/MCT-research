@@ -24,77 +24,14 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Strengthen audit and update controlling ledger
+      - name: Update controlling program ledger
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          audit_path = Path('tools/audit_finkman_1984_operational_edge.py')
-          text = audit_path.read_text(encoding='utf-8')
-
-          import_anchor = '    absorption_cm1_at_energy,\n'
-          import_insert = (
-              import_anchor
-              + '    composition_from_zero_intercept_wavenumber_300k_500um,\n'
-              + '    energy_ev_to_wavenumber_cm1,\n'
-          )
-          if text.count(import_anchor) != 1:
-              raise SystemExit('unexpected Finkman audit import anchor')
-          text = text.replace(import_anchor, import_insert, 1)
-
-          semantics_anchor = '''    if zero.get("interchangeable_with_alpha_500_edge") is not False:
-              raise ValueError("zero-intercept and alpha=500 edges cannot be interchangeable")
-          '''
-          semantics_insert = semantics_anchor + '''    if zero.get("equation_13_input_quantity") != "zero_intercept_cut_on_wavenumber_cm1":
-              raise ValueError("Eq. (13) zero-intercept wavenumber semantics changed")
-              if zero.get("absorption_coefficient_and_cut_on_wavenumber_are_distinct") is not True:
-                  raise ValueError("zero-intercept absorption and wavenumber were conflated")
-          '''
-          if text.count(semantics_anchor) != 1:
-              raise SystemExit('unexpected Finkman zero-intercept semantics anchor')
-          text = text.replace(semantics_anchor, semantics_insert, 1)
-
-          zero_anchor = '''        zero_intercept_rows.append(
-                  {
-                      "composition_x": x,
-                      "temperature_K": 300.0,
-                      "thickness_um": 500.0,
-                      "zero_intercept_absorption_cm1": zero_intercept_absorption_cm1(500.0),
-                      "zero_intercept_energy_eV": zero_energy,
-                      "alpha_500_operational_edge_eV": threshold_energy,
-                      "zero_intercept_minus_alpha500_meV": 1000.0
-                      * (zero_energy - threshold_energy),
-                  }
-              )
-          '''
-          zero_insert = '''        zero_wavenumber = energy_ev_to_wavenumber_cm1(zero_energy)
-              recovered_composition = composition_from_zero_intercept_wavenumber_300k_500um(
-                  zero_wavenumber
-              )
-              zero_intercept_rows.append(
-                  {
-                      "composition_x": x,
-                      "temperature_K": 300.0,
-                      "thickness_um": 500.0,
-                      "zero_intercept_absorption_cm1": zero_intercept_absorption_cm1(500.0),
-                      "zero_intercept_energy_eV": zero_energy,
-                      "zero_intercept_cut_on_wavenumber_cm1": zero_wavenumber,
-                      "eq13_recovered_composition_x": recovered_composition,
-                      "eq13_recovery_error_x": recovered_composition - x,
-                      "alpha_500_operational_edge_eV": threshold_energy,
-                      "zero_intercept_minus_alpha500_meV": 1000.0
-                      * (zero_energy - threshold_energy),
-                  }
-              )
-          '''
-          if text.count(zero_anchor) != 1:
-              raise SystemExit('unexpected Finkman zero-intercept row anchor')
-          text = text.replace(zero_anchor, zero_insert, 1)
-          audit_path.write_text(text, encoding='utf-8')
-
-          progress_path = Path('research/active_progress.md')
-          progress = progress_path.read_text(encoding='utf-8')
-          progress_anchor = (
+          path = Path('research/active_progress.md')
+          text = path.read_text(encoding='utf-8')
+          anchor = (
               '- A declared synthetic Figure-2-like screen, with a `0.002 eV` upper '
               'source-domain margin, gives a weighted Jacobian condition number of '
               '`256.1`, `corr(Eg,ln W)=0.731`, and `corr(Eg,ln b)=0.801`. Fixed `W` '
@@ -102,7 +39,7 @@ jobs:
               'meV` while retaining visually small residuals. These are sensitivity '
               'diagnostics, not real-specimen uncertainties.\n'
           )
-          progress_insert = progress_anchor + (
+          addition = (
               '- Finkman-Schacham 1984 is preserved as a source-bound operational-edge '
               'operator for `0.205 <= x <= 0.29`, `80 <= T <= 300 K`, and '
               '`20 <= alpha <= 1000 cm^-1`. Its source-labeled `Eg` is explicitly the '
@@ -114,12 +51,9 @@ jobs:
               '300 K. Eq. (13) uses cut-on wavenumber `Zi`, not absorption `e/d`; those '
               'coordinates are not interchangeable.\n'
           )
-          if progress.count(progress_anchor) != 1:
+          if text.count(anchor) != 1:
               raise SystemExit('unexpected active-progress Finkman anchor')
-          progress_path.write_text(
-              progress.replace(progress_anchor, progress_insert, 1),
-              encoding='utf-8',
-          )
+          path.write_text(text.replace(anchor, anchor + addition, 1), encoding='utf-8')
           PY
 
       - name: Run focused operational-edge audit
