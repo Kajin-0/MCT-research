@@ -1,0 +1,86 @@
+name: bootstrap-yue2006-vacancy-anomaly
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/bootstrap-yue2006-vacancy-anomaly.yml'
+      - 'src/mct_research/yue_2006_vacancy_anomaly.py'
+      - 'data/evidence/yue_2006_vacancy_anomaly.json'
+      - 'tools/audit_yue_2006_vacancy_anomaly.py'
+      - 'tests/test_yue_2006_vacancy_anomaly.py'
+      - 'research/decision_records/2026-07-20-yue2006-vacancy-anomaly.md'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-24.04
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Check out pull-request branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Update controlling program ledger
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('research/active_progress.md')
+          text = path.read_text(encoding='utf-8')
+          anchor = (
+              '- This source strengthens the paired protocol requirement for an achieved '
+              'vacancy-state covariate. Full operator implementation, same-specimen '
+              'causality, uncertainty-weighted fitting, latent-gap correction, and a '
+              'universal vacancy coefficient remain blocked until the primary full text '
+              'and complete specimen metadata are recovered.\n'
+          )
+          addition = (
+              '- Yue et al. 2006 adds an exact five-specimen, `11-300 K` processing-conditioned '
+              'anomaly table. Four samples show extrapolated `deltaE=9.7-11.3 meV`; the '
+              '`240 C/24 h` Hg-vapor M17 condition alone is monotonic with `deltaE=0`. '
+              'The source treats this anneal as optimized for removing Hg vacancies.\n'
+              '- The Yue compositions are inferred from the `11 K` absorption spectrum '
+              'and are circular for material-law validation. Thick bulk and thin MBE '
+              'specimens use different critical-point operators; carrier densities are '
+              'reported at `77 K` and `300 K`, respectively. The result supports a '
+              'conditional processing control, not direct vacancy metrology, same-specimen '
+              'causality, or a universal approximately `10 meV` correction.\n'
+          )
+          if text.count(anchor) != 1:
+              raise SystemExit('unexpected active-progress Yue anchor')
+          path.write_text(text.replace(anchor, anchor + addition, 1), encoding='utf-8')
+          PY
+
+      - name: Run focused vacancy-anomaly audit
+        run: |
+          set -o pipefail
+          python -m pip install -e . pytest
+          pytest -vv tests/test_yue_2006_vacancy_anomaly.py \
+            2>&1 | tee /tmp/yue2006-pytest.txt
+          python tools/audit_yue_2006_vacancy_anomaly.py \
+            --input-json data/evidence/yue_2006_vacancy_anomaly.json \
+            --output-json /tmp/yue2006-audit.json
+
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yue2006-vacancy-anomaly
+          path: |
+            /tmp/yue2006-pytest.txt
+            /tmp/yue2006-audit.json
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Freeze vacancy-anomaly record
+        run: |
+          rm -f .github/workflows/bootstrap-yue2006-vacancy-anomaly.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Freeze Yue 2006 vacancy-anomaly evidence'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
