@@ -1,0 +1,91 @@
+name: bootstrap-chang2006-absorption-operator
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/bootstrap-chang2006-absorption-operator.yml'
+      - 'src/mct_research/chang_2006_absorption.py'
+      - 'src/mct_research/absorption_edge_uncertainty.py'
+      - 'tests/test_chang_2006_absorption_operator.py'
+      - 'data/templates/absorption_edge_uncertainty_input.schema.json'
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-24.04
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Check out pull-request branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Integrate optional candidate into ensemble
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/mct_research/absorption_edge_uncertainty.py')
+          text = path.read_text(encoding='utf-8')
+
+          old_import = 'import numpy as np\nfrom numpy.typing import NDArray\n'
+          new_import = (
+              'import numpy as np\n'
+              'from numpy.typing import NDArray\n\n'
+              'from mct_research.chang_2006_absorption import build_chang_2006_candidate\n'
+          )
+          if text.count(old_import) != 1:
+              raise SystemExit('unexpected absorption module import anchor')
+          text = text.replace(old_import, new_import, 1)
+
+          threshold_anchor = '    threshold_candidates: list[dict[str, Any]] = []\n'
+          candidate_block = '''    chang_configuration = dict(payload["analysis_assumptions"]).get(
+              "chang_2006_nonparabolic_urbach"
+          )
+          chang_candidate = build_chang_2006_candidate(
+              chang_configuration,
+              metadata=validated["metadata"],
+              energy_ev=energy,
+              absorption_cm1=absorption,
+          )
+          if chang_candidate is not None:
+              model_candidates.append(chang_candidate)
+
+          threshold_candidates: list[dict[str, Any]] = []
+          '''
+          if text.count(threshold_anchor) != 1:
+              raise SystemExit('unexpected threshold candidate anchor')
+          text = text.replace(threshold_anchor, candidate_block, 1)
+
+          return_anchor = '    return output\n'
+          return_block = '''    if chang_configuration is not None:
+              output["analysis_assumptions"][
+                  "chang_2006_nonparabolic_urbach"
+              ] = dict(chang_configuration)
+              output["decision"]["chang_2006_candidate_is_observation_model_only"] = True
+          return output
+          '''
+          if text.count(return_anchor) != 1:
+              raise SystemExit('unexpected output return anchor')
+          text = text.replace(return_anchor, return_block, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Validate focused operator and contract tests
+        run: |
+          python -m pip install -e . pytest
+          pytest -q \
+            tests/test_chang_2006_absorption_operator.py \
+            tests/test_absorption_edge_uncertainty_contract.py
+
+      - name: Freeze integrated source
+        run: |
+          rm -f .github/workflows/bootstrap-chang2006-absorption-operator.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Integrate Chang 2006 absorption observation operator'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
