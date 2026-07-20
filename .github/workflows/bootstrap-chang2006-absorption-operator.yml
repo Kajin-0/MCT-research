@@ -42,32 +42,36 @@ jobs:
           text = text.replace(old_import, new_import, 1)
 
           threshold_anchor = '    threshold_candidates: list[dict[str, Any]] = []\n'
-          candidate_block = '''    chang_configuration = dict(payload["analysis_assumptions"]).get(
-              "chang_2006_nonparabolic_urbach"
+          candidate_block = (
+              '    chang_configuration = dict(payload["analysis_assumptions"]).get(\n'
+              '        "chang_2006_nonparabolic_urbach"\n'
+              '    )\n'
+              '    chang_candidate = build_chang_2006_candidate(\n'
+              '        chang_configuration,\n'
+              '        metadata=validated["metadata"],\n'
+              '        energy_ev=energy,\n'
+              '        absorption_cm1=absorption,\n'
+              '    )\n'
+              '    if chang_candidate is not None:\n'
+              '        model_candidates.append(chang_candidate)\n'
+              '\n'
+              '    threshold_candidates: list[dict[str, Any]] = []\n'
           )
-          chang_candidate = build_chang_2006_candidate(
-              chang_configuration,
-              metadata=validated["metadata"],
-              energy_ev=energy,
-              absorption_cm1=absorption,
-          )
-          if chang_candidate is not None:
-              model_candidates.append(chang_candidate)
-
-          threshold_candidates: list[dict[str, Any]] = []
-          '''
           if text.count(threshold_anchor) != 1:
               raise SystemExit('unexpected threshold candidate anchor')
           text = text.replace(threshold_anchor, candidate_block, 1)
 
           return_anchor = '    return output\n'
-          return_block = '''    if chang_configuration is not None:
-              output["analysis_assumptions"][
-                  "chang_2006_nonparabolic_urbach"
-              ] = dict(chang_configuration)
-              output["decision"]["chang_2006_candidate_is_observation_model_only"] = True
-          return output
-          '''
+          return_block = (
+              '    if chang_configuration is not None:\n'
+              '        output["analysis_assumptions"][\n'
+              '            "chang_2006_nonparabolic_urbach"\n'
+              '        ] = dict(chang_configuration)\n'
+              '        output["decision"][\n'
+              '            "chang_2006_candidate_is_observation_model_only"\n'
+              '        ] = True\n'
+              '    return output\n'
+          )
           if text.count(return_anchor) != 1:
               raise SystemExit('unexpected output return anchor')
           text = text.replace(return_anchor, return_block, 1)
