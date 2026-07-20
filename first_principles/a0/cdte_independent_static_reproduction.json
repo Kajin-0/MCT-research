@@ -1,0 +1,321 @@
+{
+  "coarse": {
+    "complete_linear": {
+      "condition_number": 1.0,
+      "design_rank": 4,
+      "dimension": 4,
+      "direction_relative_residuals": {
+        "001": 8.661363524127827e-05,
+        "110": 5.387954423927969e-05,
+        "111": 8.662872600376497e-05
+      },
+      "training_relative_residual": 8.662117964542108e-05
+    },
+    "complete_quadratic": {
+      "condition_number": 1.7320508075688796,
+      "design_rank": 10,
+      "dimension": 10,
+      "direction_relative_residuals": {
+        "001": 9.966307999517198e-05,
+        "110": 0.00017841048150703218,
+        "111": 8.738535333517594e-05
+      },
+      "training_relative_residual": 9.291729927280836e-05
+    },
+    "conventional_quadratic": {
+      "condition_number": 2.0000000000000004,
+      "design_rank": 4,
+      "direction_relative_residuals": {
+        "001": 0.11811777489318455,
+        "110": 0.3321713991035787,
+        "111": 0.3674358391153407
+      },
+      "parameters": {
+        "f": 0.4669561475944974,
+        "gamma1": 1.5507431250183568,
+        "gamma2": -0.2156514915700559,
+        "gamma3": 0.3178525829205308
+      },
+      "training_relative_residual": 0.2871092394103463
+    },
+    "two_p_linear": {
+      "condition_number": 1.4142135623730951,
+      "design_rank": 2,
+      "direction_relative_residuals": {
+        "001": 0.0082037647677205,
+        "110": 0.008199939183410047,
+        "111": 0.008199045068879285
+      },
+      "parameters": {
+        "p7": 6.201099048936106,
+        "p8": 6.7712573233795075
+      },
+      "training_relative_residual": 0.008201405666181032
+    }
+  },
+  "decision": {
+    "additional_electronic_structure_compute_authorized": false,
+    "claim_boundary": "A pass independently reproduces the post-processing conclusion on the same immutable physical artifact. It does not validate PBE, the pseudopotentials, planning geometry, or convergence and does not turn the fitted coefficients into reference CdTe parameters.",
+    "complete_linear_space_reproduced": true,
+    "complete_quadratic_space_reproduced": true,
+    "conventional_quadratic_failure_reproduced": true,
+    "gates": {
+      "complete_linear_holdout": true,
+      "complete_linear_training": true,
+      "complete_quadratic_holdout": true,
+      "complete_quadratic_training": true,
+      "conventional_quadratic_holdout_failure": true,
+      "conventional_quadratic_training_failure": true,
+      "holdout_not_trained": true,
+      "linear_dimension": true,
+      "minimum_overlap": true,
+      "p7_radius_stability": true,
+      "p8_radius_stability": true,
+      "quadratic_dimension": true,
+      "reference_scalar_agreement": true,
+      "selected_eigenvalue_error": true
+    },
+    "passed": true,
+    "selected_band_method_reproduced": true
+  },
+  "fine": {
+    "complete_linear": {
+      "condition_number": 1.0,
+      "design_rank": 4,
+      "dimension": 4,
+      "direction_relative_residuals": {
+        "001": 2.1672510881979802e-05,
+        "110": 1.3457741449065683e-05,
+        "111": 2.167381174938849e-05
+      },
+      "training_relative_residual": 2.16731612972841e-05
+    },
+    "complete_quadratic": {
+      "condition_number": 1.7320508075688796,
+      "design_rank": 10,
+      "dimension": 10,
+      "direction_relative_residuals": {
+        "001": 2.708859903373508e-05,
+        "110": 4.687536812924053e-05,
+        "111": 2.4252597926369472e-05
+      },
+      "training_relative_residual": 2.5523419983307564e-05
+    },
+    "conventional_quadratic": {
+      "condition_number": 2.0000000000000004,
+      "design_rank": 4,
+      "direction_relative_residuals": {
+        "001": 0.11814379130817117,
+        "110": 0.3321269349486706,
+        "111": 0.36739839370597577
+      },
+      "parameters": {
+        "f": 0.466998641004425,
+        "gamma1": 1.550876135464577,
+        "gamma2": -0.2157428798474528,
+        "gamma3": 0.31777506481578205
+      },
+      "training_relative_residual": 0.2870605320841835
+    },
+    "two_p_linear": {
+      "condition_number": 1.4142135623730951,
+      "design_rank": 2,
+      "direction_relative_residuals": {
+        "001": 0.008202221228744498,
+        "110": 0.008201276489629589,
+        "111": 0.008201007720579785
+      },
+      "parameters": {
+        "p7": 6.201644052367641,
+        "p8": 6.7719807944690285
+      },
+      "training_relative_residual": 0.008201614523374975
+    }
+  },
+  "independence_boundary": {
+    "imports_existing_static_postprocessing_modules": false,
+    "independent_electronic_structure_calculation": false,
+    "independent_mmn_parser": true,
+    "independent_svd_polar_reconstruction": true,
+    "independent_symmetry_projector_from_raw_operations": true,
+    "same_physical_qe_artifact": true
+  },
+  "input_sha256": {
+    "canonical_basis_result": "ee4b56841085b376137ff1e8fabd753079c1093eacbb635db6dfb4416bde5ea7",
+    "controlling_reference_comparison_only": "20143f2fcd8bdc14fcbcaf67285e63e681a1a077ddc58f332185f3bf1360ac42",
+    "exact_qe_eigenvalues": "ca1c87c6882e19903b747dcdf5a66db0d70f2c5a920bf6b39794298b7357e2e2",
+    "finite_k_contract": "3b58bd8d13aaf91247232af213f48750782d52a2999790fd596af8ec03a8d4e4",
+    "mmn": "f2933784a32f90e8963790d951dee84a98612b19f75fb4ca0ff26e2af9227ad7",
+    "nnkp": "b3b61ff5ee77c271691a6b19e006dd3003bc33c308e1ac12bc77a7f539ee262a",
+    "raw_symmetry_probe": "7467b1da026d51599e0086f16103aa926f526a3f6a54f6c6d67e9489071ff775"
+  },
+  "invariant_spaces": {
+    "linear_dimension": 4,
+    "linear_selected_projector_eigenvalues": [
+      0.9999999999999983,
+      0.9999999999999992,
+      1.0,
+      1.0000000000000007
+    ],
+    "projector_diagnostics": {
+      "linear_idempotency_residual": 3.25433331431783e-12,
+      "linear_symmetry_residual": 3.1371478359090992e-12,
+      "linear_trace": 3.9999999999998694,
+      "quadratic_idempotency_residual": 3.896955507813063e-12,
+      "quadratic_symmetry_residual": 4.443835252813746e-12,
+      "quadratic_trace": 10.0
+    },
+    "quadratic_dimension": 10,
+    "quadratic_selected_projector_eigenvalues": [
+      0.9999999999999988,
+      0.9999999999999997,
+      0.9999999999999997,
+      0.9999999999999997,
+      0.9999999999999999,
+      1.0,
+      1.0000000000000002,
+      1.0000000000000007,
+      1.0000000000000009,
+      1.0000000000000009
+    ]
+  },
+  "kpoint_contract": {
+    "holdout_directions": [
+      "110"
+    ],
+    "holdout_used_in_training": false,
+    "maximum_cartesian_residual_inverse_angstrom": 9.704965680847916e-09,
+    "training_directions": [
+      "001",
+      "111"
+    ]
+  },
+  "radius_stability": {
+    "p7_relative_range": 0.00011717053571529559,
+    "p7_values_ev_angstrom": [
+      6.201099048936106,
+      6.201644052367641,
+      6.201825720178152
+    ],
+    "p8_relative_range": 0.00014243894046458264,
+    "p8_values_ev_angstrom": [
+      6.7712573233795075,
+      6.7719807944690285,
+      6.77222195149887
+    ]
+  },
+  "reconstruction": {
+    "maximum_polar_unitarity_residual": 4.6315850630697434e-15,
+    "maximum_selected_eigenvalue_absolute_error_ev": 2.5757174171303632e-14,
+    "method": "direct SVD polar factor Q=U V^dagger for S=U Sigma V^dagger",
+    "minimum_overlap_singular_value": 0.9998015324122211
+  },
+  "reference_comparison": {
+    "complete_quadratic_110_residual_difference": 7.461694026463525e-12,
+    "complete_quadratic_training_residual_difference": 2.941516588005023e-12,
+    "conventional_quadratic_110_residual_difference": 1.8753443242758294e-11,
+    "conventional_quadratic_training_residual_difference": 1.7092438575616598e-12,
+    "p7_absolute_difference_ev_angstrom": 2.2026824808563106e-13,
+    "p8_absolute_difference_ev_angstrom": 2.824407374646398e-13
+  },
+  "richardson": {
+    "complete_linear": {
+      "condition_number": 1.0,
+      "design_rank": 4,
+      "dimension": 4,
+      "direction_relative_residuals": {
+        "001": 1.2134319191902398e-07,
+        "110": 1.4473506282991202e-07,
+        "111": 1.779653732334864e-07
+      },
+      "training_relative_residual": 1.5230863973788188e-07
+    },
+    "complete_quadratic": {
+      "condition_number": 1.7320508075688796,
+      "design_rank": 10,
+      "dimension": 10,
+      "direction_relative_residuals": {
+        "001": 1.2433118410194132e-05,
+        "110": 7.956145463638601e-06,
+        "111": 1.2635605357115e-05
+      },
+      "training_relative_residual": 1.2548029409905322e-05
+    },
+    "conventional_quadratic": {
+      "condition_number": 2.0000000000000004,
+      "design_rank": 4,
+      "direction_relative_residuals": {
+        "001": 0.11815247206083745,
+        "110": 0.33211212561244136,
+        "111": 0.36738591254816977
+      },
+      "parameters": {
+        "f": 0.46701280547440094,
+        "gamma1": 1.5509204722799832,
+        "gamma2": -0.2157733426065851,
+        "gamma3": 0.31774922544753237
+      },
+      "training_relative_residual": 0.28704430103360024
+    },
+    "two_p_linear": {
+      "condition_number": 1.4142135623730951,
+      "design_rank": 2,
+      "direction_relative_residuals": {
+        "001": 0.008201820841128249,
+        "110": 0.00820176643714677,
+        "111": 0.008201776010255355
+      },
+      "parameters": {
+        "p7": 6.201825720178152,
+        "p8": 6.77222195149887
+      },
+      "training_relative_residual": 0.008201798425723513
+    }
+  },
+  "schema_version": "1.0",
+  "sign_convention": {
+    "candidates": [
+      {
+        "gamma7_sign": 1,
+        "gamma8_sign": 1,
+        "linear_training_relative_residual": 0.008201798425723513,
+        "p7_ev_angstrom": -6.201825720178152,
+        "p8_ev_angstrom": 6.77222195149887
+      },
+      {
+        "gamma7_sign": -1,
+        "gamma8_sign": 1,
+        "linear_training_relative_residual": 0.008201798425723513,
+        "p7_ev_angstrom": 6.201825720178152,
+        "p8_ev_angstrom": 6.77222195149887
+      },
+      {
+        "gamma7_sign": 1,
+        "gamma8_sign": -1,
+        "linear_training_relative_residual": 0.008201798425723513,
+        "p7_ev_angstrom": -6.201825720178152,
+        "p8_ev_angstrom": -6.77222195149887
+      },
+      {
+        "gamma7_sign": -1,
+        "gamma8_sign": -1,
+        "linear_training_relative_residual": 0.008201798425723513,
+        "p7_ev_angstrom": 6.201825720178152,
+        "p8_ev_angstrom": -6.77222195149887
+      }
+    ],
+    "selected": {
+      "gamma7_sign": -1,
+      "gamma8_sign": 1,
+      "linear_training_relative_residual": 0.008201798425723513,
+      "p7_ev_angstrom": 6.201825720178152,
+      "p8_ev_angstrom": 6.77222195149887
+    }
+  },
+  "source_evidence": {
+    "physical_artifact_digest": "sha256:7e34882d03de1d45697586671bb8e77fc260a0993914e4ddafe3ebe1eb61ee4b",
+    "physical_artifact_id": 8428509605,
+    "physical_workflow_run": 29640468978
+  },
+  "status": "independent_static_cdte_postprocessing_reproduction"
+}
