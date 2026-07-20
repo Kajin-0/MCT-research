@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Chang 2006 Figure 2 quantitative replication readiness",
+  "source": {
+    "title": "Narrow gap HgCdTe absorption behavior near the band edge including nonparabolicity and the Urbach tail",
+    "doi": "10.1063/1.2245220",
+    "input_asset_sha256": "37a08e3fc37fc3b795b1a9d7ac3b3b662f9f96c2cad4cddbf79bc0fe3b57b41d",
+    "copyrighted_source_committed": false,
+    "figure_id": "Figure 2",
+    "figure_composition_x": 0.21,
+    "caption_temperature_K": 80,
+    "body_temperature_K": 77,
+    "temperature_metadata_consistent": false,
+    "native_numeric_data_recovered": false,
+    "calibration_metadata_recovered": false,
+    "same_specimen_urbach_width_recovered": false,
+    "same_specimen_hyperbola_b_recovered": false,
+    "figure_fit_parameters_tabulated": false,
+    "carrier_density_report": "n-type, low 1e15 cm^-3 range",
+    "reported_external_b": {
+      "value_eV": 0.103,
+      "sigma_eV": 0.002,
+      "composition_x": 0.23,
+      "temperature_K": 77,
+      "same_figure_specimen": false,
+      "admissible_as_exact_figure2_input": false
+    },
+    "source_statement_on_urbach_width": "may vary from sample to sample and from area to area within the same sample"
+  },
+  "synthetic_screen": {
+    "purpose": "parameter-confounding screen only; not an uncertainty estimate for Figure 2",
+    "truth": {
+      "edge_eV": 0.100,
+      "urbach_width_eV": 0.012,
+      "hyperbola_b_eV": 0.100,
+      "amplitude_cm1": 50000.0
+    },
+    "energy_segments": [
+      {"start_eV": 0.088, "stop_eV": 0.160, "point_count": 55},
+      {"start_eV": 0.165, "stop_eV": 0.400, "point_count": 50}
+    ],
+    "hypothetical_coordinate_uncertainty": {
+      "sigma_energy_eV": 0.0005,
+      "sigma_log_absorption": 0.03
+    },
+    "finite_difference_steps": {
+      "edge_eV": 1e-6,
+      "log_urbach_width": 1e-5,
+      "log_hyperbola_b": 1e-5,
+      "log_amplitude": 1e-5,
+      "energy_eV": 1e-6
+    },
+    "profile_edge_bounds_eV": [0.080, 0.120],
+    "profile_absorption_window_cm1": [500.0, 25000.0],
+    "profile_grid_points": 8001,
+    "urbach_width_scale_profiles": [0.8, 0.9, 1.0, 1.1, 1.2],
+    "hyperbola_b_scale_profiles": [0.9, 0.95, 1.0, 1.03, 1.05, 1.1]
+  },
+  "decision": {
+    "quantitative_operator_validation_authorized": false,
+    "figure_digitization_for_gap_inference_authorized": false,
+    "screen_only_source_recovery_priority": "high",
+    "transfer_x023_b_as_exact_x021_input_authorized": false,
+    "assign_real_specimen_uncertainty_from_synthetic_screen": false,
+    "material_gap_fit_authorized": false,
+    "reopening_requirements": [
+      "native numeric absorption data and calibration",
+      "same-specimen and same-area Urbach-width provenance",
+      "same-specimen hyperbola-b provenance or independently fixed band parameters",
+      "resolved measurement temperature",
+      "explicit carrier-state metadata",
+      "predeclared fit window and uncertainty propagation"
+    ]
+  }
+}
