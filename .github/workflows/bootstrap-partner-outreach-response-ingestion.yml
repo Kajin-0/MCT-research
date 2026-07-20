@@ -1,0 +1,147 @@
+name: bootstrap-partner-outreach-response-ingestion
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/bootstrap-partner-outreach-response-ingestion.yml'
+      - 'protocols/hgcdte_paired_gap_partner_outreach_packet.md'
+      - 'data/templates/hgcdte_paired_gap_partner_outreach_response_template.json'
+      - 'tools/audit_hgcdte_partner_outreach_response.py'
+      - 'tests/test_hgcdte_partner_outreach_response.py'
+      - 'research/decision_records/2026-07-20-partner-outreach-response-ingestion.md'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-24.04
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Check out pull-request branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Make contact status event-derived and update active program
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          audit_path = Path('tools/audit_hgcdte_partner_outreach_response.py')
+          text = audit_path.read_text(encoding='utf-8')
+          old_boundary = '''EXPECTED_BOUNDARY = {
+              "messages_sent": False,
+              "direct_outreach_performed": False,
+              "private_contact_details_committed": False,
+              "candidate_endorsement_authorized": False,
+              "role_or_gate_confirmation_authorized": False,
+              "automatic_feasibility_mutation_authorized": False,
+              "funding_or_publication_promised": False,
+          }
+          '''
+          new_boundary = '''EXPECTED_STATIC_BOUNDARY = {
+              "private_contact_details_committed": False,
+              "candidate_endorsement_authorized": False,
+              "role_or_gate_confirmation_authorized": False,
+              "automatic_feasibility_mutation_authorized": False,
+              "funding_or_publication_promised": False,
+          }
+          '''
+          if text.count(old_boundary) != 1:
+              raise SystemExit('unexpected outreach boundary constant anchor')
+          text = text.replace(old_boundary, new_boundary, 1)
+
+          old_check = '''    if data.get("claim_boundary") != EXPECTED_BOUNDARY:
+                  raise ValueError("outreach claim boundary changed")
+          '''
+          new_check = '''    boundary = data.get("claim_boundary")
+              if not isinstance(boundary, dict):
+                  raise ValueError("outreach claim boundary missing")
+              static_boundary = {
+                  key: boundary.get(key) for key in EXPECTED_STATIC_BOUNDARY
+              }
+              if static_boundary != EXPECTED_STATIC_BOUNDARY:
+                  raise ValueError("outreach claim boundary changed")
+              if not isinstance(boundary.get("messages_sent"), bool):
+                  raise ValueError("messages-sent status must be boolean")
+              if not isinstance(boundary.get("direct_outreach_performed"), bool):
+                  raise ValueError("direct-outreach status must be boolean")
+          '''
+          if text.count(old_check) != 1:
+              raise SystemExit('unexpected outreach boundary check anchor')
+          text = text.replace(old_check, new_check, 1)
+
+          old_initial = '''    initial_state = sent_count == 0 and response_count == 0
+          '''
+          new_initial = '''    if boundary["messages_sent"] is not (sent_count > 0):
+                  raise ValueError("messages-sent status disagrees with event evidence")
+              if boundary["direct_outreach_performed"] is not (sent_count > 0):
+                  raise ValueError("direct-outreach status disagrees with event evidence")
+
+              initial_state = sent_count == 0 and response_count == 0
+          '''
+          if text.count(old_initial) != 1:
+              raise SystemExit('unexpected outreach dynamic-status anchor')
+          text = text.replace(old_initial, new_initial, 1)
+          audit_path.write_text(text, encoding='utf-8')
+
+          progress_path = Path('research/active_progress.md')
+          progress = progress_path.read_text(encoding='utf-8')
+          anchor = (
+              'Issue #163 maps eight public-evidence-only candidate facilities across all '
+              'seven external capability roles. Public webpages confirm no role or hard '
+              'gate, so the PR #162 package remains `not_ready`. The first contact sequence '
+              'is UIC Microphysics Laboratory, National MagLab, Washington State University '
+              'PAS, UT Austin EPMA, and UT Knoxville Hall. The accessed MagLab page lists '
+              '`2026-11-13` as the next proposal deadline; this is a planning date, not '
+              'reserved access.\n\n'
+          )
+          insert = anchor + (
+              'Issue #165 freezes reviewable first-contact drafts and an event-based '
+              'response-ingestion contract for the five priority candidates. The initial '
+              'package has five drafts, zero approvals, zero external sends, and zero '
+              'responses. No sender identity or recipient is assumed, and even a complete '
+              'written response can only recommend a feasibility update through a separate '
+              'reviewed change.\n\n'
+          )
+          if progress.count(anchor) != 1:
+              raise SystemExit('unexpected outreach active-progress anchor')
+          progress_path.write_text(progress.replace(anchor, insert, 1), encoding='utf-8')
+          PY
+
+      - name: Run focused outreach-response audit
+        run: |
+          set -o pipefail
+          python -m pip install -e . pytest
+          python tools/audit_hgcdte_partner_outreach_response.py \
+            --input-json data/templates/hgcdte_paired_gap_partner_outreach_response_template.json \
+            --output-json data/derived/hgcdte_paired_gap_partner_outreach_response_reference_audit.json
+          pytest -vv tests/test_hgcdte_partner_outreach_response.py \
+            2>&1 | tee /tmp/partner-outreach-response-pytest.txt
+          python tools/audit_hgcdte_partner_outreach_response.py \
+            --input-json data/templates/hgcdte_paired_gap_partner_outreach_response_template.json \
+            --output-json /tmp/partner-outreach-response-audit.json
+          cmp data/derived/hgcdte_paired_gap_partner_outreach_response_reference_audit.json \
+              /tmp/partner-outreach-response-audit.json
+
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: partner-outreach-response-ingestion
+          path: |
+            /tmp/partner-outreach-response-pytest.txt
+            /tmp/partner-outreach-response-audit.json
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Freeze outreach-response package
+        run: |
+          rm -f .github/workflows/bootstrap-partner-outreach-response-ingestion.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Freeze partner outreach and response ingestion'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
