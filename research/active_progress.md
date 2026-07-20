@@ -201,6 +201,8 @@ Issue #161 adds the controlling external-collaboration readiness layer. It separ
 
 Issue #163 maps eight public-evidence-only candidate facilities across all seven external capability roles. Public webpages confirm no role or hard gate, so the PR #162 package remains `not_ready`. The first contact sequence is UIC Microphysics Laboratory, National MagLab, Washington State University PAS, UT Austin EPMA, and UT Knoxville Hall. The accessed MagLab page lists `2026-11-13` as the next proposal deadline; this is a planning date, not reserved access.
 
+Issue #165 freezes reviewable first-contact drafts and an event-based response-ingestion contract for the five priority candidates. The initial package has five drafts, zero approvals, zero external sends, and zero responses. No sender identity or recipient is assumed, and even a complete written response can only recommend a feasibility update through a separate reviewed change.
+
 ## Authorized next work
 
 1. Use the paired protocol as the external collaboration handoff and obtain a documented feasibility review from candidate material, composition, Hall/defect, absorption, and magneto-optical partners.
