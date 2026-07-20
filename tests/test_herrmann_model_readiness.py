@@ -2,12 +2,15 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
 
 import pytest
 
-from tools.audit_herrmann_model_readiness import audit
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from tools.audit_herrmann_model_readiness import audit  # noqa: E402
+
 INPUT = ROOT / "data/evidence/hgcdte_herrmann_readiness.json"
 
 
