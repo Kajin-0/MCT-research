@@ -58,6 +58,45 @@ jobs:
           Path('.github/workflows/bootstrap-paired-hgcdte-protocol.yml').unlink()
           PY
 
+      - name: Normalize cross-BLAS frozen-result assertion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('tests/test_hgcdte_paired_gap_protocol.py')
+          text = path.read_text(encoding='utf-8')
+          marker = 'def test_frozen_reference_audit_matches_planning_result() -> None:\n'
+          helper = '''def assert_nested_close(left: object, right: object) -> None:
+              if isinstance(left, dict):
+                  assert isinstance(right, dict)
+                  assert set(left) == set(right)
+                  for key in left:
+                      assert_nested_close(left[key], right[key])
+                  return
+              if isinstance(left, list):
+                  assert isinstance(right, list)
+                  assert len(left) == len(right)
+                  for left_item, right_item in zip(left, right, strict=True):
+                      assert_nested_close(left_item, right_item)
+                  return
+              if isinstance(left, float):
+                  assert isinstance(right, (int, float))
+                  assert math.isclose(left, float(right), rel_tol=1e-10, abs_tol=1e-12)
+                  return
+              assert left == right
+
+
+'''
+          old = '    assert reference["temperature_blocks"] == result["temperature_blocks"]\n'
+          new = '    assert_nested_close(reference["temperature_blocks"], result["temperature_blocks"])\n'
+          if marker not in text or old not in text:
+              raise SystemExit('expected frozen-reference assertion was not found')
+          if 'def assert_nested_close(' not in text:
+              text = text.replace(marker, helper + marker, 1)
+          text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+
       - name: Install validation dependencies
         run: python -m pip install -e . pytest
 
