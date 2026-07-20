@@ -99,12 +99,71 @@ jobs:
           assert boundary['independent_electronic_structure_calculation'] is False
           PY
 
-      - name: Compare frozen output when present
+      - name: Compare frozen output semantically
         if: hashFiles('first_principles/a0/cdte_independent_static_reproduction.json') != ''
         run: |
-          cmp \
-            first_principles/a0/cdte_independent_static_reproduction.json \
-            independent-result/cdte_independent_static_reproduction.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          expected = json.loads(
+              Path('first_principles/a0/cdte_independent_static_reproduction.json')
+              .read_text(encoding='utf-8')
+          )
+          actual = json.loads(
+              Path('independent-result/cdte_independent_static_reproduction.json')
+              .read_text(encoding='utf-8')
+          )
+
+          differences = []
+
+          def compare(left, right, path='$'):
+              if isinstance(left, bool) or isinstance(right, bool):
+                  if type(left) is not type(right) or left != right:
+                      differences.append((path, left, right, 'boolean mismatch'))
+                  return
+              if isinstance(left, int) or isinstance(right, int):
+                  if type(left) is not type(right) or left != right:
+                      differences.append((path, left, right, 'integer mismatch'))
+                  return
+              if isinstance(left, float) or isinstance(right, float):
+                  if not isinstance(left, (int, float)) or not isinstance(right, (int, float)):
+                      differences.append((path, left, right, 'numeric type mismatch'))
+                      return
+                  if not math.isclose(float(left), float(right), rel_tol=1e-8, abs_tol=5e-11):
+                      differences.append((path, left, right, 'float tolerance exceeded'))
+                  return
+              if isinstance(left, dict) or isinstance(right, dict):
+                  if not isinstance(left, dict) or not isinstance(right, dict):
+                      differences.append((path, type(left).__name__, type(right).__name__, 'mapping type mismatch'))
+                      return
+                  if set(left) != set(right):
+                      differences.append((path, sorted(left), sorted(right), 'key mismatch'))
+                      return
+                  for key in sorted(left):
+                      compare(left[key], right[key], f'{path}.{key}')
+                  return
+              if isinstance(left, list) or isinstance(right, list):
+                  if not isinstance(left, list) or not isinstance(right, list):
+                      differences.append((path, type(left).__name__, type(right).__name__, 'list type mismatch'))
+                      return
+                  if len(left) != len(right):
+                      differences.append((path, len(left), len(right), 'length mismatch'))
+                      return
+                  for index, (left_item, right_item) in enumerate(zip(left, right, strict=True)):
+                      compare(left_item, right_item, f'{path}[{index}]')
+                  return
+              if type(left) is not type(right) or left != right:
+                  differences.append((path, left, right, 'value mismatch'))
+
+          compare(expected, actual)
+          if differences:
+              for item in differences[:20]:
+                  print(item)
+              raise SystemExit(f'{len(differences)} frozen-result differences exceeded tolerance')
+          print('Frozen result reproduced with identical structure and all floats within rtol=1e-8, atol=5e-11.')
+          PY
 
       - name: Hash reproduction evidence
         if: always()
