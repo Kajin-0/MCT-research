@@ -54,7 +54,11 @@
     "observation_class": "fixed_absorption_threshold",
     "source_rationale": "convenient definition approximating the half-peak value of a 10 um photoconductive detector",
     "latent_material_gap_identified": false,
-    "exact_detector_equivalence_claimed": false
+    "exact_detector_equivalence_claimed": false,
+    "published_equation_11": "E=-0.3424+1.838*x+0.148*x^4+[(7.68e-4)*T+6.29e-2]*(1-2.14*x)/(1+x)",
+    "published_equation_11_is_rounded_closed_form": true,
+    "machine_exact_equality_with_equation_10_at_alpha500": false,
+    "maximum_rounding_residual_meV_in_declared_domain": 0.25666126587547966
   },
   "zero_intercept": {
     "equation_12": "alpha_zero_intercept=e/d_cm",
@@ -62,9 +66,11 @@
     "reference_absorption_cm1": 54.3656365691809,
     "equation_13_temperature_K": 300.0,
     "equation_13_thickness_um": 500.0,
+    "equation_13_input_quantity": "zero_intercept_cut_on_wavenumber_cm1",
     "equation_13_expression": "x=7.785e-2+1.096e-4*Zi-3.713e-9*Zi^2",
     "equation_13_optimized_composition_range": [0.2, 0.3],
-    "interchangeable_with_alpha_500_edge": false
+    "interchangeable_with_alpha_500_edge": false,
+    "absorption_coefficient_and_cut_on_wavenumber_are_distinct": true
   },
   "reference_points": [
     {"composition_x": 0.215, "temperature_K": 80.0},
