@@ -20,10 +20,27 @@ RELATIONS = {"eq", "lt", "gt", "approx"}
 
 
 def load_package(path: str | Path) -> dict[str, object]:
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    package_path = Path(path)
+    data = json.loads(package_path.read_text(encoding="utf-8"))
     if data.get("schema_version") != "1.0":
         raise ValueError("unsupported historical observation schema")
-    return data
+    includes = data.get("includes")
+    if includes is None:
+        return data
+    required = {"sources", "specimens", "records", "schmit_contract"}
+    if set(includes) != required:
+        raise ValueError("historical observation include inventory is incomplete")
+    parent = package_path.parent
+    return {
+        "schema_version": data["schema_version"],
+        "analysis": data["analysis"],
+        "sources": json.loads((parent / includes["sources"]).read_text(encoding="utf-8")),
+        "specimen_groups": json.loads((parent / includes["specimens"]).read_text(encoding="utf-8")),
+        "observations": json.loads((parent / includes["records"]).read_text(encoding="utf-8")),
+        "schmit_observation_contract": json.loads(
+            (parent / includes["schmit_contract"]).read_text(encoding="utf-8")
+        ),
+    }
 
 
 def audit(package_path: str | Path) -> dict[str, object]:
