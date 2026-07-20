@@ -100,7 +100,12 @@ jobs:
           '''
           if tests.count(old_test) != 1:
               raise SystemExit('unexpected full-ready test anchor')
-          test_path.write_text(tests.replace(old_test, new_test, 1), encoding='utf-8')
+          tests = tests.replace(old_test, new_test, 1)
+          old_regex = 'with pytest.raises(ValueError, match="full experiment plan"):'
+          new_regex = 'with pytest.raises(ValueError, match="full experiment"):'
+          if tests.count(old_regex) != 1:
+              raise SystemExit('unexpected full-design regex anchor')
+          test_path.write_text(tests.replace(old_regex, new_regex, 1), encoding='utf-8')
 
           progress_path = Path('research/active_progress.md')
           progress = progress_path.read_text(encoding='utf-8')
