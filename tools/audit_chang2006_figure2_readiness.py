@@ -11,6 +11,7 @@ from typing import Any
 import numpy as np
 
 from mct_research.chang_2006_absorption import (
+    CHANG_2006_RELATIVE_ENERGY_RANGE_EV,
     chang_2006_absorption_shape,
     fit_chang_2006_nonparabolic_urbach_edge,
 )
@@ -244,6 +245,19 @@ def audit(path: str | Path) -> dict[str, Any]:
     b_value = float(truth["hyperbola_b_eV"])
     amplitude = float(truth["amplitude_cm1"])
     energy = _energy_grid(screen["energy_segments"])
+    declared_upper_margin = float(
+    screen["source_domain_upper_margin_at_truth_eV"]
+)
+    actual_upper_margin = float(
+        CHANG_2006_RELATIVE_ENERGY_RANGE_EV[1] - (float(np.max(energy)) - edge)
+    )
+    if declared_upper_margin <= 0.0 or not math.isclose(
+        actual_upper_margin,
+        declared_upper_margin,
+        rel_tol=0.0,
+        abs_tol=1.0e-12,
+    ):
+        raise ValueError("synthetic source-domain upper margin changed")
     absorption = amplitude * chang_2006_absorption_shape(
         energy,
         edge_ev=edge,
@@ -316,6 +330,7 @@ def audit(path: str | Path) -> dict[str, Any]:
             "same_specimen_hyperbola_b_recovered": False,
         },
         "synthetic_point_count": int(energy.size),
+        "synthetic_source_domain_upper_margin_eV": actual_upper_margin,
         "synthetic_tail_point_count_at_truth": int(
             np.count_nonzero(energy < edge + 0.5 * width)
         ),

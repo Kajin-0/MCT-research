@@ -49,7 +49,8 @@ Eg = 0.100 eV
 W  = 0.012 eV
 b  = 0.100 eV
 A  = 50000 cm^-1
-105 spectral points from 0.088 to 0.400 eV
+105 spectral points from 0.088 to 0.398 eV
+upper source-domain margin at truth = 0.002 eV
 ```
 
 The hypothetical coordinate screen assumes:
@@ -64,7 +65,7 @@ These values are not assigned to the published figure. They are used only to det
 The local weighted Jacobian in `[Eg, ln W, ln b, ln A]` gives:
 
 ```text
-condition number                    255.688
+condition number                    256.114
 corr(Eg, ln W)                        0.731
 corr(Eg, ln b)                        0.801
 corr(ln b, ln A)                     -0.930
@@ -86,7 +87,7 @@ W error       edge bias
 
 b error       edge bias
 -10%          -0.975 meV
- -5%          -0.470 meV
+ -5%          -0.465 meV
  +3%          +0.265 meV
  +5%          +0.435 meV
 +10%          +0.835 meV
