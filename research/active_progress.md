@@ -199,6 +199,8 @@ Historical-source accumulation is closed. New work must secure protocol-complian
 
 Issue #161 adds the controlling external-collaboration readiness layer. It separates documented capability review, a two-specimen/eight-observation logistics pilot, measured candidate-pool pre-screening, and the full eight-specimen experiment. The empty planning package is intentionally `not_ready`; no partner, access, cost, or schedule is assumed.
 
+Issue #163 maps eight public-evidence-only candidate facilities across all seven external capability roles. Public webpages confirm no role or hard gate, so the PR #162 package remains `not_ready`. The first contact sequence is UIC Microphysics Laboratory, National MagLab, Washington State University PAS, UT Austin EPMA, and UT Knoxville Hall. The accessed MagLab page lists `2026-11-13` as the next proposal deadline; this is a planning date, not reserved access.
+
 ## Authorized next work
 
 1. Use the paired protocol as the external collaboration handoff and obtain a documented feasibility review from candidate material, composition, Hall/defect, absorption, and magneto-optical partners.
