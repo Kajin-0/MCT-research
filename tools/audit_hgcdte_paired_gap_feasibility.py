@@ -159,16 +159,17 @@ def _validate_fixed_design(data: dict[str, Any]) -> None:
         raise ValueError("logistics-pilot design or claim boundary changed")
 
     full = data["full_experiment_plan"]
-    expected_full = {
+    expected_full_fields = {
         "specimen_count": 8,
         "modality_count": 2,
         "temperature_block_count": 2,
         "primary_observation_count": 32,
         "technical_replicate_hard_minimum": 2,
-        "status": "blocked_pending_prescreening",
     }
-    if full != expected_full:
-        raise ValueError("full experiment plan changed or was prematurely promoted")
+    if any(full.get(key) != value for key, value in expected_full_fields.items()):
+        raise ValueError("full experiment design changed")
+    if full.get("status") not in {"blocked_pending_prescreening", "ready"}:
+        raise ValueError("invalid full experiment plan status")
 
 
 def _pilot_execution_passes(execution: dict[str, Any]) -> bool:
@@ -276,7 +277,11 @@ def audit(path: str | Path) -> dict[str, Any]:
     prescreening_pass, prescreening_blockers = _prescreening_result_passes(
         data["prescreening_result"]
     )
-    full_ready = prescreening_ready and prescreening_pass
+    full_ready = (
+        prescreening_ready
+        and prescreening_pass
+        and data["full_experiment_plan"].get("status") == "ready"
+    )
 
     if full_ready:
         readiness = "full_experiment_ready"
@@ -300,6 +305,12 @@ def audit(path: str | Path) -> dict[str, Any]:
         blockers.append("prescreening:plan_not_ready")
     if prescreening_ready and not prescreening_pass:
         blockers.extend(prescreening_blockers)
+    if (
+        prescreening_ready
+        and prescreening_pass
+        and data["full_experiment_plan"].get("status") != "ready"
+    ):
+        blockers.append("full_experiment:plan_not_promoted")
 
     return {
         "schema_version": data["schema_version"],

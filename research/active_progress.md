@@ -197,6 +197,8 @@ Issue #141 and PR #142 provide the controlling paired acquisition contract:
 
 Historical-source accumulation is closed. New work must secure protocol-compliant paired evidence or recover a native primary dataset whose information gain exceeds the current composition and observation-model uncertainty scales.
 
+Issue #161 adds the controlling external-collaboration readiness layer. It separates documented capability review, a two-specimen/eight-observation logistics pilot, measured candidate-pool pre-screening, and the full eight-specimen experiment. The empty planning package is intentionally `not_ready`; no partner, access, cost, or schedule is assumed.
+
 ## Authorized next work
 
 1. Use the paired protocol as the external collaboration handoff and obtain a documented feasibility review from candidate material, composition, Hall/defect, absorption, and magneto-optical partners.

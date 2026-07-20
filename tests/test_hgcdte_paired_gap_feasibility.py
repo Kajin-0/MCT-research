@@ -96,6 +96,7 @@ def _make_prescreening_ready(payload: dict) -> None:
 
 def _make_full_ready(payload: dict) -> None:
     _make_prescreening_ready(payload)
+    payload["full_experiment_plan"]["status"] = "ready"
     payload["prescreening_result"] = {
         "status": "complete",
         "selected_core_specimen_count": 8,
@@ -211,5 +212,5 @@ def test_pilot_claim_boundary_cannot_be_promoted(tmp_path: Path) -> None:
 def test_full_design_cannot_be_reduced(tmp_path: Path) -> None:
     payload = _payload()
     payload["full_experiment_plan"]["specimen_count"] = 4
-    with pytest.raises(ValueError, match="full experiment plan"):
+    with pytest.raises(ValueError, match="full experiment"):
         module.audit(_write(tmp_path, payload))
