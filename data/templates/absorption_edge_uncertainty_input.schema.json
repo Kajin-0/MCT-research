@@ -14,17 +14,38 @@
     "spectrum"
   ],
   "properties": {
-    "schema_version": {"const": "1.0"},
-    "specimen_id": {"type": "string", "minLength": 1},
-    "measurement_id": {"type": "string", "minLength": 1},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "specimen_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "measurement_id": {
+      "type": "string",
+      "minLength": 1
+    },
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["kind", "reference", "calibration_record"],
+      "required": [
+        "kind",
+        "reference",
+        "calibration_record"
+      ],
       "properties": {
-        "kind": {"type": "string", "minLength": 1},
-        "reference": {"type": "string", "minLength": 1},
-        "calibration_record": {"type": "string", "minLength": 1}
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "calibration_record": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "metadata": {
@@ -43,16 +64,62 @@
         "tail_model"
       ],
       "properties": {
-        "modality": {"type": "string", "minLength": 1},
-        "temperature_k": {"type": "number", "minimum": 0},
-        "thickness_um": {"type": ["number", "null"]},
-        "composition_x": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
-        "composition_sigma_x": {"type": ["number", "null"], "minimum": 0},
-        "composition_method": {"type": "string", "minLength": 1},
-        "carrier_type": {"enum": ["n", "p", "intrinsic", "unknown"]},
-        "carrier_density_cm3": {"type": ["number", "null"], "minimum": 0},
-        "carrier_density_status": {"type": "string", "minLength": 1},
-        "tail_model": {"type": "string", "minLength": 1}
+        "modality": {
+          "type": "string",
+          "minLength": 1
+        },
+        "temperature_k": {
+          "type": "number",
+          "minimum": 0
+        },
+        "thickness_um": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "composition_x": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "composition_sigma_x": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "composition_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "carrier_type": {
+          "enum": [
+            "n",
+            "p",
+            "intrinsic",
+            "unknown"
+          ]
+        },
+        "carrier_density_cm3": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "carrier_density_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tail_model": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "analysis_assumptions": {
@@ -69,26 +136,40 @@
           "type": "array",
           "minItems": 2,
           "maxItems": 2,
-          "items": {"type": "number", "exclusiveMinimum": 0}
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
         },
         "edge_search_bounds_ev": {
           "type": "array",
           "minItems": 2,
           "maxItems": 2,
-          "items": {"type": "number"}
+          "items": {
+            "type": "number"
+          }
         },
         "thresholds_cm1": {
           "type": "array",
           "minItems": 1,
-          "items": {"type": "number", "exclusiveMinimum": 0}
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
         },
         "fractional_power_exponents": {
           "type": "array",
           "minItems": 1,
           "items": {
             "anyOf": [
-              {"const": "free"},
-              {"type": "number", "minimum": 0.2, "maximum": 1.5}
+              {
+                "const": "free"
+              },
+              {
+                "type": "number",
+                "minimum": 0.2,
+                "maximum": 1.5
+              }
             ]
           }
         },
@@ -96,19 +177,82 @@
           "type": "boolean",
           "default": false,
           "description": "Opt in to the provenance-bound Chu 1994 Kane-region candidate within 0.170<=x<=0.443 and 77<=T<=300 K."
+        },
+        "chang_2006_nonparabolic_urbach": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled"
+          ],
+          "description": "Opt in to the continuity-normalized Chang 2006 nonparabolic-Urbach observation operator. Runtime validation requires all parameter values and provenance when enabled.",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "fit_absorption_window_cm1": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "edge_search_bounds_ev": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            },
+            "urbach_width_ev": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "urbach_width_provenance": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hyperbola_b_ev": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "hyperbola_b_provenance": {
+              "type": "string",
+              "minLength": 1
+            },
+            "grid_points": {
+              "type": "integer",
+              "minimum": 101,
+              "maximum": 20001
+            }
+          }
         }
       }
     },
     "spectrum": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["energy_ev", "absorption_cm1"],
+      "required": [
+        "energy_ev",
+        "absorption_cm1"
+      ],
       "properties": {
-        "energy_ev": {"type": "array", "minItems": 3, "items": {"type": "number"}},
+        "energy_ev": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
         "absorption_cm1": {
           "type": "array",
           "minItems": 3,
-          "items": {"type": "number", "exclusiveMinimum": 0}
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
         }
       }
     }

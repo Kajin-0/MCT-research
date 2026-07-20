@@ -140,8 +140,10 @@ Orlita and Teppe share the Mikhailov/Dvoretskii MBE and magneto-optical lineage.
 - Every absorption-derived edge record must preserve source calibration, modality, temperature, thickness, composition provenance, carrier state, tail treatment, fit window, search bounds, model definitions, thresholds, and the raw spectrum.
 - The exporter returns all valid candidates, exclusions, separate model/threshold envelopes, a combined envelope, and the SHA-256 of the complete input assumptions.
 - The candidate ensemble includes fractional-power models and fixed thresholds. The prior-art Chu 1994 Kane-region model may be enabled within `0.170 <= x <= 0.443` and `77 <= T <= 300 K`.
+- The Chang 2006 nonparabolic-Urbach operator may be enabled only within `0.21 <= x <= 0.23`, `77 <= T <= 80 K`, and `-0.020 <= E-Eg <= 0.300 eV`. It requires explicit provenance-bound `W` and `b`, continuity normalization at `E0=Eg+W/2`, and separate tail/intrinsic branch coverage.
+- The Chang candidate is an observation-model sensitivity operator, not a material-gap law. Free joint fitting of `W`, `b`, and `Eg` is not authorized in the current tranche.
 - The exporter never selects a recommended or corrected material gap.
-- Deterministic seven-candidate example: combined span `19.95223 meV`, model-family span `9.14375 meV`, threshold span `9.95726 meV`, and half-range `9.97612 meV`.
+- Deterministic seven-candidate example: combined span `19.95223 meV`, model-family span `9.14375 meV`, threshold span `9.95726 meV`, and half-range `9.97612 meV`. This example remains unchanged because the new candidate is disabled by default.
 - Research uncertainty export is authorized. Production correction and single-edge selection remain forbidden.
 
 ## Completed manuscript milestone
