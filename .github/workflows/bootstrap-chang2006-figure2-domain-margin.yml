@@ -28,26 +28,21 @@ jobs:
 
           audit_path = Path('tools/audit_chang2006_figure2_readiness.py')
           text = audit_path.read_text(encoding='utf-8')
-          old_import = '''from mct_research.chang_2006_absorption import (
-              chang_2006_absorption_shape,
-              fit_chang_2006_nonparabolic_urbach_edge,
-          )
-          '''
-          new_import = '''from mct_research.chang_2006_absorption import (
-              CHANG_2006_RELATIVE_ENERGY_RANGE_EV,
-              chang_2006_absorption_shape,
-              fit_chang_2006_nonparabolic_urbach_edge,
-          )
-          '''
-          if text.count(old_import) != 1:
-              raise SystemExit('unexpected Chang audit import anchor')
-          text = text.replace(old_import, new_import, 1)
 
-          old_energy = '''    energy = _energy_grid(screen["energy_segments"])
-              absorption = amplitude * chang_2006_absorption_shape(
-          '''
-          new_energy = '''    energy = _energy_grid(screen["energy_segments"])
-              declared_upper_margin = float(screen["source_domain_upper_margin_at_truth_eV"])
+          import_anchor = '    chang_2006_absorption_shape,\n'
+          import_insert = (
+              '    CHANG_2006_RELATIVE_ENERGY_RANGE_EV,\n'
+              + import_anchor
+          )
+          if text.count(import_anchor) != 1:
+              raise SystemExit('unexpected Chang audit import line')
+          if 'CHANG_2006_RELATIVE_ENERGY_RANGE_EV' not in text:
+              text = text.replace(import_anchor, import_insert, 1)
+
+          energy_anchor = '    energy = _energy_grid(screen["energy_segments"])\n'
+          energy_insert = energy_anchor + '''    declared_upper_margin = float(
+              screen["source_domain_upper_margin_at_truth_eV"]
+          )
               actual_upper_margin = float(
                   CHANG_2006_RELATIVE_ENERGY_RANGE_EV[1] - (float(np.max(energy)) - edge)
               )
@@ -58,59 +53,50 @@ jobs:
                   abs_tol=1.0e-12,
               ):
                   raise ValueError("synthetic source-domain upper margin changed")
-              absorption = amplitude * chang_2006_absorption_shape(
           '''
-          if text.count(old_energy) != 1:
-              raise SystemExit('unexpected Chang audit energy anchor')
-          text = text.replace(old_energy, new_energy, 1)
+          if text.count(energy_anchor) != 1:
+              raise SystemExit('unexpected Chang audit energy line')
+          if 'declared_upper_margin = float(' not in text:
+              text = text.replace(energy_anchor, energy_insert, 1)
 
-          old_output = '''        "synthetic_point_count": int(energy.size),
-              "synthetic_tail_point_count_at_truth": int(
-          '''
-          new_output = '''        "synthetic_point_count": int(energy.size),
-              "synthetic_source_domain_upper_margin_eV": actual_upper_margin,
-              "synthetic_tail_point_count_at_truth": int(
-          '''
-          if text.count(old_output) != 1:
-              raise SystemExit('unexpected Chang audit output anchor')
-          text = text.replace(old_output, new_output, 1)
+          output_anchor = '        "synthetic_point_count": int(energy.size),\n'
+          output_insert = output_anchor + (
+              '        "synthetic_source_domain_upper_margin_eV": actual_upper_margin,\n'
+          )
+          if text.count(output_anchor) != 1:
+              raise SystemExit('unexpected Chang audit output line')
+          if '"synthetic_source_domain_upper_margin_eV"' not in text:
+              text = text.replace(output_anchor, output_insert, 1)
           audit_path.write_text(text, encoding='utf-8')
 
           decision_path = Path(
               'research/decision_records/2026-07-20-chang2006-figure2-readiness.md'
           )
           decision = decision_path.read_text(encoding='utf-8')
-          replacements = {
-              '105 spectral points from 0.088 to 0.400 eV': (
-                  '105 spectral points from 0.088 to 0.398 eV\n'
-                  'upper source-domain margin at truth = 0.002 eV'
-              ),
-              'condition number                    255.688': (
-                  'condition number                    256.114'
-              ),
-              ' -5%          -0.470 meV': ' -5%          -0.465 meV',
-          }
-          for old, new in replacements.items():
+          simple_replacements = [
+              ('105 spectral points from 0.088 to 0.400 eV',
+               '105 spectral points from 0.088 to 0.398 eV\nupper source-domain margin at truth = 0.002 eV'),
+              ('condition number                    255.688',
+               'condition number                    256.114'),
+              ('-0.470 meV', '-0.465 meV'),
+          ]
+          for old, new in simple_replacements:
               if decision.count(old) != 1:
-                  raise SystemExit(f'unexpected decision-record anchor: {old}')
+                  raise SystemExit(f'unexpected decision-record token: {old}')
               decision = decision.replace(old, new, 1)
           decision_path.write_text(decision, encoding='utf-8')
 
           progress_path = Path('research/active_progress.md')
           progress = progress_path.read_text(encoding='utf-8')
-          old_progress = (
-              '- A declared synthetic Figure-2-like screen gives a weighted Jacobian '
-              'condition number of `255.7`, `corr(Eg,ln W)=0.731`, and '
-              '`corr(Eg,ln b)=0.801`.'
-          )
-          new_progress = (
-              '- A declared synthetic Figure-2-like screen, with a `0.002 eV` upper '
-              'source-domain margin, gives a weighted Jacobian condition number of '
-              '`256.1`, `corr(Eg,ln W)=0.731`, and `corr(Eg,ln b)=0.801`.'
-          )
-          if progress.count(old_progress) != 1:
-              raise SystemExit('unexpected active-progress Figure 2 anchor')
-          progress = progress.replace(old_progress, new_progress, 1)
+          progress_replacements = [
+              ('A declared synthetic Figure-2-like screen gives',
+               'A declared synthetic Figure-2-like screen, with a `0.002 eV` upper source-domain margin, gives'),
+              ('condition number of `255.7`', 'condition number of `256.1`'),
+          ]
+          for old, new in progress_replacements:
+              if progress.count(old) != 1:
+                  raise SystemExit(f'unexpected active-progress token: {old}')
+              progress = progress.replace(old, new, 1)
           progress_path.write_text(progress, encoding='utf-8')
           PY
 
