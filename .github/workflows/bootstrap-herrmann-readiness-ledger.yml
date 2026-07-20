@@ -66,11 +66,24 @@ jobs:
 
       - name: Run focused readiness tests
         run: |
+          set -o pipefail
           python -m pip install -e . pytest
-          pytest -q tests/test_herrmann_model_readiness.py
+          pytest -vv tests/test_herrmann_model_readiness.py \
+            2>&1 | tee /tmp/herrmann-readiness-pytest.txt
           python tools/audit_herrmann_model_readiness.py \
             --input-json data/evidence/hgcdte_herrmann_readiness.json \
             --output-json /tmp/herrmann-readiness-audit.json
+
+      - name: Upload readiness diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: herrmann-readiness-validation
+          path: |
+            /tmp/herrmann-readiness-pytest.txt
+            /tmp/herrmann-readiness-audit.json
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Freeze readiness record
         run: |
