@@ -189,13 +189,13 @@ Issue #129 is complete. Journal submission and author declarations are external 
 
 ## Active research track
 
-Issue #132 remains the controlling post-manuscript evidence program:
+Issue #132 is complete under its non-identifiability stop rules. The historical evidence program established that composition uncertainty, observation definition, source lineage, carrier state, vacancy state, and model conditioning dominate the sub-meV empirical-law ordering. No universal HgCdTe gap law or production edge correction is identified.
 
-> **Integrate historical HgCdTe magneto-optical and edge-observation evidence.**
+Issue #141 and PR #142 provide the controlling paired acquisition contract:
 
-Issue #141 freezes the acquisition contract that can resolve the observation-class, carrier-state, vacancy-state, and composition-provenance confounding exposed by the historical evidence program.
+> **Acquire co-registered magneto-optical and absorption evidence with independent composition, carrier-state, and vacancy-state measurements.**
 
-New work must either secure protocol-compliant paired evidence or change a controlling decision by separating observation classes, specimen lineage, composition uncertainty, carrier state, or defect state. Additional unpaired literature accumulation is not sufficient.
+Historical-source accumulation is closed. New work must secure protocol-compliant paired evidence or recover a native primary dataset whose information gain exceeds the current composition and observation-model uncertainty scales.
 
 ## Authorized next work
 
