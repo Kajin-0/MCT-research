@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "package_id": "hgcdte_paired_gap_priority_outreach_v1",
+  "parent_landscape_id": "hgcdte_paired_gap_public_candidates_2026-07-20",
+  "parent_feasibility_id": "hgcdte_paired_gap_feasibility_v1",
+  "controlling_issue": 165,
+  "package_status": "drafts_ready_no_contact",
+  "claim_boundary": {
+    "messages_sent": false,
+    "direct_outreach_performed": false,
+    "private_contact_details_committed": false,
+    "candidate_endorsement_authorized": false,
+    "role_or_gate_confirmation_authorized": false,
+    "automatic_feasibility_mutation_authorized": false,
+    "funding_or_publication_promised": false
+  },
+  "allowed_outreach_states": [
+    "not_prepared",
+    "draft_ready",
+    "approved_to_send",
+    "sent",
+    "acknowledged",
+    "response_received",
+    "closed_no_response",
+    "closed_not_feasible"
+  ],
+  "allowed_response_states": [
+    "unanswered",
+    "unsupported_verbal",
+    "written_conditional",
+    "written_confirmed",
+    "written_blocked"
+  ],
+  "allowed_recommendations": ["unknown", "conditional", "confirmed", "blocked"],
+  "candidates": [
+    {
+      "candidate_id": "uic_microphysics_laboratory",
+      "priority": 1,
+      "role_ids": ["material_provider"],
+      "draft_section_id": "draft_uic_microphysics_laboratory",
+      "outreach_state": "draft_ready",
+      "event_log": [
+        {
+          "event_type": "draft_prepared",
+          "timestamp": "2026-07-20T20:15:00Z",
+          "evidence_id": "repo:protocols/hgcdte_paired_gap_partner_outreach_packet.md#draft-uic-microphysics-laboratory",
+          "external_message": false
+        }
+      ],
+      "recipient_public_contact_id": null,
+      "approval_evidence_id": null,
+      "external_message_evidence_id": null,
+      "response": {
+        "state": "unanswered",
+        "received_at": null,
+        "evidence_ids": [],
+        "accountable_contact_id": null,
+        "summary": null,
+        "role_assessments": [],
+        "gate_assessments": [],
+        "unresolved_assumptions": []
+      }
+    },
+    {
+      "candidate_id": "national_maglab_ir_thz",
+      "priority": 2,
+      "role_ids": ["absorption_laboratory", "magneto_optical_laboratory"],
+      "draft_section_id": "draft_national_maglab",
+      "outreach_state": "draft_ready",
+      "event_log": [
+        {
+          "event_type": "draft_prepared",
+          "timestamp": "2026-07-20T20:15:00Z",
+          "evidence_id": "repo:protocols/hgcdte_paired_gap_partner_outreach_packet.md#draft-national-high-magnetic-field-laboratory",
+          "external_message": false
+        }
+      ],
+      "recipient_public_contact_id": null,
+      "approval_evidence_id": null,
+      "external_message_evidence_id": null,
+      "response": {
+        "state": "unanswered",
+        "received_at": null,
+        "evidence_ids": [],
+        "accountable_contact_id": null,
+        "summary": null,
+        "role_assessments": [],
+        "gate_assessments": [],
+        "unresolved_assumptions": []
+      }
+    },
+    {
+      "candidate_id": "wsu_positron_annihilation_spectrometer",
+      "priority": 3,
+      "role_ids": ["vacancy_metrology"],
+      "draft_section_id": "draft_wsu_pas",
+      "outreach_state": "draft_ready",
+      "event_log": [
+        {
+          "event_type": "draft_prepared",
+          "timestamp": "2026-07-20T20:15:00Z",
+          "evidence_id": "repo:protocols/hgcdte_paired_gap_partner_outreach_packet.md#draft-washington-state-university-positron-annihilation-spectrometer",
+          "external_message": false
+        }
+      ],
+      "recipient_public_contact_id": null,
+      "approval_evidence_id": null,
+      "external_message_evidence_id": null,
+      "response": {
+        "state": "unanswered",
+        "received_at": null,
+        "evidence_ids": [],
+        "accountable_contact_id": null,
+        "summary": null,
+        "role_assessments": [],
+        "gate_assessments": [],
+        "unresolved_assumptions": []
+      }
+    },
+    {
+      "candidate_id": "ut_austin_epma",
+      "priority": 4,
+      "role_ids": ["composition_thickness_metrology"],
+      "draft_section_id": "draft_ut_austin_epma",
+      "outreach_state": "draft_ready",
+      "event_log": [
+        {
+          "event_type": "draft_prepared",
+          "timestamp": "2026-07-20T20:15:00Z",
+          "evidence_id": "repo:protocols/hgcdte_paired_gap_partner_outreach_packet.md#draft-ut-austin-e-beam-laboratory",
+          "external_message": false
+        }
+      ],
+      "recipient_public_contact_id": null,
+      "approval_evidence_id": null,
+      "external_message_evidence_id": null,
+      "response": {
+        "state": "unanswered",
+        "received_at": null,
+        "evidence_ids": [],
+        "accountable_contact_id": null,
+        "summary": null,
+        "role_assessments": [],
+        "gate_assessments": [],
+        "unresolved_assumptions": []
+      }
+    },
+    {
+      "candidate_id": "utk_electromagnetic_properties_lab",
+      "priority": 5,
+      "role_ids": ["hall_state_metrology"],
+      "draft_section_id": "draft_utk_hall",
+      "outreach_state": "draft_ready",
+      "event_log": [
+        {
+          "event_type": "draft_prepared",
+          "timestamp": "2026-07-20T20:15:00Z",
+          "evidence_id": "repo:protocols/hgcdte_paired_gap_partner_outreach_packet.md#draft-ut-knoxville-electromagnetic-properties-laboratory",
+          "external_message": false
+        }
+      ],
+      "recipient_public_contact_id": null,
+      "approval_evidence_id": null,
+      "external_message_evidence_id": null,
+      "response": {
+        "state": "unanswered",
+        "received_at": null,
+        "evidence_ids": [],
+        "accountable_contact_id": null,
+        "summary": null,
+        "role_assessments": [],
+        "gate_assessments": [],
+        "unresolved_assumptions": []
+      }
+    }
+  ],
+  "assessment_contract": {
+    "conditional_requires": [
+      "written response evidence",
+      "accountable contact identifier",
+      "explicit unresolved assumptions",
+      "role-specific recommendation evidence"
+    ],
+    "confirmed_requires": [
+      "written response evidence",
+      "accountable owner, organization, and contact identifiers",
+      "capability evidence identifiers",
+      "geometry and state-altering-step documentation",
+      "calibration or process plan",
+      "native-data, code, and covariance disposition",
+      "throughput, turnaround, shipping, rights, publication, and cost status",
+      "all applicable gate assessments confirmed with evidence",
+      "no unresolved assumptions"
+    ],
+    "feasibility_update_requires_separate_review": true
+  }
+}
