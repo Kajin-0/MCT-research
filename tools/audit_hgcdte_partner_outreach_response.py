@@ -118,9 +118,7 @@ ROLE_GATE_IDS = {
     ),
 }
 
-EXPECTED_BOUNDARY = {
-    "messages_sent": False,
-    "direct_outreach_performed": False,
+EXPECTED_STATIC_BOUNDARY = {
     "private_contact_details_committed": False,
     "candidate_endorsement_authorized": False,
     "role_or_gate_confirmation_authorized": False,
@@ -360,8 +358,18 @@ def audit(path: str | Path) -> dict[str, Any]:
         raise ValueError("controlling issue changed")
     if data.get("package_status") not in {"drafts_ready_no_contact", "outreach_in_progress"}:
         raise ValueError("invalid package status")
-    if data.get("claim_boundary") != EXPECTED_BOUNDARY:
+    boundary = data.get("claim_boundary")
+    if not isinstance(boundary, dict):
+        raise ValueError("outreach claim boundary missing")
+    static_boundary = {
+        key: boundary.get(key) for key in EXPECTED_STATIC_BOUNDARY
+    }
+    if static_boundary != EXPECTED_STATIC_BOUNDARY:
         raise ValueError("outreach claim boundary changed")
+    if not isinstance(boundary.get("messages_sent"), bool):
+        raise ValueError("messages-sent status must be boolean")
+    if not isinstance(boundary.get("direct_outreach_performed"), bool):
+        raise ValueError("direct-outreach status must be boolean")
     if tuple(data.get("allowed_outreach_states", [])) != OUTREACH_STATES:
         raise ValueError("outreach-state vocabulary changed")
     if tuple(data.get("allowed_response_states", [])) != RESPONSE_STATES:
@@ -399,6 +407,11 @@ def audit(path: str | Path) -> dict[str, Any]:
         response_count += responses
         conditional_recommendation_count += conditional
         confirmed_recommendation_count += confirmed
+
+    if boundary["messages_sent"] is not (sent_count > 0):
+        raise ValueError("messages-sent status disagrees with event evidence")
+    if boundary["direct_outreach_performed"] is not (sent_count > 0):
+        raise ValueError("direct-outreach status disagrees with event evidence")
 
     initial_state = sent_count == 0 and response_count == 0
     if data["package_status"] == "drafts_ready_no_contact":

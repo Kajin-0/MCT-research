@@ -1,0 +1,16 @@
+{
+  "approved_to_send_or_later_count": 0,
+  "automatic_feasibility_mutation_authorized": false,
+  "candidate_count": 5,
+  "conditional_role_recommendation_count": 0,
+  "confirmed_role_recommendation_count": 0,
+  "direct_outreach_performed": false,
+  "draft_ready_count": 5,
+  "external_messages_sent": false,
+  "feasibility_update_requires_separate_review": true,
+  "next_action": "review_sender_identity_recipients_and_drafts_before_any_send",
+  "package_id": "hgcdte_paired_gap_priority_outreach_v1",
+  "response_record_count": 0,
+  "schema_version": "1.0",
+  "sent_or_later_count": 0
+}
