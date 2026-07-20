@@ -3,17 +3,20 @@ from __future__ import annotations
 import ast
 import math
 from pathlib import Path
+import sys
 
 import numpy as np
 
-from tools.reproduce_cdte_static_independent import (
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from tools.reproduce_cdte_static_independent import (  # noqa: E402
     canonical_columns,
     parse_mmn,
     projector_basis,
     real_vector,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
 TOOL = ROOT / "tools/reproduce_cdte_static_independent.py"
 FORBIDDEN_IMPORTS = {
     "cdte_finite_k_projection",
