@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Yue et al. 2006 temperature-resolved Hg-vacancy absorption-edge anomaly",
+  "source": {
+    "title": "Anomalous temperature dependence of absorption edge in narrow-gap HgCdTe semiconductors",
+    "authors": [
+      "Fangyu Yue",
+      "Jun Shao",
+      "Xiang Lu",
+      "Wei Huang",
+      "Junhao Chu",
+      "Jun Wu",
+      "Xingchao Lin",
+      "Li He"
+    ],
+    "journal": "Applied Physics Letters",
+    "volume": 89,
+    "article": "021912",
+    "year": 2006,
+    "doi": "10.1063/1.2221411",
+    "primary_full_text_recovered": true,
+    "full_text_access": "author-uploaded copy indexed by ResearchGate",
+    "copyrighted_source_content_committed": false,
+    "canonical_extracted_record_fingerprint_sha256": "65c2fa758df7ca6881e44ef3263b603511d84adee06ca0f5c7b0ae4861f23a34"
+  },
+  "measurement_system": {
+    "spectrometer": "Bruker IFS 66v/S",
+    "spectrometer_state": "evacuated",
+    "beam_splitter": "KBr",
+    "detector": "MCT",
+    "spectral_resolution_cm1": 6.0,
+    "spectral_resolution_meV_approx": 0.7,
+    "cryostat": "Oxford CCC1104 closed-cycle cooler",
+    "temperature_range_K": [11.0, 300.0],
+    "temperature_adjustment": "continuous"
+  },
+  "growth_and_geometry": {
+    "bulk_growth": "Bridgman",
+    "bulk_thickness_method": "micrometer gauge",
+    "mbe_system": "Riber 32P",
+    "mbe_substrate": "undoped semi-insulating GaAs (211)B",
+    "mbe_intentional_doping": "none",
+    "mbe_buffer": "CdTe",
+    "mbe_buffer_thickness_um_approx": 3.0,
+    "mbe_thickness_method": "Fabry-Perot interference in transmission spectra"
+  },
+  "composition_provenance": {
+    "method": "deduced from 11 K absorption spectrum using source Eq. (1) and published gap-composition relations",
+    "status": "absorption_derived_circular_for_material_law_validation",
+    "independent_composition_measurement": false,
+    "composition_sigma_x": null,
+    "critical_energy_total_error_meV_less_than": 0.8,
+    "critical_energy_error_is_not_table_deltaE_sigma": true
+  },
+  "observation_operators": {
+    "bulk": {
+      "measurement_class": "bulk_absorption_extrapolation_to_critical_alpha",
+      "expression": "alpha_Eg=-65+1.88*T+(8694-10.31*T)*x",
+      "units": "cm^-1",
+      "composition_range": [0.232, 0.337],
+      "temperature_range_K": [11.0, 300.0]
+    },
+    "mbe": {
+      "measurement_class": "exponential_edge_kane_plateau_intersection",
+      "numerical_operator_complete_without_native_spectrum": false
+    },
+    "alternative_bulk_methods": {
+      "methods": ["second_derivative", "Z50"],
+      "reported_scatter_meV_less_than": 2.0,
+      "scatter_is_not_specimen_uncertainty": true
+    }
+  },
+  "specimens": [
+    {
+      "sample_id": "B2",
+      "sample_class": "bulk",
+      "composition_x": 0.232,
+      "thickness_relation": "gt",
+      "thickness_um": 200.0,
+      "carrier_density_cm3": 7.2e14,
+      "carrier_density_temperature_K": 77.0,
+      "carrier_type": "not reported in Table I",
+      "processing": "Bridgman bulk",
+      "processing_vacancy_interpretation": "not assigned specimen-specifically",
+      "deltaE_meV": 11.3,
+      "deltaE_value_status": "exact_table",
+      "anomalous_temperature_dependence": true
+    },
+    {
+      "sample_id": "B9",
+      "sample_class": "bulk",
+      "composition_x": 0.337,
+      "thickness_relation": "gt",
+      "thickness_um": 200.0,
+      "carrier_density_cm3": 1.4e14,
+      "carrier_density_temperature_K": 77.0,
+      "carrier_type": "not reported in Table I",
+      "processing": "Bridgman bulk",
+      "processing_vacancy_interpretation": "not assigned specimen-specifically",
+      "deltaE_meV": 10.5,
+      "deltaE_value_status": "exact_table",
+      "anomalous_temperature_dependence": true,
+      "reversal_begins_above_temperature_K_approx": 33.0,
+      "minimum_edge_temperature_K_approx": 55.0
+    },
+    {
+      "sample_id": "Mag",
+      "sample_class": "MBE",
+      "composition_x": 0.298,
+      "thickness_relation": "eq",
+      "thickness_um": 6.0,
+      "carrier_density_cm3": 3.25e15,
+      "carrier_density_temperature_K": 300.0,
+      "carrier_type": "not reported in Table I",
+      "processing": "as grown",
+      "processing_vacancy_interpretation": "reference MBE processing state",
+      "deltaE_meV": 10.0,
+      "deltaE_value_status": "exact_table",
+      "anomalous_temperature_dependence": true,
+      "reversal_begins_above_temperature_K_approx": 50.0,
+      "minimum_edge_temperature_K_approx": 70.0
+    },
+    {
+      "sample_id": "M16",
+      "sample_class": "MBE",
+      "composition_x": 0.308,
+      "thickness_relation": "eq",
+      "thickness_um": 6.1,
+      "carrier_density_cm3": 5.81e15,
+      "carrier_density_temperature_K": 300.0,
+      "carrier_type": "not reported in Table I",
+      "processing": "closed quartz tube, Hg vapor, 400 C for 30 min",
+      "processing_vacancy_interpretation": "source lineage describes this condition as intensifying Hg-vacancy density",
+      "achieved_vacancy_concentration_measured": false,
+      "deltaE_meV": 9.7,
+      "deltaE_value_status": "exact_table",
+      "anomalous_temperature_dependence": true
+    },
+    {
+      "sample_id": "M17",
+      "sample_class": "MBE",
+      "composition_x": 0.306,
+      "thickness_relation": "eq",
+      "thickness_um": 7.9,
+      "carrier_density_cm3": 4.19e15,
+      "carrier_density_temperature_K": 300.0,
+      "carrier_type": "not reported in Table I",
+      "processing": "closed quartz tube, Hg vapor, 240 C for 24 h",
+      "processing_vacancy_interpretation": "source lineage describes this condition as optimized for fully removing Hg vacancies",
+      "achieved_vacancy_concentration_measured": false,
+      "deltaE_meV": 0.0,
+      "deltaE_value_status": "exact_table",
+      "anomalous_temperature_dependence": false,
+      "temperature_dependence": "monotonic over measured range"
+    }
+  ],
+  "deltaE_semantics": {
+    "quantity": "extrapolated_zero_temperature_anomalous_edge_separation",
+    "source_interpretation": "localized-level to valence-band separation",
+    "direct_defect_level_measurement": false,
+    "latent_material_gap_shift": false,
+    "specimen_level_sigma_reported": false
+  },
+  "mechanism_interpretation": {
+    "reported_mechanism": "thermally activated Hg-vacancy localized levels above the valence band",
+    "source_status": "preliminary source conclusion from processing-conditioned behavior and energy-scale agreement",
+    "direct_vacancy_metrology": false,
+    "same_physical_specimen_before_after_processing": false
+  },
+  "decision": {
+    "temperature_resolved_vacancy_anomaly_evidence_authorized": true,
+    "processing_conditioned_vacancy_mechanism_evidence_authorized": true,
+    "vacancy_removing_anneal_control_evidence_status": "conditional",
+    "independent_composition_validation_authorized": false,
+    "same_specimen_causal_contrast_established": false,
+    "measured_vacancy_concentration_available": false,
+    "universal_vacancy_correction_authorized": false,
+    "latent_material_gap_points_authorized": false,
+    "uncertainty_weighted_material_law_fitting_authorized": false,
+    "cross_temperature_carrier_density_correlation_authorized": false
+  }
+}
