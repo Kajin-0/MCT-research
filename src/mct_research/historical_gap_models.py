@@ -13,6 +13,8 @@ from numpy.typing import ArrayLike, NDArray
 GapValue = float | NDArray[np.float64]
 
 SCHMIT_STELZER_1969_SOURCE_DOI = "10.1063/1.1657304"
+WILEY_DEXTER_1969_SOURCE_DOI = "10.1103/PhysRev.181.1181"
+WEILER_1977_SOURCE_DOI = "10.1103/PhysRevB.16.3603"
 SEILER_1990_A_K3 = -1822.0
 SEILER_1990_B_K2 = 255.2
 SEILER_1990_SOURCE_DOI = "10.1116/1.576952"
@@ -68,6 +70,46 @@ def schmit_stelzer_1969_gap_ev(
         - 0.25
         + 5.233e-4 * temperature * (1.0 - 2.08 * composition)
         + 0.327 * composition**3
+    )
+    return _scalar_or_array(np.asarray(gap, dtype=float))
+
+
+def wiley_dexter_1969_gap_ev(
+    x: ArrayLike, temperature_k: ArrayLike
+) -> GapValue:
+    """Return the Wiley-Dexter assumed transport gap equation in eV.
+
+    Wiley and Dexter adopted
+
+    ``Eg = -0.30 + 1.91x + 5e-4*T*(1 - 2x)``
+
+    to calculate Kane-model masses for comparison with helicon and nonresonant
+    cyclotron-absorption measurements. Their measured masses are therefore not
+    independent validation of this supplied gap equation.
+    """
+
+    composition, temperature = _validated_inputs(x, temperature_k)
+    gap = -0.30 + 1.91 * composition + 5.0e-4 * temperature * (
+        1.0 - 2.0 * composition
+    )
+    return _scalar_or_array(np.asarray(gap, dtype=float))
+
+
+def weiler_1977_gap_ev(x: ArrayLike, temperature_k: ArrayLike) -> GapValue:
+    """Return the Weiler magnetoreflectance trend equation in eV.
+
+    Weiler, Aggarwal, and Lax plotted their 24 K and 91 K gap fits against
+
+    ``Eg = -0.31 + 1.88x + 5e-4*T*(1 - 2x)``.
+
+    The source states an approximate 3 meV uncertainty in fitted gap values and
+    substantially larger specimen-dependent composition uncertainty. The equation
+    is retained as a source-specific magnetoreflectance trend, not a universal law.
+    """
+
+    composition, temperature = _validated_inputs(x, temperature_k)
+    gap = -0.31 + 1.88 * composition + 5.0e-4 * temperature * (
+        1.0 - 2.0 * composition
     )
     return _scalar_or_array(np.asarray(gap, dtype=float))
 
