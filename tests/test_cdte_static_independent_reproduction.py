@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import json
 import math
 from pathlib import Path
 import sys
@@ -18,6 +19,7 @@ from tools.reproduce_cdte_static_independent import (  # noqa: E402
 )
 
 TOOL = ROOT / "tools/reproduce_cdte_static_independent.py"
+FROZEN = ROOT / "first_principles/a0/cdte_independent_static_reproduction.json"
 FORBIDDEN_IMPORTS = {
     "cdte_finite_k_projection",
     "cdte_quadratic_invariant_space",
@@ -44,6 +46,10 @@ def metric_polar(overlap: np.ndarray) -> np.ndarray:
 def svd_polar(overlap: np.ndarray) -> np.ndarray:
     left, _, right_h = np.linalg.svd(overlap, full_matrices=False)
     return left @ right_h
+
+
+def frozen_result() -> dict[str, object]:
+    return json.loads(FROZEN.read_text(encoding="utf-8"))
 
 
 def test_direct_svd_polar_matches_independent_metric_formula() -> None:
@@ -153,3 +159,29 @@ def test_real_vector_preserves_frobenius_norm() -> None:
         rel_tol=0.0,
         abs_tol=1e-14,
     )
+
+
+def test_frozen_result_preserves_independence_and_holdout_boundary() -> None:
+    result = frozen_result()
+    assert result["decision"]["passed"] is True
+    assert result["kpoint_contract"]["holdout_used_in_training"] is False
+    boundary = result["independence_boundary"]
+    assert boundary["same_physical_qe_artifact"] is True
+    assert boundary["independent_svd_polar_reconstruction"] is True
+    assert boundary["independent_symmetry_projector_from_raw_operations"] is True
+    assert boundary["imports_existing_static_postprocessing_modules"] is False
+    assert boundary["independent_electronic_structure_calculation"] is False
+
+
+def test_frozen_result_preserves_controlling_static_decision() -> None:
+    result = frozen_result()
+    assert result["invariant_spaces"]["linear_dimension"] == 4
+    assert result["invariant_spaces"]["quadratic_dimension"] == 10
+    richardson = result["richardson"]
+    assert richardson["complete_linear"]["training_relative_residual"] < 1e-5
+    assert richardson["complete_linear"]["direction_relative_residuals"]["110"] < 1e-5
+    assert richardson["complete_quadratic"]["training_relative_residual"] < 1e-3
+    assert richardson["complete_quadratic"]["direction_relative_residuals"]["110"] < 1e-3
+    assert richardson["conventional_quadratic"]["training_relative_residual"] > 0.20
+    assert richardson["conventional_quadratic"]["direction_relative_residuals"]["110"] > 0.20
+    assert max(result["reference_comparison"].values()) < 1e-9
