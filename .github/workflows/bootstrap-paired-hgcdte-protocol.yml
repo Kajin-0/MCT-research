@@ -3,7 +3,7 @@ name: bootstrap-paired-hgcdte-protocol
 on:
   pull_request:
     paths:
-      - '.github/paired_protocol_bundle.tar.gz.b64'
+      - '.github/paired_protocol_bundle.part*'
       - '.github/workflows/bootstrap-paired-hgcdte-protocol.yml'
 
 permissions:
@@ -20,16 +20,32 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Decode audited protocol package
+      - name: Verify and decode audited protocol package
         run: |
           python - <<'PY'
           import base64
+          import hashlib
           import io
           from pathlib import Path
           import tarfile
 
-          payload = Path('.github/paired_protocol_bundle.tar.gz.b64')
-          archive = base64.b64decode(payload.read_bytes())
+          parts = sorted(Path('.github').glob('paired_protocol_bundle.part*'))
+          if [part.name for part in parts] != [
+              f'paired_protocol_bundle.part{index:02d}' for index in range(9)
+          ]:
+              raise SystemExit(f'unexpected chunk inventory: {[part.name for part in parts]}')
+          encoded = b''.join(part.read_bytes() for part in parts)
+          if len(encoded) != 25392:
+              raise SystemExit(f'encoded length changed: {len(encoded)}')
+          encoded_digest = hashlib.sha256(encoded).hexdigest()
+          if encoded_digest != 'a6ddc3fc75d510bfc2607bd04a9adbf890d4d1cc0978897583c314c09b661eeb':
+              raise SystemExit(f'encoded digest mismatch: {encoded_digest}')
+          archive = base64.b64decode(encoded, validate=True)
+          archive_digest = hashlib.sha256(archive).hexdigest()
+          if len(archive) != 19043 or archive_digest != '4db730c660c8d91c4e9c750317e3f1cb0360998478b67bead41fb452a3dd03e7':
+              raise SystemExit(
+                  f'archive identity mismatch: length={len(archive)} sha256={archive_digest}'
+              )
           with tarfile.open(fileobj=io.BytesIO(archive), mode='r:gz') as stream:
               root = Path('.').resolve()
               for member in stream.getmembers():
@@ -37,7 +53,8 @@ jobs:
                   if root not in target.parents and target != root:
                       raise SystemExit(f'unsafe archive member: {member.name}')
               stream.extractall('.')
-          payload.unlink()
+          for part in parts:
+              part.unlink()
           Path('.github/workflows/bootstrap-paired-hgcdte-protocol.yml').unlink()
           PY
 
