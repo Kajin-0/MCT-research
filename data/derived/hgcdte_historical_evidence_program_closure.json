@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "parent_issue": 132,
+  "closure_issue": 159,
+  "status": "complete_under_non_identifiability_stop_rules",
+  "evidence_prs": [131, 133, 134, 135, 137, 138, 142, 144, 146, 150, 152, 154, 156, 158],
+  "questions": {
+    "independent_magneto_labs": {
+      "answer": "qualitative_agreement_only",
+      "gap_fit_sigma_meV": 3.0,
+      "composition_scale_meV": [8.945, 27.84],
+      "model_observable_discrepancy_meV": 4.0,
+      "few_meV_ranking": false
+    },
+    "groves_sign_change": {
+      "answer": "rejects_schmit_stelzer_at_4K_but_selects_no_universal_model",
+      "composition_x": 0.161,
+      "composition_sigma": 0.003,
+      "schmit_stelzer_pass": false,
+      "chu_status": "composition_ambiguous",
+      "hansen_seiler_laurenti_pade_pass": true
+    },
+    "absorption_method_spread": {
+      "answer": "several_to_tens_of_meV",
+      "moazzami_meV": [6.414, 6.83],
+      "finkman_threshold_meV": [15.028284, 37.637923],
+      "finkman_zero_intercept_meV": [20.10684, 21.348002],
+      "mroczkowski_efold_change_meV": 2.7670528,
+      "yue_anomaly_meV": [9.7, 11.3],
+      "pool_as_one_distribution": false
+    },
+    "chang_real_spectrum_enlargement": {
+      "answer": "not_identified",
+      "operator_implemented": true,
+      "native_data_recovered": false,
+      "temperature_resolved": false,
+      "same_specimen_W_b_recovered": false,
+      "synthetic_shift_meV": [0.265, 1.72]
+    },
+    "historical_model_ordering": {
+      "answer": "not_stable",
+      "chu_offset_transfer_seiler_hansen_difference_meV": 0.091,
+      "manuscript_seiler_advantage_meV": [0.177, 0.255],
+      "threshold_changes_winner": true,
+      "source_class_changes_winner": true,
+      "universal_selection": false
+    }
+  },
+  "stop_rules": {
+    "composition_dominates": true,
+    "winner_changes_with_treatment": true,
+    "class_offsets_not_universal": true,
+    "model_conditioned_composition_present": true,
+    "independent_validation_insufficient": true,
+    "more_coefficients": false,
+    "more_unpaired_sources": false
+  },
+  "outputs": {
+    "ledgers": "complete",
+    "machine_records": "complete_with_blocked_fields",
+    "provenance_tests": "complete",
+    "transcription_tests": "complete",
+    "digitization_audits": "complete_where_justified",
+    "lineage_tools": "complete",
+    "decision_memo": "this_tranche"
+  },
+  "decision": {
+    "close_parent_issue": true,
+    "historical_integration_complete": true,
+    "pool_observation_classes": false,
+    "fit_universal_gap_law": false,
+    "reopen_manuscript": false,
+    "next_track": "paired_acquisition_protocol"
+  },
+  "reopen_only_for": [
+    "paired co-registered data with sigma_x <= 0.0015 and measured carrier and vacancy state",
+    "native calibrated Chang data with same-specimen W and b",
+    "a primary exact table with information gain above current uncertainty scales"
+  ],
+  "copyrighted_source_content_committed": false
+}
