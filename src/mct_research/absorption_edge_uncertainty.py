@@ -12,6 +12,8 @@ from typing import Any, Mapping
 import numpy as np
 from numpy.typing import NDArray
 
+from mct_research.chang_2006_absorption import build_chang_2006_candidate
+
 CONTRACT_VERSION = "1.0"
 CHU_1994_COMPOSITION_RANGE = (0.170, 0.443)
 CHU_1994_TEMPERATURE_RANGE_K = (77.0, 300.0)
@@ -400,6 +402,18 @@ def analyze_absorption_edge_contract(payload: Mapping[str, Any]) -> dict[str, An
             }
         )
 
+    chang_configuration = dict(payload["analysis_assumptions"]).get(
+        "chang_2006_nonparabolic_urbach"
+    )
+    chang_candidate = build_chang_2006_candidate(
+        chang_configuration,
+        metadata=validated["metadata"],
+        energy_ev=energy,
+        absorption_cm1=absorption,
+    )
+    if chang_candidate is not None:
+        model_candidates.append(chang_candidate)
+
     threshold_candidates: list[dict[str, Any]] = []
     excluded: list[dict[str, str]] = []
     for threshold in validated["thresholds"]:
@@ -463,4 +477,11 @@ def analyze_absorption_edge_contract(payload: Mapping[str, Any]) -> dict[str, An
             "not estimate an intrinsic material gap or identify a universal correction."
         ),
     }
+    if chang_configuration is not None:
+        output["analysis_assumptions"][
+            "chang_2006_nonparabolic_urbach"
+        ] = dict(chang_configuration)
+        output["decision"][
+            "chang_2006_candidate_is_observation_model_only"
+        ] = True
     return output
