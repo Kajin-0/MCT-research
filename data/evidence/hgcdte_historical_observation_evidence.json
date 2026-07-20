@@ -1,0 +1,1 @@
+{"schema_version":"1.0","analysis":"historical HgCdTe observation evidence tranche 1","includes":{"sources":"hgcdte_historical_observation_sources.json","specimens":"hgcdte_historical_observation_specimens.json","records":"hgcdte_historical_observation_records.json","schmit_contract":"hgcdte_historical_observation_schmit_contract.json"}}
