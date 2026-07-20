@@ -58,14 +58,19 @@ jobs:
           Path('.github/workflows/bootstrap-paired-hgcdte-protocol.yml').unlink()
           PY
 
-      - name: Validate generated package
+      - name: Install validation dependencies
+        run: python -m pip install -e . pytest
+
+      - name: Regenerate planning reference audit
         run: |
-          python -m pip install -e . pytest
           python tools/audit_hgcdte_paired_gap_acquisition.py \
             --input-json data/templates/hgcdte_paired_gap_acquisition_template.json \
             --mode planning \
             --output-json /tmp/regenerated_reference.json \
             > /tmp/paired_protocol_audit.txt
+
+      - name: Compare planning reference semantically
+        run: |
           python - <<'PY'
           import json
           import math
@@ -126,7 +131,9 @@ jobs:
               raise SystemExit(f'{len(differences)} reference differences exceeded tolerance')
           print('Reference audit reproduced with identical structure and all floats within rtol=1e-10, atol=1e-12.')
           PY
-          pytest -q tests/test_hgcdte_paired_gap_protocol.py
+
+      - name: Run focused paired-protocol tests
+        run: pytest -vv tests/test_hgcdte_paired_gap_protocol.py
 
       - name: Commit generated protocol files
         run: |
