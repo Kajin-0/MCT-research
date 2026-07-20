@@ -1,0 +1,153 @@
+name: bootstrap-finkman1984-operational-edge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/bootstrap-finkman1984-operational-edge.yml'
+      - 'src/mct_research/finkman_1984_operational_edge.py'
+      - 'data/evidence/finkman_1984_operational_edge.json'
+      - 'tools/audit_finkman_1984_operational_edge.py'
+      - 'tests/test_finkman_1984_operational_edge.py'
+      - 'research/decision_records/2026-07-20-finkman1984-operational-edge.md'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-24.04
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Check out pull-request branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Strengthen audit and update controlling ledger
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          audit_path = Path('tools/audit_finkman_1984_operational_edge.py')
+          text = audit_path.read_text(encoding='utf-8')
+
+          import_anchor = '    absorption_cm1_at_energy,\n'
+          import_insert = (
+              import_anchor
+              + '    composition_from_zero_intercept_wavenumber_300k_500um,\n'
+              + '    energy_ev_to_wavenumber_cm1,\n'
+          )
+          if text.count(import_anchor) != 1:
+              raise SystemExit('unexpected Finkman audit import anchor')
+          text = text.replace(import_anchor, import_insert, 1)
+
+          semantics_anchor = '''    if zero.get("interchangeable_with_alpha_500_edge") is not False:
+              raise ValueError("zero-intercept and alpha=500 edges cannot be interchangeable")
+          '''
+          semantics_insert = semantics_anchor + '''    if zero.get("equation_13_input_quantity") != "zero_intercept_cut_on_wavenumber_cm1":
+              raise ValueError("Eq. (13) zero-intercept wavenumber semantics changed")
+              if zero.get("absorption_coefficient_and_cut_on_wavenumber_are_distinct") is not True:
+                  raise ValueError("zero-intercept absorption and wavenumber were conflated")
+          '''
+          if text.count(semantics_anchor) != 1:
+              raise SystemExit('unexpected Finkman zero-intercept semantics anchor')
+          text = text.replace(semantics_anchor, semantics_insert, 1)
+
+          zero_anchor = '''        zero_intercept_rows.append(
+                  {
+                      "composition_x": x,
+                      "temperature_K": 300.0,
+                      "thickness_um": 500.0,
+                      "zero_intercept_absorption_cm1": zero_intercept_absorption_cm1(500.0),
+                      "zero_intercept_energy_eV": zero_energy,
+                      "alpha_500_operational_edge_eV": threshold_energy,
+                      "zero_intercept_minus_alpha500_meV": 1000.0
+                      * (zero_energy - threshold_energy),
+                  }
+              )
+          '''
+          zero_insert = '''        zero_wavenumber = energy_ev_to_wavenumber_cm1(zero_energy)
+              recovered_composition = composition_from_zero_intercept_wavenumber_300k_500um(
+                  zero_wavenumber
+              )
+              zero_intercept_rows.append(
+                  {
+                      "composition_x": x,
+                      "temperature_K": 300.0,
+                      "thickness_um": 500.0,
+                      "zero_intercept_absorption_cm1": zero_intercept_absorption_cm1(500.0),
+                      "zero_intercept_energy_eV": zero_energy,
+                      "zero_intercept_cut_on_wavenumber_cm1": zero_wavenumber,
+                      "eq13_recovered_composition_x": recovered_composition,
+                      "eq13_recovery_error_x": recovered_composition - x,
+                      "alpha_500_operational_edge_eV": threshold_energy,
+                      "zero_intercept_minus_alpha500_meV": 1000.0
+                      * (zero_energy - threshold_energy),
+                  }
+              )
+          '''
+          if text.count(zero_anchor) != 1:
+              raise SystemExit('unexpected Finkman zero-intercept row anchor')
+          text = text.replace(zero_anchor, zero_insert, 1)
+          audit_path.write_text(text, encoding='utf-8')
+
+          progress_path = Path('research/active_progress.md')
+          progress = progress_path.read_text(encoding='utf-8')
+          progress_anchor = (
+              '- A declared synthetic Figure-2-like screen, with a `0.002 eV` upper '
+              'source-domain margin, gives a weighted Jacobian condition number of '
+              '`256.1`, `corr(Eg,ln W)=0.731`, and `corr(Eg,ln b)=0.801`. Fixed `W` '
+              'errors of `+/-10-20%` move the recovered edge by approximately `0.8-1.7 '
+              'meV` while retaining visually small residuals. These are sensitivity '
+              'diagnostics, not real-specimen uncertainties.\n'
+          )
+          progress_insert = progress_anchor + (
+              '- Finkman-Schacham 1984 is preserved as a source-bound operational-edge '
+              'operator for `0.205 <= x <= 0.29`, `80 <= T <= 300 K`, and '
+              '`20 <= alpha <= 1000 cm^-1`. Its source-labeled `Eg` is explicitly the '
+              '`alpha=500 cm^-1` crossing selected to approximate the half-peak response '
+              'of a 10 um photoconductive detector; it is not an identified latent gap.\n'
+              '- Across representative Hg-rich points, the `alpha=20` to `1000 cm^-1` '
+              'edge span is `15.0-37.6 meV`. For a 500 um specimen, the transmission '
+              'zero-intercept edge is about `20-21 meV` below the alpha-500 edge at '
+              '300 K. Eq. (13) uses cut-on wavenumber `Zi`, not absorption `e/d`; those '
+              'coordinates are not interchangeable.\n'
+          )
+          if progress.count(progress_anchor) != 1:
+              raise SystemExit('unexpected active-progress Finkman anchor')
+          progress_path.write_text(
+              progress.replace(progress_anchor, progress_insert, 1),
+              encoding='utf-8',
+          )
+          PY
+
+      - name: Run focused operational-edge audit
+        run: |
+          set -o pipefail
+          python -m pip install -e . pytest
+          pytest -vv tests/test_finkman_1984_operational_edge.py \
+            2>&1 | tee /tmp/finkman1984-pytest.txt
+          python tools/audit_finkman_1984_operational_edge.py \
+            --input-json data/evidence/finkman_1984_operational_edge.json \
+            --output-json /tmp/finkman1984-audit.json
+
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finkman1984-operational-edge
+          path: |
+            /tmp/finkman1984-pytest.txt
+            /tmp/finkman1984-audit.json
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Freeze operational-edge record
+        run: |
+          rm -f .github/workflows/bootstrap-finkman1984-operational-edge.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Freeze Finkman 1984 operational-edge semantics'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
