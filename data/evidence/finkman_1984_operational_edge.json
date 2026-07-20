@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "analysis": "Finkman-Schacham 1984 operational absorption-edge semantics",
+  "source": {
+    "title": "The exponential optical absorption band tail of Hg1-xCdxTe",
+    "authors": ["E. Finkman", "S. E. Schacham"],
+    "journal": "Journal of Applied Physics",
+    "volume": 56,
+    "pages": "2896-2900",
+    "year": 1984,
+    "doi": "10.1063/1.333828",
+    "full_text_recovered": true,
+    "full_text_access": "author-uploaded copy",
+    "copyrighted_source_committed": false,
+    "source_content_fingerprint_sha256": "1f983b17b6f69da2cb9c9ac341d43c5a938dd2cc81f7dea0c5cc43c7d1af18b8"
+  },
+  "direct_hgcdte_specimens": {
+    "composition_x": 0.29,
+    "composition_deviation": 0.005,
+    "carrier_type": "n",
+    "carrier_density_cm3_range_at_77K": [9.0e14, 3.0e15],
+    "hall_mobility_cm2_Vs_range_at_77K": [3.0e4, 5.0e4],
+    "sample_count": 6,
+    "crystal_count_status": "different crystals",
+    "growth_methods": ["solid-state recrystallization", "Bridgman"],
+    "thickness_um_range": [25.0, 300.0],
+    "temperature_K_range": [80.0, 300.0],
+    "temperature_stability_K": 0.3,
+    "instrument": "Perkin-Elmer model 683 spectrophotometer"
+  },
+  "combined_hg_rich_operator_domain": {
+    "composition_x_range": [0.205, 0.29],
+    "temperature_K_range": [80.0, 300.0],
+    "absorption_cm1_range": [20.0, 1000.0],
+    "provenance_note": "Combines current x=0.29 measurements with prior x approximately 0.205-0.220 absorption data; the common conservative absorption range is used."
+  },
+  "equation_10": {
+    "quantity": "energy_at_absorption_threshold",
+    "expression": "E=(T+81.9)/(3.267e4*(1+x))*(ln(alpha)+18.88-53.61*x)-0.3424+1.838*x+0.148*x^4",
+    "coefficients": {
+      "T0_K": 81.9,
+      "sigma0_K_per_eV": 32670.0,
+      "ln_alpha_offset": 18.88,
+      "ln_alpha_x_coefficient": -53.61,
+      "constant_eV": -0.3424,
+      "x_coefficient_eV": 1.838,
+      "x4_coefficient_eV": 0.148
+    }
+  },
+  "operational_edge_500_cm1": {
+    "source_symbol": "Eg",
+    "repository_quantity": "energy_at_alpha_500_cm1",
+    "absorption_threshold_cm1": 500.0,
+    "observation_class": "fixed_absorption_threshold",
+    "source_rationale": "convenient definition approximating the half-peak value of a 10 um photoconductive detector",
+    "latent_material_gap_identified": false,
+    "exact_detector_equivalence_claimed": false,
+    "published_equation_11": "E=-0.3424+1.838*x+0.148*x^4+[(7.68e-4)*T+6.29e-2]*(1-2.14*x)/(1+x)",
+    "published_equation_11_is_rounded_closed_form": true,
+    "machine_exact_equality_with_equation_10_at_alpha500": false,
+    "maximum_rounding_residual_meV_in_declared_domain": 0.25666126587547966
+  },
+  "zero_intercept": {
+    "equation_12": "alpha_zero_intercept=e/d_cm",
+    "reference_thickness_um": 500.0,
+    "reference_absorption_cm1": 54.3656365691809,
+    "equation_13_temperature_K": 300.0,
+    "equation_13_thickness_um": 500.0,
+    "equation_13_input_quantity": "zero_intercept_cut_on_wavenumber_cm1",
+    "equation_13_expression": "x=7.785e-2+1.096e-4*Zi-3.713e-9*Zi^2",
+    "equation_13_optimized_composition_range": [0.2, 0.3],
+    "interchangeable_with_alpha_500_edge": false,
+    "absorption_coefficient_and_cut_on_wavenumber_are_distinct": true
+  },
+  "reference_points": [
+    {"composition_x": 0.215, "temperature_K": 80.0},
+    {"composition_x": 0.215, "temperature_K": 300.0},
+    {"composition_x": 0.29, "temperature_K": 80.0},
+    {"composition_x": 0.29, "temperature_K": 300.0}
+  ],
+  "reference_absorption_thresholds_cm1": [20.0, 50.0, 500.0, 1000.0],
+  "decision": {
+    "historical_operational_edge_evidence_authorized": true,
+    "source_bound_threshold_operator_authorized": true,
+    "latent_material_gap_point_authorized": false,
+    "universal_gap_law_fit_authorized": false,
+    "pool_with_magneto_optical_gaps_by_default": false,
+    "zero_intercept_and_alpha500_interchangeable": false,
+    "copyrighted_source_content_committed": false
+  }
+}
