@@ -9,8 +9,34 @@ Detailed results live in `research/decision_records/` and `validation/*_referenc
 
 - Static CdTe extraction uses the isospectral selected-band polar Hamiltonian. The complete linear space has four directions; the complete quadratic space has ten established Weiler directions.
 - The conventional tied quadratic model fails matrix and spectral closure. Five established departure directions are sufficient at the declared gate; `N2` is negligible. The former `49%`, large-`N2`, all-six-required, and 120-band interpretation is superseded.
+- An independent post-processing implementation on the immutable physical artifact reproduces the selected-band isospectral construction, the 4D linear and 10D quadratic invariant spaces, and the conventional quadratic failure on an untouched `[110]` holdout.
+- This independent reproduction uses direct SVD polar transport and a separately implemented raw-symmetry projector. It is not a new electronic-structure calculation and does not establish PBE, pseudopotential, geometry, cutoff, or band-count convergence.
+- The static post-processing reproducibility question is closed. Additional static replication on the same physical artifact is unauthorized; a genuinely independent electronic-structure setup would require separate scientific justification and authorization.
 - The CdTe A0 point remains invalid for long-range polar response. Further threshold tightening and A1 execution are unauthorized.
 - Finite-temperature matrix, Fan-vertex, and special-displacement reconstruction methods pass synthetic oracles, but no audited backend closes all SOC, Debye-Waller, polar, gauge, and export requirements.
+
+## Independent static CdTe reproduction
+
+The independent SVD-polar path reproduces:
+
+```text
+minimum selected overlap singular value       0.9998015324
+maximum selected eigenvalue error              2.576e-14 eV
+complete linear invariant dimension            4
+complete quadratic invariant dimension         10
+complete linear training residual              1.523e-7
+complete linear [110] holdout residual          1.447e-7
+complete quadratic training residual           1.255e-5
+complete quadratic [110] holdout residual       7.956e-6
+conventional quadratic training residual       0.287044
+conventional quadratic [110] holdout residual   0.332112
+P8                                              6.772222 eV A
+P7                                              6.201826 eV A
+```
+
+The `[110]` direction is excluded from training. Coarse/fine/Richardson variation is `1.42e-4` for `P8` and `1.17e-4` for `P7`. Scalar differences from the controlling implementation are no larger than `1.88e-11` for residual diagnostics and `2.83e-13 eV A` for the two linear couplings.
+
+Authorized conclusion: the controlling static post-processing result is independently reproducible on the same immutable physical input. Unauthorized conclusion: that the underlying physical calculation or fitted material parameters are independently validated.
 
 ## Matrix covariance and regenerated statistics
 
@@ -108,7 +134,7 @@ New work must change a controlling decision by separating observation classes, s
 1. Prioritize paired or same-specimen cross-modality evidence that can estimate an observation-class offset without pooling unlike measurements.
 2. Use the Chu 1991 composition result as a prototype for leakage-safe nuisance-offset transfer, not as a universal correction.
 3. Recover and audit Herrmann 1992, DOI `10.1016/0022-0248(92)90851-9`, only if the complete operator can be reconstructed without hybrid assumptions.
-4. In parallel only, execute one separately authorized converged reproduction of the static CdTe selected-band result; do not broaden the first-principles program.
+4. Convert the paired `2 x 2 x 2` acquisition design into a collaboration-ready experimental protocol with metrology, processing, calibration, and covariance requirements.
 5. Reopen material-law development only after independent observation-class-controlled evidence exceeds propagated composition and measurement uncertainty.
 
 ## Explicitly unauthorized
@@ -118,6 +144,8 @@ New work must change a controlling decision by separating observation classes, s
 - additional empirical gap coefficients from current or uncalibrated data;
 - universal source, composition, carrier, defect, threshold, or model-family corrections from current metadata;
 - treating a fitted Chu source offset as transferable outside that source and observation class;
+- additional static post-processing replication on the same physical artifact;
+- claiming static electronic-structure convergence from the independent post-processing result;
 - single-edge selection from the uncertainty ensemble;
 - broad source accumulation without a decision-changing target;
 - additional micro-PRs that only restate an unchanged authorization boundary;
