@@ -22,7 +22,7 @@ Detailed results live in `research/decision_records/` and `validation/*_referenc
 
 ## HgCdTe gap program
 
-The leading provisional temperature law remains:
+The previously leading provisional temperature law is retained as an archived candidate:
 
 ```text
 Eg(x,T) = Eg_Hansen(x,0) + 5.918273117836612e-4
@@ -31,6 +31,10 @@ Eg(x,T) = Eg_Hansen(x,0) + 5.918273117836612e-4
 
 It is a constrained Seiler-family parameterization, not a new functional family or production equation.
 
+- Chu 1991 provides an independent `x=0.276`, 6-300 K absorption-turning-point series. The observed same-specimen shift is `61 meV`; Hansen predicts `70.466 meV` and the provisional Padé law predicts `79.096 meV`.
+- Anchored thermal-increment MAE is `7.215 meV` for Hansen and `11.725 meV` for the provisional Padé law. Across the conservative `x=0.276 +/- 0.005` interval, the minimum Padé MAE (`10.829 meV`) exceeds the maximum Hansen MAE (`8.011 meV`).
+- The provisional Padé law therefore does not retain its previously claimed broad cross-source transfer advantage. It must not be described as the leading candidate without this qualification.
+- This result does not select Hansen or another universal law because the source is an absorption turning-point observation class with printed figure labels, not an observation-class-controlled latent-gap series.
 - No replacement for Hansen's zero-temperature composition polynomial is authorized.
 - No production absorption-edge correction is authorized.
 - The complete paired eight-specimen `2 x 2 x 2` design remains the audit-grade acquisition target for separating latent gap, observation class, carrier state, and vacancy state.
