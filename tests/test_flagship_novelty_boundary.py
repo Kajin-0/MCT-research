@@ -161,7 +161,10 @@ def test_readme_and_active_state_match_merged_source_state() -> None:
         assert "11.297 meV" in text
         assert "HgCdTe-specific semiconductor optical-metrology" in text
         assert "new general structural-identifiability theory" in text
-        assert "Chang 2007 Figure 1" in text or "Chang 2007 thickness curve" in text
+        assert "calculated" in text.lower()
+        assert "independent" in text.lower()
+        assert "validation" in text.lower()
+        assert "Chang" in text
 
     assert "**Active milestone:** #189" in active
     assert "This is the sole controlling research ledger" in active
