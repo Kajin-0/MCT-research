@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "source": {
     "doi": "10.1016/0038-1098(85)90315-1",
     "title": "Infrared absorption in In-doped degenerate Hg1-xCdxTe",
@@ -52,6 +52,16 @@
     "source_fermi_energy_minus_optical_gap_mev": [3.0, 0.0, 4.0, 3.0],
     "rms_mev": 2.9154759,
     "interpretation": "The source-calculated filled edge and the operational 2000 cm^-1 extrapolated edge agree within 0-4 meV at the four reported temperatures."
+  },
+  "existing_zero_temperature_sensitivity_comparison": {
+    "model_scope": "previous illustrative model with n=7e17 cm^-3, m_edge=0.010 m0, alpha=7.5 eV^-1, m_valence=0.35 m0 and no BGR",
+    "constant_filling_shift_mev": 148.367,
+    "shift_residuals_mev": [-6.633, -4.633, 14.367, 31.367],
+    "shift_rms_error_mev": 17.7184,
+    "shift_max_abs_error_mev": 31.367,
+    "optical_gap_residuals_mev": [-3.633, -4.633, 18.367, 34.367],
+    "optical_gap_rms_error_mev": 19.7047,
+    "interpretation": "The illustrative zero-temperature estimate does not reproduce the source temperature trend and is not a Dingrong specimen fit."
   },
   "boundaries": [
     "The result tests a source-defined carrier-density integral and operational edge comparison, not the complete free-carrier spectrum.",
