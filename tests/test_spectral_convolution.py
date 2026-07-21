@@ -5,7 +5,8 @@ import math
 import numpy as np
 import pytest
 
-from mct_research.spectral_convolution import (
+from mct_research import (
+    ExponentialTailFit,
     fit_exponential_absorption_tail,
     gaussian_gap_convolved_power_absorption,
     herrmann_gap_sigma_ev,
@@ -21,6 +22,13 @@ def normal_cdf(value: np.ndarray) -> np.ndarray:
 
 def normal_density(value: np.ndarray) -> np.ndarray:
     return np.exp(-0.5 * value**2) / math.sqrt(2.0 * math.pi)
+
+
+def test_public_spectral_operator_exports() -> None:
+    assert ExponentialTailFit.__name__ == "ExponentialTailFit"
+    assert callable(gaussian_gap_convolved_power_absorption)
+    assert callable(normalized_gaussian_gap_convolved_power_absorption)
+    assert callable(fit_exponential_absorption_tail)
 
 
 def test_herrmann_source_scale_conversion() -> None:
@@ -47,10 +55,7 @@ def test_linear_power_edge_matches_closed_gaussian_moment() -> None:
         quadrature_order=512,
     )
 
-    # The integrand has a moving kink at G=E, so deterministic Gaussian
-    # quadrature converges algebraically rather than spectrally at the deepest
-    # tail points.  This tolerance is verified against the exact closed form.
-    np.testing.assert_allclose(calculated, expected, rtol=3.0e-4, atol=2.0e-9)
+    np.testing.assert_allclose(calculated, expected, rtol=1.0e-10, atol=2.0e-16)
 
 
 def test_quadratic_power_edge_matches_closed_gaussian_moment() -> None:
@@ -72,7 +77,7 @@ def test_quadratic_power_edge_matches_closed_gaussian_moment() -> None:
         quadrature_order=512,
     )
 
-    np.testing.assert_allclose(calculated, expected, rtol=1.0e-4, atol=2.0e-10)
+    np.testing.assert_allclose(calculated, expected, rtol=1.0e-9, atol=2.0e-18)
 
 
 def test_square_root_spectrum_is_quadrature_converged_in_fit_region() -> None:
@@ -94,7 +99,7 @@ def test_square_root_spectrum_is_quadrature_converged_in_fit_region() -> None:
         quadrature_order=512,
     )
 
-    np.testing.assert_allclose(coarse, fine, rtol=4.0e-3, atol=2.0e-3)
+    np.testing.assert_allclose(coarse, fine, rtol=1.0e-6, atol=1.0e-4)
 
 
 def test_deterministic_gap_limit() -> None:
@@ -153,7 +158,7 @@ def test_herrmann_square_root_reproduction_gives_half_s_tail() -> None:
         maximum_energy_ev=mean_gap,
     )
 
-    assert fit.tail_energy_ev / source_s == pytest.approx(0.505, rel=0.012)
+    assert fit.tail_energy_ev / source_s == pytest.approx(0.50504, rel=2.0e-4)
     assert fit.r_squared > 0.995
     assert fit.point_count > 100
 
