@@ -45,15 +45,17 @@ $$
 \alpha(E\mid G)=A(E-G)_+^p,
 $$
 
-with the source-aligned square-root member `p=0.5`, a declared normalization `alpha(mean gap)=1000 cm^-1`, and deterministic Gaussian quadrature.
+with the source-aligned square-root member `p=0.5`, a declared normalization `alpha(mean gap)=1000 cm^-1`, and energy-dependent split Gaussian quadrature.
+
+The numerical integral is mapped onto `G <= E` for every photon energy. This removes the moving threshold cusp from the interior of the quadrature interval. In the declared tail test, the maximum relative change from order `256` to `512` is `5.78e-7`.
 
 For the source fit window:
 
 ```text
 p = 0.5
 fit range = 1-100 cm^-1
-W_fit/s = 0.50474
-R^2 = 0.99566
+W_fit/s = 0.50504
+R^2 = 0.99570
 ```
 
 The source scale is independently reproduced.
@@ -64,19 +66,19 @@ The same square-root spectrum gives:
 
 ```text
 fit range        W_fit/s       R^2
-0.1-100          0.46075       0.99307
-1-100            0.50474       0.99566
-10-100           0.56808       0.99828
-10-500           0.66850       0.99188
-100-500          0.80860       0.99734
+0.1-100          0.46096       0.99307
+1-100            0.50504       0.99570
+10-100           0.56806       0.99836
+10-500           0.66828       0.99190
+100-500          0.80871       0.99738
 ```
 
-Changing only the fit window from `1-100` to `100-500 cm^-1` increases `W_fit` by `60.2%` while preserving a visually and statistically strong exponential fit.
+Changing only the fit window from `1-100` to `100-500 cm^-1` increases `W_fit` by `60.1%` while preserving a visually and statistically strong exponential fit.
 
 Across `p=0.5`, `1`, and `2`, the source-window ratio spans only:
 
 ```text
-W_fit/s = 0.48375-0.50474
+W_fit/s = 0.48375-0.50504
 ```
 
 Thus the fitted slope is much more sensitive to the observation window than to the tested intrinsic-edge exponent, and high `R^2` does not identify either quantity.
@@ -92,8 +94,8 @@ $$
 the declared model/window family permits:
 
 ```text
-sigma_G = 6.996-12.661 meV
-s       = 4.947-8.952 meV
+sigma_G = 6.995-12.661 meV
+s       = 4.946-8.952 meV
 range factor = 1.81
 ```
 
@@ -121,7 +123,7 @@ Merge requires:
 
 - agreement with exact Gaussian moments for linear and quadratic local edges;
 - deterministic zero-width limit;
-- quadrature convergence;
+- order-256 versus order-512 quadrature convergence;
 - reproduction of `W_fit/s approximately 0.5` for the source window;
 - explicit fit-window non-uniqueness test;
 - public API and documentation consistency;
