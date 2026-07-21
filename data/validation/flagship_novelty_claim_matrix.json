@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 189,
+  "audit_date": "2026-07-21",
+  "classifications": {
+    "red": "Established general principle or source result; do not claim novelty.",
+    "yellow": "Application-specific derivation or synthesis not found at comparable specificity; describe cautiously.",
+    "green": "Project-specific quantitative result not found in the audited corpus; broader review can still revise this status."
+  },
+  "prior_art": [
+    {"key":"bellman_astrom_1970","doi":"10.1016/0025-5564(70)90132-X","boundary":"Structural identifiability is established general theory."},
+    {"key":"yates_evans_chappell_2009","doi":"10.1016/j.automatica.2009.07.009","boundary":"Output-preserving parameter symmetries are established methodology."},
+    {"key":"eisenberg_hayashi_2014","doi":"10.1016/j.mbs.2014.08.008","boundary":"Identifiable parameter combinations are established methodology."},
+    {"key":"iupac_beer_lambert","doi":"10.1351/goldbook.B00626","boundary":"Absorption strength and optical path length enter Beer-Lambert attenuation multiplicatively."},
+    {"key":"chambouleyron_1997","doi":"10.1364/AO.36.008238","boundary":"Thin-film optical inversion uses explicit constraints to recover optical constants and thickness."},
+    {"key":"babeva_2001_error","doi":"10.1364/AO.40.002675","boundary":"Measurement combinations control optical-parameter and thickness recoverability."},
+    {"key":"babeva_2001_unique","doi":"10.1364/AO.40.002682","boundary":"Additional photometric information can permit unambiguous n, k, and d recovery."},
+    {"key":"mendoza_galvan_2021","doi":"10.1364/OL.418277","boundary":"Effective thickness is observation-model dependent and need not equal physical thickness."},
+    {"key":"herrmann_1992","doi":"10.1016/0022-0248(92)90851-9","boundary":"Gap distributions producing near-exponential tails are prior art."},
+    {"key":"chang_2006","doi":"10.1063/1.2245220","boundary":"The nonparabolic intrinsic plus Urbach absorption branch is prior art."},
+    {"key":"chang_2007","doi":"10.1007/s11664-007-0162-0","boundary":"Effective-thickness-dependent detector cutoff is prior art; the published thickness curve is calculated."},
+    {"key":"dingrong_1985","doi":"10.1016/0038-1098(85)90315-1","boundary":"Finite-temperature carrier filling and free-carrier absorption in a degenerate HgCdTe specimen are prior art."}
+  ],
+  "claims": [
+    {"id":"N01","classification":"red","claim":"Structural identifiability differs from fitting precision.","authorized":"We apply structural-identifiability analysis to an HgCdTe forward model.","prohibited":"We introduce structural identifiability for spectroscopy."},
+    {"id":"N02","classification":"red","claim":"Parameter symmetries and identifiable combinations govern recoverability.","authorized":"We derive the combinations for the declared HgCdTe operator.","prohibited":"We introduce parameter-symmetry or identifiable-combination methods."},
+    {"id":"N03","classification":"red","claim":"Absorption amplitude and effective thickness enter the reduced single-pass response through A*d.","authorized":"The reduced operator inherits the standard optical-depth product degeneracy.","prohibited":"The amplitude-thickness degeneracy is a new physical discovery."},
+    {"id":"N04","classification":"yellow","claim":"Eg0 and a uniform carrier translation enter the declared spectrum through Eg0+Delta.","authorized":"For the declared model, latent gap and carrier translation form one identifiable combination.","prohibited":"This is a new general theorem of spectroscopy."},
+    {"id":"N05","classification":"yellow","claim":"The five-parameter unmarked spectrum has rank at most three and depends on Eg0+Delta, sigma_G, and A*d.","authorized":"We derive an application-specific rank bound for the declared distributed HgCdTe spectrum.","prohibited":"We prove unprecedented general structural-identifiability mathematics."},
+    {"id":"N06","classification":"green","claim":"Two physically distinct parameter sets produce identical 281-point spectra when the three combinations are preserved.","authorized":"An exact model-specific counterexample demonstrates the practical consequence of the invariances.","prohibited":"All real HgCdTe spectra are non-unique."},
+    {"id":"N07","classification":"yellow","claim":"A controlled carrier-sensitive marker raises rank to four but leaves one combined null vector.","authorized":"The diagnostic identifies which additional information breaks one null direction and which scale remains necessary.","prohibited":"The Dingrong free-carrier spectrum is proven to have this rank behavior."},
+    {"id":"N08","classification":"red","claim":"Tail cutoff shifts logarithmically with effective-thickness ratio.","authorized":"Combining the Chang tail with the single-pass response gives the exact logarithmic shift.","prohibited":"We discover that detector cutoff depends on thickness."},
+    {"id":"N09","classification":"yellow","claim":"Any number of tail-only Chang cutoffs has rank at most two for four nominal parameters.","authorized":"We derive a model-specific rank-two bound for tail-only HgCdTe cutoff datasets.","prohibited":"A new universal theorem for all detector cutoffs."},
+    {"id":"N10","classification":"green","claim":"Mixed intrinsic and tail observations restore rank four with condition number 199.81 in the declared design.","authorized":"In the declared synthetic design, branch diversity restores local rank but not strong conditioning.","prohibited":"The condition number applies to real Chang specimens."},
+    {"id":"N11","classification":"green","claim":"Changing only the fit window changes apparent tail energy by 60.1 percent for the same convolved spectrum.","authorized":"The source-conditioned computation quantifies fit-window dependence.","prohibited":"Herrmann's measured Urbach energy is wrong by 60.1 percent."},
+    {"id":"N12","classification":"green","claim":"Dingrong's printed Eq. 2 and printed P miss Table 1 Fermi elevations by 11.297 meV RMS.","authorized":"A source-consistency audit exposes a printed-parameter mismatch; the row-implied P is diagnostic only.","prohibited":"The universal HgCdTe momentum matrix is 8.51e-8 eV cm."},
+    {"id":"N13","classification":"yellow","claim":"No-crossing compositions censor the conditional critical-temperature distribution in the declared near-inversion model.","authorized":"The declared model exhibits root censoring and asymmetric conditional statistics.","prohibited":"The calculated fractions are measured topological phase fractions."}
+  ],
+  "publication_framing": {
+    "selected": "HgCdTe-specific semiconductor optical metrology and inverse-problem methods paper",
+    "central_contribution": "A source-grounded forward hierarchy that exposes exact identifiable combinations, quantifies operator-induced edge shifts, and prescribes independent measurements for latent-gap recovery.",
+    "not_claimed": ["new general structural-identifiability theory", "new universal HgCdTe bandgap equation", "complete microscopic absorption theory", "complete external specimen-spectrum validation"]
+  },
+  "limitations": [
+    "The audit is targeted and can be revised by a closer source.",
+    "Theorem labels denote exact statements under declared assumptions, not unprecedented mathematics.",
+    "Yellow and green claims must retain their model and evidence qualifiers."
+  ]
+}
