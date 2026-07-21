@@ -160,6 +160,7 @@ Before submission, verify full metadata and manuscript placement for:
 10.1016/0038-1098(85)90315-1
 10.1016/j.physb.2009.08.210
 10.1038/ncomms12576
+10.1016/0020-0891(91)90110-2
 ```
 
 Verify title, author order, journal, year, volume, issue, page/article number, and DOI. Distinguish source results from repository inferences in every citation sentence.
