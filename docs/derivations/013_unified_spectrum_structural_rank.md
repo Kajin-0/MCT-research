@@ -2,56 +2,39 @@
 
 ## 1. Objective
 
-This derivation combines three previously tested observation layers:
+This derivation combines:
 
 1. a distribution of local gaps;
 2. a spatially uniform carrier-induced edge translation;
 3. a single-pass Beer-Lambert response.
 
-It asks whether an arbitrarily dense, noise-free optical response spectrum can separately recover:
+It asks whether an arbitrarily dense, noise-free spectrum can separately recover:
 
-- the zero-density latent gap;
-- the carrier-induced edge shift;
-- the local-gap width;
-- the absorption amplitude;
-- the effective absorbing thickness.
+- zero-density latent gap;
+- carrier-induced edge shift;
+- local-gap width;
+- absorption amplitude;
+- effective absorbing thickness.
 
-Under the declared model, the answer is no. Five nominal parameters enter through only three independent combinations.
+Under the base model, five nominal parameters enter through only three independent combinations.
 
-## 2. Local absorption and gap distribution
+## 2. Unified base model
 
 Use the controlled local edge
 
 $$
-\alpha_{\mathrm{loc}}(E\mid G)
-=A(E-G)_+^p,
+\alpha_{\mathrm{loc}}(E\mid G)=A(E-G)_+^p,
 $$
 
-where
+with
 
 $$
-(y)_+=\max(y,0).
-$$
-
-Let the local gap distribution be
-
-$$
-G\sim\mathcal N(\mu_G,\sigma_G^2).
-$$
-
-A spatially uniform carrier-induced shift is represented by
-
-$$
+G\sim\mathcal N(\mu_G,\sigma_G^2),
+\qquad
 \mu_G=E_g^{(0)}+\Delta_c.
 $$
 
-Here:
-
-- $E_g^{(0)}$ is the zero-density latent gap;
-- $\Delta_c$ is the net uniform carrier-dependent translation retained in the interband edge;
-- $\sigma_G$ is the declared local-gap standard deviation.
-
-The convolution derived previously has the scale form
+The convolved absorption has the scale form
 
 $$
 \boxed{
@@ -59,26 +42,23 @@ $$
 =A\sigma_G^p
 F_p\left(
 \frac{E-E_g^{(0)}-\Delta_c}{\sigma_G}
-\right)
-}.
+\right).
+}
 $$
-
-## 3. Single-pass response
 
 For effective thickness $d$,
 
 $$
-R(E)=1-\exp[-d\bar\alpha(E)].
+R(E)=1-\exp[-d\bar\alpha(E)],
 $$
 
-Substitution gives
+or
 
 $$
 \boxed{
-R(E)
-=1-
+R(E)=1-
 \exp\left\{
--A d\,\sigma_G^p
+-Ad\,\sigma_G^p
 F_p\left[
 \frac{E-E_g^{(0)}-\Delta_c}{\sigma_G}
 \right]
@@ -86,7 +66,7 @@ F_p\left[
 }
 $$
 
-The complete dense spectrum depends only on:
+The dense spectrum depends only on
 
 $$
 \boxed{
@@ -94,49 +74,21 @@ $$
 \qquad
 \sigma_G,
 \qquad
-K=A d.
+K=Ad.
 }
 $$
 
-Thus the five-parameter representation
-
-$$
-\theta=
-(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A,\ln d)
-$$
-
-contains only three independently observable combinations.
-
-## 4. Exact gap/carrier translation invariance
+## 3. Exact gap/carrier translation invariance
 
 For any scalar $\delta$,
 
 $$
 E_g^{(0)}\rightarrow E_g^{(0)}+\delta,
-$$
-
-$$
+\qquad
 \Delta_c\rightarrow\Delta_c-\delta
 $$
 
-leaves
-
-$$
-E_g^{(0)}+\Delta_c
-$$
-
-unchanged. Therefore
-
-$$
-\boxed{
-R(E;E_g^{(0)}+\delta,\Delta_c-\delta)
-=R(E;E_g^{(0)},\Delta_c)
-}
-$$
-
-for every photon energy.
-
-Differentiating gives the Jacobian identity
+leaves the spectrum unchanged. Therefore
 
 $$
 \boxed{
@@ -146,39 +98,19 @@ $$
 }
 $$
 
-The two spectral Jacobian columns are identical.
+No increase in signal-to-noise, bandwidth, or number of spectral points can separate two parameters that enter only through their sum.
 
-No increase in signal-to-noise, spectral resolution, bandwidth, or number of points can distinguish two parameters that the forward operator includes only through their sum.
+## 4. Exact amplitude/thickness invariance
 
-## 5. Exact amplitude/thickness invariance
-
-For any positive scale $c$,
+For any $c>0$,
 
 $$
 A\rightarrow cA,
-$$
-
-$$
+\qquad
 d\rightarrow d/c
 $$
 
-leaves the optical depth
-
-$$
-A d\,\sigma_G^p F_p
-$$
-
-unchanged. Hence
-
-$$
-\boxed{
-R(E;cA,d/c)=R(E;A,d)
-}
-$$
-
-for every photon energy.
-
-Using logarithmic parameters,
+leaves the response unchanged. With logarithmic parameters,
 
 $$
 \boxed{
@@ -188,45 +120,25 @@ $$
 }
 $$
 
-Absorption amplitude and effective thickness are structurally inseparable in a single-pass response spectrum unless one is constrained independently.
+Absorption amplitude and effective thickness are structurally inseparable in the base single-pass model unless one is constrained independently.
 
-## 6. Structural rank theorem
+## 5. Structural rank theorem
 
-The five Jacobian columns are
+Let
 
 $$
-J=\left[
-J_{E_g},
-J_{\Delta_c},
-J_{\ln\sigma},
-J_{\ln A},
-J_{\ln d}
-\right].
+\theta=(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A,\ln d).
 $$
 
-The exact identities give
+The Jacobian columns satisfy
 
 $$
 J_{E_g}=J_{\Delta_c},
-$$
-
-and
-
-$$
+\qquad
 J_{\ln A}=J_{\ln d}.
 $$
 
-Therefore at most three independent columns remain:
-
-$$
-J_{E_g},
-\qquad
-J_{\ln\sigma},
-\qquad
-J_{\ln A}.
-$$
-
-Thus
+Thus at most three independent columns remain and
 
 $$
 \boxed{
@@ -234,11 +146,11 @@ $$
 }
 $$
 
-This bound is independent of the number of spectral points. A continuum of exact observations cannot exceed it.
+The bound is independent of the number of spectral samples. A continuum of exact observations cannot exceed it.
 
-## 7. Exact counterexample
+## 6. Exact counterexample
 
-Consider the two parameter sets:
+Consider:
 
 | parameter | set 1 | set 2 |
 |---|---:|---:|
@@ -248,31 +160,23 @@ Consider the two parameter sets:
 | $A$ | 30000 | 15000 |
 | $d$ | 10 $\mu$m | 20 $\mu$m |
 
-Both sets have
+Both have
 
 $$
 E_g^{(0)}+\Delta_c=0.130\ \mathrm{eV}
 $$
 
-and
-
-$$
-A d=300000
-$$
-
-in the corresponding declared units.
-
-For a 281-point response spectrum over `0.08-0.22 eV`, the maximum absolute numerical difference is
+and equal $Ad$. Across 281 response points from `0.08` to `0.22 eV`, the maximum absolute difference is
 
 $$
 2.22\times10^{-16}.
 $$
 
-The two physically different parameter descriptions are spectrally indistinguishable to machine precision.
+The two distinct parameter descriptions are spectrally indistinguishable to machine precision.
 
-## 8. Dense-spectrum numerical rank
+## 7. Dense-spectrum numerical rank
 
-For the first parameter set with $p=1$, deterministic quadrature, and no additional carrier-dependent spectral feature, the Jacobian singular values are
+For set 1, fixed $p=1$, and no additional carrier-dependent feature, the singular values are
 
 ```text
 2.10943527e2
@@ -282,7 +186,7 @@ For the first parameter set with $p=1$, deterministic quadrature, and no additio
 4.59184616e-14
 ```
 
-Relative to the largest:
+with relative values
 
 ```text
 1.00000000
@@ -292,61 +196,134 @@ Relative to the largest:
 2.17681302e-16
 ```
 
-The numerical rank is three at a relative tolerance of $10^{-8}$, in agreement with the exact theorem.
+and numerical rank three at relative tolerance $10^{-8}$.
 
-The two null singular directions are numerical representations of:
+## 8. External constraints in the base model
 
-1. zero-density gap versus carrier translation;
-2. absorption amplitude versus effective thickness.
+- Known carrier shift leaves $(E_g^{(0)},\ln\sigma_G,\ln A,\ln d)$ with rank three because $A$ and $d$ remain confounded.
+- Known thickness leaves $(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A)$ with rank three because $E_g^{(0)}$ and $\Delta_c$ remain confounded.
+- Known carrier shift and known thickness leave $(E_g^{(0)},\ln\sigma_G,\ln A)$, which are locally full rank in the declared design.
 
-## 9. Effect of external constraints
+Both external constraints are required for latent-gap recovery in the unmarked base model.
 
-### Known carrier shift
+## 9. Adding an absolutely calibrated carrier-dependent marker
 
-If independent Hall data and a validated carrier model fix $\Delta_c$, the remaining parameters are
-
-$$
-(E_g^{(0)},\ln\sigma_G,\ln A,\ln d).
-$$
-
-Their spectrum still has rank three because $A$ and $d$ remain confounded.
-
-### Known effective thickness
-
-If $d$ is independently known, the remaining parameters are
+A carrier effect need not be only a rigid translation. Add the generic diagnostic term
 
 $$
-(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A).
+\alpha_m(E)
+=B\Delta_c\left(\frac{E_r}{E}\right)^2,
 $$
 
-Their spectrum still has rank three because $E_g^{(0)}$ and $\Delta_c$ remain confounded.
-
-### Both known
-
-If both the carrier shift and effective thickness are constrained, the remaining parameters
+so the optical depth is
 
 $$
-(E_g^{(0)},\ln\sigma_G,\ln A)
+\tau(E)
+=d\left[
+A f(E;E_g^{(0)}+\Delta_c,\sigma_G)
++B\Delta_c h(E)
+\right].
 $$
 
-are locally full rank in the declared numerical design.
+This is an identifiability marker, not the Dingrong free-carrier absorption law.
 
-Therefore both external constraints are required for latent-gap recovery under this forward model.
-
-## 10. Breaking the translation degeneracy
-
-A carrier effect need not be only a rigid interband translation. Suppose an independently calibrated carrier-dependent spectral marker is added:
+The marker breaks the two **simple pairwise** invariances:
 
 $$
-\alpha_{\mathrm{marker}}(E)
-=B\Delta_c\left(\frac{E_r}{E}\right)^2.
+J_{E_g}\ne J_{\Delta_c},
+\qquad
+J_{\ln A}\ne J_{\ln d}.
 $$
 
-This term changes spectral shape and amplitude with $\Delta_c$ but not with $E_g^{(0)}$.
+However, the five parameters still enter through only four combinations:
 
-It is a generic identifiability marker, not the Dingrong free-carrier absorption law.
+$$
+\mu=E_g^{(0)}+\Delta_c,
+\qquad
+\sigma_G,
+\qquad
+K=Ad,
+\qquad
+M=\Delta_c d.
+$$
 
-Using the declared diagnostic scale
+Therefore one combined invariance remains.
+
+## 10. Exact combined finite invariance with the marker
+
+For any $c>0$, define
+
+$$
+d' = cd,
+$$
+
+$$
+A'=A/c,
+$$
+
+$$
+\Delta_c'=\Delta_c/c,
+$$
+
+and
+
+$$
+E_g^{(0)\prime}
+=E_g^{(0)}+\Delta_c\left(1-\frac1c\right).
+$$
+
+Then
+
+$$
+E_g^{(0)\prime}+\Delta_c'
+=E_g^{(0)}+\Delta_c,
+$$
+
+$$
+A'd'=Ad,
+$$
+
+and
+
+$$
+\Delta_c'd'=\Delta_c d.
+$$
+
+Hence the complete marked response remains unchanged.
+
+The infinitesimal null vector in coordinates
+
+$$
+(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A,\ln d)
+$$
+
+is
+
+$$
+\boxed{
+v=(\Delta_c,-\Delta_c,0,-1,1).
+}
+$$
+
+Thus
+
+$$
+\boxed{
+Jv
+=
+\Delta_c J_{E_g}
+-\Delta_c J_{\Delta_c}
+-J_{\ln A}
++J_{\ln d}
+=0.
+}
+$$
+
+The marker raises the structural rank from at most three to at most four; it does not make all five parameters identifiable by itself.
+
+## 11. Numerical marked-spectrum rank
+
+Using
 
 ```text
 B = 1000 cm^-1 eV^-1
@@ -365,62 +342,64 @@ produces singular values
 
 and numerical rank four.
 
-The gap/carrier translation null is removed because the carrier parameter now changes a nontranslational spectral feature. The amplitude/thickness null remains exact.
+For the declared $\Delta_c=0.030$ eV, the maximum absolute residual of the combined Jacobian null relation is
 
-This demonstrates the required measurement principle:
+```text
+2.28e-11.
+```
 
-> A carrier-dependent background can separate carrier state from latent gap only if its spectral shape and absolute calibration are retained in the same forward model.
+If effective thickness is independently known, the remaining parameters
 
-## 11. Why dense spectra are still valuable
+$$
+(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A)
+$$
 
-The theorem does not imply that spectra are uninformative. Dense spectra can identify the three combinations
+are locally full rank in the declared marked-spectrum design.
+
+The correct measurement principle is therefore:
+
+> An absolutely calibrated carrier-dependent spectral feature can raise rank and separate the simple gap/carrier translation, but one external scale such as effective thickness is still required to remove the remaining combined invariance.
+
+## 12. Why dense spectra remain valuable
+
+The theorem does not imply that spectra are uninformative. In the base model, dense spectra can identify
 
 $$
 E_g^{(0)}+\Delta_c,
 \qquad
 \sigma_G,
 \qquad
-A d
+Ad
 $$
 
-more robustly than one cutoff or one fitted edge.
+more robustly than one cutoff. They can also reveal model inadequacy through curvature and residual structure.
 
-They can also reveal model inadequacy through curvature, residual structure, or additional spectral features.
+The theorem states that exact forward invariances cannot be defeated statistically.
 
-The theorem states only that exact invariances cannot be defeated statistically.
+## 13. Measurement-design requirements
 
-## 12. Measurement-design requirements
-
-A program intended to recover the zero-density latent gap should obtain at least:
+Latent-gap recovery should include:
 
 1. independent carrier density and a validated filling/renormalization model;
 2. independently calibrated effective thickness or absorption amplitude;
 3. a full calibrated spectrum rather than one cutoff;
-4. enough spectral range to identify gap-distribution width and intrinsic-edge shape;
-5. a carrier-dependent spectral background, when available, modeled jointly rather than subtracted without provenance;
-6. multiple carrier states or temperatures on the same specimen to test whether a rigid-translation model is adequate.
+4. enough spectral range to identify gap width and intrinsic-edge shape;
+5. carrier-dependent spectral structure modeled jointly with absolute calibration;
+6. multiple carrier states or temperatures on the same specimen to test the rigid-translation assumption.
 
-## 13. Claim boundaries
+## 14. Claim boundaries
 
 The theorem assumes:
 
 - a Gaussian local-gap distribution;
-- a fixed local-edge exponent;
-- a spatially uniform carrier-induced edge translation;
+- fixed local-edge exponent;
+- spatially uniform carrier translation;
 - multiplicative absorption amplitude;
 - single-pass Beer-Lambert response;
 - one effective thickness.
 
-It does not include:
+The generic marker is not a physical free-carrier model. Carrier-gap spatial correlations, reflection, interference, multiple paths, transport, and energy-dependent collection remain outside scope.
 
-- carrier-gap spatial correlations;
-- multiple optical paths;
-- interference and reflectance;
-- energy-dependent collection efficiency;
-- a physical free-carrier absorption law;
-- finite-temperature carrier statistics;
-- a complete microscopic HgCdTe absorption model.
+## 15. Controlling result
 
-## 14. Controlling result
-
-> Under the declared unified observation model, an arbitrarily dense single-state response spectrum has structural rank at most three for five nominal parameters. Independent carrier-state and effective-thickness information are necessary, not merely helpful, for recovering the latent zero-density gap.
+> Under the unmarked unified model, an arbitrarily dense single-state response spectrum has structural rank at most three for five nominal parameters. A calibrated nontranslational carrier feature can raise rank to four, but one combined scaling/translation invariance remains until an external scale such as effective thickness is supplied.
