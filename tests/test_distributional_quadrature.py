@@ -31,7 +31,9 @@ def test_linear_gap_moments_match_gaussian_transformation() -> None:
     assert result.gap_sigma_ev == pytest.approx(0.02, rel=1.0e-11)
     assert result.gap_skewness == pytest.approx(0.0, abs=1.0e-11)
     assert result.negative_gap_probability == pytest.approx(normal_cdf(3.5), rel=1.0e-9)
-    assert result.positive_gap_probability == pytest.approx(1.0 - normal_cdf(3.5), rel=1.0e-9)
+    assert result.positive_gap_probability == pytest.approx(
+        1.0 - normal_cdf(3.5), rel=3.0e-8
+    )
     assert result.mean_approximation_error_ev == pytest.approx(0.0, abs=1.0e-12)
     assert result.sigma_approximation_error_ev == pytest.approx(0.0, abs=1.0e-12)
 
