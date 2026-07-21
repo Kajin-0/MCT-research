@@ -163,6 +163,36 @@ def test_weighting_changes_the_reported_global_surrogate() -> None:
     )
 
 
+def test_weights_remain_aligned_when_scales_are_unsorted() -> None:
+    values = matern_gaussian_probe_variance_2d(
+        0.01,
+        2.0,
+        BROAD_SCALES,
+        0.5,
+    )
+    weights = np.array([10.0, 2.0, 3.0, 4.0, 5.0])
+    ordered = fit_gaussian_log_variance_surrogate(
+        BROAD_SCALES,
+        values,
+        weights=weights,
+    )
+    permutation = np.array([3, 0, 4, 1, 2])
+    shuffled = fit_gaussian_log_variance_surrogate(
+        BROAD_SCALES[permutation],
+        values[permutation],
+        weights=weights[permutation],
+    )
+    assert shuffled.fitted_point_variance == pytest.approx(
+        ordered.fitted_point_variance, rel=3.0e-14
+    )
+    assert shuffled.fitted_correlation_length == pytest.approx(
+        ordered.fitted_correlation_length, rel=3.0e-14
+    )
+    assert shuffled.normalized_weights == pytest.approx(
+        ordered.normalized_weights, rel=3.0e-14
+    )
+
+
 def test_outputs_are_immutable() -> None:
     diagnostics = matern_family_gaussian_inverse_bias(
         0.01,
