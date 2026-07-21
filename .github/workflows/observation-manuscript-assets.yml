@@ -10,7 +10,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -24,6 +24,7 @@ jobs:
           python -m tools.build_observation_model_manuscript_assets --repository-root . --output-dir generated
           python -m tools.build_observation_model_conceptual_figures --output-dir conceptual-generated
           python -m tools.build_observation_model_irpt_submission_tables --repository-root . --output-dir irpt-tables-generated
+          python -m tools.build_distributional_band_edge_manuscript_assets --repository-root . --output-dir distributional-generated
       - name: Focused tests
         shell: bash
         run: |
@@ -40,6 +41,8 @@ jobs:
             tests/test_observation_model_irpt_tables.py \
             tests/test_irpt_latex_package.py \
             tests/test_irpt_technical_review.py \
+            tests/test_distributional_band_edge_manuscript_assets.py \
+            tests/test_distributional_band_edge_generated_assets.py \
             2>&1 | tee generated/pytest.txt
       - uses: actions/upload-artifact@v4
         if: always()
@@ -49,6 +52,7 @@ jobs:
             generated
             conceptual-generated
             irpt-tables-generated
+            distributional-generated
             material-comparator-analysis.json
           if-no-files-found: error
           retention-days: 30
