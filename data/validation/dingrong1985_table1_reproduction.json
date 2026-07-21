@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "doi": "10.1016/0038-1098(85)90315-1",
+    "title": "Infrared absorption in In-doped degenerate Hg1-xCdxTe",
+    "table": 1,
+    "equation": 2,
+    "claim_state": "external source reproduction with source-internal parameter consistency audit"
+  },
+  "specimen": {
+    "composition_x": 0.19,
+    "carrier_type": "n-type",
+    "electron_density_cm3": 7e17,
+    "transmission_sample_thickness_mm": 0.16,
+    "refractive_index_used": 3.5,
+    "spectral_interval_um": [7.0, 17.0],
+    "edge_operator": "extrapolation of measured absorption edge to 2000 cm^-1"
+  },
+  "source_table": [
+    {"temperature_k": 77.0, "bandgap_ev": 0.078, "source_reduced_fermi_level": 23.33, "source_fermi_shift_ev": 0.155, "source_fermi_energy_ev": 0.233, "source_optical_gap_ev": 0.230},
+    {"temperature_k": 100.0, "bandgap_ev": 0.085, "source_reduced_fermi_level": 17.57, "source_fermi_shift_ev": 0.153, "source_fermi_energy_ev": 0.238, "source_optical_gap_ev": 0.238},
+    {"temperature_k": 200.0, "bandgap_ev": 0.120, "source_reduced_fermi_level": 7.8, "source_fermi_shift_ev": 0.134, "source_fermi_energy_ev": 0.254, "source_optical_gap_ev": 0.250},
+    {"temperature_k": 300.0, "bandgap_ev": 0.154, "source_reduced_fermi_level": 4.5, "source_fermi_shift_ev": 0.117, "source_fermi_energy_ev": 0.271, "source_optical_gap_ev": 0.268}
+  ],
+  "printed_parameter_reproduction": {
+    "printed_momentum_matrix_ev_cm": 8e-8,
+    "reproduced_fermi_shifts_ev": [0.1438074839, 0.1405278143, 0.1237274249, 0.1058582674],
+    "shift_residuals_mev": [-11.1925161, -12.4721857, -10.2725751, -11.1417326],
+    "shift_rms_error_mev": 11.2970332,
+    "shift_max_abs_error_mev": 12.4721857,
+    "optical_gap_residuals_mev": [-8.1925161, -12.4721857, -6.2725751, -8.1417326],
+    "optical_gap_rms_error_mev": 9.0596046,
+    "conclusion": "The printed equation with the printed P value does not reproduce the printed Table 1 Fermi elevations."
+  },
+  "row_implied_parameter_audit": {
+    "row_implied_momentum_matrices_ev_cm": [8.5078030268e-8, 8.5663482946e-8, 8.4672979056e-8, 8.5014094230e-8],
+    "mean_momentum_matrix_ev_cm": 8.5107146625e-8,
+    "sample_standard_deviation_ev_cm": 4.1130608646e-10,
+    "mean_relative_to_printed": 1.0638393328,
+    "interpretation": "The four independently implied values cluster near 8.51e-8 eV cm; this is a source-consistency inference from rounded table values, not a new material constant."
+  },
+  "row_implied_mean_reproduction": {
+    "reproduced_fermi_shifts_ev": [0.1550642405, 0.1517735452, 0.1349553366, 0.1172067069],
+    "shift_residuals_mev": [0.0642405, -1.2264548, 0.9553366, 0.2067069],
+    "shift_rms_error_mev": 0.7848111,
+    "shift_max_abs_error_mev": 1.2264548,
+    "optical_gap_residuals_mev": [3.0642405, -1.2264548, 4.9553366, 3.2067069],
+    "optical_gap_rms_error_mev": 3.3812753,
+    "optical_gap_max_abs_error_mev": 4.9553366
+  },
+  "source_reported_edge_consistency": {
+    "source_fermi_energy_minus_optical_gap_mev": [3.0, 0.0, 4.0, 3.0],
+    "rms_mev": 2.9154759,
+    "interpretation": "The source-calculated filled edge and the operational 2000 cm^-1 extrapolated edge agree within 0-4 meV at the four reported temperatures."
+  },
+  "boundaries": [
+    "The result validates a source-defined carrier-density integral and operational edge comparison, not the complete free-carrier spectrum.",
+    "The row-implied momentum matrix does not supersede the printed source parameter or establish a universal HgCdTe value.",
+    "The intrinsic gap values are source inputs and are not endorsed as a universal gap law.",
+    "Band-gap renormalization is not inferred.",
+    "The below-gap Haga-Tang branch remains outside this reproduction because its external function definitions are incomplete in the paper."
+  ],
+  "external_material_validation_complete": true,
+  "validation_scope": "Dingrong Table 1 carrier-shift and optical-edge consistency only"
+}
