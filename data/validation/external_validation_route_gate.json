@@ -99,7 +99,7 @@
     "10.1038/ncomms12576",
     "10.1016/0020-0891(91)90110-2",
     "10.1063/1.333828",
-    "10.1103/PhysRevB.106/115203",
+    "10.1103/PhysRevB.106.115203",
     "10.1007/s11664-005-0019-3"
   ],
   "score_interpretation": "Expected decision value under the current acquisition state; not a probability of truth. Recompute after every source audit.",
