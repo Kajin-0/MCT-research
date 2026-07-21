@@ -15,6 +15,9 @@ def test_immutable_gate_record_matches_executable_ranking() -> None:
     generated, _ = build_report(ROOT)
 
     assert generated["selected_route"] == recorded["selected_route"]
+    assert generated["selection_robustness"] == recorded[
+        "selection_robustness"
+    ]
     assert [
         {
             "rank": route["rank"],
