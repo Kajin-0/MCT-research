@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 184,
+  "status": "provisional route ranking under current source-acquisition state; not external material validation",
+  "manifest_path": "literature/acquisition/distributional_band_edge_sources.json",
+  "selected_route": {
+    "route_id": "chang_thickness_cutoff",
+    "title": "Chang multi-thickness / cutoff validation",
+    "score": 24,
+    "readiness": "ready_after_retrieval",
+    "source_dois": [
+      "10.1007/s11664-007-0162-0",
+      "10.1063/1.2245220"
+    ],
+    "blocking_artifacts": [
+      "native or calibrated spectra",
+      "same-specimen W and b",
+      "effective-thickness provenance"
+    ]
+  },
+  "ranked_routes": [
+    {
+      "rank": 1,
+      "route_id": "chang_thickness_cutoff",
+      "score": 24,
+      "readiness": "ready_after_retrieval"
+    },
+    {
+      "rank": 2,
+      "route_id": "dingrong_carrier_spectrum",
+      "score": 20,
+      "readiness": "ready_after_retrieval"
+    },
+    {
+      "rank": 3,
+      "route_id": "chu_intrinsic_absorption",
+      "score": 19,
+      "readiness": "ready_after_retrieval"
+    },
+    {
+      "rank": 4,
+      "route_id": "herrmann_multimodal_tail",
+      "score": 18,
+      "readiness": "blocked_by_external_definitions"
+    },
+    {
+      "rank": 5,
+      "route_id": "teppe_transition_series",
+      "score": 18,
+      "readiness": "ready_after_retrieval"
+    },
+    {
+      "rank": 6,
+      "route_id": "moazzami_source_native",
+      "score": 16,
+      "readiness": "blocked_by_native_data"
+    },
+    {
+      "rank": 7,
+      "route_id": "ivanov_pl_joint_closure",
+      "score": 15,
+      "readiness": "ready_after_retrieval"
+    },
+    {
+      "rank": 8,
+      "route_id": "finkman_tail_independent",
+      "score": 14,
+      "readiness": "ready_after_retrieval"
+    },
+    {
+      "rank": 9,
+      "route_id": "krishtopenko_prior_art",
+      "score": 2,
+      "readiness": "unsuitable_for_direct_validation"
+    }
+  ],
+  "source_request_order": [
+    "10.1007/s11664-007-0162-0",
+    "10.1063/1.2245220",
+    "10.1016/0038-1098(85)90315-1",
+    "10.1016/0022-0248(92)90851-9",
+    "10.1016/j.physb.2009.08.210",
+    "10.1038/ncomms12576",
+    "10.1016/0020-0891(91)90110-2",
+    "10.1063/1.333828",
+    "10.1103/PhysRevB.106.115203",
+    "10.1007/s11664-005-0019-3"
+  ],
+  "score_interpretation": "Expected decision value under the current acquisition state; not a probability of truth. Recompute after every source audit.",
+  "external_material_validation_complete": false
+}
