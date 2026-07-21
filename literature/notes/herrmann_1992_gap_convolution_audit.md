@@ -108,14 +108,20 @@ $$
 
 This is a normalization convention for the sensitivity calculation, not a universal HgCdTe constant.
 
+### Numerical integration
+
+For each photon energy, the implementation integrates only over the smooth interval `G <= E` instead of evaluating the thresholded integrand on one fixed global grid. This energy-dependent split removes the moving cusp at `G=E`.
+
+For the square-root spectrum in the tested tail region, increasing the Gauss-Legendre order from `256` to `512` changes the absorption by at most `5.78e-7` relatively. Linear and quadratic branches agree with their closed Gaussian moments to approximately `1e-10` and `1e-9` relative tolerance, respectively.
+
 ## Reproduction result
 
 For the square-root branch and the source-stated `1-100 cm^-1` fit range:
 
 $$
-\frac{W_{\mathrm{fit}}}{s}=0.50474,
+\frac{W_{\mathrm{fit}}}{s}=0.50504,
 \qquad
-R^2=0.99566.
+R^2=0.99570.
 $$
 
 Thus the controlled calculation independently reproduces the source statement
@@ -127,7 +133,7 @@ $$
 The result is scale invariant: choosing `s=8 meV` gives
 
 $$
-W_{\mathrm{fit}}=4.038\ \mathrm{meV}.
+W_{\mathrm{fit}}=4.040\ \mathrm{meV}.
 $$
 
 ## Critical limitation discovered by the reproduction
@@ -136,13 +142,13 @@ The convolved spectrum is not exactly exponential. For the same square-root spec
 
 | absorption fit window | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---|---:|---:|
-| `0.1-100 cm^-1` | 0.46075 | 0.99307 |
-| `1-100 cm^-1` | 0.50474 | 0.99566 |
-| `10-100 cm^-1` | 0.56808 | 0.99828 |
-| `10-500 cm^-1` | 0.66850 | 0.99188 |
-| `100-500 cm^-1` | 0.80860 | 0.99734 |
+| `0.1-100 cm^-1` | 0.46096 | 0.99307 |
+| `1-100 cm^-1` | 0.50504 | 0.99570 |
+| `10-100 cm^-1` | 0.56806 | 0.99836 |
+| `10-500 cm^-1` | 0.66828 | 0.99190 |
+| `100-500 cm^-1` | 0.80871 | 0.99738 |
 
-Moving from the source window to `100-500 cm^-1` increases the inferred tail energy by approximately `60.2%`, although both fits appear strongly log-linear.
+Moving from the source window to `100-500 cm^-1` increases the inferred tail energy by approximately `60.1%`, although both fits appear strongly log-linear.
 
 ## Intrinsic-edge sensitivity
 
@@ -150,8 +156,8 @@ Over the source window:
 
 | intrinsic exponent $p$ | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---:|---:|---:|
-| 0.5 | 0.50474 | 0.99566 |
-| 1.0 | 0.50014 | 0.99620 |
+| 0.5 | 0.50504 | 0.99570 |
+| 1.0 | 0.50000 | 0.99620 |
 | 2.0 | 0.48375 | 0.99712 |
 
 The fitted slopes differ by only about `4.2%` across substantially different intrinsic-edge exponents. Therefore a high-quality exponential-looking tail does not identify the intrinsic branch.
@@ -167,7 +173,7 @@ $$
 is compatible with
 
 $$
-6.996\ \mathrm{meV}
+6.995\ \mathrm{meV}
 \le \sigma_G \le
 12.661\ \mathrm{meV},
 $$
@@ -175,7 +181,7 @@ $$
 or equivalently
 
 $$
-4.947\ \mathrm{meV}
+4.946\ \mathrm{meV}
 \le s \le
 8.952\ \mathrm{meV}.
 $$
