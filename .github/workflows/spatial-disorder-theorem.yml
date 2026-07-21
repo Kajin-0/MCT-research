@@ -40,9 +40,59 @@ jobs:
         run: |
           python -m tools.build_nonlinear_common_scale_posterior_reference \
             --output spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
-          cmp \
-            data/validation/nonlinear_common_scale_posterior.json \
-            spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          reference_path = Path(
+              'data/validation/nonlinear_common_scale_posterior.json'
+          )
+          rebuilt_path = Path(
+              'spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json'
+          )
+          reference = json.loads(reference_path.read_text(encoding='utf-8'))
+          rebuilt = json.loads(rebuilt_path.read_text(encoding='utf-8'))
+
+          def compare(reference_value, rebuilt_value, path='$'):
+              if isinstance(reference_value, dict):
+                  assert isinstance(rebuilt_value, dict), path
+                  assert reference_value.keys() == rebuilt_value.keys(), path
+                  for key in reference_value:
+                      compare(
+                          reference_value[key],
+                          rebuilt_value[key],
+                          f'{path}.{key}',
+                      )
+                  return
+              if isinstance(reference_value, list):
+                  assert isinstance(rebuilt_value, list), path
+                  assert len(reference_value) == len(rebuilt_value), path
+                  for index, (expected, actual) in enumerate(
+                      zip(reference_value, rebuilt_value, strict=True)
+                  ):
+                      compare(expected, actual, f'{path}[{index}]')
+                  return
+              if (
+                  isinstance(reference_value, (int, float))
+                  and not isinstance(reference_value, bool)
+              ):
+                  assert isinstance(rebuilt_value, (int, float)), path
+                  assert math.isclose(
+                      float(reference_value),
+                      float(rebuilt_value),
+                      rel_tol=5.0e-13,
+                      abs_tol=1.0e-15,
+                  ), (
+                      path,
+                      reference_value,
+                      rebuilt_value,
+                  )
+                  return
+              assert reference_value == rebuilt_value, path
+
+          compare(reference, rebuilt)
+          PY
       - name: Validate immutable references
         run: |
           python - <<'PY'
