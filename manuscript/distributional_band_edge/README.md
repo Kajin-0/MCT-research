@@ -6,7 +6,7 @@
 
 ## Status
 
-Analytical manuscript core complete on Issue #179; PR and CI validation pending.
+The analytical manuscript core was merged in PR #181. Deterministic figure and table generation is implemented on Issue #182 / PR #183 and is pending final CI and merge.
 
 This manuscript is distinct from the completed Paper I:
 
@@ -44,19 +44,66 @@ A calibrated nontranslational carrier-dependent feature raises the rank from thr
 | Carrier filling | nonparabolic high-density correction and density-series conditioning | `data/validation/dingrong_1985_carrier_filling_sensitivity.json` |
 | Unified spectrum | base rank at most three; marked rank four with one combined null | `data/validation/unified_spectrum_structural_rank.json` |
 
-## Manuscript assets
+## Manuscript analytical assets
 
 - `manuscript_draft.md` — complete analytical narrative, equations, results, discussion, limitations, and submission boundary;
 - `theorem_index.md` — stable proposition/theorem numbering and proof summaries;
 - `claim_matrix.md` — claim, evidence class, record, status, authorized wording, and prohibited overstatement;
 - `figure_plan.md` — seven-figure scientific and executable-data specification;
-- `figure_manifest.json` — machine-readable figure, panel, record, function, and rendering contract;
+- `figure_manifest.json` — machine-readable figure, panel, record, function, filename, and rendering contract;
 - `submission_gap.md` — external-validation requirements, publication packaging, and DOI acquisition queue.
 
 Controlling decision:
 
 ```text
 research/decision_records/2026-07-21-flagship-manuscript-analytical-core.md
+```
+
+## Deterministic generated assets
+
+Public command:
+
+```text
+python -m tools.build_distributional_band_edge_manuscript_assets \
+  --repository-root . \
+  --output-dir distributional-generated
+```
+
+Generated review package:
+
+```text
+figure1_forward_hierarchy.svg
+figure2_transition_distribution.svg
+figure3_herrmann_tail_nonuniqueness.svg
+figure4_chang_cutoff_rank.svg
+figure5_carrier_filling.svg
+figure6_unified_structural_rank.svg
+figure7_measurement_design.svg
+
+table1_theorem_summary.md
+table2_quantitative_results.md
+table3_claim_provenance.md
+
+distributional_band_edge_asset_summary.json
+```
+
+The builder uses pure Python, NumPy, deterministic SVG, and Markdown. It adds no plotting dependency.
+
+It regenerates and regression-checks:
+
+- the Herrmann source-aligned spectrum and fit-window tail energies;
+- the carrier-density nonparabolicity series;
+- the unified exact-counterexample spectra;
+- every headline value used by the generated tables.
+
+Every SVG contains an accessible title plus metadata identifying claim IDs, source paths, and the generating commit. Synthetic and source-conditioned assets are explicitly labeled. Repeated generation is byte-for-byte deterministic.
+
+The numerical generation core is preserved separately from a thin public presentation wrapper. Artifact inspection changed only line-weight legends, spacing, and display of the committed `2.22e-16` numerical bound.
+
+Controlling decision:
+
+```text
+research/decision_records/2026-07-21-flagship-manuscript-assets.md
 ```
 
 ## Stable theorem hierarchy
@@ -118,14 +165,14 @@ Retrieved papers must pass a source audit before they alter an operator or manus
 
 ## Current submission boundary
 
-The analytical core supports a coherent theorem/methods manuscript. Preferred journal submission remains blocked by at least one external validation case using a calibrated real spectrum or same-specimen multi-state dataset with sufficient composition, carrier, thickness, and observation provenance.
+The analytical core and deterministic review assets support a coherent theorem/methods manuscript. Preferred journal submission remains blocked by at least one external validation case using a calibrated real spectrum or same-specimen multi-state dataset with sufficient composition, carrier, thickness, and observation provenance.
 
 The remaining execution order is:
 
-1. merge the analytical core after CI;
-2. implement the manuscript asset builder from `figure_manifest.json`;
-3. audit papers obtained through the DOI queue;
-4. complete one external validation route or explicitly authorize theorem/methods-only submission;
-5. finish bibliography, figures, archive metadata, and journal packaging.
+1. complete CI and merge PR #183;
+2. audit papers obtained through the DOI queue;
+3. complete one external validation route or explicitly authorize theorem/methods-only submission;
+4. convert approved SVG assets to final journal PDF format;
+5. finish bibliography, archive metadata, authorship, declarations, and journal packaging.
 
 External collaborators are not required for continued progress.
