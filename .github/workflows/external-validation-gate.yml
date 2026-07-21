@@ -1,0 +1,47 @@
+name: external-validation-gate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: python -m pip install -e '.[test]'
+      - name: Build gate report
+        run: |
+          mkdir -p external-validation-generated
+          python -m tools.build_external_validation_gate \
+            --repository-root . \
+            --output-json external-validation-generated/external-validation-gate.json \
+            --output-md external-validation-generated/external-validation-gate.md
+      - name: Focused tests
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q \
+            tests/test_external_validation_gate.py \
+            tests/test_external_validation_gate_record.py \
+            tests/test_external_validation_gate_robustness.py \
+            2>&1 | tee external-validation-generated/pytest.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: external-validation-gate
+          path: |
+            external-validation-generated
+            literature/acquisition/distributional_band_edge_sources.json
+            literature/acquisition/source_intake_protocol.md
+            data/validation/external_validation_route_gate.json
+          if-no-files-found: error
+          retention-days: 30
