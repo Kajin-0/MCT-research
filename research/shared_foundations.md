@@ -58,6 +58,8 @@ src/mct_research/spatial_disorder_theorems.py
 src/mct_research/spatial_disorder_optics.py
 src/mct_research/spatial_disorder_cutoff.py
 src/mct_research/spatial_disorder_design.py
+src/mct_research/spatial_disorder_calibration.py
+src/mct_research/spatial_disorder_covariance_families.py
 ```
 
 Primary users:
@@ -66,7 +68,11 @@ Primary users:
 - distributional band-edge observables;
 - future mapped-detector and multiscale experimental-design studies.
 
-The general filtering identities are established mathematics. Application-specific claims require explicit HgCdTe observables, kernels, and validation.
+The general filtering, Fisher/Schur, Matérn, and reciprocal-linearity mathematics are established. Application-specific claims require explicit HgCdTe observables, kernels, calibration assumptions, operation order, and validation.
+
+The calibration layer quantifies common, independent, and correlated probe-log nuisance modes without changing the existing Gaussian prediction or Fisher definitions.
+
+The covariance-family layer adds half-integer Matérn alternatives and tests the exact Gaussian reciprocal-linearity condition. It does not identify a specimen covariance family or convert a low lack-of-fit residual into proof of Gaussian covariance.
 
 ### Kane, symmetry, and matrix projection
 
