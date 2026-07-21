@@ -1,186 +1,150 @@
 # MCT Research
 
-A hypothesis-driven, reproducible research program for the electronic structure and measurable band-edge observables of $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$ (HgCdTe/MCT).
+A hypothesis-driven, reproducible research portfolio for the electronic structure and measurable band-edge observables of \(\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}\) (HgCdTe/MCT).
 
-## Active scientific objective
+## Portfolio model
 
-The repository now develops a **distributional, observation-aware theory of HgCdTe band-edge measurements**.
+This repository contains multiple related research programs that share analytical models, source reconstructions, literature records, validation datasets, and computational infrastructure.
 
-The central question is not only
+It is not governed as one linear flagship project.
 
-$$
-E_g=E_g(x,T),
-$$
+Repository-wide navigation:
 
-but
+- `research/portfolio_state.md` — portfolio programs and governance;
+- `research/contribution_registry.md` — distinct scientific works and manuscript candidates;
+- `research/shared_foundations.md` — common dependencies;
+- `research/programs/` — workstream-specific scientific state.
 
-> Given a latent signed band structure, specimen-state distribution, carrier/defect state, geometry, and measurement operator, what gap will an absorption, photoluminescence, detector-cutoff, photoconductive, or magneto-optical experiment report?
+Terms such as `active`, `frozen`, `authorized`, `retired`, and `submission-ready` are program-specific unless explicitly marked repository-wide.
 
-A reported gap is not assumed to equal $E_g(\bar x,T)$.
+## Research programs
 
-## Completed Paper I
+### Empirical bandgap reconstruction
 
-The first manuscript is scientifically frozen:
+Reconstruct the data, specimen definitions, observables, and provenance behind historical HgCdTe gap equations, then compare analytical laws under uncertainty-aware held-out validation.
 
-> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
+State: `research/programs/empirical_bandgap/state.md`
 
-It shows that historical composition uncertainty, specimen state, source lineage, carrier/defect state, and edge-definition choice dominate the sub-meV ordering among common empirical gap equations. The result is a non-identifiability statement, not the selection of a universal replacement equation.
+### Finite-temperature Kane and electronic structure
 
-## Flagship program
+Develop symmetry-resolved 8-band Kane projection, matrix-valued uncertainty, and bounded first-principles workflows. Expensive AHC, alloy, or disorder calculations remain gated by validation targets and termination criteria.
 
-The active publication program connects:
+State: `research/programs/finite_temperature_kane/state.md`
 
-1. latent mean signed-gap laws;
-2. specimen-level and local composition distributions;
-3. alloy-disorder and curvature effects;
-4. carrier filling and band-gap renormalization;
-5. nonparabolic Kane absorption;
-6. Urbach and defect-related tails;
-7. free-carrier absorption;
-8. optical thickness, interference, and collection geometry;
-9. modality-specific edge operators;
-10. the apparent width and location of the normal/inverted transition.
+### Distributional band-edge observables
 
-The program specification is in:
+Determine how latent signed-gap laws, specimen distributions, carrier and defect state, optical geometry, and modality-specific operators determine the edge reported by absorption, PL, detector-cutoff, photoconductive, or magneto-optical experiments.
 
-- `docs/program/distributional_band_edge_flagship.md`
-- `research/decision_records/2026-07-21-distributional-band-edge-program-activation.md`
-- issue `#167`
+State: `research/programs/distributional_band_edge/state.md`
 
-## First executable distributional result
+### Measurement-kernel-aware spatial disorder
 
-`mct_research.distributional_gap` implements a tested second-order propagation of a declared Gaussian composition width through any scalar signed-gap law:
+Determine how spatial covariance and finite lateral/depth kernels control apparent composition variance, gap width, transmission, and cutoff. The implemented foundation includes exact Gaussian filtering, finite-depth benchmarks, multiscale recoverability, and operation-order-correct optical and cutoff models.
 
-$$
-\mathbb E[E_g(X,T)]
-\approx
-E_g(\bar x,T)
-+
-\frac12 E_{g,xx}(\bar x,T)\sigma_x^2,
-$$
+State: `research/programs/spatial_disorder/state.md`
 
-$$
-\sigma_{E,x}
-\approx
-|E_{g,x}(\bar x,T)|\sigma_x,
-$$
+### Correlated random-mass Kane regime
 
-and near a critical point,
+A separate gated program for finite-correlation-length random mass near the normal/inverted transition. It is not automatically activated by scalar spatial-disorder results.
 
-$$
-\sigma_{T_c}
-\approx
-\left|
-\frac{E_{g,x}}{E_{g,T}}
-\right|
-\sigma_x.
-$$
+State: `research/programs/correlated_random_mass_kane/state.md`
 
-At the Teppe sample-B nominal transition regime, using the reconstructed Laurenti law at $x=0.155$ and $T=77$ K:
+## Shared scientific question
+
+Across the portfolio, a reported HgCdTe band edge is treated as an observable generated by a specimen and measurement process, not automatically as
+
+\[
+E_g(\bar x,T).
+\]
+
+The general forward structure is
 
 ```text
-Eg(mean x,T)                         -0.0478 meV
-dEg/dx                                1.71911 eV
-dEg/dT                                0.38518 meV/K
-
-sigma_x = 0.001:
-  sigma_E                              1.719 meV
-  sigma_Tc                             4.463 K
-  Gaussian local opposite-sign frac   0.48896
-
-sigma_x = 0.005:
-  sigma_E                              8.596 meV
-  sigma_Tc                            22.316 K
-  Gaussian local opposite-sign frac   0.49805
+material and specimen state
+-> latent local electronic structure
+-> spatial/distributional state
+-> optical, electrical, or magneto-optical observation operator
+-> reported edge, linewidth, cutoff, or transition
 ```
 
-These values are precision-scale diagnostics. They do not assert that the Teppe specimen has either composition width, do not identify an optical linewidth, and do not define a bulk topological invariant.
+Different programs address different links in this chain and may produce separate completed works.
 
-The reference record is:
+## Shared technical foundation
 
-- `data/validation/teppe2016_distributional_transition_screen.json`
+The repository includes:
 
-The derivation is:
-
-- `docs/derivations/008_distributional_gap_observables.md`
-
-## Activated primary-source chain
-
-The first full-text flagship source set is:
-
-- Wu 1983 — alloy-fluctuation contribution to bandgap bowing;
-- Dingrong et al. 1985 — degenerate carrier-filled absorption;
-- Herrmann et al. 1992 — multimodal near-edge broadening and Gaussian-gap convolution;
-- Ivanov-Omskii et al. 2009 — annealing-conditioned PL localization and linewidth;
-- Chang et al. 2007 — nonparabolic Kane plus Urbach absorption and thickness-dependent cutoff;
-- Teppe et al. 2016 — temperature-driven Kane-mass sign change near the transition.
-
-Claim-level source roles and limitations are recorded in:
-
-- `literature/notes/distributional_band_edge_primary_sources.md`
-
-## Existing technical foundation
-
-The repository also contains:
-
-- Hansen, Laurenti, and constrained provisional gap baselines;
-- composition-aware weighted fitting and group-preserving cross-validation;
-- absorption-edge uncertainty and source-bounded observation operators;
+- Hansen, Laurenti, and provisional composition/temperature gap baselines;
+- provenance-controlled historical data and specimen records;
+- composition-aware fitting, cross-validation, conditioning, and uncertainty tools;
+- scalar and exact-quadrature distributional gap propagation;
+- controlled absorption, spectral-convolution, detector-cutoff, and unified-spectrum operators;
+- spatial covariance, lateral/depth kernel, multiscale inversion, Fisher, transmission, cutoff, and experiment-design models;
 - a homogeneous bulk 8-band Kane implementation;
-- one-$P$ and two-$P$ matrix-level parameter projection;
-- gauge alignment and zone-centre symmetry restoration;
+- one-`P` and two-`P` matrix projection;
+- zone-centre symmetry restoration and gauge alignment;
 - Hermitian covariance propagation and generalized least squares;
 - integrity-checked `MatrixDataset` storage;
-- strict adapters for full $8\times8$ first-principles exports;
-- a reproducible static CdTe selected-band post-processing result;
+- strict adapters for selected-band first-principles exports;
+- reproducible static CdTe selected-band post-processing;
 - finite-temperature matrix and reconstruction oracles.
 
-Synthetic recovery establishes implementation correctness only. It is not experimental or material validation.
+Implementation correctness, synthetic recovery, and immutable-artifact reproduction do not by themselves establish experimental or material validation.
 
-## Static and first-principles status
+## Current publication state
 
-The selected-band CdTe post-processing framework is independently reproducible on the same immutable physical artifact. It establishes the mathematical projection and software behavior, not convergence of the underlying electronic-structure calculation.
+The repository currently has no globally designated flagship manuscript and no repository-wide submission authorization.
 
-The current CdTe polar response is not suitable for a production Allen-Heine-Cardona result. New AHC, SQS, CPA, SCBA, or production alloy calculations require a decision-changing observable, an external validation target, and a predeclared termination criterion.
+The earlier weak manuscript and submission bundle associated with PR #194 were retired from active publication status. Their history is preserved, while the validated scientific modules remain available to current and future works.
+
+Publication status is tracked per contribution in `research/contribution_registry.md`.
 
 ## Research standards
 
-Every important result must include:
+Every important result should include:
 
-1. assumptions and observable definitions;
+1. explicit assumptions and observable definitions;
 2. derivation or computational provenance;
 3. dimensional and limiting-case checks;
-4. uncertainty and sensitivity analysis;
+4. uncertainty, sensitivity, and identifiability analysis where applicable;
 5. comparison with primary literature;
-6. a stated falsification test;
-7. a clear distinction between source-established facts and project inference.
+6. a falsification or termination test;
+7. separation of source-established facts from project inference;
+8. a clear statement of whether evidence is synthetic, model-conditioned, or experimentally validated.
 
 No novelty claim is accepted merely because a result appears in the repository.
 
-## Claim restrictions
+## Parallel-agent workflow
 
-The active program does not permit:
+Each research PR should declare:
 
-- treating nominal composition as a measured composition distribution;
-- equating $\sigma_x$, $\sigma_E$, Urbach energy, PL FWHM, and quasiparticle linewidth;
-- treating detector cutoff as a direct material gap;
-- treating PL, absorption, photoconductive, and magneto-optical gaps as interchangeable;
-- inferring a bulk topological invariant from a local sign probability;
-- reopening unconstrained empirical gap fitting;
-- requiring external collaborators before independent research can continue.
+- primary and affected programs;
+- contribution type and claim status;
+- shared dependencies;
+- files intentionally touched and untouched;
+- manuscript impact;
+- validation and falsification criteria;
+- prior-art boundary.
+
+The default structure is `.github/pull_request_template.md`.
+
+Agents should work through dedicated issues, branches, and PRs. A workstream-specific stop rule must not be interpreted as repository-wide policy.
 
 ## Repository organization
 
-- `docs/program/` — controlling research programs and computation gates
+- `research/portfolio_state.md` — repository-wide portfolio navigation
+- `research/programs/` — individual program states
+- `research/contribution_registry.md` — candidate works and manuscripts
+- `research/shared_foundations.md` — cross-program dependency map
+- `docs/program/` — detailed program specifications and computation gates
 - `docs/derivations/` — formal derivations and limiting-case checks
-- `docs/insights/` — concise research findings and conjectures
-- `research/` — active state, progress, and decision records
-- `literature/` — source ledger, audits, and claim-level notes
+- `docs/insights/` — concise findings and conjectures
+- `research/decision_records/` — dated decisions and gate outcomes
+- `literature/` — source ledgers, audits, and claim-level notes
 - `benchmarks/` — analytical model specifications and benchmark status
-- `src/mct_research/` — executable models and uncertainty propagation
+- `src/mct_research/` — executable scientific models
 - `tests/` — numerical, symmetry, ingestion, covariance, and identifiability tests
 - `data/` — provenance-controlled experimental, theoretical, and validation records
-- `manuscript/` — reproducible manuscript assets
+- `manuscript/` — work-specific manuscript assets when authorized
 - `first_principles/` — parameterized calculation assets and provenance ledgers
 - `tools/` — data conversion and research workflow utilities
 
@@ -194,14 +158,3 @@ pytest
 ```
 
 GitHub Actions is the controlling clean-environment validation path. Exact test counts should be taken from the workflow attached to the evaluated commit rather than from an older README snapshot.
-
-## Current next steps
-
-1. test derivative-step and higher-order stability of the distributional approximation;
-2. compare transition-width predictions across latent gap laws;
-3. reproduce Herrmann's Gaussian-gap-to-tail limit;
-4. reproduce Chang's nonparabolic/tail and thickness operators under source restrictions;
-5. implement the Dingrong degenerate carrier branch;
-6. test Ivanov-Omskii PL displacement and width jointly;
-7. build cross-modal recoverability and rank-reversal maps;
-8. begin the flagship manuscript after an independent published-data reproduction passes.
