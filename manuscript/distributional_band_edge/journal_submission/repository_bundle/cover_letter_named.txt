@@ -1,0 +1,17 @@
+Dear Editors,
+
+Please consider the manuscript **“From latent bandgap to measured edge in HgCdTe: distributional observation operators and structural identifiability”** for publication as a Paper in *Semiconductor Science and Technology*.
+
+The manuscript addresses a persistent semiconductor-characterization problem: a precisely fitted optical edge or detector cutoff does not necessarily identify a precise latent material bandgap. We combine source-grounded HgCdTe composition, absorption-tail, nonparabolic carrier-filling, and effective-thickness operators into a reproducible forward hierarchy. Using established structural-identifiability methods, we derive the explicit parameter combinations and rank bounds of the declared HgCdTe observation model.
+
+The principal result is that five nominal parameters—latent gap, carrier translation, gap width, absorption amplitude, and effective thickness—enter the unmarked dense spectrum through only three combinations. Two physically distinct parameterizations therefore produce 281-point spectra that agree to machine precision. Supporting results quantify transition-root censoring, a 60.1% fit-window change in apparent tail energy, a model-specific rank-two limit for tail-only detector cutoffs, and severe nonparabolic carrier sensitivity. A finite-temperature reproduction of Dingrong et al.'s real degenerate-HgCdTe source table identifies an 11.297 meV RMS inconsistency between the printed density equation, printed momentum matrix, and reported Fermi elevations, while preserving the result as a source-consistency audit rather than a revised universal constant.
+
+The work fits the journal's scope as a theoretical semiconductor study, a new analytical technique, and a simulation-based framework relevant to semiconductor properties, optical characterization, and infrared detector interpretation. The manuscript does not claim new general identifiability mathematics, a universal HgCdTe bandgap equation, or complete native-spectrum validation. All repository-generated data, code, immutable numerical records, and deterministic figure scripts will be publicly archived under a persistent DOI.
+
+This manuscript is original, has not been published elsewhere, and is not under consideration by another journal.
+
+Sincerely,
+
+Terence Fisher
+Brooks Photonics, Florida, USA
+CORRESPONDENCE_EMAIL_PENDING
