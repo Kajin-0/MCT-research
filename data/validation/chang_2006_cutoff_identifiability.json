@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "program_issue": 173,
   "status": "synthetic identifiability reference; not material validation",
   "source_operator": {
@@ -81,8 +81,9 @@
     ],
     "parameter_order": ["Eg", "W", "ln_amplitude", "ln_b"],
     "branches": ["tail", "tail", "tail", "tail", "tail", "tail", "tail", "tail", "tail"],
-    "singular_values": [4.756143919081746, 1.0049618742226196, 1.916585876143027e-12, 9.747638908769321e-13],
-    "relative_singular_values": [1.0, 0.21129761658193147, 4.02970538476274e-13, 2.0494835889346402e-13],
+    "tail_rows_use_exact_analytical_cutoff": true,
+    "singular_values": [4.756143919577966, 1.0049618739283218, 1.1635885003770308e-12, 4.860818110583618e-13],
+    "relative_singular_values": [1.0, 0.21129761735410178, 2.446495557239098e-13, 1.0220082071067438e-13],
     "numerical_rank": 2,
     "structural_rank_upper_bound": 2,
     "interpretation": "all tail cutoffs identify W and one intercept combination; Eg, amplitude, and b are not separately identifiable"
@@ -101,10 +102,10 @@
       [20.0, 0.90]
     ],
     "branches": ["intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "tail", "tail"],
-    "singular_values": [4.529785988920665, 0.7024185862639776, 0.1983685268669081, 0.02267037731467128],
-    "relative_singular_values": [1.0, 0.15506661638806174, 0.04379203065047547, 0.005004734742462539],
+    "singular_values": [4.529785884760464, 0.7024185867847243, 0.1983685599968184, 0.022670440157760034],
+    "relative_singular_values": [1.0, 0.15506662058311662, 0.04379203975598509, 0.005004748839886133],
     "numerical_rank": 4,
-    "condition_number": 199.8107894741207,
+    "condition_number": 199.8102266134574,
     "interpretation": "intrinsic-branch crossings restore local full rank, but the smallest parameter direction remains about 200 times weaker than the strongest"
   },
   "authorized_conclusions": [
