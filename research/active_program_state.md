@@ -2,34 +2,38 @@
 
 **Last updated:** 2026-07-21  
 **Controlling issue:** #167  
-**Active milestone:** #184  
+**Active milestone:** #187  
 **Execution mode:** independent, public-data-first, reproducible computation
+
+This is the sole controlling research ledger. `research/active_progress.md` is retired.
 
 ## Completed Paper I
 
-The observation-model uncertainty manuscript is scientifically frozen:
+> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction**
 
-> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
-
-It establishes that historical composition uncertainty, specimen state, source lineage, carrier/defect state, and edge-definition choice dominate the sub-meV ordering among common empirical gap laws. Remaining work is submission administration, not scientific expansion.
+Paper I is scientifically frozen. Historical composition uncertainty, source lineage, specimen state, and edge definition prevent sub-meV universal-law ordering from being interpreted as a specimen-level material result. Remaining actions are administrative submission packaging.
 
 ## Active flagship manuscript
 
-The active research product is:
-
 > **From latent bandgap to measured edge in HgCdTe: distributional observation operators and structural identifiability**
 
-The analytical core was merged in PR #181. Deterministic manuscript figures and tables were merged in PR #183.
-
-Controlling directory:
+The controlling forward chain is:
 
 ```text
-manuscript/distributional_band_edge/
+latent signed gap
+-> composition/gap distribution
+-> carrier and defect state
+-> intrinsic, tail, and free-carrier response
+-> thickness/instrument response
+-> declared observation operator
+-> reported observable
 ```
+
+The analytical core was merged in PR #181. Deterministic manuscript figures and tables were merged in PR #183. DOI intake and route selection were merged in PR #185.
 
 ## Principal theorem
 
-For the declared Gaussian-gap, power-law local-edge, uniform carrier-translation, and single-pass Beer-Lambert model, the nominal parameters
+For the declared Gaussian-gap, power-law local-edge, uniform carrier-translation, and single-pass Beer-Lambert model, five nominal parameters
 
 ```text
 Eg0
@@ -39,7 +43,7 @@ ln A
 ln d
 ```
 
-enter the dense single-state response spectrum only through:
+enter a dense single-state spectrum only through
 
 ```text
 Eg0 + Delta_carrier
@@ -55,280 +59,134 @@ dR/dlnA = dR/dlnd
 rank(J) <= 3
 ```
 
-No increase in signal-to-noise, spectral resolution, or point count can remove these exact forward-model null directions.
+Two physically different parameterizations preserving those combinations produce 281-point spectra differing by no more than the committed numerical bound `2.22e-16`. A calibrated nontranslational carrier marker raises rank to four but leaves one combined null direction.
 
-Two physically different parameter sets preserving the three identifiable combinations produce 281-point spectra with committed numerical difference bounded by:
-
-```text
-2.22e-16
-```
-
-An absolutely calibrated nontranslational carrier marker raises rank to four but leaves one combined invariance with infinitesimal null vector:
-
-```text
-(Delta_carrier, -Delta_carrier, 0, -1, +1)
-```
+This is the flagship manuscript's principal result. Component studies are supporting physical corollaries, not separate repetitions of the same conclusion.
 
 ## Supporting quantitative results
 
-### Distributional transition
-
-At nominal `x=0.155`, the declared latent laws span:
-
 ```text
-25.0803 K
+central near-critical latent-law span                25.0803 K
+maximum conditional-width linearization error         9.657 K
+Herrmann source-window W_fit/s                         0.50504
+fit-window increase in apparent W                       60.1%
+5-to-20 um synthetic cutoff energy shift             -16.636 meV
+5-to-20 um synthetic cutoff wavelength shift          +2.494 um
+tail-only cutoff rank                                  <= 2
+mixed-branch condition number                         199.81
+illustrative high-density parabolic overestimate      147.323 meV
+five-density illustrative condition number          11034.75
 ```
 
-in central critical temperature. At `sigma_x=0.010`, `8.60-14.12%` of the declared conditioned Gaussian model remains normal throughout `0-300 K`, and conditional-root censoring causes local linearization to overstate the exact width by as much as `9.657 K`.
+Synthetic values are not specimen fits.
 
-These are model-conditioned transition statistics, not measured topological phase fractions.
+## Obtained-source correction
 
-### Gaussian-gap tail
-
-Herrmann's convention is:
+The following full texts were already available and have now been recorded by DOI, original filename, rights state, and SHA-256 in:
 
 ```text
-sigma_G = sqrt(2)*s
+literature/acquisition/2026-07-21-obtained-source-disposition.json
 ```
-
-The source-aligned square-root convolution over `1-100 cm^-1` gives:
 
 ```text
-W_fit/s = 0.50504
-R^2     = 0.99570
+10.1016/0038-1098(85)90315-1   Dingrong 1985
+10.1007/s11664-007-0162-0       Chang 2007
+10.1063/1.2245220                Chang 2006
 ```
 
-Changing only the fit window from `1-100` to `100-500 cm^-1` increases apparent tail energy by `60.1%`. For an observed `W_fit=4 meV`, the declared operator family permits:
+Restricted PDFs are not committed to the public repository.
+
+## Chang route disposition
+
+The proposed published-paper multi-thickness validation is rejected.
+
+Chang 2007 Figure 1 is a calculated detector-cutoff curve, not an independent measured same-specimen thickness series. The 2006 and 2007 papers do not supply the native multi-thickness spectra, effective-thickness covariance, or same-specimen `W`, `b`, and amplitude required for the declared validation.
+
+Chang Figure 3 remains eligible for a later single-spectrum absorption reproduction, but it is not the present milestone.
+
+Issue #186 was closed without merging its design branch.
+
+## Active Dingrong source-table reproduction
+
+Issue #187 tests the real In-doped specimen reported by Dingrong et al.:
 
 ```text
-sigma_G = 6.995-12.661 meV
+x                         0.19
+carrier type              n-type
+Hall density              7.0e17 cm^-3
+transmission thickness    0.16 mm
+refractive index used     3.5
+spectral interval         7-17 um
+temperatures              77, 100, 200, 300 K
+edge operator             extrapolation to 2000 cm^-1
 ```
 
-An Urbach-like tail does not uniquely identify gap-distribution width or microscopic origin.
+The source supplies an explicit finite-temperature Kane density integral and Table 1 values for the intrinsic-gap input, Fermi elevation, total filled edge, and operational optical gap.
 
-### Thickness-defined cutoff
+### Source-internal consistency result
 
-For an exponential tail:
+Using the printed equation with the printed momentum matrix
 
 ```text
-E_cut(d2)-E_cut(d1) = -W ln(d2/d1)
+P = 8.0e-8 eV cm
 ```
 
-In the declared synthetic Chang case, changing effective thickness from 5 to 20 um shifts the 50% cutoff by:
+undershoots the four printed Fermi elevations by approximately:
 
 ```text
-energy      -16.636 meV
-wavelength   +2.494 um
+-11.193, -12.472, -10.273, -11.142 meV
+RMS = 11.297 meV
 ```
 
-Any number of tail-only cutoff observations has:
+The four rounded table rows independently imply:
 
 ```text
-rank(J_tail) <= 2
+P = 8.5078, 8.5663, 8.4673, 8.5014 x 10^-8 eV cm
+mean = 8.5107 x 10^-8 eV cm
 ```
 
-for `(Eg,W,ln A,ln b)`. Mixed intrinsic/tail observations restore local rank four in the declared design but retain condition number `199.81`.
+Using that row-implied mean reduces the Fermi-shift RMS discrepancy to `0.785 meV`. This is a source-consistency inference from rounded table values, not a new universal momentum matrix.
 
-### Nonparabolic carrier filling
+The source's own filled-edge values differ from its operational optical gaps by `0-4 meV` across the four temperatures.
 
-For
+Controlling record:
 
 ```text
-E_c*(1+alpha*E_c)=E_par
+data/validation/dingrong1985_table1_reproduction.json
 ```
 
-the exact positive solution is:
+Scope boundary:
 
-```text
-E_c=2*E_par/(1+sqrt(1+4*alpha*E_par))
-```
+- source Table 1 reproduction is active;
+- complete below-gap free-carrier spectrum validation remains incomplete;
+- external Haga/Tang definitions required by the below-gap branch are not silently invented;
+- band-gap renormalization is not inferred;
+- source intrinsic-gap inputs are not endorsed as a universal law;
+- calibrated native spectra and covariance remain absent.
 
-At the declared `7.0e17 cm^-3` sensitivity point, the parabolic Burstein-Moss estimate exceeds the nonparabolic result by:
+## Manuscript and infrastructure freeze
 
-```text
-147.323 meV
-```
-
-A five-density series is locally rank five but has condition number:
-
-```text
-11034.75
-```
-
-The declared masses and nonparabolicity are illustrative and are not inferred for the Dingrong specimen.
-
-## Manuscript analytical and generated assets
-
-Merged analytical assets:
-
-```text
-README.md
-manuscript_draft.md
-theorem_index.md
-claim_matrix.md
-figure_plan.md
-figure_manifest.json
-submission_gap.md
-```
-
-Deterministic asset entry point:
-
-```text
-python -m tools.build_distributional_band_edge_manuscript_assets \
-  --repository-root . \
-  --output-dir distributional-generated
-```
-
-The merged pipeline generates:
-
-```text
-7 deterministic SVG figures
-3 Markdown manuscript tables
-1 machine-readable asset summary
-```
-
-It regenerates the Herrmann tail, carrier-density series, and unified exact-counterexample spectra through public functions; fails closed against immutable records; embeds claim/source/commit metadata; and remains byte-for-byte deterministic.
-
-## DOI intake and external-validation gate
-
-Issue #184 establishes the auditable paper-intake and route-selection layer.
-
-Controlling files:
-
-```text
-literature/acquisition/distributional_band_edge_sources.json
-literature/acquisition/source_intake_protocol.md
-src/mct_research/validation_gate.py
-tools/build_external_validation_gate.py
-data/validation/external_validation_route_gate.json
-research/decision_records/2026-07-21-external-validation-route-selection.md
-```
-
-The gate ranks expected decision value under the current acquisition state. It is not a probability that a source or model is correct.
-
-### Selected first route
-
-```text
-Chang multi-thickness / cutoff validation
-score      24
-readiness  ready_after_retrieval
-```
-
-Required source pair:
-
-```text
-10.1007/s11664-007-0162-0
-10.1063/1.2245220
-```
-
-Blocking evidence:
-
-```text
-native or calibrated spectra
-same-specimen W and b
-effective-thickness provenance
-carrier state and response construction
-```
-
-The Chang route is selected because a tested source-bounded operator already exists and a successful retrieval can directly test a merged theorem and observation operator.
-
-### Ranked routes
-
-```text
-1  Chang thickness/cutoff                 24
-2  Dingrong carrier spectrum              20
-3  Chu intrinsic absorption               19
-4  Herrmann multimodal tail               18
-5  Teppe transition series                18
-6  Moazzami source-native recovery         16
-7  Ivanov-Omskii PL joint closure          15
-8  Finkman independent tail                14
-9  Krishtopenko prior-art audit             2
-```
-
-### Highest-value single physics source
-
-Dingrong remains the highest-value single paper for replacing the generic carrier marker with a physical carrier-dependent spectrum:
-
-```text
-10.1016/0038-1098(85)90315-1
-```
-
-It is ranked second as an implementation route because complete equations, calibrated spectra, specimen thickness, optical geometry, and nuisance-state separation remain missing.
-
-### User request order
-
-Request first:
-
-```text
-10.1007/s11664-007-0162-0
-10.1063/1.2245220
-10.1016/0038-1098(85)90315-1
-```
-
-Supplements, author manuscripts, source data, parameter tables, and high-resolution figures are more valuable than duplicate publisher PDFs.
-
-## Source-intake boundary
-
-A retrieved paper does not authorize an operator change.
-
-Every source must pass:
-
-1. DOI and version verification;
-2. rights classification;
-3. cryptographic hashing;
-4. specimen and parameter ownership audit;
-5. equation, unit, convention, and valid-domain audit;
-6. figure/data calibration audit;
-7. route re-scoring;
-8. a separate issue and PR before any scientific operator changes.
-
-Publisher PDFs are not committed to the public repository merely because the user supplied them. Citations, hashes, permitted notes, equations, digitizations, and derived data remain the default public artifacts.
-
-## External validation boundary
-
-No complete real-specimen unified-model validation is claimed.
-
-The selected Chang route remains `ready_after_retrieval`, not ready now. If the source pair fails its calibration, parameter-ownership, or effective-thickness gates, the route is rejected and the deterministic ranking is recomputed.
-
-External collaborators are not required. Public full texts, author manuscripts, supplements, permitted source data, auditable digitization, and reproducible computation remain the primary strategy.
-
-## Static and finite-temperature first-principles boundary
-
-The selected-band CdTe static post-processing result remains independently reproducible on the same immutable physical artifact. It is a mathematical and software component, not a converged HgCdTe material prediction.
-
-The present CdTe polar response remains unsuitable for production AHC. New AHC, SQS, CPA, SCBA, or broad alloy calculations require:
-
-- a decision-changing observable;
-- a published validation target;
-- a predeclared termination criterion;
-- evidence that the lower-cost observation model cannot resolve the decision.
+No additional figure styling, route-score refinement, metadata framework, or manuscript reorganization is authorized unless it directly supports the Dingrong reproduction, a targeted rank-theorem prior-art audit, or final journal submission.
 
 ## Authorized next work
 
-1. complete CI and merge Issue #184;
-2. intake and audit any retrieved Chang or Dingrong source;
-3. recompute the validation-route gate after each source audit;
-4. open a route-specific implementation issue only after a source passes its rejection gates;
-5. integrate one real-spectrum validation without changing exact theorem claims;
-6. convert approved SVG assets to journal PDF format;
-7. verify bibliography, archive DOI, authorship, declarations, and journal packaging.
+1. complete and CI-validate Issue #187;
+2. compare the source finite-temperature integral with the existing illustrative zero-temperature carrier approximation;
+3. integrate the qualified source-table result into the flagship claim matrix and manuscript;
+4. perform a targeted prior-art audit of the unified rank theorem and tail-only rank theorem;
+5. decide whether the source-table result is sufficient for a methods paper or whether one digitized/full-spectrum case is still required;
+6. complete bibliography, archive DOI, authorship, declarations, and journal packaging.
 
 ## Explicitly unauthorized
 
 - reopening unconstrained empirical gap fitting;
-- merging Paper I and the flagship manuscript as if they were one study;
-- selecting one optical edge without an observation-operator declaration;
-- identifying `sigma_x`, `sigma_G`, Herrmann `s`, Urbach energy, PL FWHM, and quasiparticle linewidth as equivalent;
-- treating local gap-sign probability as a bulk topological invariant;
-- treating detector cutoff as a direct material gap;
-- treating physical film thickness as effective absorbing thickness without validation;
-- transferring Chang `b` or Dingrong carrier corrections between specimens without provenance;
-- conflating Burstein-Moss filling with band-gap renormalization;
-- treating the generic carrier marker as the Dingrong free-carrier law;
-- assigning synthetic parameters to real specimens;
-- interpreting route score as truth probability;
-- changing an operator merely because a paper was obtained;
-- committing restricted source PDFs without verified rights;
-- requiring real collaborators before progress can continue;
+- treating a reported edge as a latent material gap without an observation operator;
+- equating composition width, gap width, Urbach energy, PL FWHM, and quasiparticle linewidth;
+- presenting the Chang calculated thickness curve as independent experimental validation;
+- silently changing Dingrong's printed parameter to force agreement;
+- treating the row-implied `P` as a universal HgCdTe constant;
+- conflating carrier filling with band-gap renormalization;
+- claiming complete Dingrong free-carrier-spectrum validation from Table 1;
+- repeating route-ranking or manuscript-packaging infrastructure before a scientific validation result;
+- requiring collaborators before independent progress can continue;
 - escalating to expensive first-principles or atomistic work without a decision-changing validation target.
