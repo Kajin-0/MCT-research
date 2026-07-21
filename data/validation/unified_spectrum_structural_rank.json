@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "program_issue": 177,
   "status": "synthetic structural-identifiability theorem; not material validation",
   "forward_model": {
@@ -80,7 +80,7 @@
     "known_carrier_shift_parameters_Eg_sigma_A_d": 3,
     "known_thickness_parameters_Eg_carrier_sigma_A": 3,
     "known_carrier_shift_and_thickness_parameters_Eg_sigma_A": 3,
-    "interpretation": "one external constraint removes one null direction; both are required to identify all three remaining combinations"
+    "interpretation": "for the unmarked model, one external constraint removes one null direction and both are required to identify all three remaining combinations"
   },
   "nontranslational_carrier_marker": {
     "diagnostic_term": "alpha_marker=B*Delta_carrier*(E_ref/E)^2",
@@ -102,14 +102,25 @@
       1.74172539e-13
     ],
     "numerical_rank": 4,
-    "remaining_null_direction": "ln absorption amplitude versus ln effective thickness",
-    "interpretation": "independently calibrated carrier-dependent spectral structure can break the Eg/carrier translation null, but Beer-Lambert amplitude/thickness degeneracy remains"
+    "simple_pairwise_gap_carrier_null_removed": true,
+    "simple_pairwise_amplitude_thickness_null_removed": true,
+    "remaining_infinitesimal_null_vector": [
+      "Delta_carrier",
+      "-Delta_carrier",
+      "0",
+      "-1",
+      "+1"
+    ],
+    "remaining_finite_invariance": "d->c*d, A->A/c, Delta_carrier->Delta_carrier/c, Eg0->Eg0+Delta_carrier*(1-1/c)",
+    "maximum_absolute_jacobian_null_residual": 2.28e-11,
+    "rank_with_independently_known_thickness": 4,
+    "interpretation": "the absolute carrier marker breaks both simple pairwise invariances but leaves one combined scaling/translation null; known thickness removes that remaining null"
   },
   "authorized_conclusions": [
     "A dense single-state response spectrum identifies at most three combinations of the five declared parameters when carrier effects are a uniform translation.",
     "No increase in signal-to-noise or spectral point count can remove exact forward-model invariances.",
-    "Independent carrier-state information and effective-thickness information are both required for latent-gap recovery under this model.",
-    "A nontranslational carrier-dependent spectral feature can break the gap/carrier translation degeneracy if its shape and calibration are retained."
+    "Independent carrier-state information and effective-thickness information are both required for latent-gap recovery in the unmarked model.",
+    "A nontranslational carrier-dependent spectral feature can raise rank from three to four, but one combined invariance remains unless an additional scale such as effective thickness is known."
   ],
   "unauthorized_conclusions": [
     "The controlled Gaussian and power-law spectrum is not a complete microscopic HgCdTe model.",
