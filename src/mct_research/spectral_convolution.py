@@ -1,7 +1,7 @@
 """Controlled spectral operators for distributed HgCdTe band gaps.
 
 The primary operator averages a declared power-law intrinsic absorption edge over
-an independently declared Gaussian distribution of local gaps.  It is a
+an independently declared Gaussian distribution of local gaps. It is a
 controlled reproduction layer for the inhomogeneous-broadening argument in
 Herrmann, Moellmann, and Tomm (1992); it is not the complete Anderson/Herrmann
 Kane, band-filling, free-carrier, excitonic, or defect-state model.
@@ -13,7 +13,7 @@ centimetres when the supplied amplitude or normalization uses those units.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import sqrt
+from math import erf, sqrt
 
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
@@ -49,7 +49,7 @@ def herrmann_gap_sigma_ev(source_scale_s_ev: float) -> float:
 
     ``P(G) = exp(-(G-Gbar)**2/(4*s**2)) / (2*s*sqrt(pi))``.
 
-    Therefore its ordinary standard deviation is ``sqrt(2)*s``.  This function
+    Therefore its ordinary standard deviation is ``sqrt(2)*s``. This function
     performs only that convention conversion; it does not infer ``s`` from an
     observed Urbach energy.
     """
@@ -60,11 +60,13 @@ def herrmann_gap_sigma_ev(source_scale_s_ev: float) -> float:
     return sqrt(2.0) * source_scale
 
 
-def _standard_normal_quadrature(
+def _standard_normal_rule(
     *,
     quadrature_order: int,
     standard_deviation_limit: float,
-) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
+) -> tuple[NDArray[np.float64], NDArray[np.float64], float]:
+    """Return a canonical Gauss-Legendre rule and truncated-normal mass."""
+
     order = int(quadrature_order)
     z_limit = _finite_scalar("standard_deviation_limit", standard_deviation_limit)
     if order < 32:
@@ -73,15 +75,13 @@ def _standard_normal_quadrature(
         raise ValueError("standard_deviation_limit must be positive")
 
     canonical_nodes, canonical_weights = np.polynomial.legendre.leggauss(order)
-    z_nodes = z_limit * canonical_nodes
-    normal_density = np.exp(-0.5 * z_nodes**2) / sqrt(2.0 * np.pi)
-    raw_weights = z_limit * canonical_weights * normal_density
-    normalization = float(np.sum(raw_weights))
+    normalization = erf(z_limit / sqrt(2.0))
     if normalization <= 0.0 or not np.isfinite(normalization):
         raise ValueError("quadrature failed to resolve the Gaussian distribution")
     return (
-        np.asarray(z_nodes, dtype=float),
-        np.asarray(raw_weights / normalization, dtype=float),
+        np.asarray(canonical_nodes, dtype=float),
+        np.asarray(canonical_weights, dtype=float),
+        float(normalization),
     )
 
 
@@ -102,10 +102,15 @@ def gaussian_gap_convolved_power_absorption(
     ``alpha(E | G) = A * max(E-G, 0)**p``.
 
     The returned spectrum is its expectation for
-    ``G ~ Normal(mean_gap_ev, gap_sigma_ev**2)``.  ``p=0.5`` is the simple
-    square-root edge used for the principal Herrmann reproduction.  Values from
+    ``G ~ Normal(mean_gap_ev, gap_sigma_ev**2)``. ``p=0.5`` is the simple
+    square-root edge used for the principal Herrmann reproduction. Values from
     ``0.5`` to ``2`` provide a controlled nonparabolic sensitivity family; they
     are not a replacement for the complete Kane absorption model.
+
+    Numerically, the integral is split at the moving local threshold ``G=E``.
+    For every photon energy, Gauss-Legendre quadrature is mapped only onto the
+    interval where ``G <= E``. This removes the interior cusp that would occur
+    if ``max(E-G, 0)**p`` were integrated on one fixed global node grid.
     """
 
     energy = np.asarray(photon_energy_ev, dtype=float)
@@ -117,12 +122,15 @@ def gaussian_gap_convolved_power_absorption(
     amplitude = _finite_scalar(
         "amplitude_cm_inverse_ev_power", amplitude_cm_inverse_ev_power
     )
+    z_limit = _finite_scalar("standard_deviation_limit", standard_deviation_limit)
     if sigma_gap < 0.0:
         raise ValueError("gap_sigma_ev must be non-negative")
     if power < 0.0:
         raise ValueError("exponent must be non-negative")
     if amplitude < 0.0:
         raise ValueError("amplitude_cm_inverse_ev_power must be non-negative")
+    if z_limit <= 0.0:
+        raise ValueError("standard_deviation_limit must be positive")
 
     energy_flat = energy.reshape(-1)
     if sigma_gap == 0.0:
@@ -133,26 +141,51 @@ def gaussian_gap_convolved_power_absorption(
             absorption = amplitude * np.maximum(excess, 0.0) ** power
         return np.asarray(absorption.reshape(energy.shape), dtype=float)
 
-    z_nodes, weights = _standard_normal_quadrature(
+    canonical_nodes, canonical_weights, normal_probability = _standard_normal_rule(
         quadrature_order=quadrature_order,
-        standard_deviation_limit=standard_deviation_limit,
+        standard_deviation_limit=z_limit,
     )
-    local_gaps = mean_gap + sigma_gap * z_nodes
-    absorption = np.empty_like(energy_flat)
+    standardized_energy = (energy_flat - mean_gap) / sigma_gap
+    absorption = np.zeros_like(energy_flat)
 
-    # Chunking keeps the temporary node-by-energy array bounded for dense spectra.
-    chunk_size = 2048
+    # Each row integrates u from -z_limit to min(z_E, z_limit), where
+    # u=(G-mean_gap)/sigma_gap. Chunking bounds the temporary row-by-node array.
+    chunk_size = 1024
     for start in range(0, energy_flat.size, chunk_size):
         stop = min(start + chunk_size, energy_flat.size)
-        excess = energy_flat[start:stop][None, :] - local_gaps[:, None]
-        if power == 0.0:
-            local_absorption = (excess >= 0.0).astype(float)
-        else:
-            local_absorption = np.maximum(excess, 0.0) ** power
-        absorption[start:stop] = amplitude * np.sum(
-            weights[:, None] * local_absorption,
-            axis=0,
+        z_energy = standardized_energy[start:stop]
+        upper = np.minimum(z_energy, z_limit)
+        active = upper > -z_limit
+        if not np.any(active):
+            continue
+
+        active_upper = upper[active]
+        half_width = 0.5 * (active_upper + z_limit)
+        centre = 0.5 * (active_upper - z_limit)
+        z_nodes = (
+            half_width[:, None] * canonical_nodes[None, :]
+            + centre[:, None]
         )
+        excess_standardized = z_energy[active, None] - z_nodes
+        normal_density = np.exp(-0.5 * z_nodes**2) / sqrt(2.0 * np.pi)
+        if power == 0.0:
+            local_power = np.ones_like(excess_standardized)
+        else:
+            local_power = excess_standardized**power
+
+        dimensionless_integral = np.sum(
+            half_width[:, None]
+            * canonical_weights[None, :]
+            * normal_density
+            * local_power,
+            axis=1,
+        ) / normal_probability
+
+        chunk_absorption = np.zeros_like(z_energy)
+        chunk_absorption[active] = (
+            amplitude * sigma_gap**power * dimensionless_integral
+        )
+        absorption[start:stop] = chunk_absorption
 
     return np.asarray(absorption.reshape(energy.shape), dtype=float)
 
@@ -170,7 +203,7 @@ def normalized_gaussian_gap_convolved_power_absorption(
     """Return a convolved spectrum normalized at the declared mean gap.
 
     This isolates lineshape and fit-window sensitivity from an otherwise
-    arbitrary matrix-element prefactor.  The normalization is a declared
+    arbitrary matrix-element prefactor. The normalization is a declared
     modeling choice, not a source-measured universal HgCdTe constant.
     """
 
