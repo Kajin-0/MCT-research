@@ -11,7 +11,8 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 
 - #196 — scale-dependent spatial-disorder theorem and replacement scientific core;
 - #215 — probe-scale calibration limits in multiscale disorder inference;
-- #218 — three-scale covariance-family falsification.
+- #218 — three-scale covariance-family falsification;
+- #220 — exact nonlinear common-scale posterior propagation.
 
 ## Completed foundations
 
@@ -24,7 +25,8 @@ Merged or current implementation tranches include:
 - PR #210 — detector-cutoff operation-order benchmark;
 - PR #212 — end-to-end multiscale disorder-to-cutoff design;
 - PR #216 — probe-scale calibration theorem and nuisance marginalization;
-- PR #219 — reciprocal-linearity family test and half-integer Matérn alternatives.
+- PR #219 — reciprocal-linearity family test and half-integer Matérn alternatives;
+- PR #221 — exact nonlinear posterior factorization and bounded-prior failure.
 
 Representative modules:
 
@@ -38,6 +40,7 @@ src/mct_research/spatial_disorder_cutoff.py
 src/mct_research/spatial_disorder_design.py
 src/mct_research/spatial_disorder_calibration.py
 src/mct_research/spatial_disorder_covariance_families.py
+src/mct_research/spatial_disorder_posterior.py
 ```
 
 Established within declared models:
@@ -51,7 +54,8 @@ Established within declared models:
 - exact confounding of common multiplicative probe calibration with correlation length;
 - analytical marginalization of arbitrary Gaussian log-probe calibration modes;
 - exact reciprocal-linearity condition for the Gaussian covariance/probe family;
-- stable Gaussian-probe filtering for Matérn `nu=1/2, 3/2, 5/2` alternatives.
+- stable Gaussian-probe filtering for Matérn `nu=1/2, 3/2, 5/2` alternatives;
+- exact nonlinear convolution of the relative correlation-length posterior with an independent common-scale calibration prior.
 
 ## Probe-scale calibration result
 
@@ -75,11 +79,84 @@ $$
 \end{pmatrix}.
 $$
 
-This establishes an absolute correlation-length precision floor within the model. Independent or shape-changing probe errors can degrade both recovered parameters.
+Independent or shape-changing probe errors can degrade both recovered parameters.
+
+## Exact nonlinear posterior result
+
+Define
+
+$$
+u=\log A,
+\qquad
+v=\log\xi,
+\qquad
+\lambda=v-\delta,
+$$
+
+where $\delta$ is a common log-scale calibration error. Any likelihood whose scale dependence enters only through $s_i e^\delta/\xi$ depends on $(u,\lambda)$ rather than on $v$ and $\delta$ separately.
+
+With an independent calibration prior and translation-invariant absolute log-length support,
+
+$$
+\boxed{
+p(u,\lambda,\delta\mid y)
+=
+p(u,\lambda\mid y)p_\delta(\delta).
+}
+$$
+
+Therefore
+
+$$
+\boxed{
+\kappa_n(v)=\kappa_n(\lambda)+\kappa_n(\delta)
+}
+$$
+
+for every existing cumulant. In particular,
+
+$$
+\operatorname{Var}(v)
+=
+\operatorname{Var}(\lambda)+\operatorname{Var}(\delta),
+$$
+
+and
+
+$$
+\operatorname{Cov}(u,v)
+=
+\operatorname{Cov}(u,\lambda).
+$$
+
+This promotes the common-scale calibration floor from a local Fisher statement to an exact nonlinear posterior result under explicit assumptions.
+
+For the declared synthetic log-Gaussian design, the relative Frobenius error between nonlinear posterior covariance and local Fisher covariance is:
+
+```text
+relative observation uncertainty     covariance error
+1%                                   1.98e-5
+5%                                   4.95e-4
+15%                                  4.40e-3
+30%                                  1.66e-2
+```
+
+The Fisher approximation remains accurate to 1.66% even at 30% relative uncertainty for this specific scale layout and likelihood.
+
+A broad direct three-dimensional calculation closes the variance-addition identity to `1.73e-18`. A narrow absolute log-length prior with `14.08%` boundary mass creates:
+
+```text
+posterior calibration total variation    0.06954
+Cov(lambda,delta)                        -8.41e-4
+variance-addition residual               -4.576e-3
+cross-covariance residual                 9.04e-4
+```
+
+Thus the exact identity must not be applied when an informative or bounded absolute-length prior is active near its support boundary.
 
 ## Covariance-family result
 
-The same Gaussian benchmark obeys
+The Gaussian benchmark obeys
 
 $$
 \boxed{
@@ -88,7 +165,7 @@ $$
 }
 $$
 
-Thus two admissible scales recover two Gaussian parameters but cannot test the covariance family. A third scale must lie on the same reciprocal line. For ordered scales, the exact Gaussian invariant is
+Thus two admissible scales recover two Gaussian parameters but cannot test the covariance family. A third scale must lie on the same reciprocal line. For ordered scales,
 
 $$
 \boxed{
@@ -117,24 +194,13 @@ Matern nu=5/2           5.207%                         1.319
 
 The rough family is distinguishable at this uncertainty; the smoothest family is not. Failure to reject Gaussian covariance does not establish Gaussian covariance.
 
-For six scales
-
-```text
-s/ell = [0.05, 0.1, 0.3, 1, 2, 5],
-```
-
-the corresponding reduced chi-square values of the best weighted Gaussian reciprocal fit are `18.795`, `3.519`, and `1.363` for `nu=1/2`, `3/2`, and `5/2`.
-
-Very large probes are weak family discriminators because the supported standard Matérn families share the same leading inverse-area attenuation.
-
 ## Unresolved scientific questions
 
 - whether available HgCdTe data contain enough multi-resolution information to estimate a correlation length;
 - whether experimentally achievable uncertainty resolves Gaussian versus smooth Matérn covariance;
 - how lateral and depth kernels combine in specific instruments and devices;
 - how uncertainty in kernel shape differs from uncertainty in one effective Gaussian width;
-- whether local Fisher conclusions remain accurate under nonlinear posterior propagation;
-- whether the predicted scale effect survives thickness, carrier, defect, calibration, and covariance-family nuisance variables jointly;
+- whether the predicted scale effect survives thickness, carrier, defect, calibration, covariance-family, and operation-order nuisance variables jointly;
 - whether the full contribution is sufficiently distinct from existing finite-aperture mapping and random-field literature.
 
 ## Manuscript status
@@ -142,18 +208,17 @@ Very large probes are weak family discriminators because the supported standard 
 No manuscript is currently authorized. A candidate paper becomes writeable only after:
 
 1. full-text prior-art audit;
-2. realistic uncertainty propagation beyond the completed local observation/probe-scale layer;
-3. one public-data or experimentally specified validation path;
-4. a representative instrument kernel and calibrated scale range;
+2. one public-data or experimentally specified validation path;
+3. a representative instrument kernel and calibrated scale range;
+4. combined calibration, covariance-family, thickness, and observation-operator stress testing;
 5. a concise theorem-centered figure and claim plan.
 
-The three-scale covariance-family stress-test gate is completed for the declared Gaussian and half-integer Matérn families. It does not establish which family a specimen follows.
+The local-to-nonlinear common-calibration gate and the declared covariance-family stress-test gate are completed. Neither establishes a specimen parameter or covariance family.
 
 ## Authorized next gates
 
 - complete full-text audits for the highest-priority finite-aperture sources;
 - build representative instrument and detector kernels with declared scale and shape uncertainty;
-- compare local Fisher predictions against nonlinear synthetic posterior recovery;
 - combine calibration and covariance-family uncertainty in one design calculation;
 - test whether distinct modalities can be predicted from one latent field;
 - identify one public-data or experimentally specified validation path.
@@ -166,9 +231,10 @@ This program does not currently support:
 - a universal Gaussian or Matérn covariance law;
 - replacing a measured point-spread function with nominal pixel pitch;
 - interpreting a low reciprocal-linearity residual as proof of Gaussian covariance;
+- applying the exact common-scale convolution when an active bounded absolute-length prior couples $\lambda$ and $\delta$;
 - identifying optical tail energy with microscopic composition variance;
 - treating controlled cutoff shifts as measured detector behavior;
-- treating a local Fisher covariance as a global nonlinear posterior;
+- treating every local Fisher covariance as globally accurate outside the tested design;
 - a topological or random-mass Kane conclusion;
 - manuscript submission readiness.
 
@@ -176,7 +242,7 @@ This program does not currently support:
 
 This program uses empirical gap slopes, distributional absorption and cutoff operators, literature records, and validation infrastructure shared with other works.
 
-The covariance-family module is additive shared infrastructure. It reuses the existing Gaussian multiscale prediction and exact two-scale recovery definitions without changing their numerical behavior.
+The covariance-family and posterior modules are additive shared infrastructure. They reuse existing Gaussian prediction, recovery, and calibration definitions without changing their numerical behavior.
 
 ## Stage-2 boundary
 
