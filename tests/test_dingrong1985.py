@@ -59,7 +59,7 @@ def test_printed_momentum_matrix_does_not_reproduce_source_table() -> None:
         source_optical_gaps_ev=SOURCE_OPTICAL_GAPS_EV,
         momentum_matrix_ev_cm=DINGRONG_PRINTED_MOMENTUM_MATRIX_EV_CM,
     )
-    assert result.shift_rms_error_ev == np.testing.assert_allclose(
+    np.testing.assert_allclose(
         result.shift_rms_error_ev,
         0.0112970332,
         rtol=0.0,
