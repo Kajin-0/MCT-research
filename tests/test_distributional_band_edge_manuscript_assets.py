@@ -63,7 +63,7 @@ def test_claim_matrix_covers_all_declared_claims() -> None:
         assert f"C{index:02d}" in text
     assert "External material validation" in text
     assert "Partial / submission blocker" in text
-    assert "raw-spectrum validation incomplete" in text
+    assert "calibrated native spectrum and covariance remain absent" in text
 
 
 def test_submission_gap_contains_priority_doi_queue() -> None:
@@ -98,36 +98,54 @@ def test_immutable_headline_values_match_manuscript_claims() -> None:
     transition = load_json(
         "data/validation/near_critical_transition_model_dependence.json"
     )
-    assert transition["cross_model_results"]["central_temperature_span_k"] == pytest.approx(
-        25.080275431
-    )
+    assert transition["cross_model_results"][
+        "central_critical_temperature_span_k"
+    ] == pytest.approx(25.08027521699574)
 
     herrmann = load_json(
         "data/validation/herrmann_gaussian_tail_reproduction.json"
     )
-    source_fit = herrmann["source_aligned_reproduction"]
-    assert source_fit["w_over_s"] == pytest.approx(0.505039046)
-    sensitivity = herrmann["fit_window_sensitivity"]
-    assert sensitivity["relative_change_source_to_upper"] == pytest.approx(
-        0.601291362
-    )
+    assert herrmann["derived_results"][
+        "square_root_source_window_tail_energy_over_s"
+    ] == pytest.approx(0.5050415592942678)
+    assert herrmann["derived_results"][
+        "fit_window_increase_fraction"
+    ] == pytest.approx(0.6012644844884396)
 
     chang = load_json(
         "data/validation/chang_2006_cutoff_identifiability.json"
     )
-    shifts = chang["thickness_shift_demo"]
-    assert shifts["energy_shift_mev"] == pytest.approx(-16.635532333)
-    assert shifts["wavelength_shift_um"] == pytest.approx(2.493666494)
+    assert chang["thickness_results"][
+        "source_valid_5_to_20_um_energy_shift_mev"
+    ] == pytest.approx(-16.63553233343869)
+    assert chang["all_tail_design"]["numerical_rank"] == 2
+    assert chang["mixed_branch_design"]["numerical_rank"] == 4
 
     carrier = load_json(
         "data/validation/dingrong_1985_carrier_filling_sensitivity.json"
     )
-    declared = carrier["declared_density_point"]
-    assert declared["parabolic_overestimate_mev"] == pytest.approx(147.323063)
+    assert carrier["dingrong_density_result"][
+        "parabolic_overestimate_ev"
+    ] == pytest.approx(0.1473228243338829)
+    assert carrier["five_density_identifiability_design"][
+        "condition_number"
+    ] == pytest.approx(11034.748776227327)
 
     unified = load_json(
         "data/validation/unified_spectrum_structural_rank.json"
     )
-    assert unified["unmarked_spectrum"]["numerical_rank"] == 3
-    assert unified["exact_counterexample"]["max_absolute_difference"] <= 2.22e-16
-    assert unified["marked_spectrum"]["numerical_rank"] == 4
+    assert unified["exact_counterexample"][
+        "maximum_absolute_response_difference"
+    ] == pytest.approx(2.220446049250313e-16)
+    assert unified["unmarked_dense_spectrum"]["numerical_rank"] == 3
+    assert unified["nontranslational_carrier_marker"]["numerical_rank"] == 4
+
+
+def test_manuscript_preserves_submission_boundary() -> None:
+    draft = (MANUSCRIPT / "manuscript_draft.md").read_text(encoding="utf-8")
+    readme = (MANUSCRIPT / "README.md").read_text(encoding="utf-8")
+    for text in (draft, readme):
+        assert "external" in text.lower()
+        assert "validation" in text.lower()
+    assert "not a fit to the Dingrong specimen" in draft
+    assert "not the Dingrong free-carrier absorption law" in draft
