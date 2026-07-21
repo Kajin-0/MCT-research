@@ -15,8 +15,8 @@ def test_portable_preamble_and_bibliography(tmp_path: Path) -> None:
     references = (output / "references.tex").read_text(encoding="utf-8")
 
     assert "\\pdfminorversion=7" in named
-    assert "\\usepackage{lmodern}" in named
     assert "\\usepackage{mathptmx}" not in named
+    assert "\\usepackage{lmodern}" not in named
     assert "\\hbar" in named
 
     assert "Åström" in references
