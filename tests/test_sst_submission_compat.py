@@ -19,6 +19,13 @@ def test_portable_preamble_and_bibliography(tmp_path: Path) -> None:
     assert "\\usepackage{lmodern}" not in named
     assert "\\hbar" in named
 
+    assert "At $\\sigma_x=0.005$" in named
+    assert "At $\\sigma_x=0.010$" in named
+    assert "\\mathrm{\\mathring{A}^{-1}}" in named
+    assert "$\\sigma_x=0.005`" not in named
+    assert "$\\sigma_x=0.010`" not in named
+    assert "\\mathrm{\\AA^{-1}}" not in named
+
     assert "Åström" in references
     assert "Flatté" in references
     assert "Möllmann" in references
