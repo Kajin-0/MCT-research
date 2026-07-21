@@ -1,6 +1,6 @@
 """Bias diagnostics for a misspecified Gaussian spatial-covariance inverse.
 
-This module extends :mod:`spatial_disorder_covariance_families`.  It does not
+This module extends :mod:`spatial_disorder_covariance_families`. It does not
 redefine covariance families, probe filtering, or the three-scale invariant.
 Instead it quantifies two consequences after a non-Gaussian covariance is
 nevertheless interpreted with the two-parameter Gaussian inverse:
@@ -43,7 +43,7 @@ def _validated_scales_and_variances(
     variances: ArrayLike,
     *,
     minimum_count: int,
-) -> tuple[FloatArray, FloatArray]:
+) -> tuple[FloatArray, FloatArray, IntArray]:
     scales = np.asarray(probe_sigmas, dtype=float)
     values = np.asarray(variances, dtype=float)
     if scales.ndim != 1 or values.ndim != 1 or scales.shape != values.shape:
@@ -61,9 +61,11 @@ def _validated_scales_and_variances(
     order = np.argsort(scales)
     sorted_scales = np.array(scales[order], dtype=float, copy=True)
     sorted_values = np.array(values[order], dtype=float, copy=True)
+    sorted_order = np.array(order, dtype=np.int64, copy=True)
     sorted_scales.setflags(write=False)
     sorted_values.setflags(write=False)
-    return sorted_scales, sorted_values
+    sorted_order.setflags(write=False)
+    return sorted_scales, sorted_values, sorted_order
 
 
 def _read_only_float(value: ArrayLike) -> FloatArray:
@@ -97,11 +99,11 @@ def gaussian_pairwise_parameter_drift(
 ) -> GaussianPairwiseParameterDrift:
     """Recover the Gaussian parameters from every pair of probe scales.
 
-    Exact Gaussian-family data return one common parameter pair.  Under family
+    Exact Gaussian-family data return one common parameter pair. Under family
     misspecification, the recovered values depend on which scales were selected.
     """
 
-    scales, values = _validated_scales_and_variances(
+    scales, values, _ = _validated_scales_and_variances(
         probe_sigmas,
         variances,
         minimum_count=2,
@@ -167,11 +169,14 @@ def fit_gaussian_log_variance_surrogate(
 
     For each trial correlation length the optimal log point variance is exact.
     The remaining one-dimensional profile is solved by derivative-bracketed
-    bisection after nondimensionalizing length and centering log variance.  This
+    bisection after nondimensionalizing length and centering log variance. This
     makes the result invariant to length units and variance amplitude.
+
+    Supplied weights follow the original observation order and are reordered
+    together with internally sorted probe scales and variances.
     """
 
-    scales, values = _validated_scales_and_variances(
+    scales, values, order = _validated_scales_and_variances(
         probe_sigmas,
         variances,
         minimum_count=2,
@@ -190,7 +195,8 @@ def fit_gaussian_log_variance_surrogate(
             supplied_weights <= 0.0
         ):
             raise ValueError("weights must be finite and positive")
-        normalized_weights = supplied_weights / np.sum(supplied_weights)
+        sorted_weights = supplied_weights[np.asarray(order)]
+        normalized_weights = sorted_weights / np.sum(sorted_weights)
 
     tolerance = _positive(
         "log_correlation_tolerance", log_correlation_tolerance
