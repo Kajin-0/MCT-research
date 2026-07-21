@@ -10,7 +10,7 @@
       "citation_keys": ["iupac_beer_lambert_2025"]
     },
     {
-      "needle": "Prior optical-metrology studies recover refractive index, extinction coefficient, and thickness only after adding constraints or additional observables such as reflectance, interference structure, angle, and polarization.",
+      "needle": "Thin-film optical inversion literature likewise shows that thickness and optical constants require sufficiently informative combinations of transmission, reflection, interference, angle, polarization, or external constraints.",
       "citation_keys": ["chambouleyron_1997", "babeva_kitova_konstantinov_2001_error", "babeva_kitova_konstantinov_2001_unique", "mendoza_galvan_2021"]
     },
     {
