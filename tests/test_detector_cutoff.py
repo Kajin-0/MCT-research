@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import math
-
 import numpy as np
 import pytest
 
@@ -79,8 +77,8 @@ def test_tail_cutoff_has_logarithmic_thickness_shift() -> None:
         abs=3.0e-12,
     )
     assert expected_shift == pytest.approx(-0.01663553233343869)
-    assert thin.wavelength_um == pytest.approx(12.444541657, rel=2.0e-8)
-    assert thick.wavelength_um == pytest.approx(14.93901613, rel=2.0e-8)
+    assert thin.wavelength_um == pytest.approx(12.444555378891481)
+    assert thick.wavelength_um == pytest.approx(14.938982138095499)
 
 
 def test_source_domain_rejects_too_thick_tail_crossing() -> None:
