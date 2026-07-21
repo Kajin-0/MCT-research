@@ -2,15 +2,22 @@
 
 ## Current state
 
-The analytical manuscript core is coherent and independently reproducible. The exact theorem hierarchy, numerical verification records, source-conditioned reproduction, bounded sensitivity calculations, claim matrix, and figure definitions are present.
+The flagship manuscript now has:
 
-The manuscript is **not yet ready for journal submission** because external material validation and publication packaging remain incomplete.
+- a complete analytical draft;
+- stable theorem and proposition numbering;
+- a C01-C23 claim/evidence matrix;
+- five immutable numerical validation records;
+- seven deterministic SVG figures;
+- three deterministic manuscript tables;
+- complete Python 3.11/3.13 CI coverage;
+- an auditable DOI intake manifest and external-validation route gate.
+
+The manuscript is **not yet ready for preferred journal submission** because one calibrated external material validation case and publication packaging remain incomplete.
 
 ## Hard scientific submission blocker
 
-### One calibrated external validation case
-
-At least one real-spectrum case must test a forward operator without silently assigning missing specimen parameters.
+At least one real-spectrum or same-specimen multi-state case must test a merged forward operator without silently assigning missing specimen parameters.
 
 A qualifying case should provide as many of the following as possible:
 
@@ -25,252 +32,233 @@ A qualifying case should provide as many of the following as possible:
 - fitted-parameter covariance or enough raw data to estimate it;
 - processing and annealing state.
 
-The validation does not need to identify every unified-model parameter. It must test at least one declared forward prediction while preserving unresolved parameters as nuisance or bounded quantities.
+The validation does not need to identify every unified-model parameter. It must test at least one declared forward prediction while retaining unresolved parameters as nuisance or bounded quantities.
 
-## Preferred validation routes
+## Selected first validation route
 
-### Route A — Multi-thickness absorption or detector response
+The deterministic gate selects:
 
-Test the exact exponential-tail prediction
+> **Chang multi-thickness / cutoff validation**
+
+Current gate state:
+
+```text
+score      24
+readiness  ready_after_retrieval
+```
+
+Required source pair:
+
+```text
+10.1007/s11664-007-0162-0
+10.1063/1.2245220
+```
+
+The route tests the exact prediction:
 
 ```text
 E_cut(d2)-E_cut(d1)=-W ln(d2/d1)
 ```
 
-on the same material state or on a source series with defensible common optical parameters.
+and the structural result:
 
-Minimum required provenance:
+```text
+rank(J_tail) <= 2
+```
 
-- effective thickness or optical-depth calibration;
-- common tail width or independently fitted `W`;
-- response criterion;
-- evidence that the crossings remain on the tail branch.
+for tail-only cutoffs.
 
-### Route B — Same-specimen carrier-state series
+### Required Chang evidence
 
-Use Hall-measured carrier density and calibrated spectra at multiple density or temperature states. Test whether the optical edge follows the declared nonparabolic filling trend after retaining a separate renormalization term.
+- native or quantitatively calibratable spectra;
+- same-specimen `W`, `b`, and amplitude;
+- temperature and carrier state;
+- effective optical thickness or optical-depth calibration;
+- exact detector 50% response construction;
+- evidence identifying intrinsic versus tail crossings;
+- any supplement or source data behind Figure 2.
 
-Minimum required provenance:
+### Chang rejection gates
 
-- same specimen or demonstrably equivalent specimens;
-- Hall density and carrier type;
-- temperature;
-- mass/nonparabolicity assumptions;
-- full spectrum or source-native edge values;
-- free-carrier background treatment.
+The route is rejected for quantitative validation when:
 
-### Route C — Processing-conditioned PL displacement and linewidth
+- Figure 2 cannot be calibrated;
+- `W` and `b` cannot be assigned to the same specimen;
+- effective thickness remains undefined;
+- the reported temperature inconsistency cannot be resolved;
+- a parameter belongs to the separate `x=0.23` calculation rather than the `x=0.21` spectrum;
+- only tail-only points exist and no independent parameters can be constrained.
 
-Test whether one declared distributional state can jointly predict PL displacement and FWHM across as-grown and annealed states.
+The source-specific `b=103+/-2 meV` value may not be transferred between specimens without explicit source ownership.
 
-This is a falsification route: failure of one-width closure is scientifically useful and consistent with the manuscript’s thesis.
+## Highest-value carrier source
 
-## DOI acquisition queue for user-assisted paper retrieval
-
-The user can assist by locating full-text papers or supplements using the exact DOIs below. Files should be added without changing the source claim until the equation and data audit is complete.
-
-### Priority 1 — Direct validation blockers
-
-#### Dingrong carrier-filled spectrum
+The highest-value single paper for extending the physical carrier branch remains:
 
 ```text
 10.1016/0038-1098(85)90315-1
 ```
 
-Need:
+The Dingrong route is ranked second:
 
-- complete equations for interband filling and below-gap absorption;
-- all band, phonon, dielectric, and scattering parameters;
-- tabulated or digitizable spectra at 77–300 K;
-- source definition of the reported optical edge;
-- any uncertainty or specimen-thickness information.
+```text
+score      20
+readiness  ready_after_retrieval
+```
 
-Potential payoff:
+It can potentially replace the generic carrier marker with a source-grounded physical spectrum. It currently requires:
 
-- replace the generic carrier marker with a source-grounded carrier-dependent spectral branch;
-- test the nonparabolic filling calculation at a real high-density state.
+- complete interband filling equations;
+- complete below-gap free-carrier and two-mode phonon equations;
+- all band, dielectric, phonon, impurity, and scattering parameters;
+- calibrated or digitizable 77-300 K spectra;
+- specimen thickness and optical geometry;
+- exact reported edge definition.
 
-#### Chang nonparabolic-Urbach and thickness response
+Dingrong remains a high-payoff request, but it requires a larger model and nuisance-state audit than the Chang route.
+
+## Deterministic route ranking
+
+The current acquisition state gives:
+
+```text
+1  Chang thickness/cutoff                 24
+2  Dingrong carrier spectrum              20
+3  Chu intrinsic absorption               19
+4  Herrmann multimodal tail               18
+5  Teppe transition series                18
+6  Moazzami source-native recovery         16
+7  Ivanov-Omskii PL joint closure          15
+8  Finkman independent tail                14
+9  Krishtopenko prior-art audit             2
+```
+
+The score ranks expected decision value, not truth probability. It must be recomputed after every source audit.
+
+Controlling records:
+
+```text
+literature/acquisition/distributional_band_edge_sources.json
+literature/acquisition/source_intake_protocol.md
+data/validation/external_validation_route_gate.json
+research/decision_records/2026-07-21-external-validation-route-selection.md
+```
+
+## User-assisted DOI request order
+
+### Request first — selected route
 
 ```text
 10.1007/s11664-007-0162-0
-```
-
-Need:
-
-- complete fitted parameter tables;
-- same-specimen `W`, `b`, amplitude, temperature, carrier state, and thickness;
-- native or high-resolution spectra;
-- exact 50% detector-response construction;
-- any supplement or cited dataset containing Figure 2 values.
-
-Potential payoff:
-
-- external validation of the thickness/cutoff operator;
-- determine whether mixed intrinsic/tail observations are feasible from one source.
-
-#### Chang 2006 short-form paper
-
-```text
 10.1063/1.2245220
 ```
 
-Need:
-
-- the original analytical equations and continuity conventions;
-- higher-quality Figure 2 or source data;
-- any parameter values omitted or changed in the 2007 expansion.
-
-Potential payoff:
-
-- resolve discrepancies between the 2006 and 2007 presentations;
-- improve source provenance for the implemented Chang operator.
-
-### Priority 2 — Distributional and cross-modal validation
-
-#### Herrmann multimodal broadening
+Useful additions beyond an ordinary PDF:
 
 ```text
-10.1016/0022-0248(92)90851-9
+supplement
+source-native data
+high-resolution figures
+fitted parameter tables
+same-specimen W and b
+amplitude and effective thickness
+carrier state
+50-percent response construction
 ```
 
-Need:
-
-- complete Anderson formulas and band-filling definitions referenced by the paper;
-- numerical parameters for the absorption, photoconductivity, and luminescence examples;
-- any tables or source-quality figures suitable for digitization.
-
-Potential payoff:
-
-- extend the current source-scale reproduction into a fuller multimodal spectrum test;
-- determine whether one distributional model can survive cross-modal comparison.
-
-#### Ivanov-Omskii annealing and PL disorder
+### Request alongside — highest physics payoff
 
 ```text
-10.1016/j.physb.2009.08.210
+10.1016/0038-1098(85)90315-1
 ```
 
-Need:
-
-- the full localization equation lineage;
-- tabulated temperature-dependent PL peak and FWHM values, not only summary values;
-- composition estimates before and after annealing;
-- excitation and instrumental linewidth details.
-
-Potential payoff:
-
-- test whether one width parameter can jointly explain PL displacement and FWHM;
-- create an independent processing-state validation section.
-
-#### Finkman exponential band tail
+Useful additions:
 
 ```text
-10.1063/1.333828
+complete equations
+all source parameters
+77-300 K numerical spectra
+specimen thickness
+optical geometry
+edge-definition details
 ```
 
-Need:
-
-- complete temperature/composition dependence of the exponential tail;
-- specimen and absorption-method details;
-- any numerical tables or high-quality figures.
-
-Potential payoff:
-
-- independent tail model against which to test the fit-window non-uniqueness result.
-
-### Priority 3 — Near-critical and prior-art boundaries
-
-#### Teppe temperature-driven Kane transition
+### Remaining queue
 
 ```text
-10.1038/ncomms12576
+10.1016/0020-0891(91)90110-2    Chu broad intrinsic absorption
+10.1016/0022-0248(92)90851-9    Herrmann multimodal broadening
+10.1038/ncomms12576              Teppe transition series and supplement
+10.1007/s11664-005-0019-3        Moazzami source-native Paper I data
+10.1016/j.physb.2009.08.210     Ivanov-Omskii PL/annealing
+10.1063/1.333828                  Finkman independent tail
+10.1103/PhysRevB.106.115203      Krishtopenko prior-art boundary
 ```
 
-Need:
+## Source intake procedure
 
-- supplementary information;
-- sample-specific composition uncertainty;
-- fitted gap/mass covariance;
-- full temperature and field series;
-- exact simplified Kane-model assumptions.
-
-Potential payoff:
-
-- test transition-width propagation against a real same-specimen temperature series;
-- strengthen the distinction between a local gap-sign distribution and a measured magneto-optical transition.
-
-#### Krishtopenko disorder-induced transition
+Every retrieved paper or supplement follows:
 
 ```text
-10.1103/PhysRevB.106.115203
+literature/acquisition/source_intake_protocol.md
 ```
 
-Need:
+Minimum sequence:
 
-- supplement or arXiv source if available;
-- exact disorder parameter definitions and mapping to Cd-composition fluctuations;
-- predicted observable quantities, not only phase boundaries.
+1. preserve the original filename and unmodified artifact;
+2. verify DOI and source version;
+3. classify rights and redistribution status;
+4. compute and record SHA-256;
+5. audit specimen ownership for every parameter and spectrum;
+6. audit equations, units, conventions, external definitions, and valid domain;
+7. audit figure calibration and curve ownership;
+8. update the source manifest;
+9. recompute validation-route ranking;
+10. open a separate issue and PR before changing any operator.
 
-Potential payoff:
+A publisher PDF is not committed to the public repository merely because the user supplied it. Citations, hashes, permitted notes, equation audits, digitizations, and derived data remain the default public artifacts.
 
-- sharpen the novelty boundary between microscopic disorder renormalization and the present observation-operator transition width.
+## Completed manuscript packaging
 
-#### Chu intrinsic absorption spectroscopy
+### Analytical core
 
-```text
-10.1016/0020-0891(91)90110-2
-```
+Complete:
 
-Need:
-
-- parameter tables across `x=0.165-0.45` and `4.2-300 K`;
-- native or digitizable absorption spectra;
-- reported Burstein-Moss, Urbach, and intrinsic-carrier treatments;
-- exact edge definitions.
-
-Potential payoff:
-
-- potentially supply a broader real-spectrum validation case than Chang.
-
-### Priority 4 — Existing Paper I spectrum provenance
-
-#### Moazzami spectroscopic ellipsometry
-
-```text
-10.1007/s11664-005-0019-3
-```
-
-Need:
-
-- any author-supplied numerical data behind Figure 6;
-- ellipsometry model files or optical constants;
-- specimen carrier and composition uncertainty not present in the article.
-
-Potential payoff:
-
-- convert the existing calibrated digitization into source-native external data;
-- link Paper I and the flagship paper without merging their scientific claims.
-
-## How to add a retrieved paper
-
-For each obtained source:
-
-1. preserve the original filename and DOI in acquisition metadata;
-2. record whether the file is publisher PDF, author manuscript, supplement, or extracted data;
-3. do not commit copyrighted PDFs to a public repository unless distribution rights are clear;
-4. commit only source notes, permitted data, digitization records, equations, and hashes;
-5. update `literature/ledger.md` and the relevant source-audit note;
-6. open a source-audit issue before modifying a scientific operator.
-
-## Publication packaging still required
+- abstract through conclusion;
+- theorem index;
+- claim matrix;
+- prior-art boundaries;
+- reproducibility statement;
+- submission boundary.
 
 ### Figures and tables
 
-- implement `scripts/build_distributional_band_edge_manuscript_assets.py`;
-- render Figures 1–7 from `figure_manifest.json`;
-- regression-test all headline values;
-- generate vector figures and manuscript tables.
+Complete deterministic review package:
+
+```text
+python -m tools.build_distributional_band_edge_manuscript_assets \
+  --repository-root . \
+  --output-dir distributional-generated
+```
+
+Outputs:
+
+```text
+7 SVG figures
+3 Markdown tables
+1 machine-readable asset summary
+```
+
+The assets are regenerated from immutable records and public package functions. Final journal PDF conversion remains pending but may not alter numerical content.
+
+## Publication packaging still required
+
+### External validation
+
+- intake and audit the selected Chang source pair;
+- execute the route only if the sources pass rejection gates;
+- otherwise record rejection and recompute the gate;
+- preserve exact theorem claims regardless of validation outcome.
 
 ### Bibliography
 
@@ -281,10 +269,10 @@ For each obtained source:
 
 ### Manuscript editing
 
-- integrate stable proposition and theorem labels from `theorem_index.md` into the final manuscript format;
-- reduce repeated caveats by using claim-state labels and a consolidated limitations section;
-- perform notation consistency review for `Eg0`, signed gap, `G`, `sigma_G`, `W`, `s`, `A`, and `d`;
-- separate material-state parameters from observation-operator parameters in every table and caption.
+- integrate stable theorem labels into the journal-formatted manuscript;
+- perform final notation review for `Eg0`, signed gap, `G`, `sigma_G`, `W`, `s`, `A`, and `d`;
+- separate material-state parameters from observation-operator parameters in every caption and table;
+- reduce repeated caveats without weakening claim boundaries.
 
 ### Administrative packaging
 
@@ -297,27 +285,28 @@ For each obtained source:
 - cover letter;
 - journal-specific formatting.
 
-## Journal-positioning decision
+## Journal positioning
 
-The manuscript should be positioned as an analytical and computational **semiconductor optical metrology / inverse-problem** paper, not as a new universal HgCdTe bandgap equation and not as a first-principles materials calculation.
+Position the work as analytical and computational **semiconductor optical metrology / inverse-problem research**, not as:
 
-Candidate venue classes, to be selected after external validation:
+- a new universal HgCdTe bandgap equation;
+- a converged first-principles material calculation;
+- a universal Urbach-to-disorder conversion;
+- or a production detector correction.
 
-1. applied-physics journal with strong analytical and optical-spectroscopy scope;
-2. semiconductor-materials journal familiar with HgCdTe characterization;
-3. instrumentation/metrology journal if the external validation becomes the dominant contribution.
-
-The venue should not be fixed before the validation route determines whether the paper reads primarily as physics, semiconductor characterization, or measurement science.
+The final venue should be selected after the validation outcome determines whether the dominant framing is applied physics, semiconductor characterization, or measurement science.
 
 ## Submission decision rule
 
-Submission is authorized when all of the following are true:
+Preferred submission is authorized when:
 
-- all exact theorem statements pass code and manuscript consistency checks;
-- all synthetic results are visibly labeled;
-- one external validation case is complete or the paper is explicitly reframed and internally approved as a theorem/methods paper without specimen-level validation;
-- final figures are generated from immutable data;
-- bibliography and prior-art boundaries are verified;
+- all exact theorem statements pass code/manuscript consistency checks;
+- all synthetic results remain visibly labeled;
+- one external validation case is complete;
+- final SVG-to-PDF conversion is verified;
+- bibliography and prior-art boundaries are complete;
 - archive and authorship metadata are complete.
+
+A later explicit decision may authorize theorem/methods-only submission if the documented acquisition program fails to yield a qualifying external dataset. That decision may not imply specimen-level validation.
 
 External collaborators are not a prerequisite. Public full texts, author manuscripts, supplements, auditable digitization, and reproducible computation remain the primary acquisition strategy.
