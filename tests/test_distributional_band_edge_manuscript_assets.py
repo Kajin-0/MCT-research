@@ -62,7 +62,8 @@ def test_claim_matrix_covers_all_declared_claims() -> None:
     for index in range(1, 24):
         assert f"C{index:02d}" in text
     assert "External material validation" in text
-    assert "Open / submission blocker" in text
+    assert "Partial / submission blocker" in text
+    assert "calibrated native spectrum and covariance remain absent" in text
 
 
 def test_submission_gap_contains_priority_doi_queue() -> None:
