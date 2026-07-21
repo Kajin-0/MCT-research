@@ -24,34 +24,64 @@ jobs:
             tests/test_spatial_disorder.py \
             tests/test_spatial_disorder_depth.py \
             tests/test_spatial_disorder_inference.py \
-            tests/test_spatial_disorder_theorems.py
-      - name: Validate immutable reference
+            tests/test_spatial_disorder_theorems.py \
+            tests/test_spatial_disorder_optics.py \
+            tests/test_spatial_disorder_cutoff.py \
+            tests/test_spatial_disorder_design.py \
+            tests/test_spatial_disorder_calibration.py
+      - name: Validate immutable references
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path('data/validation/spatial_disorder_theorem_extension.json')
-          record = json.loads(path.read_text(encoding='utf-8'))
-          assert record['schema_version'] == '1.0'
-          assert record['program_issue'] == 196
-          assert record['status'] == 'analytical_sensitivity_not_specimen_calibration'
-          case = record['declared_hgcdte_sensitivity_case']
+          theorem_path = Path('data/validation/spatial_disorder_theorem_extension.json')
+          theorem = json.loads(theorem_path.read_text(encoding='utf-8'))
+          assert theorem['schema_version'] == '1.0'
+          assert theorem['program_issue'] == 196
+          assert theorem['status'] == 'analytical_sensitivity_not_specimen_calibration'
+          case = theorem['declared_hgcdte_sensitivity_case']
           assert len(case['probe_results']) == 4
           assert case['headline']['apparent_standard_deviation_ratio'] > 27.0
-          designs = record['conditioning_examples']
+          designs = theorem['conditioning_examples']
           assert min(item['condition_number'] for item in designs) < 3.0
           assert max(item['condition_number'] for item in designs) > 1000.0
-          restrictions = record['claim_restrictions']
+          restrictions = theorem['claim_restrictions']
           assert any('established mathematics' in item for item in restrictions)
           assert any('not a specimen fit' in item for item in restrictions)
+
+          calibration_path = Path(
+              'data/validation/spatial_disorder_probe_scale_calibration.json'
+          )
+          calibration = json.loads(calibration_path.read_text(encoding='utf-8'))
+          assert calibration['schema_version'] == '1.0'
+          assert calibration['program_issue'] == 196
+          assert calibration['implementation_issue'] == 215
+          assert (
+              calibration['status']
+              == 'analytical_sensitivity_not_specimen_calibration'
+          )
+          common = calibration['common_scale_calibration_case']
+          assert common['maximum_absolute_identity_residual'] < 1.0e-15
+          assert abs(common['parameter_standard_deviation_inflation'][0] - 1.0) < 1.0e-12
+          assert common['parameter_standard_deviation_inflation'][1] > 1.0
+          independent = calibration['independent_scale_error_case']
+          assert all(
+              value > 1.0
+              for value in independent['parameter_standard_deviation_inflation']
+          )
+          restrictions = calibration['claim_restrictions']
+          assert any('not a specimen fit' in item for item in restrictions)
+          assert any('not a global nonlinear posterior' in item for item in restrictions)
           PY
       - uses: actions/upload-artifact@v4
         with:
           name: spatial-disorder-theorem
           path: |
             data/validation/spatial_disorder_theorem_extension.json
+            data/validation/spatial_disorder_probe_scale_calibration.json
             docs/derivations/010_scale_dependent_spatial_disorder.md
+            docs/derivations/011_probe_scale_calibration_limit.md
             literature/notes/scale_dependent_disorder_prior_art.md
           if-no-files-found: error
           retention-days: 30
