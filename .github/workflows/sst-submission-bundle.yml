@@ -33,7 +33,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p sst-submission-diagnostics
-          python -m tools.build_sst_submission_bundle \
+          python -m tools.build_sst_submission_bundle_compat \
             --repository-root . \
             --output-dir sst-submission-generated \
             --compile \
