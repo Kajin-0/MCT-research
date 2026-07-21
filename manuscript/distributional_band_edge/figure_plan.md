@@ -1,27 +1,43 @@
-# Figure plan
+# Figure plan and implemented asset contract
 
 ## Governing rule
 
-Every plotted quantitative value must be loaded from an immutable repository record or regenerated through a tested public function. No value is to be copied manually from prose.
+Every quantitative plotted value is loaded from an immutable repository record or regenerated through a tested public function. No value is copied manually from manuscript prose.
 
-All figures must distinguish:
+Every figure distinguishes among:
 
 - exact theorem or invariant;
-- source reproduction;
+- numerical verification;
+- source-conditioned reproduction;
 - bounded synthetic sensitivity;
 - external material validation.
 
-Synthetic panels must carry an explicit `synthetic sensitivity` label in the caption or panel title.
+Synthetic and source-conditioned panels carry explicit status labels. No generated figure claims external specimen validation.
+
+## Implemented entry point
+
+```text
+python -m tools.build_distributional_band_edge_manuscript_assets \
+  --repository-root . \
+  --output-dir distributional-generated
+```
+
+The public module is a thin deterministic presentation wrapper around the preserved numerical generation core:
+
+```text
+tools/build_distributional_band_edge_manuscript_assets.py
+tools/_distributional_asset_core.py
+```
+
+The wrapper changes only SVG presentation details. It does not alter calculated arrays, fitted quantities, singular values, or immutable records.
 
 ## Figure 1 — Forward hierarchy from latent gap to reported observable
 
-### Purpose
+**Filename:** `figure1_forward_hierarchy.svg`  
+**Claims:** C01, C20, C21  
+**Evidence state:** conceptual definition
 
-Define the object of the paper and prevent a reported edge from being read as `Eg(x,T)` without an observation operator.
-
-### Panels
-
-**A. Forward hierarchy**
+### Content
 
 ```text
 latent signed gap
@@ -33,9 +49,7 @@ latent signed gap
 -> reported observable
 ```
 
-**B. Claim classes**
-
-Show the five evidence states used by the manuscript:
+The second region defines the manuscript evidence states:
 
 ```text
 exact theorem
@@ -45,73 +59,47 @@ bounded synthetic sensitivity
 external material validation
 ```
 
-### Data
-
-No numerical data. Render from the definitions in `README.md` and `claim_matrix.md`.
-
 ### Message
 
-The measured edge is the output of a forward chain, not an unqualified scalar material property.
+A reported edge is an output of a forward chain, not an unqualified scalar material property.
 
 ## Figure 2 — Near-critical transition broadening and censoring
 
-### Purpose
+**Filename:** `figure2_transition_distribution.svg`  
+**Claims:** C02–C04  
+**Evidence state:** bounded synthetic sensitivity  
+**Record:** `data/validation/near_critical_transition_model_dependence.json`
 
-Show that latent-law choice and specimen composition variation affect different parts of the apparent transition distribution.
+### Panels
 
-### Data record
+A. Central critical temperature by latent law, with the `25.080275 K` span.  
+B. Exact conditional width and local linearized width versus `sigma_x`.  
+C. Single-crossing and always-normal probabilities.  
+D. Absolute local-width approximation error.
 
-`data/validation/near_critical_transition_model_dependence.json`
+Exact and local/probability-pair curves are distinguished by line weight and opacity; latent laws are distinguished by line style.
 
-### Panel A — Central transition temperature by latent law
+### Boundary
 
-- x-axis: latent law;
-- y-axis: `central_critical_temperature_k`;
-- annotate the cross-model span `25.080275 K`.
+Neither probability curve is labeled or interpreted as a measured topological phase fraction.
 
-### Panel B — Conditional transition width versus composition sigma
+## Figure 3 — One distributed spectrum, multiple apparent tail energies
 
-For each entry of `latent_gap_models`:
+**Filename:** `figure3_herrmann_tail_nonuniqueness.svg`  
+**Claims:** C05–C08  
+**Evidence state:** source reproduction plus synthetic observation-operator sensitivity  
+**Record:** `data/validation/herrmann_gaussian_tail_reproduction.json`
 
-- x-axis: `composition_sigma`;
-- y-axis: `conditional_sigma_temperature_k`;
-- dashed comparison: `linearized_sigma_temperature_k`.
+### Regenerated operator
 
-### Panel C — Single-crossing and always-normal probabilities
+The source-aligned square-root spectrum is regenerated through:
 
-- x-axis: `composition_sigma`;
-- y-axis: probability;
-- plot `single_crossing_probability` and `always_normal_probability`;
-- do not label either curve as a topological phase fraction.
+```text
+mct_research.normalized_gaussian_gap_convolved_power_absorption
+mct_research.fit_exponential_absorption_tail
+```
 
-### Panel D — Local approximation error
-
-- x-axis: `composition_sigma`;
-- y-axis: `sigma_approximation_error_k`;
-- emphasize the broad-distribution censoring regime.
-
-### Message
-
-At small `sigma_x`, latent-law spread dominates. At larger `sigma_x`, conditional-root censoring invalidates a simple Gaussian transition-width interpretation.
-
-### Claim IDs
-
-C02–C04.
-
-## Figure 3 — One distributed spectrum, multiple apparent Urbach energies
-
-### Purpose
-
-Demonstrate the non-unique inversion from an exponential-looking tail to a gap-distribution width.
-
-### Data and implementation
-
-- `data/validation/herrmann_gaussian_tail_reproduction.json`;
-- `src/mct_research/spectral_convolution.py`.
-
-### Panel A — Convolved absorption and fit windows
-
-Regenerate the source-aligned square-root spectrum. Plot `log10(alpha)` versus normalized energy. Overlay the five declared absorption windows:
+Declared fit windows:
 
 ```text
 0.1-100 cm^-1
@@ -121,170 +109,102 @@ Regenerate the source-aligned square-root spectrum. Plot `log10(alpha)` versus n
 100-500 cm^-1
 ```
 
-### Panel B — Apparent tail energy versus fit window
+### Panels
 
-- x-axis: fit-window label;
-- y-axis: `W_fit/s`;
-- annotate `0.50504` for the source window and `0.80871` for the upper window;
-- annotate the `60.1%` increase.
+A. Regenerated Gaussian-gap-convolved absorption.  
+B. `W_fit/s` by fit window, including the `60.1%` increase.  
+C. `R^2` versus `W_fit/s`, showing that high fit quality does not select one width.  
+D. Declared `sigma_G=6.995-12.661 meV` interval for an observed 4 meV tail.
 
-### Panel C — High R-squared does not imply a unique width
-
-Plot `R^2` against `W_fit/s` for all windows. The intended visual is that several fits have `R^2 > 0.99` while producing materially different tail energies.
-
-### Panel D — Inversion interval for an observed 4 meV tail
-
-Display the declared operator-family interval
-
-```text
-sigma_G = 6.995-12.661 meV
-```
-
-as an interval, not as a posterior distribution.
-
-### Message
-
-The same spectrum can support several strong exponential fits with different inferred tail scales.
-
-### Claim IDs
-
-C05–C08.
+The interval is not drawn or described as a posterior distribution.
 
 ## Figure 4 — Thickness-defined cutoff and tail-only rank limit
 
-### Purpose
+**Filename:** `figure4_chang_cutoff_rank.svg`  
+**Claims:** C09–C12  
+**Evidence state:** exact theorem plus bounded synthetic sensitivity  
+**Record:** `data/validation/chang_2006_cutoff_identifiability.json`
 
-Show that geometry moves detector cutoff and that repeated tail-only cutoffs do not recover all absorption parameters.
+### Panels
 
-### Data and implementation
+A. 50% cutoff energy versus effective thickness, with intrinsic/tail branch markers.  
+B. Equivalent cutoff wavelength.  
+C. Tail-only relative singular values, showing rank two.  
+D. Mixed intrinsic/tail relative singular values, showing rank four and condition number `199.81`.
 
-- `data/validation/chang_2006_cutoff_identifiability.json`;
-- `src/mct_research/detector_cutoff.py`.
+### Required annotations
 
-### Panel A — 50% cutoff energy versus effective thickness
+```text
+5-to-20 um energy shift      -16.636 meV
+5-to-20 um wavelength shift   +2.494 um
+```
 
-Use `half_response_cutoffs`:
+### Boundary
 
-- x-axis: effective thickness in um, logarithmic scale;
-- left y-axis: cutoff energy in meV;
-- distinguish intrinsic and tail branches;
-- annotate the 5-to-20 um shift `-16.636 meV`.
-
-### Panel B — Equivalent cutoff wavelength
-
-- x-axis: effective thickness in um;
-- y-axis: cutoff wavelength in um;
-- annotate the 5-to-20 um shift `+2.494 um`.
-
-### Panel C — Tail-only singular values
-
-Plot relative singular values from `all_tail_design`. Show two resolved and two near-null directions.
-
-### Panel D — Mixed-branch singular values
-
-Plot relative singular values from `mixed_branch_design`. Annotate rank four and condition number `199.81`.
-
-### Message
-
-Thickness changes the reported cutoff without changing latent `Eg`; branch diversity, not more tail-only points, is required to restore rank.
-
-### Claim IDs
-
-C09–C12.
+Effective thickness is an observation-model parameter and is not automatically physical film thickness.
 
 ## Figure 5 — Nonparabolic carrier filling and inversion conditioning
 
-### Purpose
+**Filename:** `figure5_carrier_filling.svg`  
+**Claims:** C13–C15  
+**Evidence state:** exact dispersion identity plus bounded synthetic sensitivity  
+**Record:** `data/validation/dingrong_1985_carrier_filling_sensitivity.json`
 
-Quantify when a parabolic Burstein–Moss treatment fails and show that a density series can remain practically non-identifying.
+### Regenerated operator
 
-### Data and implementation
-
-- `data/validation/dingrong_1985_carrier_filling_sensitivity.json`;
-- `src/mct_research/carrier_filling.py`.
-
-### Panel A — Conduction filling energy versus density
-
-Regenerate over the declared density sweep:
-
-- x-axis: carrier density in `cm^-3`, logarithmic;
-- y-axis: energy in meV;
-- plot parabolic and nonparabolic conduction energies.
-
-### Panel B — Parabolic overestimate
-
-- x-axis: carrier density;
-- y-axis: `E_par-E_c` in meV;
-- mark the 5% crossover near `2.66e15 cm^-3`;
-- mark the declared Dingrong-density point and `147.323 meV` overestimate.
-
-### Panel C — Filling decomposition at `7e17 cm^-3`
-
-Display:
+The density series is regenerated through:
 
 ```text
-nonparabolic conduction 140.154 meV
-valence recoil            8.214 meV
-nonparabolic BM total   148.367 meV
-parabolic BM total      295.690 meV
+mct_research.carrier_filled_optical_edge_ev
 ```
 
-Label all values as bounded synthetic sensitivity.
+and compared against the immutable crossover record before rendering.
 
-### Panel D — Density-series singular values
+### Panels
 
-Plot the five relative singular values and annotate condition number `11034.75`.
+A. Parabolic and nonparabolic conduction filling energies versus density.  
+B. Parabolic overestimate versus density.  
+C. High-density energy decomposition.  
+D. Five-density relative singular values and condition number `11034.75`.
 
-### Message
+### Required annotation
 
-Nonparabolicity is not a perturbative correction at the declared high-density point, and formal full rank is not sufficient for a stable physical inversion.
+```text
+parabolic overestimate at 7e17 cm^-3 = 147.323 meV
+```
 
-### Claim IDs
+### Boundary
 
-C13–C15.
+The declared masses and nonparabolicity are not a fit to the Dingrong specimen.
 
 ## Figure 6 — Exact spectral equivalence and structural rank
 
-### Purpose
+**Filename:** `figure6_unified_structural_rank.svg`  
+**Claims:** C16–C20  
+**Evidence state:** exact structural theorem plus numerical verification  
+**Record:** `data/validation/unified_spectrum_structural_rank.json`
 
-Present the central theorem visually.
+### Regenerated operator
 
-### Data and implementation
-
-- `data/validation/unified_spectrum_structural_rank.json`;
-- `src/mct_research/unified_spectrum.py`.
-
-### Panel A — Two physically different parameterizations
-
-List the two exact-counterexample parameter sets and their preserved combinations:
+Both exact-counterexample spectra are regenerated through:
 
 ```text
-Eg0 + Delta = 0.130 eV
-A*d = constant
-sigma_G = 0.010 eV
+mct_research.unified_response_spectrum
 ```
 
-### Panel B — Overlaid response spectra
+They must remain equal within the committed machine-precision bound.
 
-Plot both 281-point spectra. They should visually overlap completely.
+### Panels
 
-Inset or residual panel:
-
-- plot absolute difference versus energy;
-- annotate maximum `2.22e-16`.
-
-### Panel C — Unmarked-spectrum singular values
-
-Plot relative singular values. Annotate rank three and identify the two exact null mechanisms:
+A. Overlaid response spectra for the two physically different parameter sets, annotated
 
 ```text
-Eg0 versus uniform carrier translation
-absorption amplitude versus effective thickness
+max |difference| <= 2.22e-16
 ```
 
-### Panel D — Marked-spectrum singular values and null vector
-
-Plot marked-spectrum relative singular values. Annotate rank four and the remaining infinitesimal null vector:
+B. Unmarked relative singular values and rank three.  
+C. Marked relative singular values and rank four.  
+D. Exact invariant combinations and remaining marked-model null vector:
 
 ```text
 (Delta, -Delta, 0, -1, +1)
@@ -294,93 +214,82 @@ Plot marked-spectrum relative singular values. Annotate rank four and the remain
 
 Dense, noise-free sampling cannot recover parameters that the forward model combines exactly.
 
-### Claim IDs
-
-C16–C20.
-
 ## Figure 7 — Measurement design and validation boundary
 
-### Purpose
+**Filename:** `figure7_measurement_design.svg`  
+**Claims:** C20–C23  
+**Evidence state:** measurement-design corollary and validation boundary
 
-Translate the theorems into the minimum evidence needed for latent-gap recovery and clearly distinguish completed analytical work from external validation.
+### Content
 
-### Panel A — Base model external constraints
+The first region states the base-model requirement:
 
 ```text
-full spectrum
+full calibrated spectrum
 + independent carrier state / validated shift
 + independent effective thickness or absorption amplitude
 = locally identifiable remaining base parameters
 ```
 
-### Panel B — Marked model
-
-```text
-calibrated carrier-dependent spectral marker
-raises rank 3 -> 4
-but one independent scale remains necessary
-```
-
-### Panel C — Validation status
-
-Use a compact status table:
-
-| Component | Analytical | Numerical | Source reproduction | Real-spectrum validation |
-|---|---:|---:|---:|---:|
-| Transition distribution | yes | yes | not applicable | no |
-| Herrmann tail | yes | yes | yes | no new specimen |
-| Chang cutoff | yes | yes | source-bounded | no |
-| Carrier filling | yes | yes | regime anchor | no |
-| Unified theorem | yes | yes | not applicable | no |
+The second region presents the analytical, numerical, source-reproduction, and real-spectrum validation status of each forward component.
 
 ### Message
 
-The analytical paper is coherent and reproducible, but specimen-level validation remains an explicit and visible submission boundary.
+The analytical core and deterministic figures are complete. External specimen validation remains open.
 
 ## Tables
 
 ### Table 1 — Theorem and proposition summary
 
-Generate from `theorem_index.md` with columns:
+**Filename:** `table1_theorem_summary.md`
+
+Summarizes label, assumptions, result, and evidence class for the stable theorem hierarchy.
+
+### Table 2 — Quantitative headline results
+
+**Filename:** `table2_quantitative_results.md`
+
+Loads the manuscript headline values directly from the five immutable JSON records.
+
+### Table 3 — Claim provenance and validation status
+
+**Filename:** `table3_claim_provenance.md`
+
+Extracts C01–C23 from `claim_matrix.md` and preserves each claim class and current status.
+
+## Asset summary
+
+**Filename:** `distributional_band_edge_asset_summary.json`
+
+Records:
+
+- generating commit;
+- exact generated filename list;
+- figure and table counts;
+- immutable source-record paths;
+- explicit `external_material_validation=false` state;
+- claim-boundary statement.
+
+## Rendering contract
+
+- Implemented final-review vector format: SVG.
+- Planned journal-delivery vector format: PDF converted from approved SVG without changing data.
+- Do not use color as the only encoding.
+- Display units on every quantitative axis.
+- Preserve the Herrmann `s` and `sigma_G` convention exactly.
+- Include accessible SVG titles.
+- Include record path, claim IDs, and generating commit in SVG metadata.
+- Label synthetic and source-conditioned figures explicitly.
+- Require byte-for-byte deterministic regeneration.
+- Fail generation when regenerated headline values diverge from immutable records beyond declared tolerances.
+
+## Validation
+
+The builder is covered by:
 
 ```text
-label
-assumptions
-result
-evidence class
-external constraint implied
+tests/test_distributional_band_edge_manuscript_assets.py
+tests/test_distributional_band_edge_generated_assets.py
 ```
 
-### Table 2 — Quantitative results
-
-Generate from the five immutable JSON records with one row per manuscript headline result.
-
-### Table 3 — Claim boundary and source provenance
-
-Generate from `claim_matrix.md` and the primary-source audit.
-
-## Rendering requirements
-
-- Never encode synthetic and external-data panels identically.
-- Use vector output for final submission (`PDF` or `SVG`) and high-resolution PNG only for review.
-- Do not use color alone to distinguish claim state or model family.
-- Display units on every numerical axis.
-- Preserve the exact source convention for Herrmann `s` and `sigma_G`.
-- Use logarithmic axes only where explicitly declared above.
-- Include record path and generating commit in each figure metadata block.
-
-## Planned generation entry point
-
-The final asset builder should be added as:
-
-```text
-scripts/build_distributional_band_edge_manuscript_assets.py
-```
-
-with outputs under:
-
-```text
-manuscript/distributional_band_edge/generated/
-```
-
-The builder must read the immutable JSON records, regenerate spectra through public package functions, and fail if manuscript headline values differ from the committed records beyond declared tolerances.
+CI generates the complete review package, parses every SVG as XML, checks exact filenames and metadata, verifies all three tables, tests deterministic regeneration, enforces the visual-presentation fixes, and uploads the package as a workflow artifact.

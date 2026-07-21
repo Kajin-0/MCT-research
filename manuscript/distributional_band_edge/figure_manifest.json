@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "manuscript": "From latent bandgap to measured edge in HgCdTe: distributional observation operators and structural identifiability",
-  "status": "figure definitions approved; rendering pending",
-  "generation_entry_point": "scripts/build_distributional_band_edge_manuscript_assets.py",
-  "output_directory": "manuscript/distributional_band_edge/generated",
+  "status": "deterministic SVG and Markdown rendering implemented; final journal styling pending",
+  "generation_entry_point": "python -m tools.build_distributional_band_edge_manuscript_assets",
+  "default_ci_output_directory": "distributional-generated",
   "figures": [
     {
       "id": "figure_1_forward_hierarchy",
+      "filename": "figure1_forward_hierarchy.svg",
       "claim_ids": ["C01", "C20", "C21"],
       "data_records": [],
       "public_functions": [],
@@ -16,6 +17,7 @@
     },
     {
       "id": "figure_2_transition_distribution",
+      "filename": "figure2_transition_distribution.svg",
       "claim_ids": ["C02", "C03", "C04"],
       "data_records": ["data/validation/near_critical_transition_model_dependence.json"],
       "public_functions": [
@@ -33,10 +35,11 @@
     },
     {
       "id": "figure_3_herrmann_tail_nonuniqueness",
+      "filename": "figure3_herrmann_tail_nonuniqueness.svg",
       "claim_ids": ["C05", "C06", "C07", "C08"],
       "data_records": ["data/validation/herrmann_gaussian_tail_reproduction.json"],
       "public_functions": [
-        "mct_research.gaussian_gap_convolved_power_absorption",
+        "mct_research.normalized_gaussian_gap_convolved_power_absorption",
         "mct_research.fit_exponential_absorption_tail",
         "mct_research.herrmann_gap_sigma_ev"
       ],
@@ -51,6 +54,7 @@
     },
     {
       "id": "figure_4_chang_cutoff_rank",
+      "filename": "figure4_chang_cutoff_rank.svg",
       "claim_ids": ["C09", "C10", "C11", "C12"],
       "data_records": ["data/validation/chang_2006_cutoff_identifiability.json"],
       "public_functions": [
@@ -69,6 +73,7 @@
     },
     {
       "id": "figure_5_carrier_filling",
+      "filename": "figure5_carrier_filling.svg",
       "claim_ids": ["C13", "C14", "C15"],
       "data_records": ["data/validation/dingrong_1985_carrier_filling_sensitivity.json"],
       "public_functions": [
@@ -87,7 +92,8 @@
     },
     {
       "id": "figure_6_unified_structural_rank",
-      "claim_ids": ["C16", "C17", "C18", "C19"],
+      "filename": "figure6_unified_structural_rank.svg",
+      "claim_ids": ["C16", "C17", "C18", "C19", "C20"],
       "data_records": ["data/validation/unified_spectrum_structural_rank.json"],
       "public_functions": [
         "mct_research.unified_response_spectrum",
@@ -104,6 +110,7 @@
     },
     {
       "id": "figure_7_measurement_design",
+      "filename": "figure7_measurement_design.svg",
       "claim_ids": ["C20", "C21", "C22", "C23"],
       "data_records": [
         "data/validation/unified_spectrum_structural_rank.json",
@@ -122,24 +129,28 @@
   "tables": [
     {
       "id": "table_1_theorem_summary",
+      "filename": "table1_theorem_summary.md",
       "source": "manuscript/distributional_band_edge/theorem_index.md"
     },
     {
       "id": "table_2_quantitative_results",
+      "filename": "table2_quantitative_results.md",
       "source": "five immutable validation JSON records"
     },
     {
       "id": "table_3_claim_provenance",
+      "filename": "table3_claim_provenance.md",
       "source": "manuscript/distributional_band_edge/claim_matrix.md"
     }
   ],
   "rendering_contract": {
-    "vector_formats": ["pdf", "svg"],
-    "review_format": "png",
+    "implemented_vector_formats": ["svg"],
+    "future_submission_formats": ["pdf"],
     "synthetic_panels_must_be_labeled": true,
     "color_must_not_be_only_encoding": true,
     "units_required_on_numerical_axes": true,
     "record_path_and_commit_metadata_required": true,
-    "headline_values_must_be_regression_checked": true
+    "headline_values_must_be_regression_checked": true,
+    "deterministic_byte_for_byte_regeneration_required": true
   }
 }

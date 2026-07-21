@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-21  
 **Controlling issue:** #167  
-**Active milestone:** #179  
+**Active milestone:** #182  
 **Execution mode:** independent, public-data-first, reproducible computation
 
 ## Completed Paper I
@@ -31,13 +31,7 @@ latent mean signed gap
 -> reported gap observable
 ```
 
-The analytical core is complete on branch:
-
-```text
-agent/flagship-manuscript-analytical-core
-```
-
-The controlling manuscript directory is:
+The analytical core was merged in PR #181. The controlling directory is:
 
 ```text
 manuscript/distributional_band_edge/
@@ -45,10 +39,9 @@ manuscript/distributional_band_edge/
 
 ## Principal theorem
 
-For the declared Gaussian-gap, power-law local-edge, uniform carrier-translation, and single-pass Beer–Lambert model,
+For the declared Gaussian-gap, power-law local-edge, uniform carrier-translation, and single-pass Beer-Lambert model, the parameters
 
 ```text
-parameters:
 Eg0
 Delta_carrier
 ln sigma_G
@@ -74,7 +67,7 @@ rank(J) <= 3
 
 No improvement in signal-to-noise, spectral resolution, or point count can remove these exact forward-model null directions.
 
-Two physically different parameter sets preserving the three identifiable combinations produce 281-point spectra with maximum absolute difference:
+Two physically different parameter sets preserving the three identifiable combinations produce 281-point spectra with committed numerical difference bounded by:
 
 ```text
 2.22e-16
@@ -105,7 +98,7 @@ These are model-conditioned transition statistics, not bulk topological phase fr
 
 ### Gaussian-gap tail
 
-Herrmann’s convention is:
+Herrmann's convention is:
 
 ```text
 sigma_G = sqrt(2)*s
@@ -176,7 +169,7 @@ alpha      = 7.5 eV^-1
 m_valence  = 0.35 m0
 ```
 
-the parabolic Burstein–Moss estimate exceeds the nonparabolic result by:
+the parabolic Burstein-Moss estimate exceeds the nonparabolic result by:
 
 ```text
 147.323 meV
@@ -190,9 +183,9 @@ A five-density series is locally rank five but has condition number:
 
 The parameters are illustrative and are not inferred for the Dingrong specimen.
 
-## Manuscript asset state
+## Manuscript analytical assets
 
-Completed on the active branch:
+Merged in PR #181:
 
 ```text
 README.md
@@ -218,6 +211,53 @@ data/validation/herrmann_gaussian_tail_reproduction.json
 data/validation/chang_2006_cutoff_identifiability.json
 data/validation/dingrong_1985_carrier_filling_sensitivity.json
 data/validation/unified_spectrum_structural_rank.json
+```
+
+## Deterministic figure and table generation
+
+Issue #182 and PR #183 implement the approved manuscript asset contract.
+
+Public entry point:
+
+```text
+python -m tools.build_distributional_band_edge_manuscript_assets \
+  --repository-root . \
+  --output-dir distributional-generated
+```
+
+Generated outputs:
+
+```text
+7 deterministic SVG figures
+3 Markdown manuscript tables
+1 machine-readable asset summary
+```
+
+The builder:
+
+- uses pure Python, NumPy, SVG, and Markdown;
+- adds no new plotting dependency;
+- reads the five immutable validation records;
+- regenerates the Herrmann spectrum and fit-window regressions through public functions;
+- regenerates the carrier-density sensitivity series;
+- regenerates the unified exact-counterexample spectra;
+- fails closed if regenerated values diverge from immutable records;
+- embeds claim IDs, source paths, and generating commit metadata;
+- labels synthetic and source-conditioned panels explicitly;
+- remains byte-for-byte deterministic under repeated generation.
+
+The numerical core is preserved separately from a thin presentation wrapper. Visual artifact review corrected only:
+
+- Figure 2 exact/local and probability-line legends;
+- Figure 3 headline placement;
+- Figure 6 display of the committed `2.22e-16` residual bound.
+
+No numerical content changed during presentation review.
+
+Controlling decision:
+
+```text
+research/decision_records/2026-07-21-flagship-manuscript-assets.md
 ```
 
 ## DOI-assisted acquisition queue
@@ -264,15 +304,15 @@ The present CdTe polar response remains unsuitable for production AHC. New AHC, 
 - a decision-changing observable;
 - a published validation target;
 - a predeclared termination criterion;
-- and evidence that the lower-cost observation model cannot resolve the decision.
+- evidence that the lower-cost observation model cannot resolve the decision.
 
 ## Authorized next work
 
-1. open and validate the flagship analytical-core PR;
-2. implement `scripts/build_distributional_band_edge_manuscript_assets.py` from `figure_manifest.json`;
-3. execute the DOI acquisition queue and audit retrieved sources;
-4. complete one external validation route or explicitly authorize theorem/methods-only submission;
-5. generate final figures and tables from immutable data;
+1. complete CI and merge PR #183;
+2. execute the DOI acquisition queue and audit retrieved sources;
+3. select one external validation route;
+4. integrate a real-spectrum validation without changing exact theorem claims;
+5. convert approved SVG assets to journal PDF format;
 6. verify the complete bibliography and prior-art boundary;
 7. package archive DOI, authorship, declarations, and journal submission files.
 
@@ -288,7 +328,7 @@ The present CdTe polar response remains unsuitable for production AHC. New AHC, 
 - treating detector cutoff as a direct material gap;
 - treating physical film thickness as effective absorbing thickness without validation;
 - transferring Chang `b` or Dingrong carrier corrections between specimens without provenance;
-- conflating Burstein–Moss filling with band-gap renormalization;
+- conflating Burstein-Moss filling with band-gap renormalization;
 - treating the generic carrier marker as the Dingrong free-carrier law;
 - assigning synthetic parameters to real specimens;
 - claiming dense sampling removes exact forward-model invariances;
