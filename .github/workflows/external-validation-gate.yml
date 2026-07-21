@@ -32,6 +32,7 @@ jobs:
           python -m pytest -q \
             tests/test_external_validation_gate.py \
             tests/test_external_validation_gate_record.py \
+            tests/test_external_validation_gate_robustness.py \
             2>&1 | tee external-validation-generated/pytest.txt
       - uses: actions/upload-artifact@v4
         if: always()
