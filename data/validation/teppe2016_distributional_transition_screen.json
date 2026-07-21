@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 167,
+  "status": "validated_low_cost_screen",
+  "source": {
+    "citation": "F. Teppe et al., Nature Communications 7, 12576 (2016)",
+    "doi": "10.1038/ncomms12576",
+    "specimen": "sample B",
+    "nominal_composition": 0.155,
+    "reported_critical_temperature_k": 77.0
+  },
+  "latent_gap_model": {
+    "name": "reconstructed Laurenti 1990 equation",
+    "implementation": "mct_research.gap_models.laurenti_gap_ev",
+    "role": "near-critical local comparator, not a universally selected material law"
+  },
+  "evaluation": {
+    "mean_composition": 0.155,
+    "temperature_k": 77.0,
+    "composition_derivative_step": 0.0001,
+    "temperature_derivative_step_k": 0.1,
+    "gap_at_mean_ev": -0.000047812035819567306,
+    "dgap_dx_ev": 1.7191085088326916,
+    "d2gap_dx2_ev": 0.4711102296467429,
+    "dgap_dtemperature_ev_per_k": 0.00038517801967013696
+  },
+  "composition_sigma_cases": [
+    {
+      "composition_sigma": 0.001,
+      "mean_gap_ev": -0.000047576480704743934,
+      "composition_curvature_bias_ev": 2.3555511482337144e-7,
+      "gap_sigma_ev": 0.0017191085088326917,
+      "critical_temperature_sigma_k": 4.4631531942163285,
+      "gaussian_local_opposite_sign_fraction": 0.4889606461594074
+    },
+    {
+      "composition_sigma": 0.005,
+      "mean_gap_ev": -0.00004192315794898302,
+      "composition_curvature_bias_ev": 0.000005888877870584286,
+      "gap_sigma_ev": 0.008595542544163459,
+      "critical_temperature_sigma_k": 22.315765971081643,
+      "gaussian_local_opposite_sign_fraction": 0.498054241039604
+    }
+  ],
+  "authorized_conclusions": [
+    "Near the nominal Teppe sample-B transition, composition variation is strongly amplified into local signed-gap and critical-temperature width.",
+    "A composition standard deviation of 0.001 corresponds to a first-order local gap scale of about 1.72 meV and critical-temperature scale of about 4.46 K under the reconstructed Laurenti law.",
+    "A composition standard deviation of 0.005 corresponds to about 8.60 meV and 22.32 K under the same local model.",
+    "The screen defines a precision requirement for composition-tuned transition claims."
+  ],
+  "unauthorized_conclusions": [
+    "The Teppe specimen is not claimed to have either composition standard deviation.",
+    "The propagated gap standard deviation is not identified with an optical Urbach energy, PL FWHM, or quasiparticle linewidth.",
+    "The local opposite-sign fraction is not a bulk topological invariant.",
+    "The Laurenti equation is not selected as a universal HgCdTe gap law by this screen."
+  ]
+}
