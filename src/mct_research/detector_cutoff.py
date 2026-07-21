@@ -275,6 +275,10 @@ def chang_2006_cutoff_jacobian(
 
     Each design tuple is ``(effective_thickness_um, target_response)``. All
     perturbed responses must remain in the Chang source-relative energy domain.
+    Tail crossings are replaced by their exact analytical expression after
+    source-domain and branch classification. This prevents bisection tolerance
+    from creating spurious singular directions in a structurally rank-two
+    tail-only design.
     """
 
     if len(designs) == 0:
@@ -311,7 +315,9 @@ def chang_2006_cutoff_jacobian(
         dtype=float,
     )
 
-    def evaluate(parameters: NDArray[np.float64]) -> tuple[NDArray[np.float64], tuple[str, ...]]:
+    def evaluate(
+        parameters: NDArray[np.float64],
+    ) -> tuple[NDArray[np.float64], tuple[str, ...]]:
         edge_value, width_value, log_amplitude, log_b = parameters
         energies: list[float] = []
         branches: list[str] = []
@@ -324,7 +330,16 @@ def chang_2006_cutoff_jacobian(
                 effective_thickness_um=thickness,
                 target_response=response,
             )
-            energies.append(result.energy_ev)
+            energy = result.energy_ev
+            if result.branch == "tail":
+                energy = urbach_tail_cutoff_energy_ev(
+                    join_energy_ev=result.join_energy_ev,
+                    tail_energy_ev=float(width_value),
+                    join_absorption_cm_inverse=result.join_absorption_cm_inverse,
+                    effective_thickness_um=thickness,
+                    target_response=response,
+                )
+            energies.append(energy)
             branches.append(result.branch)
         return np.asarray(energies, dtype=float), tuple(branches)
 
