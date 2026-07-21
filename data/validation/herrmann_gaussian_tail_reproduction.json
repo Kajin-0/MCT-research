@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.1",
+  "program_issue": 171,
+  "source": {
+    "citation": "K. H. Herrmann, K.-P. Moellmann, and J. W. Tomm, Journal of Crystal Growth 117, 758-762 (1992)",
+    "source_equation": 8,
+    "source_claim": "Convolving the intrinsic edge with the declared Gaussian-like gap distribution gives a nearly exponential 1-100 cm^-1 tail with fitted broadening energy approximately s/2.",
+    "source_distribution": "P(G)=exp(-(G-Gbar)^2/(4*s^2))/(2*s*sqrt(pi))",
+    "standard_deviation_relation": "sigma_G=sqrt(2)*s"
+  },
+  "controlled_reproduction": {
+    "mean_gap_ev": 0.1,
+    "source_scale_s_ev": 0.008,
+    "gap_standard_deviation_ev": 0.011313708498984762,
+    "absorption_at_mean_gap_cm_inverse": 1000.0,
+    "intrinsic_local_edge": "alpha(E|G)=A*max(E-G,0)^p",
+    "quadrature_method": "energy-dependent Gauss-Legendre integration over G<=E",
+    "quadrature_order": 512,
+    "standard_deviation_limit": 10.0,
+    "energy_grid_in_sigma_units": [-8.0, 3.0],
+    "energy_grid_points": 6001,
+    "maximum_relative_change_order_256_to_512_in_tail_test": 5.779761398698619e-7
+  },
+  "fit_results": [
+    {
+      "exponent": 0.5,
+      "absorption_window_cm_inverse": [1.0, 100.0],
+      "tail_energy_over_sigma_G": 0.3571183113580045,
+      "tail_energy_over_source_s": 0.5050415592942678,
+      "tail_energy_mev_for_s_8mev": 4.040332474354142,
+      "r_squared": 0.9957033511916197
+    },
+    {
+      "exponent": 1.0,
+      "absorption_window_cm_inverse": [1.0, 100.0],
+      "tail_energy_over_sigma_G": 0.3535518351875173,
+      "tail_energy_over_source_s": 0.4999978003240843,
+      "tail_energy_mev_for_s_8mev": 3.9999824025926745,
+      "r_squared": 0.9961962283344915
+    },
+    {
+      "exponent": 2.0,
+      "absorption_window_cm_inverse": [1.0, 100.0],
+      "tail_energy_over_sigma_G": 0.3420607188471371,
+      "tail_energy_over_source_s": 0.48374690774871154,
+      "tail_energy_mev_for_s_8mev": 3.8699752619896923,
+      "r_squared": 0.9971178911034118
+    },
+    {
+      "exponent": 0.5,
+      "absorption_window_cm_inverse": [10.0, 100.0],
+      "tail_energy_over_sigma_G": 0.40167710943713747,
+      "tail_energy_over_source_s": 0.5680572158608218,
+      "tail_energy_mev_for_s_8mev": 4.5444577268865745,
+      "r_squared": 0.9983641836239796
+    },
+    {
+      "exponent": 0.5,
+      "absorption_window_cm_inverse": [10.0, 500.0],
+      "tail_energy_over_sigma_G": 0.4725446151793412,
+      "tail_energy_over_source_s": 0.6682790036129995,
+      "tail_energy_mev_for_s_8mev": 5.346232028903996,
+      "r_squared": 0.9918956762260878
+    },
+    {
+      "exponent": 0.5,
+      "absorption_window_cm_inverse": [100.0, 500.0],
+      "tail_energy_over_sigma_G": 0.5718408687380571,
+      "tail_energy_over_source_s": 0.8087051120885733,
+      "tail_energy_mev_for_s_8mev": 6.4696408967085866,
+      "r_squared": 0.9973750948790288
+    },
+    {
+      "exponent": 0.5,
+      "absorption_window_cm_inverse": [0.1, 100.0],
+      "tail_energy_over_sigma_G": 0.3259467508322218,
+      "tail_energy_over_source_s": 0.46095831563837203,
+      "tail_energy_mev_for_s_8mev": 3.6876665251069762,
+      "r_squared": 0.9930749196030318
+    }
+  ],
+  "derived_results": {
+    "source_claim_reproduced": true,
+    "square_root_source_window_tail_energy_over_s": 0.5050415592942678,
+    "square_root_upper_window_tail_energy_over_s": 0.8087051120885733,
+    "fit_window_increase_fraction": 0.6012644844884396,
+    "source_window_exponent_spread_fraction_of_maximum": 0.04216415689693501,
+    "all_reported_r_squared_minimum": 0.9918956762260878,
+    "observed_tail_energy_example_mev": 4.0,
+    "compatible_sigma_G_range_mev_across_declared_models_and_windows": [6.994952999472093, 12.660558134700102],
+    "compatible_source_s_range_mev_across_declared_models_and_windows": [4.946178700007898, 8.952366510652949],
+    "inversion_range_factor": 1.8099561406138955
+  },
+  "authorized_conclusions": [
+    "A Gaussian distribution of local gaps convolved with a square-root intrinsic edge reproduces the Herrmann approximately-s-over-two tail scale over the source-stated 1-100 cm^-1 range.",
+    "The convolved spectrum is not exactly exponential; fitted tail energy depends on the absorption window.",
+    "High log-linear R-squared does not identify the latent gap width or intrinsic-edge exponent.",
+    "An observed Urbach-like energy cannot be converted to sigma_G without an explicit intrinsic edge, normalization, and fit window."
+  ],
+  "unauthorized_conclusions": [
+    "The source parameter s is not identified with a measured composition standard deviation.",
+    "The fitted tail is not proof of alloy disorder rather than phonon, shallow-level, excitonic, carrier, or instrumental broadening.",
+    "The controlled power-law edge is not the complete Anderson-Herrmann absorption model.",
+    "No universal HgCdTe Urbach-to-disorder conversion is established."
+  ]
+}
