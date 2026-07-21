@@ -110,15 +110,27 @@ def test_nontranslational_carrier_marker_raises_rank_to_four() -> None:
     )
     assert diagnostics.relative_singular_values[4] < 1.0e-10
 
-    # The carrier marker separates Eg from the carrier parameter, while A and d
-    # remain structurally confounded.
-    assert numerical_rank(diagnostics.jacobian[:, [0, 1, 2, 3]]) == 4
-    np.testing.assert_allclose(
-        diagnostics.jacobian[:, 3],
-        diagnostics.jacobian[:, 4],
-        rtol=0.0,
-        atol=2.0e-10,
+    # The marker breaks both simple pairwise column equalities.  The remaining
+    # exact infinitesimal invariance is the combined direction
+    # (Delta, -Delta, 0, -1, +1) for
+    # (Eg, Delta, ln sigma, ln A, ln d).
+    jacobian = diagnostics.jacobian
+    assert not np.allclose(jacobian[:, 0], jacobian[:, 1], rtol=0.0, atol=1.0e-6)
+    assert not np.allclose(jacobian[:, 3], jacobian[:, 4], rtol=0.0, atol=1.0e-6)
+    carrier_shift = BASE_PARAMETERS["uniform_carrier_shift_ev"]
+    null_vector = np.asarray(
+        [carrier_shift, -carrier_shift, 0.0, -1.0, 1.0]
     )
+    np.testing.assert_allclose(
+        jacobian @ null_vector,
+        0.0,
+        rtol=0.0,
+        atol=3.0e-10,
+    )
+
+    # Independently known thickness removes the combined null direction and
+    # leaves Eg, carrier shift, sigma, and amplitude locally full rank.
+    assert numerical_rank(jacobian[:, [0, 1, 2, 3]]) == 4
 
 
 def test_unified_spectrum_input_validation() -> None:
