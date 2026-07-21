@@ -2,6 +2,7 @@
 
 **Last updated:** 2026-07-21  
 **Controlling issue:** #167  
+**Active milestone:** #169  
 **Execution mode:** independent, public-data-first, reproducible computation
 
 ## Completed Paper I
@@ -14,7 +15,7 @@ It establishes that historical composition uncertainty, specimen state, source l
 
 ## Active flagship program
 
-The active research product is now:
+The active research product is:
 
 > **A distributional, observation-aware theory of HgCdTe band-edge observables.**
 
@@ -34,9 +35,11 @@ latent mean signed gap
 
 A reported gap is not assumed to equal `Eg(mean x, T)`.
 
-## First executable result
+## Distributional model status
 
-`mct_research.distributional_gap` implements tested second-order propagation of a declared Gaussian composition width through any scalar signed-gap law:
+### Local propagation
+
+`mct_research.distributional_gap` implements tested local propagation:
 
 ```text
 mean-gap curvature bias = 0.5 * d2Eg/dx2 * sigma_x^2
@@ -44,25 +47,42 @@ local gap width         = abs(dEg/dx) * sigma_x
 critical-T width        = abs((dEg/dx)/(dEg/dT)) * sigma_x
 ```
 
-At the Teppe sample-B nominal transition point (`x=0.155`, `T=77 K`) under the reconstructed Laurenti law:
+At nominal `x=0.155`, `T=77 K` under the reconstructed Laurenti law:
 
 ```text
-Eg(mean x,T)                         -0.0478 meV
-dEg/dx                                1.71911 eV
-dEg/dT                                0.38518 meV/K
-
-sigma_x = 0.001:
-  sigma_E                              1.719 meV
-  sigma_Tc                             4.463 K
-  Gaussian local opposite-sign frac   0.48896
-
-sigma_x = 0.005:
-  sigma_E                              8.596 meV
-  sigma_Tc                            22.316 K
-  Gaussian local opposite-sign frac   0.49805
+sigma_x=0.001 -> sigma_E=1.719 meV, sigma_Tc=4.463 K
+sigma_x=0.005 -> sigma_E=8.596 meV, sigma_Tc=22.316 K
 ```
 
-These are precision-scale diagnostics. They do not assert that the Teppe specimen has either composition width, do not identify an optical linewidth, and do not define a topological invariant.
+These are precision-scale diagnostics, not asserted Teppe specimen widths, optical linewidths, or topological invariants.
+
+### Exact bounded-Gaussian quadrature
+
+`mct_research.distributional_quadrature` conditions the declared Gaussian composition model on `0 <= x <= 1` and computes:
+
+- exact signed-gap mean, variance, skewness, and sign probabilities;
+- local-approximation error;
+- root multiplicity inside a declared temperature window;
+- single-crossing probability;
+- always-normal, always-inverted, multiple-crossing, and unresolved probability;
+- conditional critical-temperature moments.
+
+At mean `x=0.155`, the existing latent laws give central critical temperatures:
+
+```text
+Laurenti reconstructed              77.1241 K
+Hansen-Schmit-Casselman             52.0438 K
+archived provisional Hansen-Pade    52.5937 K
+central model span                  25.0803 K
+```
+
+At `sigma_x=0.001`, exact composition-induced widths are `3.804-4.560 K` and local approximation errors are below `0.003 K`; latent-law uncertainty dominates.
+
+At `sigma_x=0.005`, exact conditional widths are `18.345-22.290 K`, comparable to the central model span, and `0.36-1.30%` of the composition model remains normal throughout `0-300 K`.
+
+At `sigma_x=0.010`, `8.60-14.12%` remains normal throughout the window. Conditional mean temperatures shift by `5.52-11.05 K`, and the local width overestimates the exact conditional width by `6.68-9.66 K` because the distribution is censored by no-crossing compositions.
+
+Controlling rule: conditional transition moments must be reported with the single-crossing probability.
 
 ## Activated primary sources
 
@@ -75,7 +95,7 @@ The first full-text source set is:
 - Chang et al. 2007 — nonparabolic Kane plus Urbach absorption and thickness-dependent cutoff;
 - Teppe et al. 2016 — temperature-driven near-critical Kane mass and velocity.
 
-Claim-level roles and limitations are recorded in `literature/notes/distributional_band_edge_primary_sources.md`.
+Claim-level roles and limitations are recorded in `literature/notes/distributional_band_edge_primary_sources.md`; the central prior-art index is `literature/ledger.md`.
 
 ## Static and finite-temperature methods
 
@@ -87,25 +107,26 @@ The present CdTe polar response remains unsuitable for a production AHC result. 
 
 The paired same-specimen acquisition protocol remains a rigorous future validation design. Outreach, partner search, and facility access are inactive and are not dependencies of the current program.
 
-The independent program must proceed using public full texts, auditable digitization, analytical derivation, reproducible numerical modeling, and existing published spectra.
+The independent program proceeds using public full texts, auditable digitization, analytical derivation, reproducible numerical modeling, and existing published spectra.
 
 ## Authorized next work
 
-1. verify derivative-step and higher-order stability of the distributional propagation;
-2. compare transition-width predictions across latent gap laws without selecting a universal law;
-3. reproduce Herrmann's Gaussian-gap-to-tail relation;
-4. reproduce Chang's nonparabolic/tail operator and thickness-dependent cutoff under source limits;
-5. implement a carrier-filled optical branch and test it against Dingrong's degenerate specimen;
-6. test whether one distributional state model can jointly explain Ivanov-Omskii PL displacement and FWHM changes;
-7. build cross-modal recoverability and rank-reversal maps;
-8. draft the flagship manuscript only after at least one independent published-data reproduction passes.
+1. complete quadrature-order and root-grid convergence checks;
+2. reproduce Herrmann's Gaussian-gap-to-tail relation;
+3. reproduce Chang's nonparabolic/tail operator and thickness-dependent cutoff under source limits;
+4. implement a carrier-filled optical branch and test it against Dingrong's degenerate specimen;
+5. test whether one distributional state model can jointly explain Ivanov-Omskii PL displacement and FWHM changes;
+6. build cross-modal recoverability and rank-reversal maps;
+7. draft the flagship manuscript after at least one independent published-data reproduction passes.
 
 ## Explicitly unauthorized
 
 - reopening unconstrained empirical gap fitting;
 - selecting one edge from an uncertainty ensemble without an operator declaration;
 - identifying `sigma_x`, `sigma_E`, Urbach energy, PL FWHM, and quasiparticle linewidth as equivalent;
-- interpreting a local opposite-sign fraction as a bulk topological invariant;
+- reporting conditional critical-temperature moments without crossing probability;
+- interpreting a local sign or no-crossing probability as a bulk topological invariant or measured phase fraction;
+- assigning posterior meaning to unweighted latent-law spread;
 - treating nominal composition as a measured spatial distribution;
 - transferring source-specific carrier, tail, or thickness corrections without provenance;
 - requiring real collaborators before independent progress can continue;
