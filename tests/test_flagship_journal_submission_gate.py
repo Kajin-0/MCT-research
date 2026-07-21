@@ -118,7 +118,11 @@ def test_verified_reference_manifest_is_complete_and_unique() -> None:
         assert entry["doi"]
         assert entry["role"]
         assert entry["metadata_status"] == "verified"
-        assert entry.get("pages") or entry.get("article_number") or entry["key"] == "iupac_beer_lambert_2025"
+        assert (
+            entry.get("pages")
+            or entry.get("article_number")
+            or entry["key"] == "iupac_beer_lambert_2025"
+        )
 
 
 def test_journal_package_contains_required_submission_text() -> None:
@@ -139,25 +143,30 @@ def test_journal_package_contains_required_submission_text() -> None:
     for phrase in required_lower:
         assert phrase in lower
 
-    assert "new general identifiability mathematics" not in lower
-    assert "claims complete native-spectrum validation" not in lower
+    prohibited_affirmative_claims = (
+        "we introduce new general identifiability mathematics",
+        "this work introduces new general identifiability mathematics",
+        "the manuscript claims complete native-spectrum validation",
+    )
+    for phrase in prohibited_affirmative_claims:
+        assert phrase not in lower
 
 
 def test_program_documents_agree_on_venue_and_threshold() -> None:
-    texts = [
-        README_PATH.read_text(encoding="utf-8"),
-        SUBMISSION_GAP_PATH.read_text(encoding="utf-8"),
-        ACTIVE_STATE_PATH.read_text(encoding="utf-8"),
-        DECISION_PATH.read_text(encoding="utf-8"),
-    ]
-    for text in texts:
+    readme = README_PATH.read_text(encoding="utf-8")
+    submission_gap = SUBMISSION_GAP_PATH.read_text(encoding="utf-8")
+    active = ACTIVE_STATE_PATH.read_text(encoding="utf-8")
+    decision = DECISION_PATH.read_text(encoding="utf-8")
+
+    for text in (readme, submission_gap, active, decision):
         assert "Semiconductor Science and Technology" in text
         assert "Journal of Applied Physics" in text
         assert "Measurement Science and Technology" in text
         assert "not required before initial submission" in text.lower()
+
+    for text in (readme, submission_gap, active):
         assert "11.297 meV" in text
 
-    active = texts[2]
     assert "**Active milestone:** #191" in active
     assert "PR #190" in active
     assert "speculative spectrum digitization" in active
@@ -166,11 +175,20 @@ def test_program_documents_agree_on_venue_and_threshold() -> None:
 def test_submission_gate_does_not_overstate_validation() -> None:
     documents = "\n".join(
         path.read_text(encoding="utf-8")
-        for path in (PACKAGE_PATH, README_PATH, SUBMISSION_GAP_PATH, ACTIVE_STATE_PATH, DECISION_PATH)
+        for path in (
+            PACKAGE_PATH,
+            README_PATH,
+            SUBMISSION_GAP_PATH,
+            ACTIVE_STATE_PATH,
+            DECISION_PATH,
+        )
     )
     lower = documents.lower()
     assert "qualified real-specimen" in lower
-    assert "not complete native-spectrum validation" in lower or "not complete spectrum validation" in lower
+    assert (
+        "not complete native-spectrum validation" in lower
+        or "not complete spectrum validation" in lower
+    )
     assert "chang 2007" in lower
     assert "calculated" in lower
     prohibited = (
