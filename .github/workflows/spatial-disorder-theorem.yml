@@ -10,7 +10,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -28,7 +28,8 @@ jobs:
             tests/test_spatial_disorder_optics.py \
             tests/test_spatial_disorder_cutoff.py \
             tests/test_spatial_disorder_design.py \
-            tests/test_spatial_disorder_calibration.py
+            tests/test_spatial_disorder_calibration.py \
+            tests/test_spatial_disorder_covariance_families.py
       - name: Validate immutable references
         run: |
           python - <<'PY'
@@ -73,6 +74,24 @@ jobs:
           restrictions = calibration['claim_restrictions']
           assert any('not a specimen fit' in item for item in restrictions)
           assert any('not a global nonlinear posterior' in item for item in restrictions)
+
+          family_path = Path('data/validation/three_scale_covariance_family_test.json')
+          family = json.loads(family_path.read_text(encoding='utf-8'))
+          assert family['schema_version'] == '1.0'
+          assert family['issue'] == 218
+          assert family['portfolio_contribution'] == 'R04'
+          assert family['status'].endswith('not_specimen_covariance')
+          three_scale = family['three_scale_reference']['families']
+          assert len(three_scale) == 3
+          assert three_scale[0]['standardized_reciprocal_residual'] > 4.0
+          assert three_scale[-1]['standardized_reciprocal_residual'] < 1.5
+          six_scale = family['six_scale_reference']['families']
+          assert six_scale[0]['reduced_chi_square'] > 10.0
+          assert six_scale[-1]['reduced_chi_square'] < 2.0
+          assert any(
+              'Failure to reject' in item
+              for item in family['claim_boundaries']
+          )
           PY
       - uses: actions/upload-artifact@v4
         with:
@@ -80,8 +99,10 @@ jobs:
           path: |
             data/validation/spatial_disorder_theorem_extension.json
             data/validation/spatial_disorder_probe_scale_calibration.json
+            data/validation/three_scale_covariance_family_test.json
             docs/derivations/010_scale_dependent_spatial_disorder.md
             docs/derivations/011_probe_scale_calibration_limit.md
+            docs/derivations/012_three_scale_covariance_family_test.md
             literature/notes/scale_dependent_disorder_prior_art.md
           if-no-files-found: error
           retention-days: 30

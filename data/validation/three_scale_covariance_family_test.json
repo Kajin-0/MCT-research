@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "program": "measurement-kernel-aware spatial disorder",
+  "portfolio_contribution": "R04",
+  "issue": 218,
+  "status": "model_conditioned_family_falsification_not_specimen_covariance",
+  "gaussian_theorem": {
+    "variance": "V(s)=A/(1+2s^2/xi^2)",
+    "reciprocal_line": "1/V=1/A+2s^2/(A xi^2)",
+    "two_scale_result": "two admissible scales fit exactly and cannot test the covariance family",
+    "three_scale_invariant": "[(1/V3-1/V2)/(s3^2-s2^2)]-[(1/V2-1/V1)/(s2^2-s1^2)]=0"
+  },
+  "matern_parameterization": {
+    "correlation": "2^(1-nu)/Gamma(nu) z^nu K_nu(z)",
+    "z": "sqrt(2 nu) r/ell",
+    "supported_smoothness": [
+      0.5,
+      1.5,
+      2.5
+    ],
+    "probe": "two-dimensional normalized Gaussian",
+    "point_probe_limit": 1.0,
+    "large_probe_limit": "attenuation ~ 1/[2(s/ell)^2] for every supported nu"
+  },
+  "three_scale_reference": {
+    "probe_sigma_over_ell": [
+      0.1,
+      1.0,
+      2.0
+    ],
+    "relative_variance_standard_deviation": 0.03,
+    "families": [
+      {
+        "smoothness": 0.5,
+        "attenuation": [
+          0.8411071373682593,
+          0.24212784385880282,
+          0.0946459000376958
+        ],
+        "endpoint_fitted_gaussian_point_variance_ratio": 0.8580682521371389,
+        "endpoint_fitted_gaussian_correlation_length_ratio": 0.9958947903846281,
+        "endpoint_predicted_middle_attenuation": 0.28445610763155604,
+        "middle_relative_prediction_error": 0.17481782804557172,
+        "standardized_reciprocal_residual": 4.119513842708676
+      },
+      {
+        "smoothness": 1.5,
+        "attenuation": [
+          0.9553079781711891,
+          0.29279154896158055,
+          0.10456760507295955
+        ],
+        "endpoint_fitted_gaussian_point_variance_ratio": 0.9751926022186717,
+        "endpoint_fitted_gaussian_correlation_length_ratio": 0.9802300407306771,
+        "endpoint_predicted_middle_attenuation": 0.31646805014360957,
+        "middle_relative_prediction_error": 0.08086470140958815,
+        "standardized_reciprocal_residual": 2.0123485823984772
+      },
+      {
+        "smoothness": 2.5,
+        "attenuation": [
+          0.968955826065716,
+          0.3071618515370177,
+          0.10701632433622137
+        ],
+        "endpoint_fitted_gaussian_point_variance_ratio": 0.9889182957764376,
+        "endpoint_fitted_gaussian_correlation_length_ratio": 0.9852804190144993,
+        "endpoint_predicted_middle_attenuation": 0.32315433707281693,
+        "middle_relative_prediction_error": 0.05206533772268234,
+        "standardized_reciprocal_residual": 1.319071250152875
+      }
+    ]
+  },
+  "six_scale_reference": {
+    "probe_sigma_over_ell": [
+      0.05,
+      0.1,
+      0.3,
+      1.0,
+      2.0,
+      5.0
+    ],
+    "relative_variance_standard_deviation": 0.03,
+    "families": [
+      {
+        "smoothness": 0.5,
+        "attenuation": [
+          0.9161638152191366,
+          0.8411071373682593,
+          0.6093869741718791,
+          0.24212784385880282,
+          0.0946459000376958,
+          0.018905692684621132
+        ],
+        "fitted_gaussian_point_variance_ratio": 0.8319727421727598,
+        "fitted_gaussian_correlation_length_ratio": 1.023356740802134,
+        "chi_square": 75.17995149441825,
+        "degrees_of_freedom": 4,
+        "reduced_chi_square": 18.794987873604562,
+        "maximum_absolute_relative_variance_residual": 0.1808890653411087
+      },
+      {
+        "smoothness": 1.5,
+        "attenuation": [
+          0.9870936902684226,
+          0.9553079781711891,
+          0.7612719163596414,
+          0.29279154896158055,
+          0.10456760507295955,
+          0.01936270386984799
+        ],
+        "fitted_gaussian_point_variance_ratio": 0.9531600161011238,
+        "fitted_gaussian_correlation_length_ratio": 0.9931799322411633,
+        "chi_square": 14.076205158797233,
+        "degrees_of_freedom": 4,
+        "reduced_chi_square": 3.5190512896993082,
+        "maximum_absolute_relative_variance_residual": 0.07526187100186722
+      },
+      {
+        "smoothness": 2.5,
+        "attenuation": [
+          0.9918384479974652,
+          0.968955826065716,
+          0.797418151369592,
+          0.3071618515370177,
+          0.10701632433622137,
+          0.019459316493517294
+        ],
+        "fitted_gaussian_point_variance_ratio": 0.9736613870581318,
+        "fitted_gaussian_correlation_length_ratio": 0.9935439280033397,
+        "chi_square": 5.452442337693545,
+        "degrees_of_freedom": 4,
+        "reduced_chi_square": 1.3631105844233862,
+        "maximum_absolute_relative_variance_residual": 0.04751623199913442
+      }
+    ]
+  },
+  "decision": {
+    "stop_rule_result": "continue only through the declared three half-integer Matern families",
+    "reason": "rough and intermediate Matern families produce detectable departures at 3 percent uncertainty, while the smoothest case remains unresolved by the three-scale design",
+    "experimental_requirement": "include at least three calibrated effective probe scales with one scale at or below the expected correlation length"
+  },
+  "claim_boundaries": [
+    "Reciprocal linearity is exact only for the declared two-dimensional Gaussian covariance and Gaussian probe model.",
+    "A nonzero residual falsifies that declared family but does not identify a unique alternative covariance.",
+    "Failure to reject Gaussian covariance does not establish Gaussian covariance.",
+    "The reference values are dimensionless synthetic design calculations, not specimen fits.",
+    "Connecting apparent variance to spectra, photoluminescence, or detector cutoff still requires the corresponding observation operator."
+  ]
+}
