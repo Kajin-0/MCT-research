@@ -63,6 +63,12 @@ from .distributional_gap import (
     gaussian_opposite_sign_fraction,
     linearized_composition_gap_statistics,
 )
+from .distributional_quadrature import (
+    CriticalTemperatureDistribution,
+    GaussianGapMoments,
+    gaussian_critical_temperature_distribution,
+    gaussian_gap_moments,
+)
 from .gap_models import (
     HANSEN_PADE_ALPHA_EV_PER_K,
     HANSEN_PADE_TAU_K,
@@ -148,12 +154,14 @@ __all__ = [
     "CompositionCrossValidationResult",
     "CompositionHoldoutFold",
     "CompositionUncertaintySpec",
+    "CriticalTemperatureDistribution",
     "CrossValidationResult",
     "DistributionalGapApproximation",
     "ExportDefaults",
     "ExportFormatError",
     "ExtendedKaneParameters",
     "GapBenchmarkData",
+    "GaussianGapMoments",
     "GaugeAlignmentError",
     "HANSEN_PADE_ALPHA_EV_PER_K",
     "HANSEN_PADE_TAU_K",
@@ -202,6 +210,8 @@ __all__ = [
     "forbidden_gamma_coupling_norm",
     "gamma_irrep_residual",
     "gamma_irrep_symmetrize",
+    "gaussian_critical_temperature_distribution",
+    "gaussian_gap_moments",
     "gaussian_opposite_sign_fraction",
     "hamiltonian",
     "hamiltonian_two_p",
