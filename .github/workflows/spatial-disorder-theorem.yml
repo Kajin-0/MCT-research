@@ -10,7 +10,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -29,7 +29,8 @@ jobs:
             tests/test_spatial_disorder_cutoff.py \
             tests/test_spatial_disorder_design.py \
             tests/test_spatial_disorder_calibration.py \
-            tests/test_spatial_disorder_covariance_families.py
+            tests/test_spatial_disorder_covariance_families.py \
+            tests/test_spatial_disorder_posterior.py
       - name: Validate immutable references
         run: |
           python - <<'PY'
