@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 196,
+  "status": "analytical_reference_not_material_calibration",
+  "model": {
+    "composition_field": "stationary Gaussian random field",
+    "covariance": "sigma_x^2 exp[-|h|^2/(2 ell^2)]",
+    "probe": "normalized D-dimensional Gaussian with coordinate standard deviation a",
+    "exact_variance": "sigma_x^2 (1 + 2 a^2/ell^2)^(-D/2)"
+  },
+  "declared_hgcdte_sensitivity_case": {
+    "dimension": 2,
+    "microscopic_composition_standard_deviation": 0.005,
+    "microscopic_composition_variance": 0.000025,
+    "correlation_length_um": 5.0,
+    "local_gap_slope_ev_per_composition": 1.7191085,
+    "reference_cutoff_wavelength_um": 10.0,
+    "reference_gap_ev": 0.123984,
+    "claim_boundary": "The composition variance, correlation length, dimensionality, and local gap slope define a sensitivity case; they are not inferred from Herrmann, Chang, or Dingrong data.",
+    "probe_results": [
+      {
+        "probe_scale_um": 1.0,
+        "variance_reduction_factor": 0.9259259259259258,
+        "effective_composition_standard_deviation": 0.004811252243246881,
+        "linearized_gap_standard_deviation_mev": 8.27106462700978,
+        "linearized_cutoff_standard_deviation_um": 0.6671074192645648
+      },
+      {
+        "probe_scale_um": 5.0,
+        "variance_reduction_factor": 0.3333333333333333,
+        "effective_composition_standard_deviation": 0.0028867513459481286,
+        "linearized_gap_standard_deviation_mev": 4.962638776205868,
+        "linearized_cutoff_standard_deviation_um": 0.4002644515587389
+      },
+      {
+        "probe_scale_um": 10.0,
+        "variance_reduction_factor": 0.1111111111111111,
+        "effective_composition_standard_deviation": 0.0016666666666666666,
+        "linearized_gap_standard_deviation_mev": 2.865180833333333,
+        "linearized_cutoff_standard_deviation_um": 0.23109278885447582
+      },
+      {
+        "probe_scale_um": 100.0,
+        "variance_reduction_factor": 0.0012484394506866417,
+        "effective_composition_standard_deviation": 0.00017666631333439334,
+        "linearized_gap_standard_deviation_mev": 0.3037085609168189,
+        "linearized_cutoff_standard_deviation_um": 0.024495786627050178
+      }
+    ],
+    "headline_scale_effect": {
+      "probe_scale_ratio": 100.0,
+      "gap_width_ratio_1um_to_100um": 27.233629825017,
+      "cutoff_spread_ratio_1um_to_100um": 27.233629825017,
+      "interpretation": "The same microscopic random field can appear nearly thirty times narrower in standard deviation when the Gaussian probe scale changes from 1 to 100 micrometres."
+    }
+  },
+  "two_scale_designs": [
+    {
+      "probe_scale_first_um": 5.0,
+      "probe_scale_second_um": 5.05,
+      "log_parameter_condition_number": 632.8977824392063,
+      "classification": "nearly coincident probes; unusable inverse"
+    },
+    {
+      "probe_scale_first_um": 0.5,
+      "probe_scale_second_um": 50.0,
+      "observed_variance_first": 0.000024509803921568626,
+      "observed_variance_second": 1.2437810945273633e-7,
+      "log_parameter_condition_number": 2.683380301568055,
+      "classification": "probes straddle the correlation length; well conditioned"
+    },
+    {
+      "probe_scale_first_um": 2.5,
+      "probe_scale_second_um": 10.0,
+      "log_parameter_condition_number": 4.83773619071207,
+      "classification": "moderate scale separation; usable"
+    },
+    {
+      "probe_scale_first_um": 50.0,
+      "probe_scale_second_um": 500.0,
+      "log_parameter_condition_number": 1011.1301238876231,
+      "classification": "both probes in the large-scale asymptote; unusable inverse"
+    }
+  ],
+  "claim_restrictions": [
+    "The spatial-averaging identity is general random-field mathematics, not a new theorem of probability.",
+    "The project-specific claim is the HgCdTe observation-model consequence, exact inverse design, and quantitative scale dependence.",
+    "A fitted Urbach energy, PL linewidth, detector cutoff spread, and probe-averaged gap variance are distinct observables unless a forward operator connects them.",
+    "One probe scale cannot identify microscopic variance and correlation length separately.",
+    "Two probe scales are sufficient only under the declared covariance, kernel, dimensionality, and nuisance-parameter assumptions."
+  ]
+}
