@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "program_issue": 184,
   "status": "provisional route ranking under current source-acquisition state; not external material validation",
   "manifest_path": "literature/acquisition/distributional_band_edge_sources.json",
@@ -21,6 +21,18 @@
       "same-specimen W and b",
       "effective-thickness provenance"
     ]
+  },
+  "selection_robustness": {
+    "selected_route_id": "chang_thickness_cutoff",
+    "closest_competitor_id": "dingrong_carrier_spectrum",
+    "current_margin": 4,
+    "maximum_selected_one_step_drop": 3,
+    "margin_after_selected_adverse_step": 1,
+    "maximum_competitor_one_step_gain": 2,
+    "margin_after_competitor_favorable_step": 2,
+    "margin_after_simultaneous_two_route_steps": -1,
+    "robust_to_any_single_one_level_change": true,
+    "robust_to_simultaneous_adverse_and_favorable_steps": false
   },
   "ranked_routes": [
     {
@@ -87,7 +99,7 @@
     "10.1038/ncomms12576",
     "10.1016/0020-0891(91)90110-2",
     "10.1063/1.333828",
-    "10.1103/PhysRevB.106.115203",
+    "10.1103/PhysRevB.106/115203",
     "10.1007/s11664-005-0019-3"
   ],
   "score_interpretation": "Expected decision value under the current acquisition state; not a probability of truth. Recompute after every source audit.",
