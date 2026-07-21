@@ -6,13 +6,49 @@
 
 ## Status
 
-The analytical core, deterministic figures and tables, DOI intake, Dingrong Table 1 reproduction, and targeted novelty audit are complete on the repository branches and merged work through PR #188. Issue #189 controls the final prior-art and publication-framing gate.
+The analytical core, deterministic figures and tables, obtained-source audit, Dingrong Table 1 reproduction, and targeted novelty audit are complete through merged PR #190.
+
+Issue #191 controls journal selection and submission packaging.
 
 This manuscript is distinct from Paper I:
 
 > *Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.*
 
-Paper I establishes the historical non-identifiability problem. The flagship manuscript develops a constructive forward model, model-specific identifiability bounds, source-conditioned tests, and measurement-design consequences.
+Paper I establishes the historical non-identifiability problem. The flagship develops the constructive forward model, model-specific identifiability bounds, source-conditioned tests, and measurement-design consequences.
+
+## Selected submission venue
+
+Primary:
+
+> **Semiconductor Science and Technology — Paper**
+
+Fallback:
+
+> **Journal of Applied Physics**
+
+Stretch venue, not ready under the current evidence state:
+
+> **Measurement Science and Technology**
+
+Controlling decision:
+
+```text
+research/decision_records/2026-07-21-flagship-journal-and-evidence-threshold.md
+data/validation/flagship_journal_submission_gate.json
+manuscript/distributional_band_edge/journal_submission/semiconductor_science_and_technology.md
+```
+
+Semiconductor Science and Technology is selected because its official scope explicitly includes theoretical semiconductor studies, new analytical techniques, and simulation.
+
+## Initial-submission evidence threshold
+
+The current scientific package is sufficient for initial submission to Semiconductor Science and Technology after final packaging.
+
+A newly digitized spectrum is **not required before initial submission**.
+
+The Dingrong source-table reproduction is presented as qualified real-specimen evidence, not complete spectrum validation. Digitization is reserved for an explicit editor/reviewer request or a newly available calibratable dataset that materially changes submission risk.
+
+Measurement Science and Technology would require a calibrated spectrum, quantified uncertainty, method-performance demonstration, and a baseline comparison before submission.
 
 ## Publication framing
 
@@ -25,9 +61,9 @@ It is not presented as:
 - a complete microscopic absorption theory;
 - a completely externally validated detector model.
 
-Structural identifiability, parameter symmetries, identifiable parameter combinations, and the Beer-Lambert optical-depth product are prior art. The candidate contribution is their source-grounded HgCdTe application: explicit parameter combinations, model-specific rank bounds, exact counterexamples, quantitative operator effects, and required external measurements.
+Structural identifiability, parameter symmetries, identifiable parameter combinations, and the Beer-Lambert optical-depth product are prior art. The contribution is their source-grounded HgCdTe application: explicit parameter combinations, model-specific rank bounds, exact counterexamples, quantitative operator effects, and required external measurements.
 
-Controlling audit:
+Controlling novelty audit:
 
 ```text
 literature/prior_art/2026-07-21-flagship-rank-theorem-audit.md
@@ -57,7 +93,7 @@ sigma_G
 A*d
 ```
 
-Therefore the dense-spectrum Jacobian has rank at most three. The amplitude-thickness combination is inherited from optical-depth physics; the explicit HgCdTe gap-carrier combination and combined rank bound are the application-specific result.
+The dense-spectrum Jacobian therefore has rank at most three. The amplitude-thickness combination is inherited from optical-depth physics; the explicit HgCdTe gap-carrier combination and combined rank bound are application-specific.
 
 A controlled nontranslational carrier feature raises rank to four but leaves one combined invariance until an independent scale is supplied.
 
@@ -72,10 +108,11 @@ A controlled nontranslational carrier feature raises rank to four but leaves one
 | Dingrong source test | finite-temperature Table 1 reproduction and printed-parameter audit | `data/validation/dingrong1985_table1_reproduction.json` |
 | Unified spectrum | rank at most three; marked rank four with one null | `data/validation/unified_spectrum_structural_rank.json` |
 | Novelty boundary | red/yellow/green claim audit | `data/validation/flagship_novelty_claim_matrix.json` |
+| Journal gate | venue and evidence threshold | `data/validation/flagship_journal_submission_gate.json` |
 
 ## Dingrong external source-table result
 
-For the real `x=0.19`, `n=7e17 cm^-3` specimen, the printed finite-temperature density equation with printed
+For the real `x=0.19`, `n=7e17 cm^-3` specimen, the printed finite-temperature density equation with
 
 ```text
 P = 8.0e-8 eV cm
@@ -87,23 +124,21 @@ misses the four reported Fermi elevations by `11.297 meV` RMS. The rounded rows 
 P = 8.5107e-8 eV cm
 ```
 
-which reduces the Fermi-shift RMS mismatch to `0.785 meV`. This is a source-consistency inference, not a revised universal momentum matrix. The source's filled-edge and operational optical-gap values agree within `0-4 meV`.
-
-The result is qualified source-table evidence, not complete native-spectrum validation.
+which reduces the RMS mismatch to `0.785 meV`. This is a source-consistency inference, not a revised universal momentum matrix. The source's filled-edge and operational optical-gap values agree within `0-4 meV`.
 
 ## Chang route disposition
 
 Chang 2006/2007 provide the nonparabolic-Urbach model and calculated effective-thickness cutoff dependence. Their published thickness curve is not an independent measured same-specimen series and is not used as external validation.
 
-The exact logarithmic tail shift is treated as an inherited forward-model consequence. The project-specific result is the tail-only rank-two bound and mixed-branch conditioning analysis.
+## Bibliography state
 
-## Manuscript assets
+Core novelty, inverse-problem, optical-inversion, and HgCdTe source metadata are verified in:
 
-- `manuscript_draft.md` — revised source-aware manuscript;
-- `theorem_index.md` — stable exact statements and proof summaries;
-- `claim_matrix.md` — evidence and audited novelty wording;
-- `figure_plan.md` and `figure_manifest.json` — deterministic seven-figure contract;
-- `submission_gap.md` — remaining scientific and administrative gates.
+```text
+manuscript/distributional_band_edge/references_verified.json
+```
+
+Remaining bibliography work is mechanical generation of journal-style references and final verification of secondary historical gap-law citations.
 
 ## Deterministic asset generation
 
@@ -120,8 +155,6 @@ Outputs:
 3 Markdown tables
 1 machine-readable asset summary
 ```
-
-The builder regenerates numerical content from immutable records and fails closed on disagreement.
 
 ## Headline results
 
@@ -142,35 +175,13 @@ marked unified spectral rank                 4 of 5
 
 Synthetic values are not specimen fits.
 
-## Claim-state rules
+## Remaining submission gates
 
-Every result is classified as:
+1. generate the journal-style bibliography from the verified manifest;
+2. convert vector figures to accepted journal format without numerical change;
+3. create the archive release and DOI;
+4. complete author, affiliation, CRediT, funding, conflict, and reviewer metadata;
+5. finalize the SST cover letter and manuscript formatting;
+6. perform final independent wording and PDF review.
 
-- exact statement under declared assumptions;
-- numerical verification;
-- source-conditioned reproduction;
-- bounded synthetic sensitivity;
-- external material validation;
-- open validation target.
-
-A theorem label denotes exactness under assumptions, not unprecedented mathematics.
-
-## Current submission boundary
-
-The manuscript now has:
-
-- a complete analytical narrative;
-- deterministic figures and tables;
-- a qualified real-specimen source-table test;
-- an audited novelty boundary;
-- version-controlled code and immutable numerical records.
-
-Remaining gates are:
-
-1. complete bibliography and citation verification;
-2. decide whether the selected journal requires a digitized calibrated real spectrum beyond the Dingrong source table;
-3. convert vector figures to journal format;
-4. complete archive DOI, authorship, affiliation, CRediT, funding, conflict, and data/code statements;
-5. final independent wording review.
-
-No additional figure styling, route scoring, metadata framework, or broad mechanism branch is authorized unless it directly closes one of these gates.
+No additional digitization, figure infrastructure, route scoring, or broad mechanism branch is authorized before initial SST submission.

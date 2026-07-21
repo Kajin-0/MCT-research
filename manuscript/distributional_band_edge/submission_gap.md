@@ -13,9 +13,49 @@ The flagship manuscript has:
 - three deterministic manuscript tables;
 - complete Python 3.11/3.13 CI coverage;
 - an audited source-intake record;
-- a qualified real-specimen Dingrong Table 1 reproduction.
+- a qualified real-specimen Dingrong Table 1 reproduction;
+- a selected journal and locked initial-submission evidence threshold;
+- a verified core bibliography manifest.
 
-The manuscript is now a credible **HgCdTe semiconductor optical-metrology and inverse-problem methods** paper in preparation. It is not yet ready for submission because bibliography verification, venue-specific validation policy, and administrative packaging remain incomplete.
+## Selected venue
+
+Primary:
+
+> **Semiconductor Science and Technology — Paper**
+
+Fallback:
+
+> **Journal of Applied Physics**
+
+Stretch venue, not ready under the current evidence state:
+
+> **Measurement Science and Technology**
+
+Controlling files:
+
+```text
+data/validation/flagship_journal_submission_gate.json
+research/decision_records/2026-07-21-flagship-journal-and-evidence-threshold.md
+manuscript/distributional_band_edge/journal_submission/semiconductor_science_and_technology.md
+```
+
+Semiconductor Science and Technology is selected because its official scope directly includes theoretical semiconductor studies, new analytical techniques, and simulation.
+
+## Locked evidence threshold
+
+The current scientific package is sufficient for initial submission to Semiconductor Science and Technology after final packaging.
+
+A newly digitized spectrum is **not required before initial submission**.
+
+Digitization is authorized only when:
+
+1. an editor or reviewer explicitly requests a full-spectrum demonstration;
+2. a source-native or calibratable spectrum becomes available with sufficient specimen and axis provenance;
+3. a pre-submission editorial inquiry states that the Dingrong source-table evidence is insufficient.
+
+Do not digitize a spectrum merely to make the paper appear more empirical.
+
+Measurement Science and Technology would require a calibrated spectrum, explicit uncertainty, method-performance demonstration, and baseline comparison before submission. The current package does not satisfy that venue's evidence threshold.
 
 ## Scientific evidence already present
 
@@ -51,51 +91,13 @@ row-implied-mean RMS mismatch = 0.785 meV
 source filled-edge versus operational optical-gap difference = 0-4 meV
 ```
 
-The row-implied momentum matrix is a source-consistency diagnostic, not a revised universal constant.
+The row-implied momentum matrix is a source-consistency diagnostic, not a revised universal constant. This is qualified real-specimen source-table evidence, not complete native-spectrum validation.
 
-This evidence tests a real source-defined carrier branch and edge operator, but it is not complete native-spectrum validation.
+## Rejected Chang validation route
 
-## Rejected validation route
-
-The previously selected Chang published-paper multi-thickness route is rejected.
-
-The Chang 2007 effective-thickness cutoff curve is calculated. It is not an independent same-specimen series of measured spectra or detector responses. The papers do not supply the covariance, effective-thickness calibration, and complete shared specimen parameters required for the declared validation.
+The Chang 2007 effective-thickness cutoff curve is calculated. It is not an independent same-specimen series of measured spectra or detector responses. The papers do not supply the covariance, effective-thickness calibration, and complete shared specimen parameters required for the previously declared validation.
 
 Chang remains important prior art and a source-bounded analytical basis. Its calculated curve is not described as external validation.
-
-## Remaining scientific decision
-
-The next decision is venue dependent:
-
-> Is the qualified Dingrong source-table reproduction sufficient for an analytical/metrology methods paper, or does the selected journal require one digitized calibrated spectrum?
-
-A digitized spectrum is authorized only if it changes this submission decision.
-
-### A qualifying spectrum should preserve
-
-- source figure or table identity;
-- digitization calibration and uncertainty;
-- composition and temperature;
-- carrier type and density;
-- physical thickness and effective thickness separately;
-- reflectance/transmission convention;
-- spectral resolution;
-- edge or cutoff operator;
-- parameter ownership and nuisance assumptions.
-
-A spectrum need not identify every unified-model parameter. It must test a declared prediction while leaving unresolved quantities as nuisance or bounded parameters.
-
-### Rejection gates for digitized validation
-
-Do not promote a digitized case when:
-
-- axes or curve identity cannot be calibrated;
-- specimen state changes across curves without provenance;
-- effective thickness is silently replaced by physical thickness;
-- carrier state is inferred from the same edge being tested;
-- source-specific parameters are transferred between specimens;
-- the only agreement comes from unconstrained amplitude or offset fitting;
-- digitization uncertainty is comparable to or larger than the claimed effect.
 
 ## Novelty boundary
 
@@ -131,39 +133,40 @@ Theorem labels indicate exactness under assumptions, not unprecedented general m
 
 ## Bibliography gate
 
-Before submission, verify full metadata and manuscript placement for:
-
-### General inverse-problem sources
+Core metadata are verified in:
 
 ```text
-10.1016/0025-5564(70)90132-X
-10.1016/j.automatica.2009.07.009
-10.1016/j.mbs.2014.08.008
+manuscript/distributional_band_edge/references_verified.json
 ```
 
-### Optical-depth and thin-film inversion sources
+The manifest contains verified DOI, author order, title, journal/source, year, volume, issue, and pages or article number for:
+
+- foundational structural-identifiability sources;
+- parameter-symmetry and identifiable-combination methods;
+- Beer-Lambert and thin-film optical inversion sources;
+- Herrmann, Chang, Dingrong, Teppe, Ivanov-Omskii, and Chu HgCdTe sources.
+
+### Retained source-provenance DOI set
+
+The original seven source-acquisition identifiers remain explicit because they define the historical evidence and validation provenance even when a source is already obtained or a route is rejected:
 
 ```text
-10.1351/goldbook.B00626
-10.1364/AO.36.008238
-10.1364/AO.40.002675
-10.1364/AO.40.002682
-10.1364/OL.418277
-```
-
-### HgCdTe mechanism sources
-
-```text
-10.1016/0022-0248(92)90851-9
-10.1063/1.2245220
-10.1007/s11664-007-0162-0
 10.1016/0038-1098(85)90315-1
+10.1007/s11664-007-0162-0
+10.1063/1.2245220
+10.1016/0022-0248(92)90851-9
 10.1016/j.physb.2009.08.210
 10.1038/ncomms12576
 10.1016/0020-0891(91)90110-2
 ```
 
-Verify title, author order, journal, year, volume, issue, page/article number, and DOI. Distinguish source results from repository inferences in every citation sentence.
+Their presence is a provenance contract, not an assertion that every route remains active.
+
+Remaining bibliography work:
+
+1. generate SST-style references from the manifest;
+2. verify secondary historical gap-law citations;
+3. freeze numbering only after the final reference set is complete.
 
 ## Figure and table gate
 
@@ -177,48 +180,67 @@ python -m tools.build_distributional_band_edge_manuscript_assets \
 
 Remaining work is journal-format conversion only:
 
-- convert accepted SVGs to the required PDF/EPS format;
+- convert accepted SVGs to the required vector format;
 - preserve vector text and line weights;
 - verify final column-width readability;
 - do not change numerical content during styling;
 - regenerate tables from immutable records.
 
+## Journal-facing package
+
+Prepared in:
+
+```text
+manuscript/distributional_band_edge/journal_submission/semiconductor_science_and_technology.md
+```
+
+It contains:
+
+- article type and scope fit;
+- journal-positioning paragraph;
+- cover-letter draft;
+- data and code availability statements;
+- restricted-source statement;
+- single-author CRediT template;
+- funding and conflict templates;
+- submission checklist.
+
 ## Administrative packaging
 
-Required:
+Still required:
 
 - author name and affiliation;
 - correspondence address;
-- CRediT statement;
-- funding statement;
+- final CRediT statement;
+- confirmed funding statement;
 - conflict-of-interest statement;
-- data and code availability statement;
-- restricted-source handling statement;
 - archive release and DOI;
-- cover letter;
 - suggested reviewers and exclusions;
-- journal-specific formatting and word count.
+- final SST formatting and word count;
+- submission PDF inspection.
 
 ## Submission decision rule
 
-Submission is authorized when:
+Initial SST submission is authorized when:
 
-1. Issue #189 novelty wording and CI are complete;
-2. bibliography metadata and citation boundaries are verified;
-3. a target venue is selected;
-4. the venue-specific decision on source-table versus digitized-spectrum evidence is recorded;
-5. figures and tables are converted without numerical change;
-6. archive and administrative metadata are complete;
-7. final independent wording review finds no unsupported novelty or specimen claim.
+1. Issue #191 is merged;
+2. journal-style bibliography and secondary-citation verification are complete;
+3. vector figures and tables are converted without numerical change;
+4. archive and administrative metadata are complete;
+5. final independent wording review finds no unsupported novelty or specimen claim;
+6. all workflows pass on the submission tag.
+
+A full digitized spectrum is not on this critical path.
 
 ## Work freeze
 
-Until a submission gate directly requires it, do not add:
+Until an SST editor or reviewer changes the evidence requirement, do not add:
 
 - new route-ranking infrastructure;
 - new manuscript architecture;
-- additional figure styling systems;
+- additional figure-design systems;
 - broad new physical mechanism branches;
+- speculative spectrum digitization;
 - expensive first-principles calculations;
 - collaborator-dependent validation requirements.
 

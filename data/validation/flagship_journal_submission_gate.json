@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 191,
+  "decision_date": "2026-07-21",
+  "manuscript": "From latent bandgap to measured edge in HgCdTe: distributional observation operators and structural identifiability",
+  "decision_rule": "Prefer the venue whose official scope directly accommodates theoretical semiconductor studies, new analytical techniques, simulation, and source-grounded methods without requiring a new experimental instrument or full native-spectrum performance demonstration.",
+  "primary_venue": {
+    "journal": "Semiconductor Science and Technology",
+    "publisher": "IOP Publishing",
+    "article_type": "Paper",
+    "status": "selected_primary",
+    "official_scope_url": "https://publishingsupport.iopscience.iop.org/journals/semiconductor-science-and-technology/about-semiconductor-science-technology/",
+    "scope_snapshot": [
+      "fundamental and applied experimental and theoretical studies of semiconductors, interfaces, and devices",
+      "fundamental properties",
+      "materials and devices",
+      "new analytical techniques",
+      "simulation"
+    ],
+    "fit_reasons": [
+      "the paper is explicitly semiconductor-specific rather than generic metrology",
+      "the central result is an analytical technique and simulation-backed inverse-problem analysis",
+      "source-conditioned HgCdTe examples and the Dingrong source-table reproduction provide a material-specific evidence anchor",
+      "the official scope does not require a newly built instrument or a complete native-spectrum performance demonstration"
+    ],
+    "initial_submission_evidence_threshold": {
+      "current_scientific_package_sufficient": true,
+      "digitized_real_spectrum_required_before_submission": false,
+      "required_before_submission": [
+        "merged audited novelty boundary",
+        "verified core bibliography",
+        "Dingrong Table 1 source reproduction and explicit partial-validation boundary",
+        "deterministic code, figures, tables, and immutable records",
+        "data availability statement and archive release",
+        "journal-format manuscript and figures",
+        "administrative declarations"
+      ],
+      "optional_strengthening": [
+        "one calibrated digitized spectrum if available without cross-specimen parameter transfer",
+        "additional uncertainty analysis requested by reviewers",
+        "source-native data obtained after submission"
+      ],
+      "reviewer_risk": "A reviewer may request a full-spectrum demonstration, but the journal scope does not make it a precondition for an analytical semiconductor Paper. Preserve digitization as a targeted reviewer-response reserve rather than a submission blocker."
+    },
+    "publication_route": {
+      "subscription_access_charge": "no publication charge stated for subscription-access publication",
+      "open_access_optional": true,
+      "research_data_policy": "IOP Publishing research data policy; include a data availability statement"
+    }
+  },
+  "fallback_venue": {
+    "journal": "Journal of Applied Physics",
+    "publisher": "AIP Publishing",
+    "status": "selected_fallback",
+    "official_about_url": "https://publishing.aip.org/publications/latest-content/journal/journal-of-applied-physics/",
+    "fit_summary": "Broad applied-physics journal publishing original research and methods. The paper is within broad applied-physics scope, but the semiconductor analytical-technique fit is less explicit than for Semiconductor Science and Technology.",
+    "use_condition": "Use after editorial rejection or unfavorable scope screening at the primary venue, with the same audited novelty boundary and without inventing additional experimental validation.",
+    "digitized_real_spectrum_required_before_submission": false,
+    "risk": "Broader editorial competition may place greater weight on general applied-physics impact and a full-spectrum example. Reassess only after the primary decision is tested."
+  },
+  "stretch_venue": {
+    "journal": "Measurement Science and Technology",
+    "publisher": "IOP Publishing",
+    "status": "not_ready_current_state",
+    "official_scope_url": "https://publishingsupport.iopscience.iop.org/journals/measurement-science-and-technology/about-measurement-science-technology/",
+    "scope_requirements": [
+      "advance in measurement science or measurement technique",
+      "method characterization",
+      "demonstrated performance using examples or applications",
+      "consideration of uncertainty, precision, or accuracy",
+      "under-100-word novelty, significance, and broader-relevance statement"
+    ],
+    "current_gap": "The Dingrong four-row source-table reproduction tests source consistency but does not demonstrate end-to-end performance of the unified measurement method on a calibrated spectrum with uncertainty.",
+    "digitized_real_spectrum_required_before_submission": true,
+    "minimum_additional_evidence": [
+      "calibrated digitized or source-native spectrum",
+      "digitization and measurement uncertainty",
+      "declared nuisance parameters and parameter ownership",
+      "quantitative recovery or falsification metric",
+      "comparison against a baseline extraction method"
+    ]
+  },
+  "rejected_or_deferred": [
+    {
+      "venue_class": "photonics-first high-selectivity journal",
+      "reason": "The work is primarily semiconductor metrology and inverse-problem analysis rather than a new photonic device or optical platform."
+    },
+    {
+      "venue_class": "topological condensed-matter journal",
+      "reason": "The transition-distribution result is supporting evidence, not the central microscopic/topological contribution."
+    },
+    {
+      "venue_class": "materials-growth journal",
+      "reason": "No new growth campaign or specimen-processing dataset is reported."
+    }
+  ],
+  "locked_decisions": {
+    "submit_first_to": "Semiconductor Science and Technology",
+    "digitization_before_initial_submission": "not required",
+    "digitization_authorization": "only if a target-journal editor or reviewer requires a full-spectrum demonstration, or if a specific source provides a calibratable dataset that materially reduces submission risk",
+    "do_not_reopen_without_new_evidence": [
+      "exhaustive journal ranking",
+      "route-scoring infrastructure",
+      "broad physical-model expansion",
+      "new figure-design system"
+    ]
+  },
+  "evidence_state": {
+    "analytical_core_complete": true,
+    "deterministic_assets_complete": true,
+    "novelty_audit_complete": true,
+    "real_source_table_test_complete": true,
+    "complete_native_spectrum_validation": false,
+    "initial_submission_authorized_after_packaging": true
+  }
+}
