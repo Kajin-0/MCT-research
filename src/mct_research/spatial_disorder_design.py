@@ -131,15 +131,20 @@ def multiscale_gaussian_gap_width(
     scales_flat, shape = _validated_probe_sigmas(probe_sigmas)
 
     scale_ratios = scales_flat / correlation
-    log_denominator = np.logaddexp(
-        0.0,
-        log(2.0) + 2.0 * np.where(
-            scales_flat > 0.0,
-            np.log(scales_flat, where=scales_flat > 0.0, out=np.zeros_like(scales_flat)),
-            -np.inf,
-        ) - 2.0 * log(correlation),
-    )
-    effective_variance = np.exp(log(point_variance) - log_denominator)
+    point_probe = scales_flat == 0.0
+    positive_scale = ~point_probe
+    effective_variance = np.empty(scales_flat.shape, dtype=float)
+    effective_variance[point_probe] = point_variance
+    if np.any(positive_scale):
+        log_denominator = np.logaddexp(
+            0.0,
+            log(2.0)
+            + 2.0 * (np.log(scales_flat[positive_scale]) - log(correlation)),
+        )
+        effective_variance[positive_scale] = np.exp(
+            log(point_variance) - log_denominator
+        )
+
     effective_standard_deviation = np.sqrt(effective_variance)
     effective_gap_standard_deviation = abs(gap_slope) * effective_standard_deviation
 
@@ -258,7 +263,7 @@ def multiscale_gaussian_gap_cutoff_prediction(
         mean_absorption_response_residual=_read_only_float(closure_residual, shape),
         transmission_iterations=_read_only_int(true_iterations, shape),
         mean_absorption_iterations=_read_only_int(closure_iterations, shape),
-        mean_gap_ev=float(metadata.transmission_averaged_energy_ev * 0.0 + mean_gap_ev),
+        mean_gap_ev=float(mean_gap_ev),
         thickness_cm=float(thickness_cm),
         target_response=float(metadata.target_response),
         lower_energy_ev=float(metadata.lower_energy_ev),
