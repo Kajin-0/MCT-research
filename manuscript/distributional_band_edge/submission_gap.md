@@ -146,6 +146,22 @@ The manifest contains verified DOI, author order, title, journal/source, year, v
 - Beer-Lambert and thin-film optical inversion sources;
 - Herrmann, Chang, Dingrong, Teppe, Ivanov-Omskii, and Chu HgCdTe sources.
 
+### Retained source-provenance DOI set
+
+The original seven source-acquisition identifiers remain explicit because they define the historical evidence and validation provenance even when a source is already obtained or a route is rejected:
+
+```text
+10.1016/0038-1098(85)90315-1
+10.1007/s11664-007-0162-0
+10.1063/1.2245220
+10.1016/0022-0248(92)90851-9
+10.1016/j.physb.2009.08.210
+10.1038/ncomms12576
+10.1016/0020-0891(91)90110-2
+```
+
+Their presence is a provenance contract, not an assertion that every route remains active.
+
 Remaining bibliography work:
 
 1. generate SST-style references from the manifest;
