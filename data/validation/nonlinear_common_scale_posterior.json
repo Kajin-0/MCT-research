@@ -1,0 +1,263 @@
+{
+  "asymmetric_calibration_case": {
+    "absolute_log_correlation_cumulants": [
+      0.31659356351992873,
+      0.018652272107720497,
+      -0.00014834655695326367,
+      -1.4895111544620124e-05
+    ],
+    "calibration_fourth_cumulant": -1.6424827255329604e-05,
+    "calibration_mean": -0.019289124891963435,
+    "calibration_third_cumulant": -0.00013639821868048358,
+    "calibration_variance": 0.008477232479686427,
+    "cross_covariance_residual": 0.0,
+    "variance_addition_residual": 3.469446951953614e-17
+  },
+  "bounded_prior_cases": {
+    "broad": {
+      "absolute_log_length_boundary_mass": 4.59482896851478e-134,
+      "cross_covariance_residual": 0.0,
+      "posterior_calibration_total_variation": 4.4062992729347605e-16,
+      "relative_calibration_covariance": 4.0234064994579266e-20,
+      "variance_addition_residual": -1.734723475976807e-18
+    },
+    "narrow": {
+      "absolute_log_length_boundary_mass": 0.1408374784876954,
+      "cross_covariance_residual": 0.0009043788352662038,
+      "posterior_calibration_total_variation": 0.06953553160925625,
+      "relative_calibration_covariance": -0.0008414848853525029,
+      "variance_addition_residual": -0.004576067440351786
+    }
+  },
+  "claim_boundaries": [
+    "The exact factorization requires scale dependence through s exp(delta)/xi and an independent calibration prior.",
+    "A bounded or informative absolute log-length prior can break factorization near its support boundary.",
+    "The grid calculations are deterministic synthetic checks, not specimen inference.",
+    "The Fisher comparison is specific to the declared design and log-Gaussian likelihood.",
+    "No covariance family or HgCdTe correlation length is validated by this result."
+  ],
+  "common_calibration_cases": [
+    {
+      "absolute_posterior_covariance": [
+        [
+          0.01733211791286923,
+          -0.010938485537524932
+        ],
+        [
+          -0.010938485537524932,
+          0.010575038278323928
+        ]
+      ],
+      "calibration_log_standard_deviation": 0.02,
+      "covariance_increment": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.00039999865028989695
+        ]
+      ],
+      "cross_covariance_residual": 0.0,
+      "discrete_calibration_variance": 0.0003999986502898967,
+      "relative_posterior_covariance": [
+        [
+          0.01733211791286923,
+          -0.010938485537524932
+        ],
+        [
+          -0.010938485537524932,
+          0.010175039628034031
+        ]
+      ],
+      "variance_addition_residual": 1.734723475976807e-17
+    },
+    {
+      "absolute_posterior_covariance": [
+        [
+          0.01733211791286923,
+          -0.010938485537524932
+        ],
+        [
+          -0.010938485537524932,
+          0.020174923919676332
+        ]
+      ],
+      "calibration_log_standard_deviation": 0.1,
+      "covariance_increment": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.009999884291642301
+        ]
+      ],
+      "cross_covariance_residual": 0.0,
+      "discrete_calibration_variance": 0.009999884291642301,
+      "relative_posterior_covariance": [
+        [
+          0.01733211791286923,
+          -0.010938485537524932
+        ],
+        [
+          -0.010938485537524932,
+          0.010175039628034031
+        ]
+      ],
+      "variance_addition_residual": 3.8163916471489756e-17
+    }
+  ],
+  "fisher_comparison": [
+    {
+      "fisher_covariance": [
+        [
+          7.742846341170826e-05,
+          -4.878743154399468e-05
+        ],
+        [
+          -4.878743154399469e-05,
+          4.539926066435931e-05
+        ]
+      ],
+      "posterior_boundary_mass": 8.779642093109426e-41,
+      "posterior_covariance": [
+        [
+          7.742667326810396e-05,
+          -4.878665590146263e-05
+        ],
+        [
+          -4.878665590146263e-05,
+          4.5398460638503085e-05
+        ]
+      ],
+      "posterior_mean": [
+        -3.506544949961453,
+        0.3364695618857895
+      ],
+      "relative_frobenius_covariance_error": 1.98457450295271e-05,
+      "relative_observation_standard_deviation": 0.01
+    },
+    {
+      "fisher_covariance": [
+        [
+          0.001935711585292707,
+          -0.0012196857885998678
+        ],
+        [
+          -0.0012196857885998678,
+          0.0011349815166089832
+        ]
+      ],
+      "posterior_boundary_mass": 1.9365027235467158e-48,
+      "posterior_covariance": [
+        [
+          0.001934594464116677,
+          -0.0012192017289195398
+        ],
+        [
+          -0.0012192017289195398,
+          0.0011344824031256403
+        ]
+      ],
+      "posterior_mean": [
+        -3.506234493979048,
+        0.3364055214068684
+      ],
+      "relative_frobenius_covariance_error": 0.0004953713608945125,
+      "relative_observation_standard_deviation": 0.05
+    },
+    {
+      "fisher_covariance": [
+        [
+          0.017421404267634357,
+          -0.010977172097398803
+        ],
+        [
+          -0.010977172097398803,
+          0.010214833649480842
+        ]
+      ],
+      "posterior_boundary_mass": 1.0134458219626586e-15,
+      "posterior_covariance": [
+        [
+          0.017332117912869274,
+          -0.01093848553752496
+        ],
+        [
+          -0.01093848553752496,
+          0.010175039628034052
+        ]
+      ],
+      "posterior_mean": [
+        -3.5036675473396253,
+        0.33588268841189056
+      ],
+      "relative_frobenius_covariance_error": 0.0043977721239350925,
+      "relative_observation_standard_deviation": 0.15
+    },
+    {
+      "fisher_covariance": [
+        [
+          0.06968561707053743,
+          -0.04390868838959521
+        ],
+        [
+          -0.04390868838959521,
+          0.04085933459792337
+        ]
+      ],
+      "posterior_boundary_mass": 4.5692343558822417e-10,
+      "posterior_covariance": [
+        [
+          0.0683299749137038,
+          -0.04332540855739124
+        ],
+        [
+          -0.04332540855739124,
+          0.04026168668851485
+        ]
+      ],
+      "posterior_mean": [
+        -3.49523066901315,
+        0.33423137611515835
+      ],
+      "relative_frobenius_covariance_error": 0.016642447065070447,
+      "relative_observation_standard_deviation": 0.3
+    }
+  ],
+  "issue": 220,
+  "model": {
+    "cumulant_identity": "kappa_n(v)=kappa_n(lambda)+kappa_n(delta)",
+    "factorization": "p(u,lambda,delta|y)=p(u,lambda|y)p_delta(delta)",
+    "transformed_parameters": [
+      "u=log A",
+      "v=log xi",
+      "lambda=v-delta"
+    ],
+    "variance": "A/[1+2(s exp(delta))^2/xi^2]"
+  },
+  "portfolio_contribution": "R04",
+  "program": "measurement-kernel-aware spatial disorder",
+  "schema_version": "1.0",
+  "status": "exact_model_conditioned_posterior_not_specimen_inference",
+  "synthetic_design": {
+    "correlation_length": 1.4,
+    "likelihood": "log_gaussian",
+    "observed_variances": [
+      0.0288235294117647,
+      0.02,
+      0.005903614457831322,
+      0.0007950243374797189
+    ],
+    "point_variance": 0.03,
+    "probe_sigmas": [
+      0.2,
+      0.7,
+      2.0,
+      6.0
+    ]
+  }
+}
