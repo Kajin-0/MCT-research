@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-21",
+  "status": "controls obtained-source status and supersedes acquisition assumptions in the base DOI gate",
+  "rights_policy": "Restricted PDFs remain outside the public repository; only hashes, citations, audit notes, and derived results are committed.",
+  "sources": [
+    {
+      "doi": "10.1016/0038-1098(85)90315-1",
+      "original_filename": "dingrong1985(1).pdf",
+      "sha256": "a74096454d2278f95ab48c09c66b03b801b2787dbbfafabc73132634164daccb",
+      "acquisition": "user upload in ChatGPT conversation",
+      "rights": "publisher_restricted_notes_only",
+      "audit_state": "full text obtained; Table 1 and Eq. 2 reproduction active; full Haga-Tang below-gap branch still incomplete",
+      "authorized_use": "source-table carrier-shift reproduction and operational optical-edge consistency test"
+    },
+    {
+      "doi": "10.1007/s11664-007-0162-0",
+      "original_filename": "chang2007(1).pdf",
+      "sha256": "879ffaa4288b19a046b1a5e35abd336cc330aaf8a9aa8e4781ff89bb42c2f525",
+      "acquisition": "user upload in ChatGPT conversation",
+      "rights": "publisher_restricted_notes_only",
+      "audit_state": "full text obtained; equations audited; native spectrum and fitted covariance absent",
+      "authorized_use": "source-bounded absorption model and possible later Figure 3 single-spectrum digitization"
+    },
+    {
+      "doi": "10.1063/1.2245220",
+      "original_filename": "chang2006(2).pdf",
+      "sha256": "37a08e3fc37fc3b795b1a9d7ac3b3b662f9f96c2cad4cddbf79bc0fe3b57b41d",
+      "acquisition": "user upload in ChatGPT conversation",
+      "rights": "publisher_restricted_notes_only",
+      "audit_state": "full text obtained; original piecewise equations and continuity convention audited",
+      "authorized_use": "source-bounded Chang operator provenance"
+    }
+  ],
+  "route_disposition": {
+    "chang_multi_thickness_cutoff": {
+      "status": "rejected_from_published_papers",
+      "reason": "Chang 2007 Figure 1 is a calculated cutoff-versus-effective-thickness curve, not an independent measured same-specimen thickness series. Neither paper supplies the native multi-thickness spectra, effective-thickness covariance, or same-specimen W, b, and amplitude needed for the proposed validation."
+    },
+    "chang_single_spectrum_absorption": {
+      "status": "possible_later",
+      "reason": "Chang Figure 3 provides a plotted measured Hg0.79Cd0.21Te spectrum at 80 K, but not native data or complete fitted covariance."
+    },
+    "dingrong_table1_carrier_edge": {
+      "status": "active",
+      "reason": "The paper supplies one real specimen, Hall density, four temperatures, explicit Eq. 2, source gap inputs, calculated Fermi elevations, and operational optical gaps."
+    }
+  },
+  "external_material_validation_complete": false
+}
