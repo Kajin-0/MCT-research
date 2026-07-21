@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "anchors": [
+    {
+      "needle": "Structural identifiability, output-preserving parameter symmetries, and identifiable parameter combinations are established ideas in inverse-problem theory.",
+      "citation_keys": ["bellman_astrom_1970", "yates_evans_chappell_2009", "eisenberg_hayashi_2014"]
+    },
+    {
+      "needle": "The reduced operator inherits the standard optical-depth product dependence.",
+      "citation_keys": ["iupac_beer_lambert_2025"]
+    },
+    {
+      "needle": "Prior optical-metrology studies recover refractive index, extinction coefficient, and thickness only after adding constraints or additional observables such as reflectance, interference structure, angle, and polarization.",
+      "citation_keys": ["chambouleyron_1997", "babeva_kitova_konstantinov_2001_error", "babeva_kitova_konstantinov_2001_unique", "mendoza_galvan_2021"]
+    },
+    {
+      "needle": "Herrmann et al. establish that a Gaussian-like gap distribution can generate a near-exponential tail and report the approximately-$s/2$ scale;",
+      "citation_keys": ["herrmann_1992"]
+    },
+    {
+      "needle": "Chang et al. establish the nonparabolic intrinsic plus Urbach absorption model and the importance of effective absorber thickness for detector cutoff;",
+      "citation_keys": ["chang_2006", "chang_2007"]
+    },
+    {
+      "needle": "Dingrong et al. establish finite-temperature carrier filling and below-gap free-carrier absorption in a real degenerate specimen;",
+      "citation_keys": ["dingrong_1985"]
+    },
+    {
+      "needle": "Teppe et al. establish a temperature-driven near-critical Kane-mass series.",
+      "citation_keys": ["teppe_2016"]
+    },
+    {
+      "needle": "The contribution is the HgCdTe-specific analytical synthesis and measurement design: one forward hierarchy, explicit identifiable combinations, exact model-specific counterexamples, and quantitative evidence boundaries.",
+      "citation_keys": [],
+      "append_text": " Broader HgCdTe spectroscopy context includes intrinsic-absorption analysis across composition and temperature and photoluminescence studies of processing-dependent alloy disorder.",
+      "append_citation_keys": ["chu_mi_tang_1991", "ivanov_omskii_2009"]
+    }
+  ],
+  "requirements": {
+    "every_anchor_must_match_exactly_once": true,
+    "every_verified_reference_must_be_cited": true,
+    "citation_order_follows_references_verified_json": true
+  }
+}
