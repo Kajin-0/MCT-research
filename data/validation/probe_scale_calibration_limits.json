@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "program": "measurement-kernel-aware spatial disorder",
+  "portfolio_contribution": "R04",
+  "issue": 215,
+  "status": "local_linear_gaussian_design_result_not_specimen_calibration",
+  "model": {
+    "variance": "V(s)=A/(1+2 s^2/xi^2)",
+    "physical_log_parameters": [
+      "log A",
+      "log xi"
+    ],
+    "scale_error_model": "delta_log_s=B eta",
+    "exact_derivative_identity": "dV/dlog(s_i)=-dV/dlog(xi)",
+    "marginal_information": "F_tt-F_te F_ee^+ F_et"
+  },
+  "common_calibration_reference": {
+    "point_variance": 0.03,
+    "correlation_length": 1.4,
+    "probe_sigmas": [
+      0.2,
+      0.7,
+      2.0,
+      6.0
+    ],
+    "relative_observation_standard_deviation": 0.04,
+    "predicted_variances": [
+      0.0288235294117647,
+      0.02,
+      0.00590361445783132,
+      0.00079502433747972
+    ],
+    "exact_scale_parameter_covariance": [
+      [
+        0.00123885541458733,
+        -0.00078059890470392
+      ],
+      [
+        -0.00078059890470392,
+        0.00072638817062975
+      ]
+    ],
+    "common_log_scale_prior_standard_deviation": 0.08,
+    "calibrated_parameter_covariance": [
+      [
+        0.00123885541458733,
+        -0.00078059890470392
+      ],
+      [
+        -0.00078059890470392,
+        0.00712638817062974
+      ]
+    ],
+    "exact_covariance_increment": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0064
+      ]
+    ],
+    "standard_deviation_inflation": [
+      1.0,
+      3.1322062781824456
+    ],
+    "uncalibrated_common_mode": {
+      "marginalized_fisher_matrix": [
+        [
+          807.1966980368761,
+          4.547473508864641e-13
+        ],
+        [
+          4.547473508864641e-13,
+          0.0
+        ]
+      ],
+      "rank": 1,
+      "null_direction": [
+        0.0,
+        1.0
+      ],
+      "interpretation": "The data identify relative probe scale to correlation length but not the absolute correlation length."
+    }
+  },
+  "independent_calibration_reference": {
+    "point_variance": 0.02,
+    "correlation_length": 1.5,
+    "probe_sigmas": [
+      0.15,
+      0.5,
+      1.5,
+      4.5,
+      12.0
+    ],
+    "relative_observation_standard_deviation": 0.03,
+    "independent_log_scale_prior_standard_deviations": [
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "predicted_variances": [
+      0.0196078431372549,
+      0.01636363636363636,
+      0.00666666666666667,
+      0.00105263157894737,
+      0.00015503875968992
+    ],
+    "exact_scale_parameter_covariance": [
+      [
+        0.00054230684669272,
+        -0.00032260004878594
+      ],
+      [
+        -0.00032260004878594,
+        0.00028724489318016
+      ]
+    ],
+    "calibrated_parameter_covariance": [
+      [
+        0.00057661650315618,
+        -0.00037795579019328
+      ],
+      [
+        -0.00037795579019328,
+        0.00047648017187701
+      ]
+    ],
+    "standard_deviation_inflation": [
+      1.0311479679683615,
+      1.2879418587987481
+    ]
+  },
+  "claim_boundaries": [
+    "The common-mode covariance identity is exact only for the declared ratio model V(s/xi).",
+    "The nuisance Fisher calculation is local and linear-Gaussian.",
+    "Calibration priors describe declared instrument knowledge; they are not inferred from HgCdTe data.",
+    "The result does not validate a Gaussian material covariance or identify a specimen correlation length.",
+    "Independent and correlated scale errors can affect both point-variance and correlation-length uncertainty."
+  ],
+  "falsification_conditions": [
+    "An independently calibrated absolute-length dependence enters the observation operator outside s/xi.",
+    "Calibration errors are too large for the log-linear approximation.",
+    "The declared calibration basis does not span the actual kernel error.",
+    "The covariance family or observation covariance is materially misspecified."
+  ]
+}
