@@ -26,7 +26,7 @@ def _portable_preamble(*, title: str, author_block: str, pdf_author: str) -> str
         author_block=author_block,
         pdf_author=pdf_author,
     )
-    preamble = preamble.replace(r"\usepackage{mathptmx}\n", "")
+    preamble = preamble.replace(r"\usepackage{mathptmx}", "")
     return "\\pdfminorversion=7\n" + preamble
 
 
