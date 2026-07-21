@@ -1,0 +1,49 @@
+name: scale-dependent-disorder
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify exact spatial-disorder operators
+        run: python -m pytest -q tests/test_spatial_disorder.py
+      - name: Validate immutable result record
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/validation/scale_dependent_disorder_reference.json')
+          record = json.loads(path.read_text(encoding='utf-8'))
+          assert record['schema_version'] == '1.0'
+          assert record['program_issue'] == 196
+          assert record['status'] == 'analytical_reference_not_material_calibration'
+          case = record['declared_hgcdte_sensitivity_case']
+          assert case['dimension'] == 2
+          assert len(case['probe_results']) == 4
+          assert case['headline_scale_effect']['gap_width_ratio_1um_to_100um'] > 27.0
+          designs = record['two_scale_designs']
+          assert any(item['log_parameter_condition_number'] < 3.0 for item in designs)
+          assert any(item['log_parameter_condition_number'] > 1000.0 for item in designs)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scale-dependent-disorder-reference
+          path: |
+            data/validation/scale_dependent_disorder_reference.json
+            docs/derivations/010_scale_dependent_spatial_disorder.md
+          if-no-files-found: error
+          retention-days: 30
