@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 196,
+  "status": "analytical_sensitivity_not_specimen_calibration",
+  "preserved_core": {
+    "commit": "2b740c4a881b7944e674fe75a1eb43cbfe7b2b29",
+    "capabilities": [
+      "anisotropic Gaussian covariance matrices",
+      "anisotropic Gaussian measurement kernels",
+      "stable log-determinant variance evaluation",
+      "two-scale isotropic two-dimensional inversion"
+    ]
+  },
+  "extension": {
+    "one_scale_no_go": "For any positive ell, sigma_x^2(ell)=V_a(1+2a^2/ell^2)^(D/2) reproduces the same single-scale variance.",
+    "general_dimensional_inverse": {
+      "q": "(V1/V2)^(2/D)",
+      "ell_squared": "2(a2^2-q a1^2)/(q-1)",
+      "point_variance": "V1(1+2a1^2/ell^2)^(D/2)"
+    },
+    "log_jacobian_row": "[1, D(2a_i^2/ell^2)/(1+2a_i^2/ell^2)]",
+    "top_hat_models": [
+      "one-dimensional Gaussian covariance",
+      "one-dimensional exponential covariance"
+    ],
+    "gap_propagation": {
+      "mean": "Eg(xbar,T)+0.5 Eg_xx V_a",
+      "variance": "Eg_x^2 V_a+0.5 Eg_xx^2 V_a^2",
+      "exactness": "The variance expression is exact for a quadratic gap law with Gaussian composition."
+    }
+  },
+  "declared_hgcdte_sensitivity_case": {
+    "dimension": 2,
+    "point_composition_standard_deviation": 0.005,
+    "point_composition_variance": 0.000025,
+    "correlation_length_um": 5.0,
+    "local_gap_slope_ev_per_composition": 1.7191085,
+    "reference_cutoff_wavelength_um": 10.0,
+    "reference_cutoff_energy_ev": 0.1239841984,
+    "probe_results": [
+      {
+        "probe_sigma_um": 1.0,
+        "variance_attenuation": 0.9259259259259258,
+        "effective_composition_standard_deviation": 0.004811252243246881,
+        "linearized_gap_standard_deviation_mev": 8.27106462700978,
+        "linearized_cutoff_standard_deviation_um": 0.6671063517566591
+      },
+      {
+        "probe_sigma_um": 5.0,
+        "variance_attenuation": 0.3333333333333333,
+        "effective_composition_standard_deviation": 0.002886751345948129,
+        "linearized_gap_standard_deviation_mev": 4.962638776205869,
+        "linearized_cutoff_standard_deviation_um": 0.4002638110539955
+      },
+      {
+        "probe_sigma_um": 10.0,
+        "variance_attenuation": 0.1111111111111111,
+        "effective_composition_standard_deviation": 0.0016666666666666668,
+        "linearized_gap_standard_deviation_mev": 2.8651808333333335,
+        "linearized_cutoff_standard_deviation_um": 0.2310924190588898
+      },
+      {
+        "probe_sigma_um": 100.0,
+        "variance_attenuation": 0.0012484394506866417,
+        "effective_composition_standard_deviation": 0.00017666631333439334,
+        "linearized_gap_standard_deviation_mev": 0.3037085609168189,
+        "linearized_cutoff_standard_deviation_um": 0.024495747428796455
+      }
+    ],
+    "headline": {
+      "probe_scale_ratio": 100.0,
+      "apparent_standard_deviation_ratio": 27.23355773061365,
+      "interpretation": "The same declared microscopic field appears more than twenty-seven times narrower in gap and cutoff standard deviation when the Gaussian probe scale increases from 1 to 100 micrometres."
+    }
+  },
+  "conditioning_examples": [
+    {
+      "correlation_length_um": 5.0,
+      "probe_sigma_1_um": 5.0,
+      "probe_sigma_2_um": 5.05,
+      "condition_number": 632.8977824409359,
+      "classification": "nearly coincident; unusable"
+    },
+    {
+      "correlation_length_um": 5.0,
+      "probe_sigma_1_um": 0.5,
+      "probe_sigma_2_um": 50.0,
+      "condition_number": 2.6833803015680533,
+      "classification": "straddles correlation length; well conditioned"
+    },
+    {
+      "correlation_length_um": 5.0,
+      "probe_sigma_1_um": 2.5,
+      "probe_sigma_2_um": 10.0,
+      "condition_number": 4.837736190712068,
+      "classification": "moderately conditioned"
+    },
+    {
+      "correlation_length_um": 5.0,
+      "probe_sigma_1_um": 50.0,
+      "probe_sigma_2_um": 500.0,
+      "condition_number": 1011.1301239102614,
+      "classification": "same large-scale asymptote; unusable"
+    }
+  ],
+  "claim_restrictions": [
+    "General covariance filtering and Gaussian convolution are established mathematics.",
+    "The quantitative HgCdTe case is a declared sensitivity calculation, not a specimen fit.",
+    "One-scale variance cannot identify both point variance and correlation length.",
+    "Two-scale recovery is conditional on covariance family, kernel, dimension, and controlled nuisance parameters.",
+    "Microscopic composition variance, probe-averaged variance, Urbach energy, photoluminescence linewidth, and cutoff spread remain distinct observables."
+  ]
+}
