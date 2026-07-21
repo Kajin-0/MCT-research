@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import asdict
 import json
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,7 @@ from mct_research.validation_gate import (
     rank_validation_routes,
     select_first_external_validation_route,
 )
+from mct_research.validation_gate_robustness import selection_robustness
 
 DEFAULT_MANIFEST = (
     "literature/acquisition/distributional_band_edge_sources.json"
@@ -41,6 +43,7 @@ def build_report(
     manifest = _load_manifest(root, manifest_path)
     ranked = rank_validation_routes(manifest)
     selected = select_first_external_validation_route(manifest)
+    robustness = selection_robustness(manifest)
     sources = _source_lookup(manifest)
     source_order = prioritized_source_requests(manifest)
 
@@ -78,7 +81,7 @@ def build_report(
         )
 
     report = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "manifest_path": manifest_path,
         "selected_route": {
             "route_id": selected.route_id,
@@ -89,6 +92,7 @@ def build_report(
             "source_dois": [sources[key]["doi"] for key in selected.source_keys],
             "blocking_artifacts": list(selected.blocking_artifacts),
         },
+        "selection_robustness": asdict(robustness),
         "ranked_routes": route_rows,
         "source_request_order": requests,
         "interpretation": (
@@ -116,6 +120,18 @@ def build_report(
     lines += ["", "Blocking artifacts:"]
     lines.extend(f"- {item}" for item in selected.blocking_artifacts)
     lines += [
+        "",
+        "## Local selection robustness",
+        "",
+        f"- closest actionable competitor: `{robustness.closest_competitor_id}`",
+        f"- current score margin: `{robustness.current_margin}`",
+        f"- margin after one adverse selected-route step: `{robustness.margin_after_selected_adverse_step}`",
+        f"- margin after one favorable competitor step: `{robustness.margin_after_competitor_favorable_step}`",
+        f"- margin after simultaneous adverse/favorable steps: `{robustness.margin_after_simultaneous_two_route_steps}`",
+        f"- robust to any single one-level change: `{str(robustness.robust_to_any_single_one_level_change).lower()}`",
+        f"- robust to simultaneous two-route stress: `{str(robustness.robust_to_simultaneous_adverse_and_favorable_steps).lower()}`",
+        "",
+        "The route is locally robust to one criterion revision, but not to the declared two-route stress test. Re-score after every source audit.",
         "",
         "## Ranked routes",
         "",
