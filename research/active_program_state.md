@@ -79,7 +79,7 @@ Controlling rule: conditional transition moments must be reported with the singl
 
 ## First explicit spectral observation operator
 
-`mct_research.spectral_convolution` now propagates a Gaussian local-gap distribution through the controlled intrinsic-edge family
+`mct_research.spectral_convolution` propagates a Gaussian local-gap distribution through the controlled intrinsic-edge family
 
 ```text
 alpha(E | G) = A * max(E-G, 0)^p
@@ -94,11 +94,13 @@ P(G)=exp(-(G-Gbar)^2/(4*s^2))/(2*s*sqrt(pi))
 sigma_G=sqrt(2)*s
 ```
 
+The implementation uses energy-dependent split Gauss-Legendre quadrature over `G <= E`. This removes the moving threshold cusp from the interior of the integration interval. For the tested square-root tail, the maximum relative change from quadrature order `256` to `512` is `5.78e-7`.
+
 For the source-aligned square-root edge (`p=0.5`), normalization `alpha(Gbar)=1000 cm^-1`, and the source-stated `1-100 cm^-1` range:
 
 ```text
-W_fit / s = 0.50474
-R^2       = 0.99566
+W_fit / s = 0.50504
+R^2       = 0.99570
 ```
 
 This independently reproduces the source statement `W approximately s/2`.
@@ -107,22 +109,22 @@ However, the same spectrum gives:
 
 ```text
 fit window       W_fit / s    R^2
-0.1-100          0.46075      0.99307
-1-100            0.50474      0.99566
-10-100           0.56808      0.99828
-10-500           0.66850      0.99188
-100-500          0.80860      0.99734
+0.1-100          0.46096      0.99307
+1-100            0.50504      0.99570
+10-100           0.56806      0.99836
+10-500           0.66828      0.99190
+100-500          0.80871      0.99738
 ```
 
-Changing only the fit window from `1-100` to `100-500 cm^-1` increases the inferred tail energy by `60.2%`, although both fits appear strongly exponential.
+Changing only the fit window from `1-100` to `100-500 cm^-1` increases the inferred tail energy by `60.1%`, although both fits appear strongly exponential.
 
-Across intrinsic exponents `p=0.5`, `1`, and `2`, the source-window value changes only from `0.48375s` to `0.50474s`; a high-quality tail fit therefore weakly constrains the intrinsic branch.
+Across intrinsic exponents `p=0.5`, `1`, and `2`, the source-window value changes only from `0.48375s` to `0.50504s`; a high-quality tail fit therefore weakly constrains the intrinsic branch.
 
 For an observed `W_fit=4 meV`, the declared operator family permits:
 
 ```text
-sigma_G = 6.996-12.661 meV
-source s = 4.947-8.952 meV
+sigma_G = 6.995-12.661 meV
+source s = 4.946-8.952 meV
 inversion range factor = 1.81
 ```
 
@@ -159,7 +161,7 @@ The independent program proceeds using public full texts, auditable digitization
 
 ## Authorized next work
 
-1. validate the spectral operator against the committed closed-form and convergence tests;
+1. complete CI validation and merge the Herrmann spectral operator;
 2. identify one calibrated published absorption spectrum suitable for external operator validation;
 3. reproduce Chang's nonparabolic/tail continuity and thickness-dependent cutoff under source limits;
 4. implement a carrier-filled optical branch and test it against Dingrong's degenerate specimen;
