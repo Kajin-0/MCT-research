@@ -6,62 +6,106 @@
 
 ## Status
 
-The analytical manuscript core was merged in PR #181. Deterministic figure and table generation is implemented on Issue #182 / PR #183 and is pending final CI and merge.
+The analytical core, deterministic figures and tables, DOI intake, Dingrong Table 1 reproduction, and targeted novelty audit are complete on the repository branches and merged work through PR #188. Issue #189 controls the final prior-art and publication-framing gate.
 
-This manuscript is distinct from the completed Paper I:
+This manuscript is distinct from Paper I:
 
 > *Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.*
 
-Paper I establishes the historical non-identifiability problem. The present manuscript develops a constructive forward theory, exact structural-identifiability results, and measurement-design consequences.
+Paper I establishes the historical non-identifiability problem. The flagship manuscript develops a constructive forward model, model-specific identifiability bounds, source-conditioned tests, and measurement-design consequences.
 
-## Central thesis
+## Publication framing
 
-A measured HgCdTe edge is not generally a scalar function of composition and temperature alone. It is the output of a forward operator involving:
+The manuscript is an **HgCdTe-specific semiconductor optical-metrology and inverse-problem methods paper**.
+
+It is not presented as:
+
+- new general structural-identifiability theory;
+- a universal HgCdTe bandgap equation;
+- a complete microscopic absorption theory;
+- a completely externally validated detector model.
+
+Structural identifiability, parameter symmetries, identifiable parameter combinations, and the Beer-Lambert optical-depth product are prior art. The candidate contribution is their source-grounded HgCdTe application: explicit parameter combinations, model-specific rank bounds, exact counterexamples, quantitative operator effects, and required external measurements.
+
+Controlling audit:
+
+```text
+literature/prior_art/2026-07-21-flagship-rank-theorem-audit.md
+data/validation/flagship_novelty_claim_matrix.json
+research/decision_records/2026-07-21-flagship-publication-framing.md
+```
+
+## Forward hierarchy
 
 ```text
 latent signed gap
 -> local/specimen distribution
 -> carrier and defect state
--> intrinsic and tail absorption
--> optical thickness and instrument response
+-> intrinsic, tail, and free-carrier absorption
+-> effective optical thickness and instrument response
 -> declared edge or cutoff operator
 -> reported observable
 ```
 
-The manuscript's strongest result is structural:
+## Central model-specific result
 
-> Under the declared unified single-state spectrum model, five nominal parameters enter through only three independent combinations. Exact null directions cannot be removed by better signal-to-noise or denser spectral sampling.
-
-A calibrated nontranslational carrier-dependent feature raises the rank from three to four but leaves one combined scaling/translation invariance until an independent optical scale is supplied.
-
-## Merged analytical foundation
-
-| Component | Controlling result | Repository record |
-|---|---|---|
-| Composition-to-gap propagation | local and exact bounded-Gaussian transition distributions | `data/validation/near_critical_transition_model_dependence.json` |
-| Gaussian gap convolution | Herrmann approximately-`s/2` scale reproduced; fit-window non-uniqueness | `data/validation/herrmann_gaussian_tail_reproduction.json` |
-| Detector cutoff | tail-only cutoff Jacobian rank at most two | `data/validation/chang_2006_cutoff_identifiability.json` |
-| Carrier filling | nonparabolic high-density correction and density-series conditioning | `data/validation/dingrong_1985_carrier_filling_sensitivity.json` |
-| Unified spectrum | base rank at most three; marked rank four with one combined null | `data/validation/unified_spectrum_structural_rank.json` |
-
-## Manuscript analytical assets
-
-- `manuscript_draft.md` — complete analytical narrative, equations, results, discussion, limitations, and submission boundary;
-- `theorem_index.md` — stable proposition/theorem numbering and proof summaries;
-- `claim_matrix.md` — claim, evidence class, record, status, authorized wording, and prohibited overstatement;
-- `figure_plan.md` — seven-figure scientific and executable-data specification;
-- `figure_manifest.json` — machine-readable figure, panel, record, function, filename, and rendering contract;
-- `submission_gap.md` — external-validation requirements, publication packaging, and DOI acquisition queue.
-
-Controlling decision:
+Under the declared Gaussian-gap, power-law local edge, uniform carrier translation, and single-pass response, five nominal parameters enter only through:
 
 ```text
-research/decision_records/2026-07-21-flagship-manuscript-analytical-core.md
+Eg0 + Delta_carrier
+sigma_G
+A*d
 ```
 
-## Deterministic generated assets
+Therefore the dense-spectrum Jacobian has rank at most three. The amplitude-thickness combination is inherited from optical-depth physics; the explicit HgCdTe gap-carrier combination and combined rank bound are the application-specific result.
 
-Public command:
+A controlled nontranslational carrier feature raises rank to four but leaves one combined invariance until an independent scale is supplied.
+
+## Evidence foundation
+
+| Component | Result | Record |
+|---|---|---|
+| Composition distribution | exact bounded transition distributions and root censoring | `data/validation/near_critical_transition_model_dependence.json` |
+| Gaussian gap convolution | Herrmann scale reproduced; 60.1% fit-window change | `data/validation/herrmann_gaussian_tail_reproduction.json` |
+| Detector cutoff | model-specific tail-only rank at most two | `data/validation/chang_2006_cutoff_identifiability.json` |
+| Carrier sensitivity | nonparabolic high-density sensitivity and conditioning | `data/validation/dingrong_1985_carrier_filling_sensitivity.json` |
+| Dingrong source test | finite-temperature Table 1 reproduction and printed-parameter audit | `data/validation/dingrong1985_table1_reproduction.json` |
+| Unified spectrum | rank at most three; marked rank four with one null | `data/validation/unified_spectrum_structural_rank.json` |
+| Novelty boundary | red/yellow/green claim audit | `data/validation/flagship_novelty_claim_matrix.json` |
+
+## Dingrong external source-table result
+
+For the real `x=0.19`, `n=7e17 cm^-3` specimen, the printed finite-temperature density equation with printed
+
+```text
+P = 8.0e-8 eV cm
+```
+
+misses the four reported Fermi elevations by `11.297 meV` RMS. The rounded rows imply a diagnostic mean near
+
+```text
+P = 8.5107e-8 eV cm
+```
+
+which reduces the Fermi-shift RMS mismatch to `0.785 meV`. This is a source-consistency inference, not a revised universal momentum matrix. The source's filled-edge and operational optical-gap values agree within `0-4 meV`.
+
+The result is qualified source-table evidence, not complete native-spectrum validation.
+
+## Chang route disposition
+
+Chang 2006/2007 provide the nonparabolic-Urbach model and calculated effective-thickness cutoff dependence. Their published thickness curve is not an independent measured same-specimen series and is not used as external validation.
+
+The exact logarithmic tail shift is treated as an inherited forward-model consequence. The project-specific result is the tail-only rank-two bound and mixed-branch conditioning analysis.
+
+## Manuscript assets
+
+- `manuscript_draft.md` — revised source-aware manuscript;
+- `theorem_index.md` — stable exact statements and proof summaries;
+- `claim_matrix.md` — evidence and audited novelty wording;
+- `figure_plan.md` and `figure_manifest.json` — deterministic seven-figure contract;
+- `submission_gap.md` — remaining scientific and administrative gates.
+
+## Deterministic asset generation
 
 ```text
 python -m tools.build_distributional_band_edge_manuscript_assets \
@@ -69,110 +113,64 @@ python -m tools.build_distributional_band_edge_manuscript_assets \
   --output-dir distributional-generated
 ```
 
-Generated review package:
+Outputs:
 
 ```text
-figure1_forward_hierarchy.svg
-figure2_transition_distribution.svg
-figure3_herrmann_tail_nonuniqueness.svg
-figure4_chang_cutoff_rank.svg
-figure5_carrier_filling.svg
-figure6_unified_structural_rank.svg
-figure7_measurement_design.svg
-
-table1_theorem_summary.md
-table2_quantitative_results.md
-table3_claim_provenance.md
-
-distributional_band_edge_asset_summary.json
+7 deterministic SVG figures
+3 Markdown tables
+1 machine-readable asset summary
 ```
 
-The builder uses pure Python, NumPy, deterministic SVG, and Markdown. It adds no plotting dependency.
+The builder regenerates numerical content from immutable records and fails closed on disagreement.
 
-It regenerates and regression-checks:
-
-- the Herrmann source-aligned spectrum and fit-window tail energies;
-- the carrier-density nonparabolicity series;
-- the unified exact-counterexample spectra;
-- every headline value used by the generated tables.
-
-Every SVG contains an accessible title plus metadata identifying claim IDs, source paths, and the generating commit. Synthetic and source-conditioned assets are explicitly labeled. Repeated generation is byte-for-byte deterministic.
-
-The numerical generation core is preserved separately from a thin public presentation wrapper. Artifact inspection changed only line-weight legends, spacing, and display of the committed `2.22e-16` numerical bound.
-
-Controlling decision:
+## Headline results
 
 ```text
-research/decision_records/2026-07-21-flagship-manuscript-assets.md
+latent-law transition span                 25.0803 K
+Herrmann source-window W_fit/s              0.50504
+fit-window increase in apparent W            60.1%
+5-to-20 um synthetic cutoff shift          -16.636 meV
+tail-only cutoff rank                       <= 2
+mixed-branch condition number               199.81
+synthetic parabolic BM overestimate         147.323 meV
+five-density condition number             11034.75
+Dingrong printed-P Fermi-shift RMS error     11.297 meV
+unmarked unified spectral rank               3 of 5
+exact-counterexample maximum difference      2.22e-16
+marked unified spectral rank                 4 of 5
 ```
 
-## Stable theorem hierarchy
-
-1. local composition-to-gap propagation;
-2. local critical-temperature amplification;
-3. Gaussian-gap spectral scale form;
-4. exact exponential-tail thickness law;
-5. tail-only cutoff rank bound of two;
-6. exact Kane-type nonparabolic filling solution;
-7. unified unmarked-spectrum rank bound of three;
-8. marked-spectrum combined invariance and rank bound of four.
-
-## Headline quantitative results
-
-```text
-latent-law central transition span       25.0803 K
-Herrmann source-window W_fit/s            0.50504
-fit-window increase in apparent W          60.1%
-5-to-20 um cutoff energy shift            -16.636 meV
-5-to-20 um cutoff wavelength shift         +2.494 um
-high-density parabolic BM overestimate    147.323 meV
-five-density carrier condition number      11034.75
-unmarked unified spectral rank             3 of 5
-exact-counterexample maximum difference    2.22e-16
-marked unified spectral rank               4 of 5
-```
-
-Every value is traceable to an immutable validation record. Synthetic values are not specimen fits.
+Synthetic values are not specimen fits.
 
 ## Claim-state rules
 
-Every result is labeled as one of:
+Every result is classified as:
 
-- exact analytical theorem;
-- numerical verification of an exact theorem;
-- source reproduction;
+- exact statement under declared assumptions;
+- numerical verification;
+- source-conditioned reproduction;
 - bounded synthetic sensitivity;
 - external material validation;
-- open hypothesis or validation target.
+- open validation target.
 
-Synthetic parameters are never presented as inferred specimen properties. Source-specific parameters are not transferred across specimens without provenance.
-
-## DOI-assisted acquisition
-
-The user can assist by locating sources using exact DOIs. The highest-priority queue is maintained in `submission_gap.md` and currently begins with:
-
-```text
-10.1016/0038-1098(85)90315-1
-10.1007/s11664-007-0162-0
-10.1063/1.2245220
-10.1016/0022-0248(92)90851-9
-10.1016/j.physb.2009.08.210
-10.1038/ncomms12576
-10.1016/0020-0891(91)90110-2
-```
-
-Retrieved papers must pass a source audit before they alter an operator or manuscript claim.
+A theorem label denotes exactness under assumptions, not unprecedented mathematics.
 
 ## Current submission boundary
 
-The analytical core and deterministic review assets support a coherent theorem/methods manuscript. Preferred journal submission remains blocked by at least one external validation case using a calibrated real spectrum or same-specimen multi-state dataset with sufficient composition, carrier, thickness, and observation provenance.
+The manuscript now has:
 
-The remaining execution order is:
+- a complete analytical narrative;
+- deterministic figures and tables;
+- a qualified real-specimen source-table test;
+- an audited novelty boundary;
+- version-controlled code and immutable numerical records.
 
-1. complete CI and merge PR #183;
-2. audit papers obtained through the DOI queue;
-3. complete one external validation route or explicitly authorize theorem/methods-only submission;
-4. convert approved SVG assets to final journal PDF format;
-5. finish bibliography, archive metadata, authorship, declarations, and journal packaging.
+Remaining gates are:
 
-External collaborators are not required for continued progress.
+1. complete bibliography and citation verification;
+2. decide whether the selected journal requires a digitized calibrated real spectrum beyond the Dingrong source table;
+3. convert vector figures to journal format;
+4. complete archive DOI, authorship, affiliation, CRediT, funding, conflict, and data/code statements;
+5. final independent wording review.
+
+No additional figure styling, route scoring, metadata framework, or broad mechanism branch is authorized unless it directly closes one of these gates.

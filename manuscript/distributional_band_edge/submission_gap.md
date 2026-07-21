@@ -1,239 +1,173 @@
-# Submission gap and acquisition queue
+# Submission gap and publication gate
 
 ## Current state
 
-The flagship manuscript now has:
+The flagship manuscript has:
 
-- a complete analytical draft;
-- stable theorem and proposition numbering;
-- a C01-C23 claim/evidence matrix;
-- five immutable numerical validation records;
+- a revised analytical draft;
+- stable exact-statement numbering;
+- a C01-C23 evidence matrix;
+- a red/yellow/green novelty audit;
+- six controlling numerical/source records;
 - seven deterministic SVG figures;
 - three deterministic manuscript tables;
 - complete Python 3.11/3.13 CI coverage;
-- an auditable DOI intake manifest and external-validation route gate.
+- an audited source-intake record;
+- a qualified real-specimen Dingrong Table 1 reproduction.
 
-The manuscript is **not yet ready for preferred journal submission** because one calibrated external material validation case and publication packaging remain incomplete.
+The manuscript is now a credible **HgCdTe semiconductor optical-metrology and inverse-problem methods** paper in preparation. It is not yet ready for submission because bibliography verification, venue-specific validation policy, and administrative packaging remain incomplete.
 
-## Hard scientific submission blocker
+## Scientific evidence already present
 
-At least one real-spectrum or same-specimen multi-state case must test a merged forward operator without silently assigning missing specimen parameters.
+### Analytical and numerical foundation
 
-A qualifying case should provide as many of the following as possible:
+The repository contains:
 
-- source-native or auditable numerical spectrum;
-- independently measured composition and uncertainty;
-- measurement temperature;
+- exact bounded composition-to-gap propagation;
+- transition-root censoring analysis;
+- Herrmann source-scale reproduction;
+- quantified fit-window non-uniqueness;
+- Chang source-bounded cutoff and rank analysis;
+- nonparabolic carrier sensitivity and conditioning;
+- unified model-specific rank bounds and exact counterexample.
+
+### Qualified external source-table evidence
+
+Dingrong et al. provide a real `x=0.19`, `n=7e17 cm^-3` specimen at 77, 100, 200, and 300 K. The repository reproduces the finite-temperature density-equation structure and audits Table 1.
+
+Controlling record:
+
+```text
+data/validation/dingrong1985_table1_reproduction.json
+```
+
+Result:
+
+```text
+printed P = 8.0e-8 eV cm
+Fermi-shift RMS mismatch = 11.297 meV
+row-implied mean P = 8.5107e-8 eV cm
+row-implied-mean RMS mismatch = 0.785 meV
+source filled-edge versus operational optical-gap difference = 0-4 meV
+```
+
+The row-implied momentum matrix is a source-consistency diagnostic, not a revised universal constant.
+
+This evidence tests a real source-defined carrier branch and edge operator, but it is not complete native-spectrum validation.
+
+## Rejected validation route
+
+The previously selected Chang published-paper multi-thickness route is rejected.
+
+The Chang 2007 effective-thickness cutoff curve is calculated. It is not an independent same-specimen series of measured spectra or detector responses. The papers do not supply the covariance, effective-thickness calibration, and complete shared specimen parameters required for the declared validation.
+
+Chang remains important prior art and a source-bounded analytical basis. Its calculated curve is not described as external validation.
+
+## Remaining scientific decision
+
+The next decision is venue dependent:
+
+> Is the qualified Dingrong source-table reproduction sufficient for an analytical/metrology methods paper, or does the selected journal require one digitized calibrated spectrum?
+
+A digitized spectrum is authorized only if it changes this submission decision.
+
+### A qualifying spectrum should preserve
+
+- source figure or table identity;
+- digitization calibration and uncertainty;
+- composition and temperature;
 - carrier type and density;
-- physical and effective optical thickness provenance;
-- reflectance or transmission convention;
-- spectral resolution and calibration;
-- edge/cutoff definition;
-- fitted-parameter covariance or enough raw data to estimate it;
-- processing and annealing state.
+- physical thickness and effective thickness separately;
+- reflectance/transmission convention;
+- spectral resolution;
+- edge or cutoff operator;
+- parameter ownership and nuisance assumptions.
 
-The validation does not need to identify every unified-model parameter. It must test at least one declared forward prediction while retaining unresolved parameters as nuisance or bounded quantities.
+A spectrum need not identify every unified-model parameter. It must test a declared prediction while leaving unresolved quantities as nuisance or bounded parameters.
 
-## Selected first validation route
+### Rejection gates for digitized validation
 
-The deterministic gate selects:
+Do not promote a digitized case when:
 
-> **Chang multi-thickness / cutoff validation**
+- axes or curve identity cannot be calibrated;
+- specimen state changes across curves without provenance;
+- effective thickness is silently replaced by physical thickness;
+- carrier state is inferred from the same edge being tested;
+- source-specific parameters are transferred between specimens;
+- the only agreement comes from unconstrained amplitude or offset fitting;
+- digitization uncertainty is comparable to or larger than the claimed effect.
 
-Current gate state:
+## Novelty boundary
+
+Controlling files:
 
 ```text
-score      24
-readiness  ready_after_retrieval
+literature/prior_art/2026-07-21-flagship-rank-theorem-audit.md
+data/validation/flagship_novelty_claim_matrix.json
+research/decision_records/2026-07-21-flagship-publication-framing.md
 ```
 
-Required source pair:
+Do not claim novelty for:
+
+- structural identifiability as a concept;
+- parameter-symmetry methods;
+- identifiable parameter combinations;
+- the Beer-Lambert optical-depth product;
+- thickness-dependent cutoff physics;
+- Gaussian gap distributions producing near-exponential tails.
+
+Candidate application-specific contributions are:
+
+- explicit HgCdTe identifiable combinations;
+- the declared spectrum rank-three bound;
+- the tail-only Chang rank-two bound;
+- the marked-model combined null vector;
+- the machine-precision counterexample;
+- quantified fit-window and mixed-branch results;
+- the Dingrong printed-parameter inconsistency;
+- the resulting measurement-design prescription.
+
+Theorem labels indicate exactness under assumptions, not unprecedented general mathematics.
+
+## Bibliography gate
+
+Before submission, verify full metadata and manuscript placement for:
+
+### General inverse-problem sources
 
 ```text
-10.1007/s11664-007-0162-0
+10.1016/0025-5564(70)90132-X
+10.1016/j.automatica.2009.07.009
+10.1016/j.mbs.2014.08.008
+```
+
+### Optical-depth and thin-film inversion sources
+
+```text
+10.1351/goldbook.B00626
+10.1364/AO.36.008238
+10.1364/AO.40.002675
+10.1364/AO.40.002682
+10.1364/OL.418277
+```
+
+### HgCdTe mechanism sources
+
+```text
+10.1016/0022-0248(92)90851-9
 10.1063/1.2245220
-```
-
-The route tests the exact prediction:
-
-```text
-E_cut(d2)-E_cut(d1)=-W ln(d2/d1)
-```
-
-and the structural result:
-
-```text
-rank(J_tail) <= 2
-```
-
-for tail-only cutoffs.
-
-### Required Chang evidence
-
-- native or quantitatively calibratable spectra;
-- same-specimen `W`, `b`, and amplitude;
-- temperature and carrier state;
-- effective optical thickness or optical-depth calibration;
-- exact detector 50% response construction;
-- evidence identifying intrinsic versus tail crossings;
-- any supplement or source data behind Figure 2.
-
-### Chang rejection gates
-
-The route is rejected for quantitative validation when:
-
-- Figure 2 cannot be calibrated;
-- `W` and `b` cannot be assigned to the same specimen;
-- effective thickness remains undefined;
-- the reported temperature inconsistency cannot be resolved;
-- a parameter belongs to the separate `x=0.23` calculation rather than the `x=0.21` spectrum;
-- only tail-only points exist and no independent parameters can be constrained.
-
-The source-specific `b=103+/-2 meV` value may not be transferred between specimens without explicit source ownership.
-
-## Highest-value carrier source
-
-The highest-value single paper for extending the physical carrier branch remains:
-
-```text
-10.1016/0038-1098(85)90315-1
-```
-
-The Dingrong route is ranked second:
-
-```text
-score      20
-readiness  ready_after_retrieval
-```
-
-It can potentially replace the generic carrier marker with a source-grounded physical spectrum. It currently requires:
-
-- complete interband filling equations;
-- complete below-gap free-carrier and two-mode phonon equations;
-- all band, dielectric, phonon, impurity, and scattering parameters;
-- calibrated or digitizable 77-300 K spectra;
-- specimen thickness and optical geometry;
-- exact reported edge definition.
-
-Dingrong remains a high-payoff request, but it requires a larger model and nuisance-state audit than the Chang route.
-
-## Deterministic route ranking
-
-The current acquisition state gives:
-
-```text
-1  Chang thickness/cutoff                 24
-2  Dingrong carrier spectrum              20
-3  Chu intrinsic absorption               19
-4  Herrmann multimodal tail               18
-5  Teppe transition series                18
-6  Moazzami source-native recovery         16
-7  Ivanov-Omskii PL joint closure          15
-8  Finkman independent tail                14
-9  Krishtopenko prior-art audit             2
-```
-
-The score ranks expected decision value, not truth probability. It must be recomputed after every source audit.
-
-Controlling records:
-
-```text
-literature/acquisition/distributional_band_edge_sources.json
-literature/acquisition/source_intake_protocol.md
-data/validation/external_validation_route_gate.json
-research/decision_records/2026-07-21-external-validation-route-selection.md
-```
-
-## User-assisted DOI request order
-
-### Request first — selected route
-
-```text
 10.1007/s11664-007-0162-0
-10.1063/1.2245220
-```
-
-Useful additions beyond an ordinary PDF:
-
-```text
-supplement
-source-native data
-high-resolution figures
-fitted parameter tables
-same-specimen W and b
-amplitude and effective thickness
-carrier state
-50-percent response construction
-```
-
-### Request alongside — highest physics payoff
-
-```text
 10.1016/0038-1098(85)90315-1
+10.1016/j.physb.2009.08.210
+10.1038/ncomms12576
+10.1016/0020-0891(91)90110-2
 ```
 
-Useful additions:
+Verify title, author order, journal, year, volume, issue, page/article number, and DOI. Distinguish source results from repository inferences in every citation sentence.
 
-```text
-complete equations
-all source parameters
-77-300 K numerical spectra
-specimen thickness
-optical geometry
-edge-definition details
-```
+## Figure and table gate
 
-### Remaining queue
-
-```text
-10.1016/0020-0891(91)90110-2    Chu broad intrinsic absorption
-10.1016/0022-0248(92)90851-9    Herrmann multimodal broadening
-10.1038/ncomms12576              Teppe transition series and supplement
-10.1007/s11664-005-0019-3        Moazzami source-native Paper I data
-10.1016/j.physb.2009.08.210     Ivanov-Omskii PL/annealing
-10.1063/1.333828                  Finkman independent tail
-10.1103/PhysRevB.106.115203      Krishtopenko prior-art boundary
-```
-
-## Source intake procedure
-
-Every retrieved paper or supplement follows:
-
-```text
-literature/acquisition/source_intake_protocol.md
-```
-
-Minimum sequence:
-
-1. preserve the original filename and unmodified artifact;
-2. verify DOI and source version;
-3. classify rights and redistribution status;
-4. compute and record SHA-256;
-5. audit specimen ownership for every parameter and spectrum;
-6. audit equations, units, conventions, external definitions, and valid domain;
-7. audit figure calibration and curve ownership;
-8. update the source manifest;
-9. recompute validation-route ranking;
-10. open a separate issue and PR before changing any operator.
-
-A publisher PDF is not committed to the public repository merely because the user supplied it. Citations, hashes, permitted notes, equation audits, digitizations, and derived data remain the default public artifacts.
-
-## Completed manuscript packaging
-
-### Analytical core
-
-Complete:
-
-- abstract through conclusion;
-- theorem index;
-- claim matrix;
-- prior-art boundaries;
-- reproducibility statement;
-- submission boundary.
-
-### Figures and tables
-
-Complete deterministic review package:
+The deterministic builder is complete:
 
 ```text
 python -m tools.build_distributional_band_edge_manuscript_assets \
@@ -241,72 +175,51 @@ python -m tools.build_distributional_band_edge_manuscript_assets \
   --output-dir distributional-generated
 ```
 
-Outputs:
+Remaining work is journal-format conversion only:
 
-```text
-7 SVG figures
-3 Markdown tables
-1 machine-readable asset summary
-```
+- convert accepted SVGs to the required PDF/EPS format;
+- preserve vector text and line weights;
+- verify final column-width readability;
+- do not change numerical content during styling;
+- regenerate tables from immutable records.
 
-The assets are regenerated from immutable records and public package functions. Final journal PDF conversion remains pending but may not alter numerical content.
+## Administrative packaging
 
-## Publication packaging still required
+Required:
 
-### External validation
-
-- intake and audit the selected Chang source pair;
-- execute the route only if the sources pass rejection gates;
-- otherwise record rejection and recompute the gate;
-- preserve exact theorem claims regardless of validation outcome.
-
-### Bibliography
-
-- verify title, author order, year, volume, pages, and DOI for every cited source;
-- distinguish the 2006 and 2007 Chang papers;
-- verify all reconstructed historical gap-law citations;
-- add Paper I citation only after its archival identifier exists.
-
-### Manuscript editing
-
-- integrate stable theorem labels into the journal-formatted manuscript;
-- perform final notation review for `Eg0`, signed gap, `G`, `sigma_G`, `W`, `s`, `A`, and `d`;
-- separate material-state parameters from observation-operator parameters in every caption and table;
-- reduce repeated caveats without weakening claim boundaries.
-
-### Administrative packaging
-
-- authors and affiliations;
-- CRediT roles;
-- conflicts and funding statements;
-- data/code availability statement;
-- archive DOI and immutable release;
-- suggested reviewers and exclusions;
+- author name and affiliation;
+- correspondence address;
+- CRediT statement;
+- funding statement;
+- conflict-of-interest statement;
+- data and code availability statement;
+- restricted-source handling statement;
+- archive release and DOI;
 - cover letter;
-- journal-specific formatting.
-
-## Journal positioning
-
-Position the work as analytical and computational **semiconductor optical metrology / inverse-problem research**, not as:
-
-- a new universal HgCdTe bandgap equation;
-- a converged first-principles material calculation;
-- a universal Urbach-to-disorder conversion;
-- or a production detector correction.
-
-The final venue should be selected after the validation outcome determines whether the dominant framing is applied physics, semiconductor characterization, or measurement science.
+- suggested reviewers and exclusions;
+- journal-specific formatting and word count.
 
 ## Submission decision rule
 
-Preferred submission is authorized when:
+Submission is authorized when:
 
-- all exact theorem statements pass code/manuscript consistency checks;
-- all synthetic results remain visibly labeled;
-- one external validation case is complete;
-- final SVG-to-PDF conversion is verified;
-- bibliography and prior-art boundaries are complete;
-- archive and authorship metadata are complete.
+1. Issue #189 novelty wording and CI are complete;
+2. bibliography metadata and citation boundaries are verified;
+3. a target venue is selected;
+4. the venue-specific decision on source-table versus digitized-spectrum evidence is recorded;
+5. figures and tables are converted without numerical change;
+6. archive and administrative metadata are complete;
+7. final independent wording review finds no unsupported novelty or specimen claim.
 
-A later explicit decision may authorize theorem/methods-only submission if the documented acquisition program fails to yield a qualifying external dataset. That decision may not imply specimen-level validation.
+## Work freeze
 
-External collaborators are not a prerequisite. Public full texts, author manuscripts, supplements, auditable digitization, and reproducible computation remain the primary acquisition strategy.
+Until a submission gate directly requires it, do not add:
+
+- new route-ranking infrastructure;
+- new manuscript architecture;
+- additional figure styling systems;
+- broad new physical mechanism branches;
+- expensive first-principles calculations;
+- collaborator-dependent validation requirements.
+
+External collaborators are not required for continued progress.
