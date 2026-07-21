@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-21  
 **Controlling issue:** #167  
-**Active milestone:** #173  
+**Active milestone:** #175  
 **Execution mode:** independent, public-data-first, reproducible computation
 
 ## Completed Paper I
@@ -11,7 +11,7 @@ The observation-model uncertainty manuscript is scientifically frozen:
 
 > **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
 
-It establishes that historical composition uncertainty, specimen state, source lineage, carrier/defect state, and edge-definition choice dominate the sub-meV ordering among common empirical gap laws. Remaining work on that manuscript is submission administration, not expansion of the scientific scope.
+It establishes that historical composition uncertainty, specimen state, source lineage, carrier/defect state, and edge-definition choice dominate the sub-meV ordering among common empirical gap laws. Remaining work is submission administration, not scientific expansion.
 
 ## Active flagship program
 
@@ -31,11 +31,9 @@ latent mean signed gap
 -> reported gap observable
 ```
 
-A reported gap is not assumed to equal `Eg(mean x, T)`.
+A reported gap is not assumed to equal `Eg(mean x,T)`.
 
 ## Distributional transition results
-
-### Local propagation
 
 At nominal `x=0.155`, `T=77 K` under the reconstructed Laurenti law:
 
@@ -44,11 +42,7 @@ sigma_x=0.001 -> sigma_E=1.719 meV, sigma_Tc=4.463 K
 sigma_x=0.005 -> sigma_E=8.596 meV, sigma_Tc=22.316 K
 ```
 
-These are precision diagnostics, not asserted specimen widths or topological invariants.
-
-### Exact bounded-Gaussian quadrature
-
-At mean `x=0.155`, the existing latent laws give:
+Exact bounded-Gaussian quadrature gives central critical temperatures:
 
 ```text
 Laurenti reconstructed              77.1241 K
@@ -57,7 +51,7 @@ archived provisional Hansen-Pade    52.5937 K
 central model span                  25.0803 K
 ```
 
-At `sigma_x=0.001`, exact composition-induced critical-temperature widths are `3.804-4.560 K`; latent-law uncertainty dominates.
+At `sigma_x=0.001`, exact composition-induced widths are `3.804-4.560 K`; latent-law uncertainty dominates.
 
 At `sigma_x=0.005`, exact conditional widths are `18.345-22.290 K`, and `0.36-1.30%` of the declared composition model remains normal throughout `0-300 K`.
 
@@ -67,21 +61,7 @@ Conditional transition moments must be reported with crossing probability.
 
 ## Gaussian-gap spectral operator
 
-`mct_research.spectral_convolution` propagates a Gaussian local-gap distribution through
-
-```text
-alpha(E | G) = A * max(E-G, 0)^p
-```
-
-and fits an exponential tail only over a declared absorption range.
-
-Herrmann et al. 1992 Eq. (8) uses
-
-```text
-sigma_G=sqrt(2)*s
-```
-
-For the source-aligned square-root edge and `1-100 cm^-1` fit range:
+For the Herrmann source convention `sigma_G=sqrt(2)*s`, the source-aligned square-root convolution over `1-100 cm^-1` gives:
 
 ```text
 W_fit / s = 0.50504
@@ -99,7 +79,7 @@ fit window       W_fit / s    R^2
 100-500          0.80871      0.99738
 ```
 
-Changing only the fit window increases the inferred tail energy by `60.1%` between the source and upper windows. An observed `W_fit=4 meV` permits `sigma_G=6.995-12.661 meV` across the declared operator family.
+Changing only the fit window increases the inferred tail energy by `60.1%`. An observed `W_fit=4 meV` permits `sigma_G=6.995-12.661 meV` across the declared operator family.
 
 Authorized conclusion: a Gaussian gap distribution can generate an Urbach-like tail and reproduce the Herrmann scale under source-aligned conditions.
 
@@ -107,30 +87,21 @@ Unauthorized conclusion: an Urbach energy does not uniquely identify `sigma_G`, 
 
 ## Chang detector-cutoff operator
 
-Issue #173 extends the source-bounded Chang 2006 nonparabolic-Urbach shape into a single-pass response operator:
+The source-bounded Chang shape is propagated through
 
 ```text
-R(E,d) = 1-exp[-alpha(E)d]
-alpha_target = -ln(1-R_target)/d
+R(E,d)=1-exp[-alpha(E)d]
+alpha_target=-ln(1-R_target)/d
 ```
 
 On the tail branch:
 
 ```text
-E_cut = E_join + W ln(alpha_target/alpha_join)
-E_cut(d2)-E_cut(d1) = -W ln(d2/d1)
+E_cut=E_join+W ln(alpha_target/alpha_join)
+E_cut(d2)-E_cut(d1)=-W ln(d2/d1)
 ```
 
-For the declared synthetic parameters
-
-```text
-Eg        = 0.100 eV
-W         = 0.012 eV
-b         = 0.100 eV
-amplitude = 50000 cm^-1
-```
-
-50% response gives:
+For the declared synthetic parameters `Eg=0.100 eV`, `W=0.012 eV`, `b=0.100 eV`, and amplitude `50000 cm^-1`, 50% response gives:
 
 ```text
 thickness   energy       wavelength   branch
@@ -143,69 +114,127 @@ thickness   energy       wavelength   branch
 
 The source-valid 5-to-20 um change shifts the apparent cutoff by `-16.636 meV` or `+2.494 um` without changing the latent `Eg`.
 
-### Structural identifiability result
-
-For Chang tail cutoffs,
+Every tail cutoff has the form
 
 ```text
-E_cut_i = C(Eg,W,A,b) + W * L_i
+E_cut_i=C(Eg,W,A,b)+W*L_i
 ```
 
-where `L_i` depends only on thickness and response criterion. Therefore every Jacobian row lies in the span of two vectors and
+so
 
 ```text
-rank(J_tail) <= 2
+rank(J_tail)<=2
 ```
 
-for parameters `(Eg, W, ln A, ln b)`, regardless of the number of tail-only cutoff observations.
+for `(Eg,W,ln A,ln b)`, regardless of the number of tail-only observations.
 
-Nine tail-only synthetic observations give singular values:
+Nine tail observations give singular values:
 
 ```text
 4.7561439
 1.0049619
-1.92e-12
-9.75e-13
+1.16e-12
+4.86e-13
 ```
 
-and numerical rank two.
+A mixed tail/intrinsic design restores rank four but has condition number `199.81`.
 
-A mixed tail/intrinsic design gives:
+Authorized conclusion: repeated tail-only cutoffs identify `W` and one intercept combination but cannot separately identify `Eg`, amplitude, and `b`.
+
+Chang Figure 2 remains blocked for material validation because native numeric data, calibration, consistent temperature, same-specimen `W` and `b`, and effective-thickness provenance are unavailable.
+
+## Degenerate carrier-filled edge operator
+
+Issue #175 adds the declared zero-temperature model:
 
 ```text
-4.5297860
-0.7024186
-0.1983685
-0.0226704
-rank = 4
-condition number = 199.81
+k_F=(3*pi^2*n/g_v)^(1/3)
+E_par=hbar^2*k_F^2/(2*m_edge)
+E_c*(1+alpha*E_c)=E_par
+Delta_E_BM=E_c+hbar^2*k_F^2/(2*m_valence)
+E_opt=Eg0+Delta_E_BM+Delta_E_BGR+Delta_E_obs
 ```
 
-Intrinsic crossings restore local rank, but the inversion remains weak in one parameter direction.
+The exact nonparabolic conduction solution is
 
-Authorized conclusion: repeated tail-only detector cutoffs can identify `W` and one intercept combination but cannot separately identify `Eg`, amplitude, and `b`.
+```text
+E_c=2*E_par/(1+sqrt(1+4*alpha*E_par))
+```
 
-Unauthorized conclusion: the synthetic parameters are not inferred for Chang Figure 2 or any real specimen.
+and the parabolic relative overestimate is
 
-The immutable record is `data/validation/chang_2006_cutoff_identifiability.json`.
+```text
+(E_par-E_c)/E_c=(sqrt(1+4*q)-1)/2
+q=alpha*E_par
+```
 
-## Source and validation boundary
+### Dingrong-density sensitivity case
 
-Chang Figure 2 remains blocked for quantitative material validation because:
+Declared illustrative parameters:
 
-- native numeric data and calibration are unavailable;
-- the caption and body report inconsistent temperature;
-- same-specimen `W` and `b` are not tabulated;
-- the reported `b=103+/-2 meV` belongs to a separate `x=0.23`, `77 K` calculation;
-- effective absorbing thickness and carrier-state provenance are incomplete.
+```text
+n          = 7.0e17 cm^-3
+Eg0        = 0.100 eV
+m_edge     = 0.010 m0
+alpha      = 7.5 eV^-1
+m_valence  = 0.35 m0
+C_BGR      = 0.020 eV at 1e18 cm^-3
+```
 
-The current result is a synthetic structural-identifiability theorem and forward-operator validation, not real-specimen parameter extraction.
+These are not inferred for the Dingrong specimen.
+
+Results:
+
+```text
+k_F                              0.0274688 A^-1
+parabolic conduction energy      287.476 meV
+nonparabolic conduction energy   140.154 meV
+valence recoil                     8.214 meV
+nonparabolic BM shift             148.367 meV
+parabolic BM shift                295.690 meV
+parabolic overestimate            147.323 meV
+q                                  2.1561
+```
+
+The fully parabolic filling shift is `1.993` times the nonparabolic result. For the declared parameter set, the conduction-energy error grows from `0.0046 meV` at `1e14 cm^-3` to `147.323 meV` at `7e17 cm^-3`; a 5% error occurs near `2.66e15 cm^-3`.
+
+### Carrier-edge identifiability
+
+One edge at one density has rank one for parameters:
+
+```text
+ln Eg0
+ln m_edge
+ln alpha
+ln m_valence
+ln C_BGR
+```
+
+A five-density series at `1e16, 3e16, 1e17, 3e17, 7e17 cm^-3` has local rank five but singular values:
+
+```text
+2.55477493e-1
+6.63828971e-2
+4.64192311e-3
+1.81849453e-4
+2.31520896e-5
+```
+
+and condition number:
+
+```text
+11034.75
+```
+
+Formal full rank does not support a reliable unconstrained inversion. Independent Hall, mass, low-density-gap, and renormalization constraints remain necessary.
+
+The current Dingrong result is a bounded high-density sensitivity anchor, not a full source-spectrum reproduction. The free-carrier background and two-mode phonon scattering remain unimplemented.
 
 ## Static and finite-temperature methods
 
-The selected-band CdTe static post-processing result remains independently reproducible on the same immutable physical artifact. It is retained as a mathematical and software component, not as a converged HgCdTe material prediction.
+The selected-band CdTe static post-processing result remains independently reproducible on the same immutable physical artifact. It is a mathematical and software component, not a converged HgCdTe material prediction.
 
-The present CdTe polar response remains unsuitable for a production AHC result. New AHC, SQS, CPA, SCBA, or alloy production calculations require a decision-changing observable, a published validation target, and a predeclared termination criterion.
+The present CdTe polar response remains unsuitable for production AHC. New AHC, SQS, CPA, SCBA, or alloy production calculations require a decision-changing observable, a published validation target, and a predeclared termination criterion.
 
 ## Deferred collaboration package
 
@@ -213,9 +242,9 @@ The paired same-specimen acquisition protocol remains a rigorous future validati
 
 ## Authorized next work
 
-1. complete CI validation and merge the Chang detector-cutoff operator;
-2. search for a calibrated multi-thickness or full-spectrum dataset with effective-thickness provenance;
-3. implement a carrier-filled optical branch and test it against Dingrong's degenerate specimen;
+1. complete CI validation and merge the carrier-filled edge foundation;
+2. recover source-native Dingrong equations/spectra or implement only explicitly available free-carrier terms;
+3. combine carrier filling with the distributed-gap and detector-cutoff operators;
 4. test whether one distributional state model can jointly explain Ivanov-Omskii PL displacement and FWHM changes;
 5. build cross-modal recoverability and operator-induced rank-reversal maps;
 6. begin the flagship manuscript once the first real-spectrum reproduction passes.
@@ -227,11 +256,12 @@ The paired same-specimen acquisition protocol remains a rigorous future validati
 - identifying `sigma_x`, `sigma_E`, Herrmann `s`, Urbach energy, PL FWHM, and quasiparticle linewidth as equivalent;
 - reporting conditional transition moments without crossing probability;
 - treating high log-linear `R^2` as proof of one tail mechanism;
-- inferring a gap-distribution width without intrinsic-branch, normalization, and fit-window provenance;
 - treating detector cutoff as a direct material gap;
 - treating physical film thickness as effective absorbing thickness without validation;
-- extrapolating Chang outside its source-relative energy domain;
-- transferring the source `x=0.23` value of `b` to another specimen;
+- transferring Chang `b` or Dingrong carrier corrections between specimens without provenance;
+- conflating Burstein-Moss filling with band-gap renormalization;
+- treating free-carrier absorption as the interband edge;
+- assigning the illustrative carrier parameters to the Dingrong specimen;
 - requiring real collaborators before independent progress can continue;
 - escalating to expensive atomistic or first-principles work without a decision-changing validation target;
 - expanding Paper I with unrelated mechanisms.
