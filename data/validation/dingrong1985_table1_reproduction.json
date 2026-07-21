@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source": {
     "doi": "10.1016/0038-1098(85)90315-1",
     "title": "Infrared absorption in In-doped degenerate Hg1-xCdxTe",
     "table": 1,
     "equation": 2,
-    "claim_state": "external source reproduction with source-internal parameter consistency audit"
+    "claim_state": "external source-table reproduction with source-internal parameter consistency audit"
   },
   "specimen": {
     "composition_x": 0.19,
@@ -54,12 +54,14 @@
     "interpretation": "The source-calculated filled edge and the operational 2000 cm^-1 extrapolated edge agree within 0-4 meV at the four reported temperatures."
   },
   "boundaries": [
-    "The result validates a source-defined carrier-density integral and operational edge comparison, not the complete free-carrier spectrum.",
+    "The result tests a source-defined carrier-density integral and operational edge comparison, not the complete free-carrier spectrum.",
     "The row-implied momentum matrix does not supersede the printed source parameter or establish a universal HgCdTe value.",
     "The intrinsic gap values are source inputs and are not endorsed as a universal gap law.",
     "Band-gap renormalization is not inferred.",
-    "The below-gap Haga-Tang branch remains outside this reproduction because its external function definitions are incomplete in the paper."
+    "The below-gap Haga-Tang branch remains outside this reproduction because its external function definitions are incomplete in the paper.",
+    "Published rounded table values are not a substitute for calibrated native spectra and covariance."
   ],
-  "external_material_validation_complete": true,
-  "validation_scope": "Dingrong Table 1 carrier-shift and optical-edge consistency only"
+  "external_source_table_reproduction_complete": true,
+  "external_material_validation_complete": false,
+  "validation_scope": "Dingrong Table 1 carrier-shift and optical-edge consistency; raw-spectrum validation incomplete"
 }
