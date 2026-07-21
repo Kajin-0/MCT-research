@@ -101,6 +101,9 @@ def test_generated_tables_and_summary_match_contract(
 def test_regenerated_headline_labels_are_present(
     generated_assets: Path,
 ) -> None:
+    figure2 = (
+        generated_assets / "figure2_transition_distribution.svg"
+    ).read_text(encoding="utf-8")
     figure3 = (
         generated_assets / "figure3_herrmann_tail_nonuniqueness.svg"
     ).read_text(encoding="utf-8")
@@ -113,8 +116,15 @@ def test_regenerated_headline_labels_are_present(
     figure6 = (
         generated_assets / "figure6_unified_structural_rank.svg"
     ).read_text(encoding="utf-8")
+
+    assert "exact quadrature" in figure2
+    assert "local linearization" in figure2
+    assert "single crossing" in figure2
+    assert "always normal" in figure2
+    assert "same line style" not in figure2
+
     assert "60.1%" in figure3
     assert "-16.636 meV" in figure4
     assert "147.323 meV" in figure5
-    assert "max |difference|" in figure6
+    assert "max |difference| &lt;= 2.22e-16" in figure6
     assert "(Delta, -Delta, 0, -1, +1)" in figure6
