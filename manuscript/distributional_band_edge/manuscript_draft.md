@@ -2,72 +2,84 @@
 
 ## Abstract
 
-The bandgap of Hg1-xCdxTe is commonly treated as a scalar function of alloy composition and temperature. Experimental observables, however, are produced by a sequence of additional operations: local composition and gap distributions, carrier filling and many-body shifts, intrinsic and tail absorption, optical thickness, detector response, and the selected edge or cutoff criterion. We develop a distributional forward framework that keeps these layers explicit and derive several identifiability limits relevant to HgCdTe band-edge metrology. First, composition uncertainty near the normal-to-inverted transition is amplified into critical-temperature uncertainty; at mean x=0.155, existing latent-gap laws differ by 25.08 K before any specimen-distribution uncertainty is introduced. Second, a Gaussian distribution of local gaps reproduces the Herrmann approximately-s/2 apparent tail scale under source-aligned conditions, but changing only the fitted absorption window changes the inferred tail energy by 60.1%. Third, a single-pass detector cutoff on an exponential tail shifts as -W ln(d2/d1), and any number of tail-only cutoff measurements has structural Jacobian rank at most two for four nominal absorption parameters. Fourth, at a declared high-density sensitivity point representative of the Dingrong regime, a parabolic Burstein-Moss estimate exceeds a nonparabolic calculation by 147 meV; a five-density edge series is formally full rank but has condition number 1.10x10^4. Finally, we prove that a dense single-state response spectrum with parameters (Eg0, carrier translation, gap width, absorption amplitude, effective thickness) has structural rank at most three because the spectrum depends only on the translated mean gap, gap width, and amplitude-thickness product. A calibrated nontranslational carrier feature raises rank to four but leaves one combined scaling/translation invariance. These results separate structural from statistical uncertainty and define the external measurements required to recover a latent HgCdTe gap from optical data.
+The bandgap of Hg1-xCdxTe is commonly treated as a scalar function of alloy composition and temperature, while reported optical edges also depend on local material-state distributions, carrier filling, absorption physics, optical geometry, and the selected observation operator. We develop an HgCdTe-specific forward framework that keeps these layers explicit and apply established structural-identifiability methods to determine which parameter combinations can be recovered from common band-edge measurements. Near the normal-to-inverted transition, existing latent-gap laws span 25.08 K in central critical temperature at mean composition x=0.155 before specimen-distribution uncertainty is introduced. A Gaussian distribution of local gaps reproduces the Herrmann approximately-s/2 apparent tail scale under source-aligned conditions, but changing only the fitted absorption window changes the inferred tail energy by 60.1%. Combining the Chang exponential tail with a single-pass response gives the established logarithmic thickness shift, while an application-specific analysis shows that any number of tail-only cutoff measurements has Jacobian rank at most two for four nominal absorption parameters. A high-density synthetic sensitivity calculation shows that a parabolic Burstein-Moss treatment can overestimate a declared nonparabolic shift by 147 meV. A separate reproduction of Dingrong Table 1 exposes an 11.297 meV root-mean-square inconsistency between the printed finite-temperature density equation, the printed momentum matrix, and the reported Fermi elevations; the rounded rows imply a tightly clustered diagnostic momentum matrix near 8.51e-8 eV cm but do not establish a revised material constant. Finally, for the declared Gaussian-gap, power-law, uniform-carrier-translation, single-pass model, the five nominal parameters (latent gap, carrier translation, gap width, absorption amplitude, effective thickness) enter only through the translated mean gap, gap width, and amplitude-thickness product. The corresponding dense-spectrum Jacobian has rank at most three. A controlled nontranslational carrier marker raises rank to four but leaves one combined scaling-translation invariance. The contribution is an HgCdTe optical-metrology and inverse-problem synthesis: source-grounded forward operators, explicit identifiable combinations, quantitative observation-operator effects, and measurement requirements for latent-gap recovery.
 
 ## 1. Introduction
 
-Hg1-xCdxTe occupies an unusual metrological regime. Its signed zone-center gap can be tuned through zero by composition and temperature, its bands are strongly nonparabolic, and its optical edge is sensitive to carrier state, disorder, processing, thickness, and the analysis operator. The same material can therefore be assigned different quantities called “the bandgap” depending on whether the measurement is absorption, photoconductivity, photoluminescence, magneto-optics, or detector cutoff.
+Hg1-xCdxTe occupies an unusually demanding metrological regime. Its signed zone-center gap can be tuned through zero by composition and temperature, its bands are strongly nonparabolic, and its optical edge is sensitive to carrier state, disorder, processing, thickness, and the analysis operator. Quantities reported as “the bandgap” may therefore refer to absorption, photoconductivity, photoluminescence, magneto-optical transitions, or detector cutoff and need not represent the same latent material coordinate.
 
-Engineering equations such as the Hansen relation remain useful as latent mean-gap baselines. Their numerical precision should not be confused with the precision of an experimental observation. The previous study in this repository showed that historical composition uncertainty, source lineage, carrier and vacancy state, and edge-definition choice dominate the sub-meV ordering of common empirical laws. That result was intentionally negative: the available historical evidence did not identify a universal replacement equation.
+Engineering equations such as the Hansen relation remain useful as latent mean-gap baselines. Their numerical precision should not be confused with the precision of an experimental observation. The previous study in this repository showed that historical composition uncertainty, source lineage, carrier and vacancy state, and edge-definition choice dominate the sub-meV ordering of common empirical laws. The historical evidence did not identify a universal replacement equation.
 
-The present work develops the constructive counterpart. Rather than asking which scalar gap equation is closest to a reported edge, we ask:
+The present work develops a constructive counterpart. Rather than selecting another scalar gap equation, it asks:
 
-> Given a latent signed band structure, a specimen-state distribution, a carrier state, an optical geometry, and a measurement operator, what edge will the experiment report?
+> Given a latent signed band structure, a specimen-state distribution, a carrier state, an optical geometry, and a measurement operator, what observable edge will the experiment report?
 
-The framework is deliberately hierarchical. Low-cost analytical layers are activated before atomistic or first-principles calculations, and each layer has explicit claim boundaries. The resulting contribution is not one additional empirical correction. It is a set of exact and numerical identifiability results showing which physical parameters can, and cannot, be recovered from common HgCdTe observations.
+Structural identifiability, output-preserving parameter symmetries, and identifiable parameter combinations are established ideas in inverse-problem theory. Beer-Lambert attenuation likewise contains the familiar product of absorption strength and optical path length. We do not claim these general principles as new. We apply them to a source-grounded HgCdTe forward hierarchy and derive the explicit parameter combinations, rank bounds, counterexamples, and measurement-design consequences of the declared model.
 
 The principal contributions are:
 
-1. exact and bounded-Gaussian propagation from composition variation to local gap and critical-temperature distributions;
-2. an independent reproduction of the Herrmann Gaussian-gap-to-apparent-tail scale and a quantitative fit-window non-uniqueness result;
-3. a source-bounded Chang absorption-to-detector-cutoff operator and a rank-two theorem for tail-only cutoff datasets;
-4. an exact nonparabolic carrier-filling model with a high-density parabolic-error criterion and density-series conditioning analysis;
-5. a unified spectrum theorem proving structural rank at most three for five nominal single-state parameters;
+1. bounded-Gaussian propagation from composition variation to local-gap and critical-temperature distributions, including no-crossing censoring;
+2. an independent reproduction of the Herrmann Gaussian-gap-to-apparent-tail scale and a quantified 60.1% fit-window non-uniqueness result;
+3. a source-bounded Chang absorption-to-detector-cutoff operator and a model-specific rank-two bound for tail-only cutoff datasets;
+4. a nonparabolic carrier-filling sensitivity analysis, plus a finite-temperature reproduction and source-consistency audit of Dingrong Table 1;
+5. an application-specific rank-three bound for the declared distributed single-state spectrum and a machine-precision counterexample;
 6. a measurement-design prescription identifying the independent information required for latent-gap recovery.
 
-The analytical theorems do not depend on fitting one historical spectrum. Material validation is treated separately and remains an explicit pre-submission requirement.
+The paper is framed as semiconductor optical metrology and inverse-problem methods for HgCdTe. It is not a new general theory of structural identifiability, a universal HgCdTe bandgap equation, or a complete microscopic absorption model.
 
-## 2. Definitions and forward hierarchy
+## 2. Forward hierarchy
+
+The controlling forward sequence is
+
+```text
+latent signed gap
+-> composition and local-gap distribution
+-> carrier and defect state
+-> intrinsic, tail, and free-carrier absorption
+-> effective optical thickness and instrument response
+-> declared edge or cutoff operator
+-> reported observable
+```
+
+Each stage introduces parameters that may be observable only through combinations with parameters from another stage.
 
 ### 2.1 Latent signed gap
 
 Let
 
 $$
-E_g^{(0)}(x,T)
-=E_{\Gamma_6}(x,T)-E_{\Gamma_8}(x,T)
+E_g^{(0)}(x,T)=E_{\Gamma_6}(x,T)-E_{\Gamma_8}(x,T)
 $$
 
-be the latent signed zone-center gap of a declared mean material state. The superscript `(0)` distinguishes this latent reference from an observed optical edge.
-
-The present framework does not select one universal equation for $E_g^{(0)}$. Hansen, reconstructed Laurenti, and archived constrained candidates are used as alternative latent laws when model dependence must be quantified.
+be the latent signed zone-center gap of a declared mean material state. The superscript `(0)` distinguishes this latent reference from an observed optical edge. The framework does not select one universal equation for $E_g^{(0)}$; Hansen, reconstructed Laurenti, and archived constrained candidates are retained as alternative latent laws when model dependence must be quantified.
 
 ### 2.2 Composition and local-gap distributions
 
-Let the local Cd fraction be
+Let
 
 $$
 X=\bar x+\delta x,
+\qquad
+\mathbb E[\delta x]=0,
+\qquad
+\operatorname{Var}(X)=\sigma_x^2.
 $$
 
-with declared mean $\bar x$ and standard deviation $\sigma_x$. For sufficiently narrow distributions,
+For sufficiently narrow composition variation,
 
 $$
 \mathbb E[E_g(X,T)]
 \approx
-E_g(\bar x,T)
-+\frac12 E_{g,xx}(\bar x,T)\sigma_x^2,
+E_g(\bar x,T)+\frac12E_{g,xx}(\bar x,T)\sigma_x^2,
 $$
 
 and
 
 $$
-\sigma_{E,x}
-\approx
-|E_{g,x}(\bar x,T)|\sigma_x.
+\sigma_{E,x}\approx |E_{g,x}(\bar x,T)|\sigma_x.
 $$
 
-Near a zero-gap transition,
+Near a simple zero-gap root,
 
 $$
 \sigma_{T_c}
@@ -75,26 +87,23 @@ $$
 \left|\frac{E_{g,x}}{E_{g,T}}\right|\sigma_x.
 $$
 
-These local expressions are supplemented by exact deterministic quadrature over a Gaussian composition model conditioned on the physical alloy interval $0\le x\le1$.
+Exact deterministic quadrature over a Gaussian composition model conditioned on $0\le x\le1$ is used when local propagation fails, when roots are absent, or when conditional-root distributions become censored.
 
-### 2.3 Local absorption and spectral convolution
+### 2.3 Distributed absorption
 
-For a local gap $G$, use the controlled intrinsic-edge family
+For a local gap $G$, use the controlled local-edge family
 
 $$
-\alpha_{\mathrm{loc}}(E\mid G)
-=A(E-G)_+^p,
+\alpha_{\mathrm{loc}}(E\mid G)=A(E-G)_+^p,
 $$
 
-where $(y)_+=\max(y,0)$ and $p$ is a declared edge exponent.
-
-For
+where $(y)_+=\max(y,0)$ and $p$ is declared. For
 
 $$
 G\sim\mathcal N(\mu_G,\sigma_G^2),
 $$
 
-the distributed absorption is
+the convolved absorption has the scale form
 
 $$
 \bar\alpha(E)
@@ -102,17 +111,17 @@ $$
 F_p\left(\frac{E-\mu_G}{\sigma_G}\right),
 $$
 
-where
+with
 
 $$
 F_p(z)=\int_{-\infty}^{z}(z-u)^p\phi(u)\,du.
 $$
 
-This model is a controlled observation basis. It is not assumed to be a complete microscopic absorption law.
+This is a controlled observation basis, not a complete microscopic HgCdTe absorption law.
 
 ### 2.4 Detector response and operational cutoff
 
-For effective absorbing thickness $d$, the single-pass response is
+For effective absorbing thickness $d$, the reduced single-pass response is
 
 $$
 R(E,d)=1-\exp[-\alpha(E)d].
@@ -121,7 +130,7 @@ $$
 A target response $R_t$ corresponds to
 
 $$
-\alpha_t=\frac{-\ln(1-R_t)}{d}.
+\alpha_t=-\frac{\ln(1-R_t)}{d}.
 $$
 
 If the crossing lies on an exponential tail joined at $(E_j,\alpha_j)$,
@@ -133,44 +142,33 @@ $$
 then
 
 $$
-E_c
-=E_j+W\ln\left(\frac{\alpha_t}{\alpha_j}\right).
+E_c=E_j+W\ln\left(\frac{\alpha_t}{\alpha_j}\right).
 $$
+
+The reduced operator inherits the standard optical-depth product dependence. Effective thickness is an observation-model quantity and is not assumed equal to physical film thickness.
 
 ### 2.5 Carrier-filled optical edge
 
-For one spin-degenerate spherical valley,
+A declared zero-temperature spherical sensitivity model uses
 
 $$
-k_F=\left(\frac{3\pi^2 n}{g_v}\right)^{1/3}.
+k_F=\left(\frac{3\pi^2n}{g_v}\right)^{1/3},
+\qquad
+E_{\mathrm{par}}=\frac{\hbar^2k_F^2}{2m_e^*},
 $$
 
-Let
-
-$$
-E_{\mathrm{par}}
-=\frac{\hbar^2k_F^2}{2m_e^*}.
-$$
-
-A declared Kane-type nonparabolic conduction branch satisfies
+and the Kane-type dispersion
 
 $$
 E_c(1+\alpha E_c)=E_{\mathrm{par}},
 $$
 
-with solution
+with positive solution
 
 $$
-E_c
-=\frac{2E_{\mathrm{par}}}
+E_c=
+\frac{2E_{\mathrm{par}}}
 {1+\sqrt{1+4\alpha E_{\mathrm{par}}}}.
-$$
-
-For a parabolic valence recoil,
-
-$$
-\Delta E_{\mathrm{BM}}
-=E_c(k_F)+\frac{\hbar^2k_F^2}{2m_v^*}.
 $$
 
 The observed edge is kept decomposed:
@@ -183,47 +181,60 @@ E_{\mathrm{opt}}
 +\Delta E_{\mathrm{obs}}.
 $$
 
-## 3. Methods
+Burstein-Moss filling is not conflated with band-gap renormalization.
 
-### 3.1 Claim classes
+For the real Dingrong specimen, the source's finite-temperature carrier-density integral is implemented separately rather than replacing it with the zero-temperature sensitivity model.
 
-Each result is assigned one of five states:
+## 3. Methods and evidence classes
 
-1. exact analytical theorem;
-2. numerical verification of an exact theorem;
-3. source reproduction under declared assumptions;
+### 3.1 Evidence classes
+
+Every result is assigned one of five evidence states:
+
+1. exact analytical statement under declared assumptions;
+2. deterministic numerical verification;
+3. source-conditioned reproduction;
 4. bounded synthetic sensitivity;
 5. external material validation.
 
-Only the fifth state supports direct specimen-level material claims. Synthetic parameter cases are never described as fitted material properties.
+Only the fifth state supports unrestricted specimen-level claims. Theorem labels identify exact statements under their assumptions; they do not imply unprecedented mathematics.
 
 ### 3.2 Numerical quadrature
 
-Gaussian gap convolutions are evaluated using energy-dependent Gauss-Legendre quadrature restricted to $G\le E$. Splitting the integral at the moving local threshold removes the interior cusp that otherwise produces slow fixed-grid convergence. Linear and quadratic edge branches are verified against closed Gaussian moments.
+Gaussian gap convolutions are evaluated with energy-dependent Gauss-Legendre quadrature restricted to $G\le E$. Splitting the integral at the moving threshold removes an interior cusp and yields stable convergence. Linear and quadratic edge branches are checked against closed Gaussian moments.
 
-Bounded composition distributions use deterministic Gaussian quadrature conditioned on $0\le x\le1$. Transition roots are classified as single crossing, always normal, always inverted, multiple crossing, or unresolved before conditional moments are reported.
+Bounded composition distributions use deterministic Gaussian quadrature conditioned on the physical alloy interval. Transition roots are classified as single crossing, always normal, always inverted, multiple crossing, or unresolved before conditional moments are reported.
+
+Dingrong's finite-temperature density equation is solved by deterministic quadrature and scalar inversion at each of the four reported temperatures.
 
 ### 3.3 Structural identifiability
 
-For a vector of observables $y(\theta)$, local identifiability is evaluated from the singular values of
+For observables $y(\theta)$, local sensitivity is represented by
 
 $$
 J_{ij}=\frac{\partial y_i}{\partial\theta_j}.
 $$
 
-Exact invariances are derived analytically before numerical rank is interpreted. Relative singular values below the declared tolerance are treated as unresolved directions, but rank claims are not based solely on numerical thresholds when an exact proof is available.
+Exact output-preserving transformations and identifiable combinations are derived before numerical singular values are interpreted. Numerical rank verifies the analytical result but does not define it when an exact invariance is available.
 
-### 3.4 Source boundaries
+### 3.4 Prior-art boundary
 
-Herrmann et al. provide the Gaussian-gap distribution and the approximately-$s/2$ apparent tail claim. Chang et al. provide a nonparabolic-Urbach branch with a declared source domain. Dingrong et al. provide a high-density HgCdTe regime requiring carrier filling and free-carrier absorption. Teppe et al. provide a temperature-driven near-critical Kane-mass series.
+The general concepts of structural identifiability, parameter symmetry, and identifiable parameter combinations are established. The amplitude-thickness product is inherited from Beer-Lambert optical depth. Thin-film optical inversion literature likewise shows that thickness and optical constants require sufficiently informative combinations of transmission, reflection, interference, angle, polarization, or external constraints.
 
-Incomplete source parameters are not silently reconstructed. Chang Figure 2 and the full Dingrong spectrum remain outside quantitative material validation until native data and missing parameter provenance are recovered.
+HgCdTe-specific source boundaries are:
+
+- Herrmann et al. establish that a Gaussian-like gap distribution can generate a near-exponential tail and report the approximately-$s/2$ scale;
+- Chang et al. establish the nonparabolic intrinsic plus Urbach absorption model and the importance of effective absorber thickness for detector cutoff;
+- Dingrong et al. establish finite-temperature carrier filling and below-gap free-carrier absorption in a real degenerate specimen;
+- Teppe et al. establish a temperature-driven near-critical Kane-mass series.
+
+The candidate contribution is the HgCdTe-specific synthesis, explicit parameter combinations, model-specific rank bounds, exact counterexamples, and quantitative measurement consequences.
 
 ## 4. Results
 
 ### 4.1 Composition distributions broaden and censor the apparent transition
 
-At nominal mean composition $\bar x=0.155$, the three existing latent laws predict central critical temperatures:
+At nominal mean composition $\bar x=0.155$, the retained latent laws predict:
 
 | Latent law | Central $T_c$ |
 |---|---:|
@@ -231,25 +242,24 @@ At nominal mean composition $\bar x=0.155$, the three existing latent laws predi
 | Hansen-Schmit-Casselman | 52.0438 K |
 | Archived Hansen-Pade | 52.5937 K |
 
-The central model span is
+The central span is
 
 $$
 25.0803\ \mathrm K.
 $$
 
-At $\sigma_x=0.001$, exact composition-induced critical-temperature widths are `3.804-4.560 K`; the latent-law choice dominates. At $\sigma_x=0.005$, conditional widths are `18.345-22.290 K`, and `0.36-1.30%` of the declared distribution remains normal throughout `0-300 K`. At $\sigma_x=0.010`, the always-normal fraction rises to `8.60-14.12%`.
+At $\sigma_x=0.001$, exact composition-induced widths are `3.804-4.560 K`, so latent-law choice dominates. At $\sigma_x=0.005`, conditional widths become `18.345-22.290 K`, while `0.36-1.30%` of the declared distribution remains normal throughout `0-300 K`. At $\sigma_x=0.010`, the always-normal fraction rises to `8.60-14.12%`.
 
-The local derivative approximation becomes misleading in the broad regime because compositions with no transition inside the observation window are censored from the conditional root distribution. At $\sigma_x=0.010`, conditional means shift by `5.52-11.05 K`, while the local approximation overestimates conditional width by `6.68-9.66 K`.
+No-crossing compositions are excluded from the conditional root distribution. At $\sigma_x=0.010`, conditional means shift by `5.52-11.05 K`, while local linear propagation overstates conditional width by `6.68-9.66 K`.
 
-This is not a topological phase-fraction calculation. It is a distributional observation result showing that an apparent transition temperature must be reported with the crossing probability and the assumed composition distribution.
+These are model-conditioned transition statistics, not measured topological phase fractions.
 
-### 4.2 A Gaussian gap distribution reproduces an apparent Urbach tail but not a unique width
+### 4.2 A Gaussian gap distribution produces an apparent tail but not a unique inverse width
 
-Herrmann et al. define
+Herrmann et al. use
 
 $$
-P(G)=
-\frac{1}{2s\sqrt\pi}
+P(G)=\frac{1}{2s\sqrt\pi}
 \exp\left[-\frac{(G-\bar G)^2}{4s^2}\right],
 $$
 
@@ -259,17 +269,15 @@ $$
 \sigma_G=\sqrt2\,s.
 $$
 
-For a square-root local edge and the source-stated `1-100 cm^-1` fit range, the reproduced apparent exponential tail gives
+For a square-root local edge and the source-stated `1-100 cm^-1` interval, the reproduction gives
 
 $$
-\frac{W_{\mathrm{fit}}}{s}=0.50504,
+W_{\mathrm{fit}}/s=0.50504,
 \qquad
 R^2=0.99570.
 $$
 
-The approximately-$s/2$ source scale is therefore independently reproduced under source-aligned conditions.
-
-The same convolved spectrum is not exactly exponential. Fitting different absorption intervals gives:
+The same spectrum is not exactly exponential:
 
 | Fit window ($\mathrm{cm^{-1}}$) | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---|---:|---:|
@@ -279,74 +287,77 @@ The same convolved spectrum is not exactly exponential. Fitting different absorp
 | 10-500 | 0.66828 | 0.99190 |
 | 100-500 | 0.80871 | 0.99738 |
 
-Changing only the observation window from `1-100` to `100-500 cm^-1` increases the inferred tail energy by `60.1%`, although both fits appear strongly log-linear.
-
-Across local-edge exponents $p=0.5$, 1, and 2, the source-window ratio changes only from `0.48375` to `0.50504`. Thus high $R^2$ weakly identifies the intrinsic branch.
-
-For an observed $W_{\mathrm{fit}}=4$ meV, the declared exponent/window family permits
+Changing only the fit window from `1-100` to `100-500 cm^-1` increases the fitted tail energy by `60.1%`, despite strong log-linear fits in both windows. Across the declared exponent and window family, an observed $W_{\mathrm{fit}}=4$ meV permits
 
 $$
 6.995\ \mathrm{meV}
-\le\sigma_G\le
+\le \sigma_G \le
 12.661\ \mathrm{meV}.
 $$
 
-An Urbach-like slope is therefore compatible with a Gaussian gap distribution but does not uniquely identify it or its width.
+The source mechanism is prior art. The quantified observation-window non-uniqueness is the project-specific result.
 
-### 4.3 Detector cutoff is a thickness-dependent observation operator
+### 4.3 Tail-only cutoff data identify at most two combinations
 
-On an exponential tail,
+Combining the Chang exponential tail with the single-pass target response gives
 
 $$
-E_c(d_2)-E_c(d_1)
-=-W\ln(d_2/d_1).
+E_c(d_2)-E_c(d_1)=-W\ln(d_2/d_1).
 $$
 
-For a declared synthetic Chang case with $W=12$ meV, changing effective thickness from 5 to 20 $\mu$m shifts the 50% response cutoff by
+The thickness dependence is established physics, not a new discovery. In the declared synthetic Chang case with $W=12$ meV, changing effective thickness from 5 to 20 $\mu$m moves the 50% cutoff by
 
 $$
 -16.636\ \mathrm{meV},
 $$
 
-or from `12.445 um` to `14.939 um`, without changing the latent $E_g$.
+or from `12.445 um` to `14.939 um`, without changing the latent gap.
 
-A tail-only Chang cutoff can be written
+A tail-only cutoff can be written
 
 $$
 E_{c,i}=C(E_g,W,A,b)+WL_i,
 $$
 
-where $L_i$ depends only on thickness and response criterion. Every Jacobian row lies in the span of $\nabla C$ and $\nabla W$, so
+where $L_i$ depends only on effective thickness and response criterion. For
 
 $$
-\boxed{
-\operatorname{rank}(J_{\mathrm{tail}})\le2.
-}
+\theta=(E_g,W,\ln A,\ln b),
 $$
 
-Nine tail-only observations produce two finite singular values and two values near `10^-12`. Adding intrinsic-branch observations restores local rank four, but the condition number remains `199.81`.
+each Jacobian row has the form
 
-Collecting more tail-only cutoffs improves precision in two combinations; it does not identify $E_g$, $W$, amplitude, and nonparabolicity separately.
+$$
+\nabla C+L_i\nabla W.
+$$
 
-### 4.4 Nonparabolic carrier filling is not a small correction at high density
+Hence the row space has dimension at most two:
 
-Define
+$$
+\boxed{\operatorname{rank}(J_{\mathrm{tail}})\le2}.
+$$
+
+This is an application-specific analytical consequence of the affine cutoff family, not a new general theorem for every detector model. Nine tail-only observations give two finite singular values and two near-null directions. Mixed intrinsic and tail observations restore local rank four in the declared design, but the condition number remains `199.81`.
+
+The Chang 2007 thickness curve is calculated and is not treated as independent external validation.
+
+### 4.4 Nonparabolic carrier filling can be a large correction
+
+Let
 
 $$
 q=\alpha E_{\mathrm{par}}.
 $$
 
-The exact relative error from using the parabolic conduction energy is
+The declared zero-temperature sensitivity model gives
 
 $$
-\boxed{
 \frac{E_{\mathrm{par}}-E_c}{E_c}
 =
 \frac{\sqrt{1+4q}-1}{2}.
-}
 $$
 
-At the declared high-density sensitivity point
+For
 
 ```text
 n          = 7.0e17 cm^-3
@@ -366,21 +377,62 @@ we obtain:
 | Nonparabolic BM shift | 148.367 meV |
 | Parabolic BM shift | 295.690 meV |
 | Parabolic overestimate | 147.323 meV |
-| $q$ | 2.1561 |
 
-The parabolic filling shift is `1.993` times the nonparabolic result. For the same declared parameters, the conduction-energy error grows from `0.0046 meV` at `10^14 cm^-3` to `147.323 meV` at `7x10^17 cm^-3`.
-
-One optical edge at one density has rank one for five declared parameters. A five-density series restores local rank five, but its condition number is
+A five-density series is locally rank five for the declared parameters but has condition number
 
 $$
 1.1035\times10^4.
 $$
 
-Formal full rank is therefore insufficient for a stable unconstrained inversion.
+Formal full rank does not imply a stable unconstrained inversion. This sensitivity case is not a fit to the Dingrong specimen.
 
-These values are bounded sensitivity results in the Dingrong density regime, not a fit to the Dingrong specimen.
+### 4.5 Dingrong Table 1 provides a qualified real-specimen source test
 
-### 4.5 Unified spectrum theorem: dense sampling cannot remove exact invariances
+Dingrong et al. report an In-doped specimen with
+
+```text
+composition x             0.19
+carrier type              n-type
+Hall density              7.0e17 cm^-3
+transmission thickness    0.16 mm
+refractive index used     3.5
+spectral interval         7-17 um
+temperatures              77, 100, 200, 300 K
+edge operator             extrapolation to 2000 cm^-1
+```
+
+The source provides a finite-temperature Kane density integral, intrinsic-gap inputs, Fermi elevations, filled-edge energies, and operational optical gaps at four temperatures.
+
+Using the printed equation with the printed momentum matrix
+
+$$
+P=8.0\times10^{-8}\ \mathrm{eV\,cm}
+$$
+
+undershoots the four Table 1 Fermi elevations by
+
+```text
+77 K    -11.193 meV
+100 K   -12.472 meV
+200 K   -10.273 meV
+300 K   -11.142 meV
+RMS      11.297 meV
+```
+
+The four rounded table rows independently imply
+
+```text
+8.5078, 8.5663, 8.4673, 8.5014 x 10^-8 eV cm
+mean = 8.5107 x 10^-8 eV cm
+```
+
+Using the row-implied mean strictly as a source-consistency diagnostic reduces the Fermi-shift RMS discrepancy to `0.785 meV`, with maximum absolute discrepancy `1.226 meV`. The row-implied value does not supersede the printed source parameter and is not a universal HgCdTe momentum matrix.
+
+The source's own filled-edge values differ from its operational optical gaps by `0-4 meV`, with RMS `2.915 meV`. The previous illustrative zero-temperature model gives a constant `148.367 meV` shift and misses the source temperature trend with RMS `17.718 meV`.
+
+This result is a qualified external source-table reproduction. It is not complete external material-spectrum validation because native calibrated spectra, covariance, and the full Haga-Tang below-gap definitions remain unavailable.
+
+### 4.6 The declared distributed spectrum has three identifiable combinations
 
 For
 
@@ -391,8 +443,7 @@ $$
 and
 
 $$
-R(E)=1-
-\exp\left\{
+R(E)=1-\exp\left\{
 -Ad\,\sigma_G^p
 F_p\left[
 \frac{E-E_g^{(0)}-\Delta_c}{\sigma_G}
@@ -406,7 +457,7 @@ $$
 (E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A,\ln d)
 $$
 
-enter through only
+enter only through
 
 $$
 E_g^{(0)}+\Delta_c,
@@ -416,7 +467,7 @@ E_g^{(0)}+\Delta_c,
 Ad.
 $$
 
-Therefore
+The gap-carrier combination is model-specific. The amplitude-thickness product is inherited from standard optical depth. Therefore
 
 $$
 \frac{\partial R}{\partial E_g^{(0)}}
@@ -433,12 +484,23 @@ $$
 and
 
 $$
-\boxed{
-\operatorname{rank}(J)\le3.
-}
+\boxed{\operatorname{rank}(J)\le3}.
 $$
 
-Two parameter sets with different latent gaps, carrier shifts, amplitudes, and thicknesses produce response spectra equal to machine precision when the translated mean gap and amplitude-thickness product are preserved. Across 281 spectral points, their maximum absolute difference is `2.22x10^-16`.
+We present this as an application-specific structural-identifiability bound for the declared HgCdTe operator, not as new general identifiability mathematics.
+
+The parameter sets
+
+```text
+Eg0=0.100 eV, Delta=0.030 eV, sigma=0.010 eV, A=30000, d=10 um
+Eg0=0.120 eV, Delta=0.010 eV, sigma=0.010 eV, A=15000, d=20 um
+```
+
+preserve the three combinations. Across 281 spectral points, their maximum absolute response difference is
+
+$$
+2.22\times10^{-16}.
+$$
 
 The numerical singular values are
 
@@ -452,18 +514,17 @@ The numerical singular values are
 
 and the numerical rank is three.
 
-Known carrier shift alone leaves the amplitude/thickness null. Known thickness alone leaves the gap/carrier null. Both must be constrained to recover $(E_g^{(0)},\sigma_G,A)$ in the base model.
+Known carrier shift alone leaves the amplitude-thickness null direction. Known effective thickness alone leaves the gap-carrier null direction. Under the declared base model, both external constraints are required to recover the remaining latent-gap parameters separately.
 
-### 4.6 A carrier-dependent spectral marker raises rank but leaves one combined invariance
+### 4.7 A controlled carrier marker adds one direction but leaves one scale
 
-Add an absolutely calibrated diagnostic carrier feature
+Add the diagnostic carrier-sensitive term
 
 $$
-\alpha_m(E)
-=B\Delta_c(E_r/E)^2.
+\alpha_m(E)=B\Delta_c(E_r/E)^2.
 $$
 
-The marked spectrum depends on four combinations:
+The marked model depends on four combinations:
 
 $$
 E_g^{(0)}+\Delta_c,
@@ -475,17 +536,13 @@ Ad,
 \Delta_cd.
 $$
 
-The two simple pairwise invariances no longer hold, but one combined transformation remains:
+One combined transformation remains:
 
 $$
 d\rightarrow cd,
-$$
-
-$$
+\qquad
 A\rightarrow A/c,
-$$
-
-$$
+\qquad
 \Delta_c\rightarrow\Delta_c/c,
 $$
 
@@ -495,119 +552,120 @@ E_g^{(0)}
 E_g^{(0)}+\Delta_c(1-1/c).
 $$
 
-The infinitesimal null vector is
+The infinitesimal null vector in coordinates $(E_g^{(0)},\Delta_c,\ln\sigma_G,\ln A,\ln d)$ is
 
 $$
 (\Delta_c,-\Delta_c,0,-1,1).
 $$
 
-The marked-spectrum numerical rank is four, with one relative singular value near `10^-13`. Independently known effective thickness removes the remaining null and leaves the other four parameters locally full rank.
-
-The marker is a structural diagnostic, not the Dingrong free-carrier absorption law.
+The marked-spectrum rank is four in the declared design. Independently known effective thickness removes the final null direction. This marker is not the Dingrong free-carrier absorption law.
 
 ## 5. Discussion
 
-### 5.1 Structural uncertainty is not reduced by better instruments
+### 5.1 Structural and statistical uncertainty are different
 
-Noise reduction improves estimation only within identifiable parameter combinations. It cannot resolve exact invariances of the forward operator. This distinction matters because HgCdTe experiments often report small numerical fitting errors while omitting composition, carrier, thickness, or observation-model uncertainty that lies in a structurally unresolved direction.
+Noise reduction and denser sampling improve estimates only inside identifiable parameter combinations. They cannot remove an exact output-preserving transformation. This is established inverse-problem logic; its consequence here is concrete. Even a continuum, noise-free spectrum cannot separate $E_g^{(0)}$ from a rigid carrier translation or absorption amplitude from effective thickness under the base model.
 
-The unified theorem provides a strict example. An ideal, continuum, noise-free spectrum still cannot separate $E_g^{(0)}$ from a rigid carrier shift or absorption amplitude from effective thickness in the base model.
+### 5.2 A reported edge is a specimen-and-operator quantity
 
-### 5.2 A reported edge is a property of specimen and operator
+A reported edge can move without a change in the latent mean gap because:
 
-The results establish four distinct mechanisms by which a reported edge can move without a corresponding change in the latent mean gap:
+1. composition distributions alter local-gap and transition statistics;
+2. the fitted interval changes an apparent tail energy;
+3. effective thickness and response criterion move detector cutoff;
+4. carrier filling and many-body terms move the interband threshold.
 
-1. composition distributions alter local gap and critical-temperature statistics;
-2. fit-window choice changes an apparent Urbach energy;
-3. thickness and response criterion move detector cutoff;
-4. carrier filling and many-body terms translate the interband threshold.
+A scalar edge coordinate is incomplete unless the specimen state and observation operator are declared.
 
-A scalar edge coordinate is therefore incomplete unless the observation operator and specimen state are declared.
+### 5.3 Minimum independent information
 
-### 5.3 Minimum experimental information
+Under the base model, latent-gap recovery requires at least:
 
-Under the base unified model, latent-gap recovery requires at least:
-
-- independent carrier density and a validated carrier-shift model;
+- independent carrier-state information and a validated carrier-shift model;
 - independently calibrated effective thickness or absorption amplitude;
-- a full calibrated spectrum;
-- sufficient spectral range to resolve gap width and intrinsic-edge shape.
+- a calibrated spectrum with enough range to resolve the remaining shape parameters.
 
-A carrier-dependent spectral background can add an independent direction only if its shape and absolute calibration are retained. Subtracting such a background without joint uncertainty can remove precisely the information needed to separate carrier state from latent gap.
+A carrier-sensitive background can add an independent direction only when its spectral form and absolute scale are retained. Removing it as an untracked baseline may discard information needed to distinguish carrier state from latent gap.
 
 ### 5.4 Relation to prior work
 
-Herrmann et al. established that gap distributions can produce apparent exponential tails. The present work reproduces that scale and shows quantitatively that the inverse width depends strongly on the fit window.
+General structural-identifiability theory establishes the distinction between parameter fit and unique parameter recovery. Symmetry and identifiable-combination methods establish how output-preserving transformations expose unresolved directions. Beer-Lambert theory establishes the optical-depth product, while thin-film optical inversion literature demonstrates how additional observables and constraints can restore thickness and optical-constant recovery.
 
-Chang et al. developed a nonparabolic-Urbach absorption model and connected absorption to thickness-dependent detector response. The present work isolates an exact logarithmic thickness law and proves the structural rank limit of tail-only cutoff datasets.
+Herrmann et al. establish the Gaussian-gap tail mechanism. The present source-conditioned calculation reproduces the source scale and quantifies fit-window non-uniqueness.
 
-Dingrong et al. demonstrated a degenerate HgCdTe regime requiring Burstein-Moss and free-carrier physics. The present work quantifies the potential parabolic error and shows why a density series remains poorly conditioned without independent mass and renormalization constraints.
+Chang et al. establish nonparabolic-Urbach absorption and effective-thickness-dependent detector cutoff. The present work derives the application-specific tail-only rank bound and mixed-branch conditioning result. It does not present Chang's calculated thickness curve as independent validation.
 
-Teppe et al. demonstrated a temperature-driven sign change of the Kane mass. The present distributional calculation shows that composition variation and latent-law choice can broaden and displace an apparent transition even before a specific disorder self-energy is introduced.
+Dingrong et al. establish finite-temperature carrier filling and free-carrier absorption in a real degenerate specimen. The present work reproduces the source table, exposes the printed-parameter inconsistency, and keeps the full below-gap spectrum outside the supported claim.
 
-The unified rank theorem is the new synthesis: these mechanisms are not merely additive error bars. They create exact or near-exact parameter combinations that determine what a spectrum can identify.
+The contribution is the HgCdTe-specific analytical synthesis and measurement design: one forward hierarchy, explicit identifiable combinations, exact model-specific counterexamples, and quantitative evidence boundaries.
 
-### 5.5 Implications for model validation
+### 5.5 Publication positioning
 
-A bandgap law should not be validated against an optical edge until the forward observation operator is sufficiently specified. Conversely, the inability to recover a unique latent gap does not imply that the spectrum is useless. Dense spectra can identify translated mean edge, gap width, and optical-depth scale, and can falsify inadequate lineshape models.
+The appropriate positioning is semiconductor optical metrology and inverse-problem methods. The exact statements may be labeled theorems because they are proved under declared assumptions, but the paper does not claim to introduce structural-identifiability mathematics. The strongest candidate contributions are:
 
-The correct goal is not to force every experiment to report one corrected scalar gap. It is to fit a forward model whose identifiable combinations and external constraints are explicit.
+- the explicit HgCdTe parameter combinations and rank bounds;
+- the machine-precision spectral counterexample;
+- the fit-window and mixed-branch quantitative results;
+- the Dingrong source-consistency audit;
+- the external-measurement prescription implied by the forward symmetries.
 
 ## 6. Limitations
-
-The analytical results use controlled model layers rather than a complete microscopic HgCdTe calculation. Principal limitations are:
 
 1. Gaussian local-gap distributions may not represent clustering, gradients, or correlated disorder.
 2. The power-law local edge is a sensitivity basis, not a complete Kane absorption model.
 3. Carrier translation is spatially uniform in the unified theorem.
 4. The generic carrier marker is not a physical free-carrier absorption model.
 5. Single-pass response excludes reflection, interference, multiple paths, transport, and energy-dependent collection efficiency.
-6. The Dingrong sensitivity calculation is zero-temperature and does not reproduce the full source spectra.
-7. Chang Figure 2 lacks the native data and parameter provenance required for external validation.
-8. Local opposite-sign fractions are not bulk topological invariants.
-9. Structural rank does not determine practical posterior uncertainty after external constraints are introduced.
-10. At least one calibrated real-spectrum validation case is still required before submission.
-
-These limitations are activation gates for future model layers, not justification for collapsing the current distinctions.
+6. The zero-temperature carrier calculation is a synthetic sensitivity result; the Dingrong finite-temperature source-table reproduction is separate.
+7. Dingrong native calibrated spectra, covariance, and complete Haga-Tang functions remain unavailable.
+8. Chang's published thickness curve is calculated rather than an independent measured multi-thickness validation series.
+9. Local opposite-sign fractions are not bulk topological invariants.
+10. Structural rank does not determine practical posterior uncertainty after external constraints are supplied.
+11. The prior-art audit is targeted and can be revised if a closer spectroscopy-specific source is found.
+12. Complete specimen-spectrum validation remains stronger evidence than the available four-row source-table reproduction.
 
 ## 7. Conclusions
 
-We developed a distributional observation framework for HgCdTe band-edge measurements and established several quantitative identifiability limits.
+We developed a source-grounded forward framework for HgCdTe band-edge observations and derived model-specific identifiability limits. Composition variation near inversion produces root distributions that can be censored and asymmetric. Gaussian gap distributions produce exponential-looking tails whose fitted scale changes by 60.1% with the observation window. Effective thickness moves detector cutoff, while tail-only cutoff datasets identify at most two combinations in the declared Chang operator. Nonparabolic carrier treatment is essential in the declared high-density sensitivity case. Dingrong Table 1 provides a qualified real-specimen source test and exposes an 11.297 meV RMS inconsistency between the printed finite-temperature equation, printed momentum matrix, and reported Fermi elevations.
 
-Composition variation near inversion produces critical-temperature distributions whose width and censoring can exceed local derivative estimates. Gaussian gap distributions can reproduce highly exponential-looking tails, but the inferred tail energy changes substantially with the fitting window. Detector cutoff depends logarithmically on effective thickness, and tail-only cutoff datasets have structural rank at most two. Degenerate carrier filling requires nonparabolic treatment; at the declared high-density sensitivity point, the parabolic estimate is wrong by 147 meV. Most importantly, a dense single-state response spectrum with five nominal parameters has structural rank at most three under the base model. A calibrated carrier-dependent spectral feature raises rank to four but leaves one combined invariance until an external scale is supplied.
+For the declared distributed single-state spectrum, five nominal parameters enter through only three combinations: translated mean gap, gap width, and optical-depth scale. The corresponding Jacobian rank is at most three. A controlled carrier-sensitive marker raises rank to four but leaves one combined invariance until an external scale is supplied.
 
-The central result is methodological:
+The central result is methodological and material-specific:
 
-> The precision of an extracted edge is not the precision of a latent bandgap. Recovering the latent HgCdTe gap requires a forward observation model and independent constraints on the exact parameter combinations that spectroscopy cannot separate.
+> The precision of an extracted edge is not the precision of a latent bandgap. Recovering a latent HgCdTe gap requires a forward observation model and independent constraints on the exact parameter combinations that the measurement cannot separate.
 
 ## 8. Reproducibility and data availability
 
-Every quantitative result in this draft is generated from version-controlled code and immutable repository records:
+Quantitative results are controlled by:
 
 - `data/validation/near_critical_transition_model_dependence.json`;
 - `data/validation/herrmann_gaussian_tail_reproduction.json`;
 - `data/validation/chang_2006_cutoff_identifiability.json`;
 - `data/validation/dingrong_1985_carrier_filling_sensitivity.json`;
-- `data/validation/unified_spectrum_structural_rank.json`.
+- `data/validation/dingrong1985_table1_reproduction.json`;
+- `data/validation/unified_spectrum_structural_rank.json`;
+- `data/validation/flagship_novelty_claim_matrix.json`.
 
-The executable implementations are in:
+Executable implementations are in:
 
 - `src/mct_research/distributional_gap.py`;
 - `src/mct_research/distributional_quadrature.py`;
 - `src/mct_research/spectral_convolution.py`;
 - `src/mct_research/detector_cutoff.py`;
 - `src/mct_research/carrier_filling.py`;
+- `src/mct_research/dingrong1985.py`;
 - `src/mct_research/unified_spectrum.py`.
 
-The analytical derivations are in `docs/derivations/008` through `013`.
+The analytical derivations are in `docs/derivations/008` through `014`. Restricted source PDFs are not redistributed by the public repository.
 
 ## 9. Submission status
 
-The analytical core is complete enough for manuscript development. Submission remains blocked by:
+The analytical manuscript, deterministic figures, source-table reproduction, and audited novelty boundary are complete enough for methods-paper preparation. Remaining gates are:
 
-1. one external calibrated spectrum or same-specimen multi-state validation case;
-2. complete bibliography verification;
-3. final figure generation from immutable data;
-4. journal-specific formatting and word limits;
-5. author, affiliation, declarations, and archive metadata;
-6. independent review of theorem wording and prior-art boundaries.
+1. complete bibliography and citation verification;
+2. a journal-specific decision on whether the qualified Dingrong source-table test is sufficient or a digitized calibrated spectrum is required;
+3. conversion of approved vector figures to the selected journal format;
+4. author, affiliation, CRediT, funding, conflict, data/code, and archive metadata;
+5. final independent review of the exact claim wording.
+
+A complete native-spectrum validation would strengthen the paper but is no longer represented as already available.
