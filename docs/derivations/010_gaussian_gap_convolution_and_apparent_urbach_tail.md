@@ -2,50 +2,50 @@
 
 ## 1. Objective
 
-This derivation asks whether a spatial or ensemble distribution of local band gaps can produce an absorption spectrum that looks exponential below the mean gap, and whether the resulting fitted tail energy uniquely identifies the underlying gap width.
+This derivation asks whether a distribution of local HgCdTe gaps can produce an absorption spectrum that appears exponential below the mean gap, and whether the fitted tail energy uniquely identifies the latent gap width.
 
-The answer is:
+The result is:
 
-1. yes, a Gaussian gap distribution can look highly exponential over a finite dynamic range;
-2. no, the apparent tail is not exactly exponential;
-3. the fitted tail energy depends on the fit window and intrinsic-edge model;
-4. therefore the inverse problem is not unique without additional information.
+1. a Gaussian gap distribution can look strongly exponential over a finite dynamic range;
+2. the convolved spectrum is not an exact exponential;
+3. the fitted tail energy depends on the absorption window and intrinsic edge;
+4. one fitted tail slope does not uniquely identify the latent gap width.
 
-The result is an observation-model statement. It does not identify the microscopic origin of the gap distribution.
+This is an observation-model statement. It does not identify the microscopic origin of the distribution.
 
-## 2. Controlled local absorption edge
+## 2. Controlled local edge
 
-Let the local gap be $G$. Consider the intrinsic-edge family
+Let the local gap be $G$. Use the declared intrinsic-edge family
 
 $$
 \alpha(E\mid G)=A(E-G)_+^p,
 $$
 
-with
+where
 
 $$
 (y)_+=\max(y,0),
 \qquad p\ge0.
 $$
 
-Important cases are:
+Useful controlled cases are:
 
 - $p=0$: ideal step edge;
 - $p=1/2$: parabolic square-root edge;
 - $p=1$: linear edge;
-- $p=2$: a steeper effective edge.
+- $p=2$: steeper effective edge.
 
-This family is an analytically controlled sensitivity basis. It does not replace the full Kane or Anderson-Herrmann expression.
+This family is an analytical sensitivity basis, not the complete Kane or Anderson-Herrmann absorption model.
 
-## 3. Gaussian local-gap distribution
+## 3. Gaussian gap distribution
 
-Write
+Assume
 
 $$
 G\sim\mathcal N(\mu_G,\sigma_G^2).
 $$
 
-The averaged absorption is
+The ensemble absorption is
 
 $$
 \bar\alpha(E)
@@ -57,15 +57,11 @@ A\int_{-\infty}^{E}
 \,dG.
 $$
 
-Introduce the standardized energy
+Define
 
 $$
-z=\frac{E-\mu_G}{\sigma_G}
-$$
-
-and the variable
-
-$$
+z=\frac{E-\mu_G}{\sigma_G},
+\qquad
 u=\frac{G-\mu_G}{\sigma_G}.
 $$
 
@@ -73,18 +69,15 @@ Then
 
 $$
 \boxed{
-\bar\alpha(E)
-=A\sigma_G^p F_p(z)
+\bar\alpha(E)=A\sigma_G^p F_p(z)
 }
 $$
 
-where
+with
 
 $$
-F_p(z)
-=
-\int_{-\infty}^{z}
-(z-u)^p\phi(u)\,du
+F_p(z)=
+\int_{-\infty}^{z}(z-u)^p\phi(u)\,du,
 $$
 
 and
@@ -93,9 +86,9 @@ $$
 \phi(u)=\frac{e^{-u^2/2}}{\sqrt{2\pi}}.
 $$
 
-The spectral shape is therefore scale invariant. Changing $\sigma_G$ stretches the energy axis and rescales the amplitude by $\sigma_G^p$.
+The shape is scale invariant: changing $\sigma_G$ stretches the energy axis and changes the amplitude by $\sigma_G^p$.
 
-## 4. Closed forms for integer exponents
+## 4. Closed forms
 
 Let
 
@@ -103,73 +96,56 @@ $$
 \Phi(z)=\int_{-\infty}^{z}\phi(u)\,du.
 $$
 
-### Step edge, $p=0$
+For $p=0$,
 
 $$
 F_0(z)=\Phi(z).
 $$
 
-### Linear edge, $p=1$
+For $p=1$,
 
 $$
-\boxed{
-F_1(z)=z\Phi(z)+\phi(z)
-}
+\boxed{F_1(z)=z\Phi(z)+\phi(z)},
 $$
 
 so
 
 $$
-\bar\alpha(E)
-=A\left[(E-\mu_G)\Phi(z)+\sigma_G\phi(z)\right].
+\bar\alpha(E)=A\left[(E-\mu_G)\Phi(z)+\sigma_G\phi(z)\right].
 $$
 
-### Quadratic edge, $p=2$
+For $p=2$,
 
 $$
-\boxed{
-F_2(z)
-=(z^2+1)\Phi(z)+z\phi(z)
-}
+\boxed{F_2(z)=(z^2+1)\Phi(z)+z\phi(z)},
 $$
 
 and
 
 $$
-\bar\alpha(E)
-=A\left[
+\bar\alpha(E)=A\left[
 ((E-\mu_G)^2+\sigma_G^2)\Phi(z)
 +(E-\mu_G)\sigma_G\phi(z)
 \right].
 $$
 
-These expressions provide exact regression tests for the numerical quadrature.
+These expressions are used as exact regression tests for the numerical operator.
 
-## 5. Why the tail looks exponential
+## 5. Why a Gaussian convolution looks exponential
 
-For $z\ll0$, the dominant contribution comes from local gaps near the photon energy. Set
-
-$$
-y=z-u\ge0.
-$$
-
-Then
+For $z\ll0$, set $y=z-u\ge0$. Then
 
 $$
-F_p(z)
-=
-\int_0^\infty y^p\phi(z-y)\,dy.
+F_p(z)=\int_0^\infty y^p\phi(z-y)\,dy.
 $$
 
-Using
+Since
 
 $$
-\phi(z-y)
-=
-\phi(z)\exp\left(zy-\frac{y^2}{2}\right)
+\phi(z-y)=\phi(z)\exp\left(zy-\frac{y^2}{2}\right),
 $$
 
-and expanding for large negative $z$, the leading term is
+the leading large-negative-$z$ behavior is
 
 $$
 \boxed{
@@ -178,36 +154,32 @@ F_p(z)
 \frac{\Gamma(p+1)}{\sqrt{2\pi}}
 \frac{e^{-z^2/2}}{(-z)^{p+1}}
 }
-\qquad(z\to-\infty).
+\qquad(z\rightarrow-\infty).
 $$
 
-Thus
+Therefore
 
 $$
 \ln\bar\alpha(E)
 \approx
-C
--\frac{z^2}{2}
--(p+1)\ln(-z).
+C-rac{z^2}{2}-(p+1)\ln(-z).
 $$
 
-Over a limited $z$ interval this curved function can be fitted extremely well by a straight line.
+This function is curved, but over a restricted interval it can be approximated very well by a straight line.
 
-## 6. The local apparent Urbach energy is not constant
+## 6. The effective tail energy varies with energy
 
-Define the local log-slope
+Define the local logarithmic slope
 
 $$
 S(E)=\frac{d\ln\bar\alpha}{dE}.
 $$
 
-An exact exponential would have
+An exact Urbach law would have constant
 
 $$
-S(E)=\frac{1}{W}
+S(E)=\frac{1}{W}.
 $$
-
-with constant $W$.
 
 From the asymptotic form,
 
@@ -215,27 +187,24 @@ $$
 S(E)
 \approx
 \frac{1}{\sigma_G}
-\left[
--z-\frac{p+1}{z}
-\right].
+\left[-z-\frac{p+1}{z}\right].
 $$
 
-Therefore the local effective tail energy is
+Hence
 
 $$
 \boxed{
 W_{\mathrm{eff}}(E)
 \approx
-\frac{\sigma_G}
-{-z-(p+1)/z}
-}
+\frac{\sigma_G}{-z-(p+1)/z}
+}.
 $$
 
-and varies with photon energy. The Gaussian convolution is not an Urbach law even when a finite-range log-linear fit has $R^2$ close to one.
+The apparent local tail energy changes with photon energy. A finite-window $R^2$ near one is not evidence that the underlying spectrum has a constant Urbach slope.
 
-## 7. Herrmann source convention
+## 7. Herrmann convention
 
-Herrmann et al. (1992) use
+Herrmann et al. 1992 write their Eq. (8) as
 
 $$
 P(G)=
@@ -246,32 +215,52 @@ $$
 Comparison with the standard Gaussian gives
 
 $$
-\boxed{
-\sigma_G=\sqrt{2}\,s
-}.
+\boxed{\sigma_G=\sqrt{2}\,s}.
 $$
 
-The paper reports that convolution with its intrinsic branch gives a nearly exponential tail in the `1-100 cm^-1` range with
+They state that convolution with their intrinsic branch gives a nearly exponential tail over `1-100 cm^-1`, with
 
 $$
 W\approx\frac{s}{2}.
 $$
 
-## 8. Controlled reproduction
+## 8. Numerical method
 
-The repository normalizes the distributed absorption to
+The thresholded local edge has a moving nonanalytic point at $G=E$. Integrating the thresholded function on one fixed global node grid gives slow and irregular convergence in the deep tail.
+
+The implemented operator instead evaluates
+
+$$
+\bar\alpha(E)
+=A\int_{G_{\min}}^{\min(E,G_{\max})}
+(E-G)^p P(G)\,dG
+$$
+
+and maps Gauss-Legendre nodes separately for every photon energy. The integrand is smooth on each mapped interval.
+
+For the tested square-root tail:
+
+```text
+maximum relative change, order 256 -> 512 = 5.78e-7
+```
+
+The $p=1$ and $p=2$ branches agree with their closed forms at approximately `1e-10` and `1e-9` relative tolerance, respectively.
+
+## 9. Source-aligned reproduction
+
+Declare
 
 $$
 \bar\alpha(\mu_G)=1000\ \mathrm{cm^{-1}}
 $$
 
-and fits
+and fit
 
 $$
 \ln\bar\alpha(E)=a+\frac{E}{W_{\mathrm{fit}}}
 $$
 
-for
+only where
 
 $$
 1\le\bar\alpha\le100\ \mathrm{cm^{-1}}.
@@ -280,55 +269,56 @@ $$
 For $p=1/2$,
 
 $$
-\boxed{
-\frac{W_{\mathrm{fit}}}{s}=0.50474
-}
+\boxed{\frac{W_{\mathrm{fit}}}{s}=0.50504},
 $$
 
 with
 
 $$
-R^2=0.99566.
+R^2=0.99570.
 $$
 
-This independently reproduces the reported approximately-$s/2$ scale.
+Thus the controlled square-root calculation independently reproduces the source scale $W\approx s/2$.
 
-## 9. Fit-window non-uniqueness
+For `s=8 meV`,
 
-For the same $p=1/2$ spectrum:
+$$
+W_{\mathrm{fit}}=4.040\ \mathrm{meV}.
+$$
+
+## 10. Fit-window dependence
+
+For the same square-root spectrum:
 
 | fit window ($\mathrm{cm^{-1}}$) | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---|---:|---:|
-| 0.1-100 | 0.46075 | 0.99307 |
-| 1-100 | 0.50474 | 0.99566 |
-| 10-100 | 0.56808 | 0.99828 |
-| 10-500 | 0.66850 | 0.99188 |
-| 100-500 | 0.80860 | 0.99734 |
+| 0.1-100 | 0.46096 | 0.99307 |
+| 1-100 | 0.50504 | 0.99570 |
+| 10-100 | 0.56806 | 0.99836 |
+| 10-500 | 0.66828 | 0.99190 |
+| 100-500 | 0.80871 | 0.99738 |
 
-The source window and upper window differ by
+Moving from `1-100` to `100-500 cm^-1` changes the fitted energy by
 
 $$
-\frac{0.80860}{0.50474}-1
-=0.602.
+\frac{0.80871}{0.50504}-1=0.601.
 $$
 
-Therefore a `60.2%` change in the inferred tail energy can be produced solely by changing the fit window, even though both fits have $R^2>0.995$.
+Thus the inferred tail energy rises by `60.1%` solely because the observation window changes, even though both fits have $R^2>0.995$.
 
-## 10. Intrinsic-edge non-uniqueness
+## 11. Intrinsic-edge dependence
 
-Using the same source window:
+Over `1-100 cm^-1`:
 
-| $p$ | $W_{\mathrm{fit}}/s$ | $R^2$ |
+| exponent $p$ | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---:|---:|---:|
-| 0.5 | 0.50474 | 0.99566 |
-| 1.0 | 0.50014 | 0.99620 |
+| 0.5 | 0.50504 | 0.99570 |
+| 1.0 | 0.50000 | 0.99620 |
 | 2.0 | 0.48375 | 0.99712 |
 
-Substantially different intrinsic edges produce nearly indistinguishable exponential-looking tails. The total spread in $W_{\mathrm{fit}}/s$ is only about `4.2%` of the maximum value.
+Substantially different intrinsic edges produce similarly strong exponential-looking tails. The source-window slope changes by only approximately `4.2%` of the largest ratio.
 
-Thus the tail fit alone weakly constrains $p$.
-
-## 11. Inverse problem
+## 12. Inverse problem
 
 Suppose an experiment reports
 
@@ -336,24 +326,22 @@ $$
 W_{\mathrm{fit}}=4\ \mathrm{meV}.
 $$
 
-Within only the declared exponent and fit-window family,
+Within the declared exponent and fit-window family,
 
 $$
 0.31594
 \le
 \frac{W_{\mathrm{fit}}}{\sigma_G}
 \le
-0.57177.
+0.57184.
 $$
 
 Therefore
 
 $$
 \boxed{
-6.996\ \mathrm{meV}
-\le
-\sigma_G
-\le
+6.995\ \mathrm{meV}
+\le\sigma_G\le
 12.661\ \mathrm{meV}
 }
 $$
@@ -362,50 +350,42 @@ and
 
 $$
 \boxed{
-4.947\ \mathrm{meV}
-\le
-s
-\le
+4.946\ \mathrm{meV}
+\le s\le
 8.952\ \mathrm{meV}
 }.
 $$
 
-The inferred width spans a factor of
+The inferred width spans a factor of `1.81` before adding carrier filling, phonons, shallow levels, excitons, optical inversion, or instrumental response.
 
-$$
-1.81.
-$$
+## 13. Identifiability conclusion
 
-This is before including uncertainties from carrier filling, temperature-dependent phonon broadening, shallow levels, excitons, optical inversion, or instrument response.
-
-## 12. Identifiability statement
-
-A measured exponential tail supplies a slope over a selected range. The latent model contains at least:
+A fitted tail supplies one slope over one declared range. The latent observation model contains at least:
 
 - gap-distribution width;
-- intrinsic-edge exponent or band structure;
-- amplitude normalization;
-- fit range;
+- intrinsic-edge structure;
+- normalization;
+- fit window;
 - carrier state;
 - temperature-dependent broadening;
-- defect and shallow-level contributions;
-- instrument and thickness response.
+- shallow-level and defect contributions;
+- optical and instrumental transfer.
 
-One scalar fitted tail energy cannot identify all of these quantities.
+One fitted scalar cannot identify all of these quantities.
 
-The valid statement is therefore:
+The controlling statement is:
 
 > A Gaussian gap distribution can be consistent with an Urbach-like tail, but an Urbach-like tail does not uniquely identify a Gaussian gap distribution or its width.
 
-## 13. Falsification and escalation tests
+## 14. Falsification and escalation gates
 
 The controlled operator should be rejected or extended if:
 
-1. calibrated data show systematic curvature incompatible with every declared $p$;
-2. the fitted $W$ is stable under broad fit-window changes but the Gaussian model predicts strong variation;
-3. independently constrained above-gap dispersion cannot reproduce the below-gap spectrum for any $\sigma_G$;
-4. carrier-density variation changes the tail in a way requiring explicit band filling;
-5. temperature dependence cannot be decomposed into permanent and dynamic components;
+1. calibrated data show curvature incompatible with every declared $p$;
+2. measured $W$ remains stable under broad fit-window changes when the Gaussian model predicts substantial variation;
+3. independently constrained above-gap dispersion cannot reproduce the tail for any $\sigma_G$;
+4. carrier-density variation requires explicit band filling;
+5. temperature dependence cannot be separated into permanent and dynamic components;
 6. shallow-level or excitonic features are spectrally resolved.
 
-Only after one of these tests identifies a decision-changing deficiency should the program activate the complete Anderson/Herrmann or atomistic disorder branch.
+Only a decision-changing failure justifies activation of the complete Anderson-Herrmann, carrier-filled, or atomistic-disorder branch.
