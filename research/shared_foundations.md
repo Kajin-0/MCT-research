@@ -60,6 +60,7 @@ src/mct_research/spatial_disorder_cutoff.py
 src/mct_research/spatial_disorder_design.py
 src/mct_research/spatial_disorder_calibration.py
 src/mct_research/spatial_disorder_covariance_families.py
+src/mct_research/spatial_disorder_posterior.py
 ```
 
 Primary users:
@@ -68,11 +69,13 @@ Primary users:
 - distributional band-edge observables;
 - future mapped-detector and multiscale experimental-design studies.
 
-The general filtering, Fisher/Schur, Matérn, and reciprocal-linearity mathematics are established. Application-specific claims require explicit HgCdTe observables, kernels, calibration assumptions, operation order, and validation.
+The general filtering, Fisher/Schur, Matérn, reciprocal-linearity, posterior-convolution, and cumulant mathematics are established. Application-specific claims require explicit HgCdTe observables, kernels, calibration assumptions, prior support, operation order, and validation.
 
 The calibration layer quantifies common, independent, and correlated probe-log nuisance modes without changing the existing Gaussian prediction or Fisher definitions.
 
 The covariance-family layer adds half-integer Matérn alternatives and tests the exact Gaussian reciprocal-linearity condition. It does not identify a specimen covariance family or convert a low lack-of-fit residual into proof of Gaussian covariance.
+
+The posterior layer propagates an independent common scale calibration through the full nonlinear relative-length posterior. Its exact factorization requires scale dependence through the ratio `s/xi` and translation-invariant or effectively broad absolute log-length support. The direct bounded-prior diagnostic must be used when that support assumption is questionable.
 
 ### Kane, symmetry, and matrix projection
 
