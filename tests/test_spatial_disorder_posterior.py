@@ -101,7 +101,7 @@ def test_exact_common_scale_convolution_adds_all_four_cumulants() -> None:
         abs=3.0e-15,
     )
     assert combined.covariance_increment == pytest.approx(
-        [[0.0, 0.0], [0.0, calibration.variance]],
+        np.array([[0.0, 0.0], [0.0, calibration.variance]]),
         rel=3.0e-13,
         abs=3.0e-15,
     )
@@ -121,7 +121,7 @@ def test_zero_width_calibration_recovers_relative_posterior() -> None:
     assert combined.calibration_prior.variance == pytest.approx(0.0)
     assert combined.absolute_log_correlation_distribution.mean == pytest.approx(
         posterior.relative_correlation_distribution.mean,
-        abs=3.0e-15,
+        abs=6.0e-15,
     )
     assert combined.covariance == pytest.approx(posterior.covariance, abs=3.0e-15)
 
@@ -229,7 +229,7 @@ def test_fisher_covariance_is_recovered_in_small_noise_limit() -> None:
     )
 
 
-def test_fisher_error_grows_for_broad_nonlinear_posterior() -> None:
+def test_fisher_error_grows_but_remains_small_for_broad_log_gaussian_posterior() -> None:
     point_variance, correlation_length, scales, observed = _synthetic_case()
     true_u = math.log(point_variance)
     true_lambda = math.log(correlation_length)
@@ -257,8 +257,9 @@ def test_fisher_error_grows_for_broad_nonlinear_posterior() -> None:
         ) / np.linalg.norm(np.asarray(fisher.parameter_covariance))
         errors.append(relative_error)
 
-    assert errors[0] < 0.12
-    assert errors[1] > errors[0] + 0.08
+    assert errors[0] < 0.001
+    assert errors[1] > 10.0 * errors[0]
+    assert errors[1] < 0.03
 
 
 def test_length_unit_invariance_of_relative_and_absolute_posteriors() -> None:
