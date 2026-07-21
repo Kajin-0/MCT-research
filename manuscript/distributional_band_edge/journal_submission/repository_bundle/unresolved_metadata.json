@@ -1,0 +1,14 @@
+{
+  "archive_doi_issued": false,
+  "schema_version": "1.0",
+  "submission_ready": false,
+  "unresolved": [
+    "correspondence email",
+    "ORCID if available",
+    "full postal address",
+    "telephone number if requested by the submission system",
+    "final funding statement",
+    "issued archive DOI",
+    "suggested reviewers and exclusions"
+  ]
+}
