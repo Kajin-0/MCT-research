@@ -35,6 +35,10 @@ jobs:
             tests/test_spatial_disorder_covariance_families.py \
             tests/test_spatial_disorder_posterior.py \
             2>&1 | tee spatial-disorder-diagnostics/pytest.txt
+      - name: Generate nonlinear posterior reference
+        run: |
+          python -m tools.build_nonlinear_common_scale_posterior_reference \
+            --output spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
       - name: Validate immutable references
         run: |
           python - <<'PY'
