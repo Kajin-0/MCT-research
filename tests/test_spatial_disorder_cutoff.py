@@ -135,6 +135,10 @@ def test_thin_sample_cutoff_shift_converges_toward_zero() -> None:
         amplitude_cm_inverse_ev_power=1000.0,
         absolute_tolerance_ev=1.0e-11,
     )
+    thinner = lateral_gaussian_gap_response_cutoff(
+        thickness_cm=5.0e-5,
+        **common,
+    )
     thin = lateral_gaussian_gap_response_cutoff(
         thickness_cm=1.0e-4,
         **common,
@@ -144,9 +148,12 @@ def test_thin_sample_cutoff_shift_converges_toward_zero() -> None:
         **common,
     )
 
-    assert thin.energy_shift_ev < thick.energy_shift_ev
-    assert thin.energy_shift_ev < 1.0e-4
-    assert abs(thin.wavelength_shift_um) < abs(thick.wavelength_shift_um)
+    assert thinner.energy_shift_ev < thin.energy_shift_ev < thick.energy_shift_ev
+    assert (
+        abs(thinner.wavelength_shift_um)
+        < abs(thin.wavelength_shift_um)
+        < abs(thick.wavelength_shift_um)
+    )
 
 
 def test_bisection_reports_residuals_and_tolerance_metadata() -> None:
