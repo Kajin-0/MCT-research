@@ -8,6 +8,10 @@
     "title": "Chang multi-thickness / cutoff validation",
     "score": 24,
     "readiness": "ready_after_retrieval",
+    "source_keys": [
+      "chang2007_nonparabolic_urbach",
+      "chang2006_near_edge_absorption"
+    ],
     "source_dois": [
       "10.1007/s11664-007-0162-0",
       "10.1063/1.2245220"
