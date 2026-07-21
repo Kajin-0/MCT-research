@@ -170,6 +170,11 @@ from .symmetry import (
     time_reversal_pair_residual,
     time_reversal_pair_symmetrize,
 )
+from .unified_spectrum import (
+    UnifiedSpectrumJacobianDiagnostics,
+    unified_response_spectrum,
+    unified_spectrum_jacobian,
+)
 
 __all__ = [
     "ABSORPTION_EDGE_CONTRACT_VERSION",
@@ -217,6 +222,7 @@ __all__ = [
     "ResidualMetrics",
     "ResponseCutoff",
     "SCHEMA_VERSION",
+    "UnifiedSpectrumJacobianDiagnostics",
     "absorption_for_target_response_cm_inverse",
     "align_basis",
     "analyze_absorption_edge_contract",
@@ -306,6 +312,8 @@ __all__ = [
     "time_reversal_pair_symmetrize",
     "time_reversal_residual",
     "time_reversal_residual_two_p",
+    "unified_response_spectrum",
+    "unified_spectrum_jacobian",
     "urbach_tail_cutoff_energy_ev",
     "urbach_thickness_shift_ev",
 ]
