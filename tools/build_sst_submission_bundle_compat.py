@@ -13,17 +13,22 @@ entry point:
 - preserve accented author names while converting unsupported Unicode relation
   symbols in prose to portable text equivalents;
 - normalize two known inline-delimiter defects in the controlled Markdown;
-- render inverse angstroms with a math-safe ring accent.
+- render inverse angstroms with a math-safe ring accent;
+- keep source-only archives byte deterministic by packaging the immutable SVG
+  figures directly instead of invoking a PDF converter that writes metadata.
 """
 from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
+import shutil
 
 from tools import build_sst_submission_bundle as core
 
 _ORIGINAL_PREAMBLE = core._preamble
 _ORIGINAL_MARKDOWN_TO_LATEX = core._markdown_to_latex
+_ORIGINAL_CONVERT_FIGURES = core._convert_figures
 
 
 def _portable_preamble(*, title: str, author_block: str, pdf_author: str) -> str:
@@ -83,9 +88,33 @@ def _portable_markdown_to_latex(markdown: str) -> str:
     return _ORIGINAL_MARKDOWN_TO_LATEX(markdown)
 
 
+def _portable_convert_figures(
+    asset_dir: Path,
+    figure_dir: Path,
+    *,
+    require_tools: bool,
+) -> list[Path]:
+    if require_tools:
+        return _ORIGINAL_CONVERT_FIGURES(
+            asset_dir,
+            figure_dir,
+            require_tools=True,
+        )
+
+    figure_dir.mkdir(parents=True, exist_ok=True)
+    copied: list[Path] = []
+    for svg_name in core.FIGURE_FILES:
+        source = asset_dir / svg_name
+        target = figure_dir / svg_name
+        shutil.copyfile(source, target)
+        copied.append(target)
+    return copied
+
+
 core._preamble = _portable_preamble
 core._normalize_unicode = _portable_unicode
 core._markdown_to_latex = _portable_markdown_to_latex
+core._convert_figures = _portable_convert_figures
 build = core.build
 
 
