@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kajin-0/MCT-research/data/templates/chang_thickness_validation_dataset.schema.json",
+  "title": "Chang thickness-pair validation dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "source_doi",
+    "source_version",
+    "specimen_state_id",
+    "common_material_state",
+    "composition",
+    "temperature_k",
+    "carrier_state",
+    "response_criterion",
+    "cutoffs",
+    "cutoff_energy_covariance_ev2",
+    "provenance",
+    "external_material_validation_authorized"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_doi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_version": {
+      "type": "string",
+      "enum": [
+        "publisher_pdf",
+        "author_manuscript",
+        "preprint",
+        "supplement",
+        "native_data",
+        "auditable_digitization"
+      ]
+    },
+    "specimen_state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "common_material_state": {
+      "type": "boolean"
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "uncertainty", "method"],
+      "properties": {
+        "value": {"type": ["number", "null"], "minimum": 0.0, "maximum": 1.0},
+        "uncertainty": {"type": ["number", "null"], "minimum": 0.0},
+        "method": {"type": ["string", "null"]}
+      }
+    },
+    "temperature_k": {
+      "type": "number",
+      "exclusiveMinimum": 0.0
+    },
+    "carrier_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "density_cm3", "density_uncertainty_cm3", "method"],
+      "properties": {
+        "type": {"type": "string", "enum": ["n", "p", "intrinsic", "unknown"]},
+        "density_cm3": {"type": ["number", "null"], "minimum": 0.0},
+        "density_uncertainty_cm3": {"type": ["number", "null"], "minimum": 0.0},
+        "method": {"type": ["string", "null"]}
+      }
+    },
+    "response_criterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "value", "definition"],
+      "properties": {
+        "kind": {"type": "string", "enum": ["single_pass_absorptance", "detector_response", "other"]},
+        "value": {"type": "number", "exclusiveMinimum": 0.0, "exclusiveMaximum": 1.0},
+        "definition": {"type": "string", "minLength": 1}
+      }
+    },
+    "cutoffs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "measurement_id",
+          "effective_thickness_um",
+          "effective_thickness_uncertainty_um",
+          "physical_thickness_um",
+          "cutoff_energy_ev",
+          "cutoff_energy_uncertainty_ev",
+          "cutoff_wavelength_um",
+          "branch",
+          "source_location",
+          "calibration_provenance"
+        ],
+        "properties": {
+          "measurement_id": {"type": "string", "minLength": 1},
+          "effective_thickness_um": {"type": "number", "exclusiveMinimum": 0.0},
+          "effective_thickness_uncertainty_um": {"type": "number", "minimum": 0.0},
+          "physical_thickness_um": {"type": ["number", "null"], "exclusiveMinimum": 0.0},
+          "cutoff_energy_ev": {"type": "number", "exclusiveMinimum": 0.0},
+          "cutoff_energy_uncertainty_ev": {"type": "number", "minimum": 0.0},
+          "cutoff_wavelength_um": {"type": ["number", "null"], "exclusiveMinimum": 0.0},
+          "branch": {"type": "string", "enum": ["tail", "intrinsic", "unknown"]},
+          "source_location": {"type": "string", "minLength": 1},
+          "calibration_provenance": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "cutoff_energy_covariance_ev2": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "items": {"type": "number"}
+      }
+    },
+    "tail_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["W_ev", "W_uncertainty_ev", "b_ev", "amplitude", "ownership"],
+      "properties": {
+        "W_ev": {"type": ["number", "null"], "exclusiveMinimum": 0.0},
+        "W_uncertainty_ev": {"type": ["number", "null"], "minimum": 0.0},
+        "b_ev": {"type": ["number", "null"], "exclusiveMinimum": 0.0},
+        "amplitude": {"type": ["number", "null"], "exclusiveMinimum": 0.0},
+        "ownership": {"type": "string", "minLength": 1}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_figure_or_table", "digitization_record", "notes"],
+      "properties": {
+        "source_figure_or_table": {"type": "string", "minLength": 1},
+        "digitization_record": {"type": ["string", "null"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "external_material_validation_authorized": {
+      "const": false
+    }
+  }
+}
