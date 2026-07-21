@@ -40,8 +40,9 @@ This file records claim-level evidence. Entries must distinguish what a source a
 
 ### L003 — Temperature-driven bulk Kane fermions
 
-- **Citation:** F. Teppe et al., “Temperature-driven massless Kane fermions in HgCdTe crystals: verification of universal velocity and rest-mass description,” arXiv:1602.05999.
-- **URL:** https://arxiv.org/abs/1602.05999
+- **Citation:** F. Teppe et al., “Temperature-driven massless Kane fermions in HgCdTe crystals,” *Nature Communications* 7, 12576 (2016).
+- **DOI:** https://doi.org/10.1038/ncomms12576
+- **Preprint:** https://arxiv.org/abs/1602.05999
 - **Type:** `E`, `M`
 - **Reported result relevant to this project:** the gap changes sign while the characteristic Kane velocity is reported as approximately
 
@@ -50,9 +51,9 @@ This file records claim-level evidence. Entries must distinguish what a source a
   $$
 
   over the investigated composition and temperature range.
-- **What it supports:** the hypothesis that temperature changes the Kane mass primarily through $E_g$ rather than a large change in $v_K$.
-- **What it does not establish:** that $P$ is exactly temperature independent, or that this remains true over the entire alloy range.
-- **Project use:** independent validation observable and falsification target.
+- **What it supports:** a temperature-driven near-critical magneto-optical target and the hypothesis that temperature changes the Kane mass primarily through $E_g$ rather than a large change in $v_K$.
+- **What it does not establish:** exact temperature independence of $P$, an exact specimen-level composition distribution, or a bulk topological invariant derived from local gap-sign statistics.
+- **Project use:** near-critical validation observable, transition-width sensitivity target, and falsification test for the constant-velocity null.
 
 ### L004 — Generalized AHC including wavefunction renormalization
 
@@ -136,25 +137,96 @@ This file records claim-level evidence. Entries must distinguish what a source a
 - **Project use:** direct precedent for a two-implementation CdTe verification stage and for requiring momentum-dependent Debye–Waller contributions when extracting $F$ and $\gamma_i$.
 - **What it does not establish:** the HgTe/HgCdTe finite-temperature Kane projection proposed here.
 
+## Distributional band-edge sources
+
+### L013 — Alloy-fluctuation contribution to HgCdTe bowing
+
+- **Citation:** S. Wu, “On the Energy Bandgap Bowing in $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$,” *Solid State Communications* 48, 747–749 (1983).
+- **DOI:** https://doi.org/10.1016/0038-1098(83)91009-8
+- **Type:** `T`, `M`
+- **Material:** bulk HgCdTe over the alloy range.
+- **What it supports:** a second-order empirical-pseudopotential treatment in which cation and anion alloy-fluctuation potentials contribute to bowing beyond the virtual-crystal mean; the composition trend is linked to band mixing and the inverted-to-normal band evolution.
+- **What it does not support:** a specimen-specific local-gap probability distribution, a modern transferable disorder width, or an optical observation operator.
+- **Project use:** microscopic motivation and prior-art boundary for the F1 disorder layer.
+
+### L014 — Degenerate carrier-filled absorption
+
+- **Citation:** Qian Dingrong, Tang Wenguo, Shen Jie, Chu Junhao, and Zheng Guozhen, “Infrared Absorption in In-Doped Degenerate $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$,” *Solid State Communications* 56, 813–816 (1985).
+- **DOI:** https://doi.org/10.1016/0038-1098(85)90315-1
+- **Type:** `E`, `M`
+- **Material and state:** nominal $x=0.19$, $n\simeq7.0\times10^{17}\ \mathrm{cm^{-3}}$, 77–300 K.
+- **What it supports:** a high-density regime in which Burstein–Moss filling and free-carrier absorption materially alter the optical spectrum; two-mode optical-phonon behavior enters the below-gap model.
+- **What it does not support:** a universal carrier correction or an observation-independent latent gap.
+- **Project use:** high-density validation target for the F2 carrier branch and contrast with Chang's low-density regime.
+
+### L015 — Multimodal broadening and Gaussian-gap convolution
+
+- **Citation:** K. H. Herrmann, K.-P. Möllmann, and J. W. Tomm, “Broadening Mechanisms Near the $E_0$ Transition in Narrow-Gap $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$ ($0.2<x<0.6$),” *Journal of Crystal Growth* 117, 758–762 (1992).
+- **DOI:** https://doi.org/10.1016/0022-0248(92)90851-9
+- **Type:** `E`, `M`
+- **What it supports:** a common semi-empirical treatment of transmittance, photoconductivity, and luminescence; an approximately exponential below-gap tail; and the result that convolving an intrinsic response with a Gaussian-like gap distribution produces a near-exponential tail over a relevant absorption range.
+- **What it distinguishes:** permanent alloy/gap-fluctuation broadening, temperature-dependent broadening, excitonic behavior, and shallow-level contributions.
+- **What it does not support:** a unique inversion from Urbach energy to composition variance or a complete currently executable operator without the external Anderson and band-filling definitions.
+- **Project use:** primary test of averaging/operator noncommutation and cross-modal forward modeling.
+
+### L016 — Nonparabolic Kane absorption, Urbach tail, and thickness-dependent cutoff
+
+- **Citation:** Y. Chang et al., “Absorption of Narrow-Gap HgCdTe Near the Band Edge Including Nonparabolicity and the Urbach Tail,” *Journal of Electronic Materials* 36, 1000–1006 (2007).
+- **DOI:** https://doi.org/10.1007/s11664-007-0162-0
+- **Type:** `E`, `M`
+- **Material and state:** high-quality MBE LWIR HgCdTe, primarily $x\simeq0.21$–0.23 near 77 K, low-$10^{15}\ \mathrm{cm^{-3}}$ n-type doping.
+- **What it supports:** a source-bounded nonparabolic conduction/light-hole plus heavy-hole absorption model connected to an Urbach tail; same-location transmissivity and photoconductivity; and an explicit dependence of detector 50% cutoff on effective absorber thickness.
+- **What it does not support:** unrestricted transfer of one specimen's $W$, $b$, or cutoff relation, or treatment of detector cutoff as a direct material gap.
+- **Project use:** F3 intrinsic/tail operator, F4 geometry response, and low-density carrier limit.
+
+### L017 — Processing-conditioned PL localization and inferred disorder
+
+- **Citation:** V. I. Ivanov-Omskii et al., “Study of Alloy Disorder in (Hg,Cd)Te with the Use of Infrared Photoluminescence,” *Physica B* 404, 5035–5037 (2009).
+- **DOI:** https://doi.org/10.1016/j.physb.2009.08.210
+- **Type:** `E`, `M`
+- **Material and state:** MBE $x=0.38$ and $x=0.57$ specimens, as-grown and annealed in Hg vapor or He, 4.2–300 K.
+- **What it supports:** processing-conditioned PL red shifts, line widths, and model-inferred fluctuation measures; annealing substantially changes these observables.
+- **Important numerical record:** for $x=0.38$, inferred fluctuation measures are 17, 13, and 14 meV with FWHM 18, 10, and 14 meV; for $x=0.57$, the corresponding values are 90, 60, and 60 meV with FWHM 30, 16, and 18 meV.
+- **What it does not support:** direct identification of the inferred parameter with $\sigma_x$, or attribution of every annealing change solely to alloy homogenization.
+- **Project use:** processing-state and PL-operator validation; falsification target for a one-width model.
+
+### L018 — Disorder-induced topological transition prior art
+
+- **Citation:** S. S. Krishtopenko, M. Antezza, and F. Teppe, “Disorder-induced topological phase transition in HgCdTe crystals,” *Physical Review B* 106, 115203 (2022).
+- **DOI:** https://doi.org/10.1103/PhysRevB.106.115203
+- **Type:** `T`, `M`
+- **What it supports:** microscopic prior art that random impurities and Cd-composition fluctuations can renormalize the Kane mass and shift or induce the normal/inverted transition within a self-consistent Born framework.
+- **What it does not support:** direct equivalence between the SCBA disorder parameter, macroscopic composition uncertainty, optical Urbach energy, or local Gaussian sign probability.
+- **Project use:** novelty boundary for any transition-broadening claim and possible higher-cost F3/F5 escalation only after the low-cost observable model establishes need.
+
 ## Prior-art questions requiring targeted search
 
 1. Has a full Fan + Debye–Waller calculation already been performed for bulk HgTe, CdTe, or HgCdTe?
 2. Has any HgCdTe calculation used nonadiabatic AHC with spinor wavefunctions?
 3. Has an electron–phonon self-energy been explicitly downfolded into an 8-band Kane Hamiltonian for HgCdTe?
 4. Are finite-temperature values of $P$, $F$, or $\gamma_i$ available from experiment or first principles?
-5. Has random-alloy broadening near the normal/inverted transition been treated through a spectral function rather than a scalar bowing equation?
+5. Has random-alloy broadening near the normal/inverted transition been linked quantitatively to modality-specific apparent transition widths rather than only a spectral or topological phase boundary?
 6. Have published analytical equations separated constant-volume electron–phonon and quasiharmonic contributions?
 7. Which historical datasets underlie the coefficients and claimed accuracy of the Hansen equation?
 8. Which available code path supplies a complete, nonadiabatic, spinor Fan + Debye–Waller matrix self-energy for HgTe without a diagonal or Luttinger approximation?
+9. Can Herrmann's Gaussian-gap convolution be reconstructed with all source-specific Anderson and band-filling definitions?
+10. Are source-native Chang spectra and same-specimen $W$, $b$, thickness, carrier density, and covariance available?
+11. Can one latent specimen-state model jointly predict PL displacement and FWHM across the Ivanov-Omskii annealing conditions?
+12. Which studies report spatial composition variance and correlation length independently of an optical bandgap equation?
 
 ## Evidence table for current hypotheses
 
 | Hypothesis | Supporting source | Contradicting source | Status |
 |---|---|---|---|
-| $|\Delta v_K/v_K|\ll|\Delta E_g/E_g|$ | L003 | none entered | plausible; unproved |
+| $|\Delta v_K/v_K|\ll|\Delta E_g/E_g|$ | L003 | none entered | plausible; unproved outside the investigated regime |
 | Low-temperature gap should deviate from exact linearity | L004, L005, L007, L010 establish nontrivial phonon occupation and convergence physics generally | HgCdTe-specific evidence pending | theoretical expectation |
 | Standard one-$P$ Kane model may not be closed under temperature renormalization | L004 permits matrix/wavefunction renormalization | no HgCdTe calculation entered | open |
-| Disorder may broaden the zero-gap transition | L006 establishes atomistic alloy treatment precedent | quantitative broadening source pending | open |
+| Disorder may broaden or shift the zero-gap transition | L003, L013, L018 | direct specimen-resolved transition-width data pending | established mechanism; observable mapping open |
+| A composition distribution can bias the mean gap and broaden local gap signs | second-order propagation in derivation 008 | non-Gaussian/spatially correlated data may invalidate the approximation | numerically checked low-cost result |
+| An apparent exponential tail can arise from gap-distribution convolution | L015 | shallow levels, phonons, and other mechanisms also contribute | established non-unique mechanism |
+| Carrier filling can move the reported optical edge | L014, L016 | low-density regimes may have negligible shift | established regime dependence |
+| Detector cutoff is geometry-dependent rather than a direct scalar gap | L016 | none entered | established within source model |
+| One width parameter may not explain PL displacement and FWHM | L017 | quantitative joint fit pending | strong empirical warning |
 | Momentum-dependent Debye–Waller terms may renormalize effective masses and quadratic Kane parameters | L012 | HgCdTe-specific calculation pending | strong general-method evidence |
 | Raw eigenvalue ordering is insufficient for stable Kane-state tracking | L008, L009 | none entered | established gauge/subspace principle |
 

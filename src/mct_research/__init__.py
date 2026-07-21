@@ -58,6 +58,11 @@ from .dataio import (
     load_matrix_dataset,
     save_matrix_dataset,
 )
+from .distributional_gap import (
+    DistributionalGapApproximation,
+    gaussian_opposite_sign_fraction,
+    linearized_composition_gap_statistics,
+)
 from .gap_models import (
     HANSEN_PADE_ALPHA_EV_PER_K,
     HANSEN_PADE_TAU_K,
@@ -144,6 +149,7 @@ __all__ = [
     "CompositionHoldoutFold",
     "CompositionUncertaintySpec",
     "CrossValidationResult",
+    "DistributionalGapApproximation",
     "ExportDefaults",
     "ExportFormatError",
     "ExtendedKaneParameters",
@@ -196,6 +202,7 @@ __all__ = [
     "forbidden_gamma_coupling_norm",
     "gamma_irrep_residual",
     "gamma_irrep_symmetrize",
+    "gaussian_opposite_sign_fraction",
     "hamiltonian",
     "hamiltonian_two_p",
     "hansen_gap_ev",
@@ -212,6 +219,7 @@ __all__ = [
     "leave_one_group_out",
     "leave_one_source_out",
     "legacy_covariance_to_hermitian",
+    "linearized_composition_gap_statistics",
     "load_jsonl_matrix_export",
     "load_matrix_dataset",
     "load_netcdf_matrix_export",

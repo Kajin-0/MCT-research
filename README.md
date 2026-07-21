@@ -1,180 +1,207 @@
 # MCT Research
 
-A private, hypothesis-driven research program for developing stronger analytical models of $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$ (MCT), with an initial focus on the composition- and temperature-dependent bandgap.
+A hypothesis-driven, reproducible research program for the electronic structure and measurable band-edge observables of $\mathrm{Hg}_{1-x}\mathrm{Cd}_x\mathrm{Te}$ (HgCdTe/MCT).
 
-## Objective
+## Active scientific objective
 
-Develop an analytical successor to purely empirical bandgap equations by connecting:
+The repository now develops a **distributional, observation-aware theory of HgCdTe band-edge measurements**.
 
-1. relativistic electronic structure,
-2. alloy disorder,
-3. electron–phonon renormalization,
-4. thermal expansion,
-5. the 8-band Kane model,
-6. and experimentally measurable optical and magneto-optical observables.
-
-The intended output is not merely another polynomial fit. The target is a compact, uncertainty-aware analytical model whose terms have identifiable physical origins and whose predictive performance can be tested against held-out data.
-
-## Scientific status
-
-This repository is exploratory research. A derivation, conjecture, or numerical result is **not treated as novel or correct merely because it appears here**. Claims advance through the following states:
-
-- `conjecture`
-- `derived`
-- `numerically checked`
-- `experimentally benchmarked`
-- `literature-audited`
-- `candidate novel result`
-
-No novelty claim should be made until both a systematic literature audit and an independent reproducibility check are complete.
-
-## Core research question
-
-Can the signed bulk gap
+The central question is not only
 
 $$
-E_g(x,T)=E_{\Gamma_6}(x,T)-E_{\Gamma_8}(x,T)
+E_g=E_g(x,T),
 $$
 
-be replaced by a physics-constrained expression of the form
+but
+
+> Given a latent signed band structure, specimen-state distribution, carrier/defect state, geometry, and measurement operator, what gap will an absorption, photoluminescence, detector-cutoff, photoconductive, or magneto-optical experiment report?
+
+A reported gap is not assumed to equal $E_g(\bar x,T)$.
+
+## Completed Paper I
+
+The first manuscript is scientifically frozen:
+
+> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction.**
+
+It shows that historical composition uncertainty, specimen state, source lineage, carrier/defect state, and edge-definition choice dominate the sub-meV ordering among common empirical gap equations. The result is a non-identifiability statement, not the selection of a universal replacement equation.
+
+## Flagship program
+
+The active publication program connects:
+
+1. latent mean signed-gap laws;
+2. specimen-level and local composition distributions;
+3. alloy-disorder and curvature effects;
+4. carrier filling and band-gap renormalization;
+5. nonparabolic Kane absorption;
+6. Urbach and defect-related tails;
+7. free-carrier absorption;
+8. optical thickness, interference, and collection geometry;
+9. modality-specific edge operators;
+10. the apparent width and location of the normal/inverted transition.
+
+The program specification is in:
+
+- `docs/program/distributional_band_edge_flagship.md`
+- `research/decision_records/2026-07-21-distributional-band-edge-program-activation.md`
+- issue `#167`
+
+## First executable distributional result
+
+`mct_research.distributional_gap` implements a tested second-order propagation of a declared Gaussian composition width through any scalar signed-gap law:
 
 $$
-E_g(x,T)=E_g^{\mathrm{stat}}(x)
-+\Delta E_g^{\mathrm{ep}}(x,T)
-+\Delta E_g^{\mathrm{QH}}(x,T)
-+\Delta E_g^{\mathrm{disorder}}(x,T),
+\mathbb E[E_g(X,T)]
+\approx
+E_g(\bar x,T)
++
+\frac12 E_{g,xx}(\bar x,T)\sigma_x^2,
 $$
 
-where the electron–phonon term is obtained from Fan–Migdal and Debye–Waller self-energies, the quasiharmonic term accounts for thermal expansion, and the result is projected into a symmetry-preserving 8-band Kane Hamiltonian?
-
-## Current leading hypothesis
-
-Temperature primarily renormalizes the relative $\Gamma_6$ and $\Gamma_8$ band-edge energies, while the Kane coupling $P$ or velocity $v_K$ changes much less:
-
 $$
-\left|\frac{\Delta v_K}{v_K}\right|
-\ll
-\left|\frac{\Delta E_g}{E_g}\right|.
+\sigma_{E,x}
+\approx
+|E_{g,x}(\bar x,T)|\sigma_x,
 $$
 
-Bulk magnetospectroscopy reporting an approximately composition- and temperature-independent Kane velocity near $1.07\times10^6\ \mathrm{m\,s^{-1}}$ motivates this as a falsifiable hypothesis, not an assumption.
+and near a critical point,
 
-## Research program
+$$
+\sigma_{T_c}
+\approx
+\left|
+\frac{E_{g,x}}{E_{g,T}}
+\right|
+\sigma_x.
+$$
 
-### Phase 1 — Baselines and definitions
+At the Teppe sample-B nominal transition regime, using the reconstructed Laurenti law at $x=0.155$ and $T=77$ K:
 
-- Reconstruct Hansen-type empirical equations and their source datasets.
-- Separate the static-lattice, quasiparticle, optical, and detector-cutoff definitions of bandgap.
-- Establish uncertainty propagation from $x$, $T$, strain, carrier density, and spectral-edge criterion.
+```text
+Eg(mean x,T)                         -0.0478 meV
+dEg/dx                                1.71911 eV
+dEg/dT                                0.38518 meV/K
 
-### Phase 2 — Binary endpoint validation
+sigma_x = 0.001:
+  sigma_E                              1.719 meV
+  sigma_Tc                             4.463 K
+  Gaussian local opposite-sign frac   0.48896
 
-- Validate relativistic calculations for HgTe and CdTe.
-- Compute Fan–Migdal, Debye–Waller, and thermal-expansion corrections.
-- Extract finite-temperature 8-band parameters.
+sigma_x = 0.005:
+  sigma_E                              8.596 meV
+  sigma_Tc                            22.316 K
+  Gaussian local opposite-sign frac   0.49805
+```
 
-### Phase 3 — Alloy treatment
+These values are precision-scale diagnostics. They do not assert that the Teppe specimen has either composition width, do not identify an optical linewidth, and do not define a bulk topological invariant.
 
-- Compare virtual-crystal, coherent-potential, and special-quasirandom-structure treatments.
-- Restore macroscopic cubic symmetry after configurational averaging.
-- Quantify disorder-induced broadening and uncertainty.
+The reference record is:
 
-### Phase 4 — Analytical reduction
+- `data/validation/teppe2016_distributional_transition_screen.json`
 
-- Build a compact oscillator or spectral-moment representation of the electron–phonon correction.
-- Fit composition dependence subject to endpoint, symmetry, and monotonicity constraints.
-- Test whether one Kane parameter set remains closed under temperature renormalization.
+The derivation is:
 
-### Phase 5 — Validation
+- `docs/derivations/008_distributional_gap_observables.md`
 
-- Use magnetoabsorption, Landau-level spectroscopy, absorption-edge data, and carefully modeled photoluminescence.
-- Hold out entire compositions and temperature intervals from fitting.
-- Compare against established engineering equations in meV, critical-composition error, and equivalent cutoff-wavelength error.
+## Activated primary-source chain
 
-## Quantitative targets
+The first full-text flagship source set is:
 
-Initial targets for the detector-relevant composition range are:
+- Wu 1983 — alloy-fluctuation contribution to bandgap bowing;
+- Dingrong et al. 1985 — degenerate carrier-filled absorption;
+- Herrmann et al. 1992 — multimodal near-edge broadening and Gaussian-gap convolution;
+- Ivanov-Omskii et al. 2009 — annealing-conditioned PL localization and linewidth;
+- Chang et al. 2007 — nonparabolic Kane plus Urbach absorption and thickness-dependent cutoff;
+- Teppe et al. 2016 — temperature-driven Kane-mass sign change near the transition.
 
-- bandgap mean absolute error: `< 5 meV`
-- numerical convergence error: `< 1 meV`
-- critical-composition error: `< 0.003`
-- critical-temperature error: `< 5 K`
-- Kane-velocity error: `< 5%`
-- held-out magneto-optical transition error: `< 3–5 meV`
+Claim-level source roles and limitations are recorded in:
 
-These are research targets, not current achievements.
+- `literature/notes/distributional_band_edge_primary_sources.md`
+
+## Existing technical foundation
+
+The repository also contains:
+
+- Hansen, Laurenti, and constrained provisional gap baselines;
+- composition-aware weighted fitting and group-preserving cross-validation;
+- absorption-edge uncertainty and source-bounded observation operators;
+- a homogeneous bulk 8-band Kane implementation;
+- one-$P$ and two-$P$ matrix-level parameter projection;
+- gauge alignment and zone-centre symmetry restoration;
+- Hermitian covariance propagation and generalized least squares;
+- integrity-checked `MatrixDataset` storage;
+- strict adapters for full $8\times8$ first-principles exports;
+- a reproducible static CdTe selected-band post-processing result;
+- finite-temperature matrix and reconstruction oracles.
+
+Synthetic recovery establishes implementation correctness only. It is not experimental or material validation.
+
+## Static and first-principles status
+
+The selected-band CdTe post-processing framework is independently reproducible on the same immutable physical artifact. It establishes the mathematical projection and software behavior, not convergence of the underlying electronic-structure calculation.
+
+The current CdTe polar response is not suitable for a production Allen-Heine-Cardona result. New AHC, SQS, CPA, SCBA, or production alloy calculations require a decision-changing observable, an external validation target, and a predeclared termination criterion.
+
+## Research standards
+
+Every important result must include:
+
+1. assumptions and observable definitions;
+2. derivation or computational provenance;
+3. dimensional and limiting-case checks;
+4. uncertainty and sensitivity analysis;
+5. comparison with primary literature;
+6. a stated falsification test;
+7. a clear distinction between source-established facts and project inference.
+
+No novelty claim is accepted merely because a result appears in the repository.
+
+## Claim restrictions
+
+The active program does not permit:
+
+- treating nominal composition as a measured composition distribution;
+- equating $\sigma_x$, $\sigma_E$, Urbach energy, PL FWHM, and quasiparticle linewidth;
+- treating detector cutoff as a direct material gap;
+- treating PL, absorption, photoconductive, and magneto-optical gaps as interchangeable;
+- inferring a bulk topological invariant from a local sign probability;
+- reopening unconstrained empirical gap fitting;
+- requiring external collaborators before independent research can continue.
 
 ## Repository organization
 
-- `docs/program/` — research charter, roadmap, definitions, validation protocol
-- `docs/derivations/` — formal mathematical derivations
-- `docs/insights/` — concise numbered research insights and conjectures
-- `literature/` — source ledger, prior-art audit, and evidence tables
-- `benchmarks/` — analytical model specifications and executable benchmark status
-- `src/mct_research/` — analytical models, benchmark fitting, matrix processing, uncertainty propagation, and data adapters
-- `tests/` — numerical, symmetry, identifiability, ingestion, covariance, and benchmark checks
-- `first_principles/` — parameterized ABINIT/QE/EPW assets and convergence/provenance ledgers
-- `tools/` — dataset conversion and research workflow utilities
-- `data/` — provenance-controlled experimental or calculated datasets
+- `docs/program/` — controlling research programs and computation gates
+- `docs/derivations/` — formal derivations and limiting-case checks
+- `docs/insights/` — concise research findings and conjectures
+- `research/` — active state, progress, and decision records
+- `literature/` — source ledger, audits, and claim-level notes
+- `benchmarks/` — analytical model specifications and benchmark status
+- `src/mct_research/` — executable models and uncertainty propagation
+- `tests/` — numerical, symmetry, ingestion, covariance, and identifiability tests
+- `data/` — provenance-controlled experimental, theoretical, and validation records
+- `manuscript/` — reproducible manuscript assets
+- `first_principles/` — parameterized calculation assets and provenance ledgers
+- `tools/` — data conversion and research workflow utilities
 
-## Executable model status
+## Validation
 
-The repository includes:
-
-- published Hansen and Laurenti analytical gap baselines;
-- fixed-scale one- and two-oscillator benchmark bases;
-- equality-constrained weighted fitting, parameter covariance, and group-preserving holdouts;
-- a homogeneous bulk 8-band Kane implementation;
-- one-$P$ and two-$P$ matrix-level parameter projection;
-- gauge alignment and zone-center symmetry restoration;
-- covariance propagation and generalized least squares;
-- integrity-checked `MatrixDataset` storage;
-- strict adapters for explicit full $8\times8$ first-principles exports.
-
-Run the validation suite with:
+Install and run:
 
 ```bash
 python -m pip install -e '.[test]'
 pytest
 ```
 
-Current checks cover:
+GitHub Actions is the controlling clean-environment validation path. Exact test counts should be taken from the workflow attached to the evaluated commit rather than from an older README snapshot.
 
-- Hansen and Laurenti reference values and critical points;
-- oscillator basis limits, constrained recovery, covariance, and holdout behavior;
-- Hermiticity and time reversal;
-- $\Gamma$-point degeneracies and symmetry restoration;
-- exact synthetic Kane-parameter recovery;
-- one-$P$ versus two-$P$ closure;
-- $\mathbf{k}$-grid and covariance-weighted identifiability;
-- gauge and covariance transformations;
-- dataset integrity and external matrix ingestion;
-- rejection of diagonal-only self-energy exports as full matrix AHC data.
+## Current next steps
 
-GitHub Actions has been directly verified on Python 3.11 and 3.13, including the 34-test projection-layer freeze milestone and later evidence/data changes. The exact test count evolves with the repository and should be taken from the workflow attached to the commit being evaluated, not from an older README snapshot.
-
-Synthetic benchmark recovery establishes implementation correctness only. No oscillator model has yet been ranked on a complete provenance-controlled experimental dataset.
-
-## Initial literature anchors
-
-- Hansen, Schmit, and Casselman: heterogeneous empirical $E_g(x,T)$ relation for HgCdTe.
-- Laurenti et al.: nonlinear composition-dependent absorption-edge equation and Cd-rich temperature series.
-- Krishnamurthy et al.: historical HgCdTe electron–phonon gap, edge, mass, and reduced nonparabolic-parameter calculations.
-- Novik et al.: standard 8-band Kane treatment for HgTe/CdTe heterostructures.
-- Allen–Heine–Cardona theory: Fan and Debye–Waller temperature renormalization of electronic structure.
-- Teppe et al.: temperature-driven massless Kane fermions and approximately universal Kane velocity in bulk HgCdTe.
-- Unfolded-supercell and SCBA work: alloy spectral weight, disorder-renormalized Kane mass, and disorder-driven inversion.
-- Recent dielectric-dependent hybrid-functional/SQS work: static HgCdTe band structure and defect calculations with spin–orbit coupling.
-
-Full bibliographic records and claim-level notes belong in `literature/ledger.md`.
-
-## Working rule
-
-Every important result should include:
-
-1. assumptions,
-2. derivation or computational provenance,
-3. dimensional and limiting-case checks,
-4. uncertainty estimate,
-5. comparison to prior literature,
-6. and a clearly stated falsification test.
+1. test derivative-step and higher-order stability of the distributional approximation;
+2. compare transition-width predictions across latent gap laws;
+3. reproduce Herrmann's Gaussian-gap-to-tail limit;
+4. reproduce Chang's nonparabolic/tail and thickness operators under source restrictions;
+5. implement the Dingrong degenerate carrier branch;
+6. test Ivanov-Omskii PL displacement and width jointly;
+7. build cross-modal recoverability and rank-reversal maps;
+8. begin the flagship manuscript after an independent published-data reproduction passes.
