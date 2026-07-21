@@ -4,11 +4,22 @@ import math
 
 import pytest
 
-from mct_research.distributional_gap import (
+from mct_research import (
+    DistributionalGapApproximation,
     gaussian_opposite_sign_fraction,
     linearized_composition_gap_statistics,
 )
 from mct_research.gap_models import laurenti_gap_ev
+
+
+def test_public_api_exports_distributional_model() -> None:
+    result = linearized_composition_gap_statistics(
+        laurenti_gap_ev,
+        0.175,
+        0.0,
+        77.0,
+    )
+    assert isinstance(result, DistributionalGapApproximation)
 
 
 def test_gaussian_opposite_sign_reference_values() -> None:
