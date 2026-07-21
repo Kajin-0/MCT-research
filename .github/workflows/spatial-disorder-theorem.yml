@@ -18,11 +18,13 @@ jobs:
           python-version: '3.13'
       - name: Install package
         run: python -m pip install -e '.[test]'
-      - name: Verify exact theorem extension
+      - name: Verify spatial-disorder layers
         run: |
           python -m pytest -q \
             tests/test_spatial_disorder.py \
-            tests/test_spatial_disorder_inference.py
+            tests/test_spatial_disorder_depth.py \
+            tests/test_spatial_disorder_inference.py \
+            tests/test_spatial_disorder_theorems.py
       - name: Validate immutable reference
         run: |
           python - <<'PY'
