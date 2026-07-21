@@ -146,5 +146,5 @@ def test_manuscript_preserves_submission_boundary() -> None:
     for text in (draft, readme):
         assert "external" in text.lower()
         assert "validation" in text.lower()
-    assert "not inferred for the Dingrong specimen" in draft
+    assert "not a fit to the Dingrong specimen" in draft
     assert "not the Dingrong free-carrier absorption law" in draft
