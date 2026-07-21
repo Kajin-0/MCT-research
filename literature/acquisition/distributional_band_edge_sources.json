@@ -1,0 +1,495 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 184,
+  "status": "active acquisition manifest; no new source files obtained in this record",
+  "status_enums": {
+    "availability": [
+      "repository_source_audited",
+      "repository_partial_audit",
+      "figure_digitization_available",
+      "bibliographic_only",
+      "not_obtained"
+    ],
+    "rights": [
+      "open_access",
+      "publisher_restricted_notes_only",
+      "unknown_do_not_redistribute"
+    ],
+    "audit": [
+      "complete_for_current_claims",
+      "partial_missing_equations",
+      "partial_missing_native_data",
+      "not_started"
+    ],
+    "operator_authorization": [
+      "no_change_authorized",
+      "existing_source_bounded_operator",
+      "prior_art_only"
+    ],
+    "readiness": [
+      "ready_now",
+      "ready_after_retrieval",
+      "blocked_by_native_data",
+      "blocked_by_external_definitions",
+      "unsuitable_for_direct_validation"
+    ]
+  },
+  "sources": [
+    {
+      "citation_key": "dingrong1985_degenerate_absorption",
+      "doi": "10.1016/0038-1098(85)90315-1",
+      "priority": 1,
+      "title_short": "Degenerate carrier-filled HgCdTe absorption",
+      "validation_routes": ["dingrong_carrier_spectrum"],
+      "blocked_claim_ids": ["C14", "C15", "C19", "C21", "C23"],
+      "availability": "repository_source_audited",
+      "rights": "publisher_restricted_notes_only",
+      "audit": "partial_missing_equations",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "publisher PDF or author manuscript",
+        "complete interband filling equations",
+        "complete free-carrier and two-mode phonon equations",
+        "all band, dielectric, phonon, impurity, and scattering parameters",
+        "source-quality 77-300 K spectra or native numerical data",
+        "specimen thickness and optical geometry",
+        "reported edge-definition details"
+      ],
+      "scientific_payoff": "Replace the generic carrier marker with a source-grounded carrier-dependent spectral branch and test nonparabolic filling in a real high-density regime.",
+      "rejection_conditions": [
+        "spectra cannot be calibrated or digitized",
+        "source equations depend on unavailable definitions that cannot be reconstructed",
+        "specimen thickness and optical convention remain unknown"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "chang2007_nonparabolic_urbach",
+      "doi": "10.1007/s11664-007-0162-0",
+      "priority": 2,
+      "title_short": "Nonparabolic-Urbach absorption and thickness cutoff",
+      "validation_routes": ["chang_thickness_cutoff"],
+      "blocked_claim_ids": ["C09", "C10", "C11", "C12", "C21"],
+      "availability": "repository_source_audited",
+      "rights": "publisher_restricted_notes_only",
+      "audit": "partial_missing_native_data",
+      "operator_authorization": "existing_source_bounded_operator",
+      "requested_artifacts": [
+        "publisher PDF or author manuscript",
+        "complete fitted parameter tables",
+        "same-specimen W, b, amplitude, temperature, carrier state, and thickness",
+        "native or high-resolution absorption and photoconductive spectra",
+        "exact detector 50-percent response construction",
+        "supplement or source data behind Figure 2"
+      ],
+      "scientific_payoff": "Directly validate the implemented thickness/cutoff operator and test whether mixed intrinsic/tail observations restore identifiable parameter directions.",
+      "rejection_conditions": [
+        "Figure 2 remains uncalibrated",
+        "W and b cannot be assigned to the same specimen",
+        "effective thickness remains undefined"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "chang2006_near_edge_absorption",
+      "doi": "10.1063/1.2245220",
+      "priority": 3,
+      "title_short": "Original Chang near-edge analytical model",
+      "validation_routes": ["chang_thickness_cutoff"],
+      "blocked_claim_ids": ["C09", "C10", "C11", "C12", "C21"],
+      "availability": "bibliographic_only",
+      "rights": "unknown_do_not_redistribute",
+      "audit": "not_started",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "publisher PDF or author manuscript",
+        "original analytical equations and continuity convention",
+        "high-resolution Figure 2 or source data",
+        "parameter values omitted or changed in the 2007 expansion"
+      ],
+      "scientific_payoff": "Resolve discrepancies between the 2006 and 2007 presentations and strengthen provenance for the existing source-bounded operator.",
+      "rejection_conditions": [
+        "no additional equations or data beyond the 2007 paper",
+        "figure cannot be calibrated independently"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "herrmann1992_multimodal_broadening",
+      "doi": "10.1016/0022-0248(92)90851-9",
+      "priority": 4,
+      "title_short": "Multimodal broadening and Gaussian-gap convolution",
+      "validation_routes": ["herrmann_multimodal_tail"],
+      "blocked_claim_ids": ["C05", "C06", "C07", "C08", "C21"],
+      "availability": "repository_source_audited",
+      "rights": "publisher_restricted_notes_only",
+      "audit": "partial_missing_equations",
+      "operator_authorization": "existing_source_bounded_operator",
+      "requested_artifacts": [
+        "publisher PDF or author manuscript",
+        "complete Anderson formulas and band-filling definitions",
+        "numerical parameters for absorption, photoconductivity, and luminescence examples",
+        "source-quality figures or tabulated spectra"
+      ],
+      "scientific_payoff": "Extend the source-scale reproduction into a cross-modal test of one distributional state model.",
+      "rejection_conditions": [
+        "external Anderson definitions remain unavailable",
+        "modal spectra cannot be assigned to a common specimen state"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "ivanovomskii2009_pl_disorder",
+      "doi": "10.1016/j.physb.2009.08.210",
+      "priority": 5,
+      "title_short": "Annealing-conditioned PL displacement and linewidth",
+      "validation_routes": ["ivanov_pl_joint_closure"],
+      "blocked_claim_ids": ["C21", "C22"],
+      "availability": "repository_source_audited",
+      "rights": "publisher_restricted_notes_only",
+      "audit": "partial_missing_equations",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "publisher PDF or author manuscript",
+        "complete localization-equation lineage",
+        "temperature-dependent PL peak and FWHM tables",
+        "composition estimates before and after annealing",
+        "excitation and instrumental linewidth details"
+      ],
+      "scientific_payoff": "Falsify or support one-width closure by testing PL displacement and FWHM across processing states.",
+      "rejection_conditions": [
+        "only summary fluctuation values are available",
+        "annealing-induced composition and defect changes cannot be separated even as nuisance variables"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "teppe2016_temperature_kane",
+      "doi": "10.1038/ncomms12576",
+      "priority": 6,
+      "title_short": "Temperature-driven near-critical Kane transition",
+      "validation_routes": ["teppe_transition_series"],
+      "blocked_claim_ids": ["C02", "C03", "C04", "C21"],
+      "availability": "repository_source_audited",
+      "rights": "open_access",
+      "audit": "partial_missing_native_data",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "supplementary information",
+        "sample-specific composition uncertainty",
+        "fitted gap and mass covariance",
+        "full temperature and magnetic-field series",
+        "exact simplified Kane-model assumptions"
+      ],
+      "scientific_payoff": "Test transition-width propagation against a real same-specimen temperature series while preserving the magneto-optical observation operator.",
+      "rejection_conditions": [
+        "only nominal composition is available",
+        "fit covariance and source spectra cannot be recovered"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "chu1991_intrinsic_absorption",
+      "doi": "10.1016/0020-0891(91)90110-2",
+      "priority": 7,
+      "title_short": "Broad composition-temperature intrinsic absorption spectroscopy",
+      "validation_routes": ["chu_intrinsic_absorption"],
+      "blocked_claim_ids": ["C14", "C21", "C23"],
+      "availability": "bibliographic_only",
+      "rights": "unknown_do_not_redistribute",
+      "audit": "not_started",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "publisher PDF or author manuscript",
+        "parameter tables across x=0.165-0.45 and 4.2-300 K",
+        "native or digitizable absorption spectra",
+        "Burstein-Moss, Urbach, and intrinsic-carrier treatment",
+        "exact edge definitions and specimen provenance"
+      ],
+      "scientific_payoff": "Provide a broader real-spectrum validation case spanning carrier and temperature regimes beyond the narrow Chang domain.",
+      "rejection_conditions": [
+        "spectra are not quantitatively digitizable",
+        "composition and carrier states cannot be assigned per spectrum"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "finkman1984_exponential_tail",
+      "doi": "10.1063/1.333828",
+      "priority": 8,
+      "title_short": "Independent exponential band-tail study",
+      "validation_routes": ["finkman_tail_independent"],
+      "blocked_claim_ids": ["C07", "C08", "C21"],
+      "availability": "bibliographic_only",
+      "rights": "unknown_do_not_redistribute",
+      "audit": "not_started",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "full text",
+        "temperature and composition dependence of the tail",
+        "specimen and absorption-method details",
+        "numerical tables or high-quality figures"
+      ],
+      "scientific_payoff": "Provide an independent tail dataset against which to test fit-window and mechanism non-uniqueness.",
+      "rejection_conditions": [
+        "tail parameters cannot be linked to calibrated spectra",
+        "specimen state is insufficient for comparison"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "krishtopenko2022_disorder_transition",
+      "doi": "10.1103/PhysRevB.106.115203",
+      "priority": 9,
+      "title_short": "Microscopic disorder-induced transition prior art",
+      "validation_routes": ["krishtopenko_prior_art"],
+      "blocked_claim_ids": ["C02", "C03", "C04"],
+      "availability": "repository_partial_audit",
+      "rights": "open_access",
+      "audit": "complete_for_current_claims",
+      "operator_authorization": "prior_art_only",
+      "requested_artifacts": [
+        "supplement or arXiv source if not already archived",
+        "exact disorder-parameter definitions",
+        "mapping to Cd-composition fluctuations",
+        "predicted observable quantities beyond phase boundaries"
+      ],
+      "scientific_payoff": "Sharpen the novelty boundary between microscopic disorder renormalization and observation-operator transition broadening.",
+      "rejection_conditions": [
+        "no modality-specific observable is predicted"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    },
+    {
+      "citation_key": "moazzami2005_ellipsometry",
+      "doi": "10.1007/s11664-005-0019-3",
+      "priority": 10,
+      "title_short": "Source-native Paper I ellipsometry data",
+      "validation_routes": ["moazzami_source_native"],
+      "blocked_claim_ids": ["C21"],
+      "availability": "figure_digitization_available",
+      "rights": "publisher_restricted_notes_only",
+      "audit": "partial_missing_native_data",
+      "operator_authorization": "no_change_authorized",
+      "requested_artifacts": [
+        "author-supplied numerical data behind Figure 6",
+        "ellipsometry model files or optical constants",
+        "specimen carrier state",
+        "specimen-level composition uncertainty"
+      ],
+      "scientific_payoff": "Replace the existing calibrated bitmap digitization with source-native data and link Paper I to the flagship validation boundary without merging their claims.",
+      "rejection_conditions": [
+        "no source-native data exist beyond the published figure",
+        "missing carrier and composition uncertainty remain unresolved"
+      ],
+      "local_file": null,
+      "sha256": null,
+      "acquisition_provenance": null
+    }
+  ],
+  "validation_routes": [
+    {
+      "route_id": "chang_thickness_cutoff",
+      "title": "Chang multi-thickness / cutoff validation",
+      "source_keys": ["chang2007_nonparabolic_urbach", "chang2006_near_edge_absorption"],
+      "readiness": "ready_after_retrieval",
+      "blocking_artifacts": ["native or calibrated spectra", "same-specimen W and b", "effective-thickness provenance"],
+      "criteria": {
+        "same_specimen_state": 2,
+        "composition_provenance": 1,
+        "carrier_provenance": 1,
+        "thickness_provenance": 1,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 2,
+        "falsification_power": 3,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 3,
+        "nuisance_penalty": 2,
+        "implementation_cost": 2
+      }
+    },
+    {
+      "route_id": "dingrong_carrier_spectrum",
+      "title": "Dingrong high-density carrier-spectrum validation",
+      "source_keys": ["dingrong1985_degenerate_absorption"],
+      "readiness": "ready_after_retrieval",
+      "blocking_artifacts": ["complete equations", "calibrated spectra", "specimen thickness and optical geometry"],
+      "criteria": {
+        "same_specimen_state": 2,
+        "composition_provenance": 1,
+        "carrier_provenance": 2,
+        "thickness_provenance": 0,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 1,
+        "falsification_power": 3,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 3,
+        "nuisance_penalty": 3,
+        "implementation_cost": 3
+      }
+    },
+    {
+      "route_id": "ivanov_pl_joint_closure",
+      "title": "Ivanov-Omskii joint PL displacement/FWHM closure test",
+      "source_keys": ["ivanovomskii2009_pl_disorder"],
+      "readiness": "ready_after_retrieval",
+      "blocking_artifacts": ["localization-equation lineage", "temperature-dependent PL tables", "annealing-state composition provenance"],
+      "criteria": {
+        "same_specimen_state": 2,
+        "composition_provenance": 1,
+        "carrier_provenance": 0,
+        "thickness_provenance": 0,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 1,
+        "falsification_power": 2,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 2,
+        "nuisance_penalty": 2,
+        "implementation_cost": 2
+      }
+    },
+    {
+      "route_id": "teppe_transition_series",
+      "title": "Teppe same-specimen transition-series validation",
+      "source_keys": ["teppe2016_temperature_kane"],
+      "readiness": "ready_after_retrieval",
+      "blocking_artifacts": ["supplement", "composition uncertainty", "fit covariance or source spectra"],
+      "criteria": {
+        "same_specimen_state": 2,
+        "composition_provenance": 1,
+        "carrier_provenance": 1,
+        "thickness_provenance": 1,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 2,
+        "falsification_power": 2,
+        "reproducibility_rights": 2,
+        "flagship_relevance": 2,
+        "nuisance_penalty": 2,
+        "implementation_cost": 3
+      }
+    },
+    {
+      "route_id": "herrmann_multimodal_tail",
+      "title": "Herrmann multimodal distributional-spectrum validation",
+      "source_keys": ["herrmann1992_multimodal_broadening"],
+      "readiness": "blocked_by_external_definitions",
+      "blocking_artifacts": ["Anderson formulas", "band-filling definitions", "same-state multimodal numerical spectra"],
+      "criteria": {
+        "same_specimen_state": 2,
+        "composition_provenance": 1,
+        "carrier_provenance": 1,
+        "thickness_provenance": 0,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 0,
+        "falsification_power": 3,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 3,
+        "nuisance_penalty": 3,
+        "implementation_cost": 3
+      }
+    },
+    {
+      "route_id": "chu_intrinsic_absorption",
+      "title": "Chu broad composition-temperature absorption validation",
+      "source_keys": ["chu1991_intrinsic_absorption"],
+      "readiness": "ready_after_retrieval",
+      "blocking_artifacts": ["full text", "parameter tables", "calibrated spectra and specimen-state mapping"],
+      "criteria": {
+        "same_specimen_state": 1,
+        "composition_provenance": 2,
+        "carrier_provenance": 1,
+        "thickness_provenance": 1,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 1,
+        "falsification_power": 3,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 3,
+        "nuisance_penalty": 3,
+        "implementation_cost": 3
+      }
+    },
+    {
+      "route_id": "finkman_tail_independent",
+      "title": "Finkman independent tail validation",
+      "source_keys": ["finkman1984_exponential_tail"],
+      "readiness": "ready_after_retrieval",
+      "blocking_artifacts": ["full text", "calibrated spectra", "specimen-state provenance"],
+      "criteria": {
+        "same_specimen_state": 1,
+        "composition_provenance": 1,
+        "carrier_provenance": 0,
+        "thickness_provenance": 1,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 1,
+        "falsification_power": 2,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 2,
+        "nuisance_penalty": 2,
+        "implementation_cost": 2
+      }
+    },
+    {
+      "route_id": "moazzami_source_native",
+      "title": "Moazzami source-native recovery",
+      "source_keys": ["moazzami2005_ellipsometry"],
+      "readiness": "blocked_by_native_data",
+      "blocking_artifacts": ["author numerical data", "carrier state", "composition uncertainty"],
+      "criteria": {
+        "same_specimen_state": 2,
+        "composition_provenance": 1,
+        "carrier_provenance": 0,
+        "thickness_provenance": 2,
+        "calibrated_spectrum": 1,
+        "equation_completeness": 2,
+        "falsification_power": 2,
+        "reproducibility_rights": 1,
+        "flagship_relevance": 1,
+        "nuisance_penalty": 2,
+        "implementation_cost": 1
+      }
+    },
+    {
+      "route_id": "krishtopenko_prior_art",
+      "title": "Krishtopenko microscopic disorder prior-art audit",
+      "source_keys": ["krishtopenko2022_disorder_transition"],
+      "readiness": "unsuitable_for_direct_validation",
+      "blocking_artifacts": ["no direct modality-specific validation observable in current scope"],
+      "criteria": {
+        "same_specimen_state": 0,
+        "composition_provenance": 1,
+        "carrier_provenance": 0,
+        "thickness_provenance": 0,
+        "calibrated_spectrum": 0,
+        "equation_completeness": 2,
+        "falsification_power": 1,
+        "reproducibility_rights": 2,
+        "flagship_relevance": 1,
+        "nuisance_penalty": 3,
+        "implementation_cost": 3
+      }
+    }
+  ],
+  "scoring_rule": {
+    "formula": "3*falsification_power + 3*flagship_relevance + 2*same_specimen_state + 2*calibrated_spectrum + composition_provenance + carrier_provenance + thickness_provenance + equation_completeness + reproducibility_rights - 2*nuisance_penalty - implementation_cost",
+    "tie_breakers": ["lower priority source number", "lower implementation_cost", "lexicographic route_id"],
+    "interpretation": "Scores rank expected decision value, not truth probability. Criterion values are provisional and must be updated after each source audit."
+  }
+}
