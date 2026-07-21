@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.1",
+  "program_issue": 173,
+  "status": "synthetic identifiability reference; not material validation",
+  "source_operator": {
+    "citation": "Chang et al., Applied Physics Letters 89, 062109 (2006)",
+    "doi": "10.1063/1.2245220",
+    "relative_energy_domain_ev": [-0.020, 0.300],
+    "figure2_quantitative_validation_authorized": false,
+    "reason": "native data, calibration, consistent temperature, and same-specimen W and b are unavailable"
+  },
+  "synthetic_parameters": {
+    "edge_ev": 0.100,
+    "urbach_width_ev": 0.012,
+    "hyperbola_b_ev": 0.100,
+    "amplitude_cm_inverse": 50000.0,
+    "join_energy_ev": 0.106,
+    "join_absorption_cm_inverse": 2357.32692084312
+  },
+  "single_pass_model": {
+    "response": "R=1-exp(-alpha*d)",
+    "target_absorption": "alpha_target=-ln(1-R_target)/d",
+    "tail_cutoff": "E_cut=E_join+W*ln(alpha_target/alpha_join)",
+    "thickness_shift": "E_cut(d2)-E_cut(d1)=-W*ln(d2/d1)"
+  },
+  "half_response_cutoffs": [
+    {
+      "effective_thickness_um": 1.0,
+      "target_absorption_cm_inverse": 6931.471805599453,
+      "energy_ev": 0.14726943525940045,
+      "wavelength_um": 8.418868328979087,
+      "branch": "intrinsic"
+    },
+    {
+      "effective_thickness_um": 2.0,
+      "target_absorption_cm_inverse": 3465.7359027997263,
+      "energy_ev": 0.11279383397283915,
+      "wavelength_um": 10.992107818859651,
+      "branch": "intrinsic"
+    },
+    {
+      "effective_thickness_um": 5.0,
+      "target_absorption_cm_inverse": 1386.2943611198905,
+      "energy_ev": 0.0996292713225439,
+      "wavelength_um": 12.444555378891481,
+      "branch": "tail"
+    },
+    {
+      "effective_thickness_um": 10.0,
+      "target_absorption_cm_inverse": 693.1471805599452,
+      "energy_ev": 0.09131150515582456,
+      "wavelength_um": 13.57815734409582,
+      "branch": "tail"
+    },
+    {
+      "effective_thickness_um": 20.0,
+      "target_absorption_cm_inverse": 346.5735902799726,
+      "energy_ev": 0.0829937389891052,
+      "wavelength_um": 14.938982138095499,
+      "branch": "tail"
+    }
+  ],
+  "thickness_results": {
+    "energy_shift_per_decade_ev": -0.02763102111592855,
+    "energy_shift_per_decade_mev": -27.63102111592855,
+    "source_valid_5_to_20_um_energy_shift_mev": -16.63553233343869,
+    "source_valid_5_to_20_um_wavelength_shift_um": 2.494426759204018,
+    "50_um_half_response_crossing_inside_source_domain": false
+  },
+  "all_tail_design": {
+    "designs_thickness_um_response": [
+      [1.0, 0.10],
+      [2.0, 0.10],
+      [2.0, 0.25],
+      [5.0, 0.25],
+      [5.0, 0.50],
+      [10.0, 0.50],
+      [20.0, 0.50],
+      [10.0, 0.75],
+      [20.0, 0.75]
+    ],
+    "parameter_order": ["Eg", "W", "ln_amplitude", "ln_b"],
+    "branches": ["tail", "tail", "tail", "tail", "tail", "tail", "tail", "tail", "tail"],
+    "tail_rows_use_exact_analytical_cutoff": true,
+    "singular_values": [4.756143919577966, 1.0049618739283218, 1.1635885003770308e-12, 4.860818110583618e-13],
+    "relative_singular_values": [1.0, 0.21129761735410178, 2.446495557239098e-13, 1.0220082071067438e-13],
+    "numerical_rank": 2,
+    "structural_rank_upper_bound": 2,
+    "interpretation": "all tail cutoffs identify W and one intercept combination; Eg, amplitude, and b are not separately identifiable"
+  },
+  "mixed_branch_design": {
+    "designs_thickness_um_response": [
+      [1.0, 0.25],
+      [1.0, 0.50],
+      [2.0, 0.50],
+      [1.0, 0.75],
+      [2.0, 0.75],
+      [5.0, 0.75],
+      [2.0, 0.90],
+      [5.0, 0.90],
+      [10.0, 0.90],
+      [20.0, 0.90]
+    ],
+    "branches": ["intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "intrinsic", "tail", "tail"],
+    "singular_values": [4.529785884760464, 0.7024185867847243, 0.1983685599968184, 0.022670440157760034],
+    "relative_singular_values": [1.0, 0.15506662058311662, 0.04379203975598509, 0.005004748839886133],
+    "numerical_rank": 4,
+    "condition_number": 199.8102266134574,
+    "interpretation": "intrinsic-branch crossings restore local full rank, but the smallest parameter direction remains about 200 times weaker than the strongest"
+  },
+  "authorized_conclusions": [
+    "Detector response cutoff is an observation operator depending on effective thickness and response criterion.",
+    "For tail-branch crossings, one thickness decade shifts cutoff energy by -W ln(10).",
+    "Any number of tail-only cutoff observations has structural Jacobian rank at most two for parameters Eg, W, amplitude, and b.",
+    "Intrinsic-branch observations can restore local rank but need not provide a well-conditioned inversion."
+  ],
+  "unauthorized_conclusions": [
+    "The synthetic parameters are not inferred for Chang Figure 2 or any real specimen.",
+    "Effective absorbing thickness is not assumed equal to physical film thickness.",
+    "The single-pass model excludes reflection, interference, collection efficiency, transport, and multiple passes.",
+    "No universal material-gap or detector-cutoff correction is identified."
+  ]
+}
