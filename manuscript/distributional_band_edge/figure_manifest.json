@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "manuscript": "From latent bandgap to measured edge in HgCdTe: distributional observation operators and structural identifiability",
+  "status": "figure definitions approved; rendering pending",
+  "generation_entry_point": "scripts/build_distributional_band_edge_manuscript_assets.py",
+  "output_directory": "manuscript/distributional_band_edge/generated",
+  "figures": [
+    {
+      "id": "figure_1_forward_hierarchy",
+      "claim_ids": ["C01", "C20", "C21"],
+      "data_records": [],
+      "public_functions": [],
+      "panels": ["forward_hierarchy", "claim_classes"],
+      "claim_state": "conceptual definition",
+      "external_validation": false
+    },
+    {
+      "id": "figure_2_transition_distribution",
+      "claim_ids": ["C02", "C03", "C04"],
+      "data_records": ["data/validation/near_critical_transition_model_dependence.json"],
+      "public_functions": [
+        "mct_research.gaussian_critical_temperature_distribution",
+        "mct_research.critical_temperature_k"
+      ],
+      "panels": [
+        "central_critical_temperature_by_model",
+        "conditional_width_vs_sigma_x",
+        "crossing_probability_vs_sigma_x",
+        "local_approximation_error"
+      ],
+      "claim_state": "bounded deterministic sensitivity",
+      "external_validation": false
+    },
+    {
+      "id": "figure_3_herrmann_tail_nonuniqueness",
+      "claim_ids": ["C05", "C06", "C07", "C08"],
+      "data_records": ["data/validation/herrmann_gaussian_tail_reproduction.json"],
+      "public_functions": [
+        "mct_research.gaussian_gap_convolved_power_absorption",
+        "mct_research.fit_exponential_absorption_tail",
+        "mct_research.herrmann_gap_sigma_ev"
+      ],
+      "panels": [
+        "convolved_absorption_and_fit_windows",
+        "tail_energy_by_fit_window",
+        "r_squared_vs_tail_energy",
+        "declared_width_inversion_interval"
+      ],
+      "claim_state": "source reproduction plus synthetic observation-operator sensitivity",
+      "external_validation": false
+    },
+    {
+      "id": "figure_4_chang_cutoff_rank",
+      "claim_ids": ["C09", "C10", "C11", "C12"],
+      "data_records": ["data/validation/chang_2006_cutoff_identifiability.json"],
+      "public_functions": [
+        "mct_research.chang_2006_response_cutoff",
+        "mct_research.chang_2006_cutoff_jacobian",
+        "mct_research.urbach_thickness_shift_ev"
+      ],
+      "panels": [
+        "cutoff_energy_vs_effective_thickness",
+        "cutoff_wavelength_vs_effective_thickness",
+        "tail_only_singular_values",
+        "mixed_branch_singular_values"
+      ],
+      "claim_state": "exact theorem plus bounded synthetic sensitivity",
+      "external_validation": false
+    },
+    {
+      "id": "figure_5_carrier_filling",
+      "claim_ids": ["C13", "C14", "C15"],
+      "data_records": ["data/validation/dingrong_1985_carrier_filling_sensitivity.json"],
+      "public_functions": [
+        "mct_research.carrier_filled_optical_edge_ev",
+        "mct_research.kane_nonparabolic_energy_ev_from_parabolic",
+        "mct_research.carrier_edge_density_series_jacobian"
+      ],
+      "panels": [
+        "parabolic_and_nonparabolic_energy_vs_density",
+        "parabolic_overestimate_vs_density",
+        "high_density_energy_decomposition",
+        "density_series_singular_values"
+      ],
+      "claim_state": "exact dispersion identity plus bounded synthetic sensitivity",
+      "external_validation": false
+    },
+    {
+      "id": "figure_6_unified_structural_rank",
+      "claim_ids": ["C16", "C17", "C18", "C19"],
+      "data_records": ["data/validation/unified_spectrum_structural_rank.json"],
+      "public_functions": [
+        "mct_research.unified_response_spectrum",
+        "mct_research.unified_spectrum_jacobian"
+      ],
+      "panels": [
+        "counterexample_parameter_sets",
+        "overlaid_spectra_and_residual",
+        "unmarked_relative_singular_values",
+        "marked_relative_singular_values_and_null_vector"
+      ],
+      "claim_state": "exact structural theorem plus numerical verification",
+      "external_validation": false
+    },
+    {
+      "id": "figure_7_measurement_design",
+      "claim_ids": ["C20", "C21", "C22", "C23"],
+      "data_records": [
+        "data/validation/unified_spectrum_structural_rank.json",
+        "manuscript/distributional_band_edge/claim_matrix.md"
+      ],
+      "public_functions": [],
+      "panels": [
+        "base_model_external_constraints",
+        "marked_model_external_scale",
+        "validation_status_matrix"
+      ],
+      "claim_state": "measurement-design corollary and validation boundary",
+      "external_validation": false
+    }
+  ],
+  "tables": [
+    {
+      "id": "table_1_theorem_summary",
+      "source": "manuscript/distributional_band_edge/theorem_index.md"
+    },
+    {
+      "id": "table_2_quantitative_results",
+      "source": "five immutable validation JSON records"
+    },
+    {
+      "id": "table_3_claim_provenance",
+      "source": "manuscript/distributional_band_edge/claim_matrix.md"
+    }
+  ],
+  "rendering_contract": {
+    "vector_formats": ["pdf", "svg"],
+    "review_format": "png",
+    "synthetic_panels_must_be_labeled": true,
+    "color_must_not_be_only_encoding": true,
+    "units_required_on_numerical_axes": true,
+    "record_path_and_commit_metadata_required": true,
+    "headline_values_must_be_regression_checked": true
+  }
+}
