@@ -29,12 +29,16 @@ jobs:
       - name: Install Python package
         run: python -m pip install -e '.[test]'
       - name: Build named and anonymous submission bundles
+        shell: bash
         run: |
+          set -o pipefail
+          mkdir -p sst-submission-diagnostics
           python -m tools.build_sst_submission_bundle \
             --repository-root . \
             --output-dir sst-submission-generated \
             --compile \
-            --commit-sha "$GITHUB_SHA"
+            --commit-sha "$GITHUB_SHA" \
+            2>&1 | tee sst-submission-diagnostics/build.log
       - name: Run source and compiled bundle tests
         env:
           SST_BUNDLE_DIR: ${{ github.workspace }}/sst-submission-generated
@@ -47,7 +51,7 @@ jobs:
             tests/test_flagship_journal_submission_gate.py \
             tests/test_flagship_novelty_boundary.py \
             tests/test_distributional_band_edge_manuscript_assets.py \
-            2>&1 | tee sst-submission-generated/pytest.txt
+            2>&1 | tee sst-submission-diagnostics/pytest.log
       - name: Render review PDFs for visual inspection
         run: |
           mkdir -p sst-submission-generated/renders/named
@@ -70,6 +74,8 @@ jobs:
         if: always()
         with:
           name: sst-submission-bundle
-          path: sst-submission-generated
-          if-no-files-found: error
+          path: |
+            sst-submission-generated
+            sst-submission-diagnostics
+          if-no-files-found: warn
           retention-days: 30
