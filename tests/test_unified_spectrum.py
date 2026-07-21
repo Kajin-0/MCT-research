@@ -3,7 +3,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from mct_research.unified_spectrum import (
+from mct_research import (
+    UnifiedSpectrumJacobianDiagnostics,
     unified_response_spectrum,
     unified_spectrum_jacobian,
 )
@@ -22,6 +23,14 @@ BASE_PARAMETERS = {
 def numerical_rank(matrix: np.ndarray, tolerance: float = 1.0e-8) -> int:
     singular_values = np.linalg.svd(matrix, compute_uv=False)
     return int(np.count_nonzero(singular_values / singular_values[0] > tolerance))
+
+
+def test_public_unified_spectrum_exports() -> None:
+    assert UnifiedSpectrumJacobianDiagnostics.__name__ == (
+        "UnifiedSpectrumJacobianDiagnostics"
+    )
+    assert callable(unified_response_spectrum)
+    assert callable(unified_spectrum_jacobian)
 
 
 def test_gap_carrier_and_amplitude_thickness_equivalence() -> None:
