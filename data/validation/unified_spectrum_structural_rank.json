@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 177,
+  "status": "synthetic structural-identifiability theorem; not material validation",
+  "forward_model": {
+    "local_absorption": "alpha_local(E|G)=A*max(E-G,0)^p",
+    "gap_distribution": "G~Normal(Eg0+Delta_carrier,sigma_G^2)",
+    "response": "R(E)=1-exp[-alpha(E)*d]",
+    "parameter_order": [
+      "zero_density_gap_ev",
+      "uniform_carrier_shift_ev",
+      "ln_gap_sigma",
+      "ln_absorption_amplitude",
+      "ln_effective_thickness"
+    ],
+    "fixed_intrinsic_exponent": 1.0
+  },
+  "reference_design": {
+    "energy_lower_ev": 0.08,
+    "energy_upper_ev": 0.22,
+    "energy_points": 281,
+    "zero_density_gap_ev": 0.100,
+    "uniform_carrier_shift_ev": 0.030,
+    "gap_sigma_ev": 0.010,
+    "absorption_amplitude_cm_inverse_ev_power": 30000.0,
+    "effective_thickness_um": 10.0,
+    "quadrature_order": 256,
+    "minimum_response": 1.603849648964071e-8,
+    "maximum_response": 0.9327944872602503
+  },
+  "exact_invariances": {
+    "gap_carrier_translation": "R depends on Eg0 and Delta_carrier only through Eg0+Delta_carrier",
+    "amplitude_thickness_product": "R depends on A and d only through A*d",
+    "jacobian_identity_1": "dR/dEg0=dR/dDelta_carrier",
+    "jacobian_identity_2": "dR/dlnA=dR/dlnd",
+    "structural_rank_upper_bound": 3,
+    "identifiable_combinations": [
+      "Eg0+Delta_carrier",
+      "sigma_G",
+      "A*d"
+    ]
+  },
+  "exact_counterexample": {
+    "parameter_set_1": {
+      "zero_density_gap_ev": 0.100,
+      "uniform_carrier_shift_ev": 0.030,
+      "gap_sigma_ev": 0.010,
+      "absorption_amplitude_cm_inverse_ev_power": 30000.0,
+      "effective_thickness_um": 10.0
+    },
+    "parameter_set_2": {
+      "zero_density_gap_ev": 0.120,
+      "uniform_carrier_shift_ev": 0.010,
+      "gap_sigma_ev": 0.010,
+      "absorption_amplitude_cm_inverse_ev_power": 15000.0,
+      "effective_thickness_um": 20.0
+    },
+    "maximum_absolute_response_difference": 2.220446049250313e-16
+  },
+  "unmarked_dense_spectrum": {
+    "carrier_marker_scale_cm_inverse_per_ev": 0.0,
+    "singular_values": [
+      210.943527,
+      3.12774161,
+      0.379499126,
+      3.36022167e-11,
+      4.59184616e-14
+    ],
+    "relative_singular_values": [
+      1.0,
+      0.0148273884,
+      0.00179905556,
+      1.59294846e-13,
+      2.17681302e-16
+    ],
+    "numerical_rank": 3,
+    "interpretation": "dense noise-free sampling cannot recover the two exact null directions"
+  },
+  "external_constraint_ranks": {
+    "known_carrier_shift_parameters_Eg_sigma_A_d": 3,
+    "known_thickness_parameters_Eg_carrier_sigma_A": 3,
+    "known_carrier_shift_and_thickness_parameters_Eg_sigma_A": 3,
+    "interpretation": "one external constraint removes one null direction; both are required to identify all three remaining combinations"
+  },
+  "nontranslational_carrier_marker": {
+    "diagnostic_term": "alpha_marker=B*Delta_carrier*(E_ref/E)^2",
+    "carrier_marker_scale_cm_inverse_per_ev": 1000.0,
+    "carrier_marker_reference_energy_ev": 0.1,
+    "physical_status": "generic identifiability marker; not the Dingrong free-carrier model",
+    "singular_values": [
+      205.808179,
+      6.76801242,
+      3.05553476,
+      0.357325799,
+      3.58461331e-11
+    ],
+    "relative_singular_values": [
+      1.0,
+      0.0328850507,
+      0.0148465176,
+      0.00173620796,
+      1.74172539e-13
+    ],
+    "numerical_rank": 4,
+    "remaining_null_direction": "ln absorption amplitude versus ln effective thickness",
+    "interpretation": "independently calibrated carrier-dependent spectral structure can break the Eg/carrier translation null, but Beer-Lambert amplitude/thickness degeneracy remains"
+  },
+  "authorized_conclusions": [
+    "A dense single-state response spectrum identifies at most three combinations of the five declared parameters when carrier effects are a uniform translation.",
+    "No increase in signal-to-noise or spectral point count can remove exact forward-model invariances.",
+    "Independent carrier-state information and effective-thickness information are both required for latent-gap recovery under this model.",
+    "A nontranslational carrier-dependent spectral feature can break the gap/carrier translation degeneracy if its shape and calibration are retained."
+  ],
+  "unauthorized_conclusions": [
+    "The controlled Gaussian and power-law spectrum is not a complete microscopic HgCdTe model.",
+    "The generic carrier marker is not a physical free-carrier absorption law.",
+    "Effective thickness is not assumed equal to physical thickness.",
+    "The structural rank theorem does not determine practical uncertainty after external constraints are applied.",
+    "Spatial correlations between carrier state and local gap are outside the theorem."
+  ]
+}
