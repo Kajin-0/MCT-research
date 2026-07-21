@@ -132,6 +132,13 @@ from .projection import (
     fit_parameters,
     parameter_templates,
 )
+from .spectral_convolution import (
+    ExponentialTailFit,
+    fit_exponential_absorption_tail,
+    gaussian_gap_convolved_power_absorption,
+    herrmann_gap_sigma_ev,
+    normalized_gaussian_gap_convolved_power_absorption,
+)
 from .symmetry import (
     forbidden_gamma_coupling_norm,
     gamma_irrep_residual,
@@ -157,6 +164,7 @@ __all__ = [
     "CriticalTemperatureDistribution",
     "CrossValidationResult",
     "DistributionalGapApproximation",
+    "ExponentialTailFit",
     "ExportDefaults",
     "ExportFormatError",
     "ExtendedKaneParameters",
@@ -203,6 +211,7 @@ __all__ = [
     "file_sha256",
     "fit_chu_1994_kane_edge",
     "fit_composition_aware_gap_model",
+    "fit_exponential_absorption_tail",
     "fit_extended_parameters",
     "fit_fractional_power_edge",
     "fit_linear_gap_model",
@@ -211,6 +220,7 @@ __all__ = [
     "gamma_irrep_residual",
     "gamma_irrep_symmetrize",
     "gaussian_critical_temperature_distribution",
+    "gaussian_gap_convolved_power_absorption",
     "gaussian_gap_moments",
     "gaussian_opposite_sign_fraction",
     "hamiltonian",
@@ -224,6 +234,7 @@ __all__ = [
     "hermitian_residual",
     "hermitian_vector",
     "hermitize",
+    "herrmann_gap_sigma_ev",
     "laurenti_gap_ev",
     "leave_one_composition_group_out",
     "leave_one_group_out",
@@ -235,6 +246,7 @@ __all__ = [
     "load_netcdf_matrix_export",
     "named_composition_holdout_cross_validation",
     "named_holdout_cross_validation",
+    "normalized_gaussian_gap_convolved_power_absorption",
     "oscillator_composition_derivative_matrix",
     "oscillator_design_matrix",
     "parallel_transport_sequence",
