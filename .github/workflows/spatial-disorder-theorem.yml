@@ -35,10 +35,13 @@ jobs:
             tests/test_spatial_disorder_covariance_families.py \
             tests/test_spatial_disorder_posterior.py \
             2>&1 | tee spatial-disorder-diagnostics/pytest.txt
-      - name: Generate nonlinear posterior reference
+      - name: Rebuild nonlinear posterior reference
         run: |
           python -m tools.build_nonlinear_common_scale_posterior_reference \
             --output spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
+          cmp \
+            data/validation/nonlinear_common_scale_posterior.json \
+            spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
       - name: Validate immutable references
         run: |
           python - <<'PY'
@@ -101,6 +104,39 @@ jobs:
               'Failure to reject' in item
               for item in family['claim_boundaries']
           )
+
+          posterior_path = Path(
+              'data/validation/nonlinear_common_scale_posterior.json'
+          )
+          posterior = json.loads(posterior_path.read_text(encoding='utf-8'))
+          assert posterior['schema_version'] == '1.0'
+          assert posterior['issue'] == 220
+          assert posterior['portfolio_contribution'] == 'R04'
+          assert posterior['status'].endswith('not_specimen_inference')
+          errors = [
+              item['relative_frobenius_covariance_error']
+              for item in posterior['fisher_comparison']
+          ]
+          assert errors == sorted(errors)
+          assert errors[-1] < 0.02
+          common_cases = posterior['common_calibration_cases']
+          assert max(
+              abs(item['variance_addition_residual'])
+              for item in common_cases
+          ) < 1.0e-15
+          assert all(
+              item['cross_covariance_residual'] == 0.0
+              for item in common_cases
+          )
+          broad = posterior['bounded_prior_cases']['broad']
+          narrow = posterior['bounded_prior_cases']['narrow']
+          assert abs(broad['variance_addition_residual']) < 1.0e-15
+          assert narrow['absolute_log_length_boundary_mass'] > 0.1
+          assert abs(narrow['variance_addition_residual']) > 1.0e-3
+          assert any(
+              'not specimen inference' in item.lower()
+              for item in posterior['claim_boundaries']
+          )
           PY
       - uses: actions/upload-artifact@v4
         if: always()
@@ -111,9 +147,11 @@ jobs:
             data/validation/spatial_disorder_theorem_extension.json
             data/validation/spatial_disorder_probe_scale_calibration.json
             data/validation/three_scale_covariance_family_test.json
+            data/validation/nonlinear_common_scale_posterior.json
             docs/derivations/010_scale_dependent_spatial_disorder.md
             docs/derivations/011_probe_scale_calibration_limit.md
             docs/derivations/012_three_scale_covariance_family_test.md
+            docs/derivations/013_exact_common_scale_posterior.md
             literature/notes/scale_dependent_disorder_prior_art.md
           if-no-files-found: warn
           retention-days: 30
