@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-21  
 **Controlling issue:** #167  
-**Active milestone:** #175  
+**Active milestone:** #177  
 **Execution mode:** independent, public-data-first, reproducible computation
 
 ## Completed Paper I
@@ -61,7 +61,7 @@ Conditional transition moments must be reported with crossing probability.
 
 ## Gaussian-gap spectral operator
 
-For the Herrmann source convention `sigma_G=sqrt(2)*s`, the source-aligned square-root convolution over `1-100 cm^-1` gives:
+For the Herrmann convention `sigma_G=sqrt(2)*s`, the source-aligned square-root convolution over `1-100 cm^-1` gives:
 
 ```text
 W_fit / s = 0.50504
@@ -101,7 +101,7 @@ E_cut=E_join+W ln(alpha_target/alpha_join)
 E_cut(d2)-E_cut(d1)=-W ln(d2/d1)
 ```
 
-For the declared synthetic parameters `Eg=0.100 eV`, `W=0.012 eV`, `b=0.100 eV`, and amplitude `50000 cm^-1`, 50% response gives:
+For declared synthetic parameters `Eg=0.100 eV`, `W=0.012 eV`, `b=0.100 eV`, and amplitude `50000 cm^-1`, 50% response gives:
 
 ```text
 thickness   energy       wavelength   branch
@@ -145,7 +145,7 @@ Chang Figure 2 remains blocked for material validation because native numeric da
 
 ## Degenerate carrier-filled edge operator
 
-Issue #175 adds the declared zero-temperature model:
+The declared zero-temperature model is:
 
 ```text
 k_F=(3*pi^2*n/g_v)^(1/3)
@@ -155,7 +155,7 @@ Delta_E_BM=E_c+hbar^2*k_F^2/(2*m_valence)
 E_opt=Eg0+Delta_E_BM+Delta_E_BGR+Delta_E_obs
 ```
 
-The exact nonparabolic conduction solution is
+The exact conduction solution is
 
 ```text
 E_c=2*E_par/(1+sqrt(1+4*alpha*E_par))
@@ -168,9 +168,7 @@ and the parabolic relative overestimate is
 q=alpha*E_par
 ```
 
-### Dingrong-density sensitivity case
-
-Declared illustrative parameters:
+For the declared Dingrong-density sensitivity case:
 
 ```text
 n          = 7.0e17 cm^-3
@@ -181,9 +179,7 @@ m_valence  = 0.35 m0
 C_BGR      = 0.020 eV at 1e18 cm^-3
 ```
 
-These are not inferred for the Dingrong specimen.
-
-Results:
+results are:
 
 ```text
 k_F                              0.0274688 A^-1
@@ -196,21 +192,9 @@ parabolic overestimate            147.323 meV
 q                                  2.1561
 ```
 
-The fully parabolic filling shift is `1.993` times the nonparabolic result. For the declared parameter set, the conduction-energy error grows from `0.0046 meV` at `1e14 cm^-3` to `147.323 meV` at `7e17 cm^-3`; a 5% error occurs near `2.66e15 cm^-3`.
+These parameters are not inferred for the Dingrong specimen.
 
-### Carrier-edge identifiability
-
-One edge at one density has rank one for parameters:
-
-```text
-ln Eg0
-ln m_edge
-ln alpha
-ln m_valence
-ln C_BGR
-```
-
-A five-density series at `1e16, 3e16, 1e17, 3e17, 7e17 cm^-3` has local rank five but singular values:
+One edge at one density has rank one for five declared carrier/gap parameters. A five-density series restores local rank five but has singular values
 
 ```text
 2.55477493e-1
@@ -220,15 +204,94 @@ A five-density series at `1e16, 3e16, 1e17, 3e17, 7e17 cm^-3` has local rank fiv
 2.31520896e-5
 ```
 
-and condition number:
-
-```text
-11034.75
-```
+and condition number `11034.75`.
 
 Formal full rank does not support a reliable unconstrained inversion. Independent Hall, mass, low-density-gap, and renormalization constraints remain necessary.
 
-The current Dingrong result is a bounded high-density sensitivity anchor, not a full source-spectrum reproduction. The free-carrier background and two-mode phonon scattering remain unimplemented.
+## Unified spectrum structural-rank theorem
+
+Issue #177 composes the distributed-gap, carrier-translation, and Beer-Lambert operators:
+
+```text
+alpha_local(E|G)=A*max(E-G,0)^p
+G~Normal(Eg0+Delta_carrier,sigma_G^2)
+R(E)=1-exp[-alpha(E)*d]
+```
+
+The dense spectrum depends on five nominal parameters
+
+```text
+Eg0
+Delta_carrier
+ln sigma_G
+ln A
+ln d
+```
+
+only through three combinations:
+
+```text
+Eg0 + Delta_carrier
+sigma_G
+A * d
+```
+
+Therefore the exact Jacobian identities are
+
+```text
+dR/dEg0 = dR/dDelta_carrier
+dR/dlnA = dR/dlnd
+```
+
+and
+
+```text
+rank(J)<=3
+```
+
+for an arbitrarily dense single-state spectrum.
+
+### Exact counterexample
+
+```text
+set 1: Eg0=0.100 eV, Delta=0.030 eV, sigma=0.010 eV,
+       A=30000, d=10 um
+
+set 2: Eg0=0.120 eV, Delta=0.010 eV, sigma=0.010 eV,
+       A=15000, d=20 um
+```
+
+Across 281 points from `0.08` to `0.22 eV`, the maximum absolute response difference is `2.22e-16`.
+
+### Dense-spectrum numerical rank
+
+For fixed `p=1`, the singular values are
+
+```text
+2.10943527e2
+3.12774161e0
+3.79499126e-1
+3.36022167e-11
+4.59184616e-14
+```
+
+and numerical rank is three.
+
+Known carrier shift alone leaves the amplitude/thickness null. Known thickness alone leaves the gap/carrier translation null. Constraining both leaves `(Eg0, ln sigma_G, ln A)`, which are locally full rank.
+
+A generic nontranslational carrier marker
+
+```text
+alpha_marker=B*Delta_carrier*(E_ref/E)^2
+```
+
+raises rank to four at the declared scale, while the amplitude/thickness null remains. This marker is an identifiability diagnostic, not the Dingrong free-carrier absorption law.
+
+Authorized conclusion:
+
+> No improvement in signal-to-noise or spectral sampling can recover parameters that the forward operator combines exactly. Independent carrier-state and effective-thickness information are necessary for latent-gap recovery under the declared model.
+
+The immutable record is `data/validation/unified_spectrum_structural_rank.json`.
 
 ## Static and finite-temperature methods
 
@@ -242,12 +305,12 @@ The paired same-specimen acquisition protocol remains a rigorous future validati
 
 ## Authorized next work
 
-1. complete CI validation and merge the carrier-filled edge foundation;
-2. recover source-native Dingrong equations/spectra or implement only explicitly available free-carrier terms;
-3. combine carrier filling with the distributed-gap and detector-cutoff operators;
-4. test whether one distributional state model can jointly explain Ivanov-Omskii PL displacement and FWHM changes;
-5. build cross-modal recoverability and operator-induced rank-reversal maps;
-6. begin the flagship manuscript once the first real-spectrum reproduction passes.
+1. complete CI validation and merge the unified spectrum theorem;
+2. begin the flagship manuscript analytical core using the merged distributional, spectral, cutoff, carrier, and structural-rank results;
+3. identify one calibrated real spectrum or same-specimen multi-state dataset for external validation;
+4. recover source-native Dingrong free-carrier equations only if the missing definitions can be documented explicitly;
+5. test whether one distributional state model can jointly explain Ivanov-Omskii PL displacement and FWHM changes;
+6. build cross-modal recoverability and operator-induced rank-reversal maps.
 
 ## Explicitly unauthorized
 
@@ -260,8 +323,9 @@ The paired same-specimen acquisition protocol remains a rigorous future validati
 - treating physical film thickness as effective absorbing thickness without validation;
 - transferring Chang `b` or Dingrong carrier corrections between specimens without provenance;
 - conflating Burstein-Moss filling with band-gap renormalization;
-- treating free-carrier absorption as the interband edge;
-- assigning the illustrative carrier parameters to the Dingrong specimen;
+- treating the generic carrier marker as a physical free-carrier law;
+- claiming dense spectral sampling removes exact forward-model invariances;
+- assigning illustrative carrier parameters to the Dingrong specimen;
 - requiring real collaborators before independent progress can continue;
 - escalating to expensive atomistic or first-principles work without a decision-changing validation target;
 - expanding Paper I with unrelated mechanisms.
