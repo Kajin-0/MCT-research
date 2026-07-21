@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 186,
+  "status": "synthetic validation-design reference; not external material validation",
+  "source_operator": {
+    "citation": "Chang et al., Applied Physics Letters 89, 062109 (2006) and Journal of Electronic Materials 36, 1000-1006 (2007)",
+    "dois": [
+      "10.1063/1.2245220",
+      "10.1007/s11664-007-0162-0"
+    ],
+    "relative_energy_domain_ev": [-0.020, 0.300],
+    "figure2_validation_authorized": false
+  },
+  "declared_baseline": {
+    "edge_ev": 0.100,
+    "tail_width_ev": 0.012,
+    "baseline_effective_thickness_um": 5.0,
+    "baseline_cutoff_energy_ev": 0.0996292713225439,
+    "minimum_source_energy_ev": 0.080,
+    "comparison_effective_thickness_um": 20.0,
+    "comparison_cutoff_energy_ev": 0.0829937389891052,
+    "thickness_ratio": 4.0,
+    "cutoff_difference_ev": -0.01663553233343869,
+    "recovered_tail_width_ev": 0.012
+  },
+  "source_domain_limits": {
+    "absolute_maximum_ratio": 5.133422600006805,
+    "absolute_maximum_second_thickness_um": 25.667113000034026,
+    "maximum_ratio_with_2_mev_energy_margin": 4.34534841704622,
+    "maximum_second_thickness_um_with_2_mev_margin": 21.7267420852311,
+    "maximum_ratio_with_3_mev_energy_margin": 3.9979135407217457,
+    "maximum_second_thickness_um_with_3_mev_margin": 19.989567703608727,
+    "ratio_4_fraction_of_absolute_maximum": 0.7792072291096194,
+    "ratio_4_fraction_of_2_mev_margin_maximum": 0.920524573888836,
+    "comparison_cutoff_margin_above_source_minimum_mev": 2.993738989105197
+  },
+  "ratio_sensitivity_for_equal_1_mev_cutoff_uncertainty": [
+    {
+      "thickness_ratio": 1.5,
+      "cutoff_shift_mev": -4.865581297297973,
+      "relative_width_uncertainty_independent": 0.290656650451706,
+      "relative_width_uncertainty_energy_correlation_0p8": 0.1299856057044819
+    },
+    {
+      "thickness_ratio": 2.0,
+      "cutoff_shift_mev": -8.317766166719345,
+      "relative_width_uncertainty_independent": 0.17002324109946493,
+      "relative_width_uncertainty_energy_correlation_0p8": 0.0760367049706479
+    },
+    {
+      "thickness_ratio": 3.0,
+      "cutoff_shift_mev": -13.183347464017318,
+      "relative_width_uncertainty_independent": 0.1072727216083059,
+      "relative_width_uncertainty_energy_correlation_0p8": 0.047973819529516494
+    },
+    {
+      "thickness_ratio": 4.0,
+      "cutoff_shift_mev": -16.63553233343869,
+      "relative_width_uncertainty_independent": 0.08501162054973246,
+      "relative_width_uncertainty_energy_correlation_0p8": 0.03801835248532395
+    },
+    {
+      "thickness_ratio": 5.133422600006805,
+      "cutoff_shift_mev": -19.629271322543897,
+      "relative_width_uncertainty_independent": 0.07204615694261121,
+      "relative_width_uncertainty_energy_correlation_0p8": 0.032220020888259406
+    }
+  ],
+  "ratio_4_uncertainty_cases": {
+    "equal_1_mev_independent_cutoff_errors": {
+      "tail_width_standard_uncertainty_mev": 1.0201394465967897,
+      "relative_width_uncertainty": 0.08501162054973248
+    },
+    "equal_1_mev_cutoff_errors_with_correlation_0p8": {
+      "tail_width_standard_uncertainty_mev": 0.4562202298238875,
+      "relative_width_uncertainty": 0.03801835248532395
+    },
+    "equal_1_mev_cutoff_errors_and_equal_2_percent_independent_thickness_errors": {
+      "tail_width_standard_uncertainty_mev": 1.049108153221471,
+      "relative_width_uncertainty": 0.08742567943512257
+    }
+  },
+  "required_equal_independent_per_cutoff_precision": [
+    {
+      "target_relative_width_uncertainty": 0.05,
+      "required_cutoff_sigma_mev_exact_ratio": 0.5881548860811283,
+      "required_cutoff_sigma_mev_with_2_percent_independent_thickness_errors": 0.5369601195816175
+    },
+    {
+      "target_relative_width_uncertainty": 0.10,
+      "required_cutoff_sigma_mev_exact_ratio": 1.1763097721622566,
+      "required_cutoff_sigma_mev_with_2_percent_independent_thickness_errors": 1.1515661857159667
+    },
+    {
+      "target_relative_width_uncertainty": 0.20,
+      "required_cutoff_sigma_mev_exact_ratio": 2.3526195443245133,
+      "required_cutoff_sigma_mev_with_2_percent_independent_thickness_errors": 2.3403458548551495
+    }
+  ],
+  "design_decision": {
+    "optimum_rule": "For fixed absolute cutoff and relative thickness uncertainties, relative W uncertainty decreases monotonically with abs(ln(d2/d1)); choose the largest ratio that preserves the tail branch, source domain, and declared energy margin.",
+    "recommended_synthetic_pair": "5 um and 20 um effective thickness",
+    "reason": "The ratio 4 pair uses 92.1 percent of the maximum ratio available with a 2 meV source-domain margin and leaves 2.994 meV above the lower source bound.",
+    "minimum_precision_guidance": "Independent per-cutoff uncertainty at or below approximately 1.18 meV supports 10 percent W precision when the effective-thickness ratio is exact; 2 percent independent thickness uncertainties lower the cutoff-error budget to approximately 1.15 meV."
+  },
+  "authorized_conclusions": [
+    "Two same-state tail cutoffs identify W directly through their energy difference and logarithmic effective-thickness ratio.",
+    "Larger thickness ratios improve W conditioning until a crossing leaves the tail branch or authorized energy domain.",
+    "The synthetic 5-to-20 um pair is close to the largest informative ratio that retains a 2 meV source-domain margin.",
+    "Correlated energy-calibration errors can substantially reduce paired-difference uncertainty and must be retained explicitly.",
+    "Effective-thickness uncertainty contributes separately from cutoff-energy uncertainty."
+  ],
+  "unauthorized_conclusions": [
+    "The record is not a fit to Chang Figure 2.",
+    "The optimum ratio is not universal outside the declared W, baseline cutoff, response criterion, and source domain.",
+    "Physical thickness is not treated as effective optical thickness.",
+    "No external material validation is complete."
+  ]
+}
