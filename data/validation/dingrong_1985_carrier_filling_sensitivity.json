@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 175,
+  "status": "bounded sensitivity reference; not a full Dingrong source reproduction",
+  "source_anchor": {
+    "citation": "Qian Dingrong et al., Solid State Communications 56, 813-816 (1985)",
+    "doi": "10.1016/0038-1098(85)90315-1",
+    "nominal_composition": 0.19,
+    "electron_density_cm3": 7.0e17,
+    "temperature_range_k": [77.0, 300.0],
+    "spectral_range_um": [7.0, 17.0],
+    "ionized_impurity_concentration_cm3": 3.4e18,
+    "source_interpretation": "degenerate edge described with a Burstein-Moss construction; below-gap absorption includes free-carrier scattering",
+    "full_numeric_reproduction_authorized": false,
+    "blocking_items": [
+      "complete source equation and parameter transcription",
+      "source-native numerical spectra",
+      "temperature-resolved mass and dielectric parameters",
+      "uncertainty and edge-coordinate provenance"
+    ]
+  },
+  "declared_sensitivity_parameters": {
+    "zero_density_gap_ev": 0.100,
+    "conduction_edge_mass_ratio": 0.010,
+    "nonparabolicity_ev_inverse": 7.5,
+    "valence_mass_ratio": 0.35,
+    "bgr_coefficient_ev_at_1e18_cm3": 0.020,
+    "valley_degeneracy": 1.0,
+    "parameter_status": "illustrative and not inferred from the Dingrong specimen"
+  },
+  "dingrong_density_result": {
+    "electron_density_cm3": 7.0e17,
+    "fermi_wavevector_inverse_angstrom": 0.02746879954226066,
+    "parabolic_conduction_energy_ev": 0.28747646590097786,
+    "nonparabolic_conduction_energy_ev": 0.14015364156709495,
+    "valence_recoil_energy_ev": 0.008213613311456511,
+    "nonparabolic_burstein_moss_shift_ev": 0.14836725487855146,
+    "parabolic_burstein_moss_shift_ev": 0.2956900792124344,
+    "parabolic_overestimate_ev": 0.1473228243338829,
+    "parabolic_to_nonparabolic_shift_ratio": 1.9929605050283943,
+    "nonparabolicity_parameter_alpha_Epar": 2.156073494257334,
+    "bandgap_renormalization_ev": -0.017758080034852013,
+    "illustrative_optical_edge_ev": 0.23060917484369944
+  },
+  "density_crossover": [
+    {
+      "density_cm3": 1.0e14,
+      "parabolic_conduction_energy_mev": 0.7856038513359774,
+      "nonparabolic_conduction_energy_mev": 0.7810288063632089,
+      "parabolic_overestimate_mev": 0.0045750449727685
+    },
+    {
+      "density_cm3": 1.0e15,
+      "parabolic_conduction_energy_mev": 3.6464500640042653,
+      "nonparabolic_conduction_energy_mev": 3.551833647080278,
+      "parabolic_overestimate_mev": 0.09461641692398715
+    },
+    {
+      "density_cm3": 1.0e16,
+      "parabolic_conduction_energy_mev": 16.9253218994088,
+      "nonparabolic_conduction_energy_mev": 15.193910115031399,
+      "parabolic_overestimate_mev": 1.731411784377402
+    },
+    {
+      "density_cm3": 1.0e17,
+      "parabolic_conduction_energy_mev": 78.56038513359773,
+      "nonparabolic_conduction_energy_mev": 55.47735677393183,
+      "parabolic_overestimate_mev": 23.0830283596659
+    },
+    {
+      "density_cm3": 7.0e17,
+      "parabolic_conduction_energy_mev": 287.47646590097786,
+      "nonparabolic_conduction_energy_mev": 140.15364156709495,
+      "parabolic_overestimate_mev": 147.3228243338829
+    }
+  ],
+  "five_density_identifiability_design": {
+    "electron_densities_cm3": [1.0e16, 3.0e16, 1.0e17, 3.0e17, 7.0e17],
+    "parameter_order": [
+      "ln_zero_density_gap",
+      "ln_conduction_edge_mass",
+      "ln_nonparabolicity",
+      "ln_valence_mass",
+      "ln_bgr_coefficient"
+    ],
+    "optical_edges_ev": [
+      0.11136862136066503,
+      0.12372072691683504,
+      0.14843876153909477,
+      0.1865788246036873,
+      0.23060917484369944
+    ],
+    "singular_values": [
+      0.255477493,
+      0.0663828971,
+      0.00464192311,
+      0.000181849453,
+      0.0000231520896
+    ],
+    "relative_singular_values": [
+      1.0,
+      0.259838534,
+      0.0181695971,
+      0.000711802247,
+      0.0000906228153
+    ],
+    "numerical_rank": 5,
+    "condition_number": 11034.748776227327,
+    "interpretation": "five distinct densities restore local rank for five positive log-parameters, but the weakest direction is over four orders of magnitude below the strongest"
+  },
+  "authorized_conclusions": [
+    "At the Dingrong density scale, a parabolic conduction-band filling estimate can be wrong by an amount comparable to or larger than a narrow HgCdTe gap.",
+    "Burstein-Moss filling, valence recoil, band-gap renormalization, and observation shifts must remain separate terms.",
+    "One optical edge at one density has Jacobian rank one and cannot identify the five declared material parameters.",
+    "A density series can restore local rank but can remain severely ill-conditioned."
+  ],
+  "unauthorized_conclusions": [
+    "The illustrative masses, nonparabolicity, gap, or renormalization coefficient are not inferred for the Dingrong specimen.",
+    "The illustrative optical edge is not a reproduction of a source data point.",
+    "The one-specimen correction is not transferred to low-density detector material.",
+    "The model does not yet include finite-temperature carrier statistics or free-carrier absorption."
+  ]
+}
