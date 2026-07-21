@@ -54,5 +54,7 @@ jobs:
             irpt-tables-generated
             distributional-generated
             material-comparator-analysis.json
+            tools/build_distributional_band_edge_manuscript_assets.py
+            manuscript/distributional_band_edge/figure_manifest.json
           if-no-files-found: error
           retention-days: 30
