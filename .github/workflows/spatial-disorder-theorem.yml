@@ -1,0 +1,57 @@
+name: spatial-disorder-theorem
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify spatial-disorder layers
+        run: |
+          python -m pytest -q \
+            tests/test_spatial_disorder.py \
+            tests/test_spatial_disorder_depth.py \
+            tests/test_spatial_disorder_inference.py \
+            tests/test_spatial_disorder_theorems.py
+      - name: Validate immutable reference
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/validation/spatial_disorder_theorem_extension.json')
+          record = json.loads(path.read_text(encoding='utf-8'))
+          assert record['schema_version'] == '1.0'
+          assert record['program_issue'] == 196
+          assert record['status'] == 'analytical_sensitivity_not_specimen_calibration'
+          case = record['declared_hgcdte_sensitivity_case']
+          assert len(case['probe_results']) == 4
+          assert case['headline']['apparent_standard_deviation_ratio'] > 27.0
+          designs = record['conditioning_examples']
+          assert min(item['condition_number'] for item in designs) < 3.0
+          assert max(item['condition_number'] for item in designs) > 1000.0
+          restrictions = record['claim_restrictions']
+          assert any('established mathematics' in item for item in restrictions)
+          assert any('not a specimen fit' in item for item in restrictions)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spatial-disorder-theorem
+          path: |
+            data/validation/spatial_disorder_theorem_extension.json
+            docs/derivations/010_scale_dependent_spatial_disorder.md
+            literature/notes/scale_dependent_disorder_prior_art.md
+          if-no-files-found: error
+          retention-days: 30
