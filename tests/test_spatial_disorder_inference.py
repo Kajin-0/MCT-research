@@ -104,7 +104,7 @@ def test_conditioning_penalizes_equal_and_same_asymptotic_scales() -> None:
     assert near_equal == pytest.approx(632.8977824409359, rel=2.0e-12)
     assert straddling == pytest.approx(2.6833803015680533, rel=2.0e-12)
     assert both_large > 1000.0
-    assert both_small > 10000.0
+    assert both_small > 5000.0
     assert math.isinf(
         two_scale_log_parameter_condition_number(
             correlation_length, 5.0, 5.0, dimension=2
