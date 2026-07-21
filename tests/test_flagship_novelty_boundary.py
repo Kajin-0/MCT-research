@@ -166,10 +166,11 @@ def test_readme_and_active_state_match_merged_source_state() -> None:
         assert "validation" in text.lower()
         assert "Chang" in text
 
-    assert "**Active milestone:** #189" in active
+    assert "**Active milestone:** #191" in active
     assert "This is the sole controlling research ledger" in active
     assert "PR #188" in active
-    assert "complete CI and merge Issue #189" in active
+    assert "PR #190" in active
+    assert "merge Issue #191" in active
 
 
 def test_no_novelty_status_is_treated_as_global_proof() -> None:
