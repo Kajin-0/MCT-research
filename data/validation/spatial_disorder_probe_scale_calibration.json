@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 196,
+  "implementation_issue": 215,
+  "status": "analytical_sensitivity_not_specimen_calibration",
+  "model": {
+    "covariance_family": "isotropic_2d_gaussian",
+    "probe_family": "gaussian",
+    "apparent_variance": "V(s)=A/(1+2*s^2/xi^2)",
+    "physics_parameters": [
+      "log_point_variance",
+      "log_correlation_length"
+    ],
+    "calibration_parameterization": "delta_log_probe_scale=B*z"
+  },
+  "exact_common_mode_result": {
+    "identity": "dV/dlog(s)=-dV/dlog(xi)",
+    "identified_combination": "log(xi)-delta_common_scale",
+    "covariance_increment": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        "tau_scale_squared"
+      ]
+    ],
+    "interpretation": "absolute correlation-length precision cannot exceed independent absolute probe-scale calibration precision"
+  },
+  "reference_design": {
+    "point_variance": 0.01,
+    "correlation_length": 2.0,
+    "probe_sigmas": [
+      0.0,
+      0.4,
+      2.0,
+      10.0
+    ],
+    "observation_relative_standard_deviation": 0.05,
+    "predicted_variances": [
+      0.010000000000000004,
+      0.009259259259259266,
+      0.0033333333333333335,
+      0.0001960784313725492
+    ],
+    "exact_scale_parameter_covariance": [
+      [
+        0.0013152930266799746,
+        -0.000802137972774958
+      ],
+      [
+        -0.000802137972774958,
+        0.0009321046316549513
+      ]
+    ]
+  },
+  "common_scale_calibration_case": {
+    "log_scale_standard_deviation": 0.02,
+    "parameter_covariance": [
+      [
+        0.0013152930266799743,
+        -0.0008021379727749576
+      ],
+      [
+        -0.0008021379727749576,
+        0.001332104631654951
+      ]
+    ],
+    "exact_identity_target": [
+      [
+        0.0013152930266799746,
+        -0.000802137972774958
+      ],
+      [
+        -0.000802137972774958,
+        0.0013321046316549514
+      ]
+    ],
+    "maximum_absolute_identity_residual": 4.336808689942018e-19,
+    "parameter_standard_deviation_inflation": [
+      0.9999999999999999,
+      1.195464918787095
+    ]
+  },
+  "independent_scale_error_case": {
+    "per_scale_log_standard_deviation": 0.02,
+    "parameter_covariance": [
+      [
+        0.0013345275128393416,
+        -0.0008457905998142729
+      ],
+      [
+        -0.000845790599814273,
+        0.0011963094801234564
+      ]
+    ],
+    "parameter_standard_deviation_inflation": [
+      1.0072853255206649,
+      1.1328944237548817
+    ]
+  },
+  "validation_requirements": [
+    "probe-log Jacobian agrees with stable central differences",
+    "common calibration Jacobian is the negative log-correlation-length Jacobian",
+    "common-mode covariance identity closes at binary64 precision",
+    "general nuisance-basis Schur complement agrees with direct block calculation",
+    "weak common calibration prior recovers practical rank deficiency",
+    "results are invariant to a common change of length units"
+  ],
+  "claim_restrictions": [
+    "established mathematics only within the declared Gaussian covariance and Gaussian probe model",
+    "not a specimen fit or experimental probe calibration",
+    "not a universal covariance-family claim",
+    "not a global nonlinear posterior calculation",
+    "not an optical-linewidth or Urbach-energy identification",
+    "not a random-mass Kane or topological result"
+  ]
+}
