@@ -1,274 +1,250 @@
 # Current research program state
 
 **Last updated:** 2026-07-21  
-**Controlling issue:** #196  
-**Active milestone:** scale-dependent spatial-disorder theorem  
-**Execution mode:** independent, analytical-first, anonymous-only
+**Controlling issue:** #167  
+**Active milestone:** #191  
+**Execution mode:** independent, public-data-first, reproducible computation
 
-This is the sole controlling research ledger. `research/active_progress.md` remains retired.
+This is the sole controlling research ledger. `research/active_progress.md` is retired.
 
-## Superseded submission state
+## Completed Paper I
 
-The manuscript and submission bundle merged through PR #194 are scientifically superseded. They are not submission-ready.
+> **Observation-model uncertainty and identifiability in HgCdTe band-gap extraction**
 
-The prior document assembled valid component calculations, but it did not develop one result deeply enough to carry a theoretical paper. Its figures operated as milestone dashboards rather than evidence for a central theorem.
+Paper I is scientifically frozen. Remaining work is administrative submission packaging.
 
-The active branch removes:
+## Active flagship manuscript
 
-- named manuscript source and PDF;
-- cover letter and personal/affiliation metadata;
-- the weak anonymous review source and PDF;
-- dashboard-style submission figures;
-- SST bundle builders, tests, and workflow.
+> **From latent bandgap to measured edge in HgCdTe: distributional observation operators and structural identifiability**
 
-Future manuscript artifacts are anonymous only.
-
-## Preserved scientific base
-
-Commit `2b740c4a881b7944e674fe75a1eb43cbfe7b2b29` remains the computational foundation. It provides:
-
-- anisotropic Gaussian composition covariance matrices;
-- anisotropic Gaussian measurement kernels;
-- stable log-determinant evaluation of filtered variance;
-- an exact validated two-scale inverse for the isotropic two-dimensional case;
-- 699 passing tests and 6 skips on Python 3.11 and 3.13 at merge.
-
-The active work extends that implementation rather than replacing it.
-
-## Active scientific question
-
-> How does spatially correlated HgCdTe composition disorder combine with a finite optical or device kernel to determine the apparent band-edge width, and what probe scales are required to recover microscopic disorder amplitude and correlation length?
-
-The active chain is
+Controlling forward chain:
 
 ```text
-microscopic composition random field
--> covariance / power spectrum
--> optical, electrical, or diffusion kernel
--> probe-averaged composition distribution
--> signed HgCdTe gap distribution
--> optical or detector operator
--> reported width or cutoff spread
+latent signed gap
+-> composition/gap distribution
+-> carrier and defect state
+-> intrinsic, tail, and free-carrier response
+-> effective thickness and instrument response
+-> declared observation operator
+-> reported observable
 ```
 
-## Exact observation operator
-
-For stationary covariance `C_x` and normalized kernel `w_a`,
+Completed milestones:
 
 ```text
-Var(X_a)
-=
-int int w_a(r) w_a(r') C_x(r-r') dr dr'.
+PR #181  analytical manuscript core
+PR #183  deterministic seven-figure and three-table pipeline
+PR #185  DOI intake and validation-route gate
+PR #188  Dingrong Table 1 reproduction and source-state correction
+PR #190  prior-art audit and novelty boundary
 ```
 
-Equivalently,
+## Selected journal and evidence threshold
+
+Issue #191 selects the primary submission venue:
+
+> **Semiconductor Science and Technology — Paper**
+
+Fallback:
+
+> **Journal of Applied Physics**
+
+Stretch venue not ready under the current evidence state:
+
+> **Measurement Science and Technology**
+
+Controlling files:
 
 ```text
-Var(X_a)
-=
-(2 pi)^(-D) int S_x(k) |W_a(k)|^2 dk.
+data/validation/flagship_journal_submission_gate.json
+research/decision_records/2026-07-21-flagship-journal-and-evidence-threshold.md
+manuscript/distributional_band_edge/journal_submission/semiconductor_science_and_technology.md
+manuscript/distributional_band_edge/references_verified.json
 ```
 
-A finite measurement reports a filtered spatial spectrum, not the point variance `C_x(0)`.
+Semiconductor Science and Technology is selected because its official scope directly includes theoretical semiconductor studies, new analytical techniques, and simulation.
 
-## Gaussian theorem
+The present analytical, numerical, source-conditioned, and Dingrong source-table evidence is sufficient for initial submission after packaging.
 
-For
+A newly digitized spectrum is **not required before initial submission**.
+
+Digitization is reserved for:
+
+1. an explicit editor or reviewer request;
+2. a newly available source-native or calibratable spectrum with sufficient provenance;
+3. a pre-submission editorial statement that the current source-table evidence is insufficient.
+
+Measurement Science and Technology would require a calibrated spectrum, quantified uncertainty, performance demonstration, and baseline comparison before submission.
+
+## Publication framing
+
+The manuscript is:
+
+> **an HgCdTe-specific semiconductor optical-metrology and inverse-problem methods paper**
+
+It is not:
+
+- new general structural-identifiability theory;
+- a universal HgCdTe bandgap equation;
+- a complete microscopic absorption theory;
+- a completely externally validated detector model.
+
+Established prior art includes structural identifiability, parameter symmetries, identifiable combinations, the Beer-Lambert optical-depth product, thickness-dependent detector cutoff, and Gaussian-gap-induced apparent tails.
+
+Candidate application-specific contributions are:
+
+- explicit HgCdTe combinations `Eg0+Delta`, `sigma_G`, and `A*d`;
+- the rank-three bound for the declared distributed spectrum;
+- the tail-only Chang rank-two bound;
+- the marked-model combined null vector;
+- the exact five-parameter spectral counterexample;
+- quantified fit-window and mixed-branch effects;
+- the Dingrong printed-parameter consistency result;
+- the external-measurement prescription implied by the symmetries.
+
+## Central model-specific result
+
+For the declared Gaussian-gap, power-law local edge, uniform carrier translation, and single-pass response, five nominal parameters
 
 ```text
-C_x(h) = sigma_x^2 exp[-|h|^2/(2 ell^2)]
+Eg0
+Delta_carrier
+ln sigma_G
+ln A
+ln d
 ```
 
-and a normalized `D`-dimensional Gaussian probe of coordinate standard deviation `a`,
+enter only through
 
 ```text
-Var(X_a)
-=
-sigma_x^2 (1 + 2 a^2/ell^2)^(-D/2).
+Eg0 + Delta_carrier
+sigma_G
+A*d
 ```
 
-The anisotropic core evaluates
+Therefore
 
 ```text
-sigma_x^2 sqrt(det(Lambda)/det(Lambda + 2 Sigma_w)).
+dR/dEg0 = dR/dDelta_carrier
+dR/dlnA = dR/dlnd
+rank(J) <= 3
 ```
 
-## One-scale no-go result
+Two parameter sets preserving the three combinations generate 281-point spectra with maximum difference `2.22e-16`.
 
-At one declared probe scale `a*`, every positive `ell` can be paired with
+A controlled nontranslational carrier marker raises rank to four but leaves one combined null direction. The marker is not the Dingrong free-carrier absorption law.
+
+## Supporting quantitative results
 
 ```text
-sigma_x^2(ell)
-=
-V* (1 + 2 a*^2/ell^2)^(D/2)
+central near-critical latent-law span                25.0803 K
+maximum conditional-width linearization error         9.657 K
+Herrmann source-window W_fit/s                         0.50504
+fit-window increase in apparent W                       60.1%
+5-to-20 um synthetic cutoff energy shift             -16.636 meV
+5-to-20 um synthetic cutoff wavelength shift          +2.494 um
+tail-only cutoff rank                                  <= 2
+mixed-branch condition number                         199.81
+illustrative high-density parabolic overestimate      147.323 meV
+five-density illustrative condition number          11034.75
+Dingrong printed-P Fermi-shift RMS discrepancy         11.297 meV
+Dingrong row-implied-P Fermi-shift RMS discrepancy      0.785 meV
 ```
 
-to reproduce the same observed variance `V*`.
+Synthetic values are not specimen fits.
 
-Therefore one measured width cannot separately identify point disorder variance and correlation length. This is exact structural non-identifiability under the declared model.
+## Dingrong source-table evidence
 
-## Arbitrary-dimensional two-scale inverse
-
-For distinct scales, define
+The real source specimen has:
 
 ```text
-q = (V1/V2)^(2/D).
+x                         0.19
+carrier type              n-type
+Hall density              7.0e17 cm^-3
+transmission thickness    0.16 mm
+refractive index used     3.5
+spectral interval         7-17 um
+temperatures              77, 100, 200, 300 K
+edge operator             extrapolation to 2000 cm^-1
 ```
 
-Then
+The printed finite-temperature density equation with printed
 
 ```text
-ell^2 = 2 (a2^2 - q a1^2)/(q - 1)
+P = 8.0e-8 eV cm
 ```
 
-and
+undershoots the four reported Fermi elevations by RMS `11.297 meV`.
+
+The rounded rows imply a diagnostic mean
 
 ```text
-sigma_x^2 = V1 (1 + 2 a1^2/ell^2)^(D/2).
+P = 8.5107e-8 eV cm
 ```
 
-The inverse is algebraically exact but model conditional.
+which reduces the RMS discrepancy to `0.785 meV`. It is not a revised universal material constant.
 
-## Conditioning and measurement design
+The source filled edge and operational optical gap differ by `0-4 meV`, RMS `2.915 meV`.
 
-For
+This is qualified real-specimen source-table evidence, not complete native-spectrum validation.
+
+## Chang disposition
+
+Chang 2007 Figure 1 is a calculated detector-cutoff curve, not an independent measured same-specimen thickness series. It is not external validation.
+
+Chang remains prior art and a source-bounded model basis. The tail-only rank result is analytical.
+
+## Bibliography state
+
+Core metadata are verified in:
 
 ```text
-y_i = ln V_i
-theta = (ln sigma_x^2, ln ell),
+manuscript/distributional_band_edge/references_verified.json
 ```
 
-Jacobian row `i` is
+The manifest covers the central structural-identifiability, parameter-symmetry, optical-inversion, effective-thickness, and HgCdTe mechanism sources.
 
-```text
-[1, g_i]
+Remaining bibliography work is:
 
-g_i = D [2 a_i^2/ell^2]/[1 + 2 a_i^2/ell^2].
-```
+1. generate SST-style references;
+2. verify secondary historical gap-law citations;
+3. freeze citation numbering after the final reference set.
 
-The inverse is poorly conditioned when:
+## Submission package state
 
-- the scales are equal or nearly equal;
-- both probes are much smaller than `ell`;
-- both probes are much larger than `ell`.
+Prepared:
 
-A useful pair samples opposite sides of the correlation length.
+- journal selection and evidence threshold;
+- journal-positioning paragraph;
+- SST cover-letter draft;
+- data and code availability statements;
+- restricted-source statement;
+- single-author CRediT template;
+- funding and conflict templates;
+- submission checklist.
 
-For `D=2`, `ell=5 um`:
+Remaining critical path:
 
-```text
-probe pair       condition number
-5, 5.05 um       632.90
-0.5, 50 um         2.683
-2.5, 10 um         4.838
-50, 500 um       1011.13
-```
+1. merge Issue #191 after CI;
+2. generate the SST-style bibliography;
+3. convert approved SVGs to accepted journal vector format;
+4. create archive release and DOI;
+5. complete author, affiliation, reviewer, and declaration metadata;
+6. finalize SST manuscript formatting and cover letter;
+7. perform final independent wording and PDF review;
+8. tag the submission release after all workflows pass.
 
-## Alternative top-hat kernels
+## Explicitly unauthorized before initial SST submission
 
-For a normalized one-dimensional top-hat of length `L`,
-
-```text
-V_L = (2/L^2) int_0^L (L-h) C_x(h) dh.
-```
-
-Closed forms are implemented for Gaussian and exponential covariance and are verified against independent numerical quadrature. Their finite-scale curves differ, so covariance-family misspecification is a real inverse risk.
-
-## HgCdTe gap propagation
-
-For filtered composition variance `V_a`, a quadratic expansion gives
-
-```text
-E[Eg] ~= Eg(xbar,T) + 0.5 Eg_xx V_a
-```
-
-and
-
-```text
-Var(Eg) ~= Eg_x^2 V_a + 0.5 Eg_xx^2 V_a^2.
-```
-
-The variance expression is exact for a quadratic composition dependence and Gaussian composition.
-
-For a cutoff `lambda_c=hc/E_c`,
-
-```text
-sigma_lambda ~= lambda_c sigma_E/|E_c|.
-```
-
-## Quantitative significance screen
-
-Declared sensitivity assumptions:
-
-```text
-D                                  2
-point composition sigma            0.005
-correlation length                 5 um
-local |dEg/dx|                     1.7191085 eV
-reference cutoff                   10 um
-```
-
-Results:
-
-```text
-probe a        effective sigma_x     sigma_gap     sigma_cutoff
-1 um           0.004811              8.271 meV     0.6671 um
-5 um           0.002887              4.963 meV     0.4003 um
-10 um          0.001667              2.865 meV     0.2311 um
-100 um         0.0001767             0.304 meV     0.02450 um
-```
-
-The same declared microscopic field appears `27.2336x` narrower in standard deviation when probe sigma increases from `1 um` to `100 um`.
-
-This is large enough to alter comparisons among micro-FTIR, wafer FTIR, PL, cutoff mapping, and pixel/device distributions. It is a sensitivity calculation, not a specimen calibration.
-
-## Prior-art boundary
-
-Established work includes:
-
-- finite-aperture HgCdTe composition/thickness mapping;
-- spatially resolved PL and transmission;
-- apparent absorption tails generated by local-gap distributions;
-- PL localization at composition fluctuations;
-- effective-thickness-dependent detector cutoff;
-- general random-field covariance filtering.
-
-The candidate contribution is the combined HgCdTe spatial observation layer, exact information limits, scale-selection design, and quantitative device consequence. No novelty claim is frozen until the highest-value spatial-mapping papers are fully audited.
-
-## Active files
-
-```text
-src/mct_research/spatial_disorder.py
-src/mct_research/spatial_disorder_inference.py
-tests/test_spatial_disorder.py
-tests/test_spatial_disorder_inference.py
-docs/derivations/010_scale_dependent_spatial_disorder.md
-data/validation/spatial_disorder_theorem_extension.json
-literature/notes/scale_dependent_disorder_prior_art.md
-```
-
-## Required next milestones
-
-1. pass focused and complete Python 3.11/3.13 workflows;
-2. complete full-text audit of the most relevant spatial-mapping papers;
-3. propagate realistic measurement uncertainty through the two-scale inverse;
-4. quantify covariance-family misspecification with three or more probe scales;
-5. connect the spatial layer to Herrmann absorption without equating tail energy with microscopic variance;
-6. connect it to mapped detector-cutoff statistics with explicit optical/electrical kernels;
-7. build 4-6 theorem-centered figures rather than dashboards;
-8. write a new equation-dense anonymous manuscript;
-9. commit an anonymous review PDF only after the scientific significance gate passes.
-
-## Explicitly unauthorized
-
-- named manuscript or named PDF;
-- cover letter or submission package;
-- personal or commercial metadata in the manuscript path;
-- treating the PR #194 draft as submission-ready;
-- dashboard-style figure collections;
-- claiming general covariance convolution as new mathematics;
-- equating point composition variance, probe-averaged variance, Urbach energy, PL linewidth, and cutoff spread;
-- inferring correlation length from sources without spatial covariance evidence;
-- journal selection or DOI packaging before the scientific gate;
-- requiring collaborators or new experiments;
-- expensive first-principles work without a result-changing need.
+- speculative spectrum digitization;
+- reopening journal ranking without new editorial evidence;
+- new route-scoring infrastructure;
+- new manuscript architecture;
+- additional figure-design systems;
+- broad new physical mechanism branches;
+- presenting general identifiability or Beer-Lambert structure as new;
+- presenting Chang's calculated curve as external validation;
+- treating Dingrong's row-implied `P` as universal;
+- claiming complete free-carrier-spectrum validation;
+- requiring collaborators;
+- escalating to expensive first-principles work without a submission-changing need.
