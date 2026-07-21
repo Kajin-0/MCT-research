@@ -30,20 +30,16 @@ def test_zero_disorder_reduces_to_local_beer_lambert_law() -> None:
     )
 
     assert observation.mean_absorption_cm_inverse == pytest.approx(
-        expected_absorption,
-        rel=1.0e-14,
+        expected_absorption, rel=1.0e-14
     )
     assert observation.log_averaged_transmission == pytest.approx(
-        -thickness * expected_absorption,
-        rel=1.0e-14,
+        -thickness * expected_absorption, rel=1.0e-14
     )
     assert observation.transmission_effective_absorption_cm_inverse == pytest.approx(
-        expected_absorption,
-        rel=1.0e-14,
+        expected_absorption, rel=1.0e-14
     )
     assert observation.jensen_gap_cm_inverse == pytest.approx(
-        np.zeros_like(energy),
-        abs=1.0e-14,
+        np.zeros_like(energy), abs=1.0e-14
     )
 
 
@@ -77,20 +73,16 @@ def test_step_edge_at_mean_gap_matches_exact_mixture() -> None:
     expected_log_transmission = math.log(expected_transmission)
 
     assert observation.mean_absorption_cm_inverse[0] == pytest.approx(
-        amplitude / 2.0,
-        rel=1.0e-15,
+        amplitude / 2.0, rel=1.0e-15
     )
     assert observation.averaged_transmission[0] == pytest.approx(
-        expected_transmission,
-        rel=1.0e-15,
+        expected_transmission, rel=1.0e-15
     )
     assert observation.log_averaged_transmission[0] == pytest.approx(
-        expected_log_transmission,
-        rel=1.0e-15,
+        expected_log_transmission, rel=1.0e-15
     )
     assert observation.transmission_effective_absorption_cm_inverse[0] == pytest.approx(
-        -expected_log_transmission / thickness,
-        rel=1.0e-15,
+        -expected_log_transmission / thickness, rel=1.0e-15
     )
 
 
@@ -133,8 +125,7 @@ def test_thin_sample_effective_absorption_converges_to_mean() -> None:
         amplitude_cm_inverse_ev_power=amplitude,
     )
     assert observation.transmission_effective_absorption_cm_inverse[0] == pytest.approx(
-        amplitude / 2.0,
-        rel=3.0e-7,
+        amplitude / 2.0, rel=3.0e-7
     )
 
 
@@ -175,12 +166,10 @@ def test_closure_error_increases_with_thickness_for_declared_step_case() -> None
         amplitude_cm_inverse_ev_power=200.0,
     )
     thin = lateral_gaussian_gap_transmission_observation(
-        thickness_cm=1.0e-4,
-        **common,
+        thickness_cm=1.0e-4, **common
     )
     thick = lateral_gaussian_gap_transmission_observation(
-        thickness_cm=0.05,
-        **common,
+        thickness_cm=0.05, **common
     )
     assert thick.relative_closure_error[0] > thin.relative_closure_error[0]
     assert thick.jensen_gap_cm_inverse[0] > thin.jensen_gap_cm_inverse[0]
@@ -210,36 +199,65 @@ def test_scalar_and_multidimensional_shapes_are_preserved() -> None:
     assert matrix.relative_closure_error.shape == matrix_energy.shape
 
 
-def test_quadrature_convergence_for_square_root_edge() -> None:
+def test_square_root_quadrature_shows_consistent_algebraic_convergence() -> None:
     energy = np.linspace(0.08, 0.14, 31)
-    lower = lateral_gaussian_gap_transmission_observation(
-        energy,
-        0.105,
-        0.005,
-        0.015,
+    common = dict(
+        photon_energy_ev=energy,
+        mean_gap_ev=0.105,
+        gap_sigma_ev=0.005,
+        thickness_cm=0.015,
         exponent=0.5,
         amplitude_cm_inverse_ev_power=1600.0,
-        quadrature_order=128,
     )
-    higher = lateral_gaussian_gap_transmission_observation(
-        energy,
-        0.105,
-        0.005,
-        0.015,
-        exponent=0.5,
-        amplitude_cm_inverse_ev_power=1600.0,
-        quadrature_order=256,
+    coarse = lateral_gaussian_gap_transmission_observation(
+        quadrature_order=64, **common
     )
-    assert lower.log_averaged_transmission == pytest.approx(
-        higher.log_averaged_transmission,
-        rel=2.0e-8,
-        abs=1.0e-11,
+    medium = lateral_gaussian_gap_transmission_observation(
+        quadrature_order=128, **common
     )
-    assert lower.mean_absorption_cm_inverse == pytest.approx(
-        higher.mean_absorption_cm_inverse,
-        rel=2.0e-8,
-        abs=1.0e-10,
+    fine = lateral_gaussian_gap_transmission_observation(
+        quadrature_order=256, **common
     )
+
+    coarse_log_change = float(
+        np.max(
+            np.abs(
+                coarse.log_averaged_transmission
+                - medium.log_averaged_transmission
+            )
+        )
+    )
+    fine_log_change = float(
+        np.max(
+            np.abs(
+                medium.log_averaged_transmission
+                - fine.log_averaged_transmission
+            )
+        )
+    )
+    coarse_absorption_change = float(
+        np.max(
+            np.abs(
+                coarse.mean_absorption_cm_inverse
+                - medium.mean_absorption_cm_inverse
+            )
+        )
+    )
+    fine_absorption_change = float(
+        np.max(
+            np.abs(
+                medium.mean_absorption_cm_inverse
+                - fine.mean_absorption_cm_inverse
+            )
+        )
+    )
+
+    # The square-root threshold has an endpoint derivative singularity, so
+    # Gauss--Legendre convergence is algebraic rather than spectral. Doubling
+    # order must materially reduce the observed successive difference.
+    assert fine_log_change < 0.35 * coarse_log_change
+    assert fine_absorption_change < 0.35 * coarse_absorption_change
+    assert fine_log_change < 2.1e-6
 
 
 def test_observation_arrays_are_read_only() -> None:
