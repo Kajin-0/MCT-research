@@ -26,6 +26,7 @@ class QualificationClass(str, Enum):
     """Permitted uses of a candidate source."""
 
     DIRECT_MULTIRESOLUTION_VALIDATION = "direct_multiresolution_validation"
+    PARTIAL_MULTIRESOLUTION_BENCHMARK = "partial_multiresolution_benchmark"
     SINGLE_SCALE_SPATIAL_BENCHMARK = "single_scale_spatial_benchmark"
     CROSS_MODALITY_CONTEXT = "cross_modality_context"
     SOURCE_BOUNDED_FIGURE_BENCHMARK = "source_bounded_figure_benchmark"
@@ -127,6 +128,7 @@ class ValidationPortfolioDecision:
 
     status: str
     direct_candidate_ids: tuple[str, ...]
+    partial_multiresolution_candidate_ids: tuple[str, ...]
     qualifications: tuple[ValidationQualification, ...]
     minimum_next_action: tuple[str, ...]
 
@@ -255,6 +257,24 @@ def qualify_validation_candidate(
             "claim specimen inference beyond the declared data and model",
         )
     elif (
+        candidate.same_specimen is EvidenceState.CONFIRMED
+        and candidate.independent_effective_scale_count >= 2
+        and (
+            candidate.numerical_data_available is EvidenceState.CONFIRMED
+            or candidate.rendered_figure_available is EvidenceState.CONFIRMED
+        )
+    ):
+        qualification = QualificationClass.PARTIAL_MULTIRESOLUTION_BENCHMARK
+        permitted = (
+            "establish source-bounded qualitative dependence on probe scale",
+            "define the missing third-scale, kernel, and uncertainty requirements",
+        )
+        prohibited = (
+            "perform three-scale covariance-family closure",
+            "recover specimen covariance parameters from rendered curves or nominal beam diameters",
+            "treat two scales as direct multiresolution validation",
+        )
+    elif (
         candidate.modality_count >= 2
         and candidate.same_specimen is EvidenceState.CONFIRMED
         and candidate.same_spatial_region is EvidenceState.CONFIRMED
@@ -335,6 +355,12 @@ def qualify_validation_portfolio(
         for item in qualifications
         if item.direct_validation_ready
     )
+    partial = tuple(
+        item.source_id
+        for item in qualifications
+        if item.qualification
+        is QualificationClass.PARTIAL_MULTIRESOLUTION_BENCHMARK
+    )
     if direct:
         status = "direct_validation_available"
         next_action = (
@@ -344,17 +370,28 @@ def qualify_validation_portfolio(
         )
     else:
         status = "external_data_blocked"
-        next_action = (
-            "Obtain one numerical same-region dataset at three calibrated "
-            "effective scales, or one numerical high-resolution map reusable "
-            "under three declared kernels.",
-            "Require kernel metadata, spatial registration, thickness/depth "
-            "model, uncertainty covariance, observable definition, and "
-            "preprocessing provenance before inference.",
-        )
+        if partial:
+            next_action = (
+                "Use the partial multiresolution source only as qualitative "
+                "scale-dependence evidence; do not infer covariance parameters.",
+                "Obtain its original numerical spectra or maps, measured kernels, "
+                "uncertainty covariance, spatial registration, and a third scale, "
+                "or obtain one numerical high-resolution map reusable under "
+                "three declared kernels.",
+            )
+        else:
+            next_action = (
+                "Obtain one numerical same-region dataset at three calibrated "
+                "effective scales, or one numerical high-resolution map reusable "
+                "under three declared kernels.",
+                "Require kernel metadata, spatial registration, thickness/depth "
+                "model, uncertainty covariance, observable definition, and "
+                "preprocessing provenance before inference.",
+            )
     return ValidationPortfolioDecision(
         status=status,
         direct_candidate_ids=direct,
+        partial_multiresolution_candidate_ids=partial,
         qualifications=qualifications,
         minimum_next_action=next_action,
     )
