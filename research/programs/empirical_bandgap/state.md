@@ -18,7 +18,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #260 — Camassel deterministic composition-envelope evaluation;
 - #265 — Scott 1969 fixed-absorption optical-edge source audit;
 - #267 — Blue 1964 seven-sample optical-gap reconstruction;
-- #269 — Blue 1964 signed-gap non-commensurability certificate.
+- #269 — Blue 1964 signed-gap non-commensurability certificate;
+- #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit.
 
 ## Completed foundations
 
@@ -33,7 +34,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - bounded Camassel forward evaluation without parameter fitting;
 - source-level Scott 1969 metrology and Figure 1 specimen audit with a fail-closed digitization gate;
 - seven-row Blue 1964 theory-conditioned positive optical-gap reconstruction;
-- executable Blue 1964 signed-gap non-commensurability certificate with zero fitted parameters and zero correction coefficients.
+- executable Blue 1964 signed-gap non-commensurability certificate with zero fitted parameters and zero correction coefficients;
+- provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit.
 
 ## Hansen reconstruction state
 
@@ -575,9 +577,96 @@ Later signed-band-ordering work, including Scott 1969 and Groves 1967, treats Hg
 
 ### Validation state
 
-The focused certificate workflow passes exact source assertions, immutable JSON regeneration, zero-fit/zero-correction enforcement, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `988` tests on the audited pre-ledger certificate head.
+The focused certificate workflow passes exact source assertions, immutable JSON regeneration, zero-fit/zero-correction enforcement, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `988` tests on the audited final certificate head. Issue #269 is closed as a completed observation-contract result.
 
-A final CI run is required on this state-ledger commit before Issue #269 is closed.
+## Groves 1967 signed HgTe magnetoreflection endpoint audit
+
+Issue #273 and draft PR #274 establish a provenance-controlled signed HgTe endpoint from interband magnetoreflection.
+
+Canonical source files are:
+
+```text
+data/experimental/groves1967_source_metadata.csv
+data/experimental/groves1967_band_parameter_ledger.csv
+data/experimental/groves1967_README.md
+```
+
+The primary PDF is available in the user File Library as `groves1967.pdf`. The source binary is not materialized in the active runtime, so the SHA256 remains explicitly unavailable.
+
+### Signed observable and band-ordering convention
+
+Groves, Brown, and Pidgeon observed high-energy `Gamma6 -> Gamma8` and lower-energy `Gamma8 -> Gamma8` magnetoreflection transition families. The high-energy transitions were fitted with a coupled `Gamma6-Gamma7-Gamma8` Kane/Luttinger magnetic-field model.
+
+The stored observable is
+
+```text
+signed_Gamma6_minus_Gamma8_interaction_gap
+E_g = E(Gamma6) - E(Gamma8)
+E_g < 0 means inverted ordering
+```
+
+The source's zero thermal-energy gap at the cubic `Gamma8` degeneracy remains distinct from the finite negative `Gamma6-Gamma8` interaction gap. These two quantities must not be collapsed into one gap definition.
+
+### Published fit and conditional parameter set
+
+The abstract-level fitted values are
+
+```text
+E_g = -0.283 +/- 0.001 eV
+E_p = 18 +/- 1 eV
+```
+
+The source states that the quoted errors reflect uncertainty in the higher-band parameters. They are not pointwise experimental Gaussian standard deviations and no transition-level covariance matrix is reported.
+
+The representative detailed calculation retains
+
+```text
+E_g = -0.2833 eV
+E_p = 18.13 eV
+Delta = 1.0 eV
+H1 = -5.0
+G = -1.0
+L_prime = -2.0
+A_prime = 0
+M = -5.0
+L_minus_M_minus_N = 7.0
+```
+
+This is a conditional historical parameterization for the declared higher-band assumptions. It is not an independently measured universal modern eight-band parameter vector. No `P` value is derived from `E_p` in this tranche because the conversion requires an explicit convention and constants.
+
+### Temperature ledger
+
+The note added in proof says the paper's `0.283 eV` value was estimated to have been determined at approximately
+
+```text
+30 K.
+```
+
+This is stored as a source-note estimate, not a directly logged setpoint.
+
+The same note reports continued measurements giving
+
+```text
+|E_g| near 0.30 eV at 1.5 K.
+```
+
+Only the magnitude is printed in that statement. The source interpretation remains inverted, but the repository does not silently replace the printed magnitude with a newly reported signed value. The two statements do not identify a temperature law.
+
+A later Cu-doped Ge detector operated at `4.2 K`. That detector temperature is not assigned to the sample or to the main fit. The primary fit must not be relabeled as 4.2 K or 5.5 K.
+
+### Specimen, protocol, and figure boundary
+
+The magnetoreflection specimen was high-purity but polycrystalline HgTe, slowly grown by Bridgman in an Hg-rich environment at approximately `0.25 cm/day`. Reflected light sampled several orientations. The sample was mounted on a helium-Dewar cold finger, and attempts near `77 K` did not resolve the oscillations.
+
+The reflective surface was prepared with a `5-10%` bromine-in-methanol etch followed by a methanol rinse. Measurements used fixed photon energy with magnetic-field sweeps; increasing- and decreasing-field resonance positions were averaged to reduce response-time error.
+
+Figures 4 and 5 contain experimental points and theoretical curves, but this tranche contains no calibrated marker coordinates, inferred point count, sampled theory curve, or refitted transition data.
+
+### Admissibility and validation state
+
+Groves 1967 is not one of the reconstructed Hansen 22 fitted alloy studies. It is an endpoint/sign source, not a composition series. It can anchor the inverted sign of HgTe under its declared magnetoreflection model, but it cannot determine alloy bowing or independently validate a complete `E_g(x,T)` law.
+
+The focused Groves workflow verifies the exact signed values, the conditional detailed parameter set, the 30 K/1.5 K/4.2 K separation, specimen and protocol metadata, absent covariance, absent Figure 4/5 ledgers, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `996` tests on the audited final Groves head. Issue #273 is closed as a completed signed-endpoint source audit.
 
 ## Unresolved scientific questions
 
@@ -586,6 +675,8 @@ A final CI run is required on this state-ledger commit before Issue #269 is clos
 - whether the Hansen/Camassel discrepancy persists when compared against Scott’s historical `alpha=500 cm^-1` observation definition rather than an exciton-conditioned gap;
 - whether an independently validated forward observation operator can relate Blue’s positive curve-shape parameter to a signed gap; Blue's source alone does not identify one;
 - whether the Blue `28%` abstract limit and printed `32%` row can be resolved from another primary asset or author record;
+- whether calibrated Groves Figure 4/5 transition markers can be reconstructed with detector/run labels and experimental uncertainty separated from the fitted curves;
+- whether the approximate Groves 30 K and 1.5 K endpoint statements can be independently reproduced before any HgTe endpoint temperature law is inferred;
 - which static composition law can predict independent observations without source-lineage leakage or unjustified flexibility;
 - whether independently composed fixed-specimen temperature series beyond Seiler sample 3 preserve the current thermal ranking;
 - what observation model explains the Camassel reflectivity–absorption difference;
@@ -604,14 +695,16 @@ A future paper requires:
 4. evidence stronger than another unconstrained polynomial or a fit to one source family;
 5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler, Camassel, Scott, Blue source reconstruction, and Blue non-commensurability certificate do not authorize manuscript writing by themselves.
+The Seiler, Camassel, Scott, Blue, and Groves source results do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
 - obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
+- apply a calibrated Groves Figure 4/5 digitization gate only if transition-family, detector/run, field, and energy uncertainties can be retained;
 - continue the Hansen source-by-source specimen reconstruction;
 - seek an independently validated observation operator before any signed-gap use of Blue's positive optical-fit parameters;
 - seek an independent low-temperature static-composition source that is not in the Camassel/Laurenti lineage;
+- compare published HgTe endpoint values only after signed-observable convention and source temperature are aligned;
 - test simple predeclared static laws under source-level holdout only after a commensurate independent source exists;
 - construct explicit reflectivity-versus-absorption or high-absorption-fit observation models only if another dataset can constrain them;
 - obtain additional independently composed temperature series or author data;
@@ -637,6 +730,15 @@ This program does not currently support:
 - assigning an exact kelvin temperature to Blue’s room-temperature table;
 - resolving Blue’s `28%`/`32%` source inconsistency by deleting or changing a row;
 - sampling Blue’s theoretical curves and presenting the samples as observations;
+- treating Groves's approximate `30 K` main-fit assignment as an exact logged sample setpoint;
+- assigning the Cu-doped Ge detector's `4.2 K` operating temperature to the HgTe sample;
+- converting the proof-update magnitude `|E_g| near 0.30 eV` into a newly printed signed datum without an explicit inference label;
+- fitting a Groves endpoint temperature law from the approximate 30 K and 1.5 K statements;
+- treating the Groves detailed higher-band parameter set as a universal modern eight-band parameter vector;
+- deriving or publishing a `P` value from Groves's `E_p` without an explicit convention and constants;
+- treating Groves 1967 as an alloy composition-series validation or bowing constraint;
+- claiming that Groves Figure 4 or Figure 5 has been digitized on the current branch;
+- treating Groves's quoted parameter errors as pointwise experimental covariance;
 - Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
 - treating composition as the only uncertainty in Camassel Table I;
 - treating Scott’s article-level `+/-0.01 eV` or `1–2 mole %` statements as independent pointwise Gaussian errors;
@@ -651,7 +753,7 @@ This program does not currently support:
 - assigning Table I pointwise energy covariance not reported by the source;
 - using Camassel as an independent held-out source against Laurenti 1990;
 - identifying `alpha` or `tau` as microscopic phonon parameters;
-- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, reflectivity exciton-polariton gap, absorption excitonic gap, and intrinsic signed gap as interchangeable;
+- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, interband-magnetoreflection interaction gap, reflectivity exciton-polariton gap, absorption excitonic gap, zero thermal gap, and intrinsic signed gap as interchangeable;
 - fitting additional flexibility without held-out evidence;
 - production-equation, manuscript, or submission readiness from the current source set.
 
