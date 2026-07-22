@@ -2,7 +2,7 @@
 
 ## Status
 
-**Partial full-text audit. Claim gate remains open.**
+**Bounded audit complete. No positive novelty decision.**
 
 Primary program: measurement-kernel-aware spatial disorder (R04).  
 Controlling issue: #222.  
@@ -16,9 +16,10 @@ spatial covariance
 -> resolution-dependent apparent variance
 -> multiscale inversion / family test
 -> absolute-scale calibration floor
+-> correlated-raster information accounting
 ```
 
-Finite-resolution mapping by itself is established prior art and is not an R04 novelty claim.
+Finite-resolution mapping and spatial variation are established prior art. They are not R04 novelty claims.
 
 ## Source-state table
 
@@ -26,9 +27,22 @@ Finite-resolution mapping by itself is established prior art and is not an R04 n
 |---|---|---|---|---|
 | Chang et al., *Composition and thickness distribution of HgCdTe molecular beam epitaxy wafers by infrared microscope mapping* | `10.1016/j.jcrysgro.2005.01.051` | Full text audited | Claim-level paraphrase and numerical provenance; no redistribution | Establishes finite-aperture transmission mapping and model-converted composition/thickness maps, but not a multiresolution covariance inverse |
 | Furstenberg, White, and Olson, *Spatially resolved photoluminescence and transmission spectra of HgCdTe* | `10.1007/s11664-005-0022-8` | Full text audited | Claim-level paraphrase and numerical provenance; no redistribution | Establishes 25-micrometre PL/transmission mapping and explicit optical ambiguities, but not covariance or correlation-length recovery |
-| Ruzhevich et al., *Optical properties and disorder of HgCdTe films grown by molecular beam epitaxy* | `10.1364/JOT.91.000077` / Russian edition `10.17586/1023-5086-2024-91-02-23-33` | Abstract and bibliographic record audited; full text not yet audited in this workstream | Abstract-level claims only | Establishes a composition-regime-dependent interpretation and large-scale localization claim, but cannot yet support a conclusion about spatial kernels or correlation-length inference |
+| Ruzhevich et al., *Optical properties and disorder of HgCdTe films grown by molecular beam epitaxy* | `10.1364/JOT.91.000077`; Russian edition `10.17586/1023-5086-2024-91-02-23-33` | Official abstract and bibliographic records audited; full text unavailable to this workstream | Abstract-level claims only | Establishes composition-regime-dependent interpretation and a large-scale localization statement; does not support a claim-level conclusion about spatial kernels or correlation-length inference |
 
-The uploaded-file search service returned an infrastructure error during this audit. The Ruzhevich source is therefore recorded as **not retrieved by this workstream**, not as absent from the user's library.
+### Ruzhevich source-state decision
+
+The official Optica and *Opticheskii Zhurnal* records expose the abstract and bibliographic metadata. The publisher full-article/PDF endpoints require access that was not available to this workstream. A renewed search of the uploaded-file index returned no matching Ruzhevich full text; this is not evidence that the user does not possess a copy elsewhere.
+
+The source is therefore classified as:
+
+```text
+identified primary source
+abstract audited
+full text not retrieved
+claim-level spatial-method conclusion unauthorized
+```
+
+This bounded state is explicit and closes the acquisition loop for the present audit. It does not convert an abstract-only source into negative novelty evidence.
 
 ## 1. Chang et al. 2005
 
@@ -94,9 +108,10 @@ The source establishes that the beam aperture is adjustable, but the audited tex
 - variance as a function of aperture or resolution;
 - a spatial autocorrelation, structure function, power spectrum, or correlation length;
 - deconvolution of the map by a measured kernel;
-- a separation of aperture width from wavelength-dependent diffraction and collection response.
+- a separation of aperture width from wavelength-dependent diffraction and collection response;
+- an accounting of within-map or cross-scale sample covariance.
 
-The paper therefore anticipates the **experimental premise** of R04—a finite and adjustable probe—but not the R04 covariance-filter inversion.
+The paper therefore anticipates the experimental premise of R04—a finite and adjustable probe—but not the R04 covariance-filter inversion.
 
 ## 2. Furstenberg, White, and Olson 2005
 
@@ -155,15 +170,16 @@ The audited paper does not provide:
 - variance as a function of resolution;
 - spatial autocorrelation or power-spectrum inference;
 - a recovered composition correlation length;
-- deconvolution of PL or transmission maps by a measurement kernel.
+- deconvolution of PL or transmission maps by a measurement kernel;
+- an effective-sample or cross-scale covariance calculation.
 
 The paper therefore establishes spatially resolved multimodal mapping and interpretation limits, not the R04 multiscale covariance theorem.
 
 ## 3. Ruzhevich et al. 2024
 
-### 3.1 Abstract-level findings
+### 3.1 Official abstract-level findings
 
-The accessible records describe MBE-grown HgCdTe films with CdTe fraction approximately `0.3` to `0.7`, studied by:
+The official records describe MBE-grown HgCdTe films with CdTe fraction approximately `0.3` to `0.7`, studied by:
 
 - optical transmission;
 - photoluminescence;
@@ -172,18 +188,21 @@ The accessible records describe MBE-grown HgCdTe films with CdTe fraction approx
 
 The abstract distinguishes composition regimes. For `x approximately 0.3`, optical properties are described as suitable for estimating bandgap and composition. For `x approximately 0.7`, PL up to room temperature is attributed to transitions involving carriers localized on large-scale composition fluctuations; transmission and ellipsometry are treated as more reliable for gap/composition extraction.
 
-### 3.2 Unresolved full-text questions
+These statements support the R04 requirement to keep modality and composition regime explicit. They do not establish a measurement-scale covariance result.
 
-The abstract does not establish:
+### 3.2 Questions that remain unauthorized without full text
+
+The accessible records do not establish:
 
 - the spatial resolution of each modality;
 - whether the same region was measured at multiple resolutions;
 - whether `large-scale` was quantified by a correlation length or object-size statistic;
 - whether EDX/SEM spatial scales were registered to optical maps;
 - whether any point-spread function was measured or deconvolved;
-- whether an autocorrelation, structure function, or power spectrum was calculated.
+- whether an autocorrelation, structure function, or power spectrum was calculated;
+- whether nominal pixels were treated as independent observations.
 
-No R04 novelty conclusion is authorized from the abstract alone.
+No positive or negative R04 novelty conclusion is authorized from the abstract alone.
 
 ## 4. Claim-level synthesis
 
@@ -197,8 +216,9 @@ The audited literature establishes:
 4. Optical-path changes can be non-unique with respect to thickness, composition, and inclusions.
 5. PL width and intensity can contain instrumental and excitation-dependent contributions.
 6. Spatial feature-size estimates can be limited by pixel or spot resolution.
+7. Composition regime can change which optical modality is reliable for gap/composition interpretation.
 
-### Not established in the two audited full texts
+### Not established in the audited full texts
 
 The two audited full texts do not establish:
 
@@ -208,30 +228,35 @@ The two audited full texts do not establish:
 4. an absolute-scale calibration floor on inferred correlation length;
 5. a three-scale covariance-family falsification invariant;
 6. an exact nonlinear calibration-posterior convolution;
-7. a multimodal latent-field prediction validated across independent operators.
+7. finite-map effective sample counts or naive-variance bias;
+8. cross-scale covariance of same-raster map statistics;
+9. a multimodal latent-field prediction validated across independent operators.
 
 ### Current defensible R04 distinction
 
-R04 must not claim novelty for spatial mapping, adjustable apertures, PL/transmission comparison, or composition/cutoff uniformity statistics.
+R04 must not claim novelty for spatial mapping, adjustable apertures, PL/transmission comparison, composition/cutoff uniformity statistics, optical-method disagreement, or localization at composition fluctuations.
 
 The candidate distinct contribution is narrower:
 
-> an explicit kernel-aware covariance and posterior framework that states what finite-resolution HgCdTe maps identify, specifies the additional calibrated scales required to recover or falsify covariance parameters, and separates map statistics from microscopic disorder and modality-specific observables.
+> an explicit kernel-aware covariance, calibration, and finite-map information framework that states what finite-resolution HgCdTe maps identify; specifies the calibrated scales required to recover or falsify covariance parameters; and distinguishes nominal pixels, independent realizations, microscopic disorder, and modality-specific observables.
 
-This distinction remains provisional until the Ruzhevich full text and any equivalent earlier multi-resolution analyses are audited.
+This is a candidate distinction, not an exhaustive novelty guarantee.
 
-## 5. Acquisition requirement
+## 5. Gate disposition
 
-The unresolved source is:
+The present audit is complete within its declared source-access boundary.
 
-```text
-10.1364/JOT.91.000077
-```
+What is closed:
 
-The Russian edition is:
+- the two highest-priority historical mapping papers were audited in full;
+- established finite-aperture and spatially resolved mapping claims were removed from the candidate novelty set;
+- Ruzhevich 2024 was identified, abstract-audited, and assigned an explicit unavailable-full-text state;
+- the R04 claim boundary was narrowed accordingly.
 
-```text
-10.17586/1023-5086-2024-91-02-23-33
-```
+What remains open at program level:
 
-A publisher PDF, author manuscript, or Russian full-text copy is sufficient for claim-level audit. The file should be retained privately and represented in the repository only by provenance, hash, permitted-use state, and derived notes.
+- full-text audit of Ruzhevich 2024 if a lawful copy becomes available;
+- search for equivalent earlier aperture-sweep, spatial-covariance, structure-function, or resolution-dependent-variance analyses;
+- experimental or public-data validation of the R04 framework.
+
+The bounded audit does not authorize manuscript writing or a positive novelty declaration. It removes the unresolved source-acquisition state from the immediate R04 execution path while preserving it as a future literature update.
