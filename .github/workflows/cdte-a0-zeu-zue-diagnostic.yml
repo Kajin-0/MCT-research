@@ -47,7 +47,11 @@ jobs:
           python -m pip install -e ".[test]"
 
       - name: Validate bounded implementation
-        run: pytest -vv tests/test_cdte_a0_zeu_zue.py
+        run: |
+          mkdir -p cdte-a0-zeu-zue-evidence/validated
+          set -o pipefail
+          pytest -vv tests/test_cdte_a0_zeu_zue.py 2>&1 \
+            | tee cdte-a0-zeu-zue-evidence/validated/focused-pytest.txt
 
       - name: Execute one SCF and two fixed response routes
         run: bash tools/run_cdte_a0_zeu_zue_ci.sh
