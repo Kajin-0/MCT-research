@@ -7,6 +7,7 @@ on:
       - 'data/experimental/scott1969_README.md'
       - 'data/experimental/scott1969_figure1_specimens.csv'
       - 'data/experimental/scott1969_source_metadata.csv'
+      - 'research/programs/empirical_bandgap/state.md'
       - 'tests/test_scott1969_source_audit.py'
   workflow_dispatch:
 
@@ -89,5 +90,6 @@ jobs:
             data/experimental/scott1969_source_metadata.csv
             data/experimental/scott1969_figure1_specimens.csv
             data/experimental/scott1969_README.md
+            research/programs/empirical_bandgap/state.md
           if-no-files-found: error
           retention-days: 30
