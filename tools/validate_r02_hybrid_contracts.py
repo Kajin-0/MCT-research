@@ -223,7 +223,8 @@ def _validate_symmetric_tensor(
     if symmetry_residual > symmetry_limit:
         raise ContractError(f"{context} is not symmetric: residual {symmetry_residual:.6e}")
     eigenvalues = np.linalg.eigvalsh((tensor + tensor.T) / 2.0)
-    if float(np.min(eigenvalues)) < eigenvalue_min:
+    limit = eigenvalue_min
+    if float(np.min(eigenvalues)) < limit:
         qualifier = "positive semidefinite" if semidefinite else "positive definite"
         raise ContractError(
             f"{context} is not {qualifier}: minimum eigenvalue {np.min(eigenvalues):.6e}"
@@ -249,7 +250,7 @@ def validate_frohlich_input(
             "epsilon_infinity",
             "epsilon_static",
             "lo_modes",
-            "effective_mass_tensors",
+            "effective_mass_branches",
             "edge_covariance_ev2",
             "nonadiabatic_denominator_convention",
             "input_origin_flags",
@@ -323,37 +324,75 @@ def validate_frohlich_input(
         if not str(mode["source_id"]).strip():
             raise ContractError(f"lo_modes[{index}] source_id is required")
 
-    mass_values = record["effective_mass_tensors"]
+    mass_values = record["effective_mass_branches"]
     if not isinstance(mass_values, Mapping):
-        raise ContractError("effective_mass_tensors must be an object")
+        raise ContractError("effective_mass_branches must be an object")
     expected_reps = set(contract["required_representations"])
     if set(mass_values) != expected_reps:
         raise ContractError(
-            f"effective_mass_tensors must contain exactly {sorted(expected_reps)}"
+            f"effective_mass_branches must contain exactly {sorted(expected_reps)}"
         )
-    mass_tensors: dict[str, np.ndarray] = {}
+    mass_tensors: dict[str, list[np.ndarray]] = {}
+    multiplicities: dict[str, int] = {}
     for representation in contract["required_representations"]:
-        entry = mass_values[representation]
-        if not isinstance(entry, Mapping):
-            raise ContractError(f"effective_mass_tensors.{representation} must be an object")
-        _require_keys(
-            entry,
-            ("tensor", "relative_uncertainty", "source_id"),
-            f"effective_mass_tensors.{representation}",
-        )
-        mass_tensors[representation] = _validate_symmetric_tensor(
-            entry["tensor"],
-            context=f"effective_mass_tensors.{representation}.tensor",
-            symmetry_limit=symmetry_limit,
-            eigenvalue_min=positive_min,
-        )
-        if float(entry["relative_uncertainty"]) < 0:
+        branches = mass_values[representation]
+        if not isinstance(branches, list) or not branches:
             raise ContractError(
-                f"effective_mass_tensors.{representation}.relative_uncertainty cannot be negative"
+                f"effective_mass_branches.{representation} must be a non-empty list"
             )
-        if not str(entry["source_id"]).strip():
+        mass_branch_ids: set[str] = set()
+        mass_tensors[representation] = []
+        multiplicities[representation] = 0
+        for index, entry in enumerate(branches):
+            context = f"effective_mass_branches.{representation}[{index}]"
+            if not isinstance(entry, Mapping):
+                raise ContractError(f"{context} must be an object")
+            _require_keys(
+                entry,
+                (
+                    "branch_id",
+                    "multiplicity",
+                    "carrier_type",
+                    "mass_sign_convention",
+                    "tensor",
+                    "relative_uncertainty",
+                    "fit_window_inv_angstrom",
+                    "source_id",
+                ),
+                context,
+            )
+            branch_id = str(entry["branch_id"])
+            if not branch_id or branch_id in mass_branch_ids:
+                raise ContractError(f"{context}.branch_id must be non-empty and unique")
+            mass_branch_ids.add(branch_id)
+            multiplicity = int(entry["multiplicity"])
+            if multiplicity <= 0:
+                raise ContractError(f"{context}.multiplicity must be positive")
+            multiplicities[representation] += multiplicity
+            if entry["carrier_type"] not in {"electron", "hole"}:
+                raise ContractError(f"{context}.carrier_type must be electron or hole")
+            if entry["mass_sign_convention"] != "positive_carrier_mass_magnitude":
+                raise ContractError(
+                    f"{context}.mass_sign_convention must be positive_carrier_mass_magnitude"
+                )
+            tensor = _validate_symmetric_tensor(
+                entry["tensor"],
+                context=f"{context}.tensor",
+                symmetry_limit=symmetry_limit,
+                eigenvalue_min=positive_min,
+            )
+            mass_tensors[representation].append(tensor)
+            if float(entry["relative_uncertainty"]) < 0:
+                raise ContractError(f"{context}.relative_uncertainty cannot be negative")
+            if float(entry["fit_window_inv_angstrom"]) <= 0:
+                raise ContractError(f"{context}.fit_window_inv_angstrom must be positive")
+            if not str(entry["source_id"]).strip():
+                raise ContractError(f"{context}.source_id is required")
+        expected_multiplicity = int(contract["required_degeneracies"][representation])
+        if multiplicities[representation] != expected_multiplicity:
             raise ContractError(
-                f"effective_mass_tensors.{representation}.source_id is required"
+                f"{representation} branch multiplicity {multiplicities[representation]} "
+                f"does not close required degeneracy {expected_multiplicity}"
             )
 
     covariance = _validate_symmetric_tensor(
@@ -373,7 +412,7 @@ def validate_frohlich_input(
             "epsilon_infinity",
             "epsilon_static",
             "lo_modes",
-            "effective_mass_tensors",
+            "effective_mass_branches",
             "reference_volume",
         ),
         "provenance",
@@ -400,8 +439,10 @@ def validate_frohlich_input(
             np.min(np.linalg.eigvalsh(dielectric_increment))
         ),
         "minimum_mass_eigenvalue_by_representation": {
-            key: float(np.min(np.linalg.eigvalsh(value))) for key, value in mass_tensors.items()
+            key: min(float(np.min(np.linalg.eigvalsh(tensor))) for tensor in tensors)
+            for key, tensors in mass_tensors.items()
         },
+        "branch_multiplicity_by_representation": multiplicities,
         "minimum_covariance_eigenvalue_ev2": float(np.min(np.linalg.eigvalsh(covariance))),
         "lo_mode_count": len(modes),
     }
