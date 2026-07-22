@@ -1,7 +1,7 @@
 # Program state: finite-temperature Kane and electronic structure
 
 **Portfolio contribution:** R02  
-**State:** hybrid architecture retained; QE 7.6 / EPW 6.1 observational full-matrix exporter path terminated
+**State:** hybrid architecture retained; external matrix-Fan algebra validated synthetically
 
 ## Objective
 
@@ -19,7 +19,8 @@ Develop symmetry-resolved 8-band Kane parameterization and finite-temperature ma
 - #271 — completed bounded CdTe `zeu`/`zue` route comparison;
 - #285 — active hybrid short-range matrix AHC plus generalized-Fröhlich architecture gate;
 - #287 — completed hybrid matrix and generalized-Fröhlich contracts;
-- #289 — completed source-level QE 7.6 / EPW 6.1 matrix-export capability decision.
+- #289 — completed source-level QE 7.6 / EPW 6.1 matrix-export capability decision;
+- #296 — completed external matrix-Fan derivation and synthetic validation gate.
 
 ## Completed foundations
 
@@ -36,7 +37,8 @@ Develop symmetry-resolved 8-band Kane parameterization and finite-temperature ma
 - explicit termination of the failed current CdTe polar-response state;
 - selection of a hybrid architecture that separates short-range matrix AHC from independently constrained long-range polar physics;
 - fail-closed 8 x 8 matrix, generalized-Fröhlich input, covariance, and no-double-counting contracts;
-- source-level resolution of the QE 7.6 / EPW 6.1 lower-Fan information boundary.
+- source-level resolution of the QE 7.6 / EPW 6.1 lower-Fan information boundary;
+- backend-independent retarded matrix lower-Fan contraction with exact diagonal recovery, covariance, causality, Hermitian reductions, and analytic energy derivative.
 
 ## CdTe physical-volume state
 
@@ -178,6 +180,77 @@ first_principles/b0/qe76_epw61_matrix_export_capability_result.json
 research/decision_records/2026-07-22-r02-epw-lower-fan-matrix-stop.md
 ```
 
+## External matrix-Fan synthetic result
+
+Issue #296 defines the normalized complex vertex matrix with intermediate states in rows and external low-energy states in columns:
+
+```text
+G_(q,nu)[m,a] = <m,k+q | Delta V_(q,nu) | a,k>.
+```
+
+At one common retarded frequency `E + i eta`, the complete lower-Fan matrix is
+
+```text
+Sigma_Fan^R(E)
+  = sum_(q,nu) w_q G_(q,nu)^dagger D_(q,nu)^R(E) G_(q,nu).
+```
+
+The common frequency preserves full external-subspace covariance. The diagonal exactly recovers the scalar `|G_ma|^2` formula. The linewidth matrix
+
+```text
+Gamma(E) = i [Sigma^R(E) - Sigma^R(E)^dagger]
+```
+
+is Hermitian positive semidefinite for positive `eta`, nonnegative q weights, physical occupations, and nonnegative Bose factors.
+
+The synthetic reference produced:
+
+```text
+diagonal equivalence residual                3.469446951953614e-18 eV
+external covariance residual                 5.076104428597243e-18 eV
+intermediate invariance residual             1.6365348541700844e-17 eV
+linewidth Hermiticity residual               0.0 eV
+linewidth minimum eigenvalue                 0.001400816826522174 eV
+common Hermiticity residual                  0.0 eV
+derivative finite-difference residual        1.6648715095105384e-10
+on-shell Hermiticity residual                0.0 eV
+on-shell degenerate covariance residual      6.940543589269277e-18 eV
+zero-coupling residual                       0.0 eV
+```
+
+All declared thresholds pass. The decision is:
+
+```text
+external matrix-Fan algebra       RESTRICTED_GO
+synthetic NumPy kernel             PASS
+backend vertex export              NOT VALIDATED
+material self-energy               NOT VALIDATED
+CdTe/HgTe/alloy calculation        NOT AUTHORIZED
+```
+
+The raw retarded self-energy is not declared Hermitian. Two separate reductions are implemented:
+
+```text
+H_common(E) = [Sigma^R(E) + Sigma^R(E)^dagger] / 2
+```
+
+and, in the unperturbed band eigenbasis,
+
+```text
+H_ab^OS = 1/2 [Sigma_ab^R(epsilon_a) + Sigma_ba^R(epsilon_b)^*].
+```
+
+The on-shell form is covariant only for rotations commuting with the unperturbed Hamiltonian, including exactly degenerate blocks. Intermediate rotations are admissible only when they commute with the denominator operator.
+
+Controlling records:
+
+```text
+docs/derivations/002_external_matrix_fan.md
+first_principles/b0/r02_matrix_fan_contract.json
+first_principles/b0/r02_matrix_fan_reference_result.json
+tools/matrix_fan.py
+```
+
 ## Current B0 state
 
 Completed:
@@ -186,20 +259,21 @@ Completed:
 - explicit matrix and generalized-Fröhlich contracts;
 - synthetic Hermiticity, covariance, diagonal-recovery, branch-multiplicity, and no-double-counting tests;
 - source-level classification of lower Fan, upper Fan, and Debye--Waller information retention;
-- termination of the QE/EPW observational-export strategy before unnecessary build cost.
+- termination of the QE/EPW observational-export strategy before unnecessary build cost;
+- derivation and synthetic validation of the external frequency-dependent matrix lower-Fan contraction.
 
 Still permitted only through a new authorization:
 
-- analytical derivation of an external frequency-dependent matrix Fan contraction;
-- synthetic matrix-Fan implementation and covariance tests;
+- upstream raw-complex-vertex fixture and normalization-equivalence design;
+- synthetic adapter tests against an independently computed scalar reference;
 - alternative backend audit for a natively retained full matrix;
-- diagonal QE/EPW AHC only as a later independent benchmark, not as the matrix source;
+- diagonal QE/EPW AHC only as an independent benchmark, not as the matrix source;
 - generalized-Fröhlich analytical implementation using independent inputs.
 
 Not authorized:
 
 - CdTe, HgTe, or alloy AHC calculations;
-- an EPW patch that adds off-diagonal lower-Fan physics under the label of an exporter;
+- an EPW patch or material vertex export without a new gate;
 - rebuilding or modifying the terminated QE 7.4.1 response point;
 - A1, A2, A3, dense EPW, or production special-displacement work;
 - use of charge-ASR-repaired Born tensors;
@@ -207,28 +281,27 @@ Not authorized:
 
 ## Most promising next analytical gate
 
-The hybrid short-range plus generalized-Fröhlich architecture remains open, but its short-range path now requires an explicit **external matrix Fan contraction** or another backend.
+The next decision-changing short-range gate is a bounded **upstream raw-vertex normalization fixture**.
 
-A defensible external contraction gate must establish before any material run:
+It must establish before any material run:
 
-1. the retarded frequency-dependent matrix Fan expression;
-2. a Hermitian quasiparticle reduction and its domain of validity;
-3. exact recovery of the standard diagonal formula;
-4. unitary covariance within degenerate subspaces;
-5. causality, conjugation, denominator-sign, and zero-coupling limits;
-6. separation of lower Fan, upper Fan, Debye--Waller, and long-range terms;
-7. a raw complex-vertex export contract with immutable gauge and provenance;
-8. synthetic and upstream scalar benchmark agreement;
-9. explicit stopping rules for ill-conditioned or strongly frequency-dependent cases.
+1. an exact backend quantity that retains complex `G_(q,nu)[m,a]` before modulus-square contraction;
+2. a pinned vertex normalization, units, phonon amplitude, q-weight, spinor, and occupation convention;
+3. byte- or tolerance-reproducible raw fixture data from an upstream nonpolar system;
+4. exact diagonal equivalence between the external kernel and the backend scalar lower-Fan result;
+5. external-gauge covariance after a declared synthetic rotation;
+6. a complete provenance and hash chain;
+7. explicit long-range exclusion;
+8. a stop if the vertex export changes backend scientific control flow.
 
-A pass would authorize only a separate software-fixture issue. It would not authorize CdTe.
+A pass would authorize only a separate CdTe short-range design review. It would not authorize CdTe execution.
 
 ## Unresolved scientific questions
 
-- whether an external matrix Fan contraction can be made gauge-covariant and independently validated without an invasive backend fork;
-- whether another backend natively retains all three complete matrix components under nonmagnetic SOC;
+- whether a backend can export the required normalized complex vertices without changing the scientific algorithm;
+- whether a finite intermediate-band window can be converged while preserving matrix covariance;
 - whether independent dielectric, LO-mode, and branch-resolved carrier-dispersion evidence can support a generalized-Fröhlich correction at the required uncertainty;
-- how the frequency-dependent matrix self-energy should be reduced into the Kane basis;
+- whether common-energy or symmetrized on-shell Hermitian reduction is adequate near the normal/inverted transition;
 - whether scalar parameter renormalization is adequate or matrix-valued temperature dependence is required;
 - what alloy interpolation or disorder treatment is justified between CdTe and HgTe.
 
@@ -238,8 +311,8 @@ No active manuscript is recorded. The current result is infrastructure and metho
 
 ## Authorized next gates
 
-- complete and merge the issue-289 source-level stop record;
-- open a separate analytical matrix-Fan derivation issue only after the stop record is immutable;
+- merge the issue-296 derivation, contract, reference, synthetic kernel, and state record after final CI;
+- open a separate upstream raw-vertex fixture issue only after the synthetic result is immutable;
 - continue the generalized-Fröhlich derivation independently of the failed Born tensors;
 - perform only separately authorized, decision-changing synthetic or upstream tests;
 - keep all material computations closed until both short- and long-range components pass their own gates.
@@ -251,11 +324,12 @@ This program does not currently support:
 - converged phonons, dielectric response, or Born charges for the terminated CdTe setup;
 - A1 readiness or converged AHC corrections for CdTe, HgTe, or HgCdTe;
 - a validated generalized-Fröhlich correction for CdTe;
-- a validated complete lower-Fan matrix from QE 7.6 / EPW 6.1;
+- a validated normalized complex backend vertex export;
+- a validated material lower-Fan matrix;
 - a validated finite-temperature 8-band parameter set;
 - production SQS, CPA, SCBA, or alloy calculations;
 - a new universal bandgap equation derived from incomplete endpoint data;
-- treating software projection correctness as material validation;
+- treating synthetic matrix algebra as material validation;
 - treating internal upper-Fan or Debye--Waller arrays as completion of the full matrix requirement.
 
 ## Shared dependencies
@@ -264,4 +338,4 @@ Kane Hamiltonians, symmetry utilities, matrix datasets, endpoint provenance, and
 
 ## Computation gate
 
-No expensive calculation should begin unless it targets a decision-changing observable, has an independent validation target, and includes an explicit termination criterion. CdTe/HgTe/alloy AHC, dense EPW, production special displacement, any retry of the terminated CdTe polar-response path, and any unreviewed off-diagonal Fan implementation remain closed.
+No expensive calculation should begin unless it targets a decision-changing observable, has an independent validation target, and includes an explicit termination criterion. CdTe/HgTe/alloy AHC, dense EPW, production special displacement, any retry of the terminated CdTe polar-response path, any unreviewed backend vertex export, and any unvalidated long-range correction remain closed.
