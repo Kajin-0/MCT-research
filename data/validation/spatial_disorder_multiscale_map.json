@@ -1,0 +1,521 @@
+{
+  "claim_boundaries": [
+    "Gaussian quadratic-form cross moments and Fisher information are established mathematics.",
+    "The log-variance covariance is a first-order delta-method result, not an exact log-normal distribution.",
+    "Deterministic bias correction does not create independent spatial information.",
+    "Nominal raster pixel count is not an independent-repeat count.",
+    "The controlled design is not a specimen covariance estimate or a universal scan prescription.",
+    "This result does not authorize a manuscript."
+  ],
+  "dense_reference": {
+    "bias_corrected_estimator_covariance": [
+      [
+        2.863278428679631e-10,
+        1.8599431724136905e-10,
+        6.236409816622866e-12
+      ],
+      [
+        1.8599431724136905e-10,
+        1.3501927474924882e-10,
+        6.860428759042424e-12
+      ],
+      [
+        6.236409816622866e-12,
+        6.860428759042424e-12,
+        4.190352741939191e-12
+      ]
+    ],
+    "delta_log_variance_correlation": [
+      [
+        1.0000000000000002,
+        0.9459539589244564,
+        0.18004354861096508
+      ],
+      [
+        0.9459539589244564,
+        1.0,
+        0.288421799273962
+      ],
+      [
+        0.18004354861096508,
+        0.288421799273962,
+        1.0000000000000002
+      ]
+    ],
+    "delta_log_variance_covariance": [
+      [
+        0.4828836119119452,
+        0.5092109062671407,
+        0.11951722467159592
+      ],
+      [
+        0.5092109062671407,
+        0.6000852178883925,
+        0.2134352998119724
+      ],
+      [
+        0.11951722467159592,
+        0.2134352998119724,
+        0.9125641521902967
+      ]
+    ],
+    "delta_log_variance_standard_deviations": [
+      0.6948982745063806,
+      0.7746516751988551,
+      0.9552822369280697
+    ],
+    "deterministic_bias_factors": [
+      0.5280513378006101,
+      0.40194623428860643,
+      0.08300701538782132
+    ],
+    "expected_naive_variances": [
+      1.285839327736426e-05,
+      6.029195763219123e-06,
+      1.7787232747991027e-07
+    ],
+    "full_parameter_correlation": -0.058566560455677194,
+    "full_parameter_covariance": [
+      [
+        0.33251081721669085,
+        -0.010912176025543506
+      ],
+      [
+        -0.010912176025543504,
+        0.10440408928398404
+      ]
+    ],
+    "full_parameter_standard_deviations": [
+      0.5766375093736886,
+      0.32311621637420807
+    ],
+    "log_parameter_jacobian": [
+      [
+        1.0,
+        0.051948004764714666
+      ],
+      [
+        1.0,
+        0.7999995523998331
+      ],
+      [
+        1.0,
+        1.8285712824162021
+      ]
+    ],
+    "marginal_filtered_variances": [
+      2.4350649940441085e-05,
+      1.5000005595002104e-05,
+      2.142858969797479e-06
+    ],
+    "moment_matched_effective_degrees_of_freedom": [
+      4.141784791745437,
+      3.3328599678520527,
+      2.1916267422949796
+    ],
+    "nominal_independent_pixel_parameter_covariance": [
+      [
+        0.016869271983572742,
+        -0.011343250157291816
+      ],
+      [
+        -0.011343250157291816,
+        0.012695210333682233
+      ]
+    ],
+    "nominal_parameter_correlation": -0.775120796779498,
+    "nominal_parameter_standard_deviations": [
+      0.1298817615509304,
+      0.11267302398392542
+    ],
+    "nominal_pixel_count": 100,
+    "parameter_covariance_determinant_inflation": 404.68548879574263,
+    "parameter_standard_deviation_inflation": [
+      4.4397111841416805,
+      2.86773359717678
+    ],
+    "raw_variance_estimator_covariance": [
+      [
+        7.983914471118106e-11,
+        3.9476967738086924e-11,
+        2.7335410006561367e-13
+      ],
+      [
+        3.9476967738086924e-11,
+        2.181381870336838e-11,
+        2.288937960369119e-13
+      ],
+      [
+        2.7335410006561367e-13,
+        2.288937960369119e-13,
+        2.88722201390825e-14
+      ]
+    ],
+    "shape": [
+      10,
+      10
+    ],
+    "spacing_um": 0.5
+  },
+  "exact_theorems": {
+    "cross_scale_variance_covariance": "2 tr(P C_ij P C_ji)/(n-1)^2",
+    "delta_log_covariance": "Cov(q_i,q_j)/(E[q_i] E[q_j])",
+    "mean_naive_variance": "tr(P C_ii)/(n-1)",
+    "nominal_independent_pixel_log_covariance": "2 I/(n-1)"
+  },
+  "fixed_field_of_view_oversampling": {
+    "coarse": {
+      "bias_corrected_estimator_covariance": [
+        [
+          2.863278428679631e-10,
+          1.8599431724136905e-10,
+          6.236409816622866e-12
+        ],
+        [
+          1.8599431724136905e-10,
+          1.3501927474924882e-10,
+          6.860428759042424e-12
+        ],
+        [
+          6.236409816622866e-12,
+          6.860428759042424e-12,
+          4.190352741939191e-12
+        ]
+      ],
+      "delta_log_variance_correlation": [
+        [
+          1.0000000000000002,
+          0.9459539589244564,
+          0.18004354861096508
+        ],
+        [
+          0.9459539589244564,
+          1.0,
+          0.288421799273962
+        ],
+        [
+          0.18004354861096508,
+          0.288421799273962,
+          1.0000000000000002
+        ]
+      ],
+      "delta_log_variance_covariance": [
+        [
+          0.4828836119119452,
+          0.5092109062671407,
+          0.11951722467159592
+        ],
+        [
+          0.5092109062671407,
+          0.6000852178883925,
+          0.2134352998119724
+        ],
+        [
+          0.11951722467159592,
+          0.2134352998119724,
+          0.9125641521902967
+        ]
+      ],
+      "delta_log_variance_standard_deviations": [
+        0.6948982745063806,
+        0.7746516751988551,
+        0.9552822369280697
+      ],
+      "deterministic_bias_factors": [
+        0.5280513378006101,
+        0.40194623428860643,
+        0.08300701538782132
+      ],
+      "expected_naive_variances": [
+        1.285839327736426e-05,
+        6.029195763219123e-06,
+        1.7787232747991027e-07
+      ],
+      "full_parameter_correlation": -0.058566560455677194,
+      "full_parameter_covariance": [
+        [
+          0.33251081721669085,
+          -0.010912176025543506
+        ],
+        [
+          -0.010912176025543504,
+          0.10440408928398404
+        ]
+      ],
+      "full_parameter_standard_deviations": [
+        0.5766375093736886,
+        0.32311621637420807
+      ],
+      "log_parameter_jacobian": [
+        [
+          1.0,
+          0.051948004764714666
+        ],
+        [
+          1.0,
+          0.7999995523998331
+        ],
+        [
+          1.0,
+          1.8285712824162021
+        ]
+      ],
+      "marginal_filtered_variances": [
+        2.4350649940441085e-05,
+        1.5000005595002104e-05,
+        2.142858969797479e-06
+      ],
+      "moment_matched_effective_degrees_of_freedom": [
+        4.141784791745437,
+        3.3328599678520527,
+        2.1916267422949796
+      ],
+      "nominal_independent_pixel_parameter_covariance": [
+        [
+          0.016869271983572742,
+          -0.011343250157291816
+        ],
+        [
+          -0.011343250157291816,
+          0.012695210333682233
+        ]
+      ],
+      "nominal_parameter_correlation": -0.775120796779498,
+      "nominal_parameter_standard_deviations": [
+        0.1298817615509304,
+        0.11267302398392542
+      ],
+      "nominal_pixel_count": 100,
+      "parameter_covariance_determinant_inflation": 404.68548879574263,
+      "parameter_standard_deviation_inflation": [
+        4.4397111841416805,
+        2.86773359717678
+      ],
+      "raw_variance_estimator_covariance": [
+        [
+          7.983914471118106e-11,
+          3.9476967738086924e-11,
+          2.7335410006561367e-13
+        ],
+        [
+          3.9476967738086924e-11,
+          2.181381870336838e-11,
+          2.288937960369119e-13
+        ],
+        [
+          2.7335410006561367e-13,
+          2.288937960369119e-13,
+          2.88722201390825e-14
+        ]
+      ],
+      "shape": [
+        10,
+        10
+      ],
+      "spacing_um": 0.5
+    },
+    "determinant_inflation_ratio_fine_over_coarse": 16.005326410016533,
+    "fine": {
+      "bias_corrected_estimator_covariance": [
+        [
+          2.840015913590157e-10,
+          1.8463415759589055e-10,
+          6.2346746983143655e-12
+        ],
+        [
+          1.8463415759589055e-10,
+          1.3410063787494766e-10,
+          6.853308084411507e-12
+        ],
+        [
+          6.2346746983143655e-12,
+          6.853308084411507e-12,
+          4.183103777481345e-12
+        ]
+      ],
+      "delta_log_variance_correlation": [
+        [
+          1.0,
+          0.946098253216594,
+          0.18088564061161164
+        ],
+        [
+          0.946098253216594,
+          1.0,
+          0.28935801350061596
+        ],
+        [
+          0.18088564061161164,
+          0.28935801350061596,
+          1.0000000000000002
+        ]
+      ],
+      "delta_log_variance_covariance": [
+        [
+          0.4789604561349707,
+          0.5054870928946962,
+          0.11948397212232374
+        ],
+        [
+          0.5054870928946962,
+          0.596002390381734,
+          0.21321376798384722
+        ],
+        [
+          0.11948397212232374,
+          0.21321376798384722,
+          0.9109854915113225
+        ]
+      ],
+      "delta_log_variance_standard_deviations": [
+        0.692069690229944,
+        0.7720119107771162,
+        0.9544555995494617
+      ],
+      "deterministic_bias_factors": [
+        0.5257366938823685,
+        0.4005759255152134,
+        0.08294754795024088
+      ],
+      "expected_naive_variances": [
+        1.2802030193574388e-05,
+        6.008641123951347e-06,
+        1.7774489714788015e-07
+      ],
+      "full_parameter_correlation": -0.054408544154430555,
+      "full_parameter_covariance": [
+        [
+          0.33007650126660104,
+          -0.01006053284988743
+        ],
+        [
+          -0.010060532849887428,
+          0.10358411240246121
+        ]
+      ],
+      "full_parameter_standard_deviations": [
+        0.5745228466010739,
+        0.3218448576604281
+      ],
+      "log_parameter_jacobian": [
+        [
+          1.0,
+          0.051948004764714666
+        ],
+        [
+          1.0,
+          0.7999995523998331
+        ],
+        [
+          1.0,
+          1.8285712824162021
+        ]
+      ],
+      "marginal_filtered_variances": [
+        2.4350649940441082e-05,
+        1.5000005595002103e-05,
+        2.142858969797479e-06
+      ],
+      "moment_matched_effective_degrees_of_freedom": [
+        4.175710070387108,
+        3.355691239290196,
+        2.1954246457668667
+      ],
+      "nominal_independent_pixel_parameter_covariance": [
+        [
+          0.004185608838029326,
+          -0.002814490640531051
+        ],
+        [
+          -0.0028144906405310516,
+          0.003149939406101606
+        ]
+      ],
+      "nominal_parameter_correlation": -0.775120796779498,
+      "nominal_parameter_standard_deviations": [
+        0.0646962814853321,
+        0.05612432098566188
+      ],
+      "nominal_pixel_count": 400,
+      "parameter_covariance_determinant_inflation": 6477.123341572949,
+      "parameter_standard_deviation_inflation": [
+        8.880307081193365,
+        5.7344989125596735
+      ],
+      "raw_variance_estimator_covariance": [
+        [
+          7.849777609775322e-11,
+          3.888348512284485e-11,
+          2.718852456707232e-13
+        ],
+        [
+          3.888348512284485e-11,
+          2.151793212302576e-11,
+          2.2771343393594396e-13
+        ],
+        [
+          2.718852456707232e-13,
+          2.2771343393594396e-13,
+          2.878099097869506e-14
+        ]
+      ],
+      "shape": [
+        20,
+        20
+      ],
+      "spacing_um": 0.25
+    },
+    "full_log_xi_precision_improvement_fraction": 0.003934679379593797,
+    "full_parameter_sd_ratios_fine_over_coarse": [
+      0.9963327693078593,
+      0.9960653206204062
+    ],
+    "nominal_log_xi_precision_improvement_fraction": 0.5018832458631013,
+    "nominal_parameter_sd_ratios_fine_over_coarse": [
+      0.4981167541368987,
+      0.49811675413689877
+    ],
+    "nominal_pixel_ratio": 4.0
+  },
+  "headline": {
+    "dense_bias_factors": [
+      0.5280513378006101,
+      0.40194623428860643,
+      0.08300701538782132
+    ],
+    "dense_cross_scale_correlations": [
+      0.9459539589244564,
+      0.18004354861096508,
+      0.288421799273962
+    ],
+    "dense_log_estimator_standard_deviations": [
+      0.6948982745063806,
+      0.7746516751988551,
+      0.9552822369280697
+    ],
+    "dense_parameter_covariance_determinant_inflation": 404.68548879574263,
+    "dense_parameter_sd_inflation": [
+      4.4397111841416805,
+      2.86773359717678
+    ],
+    "fourfold_pixel_full_log_xi_precision_improvement_fraction": 0.003934679379593797,
+    "fourfold_pixel_nominal_log_xi_precision_improvement_fraction": 0.5018832458631013
+  },
+  "implementation_issue": 246,
+  "model": {
+    "common_sample_centers_across_scales": true,
+    "correlation_length_um": 2.0,
+    "dimension": 2,
+    "point_composition_standard_deviation": 0.005,
+    "point_composition_variance": 2.5e-05,
+    "probe_sigmas_um": [
+      0.23094,
+      1.1547,
+      4.6188
+    ]
+  },
+  "portfolio_contribution": "R04",
+  "program_issue": 196,
+  "schema_version": "1.0",
+  "status": "controlled_same_raster_covariance_not_specimen_inference"
+}
