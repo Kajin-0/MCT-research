@@ -1,0 +1,59 @@
+{
+  "analysis": "Blue 1964 signed-gap non-commensurability certificate",
+  "analysis_bookkeeping": {
+    "correction_coefficient_count": 0,
+    "fitted_parameter_count": 0,
+    "signed_model_evaluations": 0,
+    "source_rows_modified": 0
+  },
+  "claim_boundary": [
+    "Blue explicitly permits zero actual edge gap with a positive 0.03 eV band-curvature scale.",
+    "Blue reports that 0.02, 0.03 and 0.04 eV theoretical gap choices give essentially the same higher-energy absorption.",
+    "The seven tabulated values were selected in the same high-absorption regime where this weak sensitivity is stated.",
+    "The positive Blue parameter therefore does not identify the sign or a unique magnitude of a modern signed gap.",
+    "No signed residual, model ranking or numerical correction is computed by this audit."
+  ],
+  "identifiability_decision": {
+    "blue_parameter_equals_actual_edge_gap": false,
+    "direct_signed_gap_residual_ranking_authorized": false,
+    "external_validated_observation_operator_required": true,
+    "one_to_one_gap_magnitude_identified": false,
+    "sign_of_modern_Gamma6_minus_Gamma8_identified": false,
+    "source_parameterization_represents_signed_band_order": false,
+    "universal_numerical_correction_identified": false
+  },
+  "observation_contract": {
+    "all_parameters_positive": true,
+    "all_rows_signed_gap_eligible": false,
+    "fit_region_alpha_cm_inverse": "approximately_above_1e3",
+    "measurement_class": "theory_conditioned_positive_optical_gap_parameter",
+    "parameter_max_ev": 0.365,
+    "parameter_min_ev": 0.03,
+    "row_count": 7,
+    "temperature_context": "room_temperature_exact_kelvin_unknown"
+  },
+  "schema_version": "1.0",
+  "scientific_decision": {
+    "blue_table_directly_commensurate_with_signed_gap_laws": false,
+    "blue_table_retained_for_observation_model_studies": true,
+    "manuscript_authorized": false,
+    "production_equation_authorized": false
+  },
+  "source_counterexample": {
+    "actual_edge_gap_ev": 0.0,
+    "band_curvature_scale_ev": 0.03,
+    "source_status": "hypothetical_example_explicitly_stated_by_Blue_1964",
+    "temperature_k": 50.0
+  },
+  "source_high_energy_near_degeneracy": {
+    "magnitude_identifiability_status": "weak_non_unique_in_the_declared_high_absorption_comparison",
+    "physical_reason_as_stated": "density_of_states_contributions_are_similar",
+    "source_statement": "theoretical_curves_give_essentially_the_same_results_at_higher_photon_energies",
+    "trial_curvature_scales_ev": [
+      0.02,
+      0.03,
+      0.04
+    ]
+  },
+  "source_id": "BLUE1964"
+}
