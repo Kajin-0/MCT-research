@@ -6,11 +6,27 @@ from dataclasses import asdict
 import json
 from math import log10
 from pathlib import Path
+from typing import Any
 
 from mct_research.published_tail_recoverability import (
     gaussian_power_tail_window_straightness,
     source_conditioned_finkman_trace,
 )
+
+
+REFERENCE_DECIMAL_PLACES = 12
+
+
+def _stable_reference_value(value: Any) -> Any:
+    """Quantize floating outputs above platform-level LAPACK variation."""
+
+    if isinstance(value, float):
+        return round(value, REFERENCE_DECIMAL_PLACES)
+    if isinstance(value, dict):
+        return {key: _stable_reference_value(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_stable_reference_value(item) for item in value]
+    return value
 
 
 def _straightness_case(upper_z: float) -> dict[str, float]:
@@ -108,7 +124,7 @@ def _source_cases() -> list[dict[str, object]]:
 def build_reference() -> dict[str, object]:
     """Return the immutable source-conditioned recoverability record."""
 
-    return {
+    record = {
         "schema_version": "1.0",
         "portfolio_contribution": "R03",
         "issue": 235,
@@ -116,6 +132,10 @@ def build_reference() -> dict[str, object]:
             "source_conditioned_published_figure_recoverability_"
             "not_material_validation"
         ),
+        "numerical_precision": {
+            "decimal_places": REFERENCE_DECIMAL_PLACES,
+            "reason": "exclude platform-level SVD and least-squares roundoff",
+        },
         "model": {
             "absorption": "alpha_p(E)=A*sigma_G^p*F_p(z)",
             "standardized_energy": "z=(E-mu_G)/sigma_G",
@@ -190,6 +210,7 @@ def build_reference() -> dict[str, object]:
             ),
         ],
     }
+    return _stable_reference_value(record)
 
 
 def main() -> None:
