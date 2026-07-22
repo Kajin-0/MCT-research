@@ -54,6 +54,9 @@ def _case(
         "equivalent_gaussian_variance_ratio": (
             result.equivalent_gaussian_variance_ratio
         ),
+        "equivalent_gaussian_effective_variance": (
+            result.equivalent_gaussian_effective_variance
+        ),
         "equivalent_gaussian_relative_error": (
             result.equivalent_gaussian_relative_error
         ),
