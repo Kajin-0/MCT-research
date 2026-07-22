@@ -1,0 +1,67 @@
+name: anchored-tail-validation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Run focused tests
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q \
+            tests/test_anchored_tail_validation.py \
+            tests/test_anchored_tail_validation_reference.py \
+            2>&1 | tee /tmp/anchored-tail-validation-pytest.log
+      - name: Rebuild immutable reference
+        run: |
+          python tools/build_anchored_tail_validation_reference.py \
+            --output /tmp/chang_anchored_tail_recoverability.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          committed = json.loads(
+              Path('data/validation/chang_anchored_tail_recoverability.json')
+              .read_text(encoding='utf-8')
+          )
+          rebuilt = json.loads(
+              Path('/tmp/chang_anchored_tail_recoverability.json')
+              .read_text(encoding='utf-8')
+          )
+          assert rebuilt == committed
+          assert committed['program'] == 'R03_distributional_band_edge'
+          assert committed['decision'] == 'terminate_chang_figure_digitization_path'
+          assert committed['claim_boundary']['manual_digitization_authorized'] is False
+          assert committed['claim_boundary']['manuscript_authorized'] is False
+          assert len(committed['traces']) == 4
+          assert all(not item['three_uncertainty_resolvable'] for item in committed['traces'])
+          assert max(
+              item['maximum_orthogonal_departure_px']
+              for item in committed['traces']
+          ) < 18.0
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: anchored-tail-validation
+          path: |
+            /tmp/anchored-tail-validation-pytest.log
+            data/validation/chang_anchored_tail_recoverability.json
+            docs/derivations/020_anchored_tail_validation.md
+            research/decision_records/2026-07-22-chang-anchored-tail-validation.md
+          if-no-files-found: error
+          retention-days: 30
