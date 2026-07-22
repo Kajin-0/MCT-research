@@ -26,16 +26,110 @@ jobs:
           python -m pytest -q \
             tests/test_spatial_disorder_joint_identifiability.py \
             2>&1 | tee joint-identifiability-diagnostics/pytest.txt
-      - name: Build controlled reference
+      - name: Rebuild controlled reference
         run: |
           python -m tools.build_joint_identifiability_reference \
             --output joint-identifiability-diagnostics/spatial_disorder_joint_identifiability.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          committed = json.loads(
+              Path(
+                  'data/validation/spatial_disorder_joint_identifiability.json'
+              ).read_text(encoding='utf-8')
+          )
+          rebuilt = json.loads(
+              Path(
+                  'joint-identifiability-diagnostics/'
+                  'spatial_disorder_joint_identifiability.json'
+              ).read_text(encoding='utf-8')
+          )
+
+          def compare(expected, actual, path='$'):
+              if isinstance(expected, dict):
+                  assert isinstance(actual, dict), path
+                  assert expected.keys() == actual.keys(), path
+                  for key in expected:
+                      compare(expected[key], actual[key], f'{path}.{key}')
+                  return
+              if isinstance(expected, list):
+                  assert isinstance(actual, list), path
+                  assert len(expected) == len(actual), path
+                  for index, (left, right) in enumerate(
+                      zip(expected, actual, strict=True)
+                  ):
+                      compare(left, right, f'{path}[{index}]')
+                  return
+              if (
+                  isinstance(expected, (int, float))
+                  and not isinstance(expected, bool)
+              ):
+                  assert isinstance(actual, (int, float)), path
+                  assert math.isclose(
+                      float(expected),
+                      float(actual),
+                      rel_tol=5.0e-11,
+                      abs_tol=1.0e-13,
+                  ), (path, expected, actual)
+                  return
+              assert expected == actual, path
+
+          compare(committed, rebuilt)
+          PY
+      - name: Validate scientific boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          record = json.loads(
+              Path(
+                  'data/validation/spatial_disorder_joint_identifiability.json'
+              ).read_text(encoding='utf-8')
+          )
+          assert record['schema_version'] == '1.0'
+          assert record['program_issue'] == 196
+          assert record['implementation_issue'] == 232
+          assert record['portfolio_contribution'] == 'R04'
+          assert record['status'].endswith('not_specimen_inference')
+
+          headline = record['headline']
+          assert headline['matern_0.5_full_distance_range'][0] > 6.0
+          assert headline['matern_1.5_full_distance_range'][0] > 3.0
+          assert headline['matern_2.5_full_distance_range'][1] < 2.0
+          assert headline['convention_sensitive_families'] == []
+
+          for screen in record['screens'].values():
+              assert screen['maximum_gaussian_self_distance'] < 1.0e-8
+              assert screen['convention_sensitive_families'] == []
+              results = screen['results']
+              assert len(results) == 6
+              for item in results:
+                  distances = [
+                      item['observation_only_distance'],
+                      item['calibration_added_distance'],
+                      item['kernel_shape_added_distance'],
+                      item['full_envelope_distance'],
+                  ]
+                  assert distances == sorted(distances, reverse=True)
+                  if item['true_family'] in ('matern_0.5', 'matern_1.5'):
+                      assert item['decision'] == 'resolved_under_full_envelope'
+                  else:
+                      assert item['decision'] == 'observation_limited'
+
+          boundaries = record['claim_boundaries']
+          assert any('not a posterior probability' in item for item in boundaries)
+          assert any('No specimen covariance family' in item for item in boundaries)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: spatial-disorder-joint-identifiability
           path: |
             joint-identifiability-diagnostics
+            data/validation/spatial_disorder_joint_identifiability.json
             docs/derivations/017_joint_identifiability_envelope.md
           if-no-files-found: warn
           retention-days: 30
