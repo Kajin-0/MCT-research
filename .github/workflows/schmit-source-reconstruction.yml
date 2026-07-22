@@ -1,0 +1,130 @@
+name: schmit-source-reconstruction
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/schmit-source-reconstruction.yml'
+      - 'data/experimental/schmit1969_README.md'
+      - 'data/experimental/schmit1969_source_metadata.csv'
+      - 'data/experimental/schmit1969_specimens.csv'
+      - 'data/experimental/schmit1969_table3_cutoff_observations.csv'
+      - 'research/programs/empirical_bandgap/state.md'
+      - 'tests/test_schmit1969_table3_reconstruction.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Schmit source reconstruction
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_schmit1969_table3_reconstruction.py \
+            2>&1 | tee /tmp/schmit-source-reconstruction-pytest.log
+      - name: Assert row, composition, and observation boundary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from collections import Counter
+          from pathlib import Path
+
+          root = Path('.')
+          specimens = list(csv.DictReader(
+              (root / 'data/experimental/schmit1969_specimens.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          observations = list(csv.DictReader(
+              (root / 'data/experimental/schmit1969_table3_cutoff_observations.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          metadata = list(csv.DictReader(
+              (root / 'data/experimental/schmit1969_source_metadata.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          assert len(specimens) == 8
+          assert len(observations) == 56
+          assert len(metadata) == 1
+          assert Counter(row['specimen_id'] for row in observations) == Counter({
+              'SS69_S01': 4,
+              'SS69_S02': 6,
+              'SS69_S03': 8,
+              'SS69_S04': 6,
+              'SS69_S05': 8,
+              'SS69_S06': 6,
+              'SS69_S07': 10,
+              'SS69_S08': 8,
+          })
+          assert all(row['adjusted_x_is_independently_measured'] == 'false' for row in specimens)
+          assert all(
+              row['adjusted_x_is_eligible_for_held_out_composition_validation'] == 'false'
+              for row in specimens
+          )
+          assert all(
+              row['measurement_class'] == 'detector_half_peak_spectral_response_cutoff'
+              for row in observations
+          )
+          assert all(row['signed_gap_eligible'] == 'false' for row in observations)
+          assert all(
+              row['intrinsic_gap_eligible_without_observation_operator'] == 'false'
+              for row in observations
+          )
+          assert metadata[0]['hansen_graph_id'] == 'HSC_R01'
+          assert metadata[0]['source_pdf_sha256'] == ''
+          assert metadata[0]['source_equation_status'] == (
+              'historical_source_fit_metadata_not_sampled_as_observations'
+          )
+          assert not (
+              root / 'data/experimental/schmit1969_figure1_digitized.csv'
+          ).exists()
+          PY
+      - name: Assert tranche file boundary
+        if: github.head_ref == 'agent/schmit1969-table3-reconstruction'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
+            | sort > /tmp/changed-files.txt
+          cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/schmit-source-reconstruction.yml
+          data/experimental/schmit1969_README.md
+          data/experimental/schmit1969_source_metadata.csv
+          data/experimental/schmit1969_specimens.csv
+          data/experimental/schmit1969_table3_cutoff_observations.csv
+          research/programs/empirical_bandgap/state.md
+          tests/test_schmit1969_table3_reconstruction.py
+          EOF
+          sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
+          unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: schmit-source-reconstruction
+          path: |
+            /tmp/schmit-source-reconstruction-pytest.log
+            data/experimental/schmit1969_source_metadata.csv
+            data/experimental/schmit1969_specimens.csv
+            data/experimental/schmit1969_table3_cutoff_observations.csv
+            data/experimental/schmit1969_README.md
+            research/programs/empirical_bandgap/state.md
+          if-no-files-found: error
+          retention-days: 30
