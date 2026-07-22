@@ -85,14 +85,16 @@ jobs:
 
   materialize-source-pages:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
-      - name: Install deterministic PDF renderer
-        run: python -m pip install 'pypdfium2==4.30.0' 'Pillow==11.3.0'
-      - name: Resolve source PDF and render pages
+      - name: Install browser and deterministic renderer
+        run: |
+          python -m pip install 'playwright==1.55.0' 'pypdfium2==4.30.0' 'Pillow==11.3.0'
+          python -m playwright install --with-deps chromium
+      - name: Establish browser session and render source pages
         shell: bash
         run: |
           set -o pipefail
@@ -103,29 +105,32 @@ jobs:
           import hashlib
           import importlib.metadata
           import json
-          import re
-          import ssl
           import time
-          import urllib.error
-          import urllib.parse
-          import urllib.request
           from pathlib import Path
 
           import pypdfium2 as pdfium
+          from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+          from playwright.sync_api import sync_playwright
 
-          DOI = '10.1063/1.1657147'
           OUT = Path('/tmp/scott-source-materialization')
+          PDF_URL = 'https://pubs.aip.org/aip/jap/article-pdf/40/10/4077/10556980/4077_1_online.pdf'
+          ARTICLE_URLS = [
+              'https://pubs.aip.org/jap/article/40/10/4077/4303/Energy-Gap-in-Hg1-xCdxTe-by-Optical-Absorption',
+              'https://pubs.aip.org/aip/jap/article/40/10/4077/4303/Energy-Gap-in-Hg1-xCdxTe-by-Optical-Absorption',
+              'https://doi.org/10.1063/1.1657147',
+          ]
           USER_AGENT = (
-              'MCT-research/Scott1969-source-audit '
-              '(research reproducibility; https://github.com/Kajin-0/MCT-research)'
+              'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+              'AppleWebKit/537.36 (KHTML, like Gecko) '
+              'Chrome/140.0.0.0 Safari/537.36'
           )
-          SSL_CONTEXT = ssl.create_default_context()
 
           diagnostics: dict[str, object] = {
-              'doi': DOI,
+              'doi': '10.1063/1.1657147',
               'retrieval_timestamp_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-              'metadata_queries': [],
-              'candidate_attempts': [],
+              'pdf_url': PDF_URL,
+              'article_attempts': [],
+              'pdf_attempts': [],
               'selected_source_url': None,
               'source_pdf_sha256': None,
               'source_pdf_size_bytes': None,
@@ -136,150 +141,131 @@ jobs:
               },
               'rendered_pages': [],
           }
+          pdf_bytes: bytes | None = None
 
-          def fetch(url: str, *, accept: str = '*/*', timeout: int = 45) -> tuple[bytes, str, str]:
-              request = urllib.request.Request(
-                  url,
-                  headers={
-                      'User-Agent': USER_AGENT,
-                      'Accept': accept,
-                      'Accept-Language': 'en-US,en;q=0.8',
+          def valid_pdf(payload: bytes) -> bool:
+              if not payload.startswith(b'%PDF-') or len(payload) < 10000:
+                  return False
+              try:
+                  return len(pdfium.PdfDocument(payload)) >= 6
+              except Exception:
+                  return False
+
+          with sync_playwright() as pw:
+              browser = pw.chromium.launch(
+                  headless=True,
+                  args=[
+                      '--disable-blink-features=AutomationControlled',
+                      '--disable-dev-shm-usage',
+                      '--no-sandbox',
+                  ],
+              )
+              context = browser.new_context(
+                  user_agent=USER_AGENT,
+                  locale='en-US',
+                  viewport={'width': 1440, 'height': 1100},
+                  extra_http_headers={
+                      'Accept-Language': 'en-US,en;q=0.9',
+                      'Upgrade-Insecure-Requests': '1',
                   },
               )
-              with urllib.request.urlopen(request, timeout=timeout, context=SSL_CONTEXT) as response:
-                  return response.read(), response.geturl(), response.headers.get('Content-Type', '')
+              context.add_init_script(
+                  "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
+              )
+              page = context.new_page()
 
-          candidates: list[tuple[str, str]] = []
+              for index, url in enumerate(ARTICLE_URLS, start=1):
+                  record: dict[str, object] = {'url': url}
+                  try:
+                      response = page.goto(url, wait_until='domcontentloaded', timeout=90000)
+                      page.wait_for_timeout(15000)
+                      record.update({
+                          'status': response.status if response else None,
+                          'resolved_url': page.url,
+                          'title': page.title(),
+                          'content_length': len(page.content()),
+                          'cookie_names': sorted(cookie['name'] for cookie in context.cookies()),
+                      })
+                      page.screenshot(
+                          path=str(OUT / f'article_attempt_{index}.png'),
+                          full_page=False,
+                      )
+                      (OUT / f'article_attempt_{index}.html').write_text(
+                          page.content(), encoding='utf-8'
+                      )
+                  except Exception as exc:
+                      record['error'] = f'{type(exc).__name__}: {exc}'
+                  diagnostics['article_attempts'].append(record)
 
-          metadata_urls = {
-              'crossref': 'https://api.crossref.org/works/10.1063%2F1.1657147',
-              'openalex': 'https://api.openalex.org/works/doi:10.1063/1.1657147',
-              'semantic_scholar': (
-                  'https://api.semanticscholar.org/graph/v1/paper/'
-                  'DOI:10.1063/1.1657147?fields=title,externalIds,openAccessPdf,url'
-              ),
-          }
-
-          for provider, url in metadata_urls.items():
-              record: dict[str, object] = {'provider': provider, 'url': url}
+              request_headers = {
+                  'Accept': 'application/pdf,application/octet-stream;q=0.9,*/*;q=0.8',
+                  'Referer': str(diagnostics['article_attempts'][-1].get('resolved_url') or ARTICLE_URLS[0]),
+                  'User-Agent': USER_AGENT,
+              }
               try:
-                  payload, resolved, content_type = fetch(url, accept='application/json')
-                  record.update({
-                      'status': 'success',
-                      'resolved_url': resolved,
-                      'content_type': content_type,
-                      'sha256': hashlib.sha256(payload).hexdigest(),
-                      'size_bytes': len(payload),
-                  })
-                  (OUT / f'{provider}.json').write_bytes(payload)
-                  data = json.loads(payload)
-                  if provider == 'crossref':
-                      message = data.get('message', {})
-                      for item in message.get('link', []) or []:
-                          candidate = item.get('URL')
-                          if candidate:
-                              candidates.append((f'{provider}:link', candidate))
-                      primary = (message.get('resource') or {}).get('primary', {}).get('URL')
-                      if primary:
-                          candidates.append((f'{provider}:resource', primary))
-                  elif provider == 'openalex':
-                      best = data.get('best_oa_location') or {}
-                      if best.get('pdf_url'):
-                          candidates.append((f'{provider}:best_oa', best['pdf_url']))
-                      for location in data.get('locations', []) or []:
-                          if location and location.get('pdf_url'):
-                              candidates.append((f'{provider}:location', location['pdf_url']))
-                  elif provider == 'semantic_scholar':
-                      oa = data.get('openAccessPdf') or {}
-                      if oa.get('url'):
-                          candidates.append((f'{provider}:open_access', oa['url']))
-              except Exception as exc:  # diagnostic workflow: preserve all failures
-                  record.update({'status': 'error', 'error': f'{type(exc).__name__}: {exc}'})
-              diagnostics['metadata_queries'].append(record)
-
-          mendeley_url = 'https://www.mendeley.com/catalogue/35108651-cba2-3acc-b948-97e988f2f9c0/'
-          try:
-              html, resolved, content_type = fetch(mendeley_url, accept='text/html')
-              (OUT / 'mendeley.html').write_bytes(html)
-              diagnostics['metadata_queries'].append({
-                  'provider': 'mendeley_catalogue',
-                  'url': mendeley_url,
-                  'status': 'success',
-                  'resolved_url': resolved,
-                  'content_type': content_type,
-                  'sha256': hashlib.sha256(html).hexdigest(),
-                  'size_bytes': len(html),
-              })
-              text = html.decode('utf-8', errors='replace')
-              for match in re.findall(r'https?://[^"\'<>\\ ]+', text):
-                  lowered = match.lower()
-                  if '.pdf' in lowered or 'download' in lowered:
-                      candidates.append(('mendeley_html', match.replace('\\u002F', '/')))
-          except Exception as exc:
-              diagnostics['metadata_queries'].append({
-                  'provider': 'mendeley_catalogue',
-                  'url': mendeley_url,
-                  'status': 'error',
-                  'error': f'{type(exc).__name__}: {exc}',
-              })
-
-          candidates.extend([
-              ('doi_content_negotiation', 'https://doi.org/10.1063/1.1657147'),
-              ('aip_current_doi_pdf', 'https://pubs.aip.org/aip/jap/article-pdf/doi/10.1063/1.1657147/4077_1_online.pdf'),
-              ('aip_current_article_id_pdf', 'https://pubs.aip.org/aip/jap/article-pdf/40/10/4077/1657147/4077_1_online.pdf'),
-              ('aip_current_candidate_pdf', 'https://pubs.aip.org/aip/jap/article-pdf/40/10/4077/7920951/4077_1_online.pdf'),
-              ('aip_scitation_doi_pdf', 'https://aip.scitation.org/doi/pdf/10.1063/1.1657147'),
-              ('aip_legacy_content_pdf', 'https://scitation.aip.org/content/aip/journal/jap/40/10/10.1063/1.1657147/pdf'),
-          ])
-
-          deduplicated: list[tuple[str, str]] = []
-          seen: set[str] = set()
-          for origin, url in candidates:
-              normalized = url.strip().replace('&amp;', '&')
-              if normalized and normalized not in seen:
-                  seen.add(normalized)
-                  deduplicated.append((origin, normalized))
-
-          pdf_bytes: bytes | None = None
-          selected_url: str | None = None
-          for origin, url in deduplicated:
-              attempt: dict[str, object] = {'origin': origin, 'url': url}
-              try:
-                  payload, resolved, content_type = fetch(url, accept='application/pdf')
-                  attempt.update({
-                      'status': 'fetched',
-                      'resolved_url': resolved,
-                      'content_type': content_type,
+                  response = context.request.get(
+                      PDF_URL,
+                      headers=request_headers,
+                      timeout=90000,
+                      fail_on_status_code=False,
+                  )
+                  payload = response.body()
+                  record = {
+                      'method': 'browser_context_request',
+                      'status': response.status,
+                      'url': response.url,
+                      'content_type': response.headers.get('content-type'),
                       'size_bytes': len(payload),
                       'sha256': hashlib.sha256(payload).hexdigest(),
                       'magic': payload[:8].hex(),
-                  })
-                  if payload.startswith(b'%PDF-') and len(payload) > 10000:
-                      try:
-                          document = pdfium.PdfDocument(payload)
-                          attempt['pdf_page_count'] = len(document)
-                          if len(document) >= 6:
-                              pdf_bytes = payload
-                              selected_url = resolved
-                              attempt['status'] = 'selected_valid_pdf'
-                              diagnostics['candidate_attempts'].append(attempt)
-                              break
-                          attempt['status'] = 'rejected_short_pdf'
-                      except Exception as exc:
-                          attempt['status'] = 'rejected_invalid_pdf'
-                          attempt['pdf_error'] = f'{type(exc).__name__}: {exc}'
+                  }
+                  if valid_pdf(payload):
+                      pdf_bytes = payload
+                      record['result'] = 'selected_valid_pdf'
                   else:
-                      attempt['status'] = 'rejected_non_pdf'
-                      preview = payload[:400].decode('utf-8', errors='replace')
-                      attempt['body_preview'] = preview
+                      record['result'] = 'rejected_non_pdf'
+                      (OUT / 'browser_request_response.bin').write_bytes(payload)
+                  diagnostics['pdf_attempts'].append(record)
               except Exception as exc:
-                  attempt.update({'status': 'error', 'error': f'{type(exc).__name__}: {exc}'})
-              diagnostics['candidate_attempts'].append(attempt)
+                  diagnostics['pdf_attempts'].append({
+                      'method': 'browser_context_request',
+                      'error': f'{type(exc).__name__}: {exc}',
+                  })
+
+              if pdf_bytes is None:
+                  try:
+                      response = page.goto(PDF_URL, wait_until='commit', timeout=90000)
+                      page.wait_for_timeout(20000)
+                      payload = response.body() if response else b''
+                      record = {
+                          'method': 'page_navigation',
+                          'status': response.status if response else None,
+                          'resolved_url': page.url,
+                          'content_type': response.headers.get('content-type') if response else None,
+                          'size_bytes': len(payload),
+                          'sha256': hashlib.sha256(payload).hexdigest(),
+                          'magic': payload[:8].hex(),
+                          'title': page.title(),
+                      }
+                      if valid_pdf(payload):
+                          pdf_bytes = payload
+                          record['result'] = 'selected_valid_pdf'
+                      else:
+                          record['result'] = 'rejected_non_pdf'
+                          page.screenshot(path=str(OUT / 'pdf_navigation.png'), full_page=False)
+                          (OUT / 'pdf_navigation.html').write_text(page.content(), encoding='utf-8')
+                          (OUT / 'pdf_navigation_response.bin').write_bytes(payload)
+                      diagnostics['pdf_attempts'].append(record)
+                  except Exception as exc:
+                      diagnostics['pdf_attempts'].append({
+                          'method': 'page_navigation',
+                          'error': f'{type(exc).__name__}: {exc}',
+                      })
+              browser.close()
 
           if pdf_bytes is not None:
-              pdf_sha = hashlib.sha256(pdf_bytes).hexdigest()
-              diagnostics['selected_source_url'] = selected_url
-              diagnostics['source_pdf_sha256'] = pdf_sha
+              diagnostics['selected_source_url'] = PDF_URL
+              diagnostics['source_pdf_sha256'] = hashlib.sha256(pdf_bytes).hexdigest()
               diagnostics['source_pdf_size_bytes'] = len(pdf_bytes)
               document = pdfium.PdfDocument(pdf_bytes)
               for page_number in (4, 6):
@@ -296,8 +282,9 @@ jobs:
                       'sha256': hashlib.sha256(page_path.read_bytes()).hexdigest(),
                       'file': page_path.name,
                   })
+              diagnostics['materialization_status'] = 'success'
           else:
-              diagnostics['materialization_status'] = 'no_valid_pdf_retrieved'
+              diagnostics['materialization_status'] = 'browser_session_did_not_retrieve_pdf'
 
           (OUT / 'materialization.json').write_text(
               json.dumps(diagnostics, indent=2, sort_keys=True) + '\n',
