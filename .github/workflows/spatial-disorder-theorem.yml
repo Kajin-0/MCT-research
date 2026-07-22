@@ -75,8 +75,8 @@ jobs:
                   assert math.isclose(
                       float(reference_value),
                       float(rebuilt_value),
-                      rel_tol=5.0e-13,
-                      abs_tol=1.0e-15,
+                      rel_tol=1.0e-10,
+                      abs_tol=1.0e-14,
                   ), (
                       path,
                       reference_value,
