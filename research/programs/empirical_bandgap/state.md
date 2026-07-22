@@ -15,7 +15,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #20 — Camassel LPE composition series;
 - #256 — Seiler source-state and specimen-provenance reconciliation;
 - #258 — Camassel Table I specimen and excitonic-edge reconstruction;
-- #260 — Camassel deterministic composition-envelope evaluation.
+- #260 — Camassel deterministic composition-envelope evaluation;
+- #265 — Scott 1969 fixed-absorption optical-edge source audit.
 
 ## Completed foundations
 
@@ -27,7 +28,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - signed-gap evaluation usable by downstream programs;
 - specimen-level Seiler 1990 TPMA reconstruction;
 - specimen- and modality-resolved Camassel 1988 Cd-rich reconstruction;
-- bounded Camassel forward evaluation without parameter fitting.
+- bounded Camassel forward evaluation without parameter fitting;
+- source-level Scott 1969 metrology and Figure 1 specimen audit with a fail-closed digitization gate.
 
 ## Hansen reconstruction state
 
@@ -295,15 +297,126 @@ The `17.5 meV` same-specimen difference is larger than many proposed refinements
 
 ### Validation state
 
-The executable result contains 39 observation-model evaluations and zero fitted parameters. Exact CSV and compact-JSON regeneration pass. The focused workflow and complete Python 3.11/3.13 suites pass on the audited pre-ledger head, with `965` tests in each full suite.
+The executable result contains 39 observation-model evaluations and zero fitted parameters. Exact CSV and compact-JSON regeneration pass. The focused workflow and complete Python 3.11/3.13 suites pass on the audited final result head, with `965` tests in each full suite. Issue #260 is closed as a completed bounded forward-evaluation task.
 
-A final CI run is required on the state-ledger commit before Issue #260 is closed.
+## Scott 1969 fixed-absorption optical-edge source audit
+
+Issue #265 and draft PR #266 establish the source contract for one of Hansen’s fitted optical-absorption datasets.
+
+Canonical source files are:
+
+```text
+data/experimental/scott1969_source_metadata.csv
+data/experimental/scott1969_figure1_specimens.csv
+data/experimental/scott1969_README.md
+```
+
+The primary PDF is available in the user File Library as `scott1969.pdf`. The source binary is not materialized in the active runtime, so the SHA256 remains explicitly unavailable.
+
+### Material and composition metrology
+
+Scott used specimens cut from modified-Bridgman ingots. Nominal composition was obtained by density measurement with stated precision
+
+```text
++/- 0.005 in fractional x.
+```
+
+Electron-beam microprobe measurements checked the composition profile on the optical specimen or on adjacent ingot slices. The maximum reported variation across the illuminated area was approximately `0.02` in `x`, with typical variation described as lower.
+
+The source later describes the approximate uncertainty in the plotted gap-versus-composition comparison as generally
+
+```text
+1–2 mole % CdTe
++/- 0.01 eV in energy.
+```
+
+These statements are article-level approximate bounds, not independent pointwise Gaussian standard deviations or a reported covariance matrix.
+
+### Optical apparatus and operational edge
+
+The specimens were polished to approximately `50 um`, with thickness measured by micrometer and interference fringes. The source used a Perkin-Elmer model 112 infrared spectrometer with CaF2, NaCl, or KBr prisms, measurable transmittance down to approximately `1e-4`, and spectral resolution of `0.01 eV` or better. The cryostat capability was `4.2–300 K`.
+
+Scott defined the temperature-dependent optical edge as the photon energy at
+
+```text
+alpha = 500 cm^-1.
+```
+
+The thick specimens limited the highest measurable absorption coefficient to approximately
+
+```text
+alpha = 1000 cm^-1,
+```
+
+so the usual `(alpha h nu)^2` extrapolation could not be applied over a sufficiently broad range.
+
+The stored measurement class is
+
+```text
+fixed_absorption_optical_edge_alpha_500_cm_inverse.
+```
+
+It remains distinct from the Camassel exciton-conditioned gaps, Seiler TPMA gaps, detector cutoffs, and a model-independent intrinsic gap.
+
+### Figure 1 specimen inventory
+
+The ten room-temperature absorption labels are retained exactly as printed, in mole percent CdTe:
+
+```text
+21, 23, 25, 31, 35, 38.5, 40.5, 46, 53, 61
+```
+
+Source-specific quality flags are retained without correction or nuisance fitting:
+
+- specimens `38.5` and `53` have kinked absorption edges attributed to composition nonuniformity;
+- specimen `25` has high residual absorption attributed mainly to inhomogeneity rather than free carriers;
+- no additional specimen-specific quality exclusion is inferred for the remaining labels.
+
+### Source equation and Hansen lineage
+
+Scott reported
+
+$$
+E_g(x,T)=-0.303+1.73x+5.6\times10^{-4}(1-2x)T+0.25x^4,
+$$
+
+with strict intended range approximately
+
+```text
+x <= 0.6
+100 K <= T <= 300 K.
+```
+
+The equation is a historical source result. Sampling it does not reconstruct the experimental marker dataset.
+
+Scott is confirmed as Hansen fitted source `HSC_R02`. It cannot independently validate Hansen. Its value is as an observation-definition bridge between the historical `alpha=500 cm^-1` edge and later exciton-conditioned or magneto-optical gaps.
+
+### Fail-closed digitization state
+
+The source text and Figure 1 composition labels are auditable. Calibrated Figure 2 and Figure 5 marker coordinates are not currently recoverable from the active file interface.
+
+Accordingly:
+
+- no Figure 2 or Figure 5 gap coordinate is committed;
+- no marker count is inferred from connecting curves or the source equation;
+- no equation-required fitted composition is substituted for a measured density composition;
+- all pointwise gap and pointwise uncertainty fields remain empty;
+- no source-level uncertainty statement is assigned independently to every future marker.
+
+A future digitization requires a rendered source asset and must retain marker centers, axis calibration, extraction uncertainty, specimen grouping, source uncertainty separately from digitization uncertainty, and measured-versus-fit composition labels.
+
+### Validation state
+
+The focused Scott workflow verifies the exact source contract, ten Figure 1 labels, quality flags, empty pointwise fields, absent Figure 2/5 marker ledgers, and tranche file boundary. The stack-aware Camassel workflow independently regenerates its 39-row immutable result on the same descendant head. Complete Python 3.11 and 3.13 suites pass with `973` tests on the audited pre-ledger Scott head.
+
+A final CI run is required on this state-ledger commit before Issue #265 is closed.
 
 ## Unresolved scientific questions
 
-- what datum-level evidence and edge definitions Hansen actually fitted;
-- which static composition law can predict the Camassel within-domain observations without source-lineage leakage or unjustified flexibility;
-- whether the Hansen/Camassel discrepancy persists for an independently measured observable closer to Hansen’s historical cutoff definitions;
+- what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;
+- whether calibrated Scott Figure 2/5 markers can be recovered from a rendered source asset;
+- whether the Hansen/Camassel discrepancy persists when compared against Scott’s historical `alpha=500 cm^-1` observation definition rather than an exciton-conditioned gap;
+- which static composition law can predict independent observations without source-lineage leakage or unjustified flexibility;
 - whether independently composed fixed-specimen temperature series beyond Seiler sample 3 preserve the current thermal ranking;
 - what observation model explains the Camassel reflectivity–absorption difference;
 - how composition calibration, carrier state, compensation, strain, and measurement class affect residuals;
@@ -321,10 +434,11 @@ A future paper requires:
 4. evidence stronger than another unconstrained polynomial or a fit to one source family;
 5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler and Camassel results do not authorize manuscript writing by themselves.
+The Seiler, Camassel, and Scott source results do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
+- obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
 - continue the Hansen source-by-source specimen reconstruction;
 - seek an independent low-temperature static-composition source that is not in the Camassel/Laurenti lineage;
 - test simple predeclared static laws under source-level holdout only after an independent source exists;
@@ -341,8 +455,12 @@ This program does not currently support:
 - production use of the provisional Hansen–Padé model;
 - universal rejection of Hansen for every measurement definition;
 - independent validation of Laurenti by Camassel 1988;
+- independent validation of Hansen by Scott 1969;
 - Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
 - treating composition as the only uncertainty in Camassel Table I;
+- treating Scott’s article-level `+/-0.01 eV` or `1–2 mole %` statements as independent pointwise Gaussian errors;
+- sampling Scott’s empirical equation and presenting the samples as experimental markers;
+- claiming that Scott Figure 2 or Figure 5 has been digitized on the current branch;
 - sub-meV superiority inferred from heterogeneous or dependent compositions;
 - treating samples 1 and 2 as independent Seiler composition-law validation;
 - treating Figure 7 digitization bounds as experimental covariance;
@@ -352,7 +470,7 @@ This program does not currently support:
 - assigning Table I pointwise energy covariance not reported by the source;
 - using Camassel as an independent held-out source against Laurenti 1990;
 - identifying `alpha` or `tau` as microscopic phonon parameters;
-- treating optical cutoff, PL peak, TPMA gap, reflectivity exciton-polariton gap, absorption excitonic gap, and intrinsic gap as interchangeable;
+- treating fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, reflectivity exciton-polariton gap, absorption excitonic gap, and intrinsic gap as interchangeable;
 - fitting additional flexibility without held-out evidence;
 - production-equation, manuscript, or submission readiness from the current source set.
 
