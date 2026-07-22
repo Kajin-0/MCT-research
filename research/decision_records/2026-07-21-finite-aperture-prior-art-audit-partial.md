@@ -1,13 +1,14 @@
-# Decision record: partial finite-aperture HgCdTe prior-art audit
+# Decision record: bounded finite-aperture HgCdTe prior-art audit
 
-**Date:** 2026-07-21  
+**Date opened:** 2026-07-21  
+**Date bounded:** 2026-07-22  
 **Program:** measurement-kernel-aware spatial disorder (R04)  
 **Issue:** #222  
-**Status:** partial; novelty gate remains open
+**Status:** bounded audit complete; no positive novelty decision
 
 ## Decision
 
-Do not authorize a manuscript or freeze the R04 novelty claim yet.
+Do not authorize a manuscript or freeze a positive R04 novelty claim.
 
 Two highest-priority historical mapping papers were audited at full-text level:
 
@@ -24,11 +25,28 @@ The third priority source
 10.1364/JOT.91.000077
 ```
 
-was audited only through its abstract and bibliographic record. Claim-level conclusions about its spatial methodology are therefore unauthorized until full text is reviewed.
+and Russian edition
+
+```text
+10.17586/1023-5086-2024-91-02-23-33
+```
+
+were audited through official abstract and bibliographic records. The publisher full text required access unavailable to this workstream, and a renewed uploaded-file search returned no matching full text. This is not evidence that the user does not possess a copy elsewhere.
+
+The source state is frozen as:
+
+```text
+identified primary source
+abstract audited
+full text not retrieved
+claim-level spatial-method conclusion unauthorized
+```
+
+This explicit source-state decision completes the present acquisition loop without treating an abstract as negative novelty evidence.
 
 ## Established prior art
 
-The audited sources already establish:
+The audited sources establish:
 
 - finite-aperture infrared transmission mapping of HgCdTe composition and thickness;
 - aperture adjustment from approximately 25 to 100 micrometres in an IR microscope;
@@ -36,9 +54,11 @@ The audited sources already establish:
 - model-dependent conversion from transmission edge to composition and cutoff;
 - excitation and collection dependence of PL observables;
 - ambiguity among optical path, thickness, composition, and inclusions;
-- resolution-limited feature-size estimates.
+- resolution-limited feature-size estimates;
+- composition-regime-dependent reliability of optical observables;
+- localization language associated with large-scale composition fluctuations.
 
-R04 must not claim these as new.
+R04 must not claim these elements as new.
 
 ## Candidate distinct result retained
 
@@ -49,21 +69,33 @@ The two audited full texts do not establish:
 - recovery of microscopic variance and correlation length from multiple resolutions;
 - the absolute scale-calibration floor;
 - the three-scale covariance-family invariant;
-- the exact nonlinear common-scale posterior convolution.
+- the exact nonlinear common-scale posterior convolution;
+- effective sample counts or naive sample-variance bias in correlated maps;
+- cross-scale covariance of map statistics measured on one raster;
+- the combined instrument/family/fit/operator identifiability envelope.
 
-The defensible candidate contribution is therefore narrowed to the explicit information content and calibrated measurement design of finite-resolution HgCdTe maps, not the existence of spatial mapping itself.
+The defensible candidate contribution is therefore narrowed to the explicit information content and calibrated measurement design of finite-resolution HgCdTe maps, including the distinction among nominal pixels, independent realizations, microscopic covariance, and modality-specific observables.
 
-## Stop condition
+## Gate disposition
 
-Do not convert this partial audit into a positive novelty decision.
+The issue-level prior-art audit is complete within its declared source-access boundary.
 
-The gate remains open until:
+This decision does **not** mean:
 
-1. Ruzhevich 2024 full text is audited;
-2. equivalent earlier work using aperture sweeps, spatial covariance, structure functions, or resolution-dependent variance is searched explicitly;
-3. any overlap is incorporated into the claim matrix;
-4. the final source audit distinguishes microscopic covariance from defect-size and map-uniformity statistics.
+- Ruzhevich 2024 was full-text audited;
+- an exhaustive novelty search is complete;
+- equivalent earlier work cannot exist;
+- R04 is manuscript-authorized;
+- R04 is submission-ready.
 
-## Source-handling note
+Program-level literature work remains open for:
 
-The uploaded-file search service failed during this audit. The Ruzhevich source is therefore recorded as not retrieved by this workstream, not as absent from the user's files.
+1. lawful full-text review of Ruzhevich 2024 if a copy becomes available;
+2. explicit searches for aperture sweeps, structure functions, spatial covariance, power spectra, or resolution-dependent map variance under different terminology;
+3. incorporation of any newly found overlap into the claim matrix.
+
+The immediate source-acquisition block is removed from the execution path because its unresolved state is now explicit rather than silently treated as missing evidence.
+
+## Source-handling boundary
+
+Restricted PDFs are not redistributed. Future acquisition should retain the source privately and record only provenance, hash, permitted-use state, and derived claim-level notes in the repository.
