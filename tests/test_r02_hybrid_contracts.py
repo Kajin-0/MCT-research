@@ -47,21 +47,15 @@ def _metadata() -> dict:
 
 
 def _component_matrices() -> dict[str, np.ndarray]:
-    lower = np.diag(
-        [0.010, 0.010, -0.004, -0.004, -0.004, -0.004, -0.006, -0.006]
-    ).astype(complex)
+    lower = np.diag([0.010, 0.010, -0.004, -0.004, -0.004, -0.004, -0.006, -0.006]).astype(complex)
     lower[0, 1] = 0.001 + 0.002j
     lower[1, 0] = lower[0, 1].conjugate()
 
-    upper = np.diag(
-        [0.002, 0.002, 0.001, 0.001, 0.001, 0.001, -0.001, -0.001]
-    ).astype(complex)
+    upper = np.diag([0.002, 0.002, 0.001, 0.001, 0.001, 0.001, -0.001, -0.001]).astype(complex)
     upper[2, 3] = -0.0005j
     upper[3, 2] = upper[2, 3].conjugate()
 
-    dw = np.diag(
-        [-0.003, -0.003, 0.002, 0.002, 0.002, 0.002, 0.001, 0.001]
-    ).astype(complex)
+    dw = np.diag([-0.003, -0.003, 0.002, 0.002, 0.002, 0.002, 0.001, 0.001]).astype(complex)
     return {"lower_fan": lower, "upper_fan": upper, "debye_waller": dw}
 
 
@@ -74,9 +68,7 @@ def _short_record(matrices: dict[str, np.ndarray] | None = None) -> dict:
         "metadata": _metadata(),
         "long_range_included": False,
         "thermal_expansion_included": False,
-        "components": {
-            name: encode_complex_matrix(value) for name, value in components.items()
-        },
+        "components": {name: encode_complex_matrix(value) for name, value in components.items()},
         "total": encode_complex_matrix(total),
         "standard_diagonal_ev": np.real(np.diag(total)).tolist(),
     }
@@ -128,16 +120,8 @@ def _frohlich_record() -> dict:
         "phase": "zincblende",
         "reference_volume_angstrom3": 271.0,
         "reference_temperature_k": 0.0,
-        "epsilon_infinity": [
-            [7.0, 0.0, 0.0],
-            [0.0, 7.0, 0.0],
-            [0.0, 0.0, 7.0],
-        ],
-        "epsilon_static": [
-            [10.0, 0.0, 0.0],
-            [0.0, 10.0, 0.0],
-            [0.0, 0.0, 10.0],
-        ],
+        "epsilon_infinity": [[7.0, 0.0, 0.0], [0.0, 7.0, 0.0], [0.0, 0.0, 7.0]],
+        "epsilon_static": [[10.0, 0.0, 0.0], [0.0, 10.0, 0.0], [0.0, 0.0, 10.0]],
         "lo_modes": [
             {
                 "branch_id": "LO1",
@@ -146,43 +130,76 @@ def _frohlich_record() -> dict:
                 "source_id": "synthetic-lo",
             }
         ],
-        "effective_mass_tensors": {
-            "Gamma6": {
-                "tensor": [
-                    [0.10, 0.0, 0.0],
-                    [0.0, 0.10, 0.0],
-                    [0.0, 0.0, 0.10],
-                ],
-                "relative_uncertainty": 0.05,
-                "source_id": "synthetic-mass",
-            },
-            "Gamma8": {
-                "tensor": [
-                    [0.40, 0.0, 0.0],
-                    [0.0, 0.40, 0.0],
-                    [0.0, 0.0, 0.40],
-                ],
-                "relative_uncertainty": 0.08,
-                "source_id": "synthetic-mass",
-            },
-            "Gamma7": {
-                "tensor": [
-                    [0.20, 0.0, 0.0],
-                    [0.0, 0.20, 0.0],
-                    [0.0, 0.0, 0.20],
-                ],
-                "relative_uncertainty": 0.07,
-                "source_id": "synthetic-mass",
-            },
+        "effective_mass_branches": {
+            "Gamma6": [
+                {
+                    "branch_id": "electron",
+                    "multiplicity": 2,
+                    "carrier_type": "electron",
+                    "mass_sign_convention": "positive_carrier_mass_magnitude",
+                    "tensor": [
+                        [0.10, 0.0, 0.0],
+                        [0.0, 0.10, 0.0],
+                        [0.0, 0.0, 0.10],
+                    ],
+                    "relative_uncertainty": 0.05,
+                    "fit_window_inv_angstrom": 0.02,
+                    "source_id": "synthetic-mass",
+                }
+            ],
+            "Gamma8": [
+                {
+                    "branch_id": "heavy-hole",
+                    "multiplicity": 2,
+                    "carrier_type": "hole",
+                    "mass_sign_convention": "positive_carrier_mass_magnitude",
+                    "tensor": [
+                        [0.50, 0.0, 0.0],
+                        [0.0, 0.50, 0.0],
+                        [0.0, 0.0, 0.50],
+                    ],
+                    "relative_uncertainty": 0.08,
+                    "fit_window_inv_angstrom": 0.015,
+                    "source_id": "synthetic-mass",
+                },
+                {
+                    "branch_id": "light-hole",
+                    "multiplicity": 2,
+                    "carrier_type": "hole",
+                    "mass_sign_convention": "positive_carrier_mass_magnitude",
+                    "tensor": [
+                        [0.12, 0.0, 0.0],
+                        [0.0, 0.12, 0.0],
+                        [0.0, 0.0, 0.12],
+                    ],
+                    "relative_uncertainty": 0.10,
+                    "fit_window_inv_angstrom": 0.015,
+                    "source_id": "synthetic-mass",
+                },
+            ],
+            "Gamma7": [
+                {
+                    "branch_id": "split-off-hole",
+                    "multiplicity": 2,
+                    "carrier_type": "hole",
+                    "mass_sign_convention": "positive_carrier_mass_magnitude",
+                    "tensor": [
+                        [0.20, 0.0, 0.0],
+                        [0.0, 0.20, 0.0],
+                        [0.0, 0.0, 0.20],
+                    ],
+                    "relative_uncertainty": 0.07,
+                    "fit_window_inv_angstrom": 0.02,
+                    "source_id": "synthetic-mass",
+                }
+            ],
         },
         "edge_covariance_ev2": [
             [1.0e-6, 0.2e-6, 0.0],
             [0.2e-6, 2.0e-6, 0.1e-6],
             [0.0, 0.1e-6, 1.5e-6],
         ],
-        "nonadiabatic_denominator_convention": (
-            "retarded finite-phonon-frequency synthetic convention"
-        ),
+        "nonadiabatic_denominator_convention": "retarded finite-phonon-frequency synthetic convention",
         "input_origin_flags": {
             "uses_failed_cdte_born_tensors": False,
             "uses_charge_asr_repaired_inputs": False,
@@ -191,7 +208,7 @@ def _frohlich_record() -> dict:
             "epsilon_infinity": _provenance("epsilon-infinity"),
             "epsilon_static": _provenance("epsilon-static"),
             "lo_modes": _provenance("lo-modes"),
-            "effective_mass_tensors": _provenance("effective-masses"),
+            "effective_mass_branches": _provenance("effective-masses"),
             "reference_volume": _provenance("reference-volume"),
         },
     }
@@ -279,7 +296,19 @@ def test_frohlich_input_passes_positive_tensor_and_provenance_gates() -> None:
     )
     assert result["passed"] is True
     assert result["lo_mode_count"] == 1
+    assert result["branch_multiplicity_by_representation"] == {
+        "Gamma6": 2,
+        "Gamma8": 4,
+        "Gamma7": 2,
+    }
     assert result["minimum_dielectric_increment_eigenvalue"] == pytest.approx(3.0)
+
+
+def test_frohlich_input_rejects_incomplete_gamma8_multiplicity() -> None:
+    record = _frohlich_record()
+    record["effective_mass_branches"]["Gamma8"].pop()
+    with pytest.raises(ContractError, match="does not close required degeneracy"):
+        validate_frohlich_input(record, _load(FROHLICH_CONTRACT_PATH))
 
 
 def test_frohlich_input_rejects_failed_born_tensor_origin() -> None:
@@ -299,8 +328,9 @@ def test_frohlich_input_rejects_unphysical_dielectric_ordering() -> None:
 def test_hybrid_combination_adds_long_range_exactly_once() -> None:
     contract = _load(SHORT_CONTRACT_PATH)
     short_record = _short_record()
-    short_total = np.asarray(short_record["total"]["real"]) + 1j * np.asarray(
-        short_record["total"]["imag"]
+    short_total = (
+        np.asarray(short_record["total"]["real"])
+        + 1j * np.asarray(short_record["total"]["imag"])
     )
     edges = {"Gamma6": 0.004, "Gamma8": -0.002, "Gamma7": -0.001}
     long_diagonal = np.diag([0.004, 0.004] + [-0.002] * 4 + [-0.001] * 2)
@@ -313,8 +343,9 @@ def test_hybrid_combination_adds_long_range_exactly_once() -> None:
 def test_hybrid_combination_detects_double_counting() -> None:
     contract = _load(SHORT_CONTRACT_PATH)
     short_record = _short_record()
-    short_total = np.asarray(short_record["total"]["real"]) + 1j * np.asarray(
-        short_record["total"]["imag"]
+    short_total = (
+        np.asarray(short_record["total"]["real"])
+        + 1j * np.asarray(short_record["total"]["imag"])
     )
     edges = {"Gamma6": 0.004, "Gamma8": -0.002, "Gamma7": -0.001}
     long_diagonal = np.diag([0.004, 0.004] + [-0.002] * 4 + [-0.001] * 2)
