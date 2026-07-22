@@ -145,8 +145,8 @@ def test_driver_renders_explicit_independent_route_flags() -> None:
     assert 'rendered["settings"][name] == reference["settings"][name]' in text
     assert 'rendered["settings"]["q_point"] == [0.0, 0.0, 0.0]' in text
     assert 'contract["baseline_run_spec"] == {"ecutrho_ry": 456.0, "ph_tr2": 1e-10}' in text
-    assert "f\"  zeu = {'.true.' if flags['zeu'] else '.false.'}\"" in text
-    assert "f\"  zue = {'.true.' if flags['zue'] else '.false.'}\"" in text
+    assert "f\"  zeu = {'.true.' if flags['zeu'] else '.false.'}\\n\"" in text
+    assert "f\"  zue = {'.true.' if flags['zue'] else '.false.'}\\n\"" in text
     assert "base_and_zeu_save_match" in text
     assert "base_and_zue_save_match" in text
 
