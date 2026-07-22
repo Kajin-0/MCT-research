@@ -1,0 +1,172 @@
+{
+  "allocation_connection": [
+    "Repeat counts in the allocation theorem represent independent realizations or covariance-weighted information, not nominal raster pixels.",
+    "Increasing raster density at fixed field of view does not create new material realizations.",
+    "Use the full covariance matrix when accurate inference is required; effective counts are summaries."
+  ],
+  "claim_boundaries": [
+    "Gaussian-process filtering and Gaussian quadratic-form moments are established mathematics.",
+    "The spacing sweep is a controlled model calculation, not a specimen scan-pitch prescription.",
+    "The effective variance degrees of freedom are moment matched, not an exact chi-square law for arbitrary covariance spectra.",
+    "No specimen covariance, correlation length, or disorder amplitude is inferred.",
+    "This result does not authorize a manuscript."
+  ],
+  "exact_theorems": {
+    "cross_covariance": "A sqrt(det(Lambda)/det(Lambda+Sigma_i+Sigma_j)) exp[-0.5 delta^T (Lambda+Sigma_i+Sigma_j)^-1 delta]",
+    "map_mean_effective_sample_count": "average marginal variance / Var(map mean)",
+    "map_mean_variance": "1^T C 1 / n^2",
+    "naive_sample_variance_expectation": "tr(P C)/(n-1)",
+    "naive_sample_variance_variance": "2 tr[(P C)^2]/(n-1)^2",
+    "variance_effective_degrees_of_freedom": "[tr(P C)]^2/tr[(P C)^2]"
+  },
+  "fixed_field_of_view_oversampling": {
+    "coarse": {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 2244658750121668.5,
+      "map_mean_effective_sample_count": 1.7377128548163479,
+      "map_mean_variance": 9.5911511619842e-06,
+      "naive_sample_variance_expectation": 7.146985358265143e-06,
+      "naive_sample_variance_ratio": 0.4288191214959078,
+      "naive_sample_variance_relative_bias": -0.5711808785040922,
+      "naive_sample_variance_relative_standard_deviation": 0.7582804604271967,
+      "naive_sample_variance_variance": 2.93701060709045e-11,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 0.5,
+      "variance_effective_degrees_of_freedom": 3.478325858813166
+    },
+    "fine": {
+      "average_marginal_variance": 1.6666666666666695e-05,
+      "covariance_condition_number": 1645720615516526.5,
+      "map_mean_effective_sample_count": 1.7427583754416531,
+      "map_mean_variance": 9.563383485357227e-06,
+      "naive_sample_variance_expectation": 7.1210858960495895e-06,
+      "naive_sample_variance_ratio": 0.42726515376297464,
+      "naive_sample_variance_relative_bias": -0.5727348462370254,
+      "naive_sample_variance_relative_standard_deviation": 0.7555787113522366,
+      "naive_sample_variance_variance": 2.895022042785729e-11,
+      "nominal_sample_count": 400,
+      "shape": [20, 20],
+      "spacing_um": 0.25,
+      "variance_effective_degrees_of_freedom": 3.503245473745749
+    },
+    "map_mean_effective_information_gain_fraction": 0.0029035410604927314,
+    "naive_variance_ratio_change": -0.001553967732933148,
+    "nominal_pixel_ratio": 4.0
+  },
+  "headline": {
+    "dense_map_mean_effective_sample_count": 1.7377128548163479,
+    "dense_naive_sample_variance_ratio": 0.4288191214959078,
+    "dense_nominal_sample_count": 100,
+    "dense_variance_effective_degrees_of_freedom": 3.478325858813166,
+    "fourfold_pixel_increase_information_gain_fraction": 0.0029035410604927314,
+    "nearly_independent_map_mean_effective_sample_count": 98.2843345793776,
+    "nearly_independent_naive_sample_variance_ratio": 0.9998236753210178
+  },
+  "implementation_issue": 234,
+  "model": {
+    "correlation_length_um": 2.0,
+    "dimension": 2,
+    "filtered_marginal_variance": 1.6666666666666667e-05,
+    "gaussian_probe_sigma_um": 1.0,
+    "grid_shape": [10, 10],
+    "point_composition_standard_deviation": 0.005,
+    "point_composition_variance": 2.5e-05
+  },
+  "portfolio_contribution": "R04",
+  "program_issue": 196,
+  "schema_version": "1.0",
+  "spacing_sweep": [
+    {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 1403053668412263.5,
+      "map_mean_effective_sample_count": 1.176005317749258,
+      "map_mean_variance": 1.4172271515374458e-05,
+      "naive_sample_variance_expectation": 2.519591061911347e-06,
+      "naive_sample_variance_ratio": 0.15117546371468055,
+      "naive_sample_variance_relative_bias": -0.8488245362853195,
+      "naive_sample_variance_relative_standard_deviation": 0.9180785706588972,
+      "naive_sample_variance_variance": 5.35081355942502e-12,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 0.25,
+      "variance_effective_degrees_of_freedom": 2.3728500530845333
+    },
+    {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 2244658750121668.5,
+      "map_mean_effective_sample_count": 1.7377128548163479,
+      "map_mean_variance": 9.5911511619842e-06,
+      "naive_sample_variance_expectation": 7.146985358265143e-06,
+      "naive_sample_variance_ratio": 0.4288191214959078,
+      "naive_sample_variance_relative_bias": -0.5711808785040922,
+      "naive_sample_variance_relative_standard_deviation": 0.7582804604271967,
+      "naive_sample_variance_variance": 2.93701060709045e-11,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 0.5,
+      "variance_effective_degrees_of_freedom": 3.478325858813166
+    },
+    {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 110422057657123.56,
+      "map_mean_effective_sample_count": 4.070059095136848,
+      "map_mean_variance": 4.094944637678857e-06,
+      "naive_sample_variance_expectation": 1.2698709120189727e-05,
+      "naive_sample_variance_ratio": 0.7619225472113822,
+      "naive_sample_variance_relative_bias": -0.2380774527886178,
+      "naive_sample_variance_relative_standard_deviation": 0.5095841803178213,
+      "naive_sample_variance_variance": 4.187463406500705e-11,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 1.0,
+      "variance_effective_degrees_of_freedom": 7.7019043590375365
+    },
+    {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 108157.87003355274,
+      "map_mean_effective_sample_count": 12.872039308604444,
+      "map_mean_variance": 1.2947961288096515e-06,
+      "naive_sample_variance_expectation": 1.5527141957431354e-05,
+      "naive_sample_variance_ratio": 0.9316285174458795,
+      "naive_sample_variance_relative_bias": -0.06837148255412051,
+      "naive_sample_variance_relative_standard_deviation": 0.2870470809674732,
+      "naive_sample_variance_variance": 1.9865034185646078e-11,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 2.0,
+      "variance_effective_degrees_of_freedom": 24.27301509910631
+    },
+    {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 9.08228067130609,
+      "map_mean_effective_sample_count": 45.5178346390766,
+      "map_mean_variance": 3.6615684376950865e-07,
+      "naive_sample_variance_expectation": 1.646516143726988e-05,
+      "naive_sample_variance_ratio": 0.9879096862361909,
+      "naive_sample_variance_relative_bias": -0.01209031376380909,
+      "naive_sample_variance_relative_standard_deviation": 0.1594907418316825,
+      "naive_sample_variance_variance": 6.896090346334706e-12,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 4.0,
+      "variance_effective_degrees_of_freedom": 78.62470691076442
+    },
+    {
+      "average_marginal_variance": 1.6666666666666698e-05,
+      "covariance_condition_number": 1.0377554224351724,
+      "map_mean_effective_sample_count": 98.2843345793776,
+      "map_mean_variance": 1.695760238698687e-07,
+      "naive_sample_variance_expectation": 1.6663727922016995e-05,
+      "naive_sample_variance_ratio": 0.9998236753210178,
+      "naive_sample_variance_relative_bias": -0.00017632467898220927,
+      "naive_sample_variance_relative_standard_deviation": 0.14213960476664803,
+      "naive_sample_variance_variance": 5.610150850299188e-12,
+      "nominal_sample_count": 100,
+      "shape": [10, 10],
+      "spacing_um": 8.0,
+      "variance_effective_degrees_of_freedom": 98.99192933259548
+    }
+  ],
+  "status": "controlled_gaussian_map_sampling_not_specimen_inference"
+}

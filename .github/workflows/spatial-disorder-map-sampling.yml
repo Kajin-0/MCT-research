@@ -1,0 +1,117 @@
+name: spatial-disorder-map-sampling
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify correlated-map theorems
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p spatial-disorder-map-sampling-diagnostics
+          python -m pytest -q tests/test_spatial_disorder_map_sampling.py \
+            2>&1 | tee spatial-disorder-map-sampling-diagnostics/pytest.txt
+      - name: Rebuild deterministic map-sampling reference
+        run: |
+          mkdir -p spatial-disorder-map-sampling-generated
+          python -m tools.build_spatial_disorder_map_sampling_reference \
+            --output spatial-disorder-map-sampling-generated/spatial_disorder_map_sampling.json
+      - name: Compare rebuilt reference with immutable record
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          reference_path = Path(
+              'data/validation/spatial_disorder_map_sampling.json'
+          )
+          rebuilt_path = Path(
+              'spatial-disorder-map-sampling-generated/'
+              'spatial_disorder_map_sampling.json'
+          )
+          reference = json.loads(reference_path.read_text(encoding='utf-8'))
+          rebuilt = json.loads(rebuilt_path.read_text(encoding='utf-8'))
+
+          def compare(expected, actual, path='$'):
+              if isinstance(expected, dict):
+                  assert isinstance(actual, dict), path
+                  assert expected.keys() == actual.keys(), path
+                  for key in expected:
+                      compare(expected[key], actual[key], f'{path}.{key}')
+                  return
+              if isinstance(expected, list):
+                  assert isinstance(actual, list), path
+                  assert len(expected) == len(actual), path
+                  for index, (left, right) in enumerate(
+                      zip(expected, actual, strict=True)
+                  ):
+                      compare(left, right, f'{path}[{index}]')
+                  return
+              if (
+                  isinstance(expected, (int, float))
+                  and not isinstance(expected, bool)
+              ):
+                  assert isinstance(actual, (int, float)), path
+                  if path.endswith('.covariance_condition_number'):
+                      assert math.isfinite(float(actual)) and float(actual) >= 1.0, path
+                      return
+                  assert math.isclose(
+                      float(expected),
+                      float(actual),
+                      rel_tol=5.0e-13,
+                      abs_tol=1.0e-15,
+                  ), (path, expected, actual)
+                  return
+              assert expected == actual, path
+
+          compare(reference, rebuilt)
+          assert reference['schema_version'] == '1.0'
+          assert reference['program_issue'] == 196
+          assert reference['implementation_issue'] == 234
+          assert reference['portfolio_contribution'] == 'R04'
+          assert (
+              reference['status']
+              == 'controlled_gaussian_map_sampling_not_specimen_inference'
+          )
+          sweep = reference['spacing_sweep']
+          assert [item['spacing_um'] for item in sweep] == [
+              0.25, 0.5, 1.0, 2.0, 4.0, 8.0
+          ]
+          headline = reference['headline']
+          assert headline['dense_nominal_sample_count'] == 100
+          assert headline['dense_map_mean_effective_sample_count'] < 2.0
+          assert headline['dense_naive_sample_variance_ratio'] < 0.45
+          assert headline['dense_variance_effective_degrees_of_freedom'] < 4.0
+          assert (
+              headline['fourfold_pixel_increase_information_gain_fraction']
+              < 0.004
+          )
+          assert (
+              headline['nearly_independent_map_mean_effective_sample_count']
+              > 98.0
+          )
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spatial-disorder-map-sampling
+          path: |
+            spatial-disorder-map-sampling-diagnostics
+            spatial-disorder-map-sampling-generated
+          if-no-files-found: error
+          retention-days: 30
