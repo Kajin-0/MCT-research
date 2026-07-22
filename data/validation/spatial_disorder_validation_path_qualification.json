@@ -1,0 +1,260 @@
+{
+  "candidates": [
+    {
+      "citation": "Y. Chang et al., Composition and thickness distribution of HgCdTe molecular beam epitaxy wafers by infrared microscope mapping, Journal of Crystal Growth 277, 78-84 (2005).",
+      "declared_filterable_scale_count": 0,
+      "depth_model_declared": "confirmed",
+      "doi": "10.1016/j.jcrysgro.2005.01.051",
+      "independent_effective_scale_count": 1,
+      "kernel_characterized": "absent",
+      "modality_count": 1,
+      "notes": [
+        "The infrared microscope aperture was adjustable to approximately 25 micrometres at 10-micrometre wavelength.",
+        "The published large-area maps used a 100-micrometre aperture for signal and acquisition-time reasons.",
+        "No same-region aperture sweep, measured wavelength-dependent PSF, raw numerical map, repeat covariance, or variance-versus-scale curve was reported in the audited record.",
+        "Published composition and thickness are model-conditioned transmission inversions, not direct microscopic composition measurements."
+      ],
+      "numerical_data_available": "absent",
+      "observable_defined": "confirmed",
+      "preprocessing_declared": "confirmed",
+      "record_scope": "full text audited; published maps and summary statistics",
+      "rendered_figure_available": "confirmed",
+      "reusable_high_resolution_map": "absent",
+      "same_spatial_region": "absent",
+      "same_specimen": "confirmed",
+      "source_id": "chang_2005_infrared_mapping",
+      "spatial_map_reported": "confirmed",
+      "spatial_registration": "not_applicable",
+      "thickness_characterized": "confirmed",
+      "uncertainty_characterized": "absent"
+    },
+    {
+      "citation": "R. Furstenberg, J. O. White, and G. L. Olson, Spatially resolved photoluminescence and transmission spectra of HgCdTe, Journal of Electronic Materials 34, 791-794 (2005).",
+      "declared_filterable_scale_count": 0,
+      "depth_model_declared": "absent",
+      "doi": "10.1007/s11664-005-0022-8",
+      "independent_effective_scale_count": 1,
+      "kernel_characterized": "absent",
+      "modality_count": 2,
+      "notes": [
+        "PL and transmission were collected from the same location with representative 25-micrometre map resolution.",
+        "The source explicitly reports excitation and collection dependence of PL observables and ambiguity between thickness, composition, and inclusions in transmission-derived optical path.",
+        "No same-specimen spot-size sweep, measured excitation/collection PSF, raw registered arrays, or variance-versus-resolution curve was reported in the audited record.",
+        "Two modalities at one lateral resolution do not constitute two probe scales."
+      ],
+      "numerical_data_available": "absent",
+      "observable_defined": "confirmed",
+      "preprocessing_declared": "unknown",
+      "record_scope": "full text audited; published maps and summary statistics",
+      "rendered_figure_available": "confirmed",
+      "reusable_high_resolution_map": "absent",
+      "same_spatial_region": "confirmed",
+      "same_specimen": "confirmed",
+      "source_id": "furstenberg_2005_pl_transmission_mapping",
+      "spatial_map_reported": "confirmed",
+      "spatial_registration": "confirmed",
+      "thickness_characterized": "unknown",
+      "uncertainty_characterized": "absent"
+    },
+    {
+      "citation": "M. S. Ruzhevich et al., Optical properties and disorder of HgCdTe films grown by molecular beam epitaxy, Journal of Optical Technology 91, 77-82 (2024).",
+      "declared_filterable_scale_count": 0,
+      "depth_model_declared": "unknown",
+      "doi": "10.1364/JOT.91.000077; 10.17586/1023-5086-2024-91-02-23-33",
+      "independent_effective_scale_count": 0,
+      "kernel_characterized": "not_retrieved",
+      "modality_count": 4,
+      "notes": [
+        "The official abstract reports optical transmission, photoluminescence, scanning electron microscopy, and energy-dispersive X-ray spectroscopy.",
+        "The abstract attributes x approximately 0.7 photoluminescence to carriers localized on large-scale composition fluctuations.",
+        "The accessible record does not establish spatial resolution, registration, calibrated scale count, reusable numerical maps, PSF data, covariance, or a correlation-length statistic.",
+        "Abstract-level evidence cannot be converted into a negative or positive spatial-kernel result."
+      ],
+      "numerical_data_available": "not_retrieved",
+      "observable_defined": "unknown",
+      "preprocessing_declared": "not_retrieved",
+      "record_scope": "official abstract and bibliographic records; full text not retrieved",
+      "rendered_figure_available": "unknown",
+      "reusable_high_resolution_map": "not_retrieved",
+      "same_spatial_region": "not_retrieved",
+      "same_specimen": "unknown",
+      "source_id": "ruzhevich_2024_optical_microscopic_disorder",
+      "spatial_map_reported": "unknown",
+      "spatial_registration": "not_retrieved",
+      "thickness_characterized": "unknown",
+      "uncertainty_characterized": "unknown"
+    }
+  ],
+  "claim_boundaries": [
+    "Multiple modalities do not count as multiple probe scales.",
+    "An adjustable aperture does not create a multiresolution dataset unless the same region is measured or reusable numerical data are supplied.",
+    "Rendered map figures are not original numerical arrays and must not be represented as such.",
+    "Source qualification does not infer a specimen point variance, correlation length, covariance family, or detector behavior.",
+    "The external-data decision does not authorize a novelty claim or manuscript writing."
+  ],
+  "direct_candidate_ids": [],
+  "direct_validation_requirements": [
+    "same specimen and same spatial region",
+    "three independently characterized effective scales or one reusable numerical high-resolution map filterable under three declared kernels",
+    "original numerical arrays with coordinates",
+    "measured or reconstructable kernel at every scale",
+    "cross-scale spatial registration",
+    "thickness and depth-weighting or absorption model",
+    "observation uncertainty or covariance",
+    "observable definition and preprocessing provenance"
+  ],
+  "headline": {
+    "decision": "No audited candidate supplies a reusable numerical same-region dataset at three calibrated effective scales. R04 external validation is data-blocked, not analytically blocked.",
+    "direct_validation_candidate_count": 0,
+    "minimum_author_or_experiment_request": [
+      "raw numerical map or spectra with coordinates",
+      "same region at three effective scales or one high-resolution map reusable under three declared kernels",
+      "measured PSF/aperture/pixel/scan-bin kernels",
+      "registration transform",
+      "thickness and depth model",
+      "repeat or covariance information",
+      "observable and preprocessing definitions"
+    ]
+  },
+  "implementation_issue": 250,
+  "minimum_next_action": [
+    "Obtain one numerical same-region dataset at three calibrated effective scales, or one numerical high-resolution map reusable under three declared kernels.",
+    "Require kernel metadata, spatial registration, thickness/depth model, uncertainty covariance, observable definition, and preprocessing provenance before inference."
+  ],
+  "parent_issue": 196,
+  "portfolio_contribution": "R04",
+  "qualification_classes": [
+    "direct_multiresolution_validation",
+    "single_scale_spatial_benchmark",
+    "cross_modality_context",
+    "source_bounded_figure_benchmark",
+    "not_qualifiable_from_available_record"
+  ],
+  "qualifications": [
+    {
+      "blocking_evidence_states": [
+        "same_spatial_region:absent",
+        "numerical_data_available:absent",
+        "kernel_characterized:absent",
+        "spatial_registration:not_applicable",
+        "uncertainty_characterized:absent"
+      ],
+      "direct_route": null,
+      "direct_validation_ready": false,
+      "missing_direct_requirements": [
+        "same_spatial_region",
+        "numerical_data_available",
+        "kernel_characterized",
+        "spatial_registration",
+        "uncertainty_characterized",
+        "three_effective_scales_or_reusable_map"
+      ],
+      "permitted_uses": [
+        "audit qualitative map structure and published summary statistics",
+        "perform explicitly source-bounded figure recoverability studies"
+      ],
+      "prohibited_uses": [
+        "represent digitized pixels as original numerical data",
+        "perform direct multiresolution validation"
+      ],
+      "qualification": "source_bounded_figure_benchmark",
+      "required_data_request": [
+        "Provide the original numerical map or spectra with coordinates; rendered figures are insufficient.",
+        "Provide the same registered region at three calibrated effective scales, or one numerical high-resolution map that may be filtered by at least three declared kernels.",
+        "Provide measured or reconstructable PSF, aperture, pixel, or scan-bin kernels for every scale.",
+        "Provide common coordinates or a registration transform proving that the scales observe the same region.",
+        "Provide repeats, pointwise uncertainty, or a covariance model sufficient to construct observation covariance."
+      ],
+      "source_id": "chang_2005_infrared_mapping"
+    },
+    {
+      "blocking_evidence_states": [
+        "numerical_data_available:absent",
+        "kernel_characterized:absent",
+        "thickness_characterized:unknown",
+        "depth_model_declared:absent",
+        "uncertainty_characterized:absent",
+        "preprocessing_declared:unknown"
+      ],
+      "direct_route": null,
+      "direct_validation_ready": false,
+      "missing_direct_requirements": [
+        "numerical_data_available",
+        "kernel_characterized",
+        "thickness_characterized",
+        "depth_model_declared",
+        "uncertainty_characterized",
+        "preprocessing_declared",
+        "three_effective_scales_or_reusable_map"
+      ],
+      "permitted_uses": [
+        "compare modality-conditioned observables on the same region",
+        "define a future registered multimodal experiment"
+      ],
+      "prohibited_uses": [
+        "treat modality count as probe-scale count",
+        "recover correlation length from one effective lateral scale"
+      ],
+      "qualification": "cross_modality_context",
+      "required_data_request": [
+        "Provide the original numerical map or spectra with coordinates; rendered figures are insufficient.",
+        "Provide the same registered region at three calibrated effective scales, or one numerical high-resolution map that may be filtered by at least three declared kernels.",
+        "Provide measured or reconstructable PSF, aperture, pixel, or scan-bin kernels for every scale.",
+        "Provide repeats, pointwise uncertainty, or a covariance model sufficient to construct observation covariance.",
+        "Provide specimen thickness and the depth-weighting or absorption model used by the observable.",
+        "Provide the exact observable definition and preprocessing or fitting chain."
+      ],
+      "source_id": "furstenberg_2005_pl_transmission_mapping"
+    },
+    {
+      "blocking_evidence_states": [
+        "same_specimen:unknown",
+        "same_spatial_region:not_retrieved",
+        "numerical_data_available:not_retrieved",
+        "kernel_characterized:not_retrieved",
+        "spatial_registration:not_retrieved",
+        "thickness_characterized:unknown",
+        "depth_model_declared:unknown",
+        "uncertainty_characterized:unknown",
+        "observable_defined:unknown",
+        "preprocessing_declared:not_retrieved"
+      ],
+      "direct_route": null,
+      "direct_validation_ready": false,
+      "missing_direct_requirements": [
+        "same_specimen",
+        "same_spatial_region",
+        "numerical_data_available",
+        "kernel_characterized",
+        "spatial_registration",
+        "thickness_characterized",
+        "depth_model_declared",
+        "uncertainty_characterized",
+        "observable_defined",
+        "preprocessing_declared",
+        "three_effective_scales_or_reusable_map"
+      ],
+      "permitted_uses": [
+        "record the source and unresolved evidence state"
+      ],
+      "prohibited_uses": [
+        "perform quantitative R04 validation",
+        "fill missing metadata by assumption"
+      ],
+      "qualification": "not_qualifiable_from_available_record",
+      "required_data_request": [
+        "Provide the original numerical map or spectra with coordinates; rendered figures are insufficient.",
+        "Provide the same registered region at three calibrated effective scales, or one numerical high-resolution map that may be filtered by at least three declared kernels.",
+        "Provide measured or reconstructable PSF, aperture, pixel, or scan-bin kernels for every scale.",
+        "Provide common coordinates or a registration transform proving that the scales observe the same region.",
+        "Provide repeats, pointwise uncertainty, or a covariance model sufficient to construct observation covariance.",
+        "Provide specimen thickness and the depth-weighting or absorption model used by the observable.",
+        "Provide the exact observable definition and preprocessing or fitting chain.",
+        "Identify the specimen and preserve that identity across all records."
+      ],
+      "source_id": "ruzhevich_2024_optical_microscopic_disorder"
+    }
+  ],
+  "schema_version": "1.0",
+  "status": "external_data_blocked"
+}
