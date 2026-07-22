@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_raw_vertex_source_qualification",
+  "program": "R02",
+  "issue": 300,
+  "status": "passed",
+  "workflow_run_id": 29960964318,
+  "artifact_id": 8545959823,
+  "artifact_digest": "sha256:467a7162704217efa1f49a79aa0e4d6a5a9b819c06cc4dfdf895b1966ebee811",
+  "source_commit": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+  "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+  "source_file_manifest_sha256": "bea4a04aba382c933b1ea83b8c5e0200dc88af40fd1cecdca5d72d321081f5c7",
+  "observational_patch_sha256": "8ab1f6733d096afa0d975819f56eda2c7428e47e7cc15fe6fc6fdae6fb3e47a4",
+  "qualified_files": {
+    "EPW/src/selfen.f90": "92814fb0ba79b355cda842598fe6e22ee24a77027864524c91fd6ea4bf63ff97",
+    "test-suite/epw_base/scf.in": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b",
+    "test-suite/epw_base/ph.in": "1dac9d47d8c234f7b88ef5f8ce7db6c9aaeb1c4a83f7b2cd13bd78e288b4983f",
+    "test-suite/epw_base/scf_epw.in": "eccb8bd933e7748e65310d04e853992db0e2f353e8af062af26df00c4dc509f5",
+    "test-suite/epw_base/nscf_epw.in": "bc1dae9fecb2d589f33d8e0924a1d7aae0e29603e8d63c0380e5bf3173eb6f41",
+    "test-suite/epw_base/epw1.in": "18e83caf042d88d59d23653cb83319aa0cad9a400d8422f13f11788373045999",
+    "pseudo/C_3.98148.UPF": "cc147806e663aa2c487cff67fc287a27d846edd438c7f4fc15d8851409244f2a"
+  },
+  "execution": {
+    "scientific_execution_count": 0,
+    "qe_epw_build_executed": false,
+    "upstream_fixture_executed": false,
+    "material_calculation_executed": false
+  },
+  "decision": {
+    "classification": "GO_TO_ONE_PINNED_FIXTURE",
+    "automatic_phase_transition": false,
+    "phase_two_authorized_only_by_later_contract_commit": true
+  },
+  "claim_boundary": "The result establishes immutable source and patch bytes only. It does not establish build success, raw-vertex export, normalization equivalence, SOC support, or material physics."
+}
