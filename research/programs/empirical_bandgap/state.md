@@ -20,7 +20,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #267 — Blue 1964 seven-sample optical-gap reconstruction;
 - #269 — Blue 1964 signed-gap non-commensurability certificate;
 - #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit;
-- #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction.
+- #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction;
+- #283 — Finkman and Nemirovsky 1979 optical-absorption source audit.
 
 ## Completed foundations
 
@@ -37,7 +38,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - seven-row Blue 1964 theory-conditioned positive optical-gap reconstruction;
 - executable Blue 1964 signed-gap non-commensurability certificate with zero fitted parameters and zero correction coefficients;
 - provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit;
-- complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction.
+- complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction;
+- provenance-controlled Finkman and Nemirovsky 1979 optical-absorption source audit.
 
 ## Hansen reconstruction state
 
@@ -233,7 +235,7 @@ This is an in-source fit result. The Camassel data are useful independent Cd-ric
 
 ## Camassel deterministic composition-envelope result
 
-Issue #260 and draft PR #264 evaluate the published equations without fitting any coefficient, source offset, modality offset, or composition shift.
+Issue #260 and merged PR #264 evaluate the published equations without fitting any coefficient, source offset, modality offset, or composition shift.
 
 For every Table I observation, each model is evaluated over
 
@@ -309,7 +311,7 @@ The executable result contains 39 observation-model evaluations and zero fitted 
 
 ## Scott 1969 fixed-absorption optical-edge source audit
 
-Issue #265 and draft PR #266 establish the source contract for one of Hansen’s fitted optical-absorption datasets.
+Issue #265 and merged PR #266 establish the source contract for one of Hansen’s fitted optical-absorption datasets.
 
 Canonical source files are:
 
@@ -419,7 +421,7 @@ The focused Scott workflow verifies the exact source contract, ten Figure 1 labe
 
 ## Blue 1964 theory-conditioned optical-gap reconstruction
 
-Issue #267 and draft PR #268 reconstruct a seven-row historical numerical table outside the reconstructed Hansen 22-source fitted graph.
+Issue #267 and merged PR #268 reconstruct a seven-row historical numerical table outside the reconstructed Hansen 22-source fitted graph.
 
 Canonical source files are:
 
@@ -513,7 +515,7 @@ The focused Blue workflow verifies the exact source contract, seven rows, room-t
 
 ## Blue 1964 signed-gap non-commensurability certificate
 
-Issue #269 and draft PR #270 test whether Blue's positive optical-fit parameter can be treated as a modern signed `Gamma6-Gamma8` gap without an independently validated observation operator.
+Issue #269 and merged PR #270 test whether Blue's positive optical-fit parameter can be treated as a modern signed `Gamma6-Gamma8` gap without an independently validated observation operator.
 
 The executable and immutable records are:
 
@@ -583,7 +585,7 @@ The focused certificate workflow passes exact source assertions, immutable JSON 
 
 ## Groves 1967 signed HgTe magnetoreflection endpoint audit
 
-Issue #273 and draft PR #274 establish a provenance-controlled signed HgTe endpoint from interband magnetoreflection.
+Issue #273 and merged PR #274 establish a provenance-controlled signed HgTe endpoint from interband magnetoreflection.
 
 Canonical source files are:
 
@@ -672,7 +674,7 @@ The focused Groves workflow verifies the exact signed values, the conditional de
 
 ## Schmit and Stelzer 1969 Table III detector-cutoff reconstruction
 
-Issue #277 and draft PR #278 reconstruct the complete numerical table from Hansen fitted source `HSC_R01`.
+Issue #277 and merged PR #278 reconstruct the complete numerical table from Hansen fitted source `HSC_R01`.
 
 Canonical source files are:
 
@@ -758,11 +760,131 @@ Schmit and Stelzer is Hansen source `HSC_R01` and therefore cannot independently
 
 The focused workflow verifies the exact eight specimens, all 56 observations, wavelength-energy consistency, operational cutoff semantics, measured-versus-adjusted composition distinction, detector-type boundary, uncertainty semantics, HSC_R01 lineage, downstream Hansen exclusions, absent Figure 1 pseudo-data, and the six-file tranche boundary. Complete Python 3.11 and 3.13 suites pass with `1007` tests on the audited pre-ledger Schmit head.
 
-A final CI run is required on this state-ledger commit before Issue #277 is closed.
+Issue #277 is closed. The focused reconstruction and complete Python 3.11/3.13 suites passed with `1007` tests on the audited final Schmit head before merge.
+
+
+## Finkman and Nemirovsky 1979 optical-absorption source audit
+
+Issue #283 and draft PR #284 establish the R01 source contract for Hansen fitted source `HSC_R03` without modifying the separate R03 logarithmic-curvature program.
+
+Canonical source files are:
+
+```text
+data/experimental/finkman1979_source_metadata.csv
+data/experimental/finkman1979_parameter_ledger.csv
+data/experimental/finkman1979_README.md
+```
+
+The primary PDF is available in the user File Library as `finkman1979.pdf`. The binary is not materialized in the repository runtime, so its SHA256 remains explicitly unavailable.
+
+### Measured source range and specimen contract
+
+The experiment covers
+
+```text
+0.205 <= x <= 0.220
+80 K <= T <= 300 K
+20 <= alpha <= 1000 cm^-1 for the fitted exponential tail
+alpha <= approximately 2000 cm^-1 for the presented inversion range
+```
+
+The material was n type, with electron concentration approximately `(1–2)e15 cm^-3` and mobility approximately `1e5 cm^2 V^-1 s^-1` at 77 K. Optical specimens were initially approximately `80 um` thick and were thinned to approximately `15 um`; repeated-thickness measurements from the same original specimen agreed within source resolution.
+
+The primary paper reports composition measured by electron-beam microprobe to approximately `+/-0.003`. Hansen 1982 later describes the compositions entering its source graph as vendor Cominco values calibrated from optical cutoff against destructive chemistry. Both statements are retained without silent reconciliation.
+
+### Optical observation operator and artifact controls
+
+The stored measurement class is
+
+```text
+transmission_inverted_optical_absorption_coefficient
+```
+
+The source measured transmission and inferred absorption using refractive-index, reflection, and multiple-reflection terms. Article-level estimates for reflection approximation and refractive-index extrapolation remain source uncertainty statements rather than pointwise Gaussian covariance.
+
+The source explicitly diagnosed infrared-source heating from an abnormal edge shift and reduced source power or inserted attenuators until the measured absorption no longer shifted.
+
+### Modified-Urbach parameterization
+
+For `20 <= alpha <= 1000 cm^-1`, the source fits
+
+```text
+alpha = alpha0 * exp[sigma*(E-E0)/(T+T0)]
+```
+
+with `E` and `E0` in `cm^-1` and
+
+```text
+sigma = 5.65 +/- 0.07 K per cm^-1
+T0 = 80.5 +/- 2 K
+summary sigma = 5.646
+summary T0 = 80.51 K
+E0_cm^-1 = -3109 + 16450*x
+ln(alpha0_cm^-1) = -20.44 + 51.70*x
+```
+
+`E0` is an intercept parameter of the exponential law. It is not stored as a signed interaction gap, an excitonic gap, or an independently observed slope-change energy.
+
+### Fixed-alpha relation and OCR correction
+
+The source-consistent fixed-alpha relation is
+
+```text
+E(alpha=const)_eV = -0.349
+                  + 1.77e-3*ln(alpha_cm_inverse)
+                  + 2.20e-5*T_k*[ln(alpha_cm_inverse)+20.44-51.70*x]
+                  + 1.95*x
+```
+
+with
+
+```text
+dE/dT|alpha = 2.20e-5*ln(alpha_cm_inverse)
+              + 4.49e-4
+              - 1.13e-3*x       eV/K.
+```
+
+The coefficient `2.20e-5` follows from dimensional closure and reproduces the printed temperature-coefficient relation. The OCR value `2.20e-7` is rejected.
+
+### Gap-proxy and extrapolation boundaries
+
+The paper states that the actual slope-change region associated with the gap generally lies above `1000 cm^-1`, but the approximately `15 um` minimum specimen thickness prevented reliable access to that region. The authors therefore used
+
+```text
+E(alpha=1000 cm^-1)
+```
+
+as a reasonable higher-temperature estimate. The repository stores it as
+
+```text
+fixed_absorption_optical_edge_alpha_1000_cm_inverse_proxy
+signed_gap_eligible = false
+intrinsic_gap_eligible_without_observation_operator = false
+```
+
+The fitted specimens occupy only `0.205 <= x <= 0.220`. Endpoint comparisons and broader-composition use are source extrapolation claims, not directly measured validation. The composition dependence of `T0` remains unresolved.
+
+### Hansen and R03 boundaries
+
+```text
+hansen_graph_id = HSC_R03
+role_in_hansen = fitted_data
+independent_validation_of_hansen = false
+```
+
+Figures 3–6 are not digitized in this tranche. No Gaussian-disorder parameter, logarithmic-curvature validation, or R03 source/state/workflow change is introduced. The prior R03 decision that the plotted spectra cannot provide model-independent curvature validation without an external latent-window or above-gap anchor remains intact.
+
+### Validation state
+
+The focused source audit validates the source identity, metrology, optical operator, exact parameter relations, dimensional correction, primary-versus-Hansen composition provenance, non-signed `alpha=1000 cm^-1` proxy, measured-versus-extrapolated scope, R03 isolation, and absence of figure pseudo-data.
+
+A repository-level integrity test now rejects placeholder or truncated R01 state ledgers and requires the major historical source sections and program claim boundaries to remain present.
 
 ## Unresolved scientific questions
 
 - what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;
+- whether the primary-paper microprobe composition statement and Hansen's later Cominco composition description for Finkman 1979 can be reconciled from a specimen-level source record;
+- whether a source-independent observation operator can relate fixed-alpha optical-edge proxies to intrinsic signed gaps across the Finkman, Scott, and detector-cutoff source classes;
 - whether calibrated Scott Figure 2/5 markers can be recovered from a rendered source asset;
 - whether the Hansen/Camassel discrepancy persists when compared against Scott’s historical `alpha=500 cm^-1` observation definition rather than an exciton-conditioned gap;
 - whether an independently validated forward observation operator can relate Blue’s positive curve-shape parameter to a signed gap; Blue's source alone does not identify one;
@@ -796,6 +918,8 @@ The Seiler, Camassel, Scott, Blue, Groves, and Schmit source results do not auth
 - obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
 - apply a calibrated Groves Figure 4/5 digitization gate only if transition-family, detector/run, field, and energy uncertainties can be retained;
 - continue the Hansen source-by-source specimen reconstruction;
+- preserve the Finkman primary-paper and Hansen composition-provenance descriptions separately until a specimen-level reconciliation source is obtained;
+- require an explicit optical observation operator before pooling Finkman fixed-alpha proxies with intrinsic, excitonic, detector-cutoff, or magneto-optical gaps;
 - use Schmit nominal compositions rather than fit-adjusted compositions for any held-out composition analysis;
 - require an explicit detector-response observation operator before pooling Schmit cutoffs with intrinsic, excitonic, or magneto-optical gaps;
 - seek an independently validated observation operator before any signed-gap use of Blue's positive optical-fit parameters;
@@ -845,6 +969,12 @@ This program does not currently support:
 - sampling the Schmit empirical equation and presenting those samples as observations;
 - claiming that Schmit Figure 1 has been digitized on the current branch;
 - using Schmit 1969 as independent validation of Hansen;
+- using Finkman and Nemirovsky 1979 as independent validation of Hansen;
+- treating Finkman `E0`, `sigma`, or `T0` as an intrinsic signed gap or latent Gaussian-disorder parameter;
+- treating `E(alpha=1000 cm^-1)` as a directly observed slope-change gap or a signed interaction gap;
+- presenting Finkman whole-composition parameter extrapolation as direct measurement outside `0.205 <= x <= 0.220`;
+- silently choosing between the primary-paper microprobe composition statement and Hansen's later Cominco provenance description;
+- digitizing Finkman Figures 3–6 as a model-independent logarithmic-curvature validation dataset;
 - Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
 - treating composition as the only uncertainty in Camassel Table I;
 - treating Scott’s article-level `+/-0.01 eV` or `1–2 mole %` statements as independent pointwise Gaussian errors;

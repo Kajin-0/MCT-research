@@ -1,0 +1,120 @@
+name: finkman-source-audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/finkman-source-audit.yml'
+      - 'data/experimental/finkman1979_README.md'
+      - 'data/experimental/finkman1979_parameter_ledger.csv'
+      - 'data/experimental/finkman1979_source_metadata.csv'
+      - 'research/programs/empirical_bandgap/state.md'
+      - 'tests/test_finkman1979_source_contract.py'
+      - 'tests/test_r01_state_integrity.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Finkman source contract and R01 state integrity
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q \
+            tests/test_finkman1979_source_contract.py \
+            tests/test_r01_state_integrity.py \
+            2>&1 | tee /tmp/finkman-source-audit-pytest.log
+      - name: Assert source and observation boundaries
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('.')
+          metadata = list(csv.DictReader(
+              (root / 'data/experimental/finkman1979_source_metadata.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          parameters = list(csv.DictReader(
+              (root / 'data/experimental/finkman1979_parameter_ledger.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          state = (root / 'research/programs/empirical_bandgap/state.md').read_text(
+              encoding='utf-8'
+          )
+          assert len(metadata) == 1
+          assert len(parameters) == 11
+          assert metadata[0]['hansen_graph_id'] == 'HSC_R03'
+          assert metadata[0]['independent_validation_of_hansen'] == 'false'
+          assert metadata[0]['source_pdf_sha256'] == ''
+          assert metadata[0]['measurement_class'] == (
+              'transmission_inverted_optical_absorption_coefficient'
+          )
+          proxy = next(row for row in parameters if row['record_id'] == 'FN79_ALPHA1000_PROXY')
+          assert proxy['signed_gap_eligible'] == 'false'
+          assert proxy['intrinsic_gap_eligible_without_observation_operator'] == 'false'
+          fixed_energy = next(
+              row for row in parameters if row['record_id'] == 'FN79_FIXED_ALPHA_ENERGY'
+          )
+          assert '2.20e-5*T_k' in fixed_energy['expression']
+          assert '2.20e-7' not in fixed_energy['expression']
+          assert state.startswith('# Program state: empirical bandgap reconstruction\n')
+          assert len(state.encode('utf-8')) > 20_000
+          assert state.strip() != 'hello'
+          for figure in range(3, 7):
+              assert not (
+                  root / f'data/experimental/finkman1979_figure{figure}_digitized.csv'
+              ).exists()
+          PY
+      - name: Assert tranche and R03 file boundary
+        if: github.head_ref == 'agent/finkman1979-source-contract'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
+            | sort > /tmp/changed-files.txt
+          cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/finkman-source-audit.yml
+          data/experimental/finkman1979_README.md
+          data/experimental/finkman1979_parameter_ledger.csv
+          data/experimental/finkman1979_source_metadata.csv
+          research/programs/empirical_bandgap/state.md
+          tests/test_finkman1979_source_contract.py
+          tests/test_r01_state_integrity.py
+          EOF
+          sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
+          unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+          if grep -Eq '^(research/programs/distributional_band_edge|src/mct_research/tail_curvature|data/validation/gaussian_tail|docs/derivations/016_|docs/derivations/019_|tests/test_tail_curvature)' /tmp/changed-files.txt; then
+            echo 'R03 file modification detected'
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finkman-source-audit
+          path: |
+            /tmp/finkman-source-audit-pytest.log
+            data/experimental/finkman1979_source_metadata.csv
+            data/experimental/finkman1979_parameter_ledger.csv
+            data/experimental/finkman1979_README.md
+            research/programs/empirical_bandgap/state.md
+          if-no-files-found: error
+          retention-days: 30
