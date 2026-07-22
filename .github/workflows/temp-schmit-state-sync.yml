@@ -1,0 +1,239 @@
+name: temp-schmit-state-sync
+
+on:
+  pull_request_target:
+    types: [synchronize]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  synchronize:
+    if: >-
+      github.event.pull_request.head.repo.full_name == 'Kajin-0/MCT-research' &&
+      github.event.pull_request.head.ref == 'agent/schmit1969-table3-reconstruction'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: Kajin-0/MCT-research
+          ref: agent/schmit1969-table3-reconstruction
+          fetch-depth: 0
+      - name: Synchronize canonical R01 state
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('research/programs/empirical_bandgap/state.md')
+          text = path.read_text(encoding='utf-8')
+
+          if '#277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction.' not in text:
+              anchor = '- #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit.\n'
+              if anchor not in text:
+                  raise SystemExit('missing controlling-issue anchor')
+              text = text.replace(
+                  anchor,
+                  '- #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit;\n'
+                  '- #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction.\n',
+                  1,
+              )
+
+          if 'complete Schmit and Stelzer 1969 eight-specimen' not in text:
+              anchor = '- provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit.\n'
+              if anchor not in text:
+                  raise SystemExit('missing foundation anchor')
+              text = text.replace(
+                  anchor,
+                  '- provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit;\n'
+                  '- complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction.\n',
+                  1,
+              )
+
+          if '## Schmit and Stelzer 1969 Table III detector-cutoff reconstruction' not in text:
+              section = '''## Schmit and Stelzer 1969 Table III detector-cutoff reconstruction
+
+Issue #277 and draft PR #278 reconstruct the complete numerical table from Hansen fitted source `HSC_R01`.
+
+Canonical source files are:
+
+```text
+data/experimental/schmit1969_source_metadata.csv
+data/experimental/schmit1969_specimens.csv
+data/experimental/schmit1969_table3_cutoff_observations.csv
+data/experimental/schmit1969_README.md
+```
+
+The primary PDF is available in the user File Library as `schmit1969.pdf`. The source binary is not materialized in the active runtime, so the SHA256 remains explicitly unavailable.
+
+### Eight-specimen composition ledger
+
+Table III contains eight detectors with nominal source compositions and separate values adjusted during the source empirical fit:
+
+| Specimen | Nominal x | Printed limit | Fit-adjusted x | Rows |
+|---|---:|---:|---:|---:|
+| SS69_S01 | 0.600 | 0.030 | 0.599 | 4 |
+| SS69_S02 | 0.580 | 0.050 | 0.572 | 6 |
+| SS69_S03 | 0.325 | 0.010 | 0.329 | 8 |
+| SS69_S04 | 0.266 | 0.003 | 0.262 | 6 |
+| SS69_S05 | 0.217 | 0.006 | 0.223 | 8 |
+| SS69_S06 | 0.195 | 0.006 | 0.201 | 6 |
+| SS69_S07 | 0.180 | 0.006 | 0.183 | 10 |
+| SS69_S08 | 0.170 | 0.006 | 0.174 | 8 |
+
+The nominal compositions are source measurements. The adjusted values are fit-dependent nuisance quantities and are recorded as
+
+```text
+adjusted_x_is_independently_measured = false
+adjusted_x_is_eligible_for_held_out_composition_validation = false
+```
+
+The fact that the adjustments were generally within the composition limits does not convert them into new measurements.
+
+### Printed observation table and operational edge
+
+The reconstruction retains all `56` printed Table III rows, including source table order, temperature, half-peak cutoff wavelength, and source-converted cutoff energy.
+
+The measurement class is
+
+```text
+detector_half_peak_spectral_response_cutoff
+```
+
+with row-level semantics
+
+```text
+energy field = cutoff_energy_ev
+energy origin = source_converted_from_half_peak_cutoff_wavelength
+signed_gap_eligible = false
+intrinsic_gap_eligible_without_observation_operator = false
+```
+
+The source defines cutoff at half of peak detector response and states that it was generally about ten percent longer in wavelength than the response peak. This is source context, not a universal conversion to an intrinsic or signed gap.
+
+The printed energy values remain authoritative. The focused test verifies consistency with `1.23984/lambda_um` within less than `0.6 meV`, reflecting printed rounding, but does not overwrite the source column.
+
+### Detector, metrology, and uncertainty boundaries
+
+The `x=0.572` specimen is explicitly photovoltaic and the `x=0.329` specimen explicitly photoconductive. The detector types of the other six are not inferred.
+
+The `x=0.262` detector received greater source-fit weight because of its composition uniformity and density-based composition accuracy.
+
+Composition was evaluated using density and electron-beam microprobe measurements. The source gives a microprobe limit of approximately `+/-0.006` mole fraction. Temperature-control stability of approximately `+/-0.5 K` remains separate from absolute temperature accuracy believed better than `10 K`. Cutoff wavelength and converted energy precision are described as better than one percent of the listed value. None of these source-level statements is silently converted to independent pointwise Gaussian covariance.
+
+### Source relation and Hansen lineage
+
+The source relation is retained as historical fit metadata:
+
+```text
+E_cutoff(eV) = 1.59*x - 0.25
+             + 5.233e-4*T*(1 - 2.08*x)
+             + 0.327*x^3
+```
+
+The source identifies its strongest range as approximately `0.17 < x < 0.33` and `T > 77 K`. No equation samples or refitted coefficients are committed in this tranche.
+
+Schmit and Stelzer is Hansen source `HSC_R01` and therefore cannot independently validate Hansen. Hansen later excluded the four lowest-composition specimens because of mercury inclusions. That downstream rule is recorded for `SS69_S05` through `SS69_S08` without deleting any primary-source rows or silently converting it into a Schmit source statement.
+
+### Validation state
+
+The focused workflow verifies the exact eight specimens, all 56 observations, wavelength-energy consistency, operational cutoff semantics, measured-versus-adjusted composition distinction, detector-type boundary, uncertainty semantics, HSC_R01 lineage, downstream Hansen exclusions, absent Figure 1 pseudo-data, and the six-file tranche boundary. Complete Python 3.11 and 3.13 suites pass with `1007` tests on the audited pre-ledger Schmit head.
+
+A final CI run is required on this state-ledger commit before Issue #277 is closed.
+
+'''
+              marker = '## Unresolved scientific questions\n'
+              if marker not in text:
+                  raise SystemExit('missing unresolved-question marker')
+              text = text.replace(marker, section + marker, 1)
+
+          if 'what observation operator relates Schmit half-peak detector cutoffs' not in text:
+              anchor = '- whether the approximate Groves 30 K and 1.5 K endpoint statements can be independently reproduced before any HgTe endpoint temperature law is inferred;\n'
+              if anchor not in text:
+                  raise SystemExit('missing unresolved anchor')
+              text = text.replace(
+                  anchor,
+                  anchor
+                  + '- what observation operator relates Schmit half-peak detector cutoffs to intrinsic or signed gaps across detector types and geometry;\n'
+                  + '- whether Schmit nominal compositions can support specimen-preserving analyses without leakage from the fit-adjusted compositions;\n',
+                  1,
+              )
+
+          old = 'The Seiler, Camassel, Scott, Blue, and Groves source results do not authorize manuscript writing by themselves.'
+          if old in text:
+              text = text.replace(
+                  old,
+                  'The Seiler, Camassel, Scott, Blue, Groves, and Schmit source results do not authorize manuscript writing by themselves.',
+                  1,
+              )
+
+          if 'use Schmit nominal compositions rather than fit-adjusted compositions' not in text:
+              anchor = '- continue the Hansen source-by-source specimen reconstruction;\n'
+              if anchor not in text:
+                  raise SystemExit('missing authorized-gate anchor')
+              text = text.replace(
+                  anchor,
+                  anchor
+                  + '- use Schmit nominal compositions rather than fit-adjusted compositions for any held-out composition analysis;\n'
+                  + '- require an explicit detector-response observation operator before pooling Schmit cutoffs with intrinsic, excitonic, or magneto-optical gaps;\n',
+                  1,
+              )
+
+          if 'treating Schmit fit-adjusted compositions as independently measured' not in text:
+              anchor = "- treating Groves's quoted parameter errors as pointwise experimental covariance;\n"
+              if anchor not in text:
+                  raise SystemExit('missing unsupported-claim anchor')
+              text = text.replace(
+                  anchor,
+                  anchor
+                  + '- treating Schmit fit-adjusted compositions as independently measured composition values;\n'
+                  + '- using Schmit fit-adjusted compositions in a nominally held-out composition validation without leakage disclosure;\n'
+                  + '- treating Schmit half-peak detector cutoff energies as intrinsic signed gaps;\n'
+                  + "- applying the source's approximate ten-percent peak-to-cutoff statement as a universal correction law;\n"
+                  + '- converting Schmit temperature accuracy, temperature stability, composition limits, or one-percent cutoff precision into independent pointwise Gaussian errors without an explicit model;\n'
+                  + '- deleting the four low-composition Schmit specimens from the primary-source archive because Hansen later excluded them;\n'
+                  + "- treating Hansen's mercury-inclusion exclusion as a Schmit source statement;\n"
+                  + '- sampling the Schmit empirical equation and presenting those samples as observations;\n'
+                  + '- claiming that Schmit Figure 1 has been digitized on the current branch;\n'
+                  + '- using Schmit 1969 as independent validation of Hansen;\n',
+                  1,
+              )
+
+          old = '- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, interband-magnetoreflection interaction gap, reflectivity exciton-polariton gap, absorption excitonic gap, zero thermal gap, and intrinsic signed gap as interchangeable;'
+          if old in text:
+              text = text.replace(
+                  old,
+                  '- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, detector half-peak spectral-response cutoff, optical cutoff, PL peak, TPMA gap, interband-magnetoreflection interaction gap, reflectivity exciton-polariton gap, absorption excitonic gap, zero thermal gap, and intrinsic signed gap as interchangeable;',
+                  1,
+              )
+
+          required = (
+              '#277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction',
+              '## Schmit and Stelzer 1969 Table III detector-cutoff reconstruction',
+              'Complete Python 3.11 and 3.13 suites pass with `1007` tests',
+              'A final CI run is required on this state-ledger commit before Issue #277 is closed.',
+          )
+          missing = [token for token in required if token not in text]
+          if missing:
+              raise SystemExit(f'missing synchronized tokens: {missing}')
+          path.write_text(text, encoding='utf-8', newline='\n')
+          PY
+      - name: Commit only the state ledger
+        shell: bash
+        run: |
+          changed=$(git diff --name-only)
+          if [ -z "$changed" ]; then
+            echo 'State already synchronized.'
+            exit 0
+          fi
+          if [ "$changed" != 'research/programs/empirical_bandgap/state.md' ]; then
+            printf 'Unexpected changed files:\n%s\n' "$changed"
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/programs/empirical_bandgap/state.md
+          git commit -m 'Synchronize R01 state with Schmit source reconstruction'
+          git push origin HEAD:agent/schmit1969-table3-reconstruction
