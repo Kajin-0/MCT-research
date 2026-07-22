@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "portfolio_contribution": "R03",
   "issue": 225,
   "status": "analytical_observation_model_result_not_material_validation",
@@ -18,7 +18,7 @@
     "deep_tail_log_curvature": "-1+(p+1)/z^2+O((-z)^-4)",
     "conclusion": "the deep tail is asymptotically Gaussian, not exponential"
   },
-  "herrmann_square_root_reference": {
+  "gaussian_square_root_reference": {
     "exponent": 0.5,
     "quadrature_order": 512,
     "standard_deviation_limit": 10.0,
@@ -34,10 +34,17 @@
     "true_exponential_curvature": 0.0
   },
   "prior_fit_window_reference": {
-    "W_fit_over_source_s_1_to_100_cm_inverse": 0.50504,
-    "W_fit_over_source_s_100_to_500_cm_inverse": 0.80871,
-    "relative_increase": 0.601
+    "source_convention": "Herrmann 1992 Eq. 8 prints sigma_G=s",
+    "W_fit_over_source_s_1_to_100_cm_inverse": 0.3571183113580045,
+    "W_fit_over_source_s_100_to_500_cm_inverse": 0.5718408687380571,
+    "relative_increase": 0.6012644844884394,
+    "source_reported_half_s_mapping_reproduced_by_controlled_power_edge": false
   },
+  "prior_art_boundary": [
+    "Herrmann 1992 already states that Gaussian gap convolution can produce a nearly exponential tail over the finite 1-100 cm^-1 range",
+    "the candidate contribution is not the generic finite-window appearance",
+    "the candidate contribution is the explicit derivative structure, log-concavity consequence, deep-tail curvature limit, and falsifiable observation diagnostic"
+  ],
   "claim_boundaries": [
     "general convolution log-concavity is established mathematics",
     "not evidence that a measured HgCdTe tail is caused by composition disorder",
