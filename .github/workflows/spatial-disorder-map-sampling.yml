@@ -1,0 +1,70 @@
+name: spatial-disorder-map-sampling
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify correlated-map theorems
+        run: python -m pytest -q tests/test_spatial_disorder_map_sampling.py
+      - name: Build deterministic map-sampling reference
+        run: |
+          mkdir -p spatial-disorder-map-sampling-generated
+          python -m tools.build_spatial_disorder_map_sampling_reference \
+            --output spatial-disorder-map-sampling-generated/spatial_disorder_map_sampling.json
+      - name: Validate generated reference structure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path(
+              'spatial-disorder-map-sampling-generated/'
+              'spatial_disorder_map_sampling.json'
+          )
+          record = json.loads(path.read_text(encoding='utf-8'))
+          assert record['schema_version'] == '1.0'
+          assert record['program_issue'] == 196
+          assert record['implementation_issue'] == 234
+          assert record['portfolio_contribution'] == 'R04'
+          assert (
+              record['status']
+              == 'controlled_gaussian_map_sampling_not_specimen_inference'
+          )
+          sweep = record['spacing_sweep']
+          assert [item['spacing_um'] for item in sweep] == [
+              0.25, 0.5, 1.0, 2.0, 4.0, 8.0
+          ]
+          headline = record['headline']
+          assert headline['dense_nominal_sample_count'] == 100
+          assert headline['dense_map_mean_effective_sample_count'] < 2.0
+          assert headline['dense_naive_sample_variance_ratio'] < 0.45
+          assert headline['dense_variance_effective_degrees_of_freedom'] < 4.0
+          assert (
+              headline['fourfold_pixel_increase_information_gain_fraction']
+              < 0.004
+          )
+          assert (
+              headline['nearly_independent_map_mean_effective_sample_count']
+              > 98.0
+          )
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spatial-disorder-map-sampling
+          path: spatial-disorder-map-sampling-generated
+          if-no-files-found: error
+          retention-days: 30
