@@ -45,6 +45,10 @@ def _candidate(**overrides) -> ValidationCandidate:
     return ValidationCandidate(**values)
 
 
+def _records_by_id() -> dict[str, ValidationCandidate]:
+    return {item.source_id: item for item in candidate_records()}
+
+
 def test_three_measured_scales_qualify_for_direct_validation() -> None:
     result = qualify_validation_candidate(_candidate())
     assert result.qualification is (
@@ -65,6 +69,50 @@ def test_reusable_high_resolution_map_is_second_direct_route() -> None:
     )
     assert result.direct_validation_ready is True
     assert result.direct_route == "reusable_high_resolution_map"
+
+
+def test_two_scale_rendered_source_is_partial_not_direct() -> None:
+    result = qualify_validation_candidate(
+        _candidate(
+            source_id="two_scale",
+            numerical_data_available=EvidenceState.ABSENT,
+            independent_effective_scale_count=2,
+            reusable_high_resolution_map=EvidenceState.ABSENT,
+            kernel_characterized=EvidenceState.ABSENT,
+            spatial_registration=EvidenceState.UNKNOWN,
+            uncertainty_characterized=EvidenceState.ABSENT,
+            rendered_figure_available=EvidenceState.CONFIRMED,
+        )
+    )
+    assert result.qualification is (
+        QualificationClass.PARTIAL_MULTIRESOLUTION_BENCHMARK
+    )
+    assert result.direct_validation_ready is False
+    assert result.direct_route is None
+    assert "three_effective_scales_or_reusable_map" in (
+        result.missing_direct_requirements
+    )
+    assert any("three-scale" in item for item in result.prohibited_uses)
+
+
+def test_three_reported_scales_without_metadata_remain_partial() -> None:
+    result = qualify_validation_candidate(
+        _candidate(
+            source_id="three_rendered_scales",
+            numerical_data_available=EvidenceState.ABSENT,
+            independent_effective_scale_count=3,
+            kernel_characterized=EvidenceState.ABSENT,
+            uncertainty_characterized=EvidenceState.ABSENT,
+        )
+    )
+    assert result.qualification is (
+        QualificationClass.PARTIAL_MULTIRESOLUTION_BENCHMARK
+    )
+    assert result.direct_validation_ready is False
+    assert "three_effective_scales_or_reusable_map" not in (
+        result.missing_direct_requirements
+    )
+    assert "numerical_data_available" in result.missing_direct_requirements
 
 
 def test_two_modalities_at_one_scale_are_not_multiresolution() -> None:
@@ -170,8 +218,24 @@ def test_missing_metadata_produces_concrete_data_requests() -> None:
     assert "preprocessing" in joined
 
 
+def test_gopal_is_nearest_partial_multiresolution_benchmark() -> None:
+    gopal = _records_by_id()["gopal_1992_two_beam_transmission"]
+    result = qualify_validation_candidate(gopal)
+    assert gopal.independent_effective_scale_count == 2
+    assert result.qualification is (
+        QualificationClass.PARTIAL_MULTIRESOLUTION_BENCHMARK
+    )
+    assert result.direct_validation_ready is False
+    assert gopal.numerical_data_available is EvidenceState.ABSENT
+    assert gopal.kernel_characterized is EvidenceState.ABSENT
+    joined = " ".join(gopal.notes)
+    assert "3 mm" in joined
+    assert "250 micrometres" in joined
+    assert "sample 90211" in joined.lower()
+
+
 def test_adjustable_aperture_without_sweep_does_not_qualify() -> None:
-    chang = candidate_records()[0]
+    chang = _records_by_id()["chang_2005_infrared_mapping"]
     result = qualify_validation_candidate(chang)
     assert chang.independent_effective_scale_count == 1
     assert result.direct_validation_ready is False
@@ -181,33 +245,63 @@ def test_adjustable_aperture_without_sweep_does_not_qualify() -> None:
 
 
 def test_same_region_multimodal_source_is_context_not_scale_evidence() -> None:
-    furstenberg = candidate_records()[1]
+    furstenberg = _records_by_id()[
+        "furstenberg_2005_pl_transmission_mapping"
+    ]
     result = qualify_validation_candidate(furstenberg)
     assert furstenberg.modality_count == 2
     assert furstenberg.independent_effective_scale_count == 1
     assert result.qualification is QualificationClass.CROSS_MODALITY_CONTEXT
 
 
+def test_oda_method_comparison_is_not_registered_multiscale_evidence() -> None:
+    oda = _records_by_id()["oda_1992_composition_method_comparison"]
+    result = qualify_validation_candidate(oda)
+    assert oda.modality_count == 3
+    assert oda.same_spatial_region is EvidenceState.UNKNOWN
+    assert result.qualification is QualificationClass.NOT_QUALIFIABLE
+
+
+def test_rendered_spatial_sources_remain_figure_benchmarks() -> None:
+    records = _records_by_id()
+    for source_id in (
+        "aoki_2004_superlattice_microscopy",
+        "feldman_1991_mqw_chemical_mapping",
+        "murakami_1992_mocvd_composition_profile",
+        "parikh_1996_mombe_spatial_uniformity",
+    ):
+        result = qualify_validation_candidate(records[source_id])
+        assert result.qualification is (
+            QualificationClass.SOURCE_BOUNDED_FIGURE_BENCHMARK
+        )
+
+
 def test_abstract_only_source_preserves_not_retrieved_state() -> None:
-    ruzhevich = candidate_records()[2]
+    ruzhevich = _records_by_id()[
+        "ruzhevich_2024_optical_microscopic_disorder"
+    ]
     result = qualify_validation_candidate(ruzhevich)
     assert ruzhevich.record_scope.endswith("full text not retrieved")
     assert result.qualification is QualificationClass.NOT_QUALIFIABLE
     assert "spatial_registration:not_retrieved" in result.blocking_evidence_states
 
 
-def test_current_portfolio_is_external_data_blocked() -> None:
+def test_current_portfolio_is_external_data_blocked_with_partial_source() -> None:
     decision = qualify_validation_portfolio(candidate_records())
     assert decision.status == "external_data_blocked"
     assert decision.direct_candidate_ids == ()
-    assert len(decision.qualifications) == 3
-    assert any("three calibrated" in item for item in decision.minimum_next_action)
+    assert decision.partial_multiresolution_candidate_ids == (
+        "gopal_1992_two_beam_transmission",
+    )
+    assert len(decision.qualifications) == 10
+    assert any("third scale" in item for item in decision.minimum_next_action)
 
 
 def test_portfolio_with_direct_candidate_is_available() -> None:
     decision = qualify_validation_portfolio((_candidate(),))
     assert decision.status == "direct_validation_available"
     assert decision.direct_candidate_ids == ("direct",)
+    assert decision.partial_multiresolution_candidate_ids == ()
 
 
 def test_portfolio_output_is_sorted_by_source_id() -> None:
@@ -280,18 +374,43 @@ def test_outputs_are_frozen() -> None:
 
 def test_reference_has_expected_exact_classifications() -> None:
     reference = build_reference()
+    assert reference["schema_version"] == "1.1"
     assert reference["status"] == "external_data_blocked"
     assert reference["direct_candidate_ids"] == []
+    assert reference["partial_multiresolution_candidate_ids"] == [
+        "gopal_1992_two_beam_transmission"
+    ]
     by_source = {
         item["source_id"]: item["qualification"]
         for item in reference["qualifications"]
     }
     assert by_source == {
+        "aoki_2004_superlattice_microscopy": (
+            "source_bounded_figure_benchmark"
+        ),
         "chang_2005_infrared_mapping": (
+            "source_bounded_figure_benchmark"
+        ),
+        "feldman_1991_mqw_chemical_mapping": (
             "source_bounded_figure_benchmark"
         ),
         "furstenberg_2005_pl_transmission_mapping": (
             "cross_modality_context"
+        ),
+        "gopal_1992_two_beam_transmission": (
+            "partial_multiresolution_benchmark"
+        ),
+        "jeoung_1996_bulk_transmission_calibration": (
+            "not_qualifiable_from_available_record"
+        ),
+        "murakami_1992_mocvd_composition_profile": (
+            "source_bounded_figure_benchmark"
+        ),
+        "oda_1992_composition_method_comparison": (
+            "not_qualifiable_from_available_record"
+        ),
+        "parikh_1996_mombe_spatial_uniformity": (
+            "source_bounded_figure_benchmark"
         ),
         "ruzhevich_2024_optical_microscopic_disorder": (
             "not_qualifiable_from_available_record"
@@ -299,4 +418,9 @@ def test_reference_has_expected_exact_classifications() -> None:
     }
     headline = reference["headline"]
     assert headline["direct_validation_candidate_count"] == 0
+    assert headline["partial_multiresolution_candidate_count"] == 1
+    assert headline["nearest_available_benchmark"] == (
+        "gopal_1992_two_beam_transmission"
+    )
+    assert headline["nearest_benchmark_scale_ratio"] == 12.0
     assert "data-blocked" in headline["decision"]
