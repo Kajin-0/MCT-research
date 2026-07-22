@@ -145,8 +145,8 @@ def test_driver_renders_explicit_independent_route_flags() -> None:
     assert 'rendered["settings"][name] == reference["settings"][name]' in text
     assert 'rendered["settings"]["q_point"] == [0.0, 0.0, 0.0]' in text
     assert 'contract["baseline_run_spec"] == {"ecutrho_ry": 456.0, "ph_tr2": 1e-10}' in text
-    assert "f\"  zeu = {'.true.' if flags['zeu'] else '.false.'}" in text
-    assert "f\"  zue = {'.true.' if flags['zue'] else '.false.'}" in text
+    assert "f\"  zeu = {'.true.' if flags['zeu'] else '.false.'}\"" in text
+    assert "f\"  zue = {'.true.' if flags['zue'] else '.false.'}\"" in text
     assert "base_and_zeu_save_match" in text
     assert "base_and_zue_save_match" in text
 
@@ -210,5 +210,6 @@ def test_driver_and_workflow_cannot_expand_into_a_sweep() -> None:
     assert "parameter_sweep_performed\": False" in driver
     assert "a1_or_production_executed\": False" in driver
     assert "python -m pytest -vv tests/test_cdte_a0_zeu_zue.py" in workflow
-    assert "timeout-minutes: 180" in workflow
-    assert "cdte-a0-zeu-zue-evidence" in workflow
+    assert "timeout-minutes: 30" in workflow
+    assert "Refuse automatic scientific rerun" in workflow
+    assert "No retry, convergence sweep, altered calculation, or A1 work is authorized." in workflow
