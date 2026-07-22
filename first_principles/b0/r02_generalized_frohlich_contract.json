@@ -12,7 +12,7 @@
   "required_units": {
     "dielectric_tensors": "dimensionless",
     "lo_frequency": "meV",
-    "effective_mass_tensor": "electron_mass",
+    "effective_mass_tensor": "positive_carrier_mass_magnitude_in_electron_mass",
     "edge_correction": "eV"
   },
   "requirements": {
@@ -20,11 +20,13 @@
     "epsilon_static_symmetric_positive_definite": true,
     "epsilon_static_minus_infinity_positive_semidefinite": true,
     "positive_lo_frequencies": true,
-    "positive_definite_effective_mass_tensors": true,
     "source_and_uncertainty_for_every_input": true,
     "failed_cdte_born_tensors_prohibited": true,
     "charge_asr_repaired_inputs_prohibited": true,
-    "nonadiabatic_denominators_required": true
+    "nonadiabatic_denominators_required": true,
+    "branch_resolved_positive_definite_effective_mass_tensors": true,
+    "representation_multiplicity_must_close": true,
+    "mass_fit_window_required": true
   },
   "tolerances": {
     "symmetry_max_abs": 1e-12,
@@ -38,5 +40,10 @@
     "consume_failed_born_tensors": false,
     "material_prediction": false
   },
-  "claim_boundary": "Passing validates the external-input contract and algebraic bookkeeping only; it does not establish a generalized-Frohlich correction for CdTe, HgTe, or HgCdTe."
+  "claim_boundary": "Passing validates the external-input contract and algebraic bookkeeping only; it does not establish a generalized-Frohlich correction for CdTe, HgTe, or HgCdTe.",
+  "required_degeneracies": {
+    "Gamma6": 2,
+    "Gamma8": 4,
+    "Gamma7": 2
+  }
 }
