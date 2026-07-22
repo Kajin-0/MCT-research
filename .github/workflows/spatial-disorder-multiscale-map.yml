@@ -25,31 +25,69 @@ jobs:
           mkdir -p spatial-disorder-multiscale-map-diagnostics
           python -m pytest -q tests/test_spatial_disorder_multiscale_map.py \
             2>&1 | tee spatial-disorder-multiscale-map-diagnostics/pytest.txt
-      - name: Build deterministic reference
+      - name: Rebuild deterministic reference
         run: |
           mkdir -p spatial-disorder-multiscale-map-generated
           python -m tools.build_spatial_disorder_multiscale_map_reference \
             --output spatial-disorder-multiscale-map-generated/spatial_disorder_multiscale_map.json
-      - name: Validate generated reference structure
+      - name: Compare rebuilt reference with immutable record
         run: |
           python - <<'PY'
           import json
+          import math
           from pathlib import Path
 
-          path = Path(
-              'spatial-disorder-multiscale-map-generated/'
-              'spatial_disorder_multiscale_map.json'
+          reference = json.loads(
+              Path(
+                  'data/validation/spatial_disorder_multiscale_map.json'
+              ).read_text(encoding='utf-8')
           )
-          record = json.loads(path.read_text(encoding='utf-8'))
-          assert record['schema_version'] == '1.0'
-          assert record['program_issue'] == 196
-          assert record['implementation_issue'] == 246
-          assert record['portfolio_contribution'] == 'R04'
+          rebuilt = json.loads(
+              Path(
+                  'spatial-disorder-multiscale-map-generated/'
+                  'spatial_disorder_multiscale_map.json'
+              ).read_text(encoding='utf-8')
+          )
+
+          def compare(expected, actual, path='$'):
+              if isinstance(expected, dict):
+                  assert isinstance(actual, dict), path
+                  assert expected.keys() == actual.keys(), path
+                  for key in expected:
+                      compare(expected[key], actual[key], f'{path}.{key}')
+                  return
+              if isinstance(expected, list):
+                  assert isinstance(actual, list), path
+                  assert len(expected) == len(actual), path
+                  for index, (left, right) in enumerate(
+                      zip(expected, actual, strict=True)
+                  ):
+                      compare(left, right, f'{path}[{index}]')
+                  return
+              if (
+                  isinstance(expected, (int, float))
+                  and not isinstance(expected, bool)
+              ):
+                  assert isinstance(actual, (int, float)), path
+                  assert math.isclose(
+                      float(expected),
+                      float(actual),
+                      rel_tol=2.0e-10,
+                      abs_tol=2.0e-14,
+                  ), (path, expected, actual)
+                  return
+              assert expected == actual, path
+
+          compare(reference, rebuilt)
+          assert reference['schema_version'] == '1.0'
+          assert reference['program_issue'] == 196
+          assert reference['implementation_issue'] == 246
+          assert reference['portfolio_contribution'] == 'R04'
           assert (
-              record['status']
+              reference['status']
               == 'controlled_same_raster_covariance_not_specimen_inference'
           )
-          headline = record['headline']
+          headline = reference['headline']
           assert headline['dense_bias_factors'][0] < 0.55
           assert headline['dense_bias_factors'][-1] < 0.1
           assert headline['dense_log_estimator_standard_deviations'][0] > 0.69
@@ -69,7 +107,7 @@ jobs:
               headline['fourfold_pixel_nominal_log_xi_precision_improvement_fraction']
               > 0.49
           )
-          boundaries = record['claim_boundaries']
+          boundaries = reference['claim_boundaries']
           assert any('delta-method' in item for item in boundaries)
           assert any('not an independent-repeat count' in item for item in boundaries)
           PY
@@ -80,5 +118,7 @@ jobs:
           path: |
             spatial-disorder-multiscale-map-diagnostics
             spatial-disorder-multiscale-map-generated
+            data/validation/spatial_disorder_multiscale_map.json
+            docs/derivations/020_cross_scale_map_variance_covariance.md
           if-no-files-found: error
           retention-days: 30
