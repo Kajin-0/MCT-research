@@ -23,18 +23,18 @@ def _source_result() -> dict:
     return json.loads(SOURCE_RESULT.read_text(encoding="utf-8"))
 
 
-def test_phase_two_is_exactly_one_hash_pinned_fixture_gate() -> None:
+def test_intermediate_phase_is_patch_requalification_only() -> None:
     contract = _contract()
     assert contract["stage"] == "B0_epw_raw_vertex_fixture"
     assert contract["issue"] == 300
-    assert contract["phase"] == "fixture_execution"
+    assert contract["phase"] == "patch_requalification_only"
     auth = contract["authorization"]
     assert auth["source_clone_and_hash"] is True
-    assert auth["qe_epw_build"] is True
-    assert auth["upstream_fixture_execution"] is True
-    assert auth["observational_export_patch_application"] is True
-    assert auth["exactly_one_pinned_build"] is True
-    assert auth["exactly_two_fixture_runs_same_state"] is True
+    assert auth["qe_epw_build"] is False
+    assert auth["upstream_fixture_execution"] is False
+    assert auth["observational_export_patch_application"] is False
+    assert auth["exactly_one_pinned_build"] is False
+    assert auth["exactly_two_fixture_runs_same_state"] is False
     assert auth["cdte_hgte_or_alloy_calculation"] is False
     assert auth["a1_a2_a3"] is False
     assert auth["automatic_retry"] is False
@@ -61,7 +61,7 @@ def test_fixture_is_pinned_upstream_nonpolar_diamond() -> None:
     assert fixture["intermediate_band_count"] == 4
 
 
-def test_all_upstream_sha256_values_and_patch_digest_are_committed() -> None:
+def test_source_hashes_remain_committed_and_patch_has_new_digest() -> None:
     contract = _contract()
     files = contract["source"]["required_files"]
     assert set(files) == {
@@ -79,28 +79,29 @@ def test_all_upstream_sha256_values_and_patch_digest_are_committed() -> None:
     patch = contract["observational_patch"]
     assert patch["path"] == "patches/qe76-epw61-r02-raw-vertex-export.patch"
     assert patch["sha256"] == (
-        "8ab1f6733d096afa0d975819f56eda2c7428e47e7cc15fe6fc6fdae6fb3e47a4"
+        "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1"
     )
     assert patch["disabled_by_default"] is True
     assert patch["scientific_contraction_added"] is False
 
 
-def test_source_qualification_result_is_immutable_and_zero_execution() -> None:
+def test_previous_source_result_is_preserved_but_does_not_authorize_new_patch() -> None:
     contract = _contract()
     result = _source_result()
     assert result["status"] == "passed"
     assert result["workflow_run_id"] == 29960964318
     assert result["artifact_id"] == 8545959823
-    assert result["artifact_digest"] == (
-        "sha256:467a7162704217efa1f49a79aa0e4d6a5a9b819c06cc4dfdf895b1966ebee811"
-    )
     assert result["source_commit"] == contract["source"]["commit_sha"]
     assert result["source_tree_archive_sha256"] == contract["source"][
         "source_tree_archive_sha256"
     ]
     assert result["observational_patch_sha256"] == contract[
+        "source_qualification"
+    ]["observational_patch_sha256"]
+    assert result["observational_patch_sha256"] != contract[
         "observational_patch"
     ]["sha256"]
+    assert contract["source_qualification"]["current_patch_qualified"] is False
     assert result["execution"]["scientific_execution_count"] == 0
     assert result["execution"]["qe_epw_build_executed"] is False
     assert result["execution"]["material_calculation_executed"] is False
@@ -127,8 +128,9 @@ def test_normalization_and_export_window_are_explicit() -> None:
     )
 
 
-def test_source_driver_remains_hash_only_even_after_phase_transition() -> None:
+def test_source_driver_supports_patch_requalification_without_build() -> None:
     text = SOURCE_DRIVER.read_text(encoding="utf-8")
+    assert "patch_requalification_only" in text
     assert "git -C \"$WORK/qe\" fetch --depth 1 origin \"$SOURCE_COMMIT\"" in text
     assert "git_blob_sha" in text
     assert "hashlib.sha256" in text
@@ -149,25 +151,21 @@ def test_source_workflow_remains_bounded_to_hash_verification() -> None:
     assert "make epw" not in text
 
 
-def test_fixture_driver_has_one_build_two_runs_and_no_retry_loop() -> None:
+def test_fixture_driver_remains_defined_but_contract_blocks_it() -> None:
     text = FIXTURE_DRIVER.read_text(encoding="utf-8")
+    assert 'assert contract["phase"] == "fixture_execution"' in text
     assert "build_count=1" in text
     assert text.count("run_fixture disabled") == 1
     assert text.count("run_fixture enabled") == 1
-    assert "scientific_execution_count=$((scientific_execution_count + 1))" in text
-    assert 'test "$scientific_execution_count" -eq 2' in text
-    assert "git -C \"$WORK/qe\" apply --check" in text
     assert "make -j2 pw ph epw" in text
     assert "for cutoff" not in text
     assert "for kgrid" not in text
-    assert "rerun" not in text.lower()
     assert "while true" not in text.lower()
-    assert "until " not in text.lower()
     assert "CdTe" not in text
     assert "HgTe" not in text
 
 
-def test_fixture_workflow_enforces_resource_ceiling_and_evidence() -> None:
+def test_fixture_workflow_retains_resource_ceiling_for_later_phase() -> None:
     text = FIXTURE_WORKFLOW.read_text(encoding="utf-8")
     assert "timeout-minutes: 120" in text
     assert "bash tools/run_epw_raw_vertex_fixture_ci.sh" in text
