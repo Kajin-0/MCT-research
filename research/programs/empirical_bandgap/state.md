@@ -666,9 +666,7 @@ Figures 4 and 5 contain experimental points and theoretical curves, but this tra
 
 Groves 1967 is not one of the reconstructed Hansen 22 fitted alloy studies. It is an endpoint/sign source, not a composition series. It can anchor the inverted sign of HgTe under its declared magnetoreflection model, but it cannot determine alloy bowing or independently validate a complete `E_g(x,T)` law.
 
-The focused Groves workflow verifies the exact signed values, the conditional detailed parameter set, the 30 K/1.5 K/4.2 K separation, specimen and protocol metadata, absent covariance, absent Figure 4/5 ledgers, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `996` tests on the audited pre-ledger Groves head.
-
-A final CI run is required on this state-ledger commit before Issue #273 is closed.
+The focused Groves workflow verifies the exact signed values, the conditional detailed parameter set, the 30 K/1.5 K/4.2 K separation, specimen and protocol metadata, absent covariance, absent Figure 4/5 ledgers, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `996` tests on the audited final Groves head. Issue #273 is closed as a completed signed-endpoint source audit.
 
 ## Unresolved scientific questions
 
