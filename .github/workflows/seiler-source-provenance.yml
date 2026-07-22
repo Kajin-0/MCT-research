@@ -1,0 +1,59 @@
+name: seiler-source-provenance
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Seiler specimen registry
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_seiler1990_specimen_registry.py \
+            2>&1 | tee /tmp/seiler-source-provenance-pytest.log
+      - name: Assert file boundary and source hash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('.')
+          registry = list(csv.DictReader(
+              (root / 'data/experimental/seiler1990_specimens.csv')
+              .read_text(encoding='utf-8').splitlines()
+          ))
+          assert len(registry) == 5
+          assert [float(row['composition_x']) for row in registry] == [
+              0.239, 0.253, 0.259, 0.277, 0.300
+          ]
+          assert [row['composition_independent_for_composition_law'] for row in registry] == [
+              'false', 'false', 'true', 'true', 'true'
+          ]
+          assert [int(row['figure7_marker_count']) for row in registry] == [14, 11, 9, 0, 0]
+          assert {row['source_pdf_sha256'] for row in registry} == {
+              '5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49'
+          }
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seiler-source-provenance
+          path: |
+            /tmp/seiler-source-provenance-pytest.log
+            data/experimental/seiler1990_specimens.csv
+            data/experimental/seiler1990_README.md
+          if-no-files-found: error
+          retention-days: 30
