@@ -38,9 +38,9 @@
     "original numerical wide- and focused-beam spectra",
     "coordinates proving the same sampled region",
     "measured or reconstructable beam kernels rather than nominal diameters alone",
-    "sample-90239 thickness and depth model",
+    "specimen thickness and depth model for sample 90239",
     "repeat uncertainty or covariance",
-    "one additional calibrated scale"
+    "a third calibrated scale for covariance-family closure"
   ],
   "source_set_dois": [
     "10.1017/S1431927604882175",
