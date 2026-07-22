@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_raw_vertex_fixture",
+  "program": "R02",
+  "issue": 300,
+  "phase": "source_qualification_only",
+  "source": {
+    "repository": "QEF/q-e",
+    "clone_url": "https://github.com/QEF/q-e.git",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "epw_version": "6.1",
+    "required_files": {
+      "EPW/src/selfen.f90": {
+        "git_blob_sha": "be4858854d1ab26d27b3acf52a9a30c21fa8b472",
+        "sha256": null
+      },
+      "test-suite/epw_base/scf.in": {
+        "git_blob_sha": "aa6e84ee470749bceb22e43ae0f18396e34490b3",
+        "sha256": null
+      },
+      "test-suite/epw_base/ph.in": {
+        "git_blob_sha": "37450ee9680c455b75195787e05dca78e2e2c671",
+        "sha256": null
+      },
+      "test-suite/epw_base/scf_epw.in": {
+        "git_blob_sha": "1bdb39f7567c30cffafe38cebe9e6443f2d025f7",
+        "sha256": null
+      },
+      "test-suite/epw_base/nscf_epw.in": {
+        "git_blob_sha": "50542d302a8772f24d46e1d98e194cff51cb3f54",
+        "sha256": null
+      },
+      "test-suite/epw_base/epw1.in": {
+        "git_blob_sha": "624b4f8a47b003443a131f15afb7815b33a3398e",
+        "sha256": null
+      },
+      "pseudo/C_3.98148.UPF": {
+        "git_blob_sha": "368260443c8341d971fe9da5690f6697f0f8864c",
+        "sha256": null
+      }
+    }
+  },
+  "fixture": {
+    "upstream_category": "epw_base",
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "epsilon_response_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "external_band_count": 4,
+    "intermediate_band_count": 4,
+    "selected_export_window": {
+      "ik_global": 1,
+      "all_q_points": true,
+      "all_modes": true,
+      "all_external_bands": true,
+      "all_intermediate_bands": true,
+      "all_temperatures": true
+    }
+  },
+  "normalization": {
+    "backend_vertex": "epf17 in Ry-dependent EPW convention",
+    "backend_scalar_identity": "g2=abs(epf17)^2*inv_wq*g2_tmp",
+    "normalized_vertex_for_repository": "G_eV=epf17*sqrt(inv_wq*g2_tmp)*ryd2ev",
+    "q_weight": "wqf_loc supplied separately",
+    "retarded_real_comparison": "Re repository Sigma_R equals EPW real increment after Ry-to-eV conversion",
+    "imaginary_sign_comparison": "-Im repository Sigma_R is nonnegative and compared in sign only because non-WFPT EPW uses Gaussian linewidth broadening"
+  },
+  "thresholds": {
+    "source_git_blob_match_required": true,
+    "source_sha256_match_required_before_build": true,
+    "exporter_enabled_disabled_standard_output_max_abs_ev": 1e-12,
+    "normalization_identity_max_abs_ry2": 1e-14,
+    "per_state_real_diagonal_max_abs_ev": 1e-12,
+    "summed_real_diagonal_max_abs_ev": 1e-12,
+    "synthetic_external_covariance_max_abs_ev": 1e-12,
+    "q_weight_sum_max_abs": 1e-12,
+    "maximum_workflow_minutes": 120,
+    "maximum_evidence_bytes": 2147483648
+  },
+  "phase_transition_requirements": {
+    "all_required_sha256_committed": true,
+    "source_qualification_artifact_digest_committed": true,
+    "observational_patch_sha256_committed": true,
+    "focused_tests_pass": true
+  },
+  "authorization": {
+    "source_clone_and_hash": true,
+    "qe_epw_build": false,
+    "upstream_fixture_execution": false,
+    "observational_export_patch_application": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "dense_interpolation": false,
+    "automatic_retry": false,
+    "automatic_phase_transition": false
+  },
+  "claim_boundary": "Phase 1 qualifies immutable upstream bytes only. It does not validate a QE/EPW build, raw complex-vertex export, normalization, scalar diagonal equivalence, SOC compatibility, or any material self-energy."
+}
