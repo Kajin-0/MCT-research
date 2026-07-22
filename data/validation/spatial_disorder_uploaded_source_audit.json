@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "portfolio_contribution": "R04",
   "parent_issue": 196,
-  "implementation_issue": 272,
+  "implementation_issues": [272, 281],
   "status": "external_data_blocked",
   "direct_validation_candidate_ids": [],
   "partial_multiresolution_candidate_ids": [
@@ -18,21 +18,36 @@
     "murakami_1992_mocvd_composition_profile": "source_bounded_figure_benchmark",
     "oda_1992_composition_method_comparison": "not_qualifiable_from_available_record",
     "parikh_1996_mombe_spatial_uniformity": "source_bounded_figure_benchmark",
+    "phillips_2003_pixel_scale_absorption_mapping": "source_bounded_figure_benchmark",
     "ruzhevich_2024_optical_microscopic_disorder": "not_qualifiable_from_available_record"
   },
-  "nearest_available_benchmark": {
+  "nearest_partial_multiresolution_benchmark": {
     "source_id": "gopal_1992_two_beam_transmission",
     "doi": "10.1016/0020-0891(92)90053-V",
     "nonuniform_specimen": "90239",
     "qualitative_control_specimen": "90211",
-    "nominal_beam_diameters_micrometre": [
-      3000.0,
-      250.0
-    ],
+    "nominal_beam_diameters_micrometre": [3000.0, 250.0],
     "nominal_diameter_ratio": 12.0,
     "reported_result": "The two rendered sample-90239 transmission spectra shift relative to one another; the authors identify the shift as evidence of lateral composition nonuniformity. No noticeable change is reported for sample 90211 over the same beam-diameter change.",
     "permitted_inference": "source-bounded qualitative probe-scale dependence",
     "prohibited_inference": "specimen point variance, correlation length, covariance family, or three-scale closure"
+  },
+  "nearest_detector_pixel_scale_benchmark": {
+    "source_id": "phillips_2003_pixel_scale_absorption_mapping",
+    "doi": "10.1063/1.1625776",
+    "beam_diameter_micrometre": 9.0,
+    "scan_spacing_micrometre": 10.0,
+    "area_micrometre": [200.0, 200.0],
+    "reported_spectrum_count": 400,
+    "absorption_wavenumber_cm_inverse": 1558.0,
+    "absorption_mean_cm_inverse": 887.0,
+    "absorption_standard_deviation_cm_inverse": 24.6,
+    "absorption_relative_standard_deviation_percent": 2.8,
+    "composition_mean": 0.2256,
+    "composition_standard_deviation": 0.0003,
+    "reported_effective_scale_count": 1,
+    "permitted_inference": "source-bounded detector-pixel-scale absorption and sampling benchmark",
+    "prohibited_inference": "treating 400 spectra as 400 probe scales, specimen covariance recovery, or direct multiresolution validation"
   },
   "minimum_gopal_data_upgrade": [
     "original numerical wide- and focused-beam spectra",
@@ -41,6 +56,13 @@
     "specimen thickness and depth model for sample 90239",
     "repeat uncertainty or covariance",
     "a third calibrated scale for covariance-family closure"
+  ],
+  "minimum_phillips_data_upgrade": [
+    "original numerical spectra with physical coordinates",
+    "measured or reconstructable wavelength-dependent PSF",
+    "repeat uncertainty or observation covariance",
+    "at least two additional calibrated effective scales for family closure",
+    "provenance for source-intensity drift and spatial-drift correction"
   ],
   "source_set_dois": [
     "10.1017/S1431927604882175",
@@ -52,12 +74,15 @@
     "10.1016/0022-0248(92)90712-R",
     "10.1016/0022-0248(92)90743-3",
     "10.1016/0022-0248(95)00846-2",
+    "10.1063/1.1625776",
     "10.1364/JOT.91.000077"
   ],
   "claim_boundaries": [
+    "A dense raster at one measurement kernel remains one effective probe scale.",
+    "Four hundred spectra do not constitute four hundred independent probe scales.",
     "Two scales can establish qualitative scale dependence but cannot test covariance-family closure.",
     "Rendered spectra and maps are not original numerical arrays.",
-    "Nominal beam diameter is not a measured point-spread function or Gaussian standard deviation.",
+    "A reported beam diameter is not a complete measured point-spread function or Gaussian standard deviation.",
     "Multiple modalities do not count as multiple probe scales.",
     "No specimen covariance parameter, covariance family, detector result, novelty claim, or manuscript authorization is established."
   ]
