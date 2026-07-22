@@ -72,6 +72,7 @@ jobs:
             validation/camassel1988_composition_envelope_reference.json \
             /tmp/camassel-reference.json
       - name: Assert tranche file boundary
+        if: github.head_ref == 'agent/camassel-composition-envelope'
         shell: bash
         run: |
           git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
