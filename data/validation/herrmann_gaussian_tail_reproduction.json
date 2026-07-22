@@ -85,6 +85,7 @@
     "source_claim_reproduced": false,
     "source_half_s_target": 0.5,
     "controlled_square_root_source_window_tail_energy_over_s": 0.3571183113580045,
+    "square_root_source_window_tail_energy_over_s": 0.3571183113580045,
     "relative_shortfall_from_source_half_s_target": 0.28576337728399104,
     "controlled_square_root_upper_window_tail_energy_over_s": 0.5718408687380571,
     "fit_window_increase_fraction": 0.6012644844884394,
