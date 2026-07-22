@@ -26,47 +26,73 @@ jobs:
           python -m pytest -q \
             tests/test_spatial_disorder_validation_path.py \
             2>&1 | tee validation-path-diagnostics/pytest.txt
-      - name: Rebuild controlled reference
+      - name: Build controlled reference
         run: |
           python -m tools.build_spatial_disorder_validation_path_reference \
             --output validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
-          cmp \
-            data/validation/spatial_disorder_validation_path_qualification.json \
-            validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
-      - name: Validate qualification boundaries
+      - name: Compare generated and immutable decisions
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          record = json.loads(
+          generated = json.loads(
               Path(
-                  "data/validation/"
+                  "validation-path-diagnostics/"
                   "spatial_disorder_validation_path_qualification.json"
               ).read_text(encoding="utf-8")
           )
-          assert record["status"] == "external_data_blocked"
-          assert record["direct_candidate_ids"] == []
-          assert record["headline"]["direct_validation_candidate_count"] == 0
-          by_source = {
+          immutable = json.loads(
+              Path(
+                  "data/validation/"
+                  "spatial_disorder_uploaded_source_audit.json"
+              ).read_text(encoding="utf-8")
+          )
+
+          assert generated["schema_version"] == "1.1"
+          assert immutable["schema_version"] == "1.0"
+          assert generated["status"] == immutable["status"]
+          assert generated["direct_candidate_ids"] == (
+              immutable["direct_validation_candidate_ids"]
+          )
+          assert generated["partial_multiresolution_candidate_ids"] == (
+              immutable["partial_multiresolution_candidate_ids"]
+          )
+
+          generated_classes = {
               item["source_id"]: item["qualification"]
-              for item in record["qualifications"]
+              for item in generated["qualifications"]
           }
-          assert by_source == {
-              "chang_2005_infrared_mapping": (
-                  "source_bounded_figure_benchmark"
-              ),
-              "furstenberg_2005_pl_transmission_mapping": (
-                  "cross_modality_context"
-              ),
-              "ruzhevich_2024_optical_microscopic_disorder": (
-                  "not_qualifiable_from_available_record"
-              ),
-          }
-          boundaries = " ".join(record["claim_boundaries"])
-          assert "Multiple modalities" in boundaries
-          assert "Rendered map figures" in boundaries
-          assert "manuscript" in boundaries
+          assert generated_classes == immutable["classifications"]
+          assert len(generated_classes) == 10
+
+          generated_headline = generated["headline"]
+          immutable_nearest = immutable["nearest_available_benchmark"]
+          assert generated_headline["direct_validation_candidate_count"] == 0
+          assert generated_headline["partial_multiresolution_candidate_count"] == 1
+          assert generated_headline["nearest_available_benchmark"] == (
+              immutable_nearest["source_id"]
+          )
+          assert generated_headline[
+              "nearest_benchmark_scale_diameters_micrometre"
+          ] == immutable_nearest["nominal_beam_diameters_micrometre"]
+          assert generated_headline["nearest_benchmark_scale_ratio"] == (
+              immutable_nearest["nominal_diameter_ratio"]
+          )
+          assert generated_headline["minimum_data_upgrade_for_gopal_1992"] == (
+              immutable["minimum_gopal_data_upgrade"]
+          )
+
+          generated_boundaries = " ".join(generated["claim_boundaries"])
+          immutable_boundaries = " ".join(immutable["claim_boundaries"])
+          assert "Two measured scales" in generated_boundaries
+          assert "Two scales" in immutable_boundaries
+          assert "Nominal beam diameters" in generated_boundaries
+          assert "Nominal beam diameter" in immutable_boundaries
+          assert "Rendered spectra" in generated_boundaries
+          assert "Rendered spectra" in immutable_boundaries
+          assert "manuscript" in generated_boundaries
+          assert "manuscript" in immutable_boundaries
           PY
       - uses: actions/upload-artifact@v4
         if: always()
@@ -74,7 +100,9 @@ jobs:
           name: spatial-disorder-validation-path
           path: |
             validation-path-diagnostics
+            data/validation/spatial_disorder_uploaded_source_audit.json
             docs/protocols/r04_external_validation_path_qualification.md
-            data/validation/spatial_disorder_validation_path_qualification.json
+            literature/notes/uploaded_hgcdte_mapping_source_audit.md
+            research/programs/spatial_disorder/external_validation_state.md
           if-no-files-found: error
           retention-days: 30

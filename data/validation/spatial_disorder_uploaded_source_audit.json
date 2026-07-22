@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R04",
+  "parent_issue": 196,
+  "implementation_issue": 272,
+  "status": "external_data_blocked",
+  "direct_validation_candidate_ids": [],
+  "partial_multiresolution_candidate_ids": [
+    "gopal_1992_two_beam_transmission"
+  ],
+  "classifications": {
+    "aoki_2004_superlattice_microscopy": "source_bounded_figure_benchmark",
+    "chang_2005_infrared_mapping": "source_bounded_figure_benchmark",
+    "feldman_1991_mqw_chemical_mapping": "source_bounded_figure_benchmark",
+    "furstenberg_2005_pl_transmission_mapping": "cross_modality_context",
+    "gopal_1992_two_beam_transmission": "partial_multiresolution_benchmark",
+    "jeoung_1996_bulk_transmission_calibration": "not_qualifiable_from_available_record",
+    "murakami_1992_mocvd_composition_profile": "source_bounded_figure_benchmark",
+    "oda_1992_composition_method_comparison": "not_qualifiable_from_available_record",
+    "parikh_1996_mombe_spatial_uniformity": "source_bounded_figure_benchmark",
+    "ruzhevich_2024_optical_microscopic_disorder": "not_qualifiable_from_available_record"
+  },
+  "nearest_available_benchmark": {
+    "source_id": "gopal_1992_two_beam_transmission",
+    "doi": "10.1016/0020-0891(92)90053-V",
+    "nonuniform_specimen": "90239",
+    "qualitative_control_specimen": "90211",
+    "nominal_beam_diameters_micrometre": [
+      3000.0,
+      250.0
+    ],
+    "nominal_diameter_ratio": 12.0,
+    "reported_result": "The two rendered sample-90239 transmission spectra shift relative to one another; the authors identify the shift as evidence of lateral composition nonuniformity. No noticeable change is reported for sample 90211 over the same beam-diameter change.",
+    "permitted_inference": "source-bounded qualitative probe-scale dependence",
+    "prohibited_inference": "specimen point variance, correlation length, covariance family, or three-scale closure"
+  },
+  "minimum_gopal_data_upgrade": [
+    "original numerical wide- and focused-beam spectra",
+    "coordinates proving the same sampled region",
+    "measured or reconstructable beam kernels rather than nominal diameters alone",
+    "specimen thickness and depth model for sample 90239",
+    "repeat uncertainty or covariance",
+    "a third calibrated scale for covariance-family closure"
+  ],
+  "source_set_dois": [
+    "10.1017/S1431927604882175",
+    "10.1016/j.jcrysgro.2005.01.051",
+    "10.1557/PROC-216-113",
+    "10.1007/s11664-005-0022-8",
+    "10.1016/0020-0891(92)90053-V",
+    "10.1016/1350-4495(95)00125-5",
+    "10.1016/0022-0248(92)90712-R",
+    "10.1016/0022-0248(92)90743-3",
+    "10.1016/0022-0248(95)00846-2",
+    "10.1364/JOT.91.000077"
+  ],
+  "claim_boundaries": [
+    "Two scales can establish qualitative scale dependence but cannot test covariance-family closure.",
+    "Rendered spectra and maps are not original numerical arrays.",
+    "Nominal beam diameter is not a measured point-spread function or Gaussian standard deviation.",
+    "Multiple modalities do not count as multiple probe scales.",
+    "No specimen covariance parameter, covariance family, detector result, novelty claim, or manuscript authorization is established."
+  ]
+}
