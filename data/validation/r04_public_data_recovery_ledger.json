@@ -1,0 +1,361 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R04",
+  "parent_issue": 290,
+  "recovery_issues": [
+    297,
+    299,
+    307
+  ],
+  "audit_date": "2026-07-22",
+  "status": "external_data_blocked",
+  "communication_policy": {
+    "external_contact_permitted": false,
+    "email_permitted": false,
+    "direct_messages_permitted": false,
+    "author_or_institutional_outreach_permitted": false,
+    "request_for_data_communication_permitted": false,
+    "permitted_recovery_mode": "public_records_only"
+  },
+  "authorization": {
+    "source_native_analysis_branch_authorized": false,
+    "covariance_family_fitting_authorized": false,
+    "publication_figure_digitization_as_source_data_authorized": false,
+    "new_r04_mechanism_authorized": false,
+    "r05_computation_authorized": false,
+    "manuscript_authorized": false
+  },
+  "headline": {
+    "complete_user_supplied_pdfs_audited": 3,
+    "public_source_native_packages_found": 0,
+    "qualified_direct_validation_packages": 0,
+    "records_confirming_native_data_originally_existed": 2,
+    "strongest_same_region_cross_modality_lead": "furstenberg_2005_same_region_pl_transmission",
+    "strongest_physical_two_scale_lead": "gopal_1992_two_beam_transmission",
+    "strongest_measured_pump_kernel_contract": "chen_2019_ssftir_pl_mapping"
+  },
+  "records": [
+    {
+      "record_id": "gopal_1992_two_beam_transmission",
+      "source_type": "journal_article",
+      "title": "Compositional characterization of HgCdTe epilayers by infrared transmission",
+      "doi": "10.1016/0020-0891(92)90053-V",
+      "specimens": [
+        "90211",
+        "90239"
+      ],
+      "public_asset_status": "complete_pdf_audited",
+      "user_supplied_pdf_sha256": "dda85e0b6f8ceece323ffe8436084868112e1fb2679c189a1e7563e3f4aabe34",
+      "pdf_page_count": 7,
+      "pdf_object_audit": {
+        "embedded_file_count": 0,
+        "source_native_spectra_present": false,
+        "machine_readable_tables_present": false,
+        "figure_encoding": "300_dpi_ccitt_scan_strips_with_ocr_text_overlay"
+      },
+      "instrument_contract": {
+        "instrument": "FTS-40 FTIR",
+        "computerized_acquisition_reported": true,
+        "complete_spectrum_digitization_originally_possible": true,
+        "nominal_beam_diameters_micrometre": [
+          3000.0,
+          250.0
+        ],
+        "physical_scale_count": 2,
+        "measured_psf_available": false,
+        "beam_center_registration_available": false
+      },
+      "source_bounded_result": {
+        "sample_90211": "no noticeable spectral change between the nominal 3 mm and 250 micrometre beams",
+        "sample_90239": "relative shift between the two rendered transmission spectra",
+        "focused_beam_z_half_composition_estimate": 0.2255,
+        "focused_beam_z_intercept_composition_estimate": 0.2304
+      },
+      "critical_interpretation_boundary": "The 0.2255 and 0.2304 values are Z_1/2 and Z_i estimators applied to the focused-beam spectrum; they are not compositions assigned independently to the two beam diameters and are not a two-scale variance datum.",
+      "source_native_public_package_found": false,
+      "qualification": "public_data_not_found_direct_validation_blocked",
+      "missing_fields": [
+        "original numerical wide- and focused-beam spectra",
+        "third calibrated effective scale or reusable high-resolution numerical map",
+        "beam-center coordinates and registration",
+        "measured or reconstructable wavelength-dependent PSFs",
+        "repeat uncertainty and same-specimen covariance",
+        "complete sample-specific thickness and depth-weighting metadata",
+        "public rights for numerical re-filtering and derived publication"
+      ]
+    },
+    {
+      "record_id": "chen_2019_ssftir_pl_mapping",
+      "source_type": "journal_article",
+      "title": "Spatially resolved and two-dimensional mapping modulated infrared photoluminescence spectroscopy with functional wavelength up to 20 micrometres",
+      "doi": "10.1063/1.5111788",
+      "public_asset_status": "complete_pdf_audited",
+      "user_supplied_pdf_sha256": "84d849ee955a7580b59c8643714768b4080832249a032432d53070d72c52672d",
+      "pdf_page_count": 9,
+      "pdf_object_audit": {
+        "embedded_file_count": 0,
+        "source_native_spectral_cube_present": false,
+        "machine_readable_map_arrays_present": false,
+        "figure_encoding": "publication_raster_panels"
+      },
+      "instrument_contract": {
+        "pump_wavelength_nm": 532.0,
+        "pump_spot_diameter_1_over_e2_micrometre": 26.3,
+        "pump_spot_diameter_half_maximum_micrometre": 15.3,
+        "raster_step_micrometre": [
+          40.0,
+          40.0
+        ],
+        "stage_translation_resolution_micrometre": 1.0,
+        "stage_angular_resolution_degree": 0.002,
+        "lw_ir_map_grid": [
+          25,
+          25
+        ],
+        "lw_ir_map_area_micrometre": [
+          960.0,
+          960.0
+        ],
+        "lw_ir_acquisition_seconds_per_spectrum": 30.0,
+        "lw_ir_spectral_resolution_cm_inverse": 12.0,
+        "lw_ir_snr_lower_bound": 30.0
+      },
+      "material_and_observation": {
+        "material": "HgTe/Hg0.05Cd0.95Te superlattice",
+        "temperature_k": 77.0,
+        "observable_fields": [
+          "PL energy",
+          "PL intensity",
+          "PL linewidth"
+        ],
+        "composition_field_directly_observed": false,
+        "declared_possible_latent_causes": [
+          "localized states",
+          "defects or impurities",
+          "superlattice layer-thickness fluctuation",
+          "interface roughness",
+          "barrier-composition fluctuation"
+        ]
+      },
+      "source_native_public_package_found": false,
+      "qualification": "instrument_contract_only_public_data_not_found",
+      "missing_fields": [
+        "native PL spectrum at every raster coordinate",
+        "native physical coordinate and acquisition-order arrays",
+        "collection PSF and complete excitation-kernel uncertainty",
+        "raw interferograms or source-native spectral exports",
+        "repeat, drift, and covariance records",
+        "reproducible fitting code or complete fitting parameters",
+        "multiple physical spot sizes or independently calibrated held-out modality",
+        "public rights for numerical re-filtering and derived publication"
+      ]
+    },
+    {
+      "record_id": "furstenberg_2005_same_region_pl_transmission",
+      "source_type": "journal_article",
+      "title": "Spatially Resolved Photoluminescence and Transmission Spectra of HgCdTe",
+      "doi": "10.1007/s11664-005-0022-8",
+      "public_asset_status": "complete_pdf_audited",
+      "user_supplied_pdf_sha256": "b77621b6c8093d8c1d3295f4172255f6abd118b3f5343c42481a5892ab8a3cb3",
+      "pdf_page_count": 4,
+      "pdf_object_audit": {
+        "embedded_file_count": 0,
+        "source_native_map_arrays_present": false,
+        "source_native_spectra_present": false,
+        "figure_encoding": "publication_raster_panels"
+      },
+      "same_region_contract": {
+        "sample": "HRL3307",
+        "material": "Hg0.7Cd0.3Te/Cd0.96Zn0.04Te",
+        "map_area_micrometre": [
+          1200.0,
+          1200.0
+        ],
+        "reported_map_resolution_micrometre": 25.0,
+        "nominal_grid_implied_by_area": [
+          48,
+          48
+        ],
+        "modality_1": "effective epilayer thickness from transmission fringes",
+        "modality_2": "PL peak area",
+        "same_region_explicitly_reported": true,
+        "highest_attainable_resolution_micrometre": 10.0
+      },
+      "rendered_figure_scales": {
+        "effective_thickness_micrometre": [
+          8.5,
+          11.5
+        ],
+        "pl_peak_intensity_displayed_normalization": [
+          0.3,
+          0.45
+        ]
+      },
+      "critical_interpretation_boundaries": [
+        "The effective optical-thickness field assumes a uniform refractive index and can conflate physical thickness, composition fluctuation, and Te inclusions.",
+        "PL peak area depends on collection efficiency and excitation power and is not a direct composition observable.",
+        "Two modalities at one representative spatial resolution are not two probe scales."
+      ],
+      "source_native_public_package_found": false,
+      "qualification": "same_region_cross_modality_context_public_data_not_found",
+      "missing_fields": [
+        "source-native common-coordinate PL and transmission spectra or map arrays",
+        "exact registration transform and acquisition order",
+        "excitation and collection PSFs",
+        "transmission aperture and kernel definition",
+        "reproducible fringe-to-optical-thickness operator",
+        "repeat, drift, and covariance records",
+        "independently calibrated modality-specific nuisance parameters",
+        "public rights for numerical re-filtering and derived publication"
+      ]
+    },
+    {
+      "record_id": "furstenberg_2006_dissertation",
+      "source_type": "doctoral_dissertation",
+      "title": "Photoluminescence Study of Defects in Mercury Cadmium Telluride",
+      "persistent_identifier": "hdl:2142/34731",
+      "public_asset_status": "public_dissertation_pdf_audited",
+      "page_count": 119,
+      "native_data_originally_existed": true,
+      "native_data_publicly_recovered": false,
+      "acquisition_and_processing_contract": {
+        "ftir_platform": "ThermoNicolet Nexus 670 rapid scan",
+        "translation_system": "perpendicular Newport stages with Zaber LA-60 actuators",
+        "pl_objective": "36x 0.5 NA reflecting objective",
+        "adc": "Data Translation DT321",
+        "lock_in": "Stanford Research Systems SR830",
+        "secondary_laser_modulation_khz": [
+          50.0,
+          100.0
+        ],
+        "parallel_interferograms": [
+          "PL",
+          "transmission or background"
+        ],
+        "storage": "paired interferograms stored on a hard drive by the control software",
+        "processing_chain": [
+          "coherent addition",
+          "apodization",
+          "phase correction",
+          "Fourier transform"
+        ]
+      },
+      "same_region_map_contract": {
+        "area_micrometre": [
+          1200.0,
+          1200.0
+        ],
+        "grid": [
+          48,
+          48
+        ],
+        "temperature_runs_k": [
+          300.0,
+          77.0
+        ],
+        "acquisition_seconds_per_pixel": [
+          19.0,
+          8.4
+        ],
+        "total_acquisition_hours": [
+          12.5,
+          5.5
+        ]
+      },
+      "public_companion_dataset_found": false,
+      "qualification": "native_data_existence_confirmed_public_package_not_found",
+      "missing_fields": [
+        "paired interferogram files",
+        "processed spectra at every coordinate",
+        "coordinate and registration exports",
+        "control and processing software",
+        "repeat and drift covariance",
+        "public data license or reuse statement"
+      ]
+    },
+    {
+      "record_id": "muri_uiuc_git_05_final_report",
+      "source_type": "public_final_report",
+      "title": "Fundamental Research on Infrared Detection",
+      "report_identifier": "MURI-UIUC-GIT-05",
+      "accession": "ADA459422",
+      "grant": "DAAD19-01-1-0591",
+      "public_release_status": "approved_for_public_release_distribution_unlimited",
+      "native_data_originally_existed": true,
+      "native_data_publicly_recovered": false,
+      "permitted_inference": "instrument-program, collaboration, and dissertation-lineage context",
+      "prohibited_inference": "treating a public report index or rendered report figure as a source-native numerical map package",
+      "qualification": "program_context_public_data_not_found"
+    }
+  ],
+  "public_lineage_targets": [
+    {
+      "doi": "10.1007/s11664-004-0071-4",
+      "role": "Furstenberg high-resolution HgCdTe PL mapping method",
+      "source_native_package_status": "not_located_in_declared_public_search"
+    },
+    {
+      "doi": "10.1063/1.2214931",
+      "role": "Furstenberg high-resolution infrared PL mapping apparatus",
+      "source_native_package_status": "not_located_in_declared_public_search"
+    },
+    {
+      "doi": "10.1063/5.0164195",
+      "role": "Chen-lineage As-doped HgCdTe PL mapping",
+      "source_native_package_status": "not_located_in_declared_public_search"
+    },
+    {
+      "doi": "10.1063/5.0244755",
+      "role": "Chen-lineage approximately 2 micrometre resolution mapping system",
+      "source_native_package_status": "not_located_in_declared_public_search"
+    }
+  ],
+  "declared_public_search_classes": [
+    "publisher-associated files and legacy supplements",
+    "institutional repositories and public thesis records",
+    "public final reports and grant accessions",
+    "DataCite, Crossref, OpenAlex, CORE, and BASE records",
+    "Zenodo, Figshare, Mendeley Data, OSF, and Dryad",
+    "public conference proceedings, theses, and citing papers",
+    "lawful public web archives",
+    "PDF embedded-file, attachment, image, and object inspection"
+  ],
+  "qualification_gate": {
+    "accepted_package_A": [
+      "same registered specimen region",
+      "at least three calibrated effective scales",
+      "original numerical observations",
+      "complete kernel and uncertainty metadata"
+    ],
+    "accepted_package_B": [
+      "one original high-resolution numerical map",
+      "physical coordinates and acquisition order",
+      "calibration metadata",
+      "public rights to apply at least three declared numerical kernels"
+    ],
+    "common_required_fields": [
+      "measured or reconstructable kernels",
+      "registration",
+      "thickness and depth-weighting model",
+      "uncertainty, repeats, or covariance",
+      "declared observable and preprocessing chain",
+      "rights permitting the intended analysis"
+    ]
+  },
+  "stop_rules": [
+    "No analysis branch is opened when only rendered curves or maps are available.",
+    "No publication-figure extraction is represented as source-native data.",
+    "No nominal beam diameter or quoted spot size is represented as a complete PSF.",
+    "No raster pixel count is represented as repeat count or independent scale count.",
+    "No multiple-modality record is represented as a multiple-scale record.",
+    "No source is promoted when registration, kernels, uncertainty, preprocessing, or rights remain unbounded.",
+    "A reproducible public-data-not-found result is an acceptable terminal outcome."
+  ],
+  "claim_boundaries": [
+    "The audit records what was located in declared public searches; it does not prove that private or unindexed data do not exist.",
+    "Confirmation that native files originally existed is not public recovery of those files.",
+    "Rendered publication figures remain source-bounded evidence and are not original numerical arrays.",
+    "The current public asset set does not support Q_G evaluation, covariance-family fitting, parameter recovery, or held-out prediction.",
+    "No specimen covariance, correlation length, composition field, detector result, novelty claim, manuscript, or R05 computation is authorized."
+  ]
+}

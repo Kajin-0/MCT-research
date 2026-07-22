@@ -1,0 +1,56 @@
+name: r04-public-data-recovery
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify public-data recovery ledger
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p r04-public-recovery-diagnostics
+          python -m pytest -q \
+            tests/test_r04_public_data_recovery_ledger.py \
+            2>&1 | tee r04-public-recovery-diagnostics/pytest.txt
+      - name: Verify immutable JSON formatting
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/validation/r04_public_data_recovery_ledger.json")
+          raw = path.read_text(encoding="utf-8")
+          parsed = json.loads(raw)
+          canonical = json.dumps(parsed, indent=2) + "\n"
+
+          assert raw == canonical
+          assert parsed["status"] == "external_data_blocked"
+          assert parsed["headline"]["public_source_native_packages_found"] == 0
+          assert parsed["headline"]["qualified_direct_validation_packages"] == 0
+          assert parsed["communication_policy"]["external_contact_permitted"] is False
+          assert parsed["authorization"]["source_native_analysis_branch_authorized"] is False
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r04-public-data-recovery
+          path: |
+            r04-public-recovery-diagnostics
+            data/validation/r04_public_data_recovery_ledger.json
+            literature/notes/r04_public_data_recovery_audit.md
+          if-no-files-found: error
+          retention-days: 30
