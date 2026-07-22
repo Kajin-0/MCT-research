@@ -1,0 +1,56 @@
+name: published-tail-curvature-recoverability
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Run focused tests
+        run: |
+          python -m pytest -q \
+            tests/test_published_tail_recoverability.py \
+            tests/test_published_tail_recoverability_reference.py
+      - name: Rebuild immutable reference
+        run: |
+          python tools/build_published_tail_curvature_recoverability_reference.py \
+            --output /tmp/published_tail_curvature_recoverability.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          committed = json.loads(
+              Path('data/validation/published_tail_curvature_recoverability.json')
+              .read_text(encoding='utf-8')
+          )
+          rebuilt = json.loads(
+              Path('/tmp/published_tail_curvature_recoverability.json')
+              .read_text(encoding='utf-8')
+          )
+          assert rebuilt == committed
+          assert committed['portfolio_contribution'] == 'R03'
+          assert committed['issue'] == 235
+          assert committed['decision']['manual_digitization_authorized'] is False
+          assert committed['status'].endswith('not_material_validation')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: published-tail-curvature-recoverability
+          path: |
+            data/validation/published_tail_curvature_recoverability.json
+            docs/derivations/019_published_tail_curvature_recoverability.md
+          if-no-files-found: error
+          retention-days: 30
