@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R03",
+  "issue": 235,
+  "status": "source_conditioned_published_figure_recoverability_not_material_validation",
+  "model": {
+    "absorption": "alpha_p(E)=A*sigma_G^p*F_p(z)",
+    "standardized_energy": "z=(E-mu_G)/sigma_G",
+    "dynamic_range": "R=log10(alpha_max/alpha_min)",
+    "figure_residual": "maximum total-least-squares orthogonal departure in audit-render pixels"
+  },
+  "finite_window_result": {
+    "statement": "for fixed finite R, best-straight-line residual tends to zero as z_upper tends to minus infinity",
+    "asymptotic_scaling": "O(abs(z_upper)^-2)",
+    "consequence": "tail straightness alone cannot falsify the Gaussian-power model without an independent gap-location or intrinsic-amplitude constraint",
+    "finkman_1984_dynamic_range_decades": 2.3010299956639813,
+    "straightness_grid": [
+      {
+        "upper_standardized_energy": 0.0,
+        "lower_standardized_energy": -2.6419353704009376,
+        "maximum_vertical_residual_decades": 0.2029666389306426,
+        "rms_vertical_residual_decades": 0.08964678127166757,
+        "maximum_horizontal_residual_fraction": 0.1081074447495836,
+        "rms_horizontal_residual_fraction": 0.03665248790538324
+      },
+      {
+        "upper_standardized_energy": -2.0,
+        "lower_standardized_energy": -3.6302429956317317,
+        "maximum_vertical_residual_decades": 0.08609549736652777,
+        "rms_vertical_residual_decades": 0.038931514495012635,
+        "maximum_horizontal_residual_fraction": 0.04174055845830666,
+        "rms_horizontal_residual_fraction": 0.0167053776700951
+      },
+      {
+        "upper_standardized_energy": -4.0,
+        "lower_standardized_energy": -5.093349301358655,
+        "maximum_vertical_residual_decades": 0.04072705791732378,
+        "rms_vertical_residual_decades": 0.01851867416966454,
+        "maximum_horizontal_residual_fraction": 0.018741016821392273,
+        "rms_horizontal_residual_fraction": 0.00802359892459172
+      },
+      {
+        "upper_standardized_energy": -6.0,
+        "lower_standardized_energy": -6.8000980734641026,
+        "maximum_vertical_residual_decades": 0.022319229447886002,
+        "rms_vertical_residual_decades": 0.010162409900463507,
+        "maximum_horizontal_residual_fraction": 0.010022521540722522,
+        "rms_horizontal_residual_fraction": 0.004412315437628051
+      },
+      {
+        "upper_standardized_energy": -8.0,
+        "lower_standardized_energy": -8.624311239428074,
+        "maximum_vertical_residual_decades": 0.01374603185974621,
+        "rms_vertical_residual_decades": 0.006261371740097275,
+        "maximum_horizontal_residual_fraction": 0.006098225519057441,
+        "rms_horizontal_residual_fraction": 0.0027201332165777653
+      }
+    ]
+  },
+  "source_panel_assumptions": {
+    "render_dpi": 300,
+    "marker_center_uncertainty_scenario_px": 6.0,
+    "finkman_1984_fig4": {
+      "energy_range_ev": [0.2, 0.3],
+      "panel_width_px": 545.0,
+      "absorption_range_cm_inverse": [5.0, 1000.0],
+      "panel_height_px": 562.0
+    },
+    "finkman_1979_fig3": {
+      "energy_range_ev": [0.08, 0.18],
+      "panel_width_px": 848.0,
+      "absorption_range_cm_inverse": [5.0, 2000.0],
+      "panel_height_px": 982.0,
+      "fitted_absorption_range_cm_inverse": [20.0, 1000.0]
+    }
+  },
+  "source_conditioned_traces": [
+    {
+      "source_identifier": "finkman_schacham_1984_fig4_85k",
+      "composition": 0.29,
+      "temperature_k": 85.0,
+      "absorption_min_cm_inverse": 5.0,
+      "absorption_max_cm_inverse": 1000.0,
+      "trace_energy_span_ev": 0.02098241443034686,
+      "trace_horizontal_span_px": 114.35415864539041,
+      "trace_vertical_span_px": 562.0,
+      "marker_center_uncertainty_px": 6.0,
+      "departure_at_mean_gap_px": 12.101627807391967,
+      "critical_upper_z_one_sigma": -1.4547239209314284,
+      "critical_upper_z_three_sigma": null
+    },
+    {
+      "source_identifier": "finkman_schacham_1984_fig4_300k",
+      "composition": 0.29,
+      "temperature_k": 300.0,
+      "absorption_min_cm_inverse": 5.0,
+      "absorption_max_cm_inverse": 1000.0,
+      "trace_energy_span_ev": 0.04801188778280087,
+      "trace_horizontal_span_px": 261.6647884162648,
+      "trace_vertical_span_px": 562.0,
+      "marker_center_uncertainty_px": 6.0,
+      "departure_at_mean_gap_px": 25.510080725945947,
+      "critical_upper_z_one_sigma": -3.1831317735086486,
+      "critical_upper_z_three_sigma": -0.7171512655659171
+    },
+    {
+      "source_identifier": "finkman_nemirovsky_1979_fig3_80k",
+      "composition": 0.205,
+      "temperature_k": 80.0,
+      "absorption_min_cm_inverse": 20.0,
+      "absorption_max_cm_inverse": 1000.0,
+      "trace_energy_span_ev": 0.01608837080928274,
+      "trace_horizontal_span_px": 136.42938446271765,
+      "trace_vertical_span_px": 641.1798920156747,
+      "marker_center_uncertainty_px": 6.0,
+      "departure_at_mean_gap_px": 12.289313507940948,
+      "critical_upper_z_one_sigma": -1.3744943147576123,
+      "critical_upper_z_three_sigma": null
+    },
+    {
+      "source_identifier": "finkman_nemirovsky_1979_fig3_300k",
+      "composition": 0.205,
+      "temperature_k": 300.0,
+      "absorption_min_cm_inverse": 20.0,
+      "absorption_max_cm_inverse": 1000.0,
+      "trace_energy_span_ev": 0.03795027061189053,
+      "trace_horizontal_span_px": 321.81829478883174,
+      "trace_vertical_span_px": 641.1798920156747,
+      "marker_center_uncertainty_px": 6.0,
+      "departure_at_mean_gap_px": 26.336985288889768,
+      "critical_upper_z_one_sigma": -3.031228196578013,
+      "critical_upper_z_three_sigma": -0.7227387645216368
+    }
+  ],
+  "decision": {
+    "manual_digitization_authorized": false,
+    "reason": "no independent standardized window-location anchor is available; low-temperature traces fail the conservative three-sigma panel gate even at z_upper=0, while high-temperature traces require the upper window to lie within about 0.72 sigma_G below the latent mean gap for a six-pixel three-sigma threshold",
+    "next_required_evidence": "independent above-gap or mean-gap anchor with uncertainty, or numerical source data with measurement covariance"
+  },
+  "claim_boundaries": [
+    "panel pixels and marker-center uncertainty are declared audit scenarios, not source measurement covariance",
+    "modified-Urbach trace spans are source-conditioned empirical slopes, not Gaussian-disorder parameters",
+    "negative logarithmic curvature does not identify composition disorder",
+    "Ariel 1995 d2(alpha)/dE2 is not d2(log(alpha))/dE2",
+    "no manuscript or material-validation claim follows from synthetic recoverability"
+  ]
+}
