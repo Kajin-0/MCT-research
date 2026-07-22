@@ -101,6 +101,6 @@ def test_decision_note_preserves_source_and_claim_boundaries() -> None:
         "0.02 eV\n0.03 eV\n0.04 eV",
         "does not identify the sign or a unique magnitude",
         "excluded from direct residual ranking of signed gap equations",
-        "does not establish:\n\n- the corrected signed gap",
+        "This audit does not establish:\n\n- the corrected signed gap",
     )
     assert all(token in text for token in required)
