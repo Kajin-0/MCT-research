@@ -14,7 +14,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #17 — Seiler two-photon magnetoabsorption dataset;
 - #20 — Camassel LPE composition series;
 - #256 — Seiler source-state and specimen-provenance reconciliation;
-- #258 — Camassel Table I specimen and excitonic-edge reconstruction.
+- #258 — Camassel Table I specimen and excitonic-edge reconstruction;
+- #260 — Camassel deterministic composition-envelope evaluation.
 
 ## Completed foundations
 
@@ -25,7 +26,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - explicit measurement-class and provenance labels;
 - signed-gap evaluation usable by downstream programs;
 - specimen-level Seiler 1990 TPMA reconstruction;
-- specimen- and modality-resolved Camassel 1988 Cd-rich reconstruction.
+- specimen- and modality-resolved Camassel 1988 Cd-rich reconstruction;
+- bounded Camassel forward evaluation without parameter fitting.
 
 ## Hansen reconstruction state
 
@@ -219,26 +221,93 @@ with a maximum `33 meV` departure from linear interpolation at `x=0.5`. A cubic 
 
 This is an in-source fit result. The Camassel data are useful independent Cd-rich anchors relative to the earlier Hansen compilation, but they are not an independent held-out validation of the later Laurenti 1990 Cd-rich relation because they belong to the same experimental lineage.
 
-### Immediate decision
+## Camassel deterministic composition-envelope result
 
-The acquisition and Table I transcription gate is complete. No static-law ranking is authorized by the source reconstruction alone.
+Issue #260 and draft PR #264 evaluate the published equations without fitting any coefficient, source offset, modality offset, or composition shift.
 
-Any next comparison must:
+For every Table I observation, each model is evaluated over
 
-- preserve eleven specimen groups and dual-modality dependence;
-- keep reflectivity and absorption measurement classes explicit;
-- test sensitivity to the interpretation of the source `0.005` composition accuracy rather than silently fixing a Gaussian covariance;
-- report whether model separations exceed the approximately `10 meV` source composition scale;
-- prevent Camassel/Laurenti lineage leakage in source-level holdouts.
+```text
+x_true in [x_reported - 0.005, x_reported + 0.005]
+```
+
+clipped to `[0,1]`.
+
+This interval is a deterministic source-accuracy sensitivity envelope. It is not a Gaussian distribution, standard-deviation posterior, likelihood, or confidence interval.
+
+The immutable outputs are:
+
+```text
+validation/camassel1988_composition_envelope_reference.json
+validation/camassel1988_composition_envelope_records.csv
+docs/insights/0028_camassel_composition_envelope.md
+```
+
+### Hansen within-domain external check
+
+Hansen’s fitted composition evidence was approximately `0 <= x <= 0.6` plus the CdTe endpoint, with the high-Cd composition behavior described as conjectural. The primary fair external checks are therefore the Camassel absorption-derived excitonic gaps at `x=0.50` and `x=0.55`.
+
+| Reported x | Camassel gap | Hansen nominal residual | Hansen minimum absolute residual over full x envelope |
+|---:|---:|---:|---:|
+| 0.50 | 0.6280 eV | +63.500 meV | 54.779646 meV |
+| 0.55 | 0.7010 eV | +48.208 meV | 39.234326 meV |
+
+Positive residual means `Camassel observed gap - model prediction > 0`.
+
+Neither residual can reach zero anywhere inside the declared source composition interval. Under the Camassel absorption-derived excitonic-gap definition, Hansen underpredicts both external within-domain observations by tens of meV even after the complete source-reported composition allowance is used.
+
+The result is source- and observable-conditioned. It is not a universal rejection of Hansen for every operational gap definition.
+
+### Provisional thermal-law diagnostic
+
+The provisional Hansen–Padé minimum residuals are:
+
+```text
+x=0.50   54.769089 meV
+x=0.55   39.118204 meV
+```
+
+At 2 K, the nonlinear thermal term is negligible and does not repair the inherited Hansen static composition discrepancy. This does not retract the Seiler thermal-shape result; it establishes that the zero-temperature composition polynomial is the controlling transfer limitation for these Camassel observations.
+
+### Laurenti lineage boundary
+
+Laurenti is descriptively closer across the reconstructed rows:
+
+```text
+all-observation nominal MAE
+Hansen 1982              39.578 meV
+Laurenti 1990            10.469 meV
+provisional Hansen-Pade  39.430 meV
+```
+
+This is not an independent validation of Laurenti. Camassel belongs to the experimental lineage used to construct the later Laurenti Cd-rich relation. The admissible interpretation is descriptive consistency within that source lineage.
+
+### Measurement-class dependence
+
+The two dual-modality specimens differ by:
+
+```text
+MCT49, x=0.88   reflectivity - absorption = +2.0 meV
+MCT47, x=0.78   reflectivity - absorption = -17.5 meV
+```
+
+The `17.5 meV` same-specimen difference is larger than many proposed refinements to analytical gap laws. Reflectivity and absorption observations cannot be pooled as interchangeable independent gaps without an explicit observation model.
+
+### Validation state
+
+The executable result contains 39 observation-model evaluations and zero fitted parameters. Exact CSV and compact-JSON regeneration pass. The focused workflow and complete Python 3.11/3.13 suites pass on the audited pre-ledger head, with `965` tests in each full suite.
+
+A final CI run is required on the state-ledger commit before Issue #260 is closed.
 
 ## Unresolved scientific questions
 
 - what datum-level evidence and edge definitions Hansen actually fitted;
-- whether the static zero-temperature composition law can be improved out of sample after composition uncertainty and measurement class are propagated;
+- which static composition law can predict the Camassel within-domain observations without source-lineage leakage or unjustified flexibility;
+- whether the Hansen/Camassel discrepancy persists for an independently measured observable closer to Hansen’s historical cutoff definitions;
 - whether independently composed fixed-specimen temperature series beyond Seiler sample 3 preserve the current thermal ranking;
-- whether Camassel reflectivity and absorption classes require an explicit observation offset or model discrepancy;
-- how composition calibration, carrier state, compensation, and measurement class affect residuals;
-- whether any analytical evolution outperforms historical relations across independent sources rather than one laboratory lineage.
+- what observation model explains the Camassel reflectivity–absorption difference;
+- how composition calibration, carrier state, compensation, strain, and measurement class affect residuals;
+- whether any analytical evolution transfers across independent sources rather than one laboratory lineage.
 
 ## Manuscript status
 
@@ -249,18 +318,20 @@ A future paper requires:
 1. a reconstructed or explicitly bounded primary dataset;
 2. specimen-preserving held-out validation;
 3. composition and measurement-class uncertainty propagated at the claim level;
-4. evidence stronger than another unconstrained polynomial or a fit to one source family.
+4. evidence stronger than another unconstrained polynomial or a fit to one source family;
+5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler and Camassel reconstructions do not by themselves authorize manuscript writing.
+The Seiler and Camassel results do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
 - continue the Hansen source-by-source specimen reconstruction;
-- run a predeclared specimen- and source-preserving static composition comparison using Camassel only after uncertainty semantics are specified;
-- treat Camassel as independent of Hansen but dependent on the later Laurenti Cd-rich lineage;
+- seek an independent low-temperature static-composition source that is not in the Camassel/Laurenti lineage;
+- test simple predeclared static laws under source-level holdout only after an independent source exists;
+- construct an explicit reflectivity-versus-absorption observation model only if another dataset can constrain it;
 - obtain additional independently composed temperature series or author data;
 - quantify whether model separations exceed composition and edge-definition uncertainty;
-- audit close prior art before any novelty claim for the provisional thermal reparameterization.
+- audit close prior art before any novelty claim for a replacement static law or the provisional thermal reparameterization.
 
 ## Unsupported claims
 
@@ -268,6 +339,10 @@ This program does not currently support:
 
 - a new universal HgCdTe bandgap equation;
 - production use of the provisional Hansen–Padé model;
+- universal rejection of Hansen for every measurement definition;
+- independent validation of Laurenti by Camassel 1988;
+- Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
+- treating composition as the only uncertainty in Camassel Table I;
 - sub-meV superiority inferred from heterogeneous or dependent compositions;
 - treating samples 1 and 2 as independent Seiler composition-law validation;
 - treating Figure 7 digitization bounds as experimental covariance;
@@ -279,7 +354,7 @@ This program does not currently support:
 - identifying `alpha` or `tau` as microscopic phonon parameters;
 - treating optical cutoff, PL peak, TPMA gap, reflectivity exciton-polariton gap, absorption excitonic gap, and intrinsic gap as interchangeable;
 - fitting additional flexibility without held-out evidence;
-- manuscript or submission readiness from one or two source families.
+- production-equation, manuscript, or submission readiness from the current source set.
 
 ## Shared dependencies
 

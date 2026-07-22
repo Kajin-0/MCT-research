@@ -1,0 +1,187 @@
+{
+  "analysis": "Camassel 1988 deterministic composition-accuracy envelope without parameter fitting",
+  "claim_boundary": [
+    "The x=0.50 and x=0.55 Camassel absorption-derived excitonic gaps are external observations inside Hansen's stated fitted composition range.",
+    "The incompatibility is conditioned on the Camassel excitonic-gap definition and the deterministic x +/- 0.005 sensitivity envelope.",
+    "Laurenti is descriptively closer but belongs to the Camassel experimental lineage and is not held out.",
+    "The provisional Hansen-Pade thermal term is negligible at 2 K and inherits the Hansen static composition discrepancy.",
+    "No probability distribution, p-value, chi-square, source offset, composition shift, or fitted parameter is introduced."
+  ],
+  "fitted_parameter_count": 0,
+  "hansen_within_domain_focus": {
+    "x_0p50": {
+      "hansen_1982": {
+        "minimum_absolute_residual_mev": 54.779646,
+        "model_domain_status": "within_declared_composition_evidence",
+        "nominal_residual_mev": 63.5,
+        "residual_interval_max_mev": 72.198454,
+        "residual_interval_min_mev": 54.779646,
+        "zero_residual_reachable": false
+      },
+      "laurenti_1990": {
+        "minimum_absolute_residual_mev": 0.0,
+        "model_domain_status": "source_lineage_dependent_not_heldout",
+        "nominal_residual_mev": 9.499615795,
+        "residual_interval_max_mev": 19.040901075,
+        "residual_interval_min_mev": -0.048277944,
+        "zero_residual_reachable": true
+      },
+      "provisional_hansen_pade": {
+        "minimum_absolute_residual_mev": 54.769089413,
+        "model_domain_status": "provisional_thermal_reparameterization_inherits_hansen_static_law;within_declared_composition_evidence",
+        "nominal_residual_mev": 63.5,
+        "residual_interval_max_mev": 72.209010587,
+        "residual_interval_min_mev": 54.769089413,
+        "zero_residual_reachable": false
+      }
+    },
+    "x_0p55": {
+      "hansen_1982": {
+        "minimum_absolute_residual_mev": 39.234326,
+        "model_domain_status": "within_declared_composition_evidence",
+        "nominal_residual_mev": 48.208,
+        "residual_interval_max_mev": 57.153534,
+        "residual_interval_min_mev": 39.234326,
+        "zero_residual_reachable": false
+      },
+      "laurenti_1990": {
+        "minimum_absolute_residual_mev": 3.669311718,
+        "model_domain_status": "source_lineage_dependent_not_heldout",
+        "nominal_residual_mev": -13.276674032,
+        "residual_interval_max_mev": -3.669311718,
+        "residual_interval_min_mev": -22.890643207,
+        "zero_residual_reachable": false
+      },
+      "provisional_hansen_pade": {
+        "minimum_absolute_residual_mev": 39.118203546,
+        "model_domain_status": "provisional_thermal_reparameterization_inherits_hansen_static_law;within_declared_composition_evidence",
+        "nominal_residual_mev": 48.102434133,
+        "residual_interval_max_mev": 57.058524719,
+        "residual_interval_min_mev": 39.118203546,
+        "zero_residual_reachable": false
+      }
+    }
+  },
+  "model_lineage": {
+    "hansen_1982": "external_source_check_with_domain_limits",
+    "laurenti_1990": "camassel_lineage_dependent_not_heldout",
+    "provisional_hansen_pade": "diagnostic_only_inherits_hansen_zero_temperature_composition_law"
+  },
+  "record_count": 39,
+  "same_specimen_modality_differences": [
+    {
+      "absolute_difference_mev": 2.0,
+      "composition_x_reported": 0.88,
+      "independent_specimen_count": 1,
+      "reflectivity_minus_absorption_mev": 2.0,
+      "specimen_id": "camassel1988_mct49"
+    },
+    {
+      "absolute_difference_mev": 17.5,
+      "composition_x_reported": 0.78,
+      "independent_specimen_count": 1,
+      "reflectivity_minus_absorption_mev": -17.5,
+      "specimen_id": "camassel1988_mct47"
+    }
+  ],
+  "schema_version": "1.0",
+  "scientific_decision": {
+    "hansen_incompatible_at_x_0p50_across_envelope": true,
+    "hansen_incompatible_at_x_0p55_across_envelope": true,
+    "laurenti_independently_validated": false,
+    "manuscript_authorized": false,
+    "measurement_classes_poolable_without_observation_model": false,
+    "production_equation_authorized": false,
+    "provisional_thermal_term_repairs_static_discrepancy": false
+  },
+  "source": {
+    "composition_accuracy_interpretation": "source_reported_standard_accuracy_used_as_deterministic_sensitivity_envelope_not_gaussian_sigma",
+    "composition_accuracy_x": 0.005,
+    "doi": "10.1103/PhysRevB.38.3948",
+    "pointwise_energy_covariance": "not_reported",
+    "temperature_k": 2.0
+  },
+  "summaries": {
+    "hansen_1982": {
+      "all_observations_descriptive_only": {
+        "count": 13,
+        "mae_mev": 39.578014154,
+        "maximum_absolute_mev": 86.231904,
+        "mean_signed_mev": 26.203588,
+        "rmse_mev": 46.034027612
+      },
+      "by_modality_descriptive_only": {
+        "absorption_derivative": {
+          "count": 7,
+          "mae_mev": 54.455033143,
+          "maximum_absolute_mev": 86.231904,
+          "mean_signed_mev": 54.455033143,
+          "rmse_mev": 58.137603269
+        },
+        "reflectivity": {
+          "count": 6,
+          "mae_mev": 22.221492,
+          "maximum_absolute_mev": 42.93,
+          "mean_signed_mev": -6.756431333,
+          "rmse_mev": 25.458612424
+        }
+      },
+      "observation_count": 13,
+      "zero_residual_reachable_count": 1
+    },
+    "laurenti_1990": {
+      "all_observations_descriptive_only": {
+        "count": 13,
+        "mae_mev": 10.468705277,
+        "maximum_absolute_mev": 30.855640884,
+        "mean_signed_mev": -6.23142595,
+        "rmse_mev": 12.900353063
+      },
+      "by_modality_descriptive_only": {
+        "absorption_derivative": {
+          "count": 7,
+          "mae_mev": 11.360630963,
+          "maximum_absolute_mev": 18.026590781,
+          "mean_signed_mev": -3.496000513,
+          "rmse_mev": 12.040624567
+        },
+        "reflectivity": {
+          "count": 6,
+          "mae_mev": 9.42812531,
+          "maximum_absolute_mev": 30.855640884,
+          "mean_signed_mev": -9.422755628,
+          "rmse_mev": 13.836015437
+        }
+      },
+      "observation_count": 13,
+      "zero_residual_reachable_count": 6
+    },
+    "provisional_hansen_pade": {
+      "all_observations_descriptive_only": {
+        "count": 13,
+        "mae_mev": 39.43022194,
+        "maximum_absolute_mev": 85.978545918,
+        "mean_signed_mev": 25.59293006,
+        "rmse_mev": 45.933397146
+      },
+      "by_modality_descriptive_only": {
+        "absorption_derivative": {
+          "count": 7,
+          "mae_mev": 54.078012188,
+          "maximum_absolute_mev": 85.978545918,
+          "mean_signed_mev": 54.078012188,
+          "rmse_mev": 57.843459994
+        },
+        "reflectivity": {
+          "count": 6,
+          "mae_mev": 22.341133316,
+          "maximum_absolute_mev": 43.985658673,
+          "mean_signed_mev": -7.639665757,
+          "rmse_mev": 25.843566593
+        }
+      },
+      "observation_count": 13,
+      "zero_residual_reachable_count": 1
+    }
+  }
+}

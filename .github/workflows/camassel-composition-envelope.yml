@@ -1,0 +1,108 @@
+name: camassel-composition-envelope
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/camassel-composition-envelope.yml'
+      - 'data/experimental/camassel1988_specimens.csv'
+      - 'data/experimental/camassel1988_table1_observations.csv'
+      - 'docs/insights/0028_camassel_composition_envelope.md'
+      - 'tests/test_camassel1988_composition_envelope.py'
+      - 'tools/analyze_camassel1988_composition_envelope.py'
+      - 'validation/camassel1988_composition_envelope_records.csv'
+      - 'validation/camassel1988_composition_envelope_reference.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Run focused tests
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_camassel1988_composition_envelope.py \
+            2>&1 | tee /tmp/camassel-composition-envelope-pytest.log
+      - name: Regenerate observation records
+        run: |
+          python tools/analyze_camassel1988_composition_envelope.py \
+            --output-json /tmp/camassel-full-result.json \
+            --output-csv /tmp/camassel-records.csv \
+            > /tmp/camassel-analysis-stdout.json
+          diff -u \
+            validation/camassel1988_composition_envelope_records.csv \
+            /tmp/camassel-records.csv
+      - name: Regenerate compact immutable reference
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from tools.analyze_camassel1988_composition_envelope import (
+              analyze,
+              quantize_for_serialization,
+          )
+
+          result = analyze(
+              'data/experimental/camassel1988_specimens.csv',
+              'data/experimental/camassel1988_table1_observations.csv',
+          )
+          payload = {
+              key: value for key, value in result.items() if key != 'records'
+          } | {'record_count': len(result['records'])}
+          text = json.dumps(
+              quantize_for_serialization(payload),
+              indent=2,
+              sort_keys=True,
+          ) + '\n'
+          Path('/tmp/camassel-reference.json').write_text(text, encoding='utf-8')
+          PY
+          diff -u \
+            validation/camassel1988_composition_envelope_reference.json \
+            /tmp/camassel-reference.json
+      - name: Assert tranche file boundary
+        if: github.head_ref == 'agent/camassel-composition-envelope'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
+            | sort > /tmp/changed-files.txt
+          cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/camassel-composition-envelope.yml
+          docs/insights/0028_camassel_composition_envelope.md
+          research/programs/empirical_bandgap/state.md
+          tests/test_camassel1988_composition_envelope.py
+          tools/analyze_camassel1988_composition_envelope.py
+          validation/camassel1988_composition_envelope_records.csv
+          validation/camassel1988_composition_envelope_reference.json
+          EOF
+          sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
+          unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: camassel-composition-envelope
+          path: |
+            /tmp/camassel-composition-envelope-pytest.log
+            /tmp/camassel-full-result.json
+            /tmp/camassel-records.csv
+            /tmp/camassel-reference.json
+            validation/camassel1988_composition_envelope_reference.json
+            validation/camassel1988_composition_envelope_records.csv
+            docs/insights/0028_camassel_composition_envelope.md
+          if-no-files-found: error
+          retention-days: 30
