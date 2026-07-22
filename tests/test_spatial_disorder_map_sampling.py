@@ -131,12 +131,12 @@ def test_spacing_restores_independent_information() -> None:
     ]
     assert all(
         left.map_mean_effective_sample_count < right.map_mean_effective_sample_count
-        for left, right in zip(results, results[1:], strict=True)
+        for left, right in zip(results, results[1:])
     )
     assert all(
         left.variance_effective_degrees_of_freedom
         < right.variance_effective_degrees_of_freedom
-        for left, right in zip(results, results[1:], strict=True)
+        for left, right in zip(results, results[1:])
     )
     assert abs(results[-1].naive_sample_variance_relative_bias) < 2.0e-4
     assert results[-1].map_mean_effective_sample_count > 98.0
@@ -152,7 +152,11 @@ def test_fixed_field_of_view_oversampling_adds_negligible_information() -> None:
         covariance, kernel, (20, 20), 0.25
     )[1]
     assert (coarse.nominal_sample_count, fine.nominal_sample_count) == (100, 400)
-    assert fine.map_mean_effective_sample_count / coarse.map_mean_effective_sample_count < 1.004
+    assert (
+        fine.map_mean_effective_sample_count
+        / coarse.map_mean_effective_sample_count
+        < 1.004
+    )
     assert abs(
         fine.naive_sample_variance_relative_bias
         - coarse.naive_sample_variance_relative_bias
@@ -180,7 +184,9 @@ def test_unit_translation_and_permutation_invariance() -> None:
     right = gaussian_map_sampling_diagnostics(
         reference[np.ix_(permutation, permutation)]
     )
-    assert right.map_mean_variance == pytest.approx(left.map_mean_variance, rel=2.0e-14)
+    assert right.map_mean_variance == pytest.approx(
+        left.map_mean_variance, rel=2.0e-14
+    )
     assert right.naive_sample_variance_expectation == pytest.approx(
         left.naive_sample_variance_expectation, rel=2.0e-14
     )
@@ -193,7 +199,9 @@ def test_quadratic_form_moments_match_monte_carlo() -> None:
     covariance = GaussianCovariance.isotropic(1.0, 2.0, 2)
     kernel = GaussianKernel.isotropic(0.8, 2)
     positions = regular_grid_positions((4, 4), 1.0)
-    matrix = np.asarray(gaussian_map_covariance_matrix(covariance, positions, kernel))
+    matrix = np.asarray(
+        gaussian_map_covariance_matrix(covariance, positions, kernel)
+    )
     exact = gaussian_map_sampling_diagnostics(matrix)
 
     generator = np.random.default_rng(20260722)
@@ -202,7 +210,9 @@ def test_quadratic_form_moments_match_monte_carlo() -> None:
     )
     means = np.mean(samples, axis=1)
     variances = np.var(samples, axis=1, ddof=1)
-    assert np.var(means, ddof=1) == pytest.approx(exact.map_mean_variance, rel=0.025)
+    assert np.var(means, ddof=1) == pytest.approx(
+        exact.map_mean_variance, rel=0.025
+    )
     assert np.mean(variances) == pytest.approx(
         exact.naive_sample_variance_expectation, rel=0.015
     )
