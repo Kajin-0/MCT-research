@@ -1,27 +1,9 @@
 name: cdte-a0-zeu-zue-diagnostic
 
+# The one authorized real execution completed in run 29944282253.
+# Pull-request execution is disabled to enforce the no-retry decision.
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/cdte-a0-zeu-zue-diagnostic.yml'
-      - 'first_principles/a0/cdte_a0_zeu_zue_contract.json'
-      - 'first_principles/a0/cdte_a0_run_spec.json'
-      - 'first_principles/a0/cdte_pseudopotential_selection.json'
-      - 'first_principles/a0/templates/cdte_qe_scf_stricter_response.in.template'
-      - 'first_principles/a0/templates/cdte_qe_ph_gamma_stricter_response.in.template'
-      - 'tools/check_cdte_a0_readiness.py'
-      - 'tools/render_first_principles_input.py'
-      - 'tools/render_cdte_a0_runtime_inputs.py'
-      - 'tools/render_cdte_a0_stricter_response.py'
-      - 'tools/extract_qe_ks_energies.py'
-      - 'tools/analyze_cdte_a0_zeu_zue.py'
-      - 'tools/run_cdte_a0_zeu_zue_ci.sh'
-      - 'tests/test_cdte_a0_zeu_zue.py'
   workflow_dispatch:
-
-concurrency:
-  group: cdte-a0-zeu-zue-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -29,39 +11,18 @@ permissions:
 jobs:
   bounded-diagnostic:
     runs-on: ubuntu-24.04
-    timeout-minutes: 180
-    env:
-      DEBIAN_FRONTEND: noninteractive
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
 
-      - name: Install build and analysis dependencies
+      - name: Validate repository parser and tests only
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            build-essential gfortran make cmake git ca-certificates \
-            python3-venv python3-pip python3-numpy pkg-config file time \
-            libopenblas-dev liblapack-dev libfftw3-dev
-          python -m pip install --upgrade pip
           python -m pip install -e ".[test]"
+          python -m pytest -vv tests/test_cdte_a0_zeu_zue.py
 
-      - name: Validate bounded implementation
+      - name: Refuse automatic scientific rerun
         run: |
-          mkdir -p cdte-a0-zeu-zue-evidence/validated
-          set -o pipefail
-          python -m pytest -vv tests/test_cdte_a0_zeu_zue.py 2>&1 \
-            | tee cdte-a0-zeu-zue-evidence/validated/focused-pytest.txt
-
-      - name: Execute one SCF and two fixed response routes
-        run: bash tools/run_cdte_a0_zeu_zue_ci.sh
-
-      - name: Upload zeu-zue evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cdte-a0-zeu-zue-evidence
-          path: cdte-a0-zeu-zue-evidence
-          if-no-files-found: error
-          retention-days: 30
-          compression-level: 6
+          echo "The authorized real diagnostic already completed in run 29944282253."
+          echo "No retry, convergence sweep, altered calculation, or A1 work is authorized."
+          exit 1
