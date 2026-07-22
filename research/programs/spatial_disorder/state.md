@@ -5,7 +5,7 @@
 
 ## Objective
 
-Determine how a spatially correlated HgCdTe composition field combines with finite lateral and depth measurement kernels to control apparent composition variance, gap width, optical response, and detector cutoff.
+Determine how a spatially correlated HgCdTe composition field combines with finite lateral and depth measurement kernels, instrument calibration, covariance-family uncertainty, observation operators, and finite-map sampling to control apparent composition variance, gap width, optical response, detector cutoff, and recoverable information.
 
 ## Controlling issues
 
@@ -16,7 +16,8 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 - #224 — Gaussian-surrogate bias and pairwise drift under covariance misspecification;
 - #228 — composite optical, pixel, and finite-depth instrument kernel;
 - #230 — optimal multiscale repeat allocation;
-- #232 — joint instrument, covariance-family, fitting, and observation-operator identifiability.
+- #232 — joint instrument, covariance-family, fitting, and observation-operator identifiability;
+- #234 — correlated-map effective sample size and variance-estimator bias.
 
 ## Completed implementation tranches
 
@@ -32,7 +33,8 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 - PR #227 — pairwise Gaussian-parameter drift and global-surrogate bias;
 - PR #229 — composite optical-PSF, pixel, and absorption-depth kernel;
 - PR #231 — optimal repeat allocation and three-scale precision/falsification compromise;
-- PR #233 — joint identifiability envelope across instrument, family, fit, and observation operators.
+- PR #233 — joint identifiability envelope across instrument, family, fit, and observation operators;
+- PR #236 — exact filtered-map cross covariance, effective sample size, and correlated sample-variance moments.
 
 Representative modules:
 
@@ -50,6 +52,7 @@ src/mct_research/spatial_disorder_covariance_bias.py
 src/mct_research/spatial_disorder_instrument.py
 src/mct_research/spatial_disorder_allocation.py
 src/mct_research/spatial_disorder_joint_identifiability.py
+src/mct_research/spatial_disorder_map_sampling.py
 src/mct_research/spatial_disorder_posterior.py
 ```
 
@@ -72,7 +75,7 @@ $$
 =-\frac{\partial V}{\partial\log\xi}.
 $$
 
-A common multiplicative scale-calibration error is therefore exactly confounded with absolute correlation length. With independent common log-scale calibration variance $\tau_s^2$,
+A common multiplicative scale-calibration error is exactly confounded with absolute correlation length. With independent common log-scale calibration variance $\tau_s^2$,
 
 $$
 \operatorname{Var}(\log\xi_{\rm absolute})
@@ -92,7 +95,7 @@ $$
 \frac{1}{A}+\frac{2}{A\xi^2}s^2.
 $$
 
-Two scales estimate the Gaussian parameters but cannot test the family. A third scale supplies the first exact closure test.
+Two scales estimate Gaussian parameters but cannot test the family. A third scale supplies the first exact closure test.
 
 For the declared broad five-scale misspecification design, Matérn $\nu=1/2$ truth forced through a Gaussian inverse gives:
 
@@ -103,7 +106,7 @@ best Gaussian A_fit/A_true           0.8351
 best Gaussian xi_fit/ell             1.0406
 ```
 
-The inferred Gaussian parameters are therefore scale-selection- and fitting-convention-dependent when the covariance family is wrong.
+The inferred Gaussian parameters are scale-selection- and fitting-convention-dependent when the covariance family is wrong.
 
 ### Composite instrument kernel
 
@@ -115,7 +118,7 @@ convolved with rectangular pixel or scan-bin integration
 multiplied by finite-slab exponential depth weighting.
 ```
 
-For axis-aligned separable Gaussian covariance, the measured-to-point variance ratio factorizes as
+For axis-aligned separable Gaussian covariance,
 
 $$
 \frac{\operatorname{Var}(X_w)}{A}=F_xF_yF_z.
@@ -123,7 +126,7 @@ $$
 
 In the controlled reference case, the complete kernel transmits `0.162585` of point variance. Replacing the lateral kernel by a moment-matched Gaussian changes the result by `1.116%`, while the declared instrument calibration budget produces `5.35%` relative uncertainty.
 
-Across the declared 42-case stress grid, 18 cases exceed 1% moment-matched-Gaussian error and the maximum reaches `9.045%`. Kernel shape must therefore remain explicit in pixel-dominated regimes.
+Across the declared 42-case stress grid, 18 cases exceed 1% moment-matched-Gaussian error and the maximum reaches `9.045%`. Kernel shape must remain explicit in pixel-dominated regimes.
 
 ### Optimal repeat allocation
 
@@ -159,7 +162,7 @@ C_{\rm observation}
 +b_{\rm operator}b_{\rm operator}^T.
 $$
 
-For each supported covariance family and Gaussian fitting convention, it reports the rank-aware standardized separation
+For each supported covariance family and Gaussian fitting convention, it reports
 
 $$
 \Delta^2=r^T C_{\rm total}^{+}r.
@@ -184,20 +187,68 @@ Matérn nu=3/2       3.030 to 3.113          resolved, marginal
 Matérn nu=5/2       1.954 to 1.987          observation limited
 ```
 
-The result is unchanged under weighted log-variance and weighted reciprocal-variance fitting at the declared threshold, although the fitted Gaussian parameters differ by convention.
+The classification is unchanged between weighted log-variance and weighted reciprocal-variance fitting at the declared threshold, although the fitted Gaussian parameters differ by convention.
 
 For this controlled design:
 
 - instrument calibration modestly reduces separation;
 - exact-versus-moment-matched kernel shape modestly reduces separation;
 - transmission and cutoff operation-order uncertainty modestly reduce separation;
-- the smooth Matérn $\nu=5/2$ alternative is not identifiable because it is already below threshold with observation noise alone.
+- the smooth Matérn $\nu=5/2$ alternative is already below threshold with observation noise alone.
 
 This is a design-level conclusion, not a specimen covariance-family result. The Matérn calculation uses supported lateral covariance families with a common Gaussian finite-depth factor; it is not an exact rectangular-pixel three-dimensional Matérn theorem.
 
+### Correlated finite-map sampling
+
+For Gaussian material covariance matrix $\Lambda$, Gaussian kernel covariance matrices $\Sigma_i$ and $\Sigma_j$, and measurement-center displacement $\Delta\mathbf r$,
+
+$$
+\operatorname{Cov}(X_i,X_j)
+=
+A\sqrt{\frac{\det\Lambda}{\det(\Lambda+\Sigma_i+\Sigma_j)}}
+\exp\left[-\frac12\Delta\mathbf r^T
+(\Lambda+\Sigma_i+\Sigma_j)^{-1}\Delta\mathbf r\right].
+$$
+
+The equal-kernel zero-separation limit recovers the established filtered-variance theorem.
+
+For a Gaussian map vector $\mathbf y\sim\mathcal N(0,C)$ and centering matrix $P=I-\mathbf1\mathbf1^T/n$,
+
+$$
+\operatorname{Var}(\bar y)=\frac{\mathbf1^TC\mathbf1}{n^2},
+$$
+
+$$
+\mathbb E[s_{\rm naive}^2]=\frac{\operatorname{tr}(PC)}{n-1},
+$$
+
+and
+
+$$
+\operatorname{Var}(s_{\rm naive}^2)
+=\frac{2\operatorname{tr}[(PC)^2]}{(n-1)^2}.
+$$
+
+The controlled `10 x 10` map with point composition standard deviation `0.005`, $\ell=2\,\mu\mathrm m$, Gaussian probe standard deviation `1 µm`, and `0.5 µm` pixel spacing gives:
+
+```text
+nominal pixels                         100
+map-mean effective sample count       1.7377
+E[naive map variance]/marginal        0.4288
+variance effective degrees freedom    3.4783
+```
+
+Thus the ordinary map variance underestimates the marginal filtered variance by approximately 57% in this dense controlled case.
+
+At approximately fixed field of view, increasing from `10 x 10` pixels at `0.5 µm` spacing to `20 x 20` pixels at `0.25 µm` spacing raises nominal pixel count by `4x` but increases map-mean effective information by only `0.290%`.
+
+The repeat counts in the allocation theorem represent independent realizations or covariance-weighted information. Nominal raster pixels must not be substituted as independent repeats.
+
+The effective variance degrees of freedom are moment matched. They are not an exact chi-square law for an arbitrary correlated covariance spectrum.
+
 ## Current scientific interpretation
 
-The analytical and synthetic infrastructure is now sufficiently broad to state what a credible experiment must report:
+The analytical and synthetic infrastructure now specifies what a credible experiment must report:
 
 1. at least three independently characterized effective scales;
 2. measured or specified PSF and pixel integration rather than nominal pitch alone;
@@ -206,7 +257,9 @@ The analytical and synthetic infrastructure is now sufficiently broad to state w
 5. fitting-convention sensitivity under misspecification;
 6. observation-operator ordering for transmission or cutoff;
 7. shared calibration covariance across scales;
-8. a predeclared separation or termination threshold.
+8. sample-center geometry and the full within-map covariance, or independently justified sampling separation;
+9. independent-map or covariance-weighted information counts rather than nominal pixel counts;
+10. a predeclared separation or termination threshold.
 
 The main bottleneck is no longer missing analytical machinery. It is external specification and validation.
 
@@ -221,12 +274,13 @@ Completed controlled gates:
 - covariance-family falsification and misspecification bias;
 - representative composite instrument kernel;
 - optimal repeat allocation;
-- joint calibration/family/fit/operator uncertainty envelope.
+- joint calibration/family/fit/operator uncertainty envelope;
+- exact Gaussian finite-map covariance and correlated-sampling diagnostics.
 
 Remaining authorization gates:
 
 1. complete the finite-aperture full-text prior-art audit;
-2. obtain or declare one experimentally specified PSF, pixel geometry, thickness, absorption coefficient, and calibrated scale range;
+2. obtain or declare one experimentally specified PSF, pixel geometry, thickness, absorption coefficient, calibrated scale range, raster geometry, and sampling covariance;
 3. identify one public-data or experimentally specified multiresolution validation path;
 4. test the combined model against that path;
 5. prepare a concise theorem-centered figure and claim plan.
@@ -234,9 +288,9 @@ Remaining authorization gates:
 ## Authorized next gates
 
 - complete PR #223 or explicitly record the unavailable-source boundary;
-- define an experimental specification record for one real or planned instrument;
+- define an experimental specification record for one real or planned instrument and map geometry;
 - ingest or construct a provenance-controlled multiresolution dataset;
-- run the joint envelope with measured instrument covariance and observation uncertainty;
+- run the joint envelope with measured instrument covariance, observation uncertainty, and map covariance;
 - test whether multiple modalities from one specimen can be predicted from one latent spatial field;
 - reassess manuscript authorization only after those results.
 
@@ -248,6 +302,8 @@ This program does not currently support:
 - a universal Gaussian or Matérn covariance law;
 - a universal Gaussian optical PSF or rectangular-pixel model;
 - replacing a measured point-spread function with nominal pixel pitch;
+- treating nominal raster pixel count as independent repeat count;
+- treating moment-matched effective degrees of freedom as an exact chi-square distribution;
 - interpreting failure to reject Gaussian covariance as proof of Gaussian covariance;
 - interpreting pairwise parameter spread as a confidence interval;
 - reporting a misspecified Gaussian parameter without declaring the fitting loss and scale design;
@@ -263,7 +319,7 @@ This program does not currently support:
 
 This program uses empirical gap slopes, distributional absorption and cutoff operators, literature records, and validation infrastructure shared with other works.
 
-The covariance-family, bias, instrument, allocation, joint-identifiability, and posterior modules are additive shared infrastructure. They reuse established Gaussian prediction, recovery, depth filtering, family filtering, optical operators, and calibration definitions.
+The covariance-family, bias, instrument, allocation, joint-identifiability, map-sampling, and posterior modules are additive shared infrastructure. They reuse established Gaussian prediction, recovery, depth filtering, family filtering, optical operators, and calibration definitions.
 
 ## Stage-2 boundary
 
