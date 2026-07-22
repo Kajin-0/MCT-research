@@ -176,6 +176,22 @@ no reinterpretation of sigma, T0, or E0 as a latent gap distribution
 no R03 file modification
 ```
 
+## Repository-state integrity
+
+During this audit, the canonical R01 state ledger was found to have been replaced by a one-line placeholder in earlier stacked history. The complete known-good ledger was restored before the Finkman section was added.
+
+`tests/test_r01_state_integrity.py` now enforces:
+
+```text
+canonical title and R01 identity
+minimum byte and line counts
+presence of every major historical source section
+manuscript and production-equation claim boundaries
+explicit rejection of the placeholder value
+```
+
+The focused workflow runs this guard alongside the Finkman source tests. Future source tranches may extend the ledger, but a truncated or placeholder state can no longer pass the complete test suite silently.
+
 ## Claim boundary
 
 This source audit supports the experiment, optical inversion, modified-Urbach fit, fixed-alpha proxy, provenance conflict, and extrapolation limits stated above.
