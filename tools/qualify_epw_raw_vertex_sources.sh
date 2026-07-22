@@ -45,7 +45,11 @@ from pathlib import Path
 contract = json.loads(Path("first_principles/b0/r02_epw_raw_vertex_fixture_contract.json").read_text())
 assert contract["stage"] == "B0_epw_raw_vertex_fixture"
 assert contract["issue"] == 300
-assert contract["phase"] in {"source_qualification_only", "fixture_execution"}
+assert contract["phase"] in {
+    "source_qualification_only",
+    "patch_requalification_only",
+    "fixture_execution",
+}
 auth = contract["authorization"]
 assert auth["source_clone_and_hash"] is True
 assert auth["automatic_phase_transition"] is False
@@ -55,12 +59,21 @@ if contract["phase"] == "source_qualification_only":
     assert auth["observational_export_patch_application"] is False
     assert all(item["sha256"] is None for item in contract["source"]["required_files"].values())
     assert contract["observational_patch"]["sha256"] is None
+elif contract["phase"] == "patch_requalification_only":
+    assert auth["qe_epw_build"] is False
+    assert auth["upstream_fixture_execution"] is False
+    assert auth["observational_export_patch_application"] is False
+    assert all(len(item["sha256"]) == 64 for item in contract["source"]["required_files"].values())
+    assert len(contract["observational_patch"]["sha256"]) == 64
+    assert contract["source_qualification"]["current_patch_qualified"] is False
 else:
     assert auth["qe_epw_build"] is True
     assert auth["upstream_fixture_execution"] is True
     assert auth["observational_export_patch_application"] is True
     assert all(len(item["sha256"]) == 64 for item in contract["source"]["required_files"].values())
     assert len(contract["observational_patch"]["sha256"]) == 64
+    assert contract["source_qualification"]["current_patch_qualified"] is True
+    assert contract["source_qualification"]["observational_patch_sha256"] == contract["observational_patch"]["sha256"]
 assert contract["observational_patch"]["disabled_by_default"] is True
 assert contract["observational_patch"]["scientific_contraction_added"] is False
 PY
