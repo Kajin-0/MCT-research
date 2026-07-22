@@ -19,13 +19,14 @@ PATCH = ROOT / "patches/qe76-epw61-r02-raw-vertex-export.patch"
 RYD2EV = 13.605693122994
 
 
-def _write_contract(tmp_path: Path) -> Path:
+def _write_contract(tmp_path: Path, *, phase: str = "fixture_execution") -> Path:
     contract = json.loads(BASE_CONTRACT.read_text(encoding="utf-8"))
-    contract["phase"] = "fixture_execution"
-    contract["authorization"]["qe_epw_build"] = True
-    contract["authorization"]["upstream_fixture_execution"] = True
-    contract["authorization"]["observational_export_patch_application"] = True
-    path = tmp_path / "contract.json"
+    contract["phase"] = phase
+    if phase == "source_qualification_only":
+        contract["authorization"]["qe_epw_build"] = False
+        contract["authorization"]["upstream_fixture_execution"] = False
+        contract["authorization"]["observational_export_patch_application"] = False
+    path = tmp_path / f"contract-{phase}.json"
     path.write_text(json.dumps(contract, indent=2) + "\n", encoding="utf-8")
     return path
 
@@ -137,7 +138,7 @@ def test_analyzer_rejects_prequalification_contract_phase(tmp_path: Path) -> Non
             _write_raw(tmp_path),
             _write_stdout(tmp_path, "disabled.out"),
             _write_stdout(tmp_path, "enabled.out"),
-            BASE_CONTRACT,
+            _write_contract(tmp_path, phase="source_qualification_only"),
         )
 
 
