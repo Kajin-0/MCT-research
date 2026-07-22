@@ -1,0 +1,347 @@
+{
+  "claim_boundaries": [
+    "The alternative-family calculation uses supported lateral Matérn covariance with a common Gaussian finite-depth factor.",
+    "The exact composite-kernel versus moment-matched Gaussian discrepancy is represented as a declared systematic direction.",
+    "Rank-one systematic covariance terms are an envelope convention, not a unique probability model.",
+    "Mahalanobis distance is a standardized design separation, not a posterior probability or discovery significance.",
+    "No specimen covariance family, point variance, correlation length, experimental validation, novelty claim, or manuscript authorization is established."
+  ],
+  "design": {
+    "depth_correlation_length": 2.0,
+    "depth_ratios": [
+      0.6644455179635949,
+      0.6644455179635949,
+      0.6644455179635949
+    ],
+    "equivalent_probe_sigmas": [
+      0.23094010767585033,
+      1.1547005383792515,
+      4.618802153517006
+    ],
+    "instrument_log_standard_deviations": [
+      0.05,
+      0.05,
+      0.01,
+      0.01,
+      0.1,
+      0.05
+    ],
+    "instrument_log_variance_covariance": [
+      [
+        0.0016854161492547005,
+        0.001712770767449908,
+        0.0017494139956524314
+      ],
+      [
+        0.001712770767449908,
+        0.002132743047402023,
+        0.002695328577854965
+      ],
+      [
+        0.0017494139956524314,
+        0.002695328577854965,
+        0.003962477195863059
+      ]
+    ],
+    "kernel_shape_log_shifts": [
+      -6.344394128277031e-06,
+      -0.0015705327405832747,
+      -0.008640802189082919
+    ],
+    "lateral_correlation_length": 2.0,
+    "observation_log_standard_deviations": [
+      0.03,
+      0.03,
+      0.03
+    ],
+    "point_variance": 2.5e-05,
+    "threshold_distance": 3.0
+  },
+  "headline": {
+    "classification": "Matern nu=1/2 and nu=3/2 remain resolved under the full declared envelope; nu=5/2 is observation limited",
+    "convention_sensitive_families": [],
+    "matern_0.5_full_distance_range": [
+      6.187429326282437,
+      6.571303802447062
+    ],
+    "matern_1.5_full_distance_range": [
+      3.0299913445153366,
+      3.1132740184887817
+    ],
+    "matern_2.5_full_distance_range": [
+      1.9535703970338036,
+      1.9868875119444287
+    ]
+  },
+  "implementation_issue": 232,
+  "model": {
+    "depth_covariance": "common Gaussian finite-depth factor",
+    "fitting_conventions": [
+      "weighted log variance",
+      "weighted reciprocal variance"
+    ],
+    "kernel_reduction": "moment-matched Gaussian with exact composite-Gaussian shift retained as a systematic",
+    "lateral_covariance_families": [
+      "Gaussian",
+      "Matern nu=1/2",
+      "Matern nu=3/2",
+      "Matern nu=5/2"
+    ],
+    "separation_metric": "rank-aware Mahalanobis distance"
+  },
+  "portfolio_contribution": "R04",
+  "program_issue": 196,
+  "schema_version": "1.0",
+  "screens": {
+    "log_cutoff_energy": {
+      "convention_sensitive_families": [],
+      "maximum_gaussian_self_distance": 0.0,
+      "observation_kind": "log_cutoff_energy",
+      "operator_closure_log_shifts": [
+        -0.046874614395428615,
+        -0.03645553922666345,
+        -0.013501371113117333
+      ],
+      "operator_log_variance_sensitivities": [
+        -0.009215414880081596,
+        -0.0072017086982789635,
+        -0.0027004238334349395
+      ],
+      "results": [
+        {
+          "calibration_added_distance": 6.310416253813024,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 2.0808064818623024,
+          "fitted_point_variance": 1.9186729103921774e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 6.300809655599186,
+          "kernel_shape_added_distance": 6.300892454496897,
+          "observation_only_distance": 6.313404730487734,
+          "true_family": "matern_0.5"
+        },
+        {
+          "calibration_added_distance": 6.382841618771823,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 2.0709673824256667,
+          "fitted_point_variance": 1.958131602261102e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 6.3583940143081925,
+          "kernel_shape_added_distance": 6.372677702031844,
+          "observation_only_distance": 6.465072259099161,
+          "true_family": "matern_0.5"
+        },
+        {
+          "calibration_added_distance": 3.063492722318081,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 1.9944860749867392,
+          "fitted_point_variance": 2.319207170402327e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 3.0585033121363656,
+          "kernel_shape_added_distance": 3.0585857321301133,
+          "observation_only_distance": 3.0637697152114587,
+          "true_family": "matern_1.5"
+        },
+        {
+          "calibration_added_distance": 3.072204906188206,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 1.9925045887552544,
+          "fitted_point_variance": 2.3306263524934713e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 3.0648987254503357,
+          "kernel_shape_added_distance": 3.0671797908216156,
+          "observation_only_distance": 3.0826342552265573,
+          "true_family": "matern_1.5"
+        },
+        {
+          "calibration_added_distance": 1.9684802104409667,
+          "decision": "observation_limited",
+          "fitted_correlation_length": 1.9914814711160131,
+          "fitted_point_variance": 2.3960979485863088e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 1.9653001795684424,
+          "kernel_shape_added_distance": 1.9653193353724292,
+          "observation_only_distance": 1.9685536826448673,
+          "true_family": "matern_2.5"
+        },
+        {
+          "calibration_added_distance": 1.9708109180248574,
+          "decision": "observation_limited",
+          "fitted_correlation_length": 1.9906446099286206,
+          "fitted_point_variance": 2.4010560474636383e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 1.9669919234259297,
+          "kernel_shape_added_distance": 1.9676008710393373,
+          "observation_only_distance": 1.9736367071163035,
+          "true_family": "matern_2.5"
+        }
+      ]
+    },
+    "log_transmission_effective_absorption": {
+      "convention_sensitive_families": [],
+      "maximum_gaussian_self_distance": 7.305711868584096e-13,
+      "observation_kind": "log_transmission_effective_absorption",
+      "operator_closure_log_shifts": [
+        0.04665686501683464,
+        0.024520074934087255,
+        0.003065143573787843
+      ],
+      "operator_log_variance_sensitivities": [
+        -0.08519528695405398,
+        -0.039175193595752944,
+        -0.004279350505065338
+      ],
+      "results": [
+        {
+          "calibration_added_distance": 6.488392441240899,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 2.0808064818623024,
+          "fitted_point_variance": 1.9186729103921774e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 6.445537034080655,
+          "kernel_shape_added_distance": 6.478217522939594,
+          "observation_only_distance": 6.502125863540494,
+          "true_family": "matern_0.5"
+        },
+        {
+          "calibration_added_distance": 6.661380235551381,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 2.0709673824256667,
+          "fitted_point_variance": 1.958131602261102e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 6.571303802447062,
+          "kernel_shape_added_distance": 6.650544971860001,
+          "observation_only_distance": 6.78509923655398,
+          "true_family": "matern_0.5"
+        },
+        {
+          "calibration_added_distance": 3.1116487344916703,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 1.9944860749867392,
+          "fitted_point_variance": 2.319207170402327e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 3.099177169974963,
+          "kernel_shape_added_distance": 3.106578399234044,
+          "observation_only_distance": 3.1133991533011725,
+          "true_family": "matern_1.5"
+        },
+        {
+          "calibration_added_distance": 3.133156597560348,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 1.9925045887552544,
+          "fitted_point_variance": 2.3306263524934713e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 3.1132740184887817,
+          "kernel_shape_added_distance": 3.1279658705400717,
+          "observation_only_distance": 3.1493558067963248,
+          "true_family": "matern_1.5"
+        },
+        {
+          "calibration_added_distance": 1.9891309698347015,
+          "decision": "observation_limited",
+          "fitted_correlation_length": 1.9914814711160131,
+          "fitted_point_variance": 2.3960979485863088e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 1.9832812186567734,
+          "kernel_shape_added_distance": 1.985905374273558,
+          "observation_only_distance": 1.9896196337647627,
+          "true_family": "matern_2.5"
+        },
+        {
+          "calibration_added_distance": 1.99501759111253,
+          "decision": "observation_limited",
+          "fitted_correlation_length": 1.9906446099286206,
+          "fitted_point_variance": 2.4010560474636383e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 1.9868875119444287,
+          "kernel_shape_added_distance": 1.9917419843088826,
+          "observation_only_distance": 1.999510931379269,
+          "true_family": "matern_2.5"
+        }
+      ]
+    },
+    "log_variance": {
+      "convention_sensitive_families": [],
+      "maximum_gaussian_self_distance": 7.018312820514612e-13,
+      "observation_kind": "log_variance",
+      "operator_closure_log_shifts": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "operator_log_variance_sensitivities": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "results": [
+        {
+          "calibration_added_distance": 6.196678158015352,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 2.0808064818623024,
+          "fitted_point_variance": 1.9186729103921774e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 6.187429326282437,
+          "kernel_shape_added_distance": 6.187429326282437,
+          "observation_only_distance": 6.197761804466443,
+          "true_family": "matern_0.5"
+        },
+        {
+          "calibration_added_distance": 6.210588548125207,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 2.0709673824256667,
+          "fitted_point_variance": 1.958131602261102e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 6.20074990825818,
+          "kernel_shape_added_distance": 6.20074990825818,
+          "observation_only_distance": 6.2708860171983,
+          "true_family": "matern_0.5"
+        },
+        {
+          "calibration_added_distance": 3.034834846255706,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 1.9944860749867392,
+          "fitted_point_variance": 2.319207170402327e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 3.0299913445153366,
+          "kernel_shape_added_distance": 3.0299913445153366,
+          "observation_only_distance": 3.0348651845353705,
+          "true_family": "matern_1.5"
+        },
+        {
+          "calibration_added_distance": 3.0364509972815603,
+          "decision": "resolved_under_full_envelope",
+          "fitted_correlation_length": 1.9925045887552544,
+          "fitted_point_variance": 2.3306263524934713e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 3.0314959380916147,
+          "kernel_shape_added_distance": 3.0314959380916147,
+          "observation_only_distance": 3.0440129494568597,
+          "true_family": "matern_1.5"
+        },
+        {
+          "calibration_added_distance": 1.9567006125567377,
+          "decision": "observation_limited",
+          "fitted_correlation_length": 1.9914814711160131,
+          "fitted_point_variance": 2.3960979485863088e-05,
+          "fitting_convention": "log_variance",
+          "full_envelope_distance": 1.9535703970338036,
+          "kernel_shape_added_distance": 1.9535703970338036,
+          "observation_only_distance": 1.9567162254280333,
+          "true_family": "matern_2.5"
+        },
+        {
+          "calibration_added_distance": 1.957145391255364,
+          "decision": "observation_limited",
+          "fitted_correlation_length": 1.9906446099286206,
+          "fitted_point_variance": 2.4010560474636383e-05,
+          "fitting_convention": "reciprocal_variance",
+          "full_envelope_distance": 1.9539674300851972,
+          "kernel_shape_added_distance": 1.9539674300851972,
+          "observation_only_distance": 1.9592273547793368,
+          "true_family": "matern_2.5"
+        }
+      ]
+    }
+  },
+  "status": "controlled_joint_identifiability_not_specimen_inference"
+}

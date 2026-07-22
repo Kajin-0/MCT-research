@@ -14,11 +14,11 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 - #218 — three-scale covariance-family falsification;
 - #220 — exact nonlinear common-scale posterior propagation;
 - #224 — Gaussian-surrogate bias and pairwise drift under covariance misspecification;
-- #228 — composite optical, pixel, and finite-depth instrument kernel.
+- #228 — composite optical, pixel, and finite-depth instrument kernel;
+- #230 — optimal multiscale repeat allocation;
+- #232 — joint instrument, covariance-family, fitting, and observation-operator identifiability.
 
-## Completed foundations
-
-Merged or current implementation tranches include:
+## Completed implementation tranches
 
 - PR #199 — Gaussian covariance and Gaussian-kernel core;
 - PR #202 — finite-depth kernels and slab limits;
@@ -29,8 +29,10 @@ Merged or current implementation tranches include:
 - PR #216 — probe-scale calibration theorem and nuisance marginalization;
 - PR #219 — reciprocal-linearity family test and half-integer Matérn alternatives;
 - PR #221 — exact nonlinear posterior factorization and bounded-prior failure;
-- PR #227 — pairwise Gaussian-parameter drift and global-surrogate bias extension;
-- PR #229 — composite optical-PSF, pixel, and absorption-depth kernel.
+- PR #227 — pairwise Gaussian-parameter drift and global-surrogate bias;
+- PR #229 — composite optical-PSF, pixel, and absorption-depth kernel;
+- PR #231 — optimal repeat allocation and three-scale precision/falsification compromise;
+- PR #233 — joint identifiability envelope across instrument, family, fit, and observation operators.
 
 Representative modules:
 
@@ -46,300 +48,214 @@ src/mct_research/spatial_disorder_calibration.py
 src/mct_research/spatial_disorder_covariance_families.py
 src/mct_research/spatial_disorder_covariance_bias.py
 src/mct_research/spatial_disorder_instrument.py
+src/mct_research/spatial_disorder_allocation.py
+src/mct_research/spatial_disorder_joint_identifiability.py
 src/mct_research/spatial_disorder_posterior.py
 ```
 
-Established within declared models:
+## Established results within declared models
 
-- exact covariance filtering by normalized kernels;
-- one-scale non-identifiability of point variance and correlation length;
-- exact two-scale inversion and conditioning diagnostics;
-- finite-depth analytical benchmarks;
-- Jensen-consistent transmission and cutoff operation ordering;
-- controlled forward prediction from probe scale to filtered gap width and cutoff;
-- exact confounding of common multiplicative probe calibration with correlation length;
-- analytical marginalization of arbitrary Gaussian log-probe calibration modes;
-- exact reciprocal-linearity condition for the Gaussian covariance/probe family;
-- stable Gaussian-probe filtering for Matérn `nu=1/2, 3/2, 5/2` alternatives;
-- pairwise scale-selection drift and fitting-convention-dependent Gaussian-surrogate bias under covariance misspecification;
-- exact lateral filtering for an axis-aligned elliptical Gaussian PSF convolved with rectangular pixel integration;
-- separable composition of lateral and finite-depth instrument factors;
-- first-order propagation of PSF, pixel, absorption, and thickness calibration covariance;
-- exact nonlinear convolution of the relative correlation-length posterior with an independent common-scale calibration prior.
+### Gaussian filtering and scale calibration
 
-## Probe-scale calibration result
-
-For the Gaussian benchmark
+For the isotropic two-dimensional Gaussian benchmark,
 
 $$
-V(s)=\frac{A}{1+2s^2/\xi^2},
+V(s)=\frac{A}{1+2s^2/\xi^2}.
 $$
+
+One scale cannot identify both $A$ and $\xi$. Two admissible scales recover them exactly within the model, while three or more scales can test the covariance family.
+
+The probe-scale and correlation-length sensitivities satisfy
 
 $$
 \frac{\partial V}{\partial\log s}
 =-\frac{\partial V}{\partial\log\xi}.
 $$
 
-A common multiplicative probe-scale error is indistinguishable from the opposite change in correlation length. If the common log-scale calibration prior has variance $\tau_s^2$, the local covariance of $(\log A,\log\xi)$ gains exactly
+A common multiplicative scale-calibration error is therefore exactly confounded with absolute correlation length. With independent common log-scale calibration variance $\tau_s^2$,
 
 $$
-\begin{pmatrix}
-0&0\\
-0&\tau_s^2
-\end{pmatrix}.
-$$
-
-Independent or shape-changing probe errors can degrade both recovered parameters.
-
-## Exact nonlinear posterior result
-
-Define
-
-$$
-u=\log A,
-\qquad
-v=\log\xi,
-\qquad
-\lambda=v-\delta,
-$$
-
-where $\delta$ is a common log-scale calibration error. Any likelihood whose scale dependence enters only through $s_i e^\delta/\xi$ depends on $(u,\lambda)$ rather than on $v$ and $\delta$ separately.
-
-With an independent calibration prior and translation-invariant absolute log-length support,
-
-$$
-\boxed{
-p(u,\lambda,\delta\mid y)
+\operatorname{Var}(\log\xi_{\rm absolute})
 =
-p(u,\lambda\mid y)p_\delta(\delta).
-}
+\operatorname{Var}(\log\xi_{\rm relative})+\tau_s^2.
 $$
 
-Therefore
+The nonlinear posterior factorization extends this variance floor beyond the local Fisher approximation when the absolute log-length prior is translation invariant and does not couple relative length to calibration.
+
+### Covariance-family falsification and misspecification
+
+Gaussian covariance requires reciprocal linearity:
 
 $$
-\boxed{
-\kappa_n(v)=\kappa_n(\lambda)+\kappa_n(\delta)
-}
-$$
-
-for every existing cumulant. In particular,
-
-$$
-\operatorname{Var}(v)
-=
-\operatorname{Var}(\lambda)+\operatorname{Var}(\delta),
-$$
-
-and
-
-$$
-\operatorname{Cov}(u,v)
-=
-\operatorname{Cov}(u,\lambda).
-$$
-
-This promotes the common-scale calibration floor from a local Fisher statement to an exact nonlinear posterior result under explicit assumptions.
-
-For the declared synthetic log-Gaussian design, the relative Frobenius error between nonlinear posterior covariance and local Fisher covariance is:
-
-```text
-relative observation uncertainty     covariance error
-1%                                   1.98e-5
-5%                                   4.95e-4
-15%                                  4.40e-3
-30%                                  1.66e-2
-```
-
-The Fisher approximation remains accurate to 1.66% even at 30% relative uncertainty for this specific scale layout and likelihood.
-
-A broad direct three-dimensional calculation closes the variance-addition identity to `1.73e-18`. A narrow absolute log-length prior with `14.08%` boundary mass creates:
-
-```text
-posterior calibration total variation    0.06954
-Cov(lambda,delta)                        -8.41e-4
-variance-addition residual               -4.576e-3
-cross-covariance residual                 9.04e-4
-```
-
-Thus the exact identity must not be applied when an informative or bounded absolute-length prior is active near its support boundary.
-
-## Covariance-family result
-
-The Gaussian benchmark obeys
-
-$$
-\boxed{
 \frac{1}{V(s)}
-=\frac{1}{A}+\frac{2}{A\xi^2}s^2.
-}
+=
+\frac{1}{A}+\frac{2}{A\xi^2}s^2.
 $$
 
-Thus two admissible scales recover two Gaussian parameters but cannot test the covariance family. A third scale must lie on the same reciprocal line. For ordered scales,
+Two scales estimate the Gaussian parameters but cannot test the family. A third scale supplies the first exact closure test.
 
-$$
-\boxed{
-\frac{V_3^{-1}-V_2^{-1}}{s_3^2-s_2^2}
--
-\frac{V_2^{-1}-V_1^{-1}}{s_2^2-s_1^2}
-=0.
-}
-$$
-
-For the dimensionless design
+For the declared broad five-scale misspecification design, Matérn $\nu=1/2$ truth forced through a Gaussian inverse gives:
 
 ```text
-s/ell = [0.1, 1, 2]
-relative variance uncertainty = 3%
+pairwise point-variance spread       2.820x
+pairwise correlation-length spread  3.418x
+best Gaussian A_fit/A_true           0.8351
+best Gaussian xi_fit/ell             1.0406
 ```
 
-forcing the Gaussian family through the endpoint scales gives:
+The inferred Gaussian parameters are therefore scale-selection- and fitting-convention-dependent when the covariance family is wrong.
 
-```text
-true family       middle prediction error      standardized residual
-Matern nu=1/2          17.482%                         4.120
-Matern nu=3/2           8.086%                         2.012
-Matern nu=5/2           5.207%                         1.319
-```
+### Composite instrument kernel
 
-The rough family is distinguishable at this uncertainty; the smoothest family is not. Failure to reject Gaussian covariance does not establish Gaussian covariance.
-
-## Covariance-family bias extension
-
-The family test above answers whether Gaussian covariance can be rejected. PR #227 separately quantifies what is reported when a Gaussian inverse is still imposed.
-
-For each scale pair $(i,j)$, the exact Gaussian two-scale theorem returns $(A_{ij},\xi_{ij})$. Exact Gaussian data give one common pair. Under misspecification, the values drift with scale selection.
-
-For the broad controlled design
-
-```text
-A = 0.01
-ell = 2
-s = [0, 0.5, 2, 8, 20]
-```
-
-the diagnostics are:
-
-```text
-true family       pairwise A spread    pairwise xi spread    A_fit/A    xi_fit/ell    RMS log error
-Gaussian               1.000                 1.000             1.0000       1.0000        <3e-13
-Matern nu=1/2          2.820                 3.418             0.8351       1.0406         0.1388
-Matern nu=3/2          1.630                 1.734             0.9441       1.0084         0.0516
-Matern nu=5/2          1.381                 1.417             0.9678       1.0035         0.0317
-```
-
-For the exponential covariance, different scale pairs therefore report Gaussian correlation lengths spanning a factor of approximately `3.42`, while the equal-weight log-variance surrogate underestimates point variance by approximately `16.5%`.
-
-This extension does not duplicate the reciprocal-linearity test. It adds scale-selection and fitting-convention sensitivity after family misspecification is present. Pairwise spreads are diagnostics, not confidence intervals, and the global bias depends on the declared fitting loss and weights.
-
-## Composite instrument-kernel result
-
-PR #229 replaces one nominal Gaussian width with the declared separable kernel
+The declared representative instrument is
 
 ```text
 elliptical Gaussian optical PSF
 convolved with rectangular pixel or scan-bin integration
-multiplied by finite-slab exponential depth weighting
+multiplied by finite-slab exponential depth weighting.
 ```
 
-For one lateral axis with Gaussian correlation length $\xi$, PSF width $\sigma$, pixel width $p$, and
+For axis-aligned separable Gaussian covariance, the measured-to-point variance ratio factorizes as
 
 $$
-L^2=\xi^2+2\sigma^2,
+\frac{\operatorname{Var}(X_w)}{A}=F_xF_yF_z.
 $$
 
-the exact attenuation is
+In the controlled reference case, the complete kernel transmits `0.162585` of point variance. Replacing the lateral kernel by a moment-matched Gaussian changes the result by `1.116%`, while the declared instrument calibration budget produces `5.35%` relative uncertainty.
+
+Across the declared 42-case stress grid, 18 cases exceed 1% moment-matched-Gaussian error and the maximum reaches `9.045%`. Kernel shape must therefore remain explicit in pixel-dominated regimes.
+
+### Optimal repeat allocation
+
+For homoscedastic single-repeat log-variance uncertainty, the local Gaussian Fisher determinant is proportional to the weighted variance of the scale sensitivities. Over a bounded feasible scale interval, the continuous D-optimal design places equal weight at the two endpoint scales; the exact integer allocation is
+
+```text
+floor(N/2), ceil(N/2).
+```
+
+This endpoint design estimates Gaussian parameters efficiently but cannot test the covariance family. The three-scale optimizer therefore reserves an interior scale while enforcing a declared D-efficiency floor.
+
+For scales $s/\xi=[0.1,1,2]$, 3% single-repeat relative uncertainty, and minimum D-efficiency 0.8:
+
+```text
+total repeats   allocation       D-efficiency   worst Matérn z
+12              [5, 3, 4]        0.8082         2.4024
+30              [11, 7, 12]      0.8007         3.7816
+60              [24, 15, 21]     0.8045         5.4040
+```
+
+Repeat allocation cannot remove the absolute scale-calibration floor.
+
+### Joint identifiability envelope
+
+PR #233 combines, in observable space,
 
 $$
-\boxed{
-F(\xi,\sigma,p)
+C_{\rm total}
 =
-\frac{\xi}{L}
-\frac{2}{p^2}
-\left[
- pL\sqrt{\frac{\pi}{2}}
- \operatorname{erf}\left(\frac{p}{\sqrt{2}L}\right)
- +L^2\operatorname{expm1}\left(-\frac{p^2}{2L^2}\right)
-\right].
-}
+C_{\rm observation}
++D C_{\rm instrument}D^T
++b_{\rm kernel}b_{\rm kernel}^T
++b_{\rm operator}b_{\rm operator}^T.
 $$
 
-For axis-aligned separable Gaussian covariance,
+For each supported covariance family and Gaussian fitting convention, it reports the rank-aware standardized separation
 
 $$
-\frac{\operatorname{Var}(X_w)}{A}=F_xF_yF_z,
+\Delta^2=r^T C_{\rm total}^{+}r.
 $$
 
-where $F_z$ is evaluated by the established finite-slab depth quadrature.
-
-For the controlled reference case
+The declared design uses three equivalent lateral probe scales
 
 ```text
-xi = [2, 2, 2]
-PSF sigma = [2, 2]
-pixel width = [5, 5]
-alpha = 0.5
-thickness = 10
+s = [0.23094, 1.15470, 4.61880]
+relative observation uncertainty = 3% at each scale
+threshold distance = 3
 ```
+
+with shared PSF, pixel, absorption, and thickness calibration uncertainty.
+
+Full-envelope distances across direct variance, transmission-effective absorption, and fixed-response cutoff are:
 
 ```text
-exact measured / point variance       0.16258
-equivalent-Gaussian relative error    1.116%
-instrument calibration relative SD    5.35%
+true family       full-distance range       classification
+Matérn nu=1/2       6.187 to 6.571          resolved
+Matérn nu=3/2       3.030 to 3.113          resolved, marginal
+Matérn nu=5/2       1.954 to 1.987          observation limited
 ```
 
-A declared 42-case dimensionless stress grid has 18 cases above 1% equivalent-Gaussian error and a maximum error of `9.045%` in a pixel-dominated regime. A separate pixel-dominated reference gives `8.876%` error.
+The result is unchanged under weighted log-variance and weighted reciprocal-variance fitting at the declared threshold, although the fitted Gaussian parameters differ by convention.
 
-The exact model therefore survives the termination criterion as more than a purely formal correction. However, the synthetic calibration budget is larger than the shape-reduction error in the reference case, so actual PSF and depth calibration remain necessary.
+For this controlled design:
 
-This result is restricted to axis-aligned separable Gaussian covariance and lateral kernels. It does not establish a rotated or nonseparable kernel theorem, a universal PSF, or a specimen parameter.
+- instrument calibration modestly reduces separation;
+- exact-versus-moment-matched kernel shape modestly reduces separation;
+- transmission and cutoff operation-order uncertainty modestly reduce separation;
+- the smooth Matérn $\nu=5/2$ alternative is not identifiable because it is already below threshold with observation noise alone.
 
-## Unresolved scientific questions
+This is a design-level conclusion, not a specimen covariance-family result. The Matérn calculation uses supported lateral covariance families with a common Gaussian finite-depth factor; it is not an exact rectangular-pixel three-dimensional Matérn theorem.
 
-- whether available HgCdTe data contain enough multi-resolution information to estimate a correlation length;
-- whether experimentally achievable uncertainty resolves Gaussian versus smooth Matérn covariance;
-- how rotated, aberrated, or otherwise nonseparable lateral kernels change the declared benchmark;
-- whether a real instrument PSF, pixel geometry, absorption coefficient, and thickness can be calibrated tightly enough for inversion;
-- whether the predicted scale effect survives thickness, carrier, defect, calibration, covariance-family, fitting-convention, and operation-order nuisance variables jointly;
-- whether distinct measurement modalities can be predicted from one latent spatial field;
-- whether the full contribution is sufficiently distinct from existing finite-aperture mapping and random-field literature.
+## Current scientific interpretation
+
+The analytical and synthetic infrastructure is now sufficiently broad to state what a credible experiment must report:
+
+1. at least three independently characterized effective scales;
+2. measured or specified PSF and pixel integration rather than nominal pitch alone;
+3. thickness and absorption-depth calibration;
+4. a covariance-family closure test before reporting Gaussian parameters;
+5. fitting-convention sensitivity under misspecification;
+6. observation-operator ordering for transmission or cutoff;
+7. shared calibration covariance across scales;
+8. a predeclared separation or termination threshold.
+
+The main bottleneck is no longer missing analytical machinery. It is external specification and validation.
 
 ## Manuscript status
 
-No manuscript is currently authorized. A candidate paper becomes writeable only after:
+No manuscript is currently authorized.
 
-1. full-text prior-art audit;
-2. one public-data or experimentally specified validation path;
-3. an experimentally specified instrument kernel and calibrated scale range;
-4. combined calibration, covariance-family, thickness, and observation-operator stress testing;
-5. a concise theorem-centered figure and claim plan.
+Completed controlled gates:
 
-The local-to-nonlinear common-calibration gate, covariance-family stress-test gate, and controlled representative-instrument-kernel gate are completed. The experimental kernel-calibration and joint-nuisance gates remain open.
+- Gaussian filtering and multiscale identifiability;
+- local and nonlinear common-scale calibration limits;
+- covariance-family falsification and misspecification bias;
+- representative composite instrument kernel;
+- optimal repeat allocation;
+- joint calibration/family/fit/operator uncertainty envelope.
+
+Remaining authorization gates:
+
+1. complete the finite-aperture full-text prior-art audit;
+2. obtain or declare one experimentally specified PSF, pixel geometry, thickness, absorption coefficient, and calibrated scale range;
+3. identify one public-data or experimentally specified multiresolution validation path;
+4. test the combined model against that path;
+5. prepare a concise theorem-centered figure and claim plan.
 
 ## Authorized next gates
 
-- complete full-text audits for the highest-priority finite-aperture sources;
-- obtain or declare one experimentally specified PSF, pixel geometry, thickness, and absorption-depth model;
-- combine instrument calibration, covariance-family, fitting-convention, and observation-operator uncertainty in one design calculation;
-- test whether distinct modalities can be predicted from one latent field;
-- identify one public-data or experimentally specified validation path.
+- complete PR #223 or explicitly record the unavailable-source boundary;
+- define an experimental specification record for one real or planned instrument;
+- ingest or construct a provenance-controlled multiresolution dataset;
+- run the joint envelope with measured instrument covariance and observation uncertainty;
+- test whether multiple modalities from one specimen can be predicted from one latent spatial field;
+- reassess manuscript authorization only after those results.
 
 ## Unsupported claims
 
 This program does not currently support:
 
-- a specimen-specific correlation length;
+- a specimen-specific point variance or correlation length;
 - a universal Gaussian or Matérn covariance law;
 - a universal Gaussian optical PSF or rectangular-pixel model;
 - replacing a measured point-spread function with nominal pixel pitch;
-- interpreting a low reciprocal-linearity residual as proof of Gaussian covariance;
-- interpreting pairwise parameter spread as a statistical confidence interval;
+- interpreting failure to reject Gaussian covariance as proof of Gaussian covariance;
+- interpreting pairwise parameter spread as a confidence interval;
 - reporting a misspecified Gaussian parameter without declaring the fitting loss and scale design;
 - treating a moment-matched Gaussian as exact outside a verified regime;
-- applying the exact common-scale convolution when an active bounded absolute-length prior couples $\lambda$ and $\delta$;
+- treating the joint Mahalanobis distance as a posterior probability or discovery significance;
+- applying the exact common-scale posterior convolution when an active bounded absolute-length prior couples relative length and calibration;
 - identifying optical tail energy with microscopic composition variance;
 - treating controlled cutoff shifts as measured detector behavior;
-- treating every local Fisher covariance as globally accurate outside the tested design;
 - a topological or random-mass Kane conclusion;
 - manuscript submission readiness.
 
@@ -347,7 +263,7 @@ This program does not currently support:
 
 This program uses empirical gap slopes, distributional absorption and cutoff operators, literature records, and validation infrastructure shared with other works.
 
-The covariance-family, bias, instrument, and posterior modules are additive shared infrastructure. They reuse existing Gaussian prediction, recovery, depth filtering, family filtering, and calibration definitions without changing their numerical behavior.
+The covariance-family, bias, instrument, allocation, joint-identifiability, and posterior modules are additive shared infrastructure. They reuse established Gaussian prediction, recovery, depth filtering, family filtering, optical operators, and calibration definitions.
 
 ## Stage-2 boundary
 
