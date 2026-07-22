@@ -16,7 +16,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #256 — Seiler source-state and specimen-provenance reconciliation;
 - #258 — Camassel Table I specimen and excitonic-edge reconstruction;
 - #260 — Camassel deterministic composition-envelope evaluation;
-- #265 — Scott 1969 fixed-absorption optical-edge source audit.
+- #265 — Scott 1969 fixed-absorption optical-edge source audit;
+- #267 — Blue 1964 seven-sample optical-gap reconstruction.
 
 ## Completed foundations
 
@@ -29,7 +30,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - specimen-level Seiler 1990 TPMA reconstruction;
 - specimen- and modality-resolved Camassel 1988 Cd-rich reconstruction;
 - bounded Camassel forward evaluation without parameter fitting;
-- source-level Scott 1969 metrology and Figure 1 specimen audit with a fail-closed digitization gate.
+- source-level Scott 1969 metrology and Figure 1 specimen audit with a fail-closed digitization gate;
+- seven-row Blue 1964 theory-conditioned positive optical-gap reconstruction.
 
 ## Hansen reconstruction state
 
@@ -407,15 +409,111 @@ A future digitization requires a rendered source asset and must retain marker ce
 
 ### Validation state
 
-The focused Scott workflow verifies the exact source contract, ten Figure 1 labels, quality flags, empty pointwise fields, absent Figure 2/5 marker ledgers, and tranche file boundary. The stack-aware Camassel workflow independently regenerates its 39-row immutable result on the same descendant head. Complete Python 3.11 and 3.13 suites pass with `973` tests on the audited pre-ledger Scott head.
+The focused Scott workflow verifies the exact source contract, ten Figure 1 labels, quality flags, empty pointwise fields, absent Figure 2/5 marker ledgers, and tranche file boundary. The stack-aware Camassel workflow independently regenerates its 39-row immutable result on the same descendant head. Complete Python 3.11 and 3.13 suites pass with `973` tests on the audited final Scott head. Issue #265 is closed as a completed source audit; Figure 2/5 numerical reconstruction remains blocked.
 
-A final CI run is required on this state-ledger commit before Issue #265 is closed.
+## Blue 1964 theory-conditioned optical-gap reconstruction
+
+Issue #267 and draft PR #268 reconstruct a seven-row historical numerical table outside the reconstructed Hansen 22-source fitted graph.
+
+Canonical source files are:
+
+```text
+data/experimental/blue1964_source_metadata.csv
+data/experimental/blue1964_table2_optical_gaps.csv
+data/experimental/blue1964_README.md
+```
+
+The primary PDF is available in the user File Library as `blue1964.pdf`. The binary is not materialized in the active runtime, so the SHA256 remains explicitly unavailable.
+
+### Material preparation and composition
+
+Blue prepared HgTe and HgTe–CdTe ingots from purified elements sealed in cleaned and baked quartz. The material was held above the calculated melting point for more than 30 hours, slowly cooled, then reheated in a vertical Bridgman furnace and translated at approximately
+
+```text
+2 mm/h.
+```
+
+Chemical analyses of Hg, Te, and Cd were performed at several positions along each ingot because of segregation. Transmission specimens were cut normal to the ingot axis from known-composition sections. Typical thickness was approximately `20 um`; specimens thinner than `6 um` could be prepared. Reflectance measurements used adjacent polished sections.
+
+The paper describes composition accuracy as better than one percent and later as one percent assumed. It does not establish whether this is an absolute atomic-percentage-point bound, a relative percentage, a statistical standard deviation, or a deterministic interval. The repository therefore records
+
+```text
+one_percent_as_reported_scale_ambiguous_not_sigma_x
+```
+
+and does not construct `sigma_x`.
+
+### Optical apparatus and temperature context
+
+Measurements used a Perkin-Elmer model 112 infrared spectrometer with NaCl and KBr optics over approximately `1–25 um`. The apparatus covered approximately `90–373 K`.
+
+The seven numerical alloy observations are associated with the room-temperature Figure 6 curves. The repository records
+
+```text
+temperature_context = room_temperature
+temperature_k = unknown
+```
+
+rather than assigning an exact kelvin value.
+
+### Printed seven-row table
+
+The article narrative identifies the numerical source as Table II, while OCR renders the Roman numeral inconsistently.
+
+| CdTe atomic % | Fractional x | Positive optical-fit gap | Printed fit uncertainty |
+|---:|---:|---:|---:|
+| 0 | 0.000 | 0.030 eV | 0.020 eV |
+| 0.5 | 0.005 | 0.040 eV | 0.020 eV |
+| 14 | 0.140 | 0.120 eV | 0.040 eV |
+| 22 | 0.220 | 0.220 eV | 0.020 eV |
+| 25 | 0.250 | 0.250 eV | 0.020 eV |
+| 28 | 0.280 | 0.280 eV | 0.020 eV |
+| 32 | 0.320 | 0.365 eV | 0.010 eV |
+
+The row uncertainties are source-reported bounds estimated from agreement with theoretical absorption curves. They are not silently asserted to be Gaussian one-sigma values, and no pointwise covariance is reported.
+
+### Observation and sign semantics
+
+Blue obtained the values by comparing measured high-absorption curves, approximately above `10^3 cm^-1`, with theoretical direct-transition absorption curves.
+
+The measurement class is
+
+```text
+theory_conditioned_positive_optical_gap_parameter.
+```
+
+The table reports positive values for HgTe and the `0.5 atomic % CdTe` alloy. These values are not modern signed `Gamma6-Gamma8` gaps and are marked
+
+```text
+signed_gap_eligible = false
+observable_sign_semantics = positive_parameter_not_signed_Gamma6_minus_Gamma8
+```
+
+They cannot be silently negated, interpreted as absolute values of a signed modern gap, or pooled with signed magneto-optical observations without an explicit observation operator.
+
+### Preserved source inconsistency
+
+The abstract describes alloy measurements up to `28% CdTe`, while Figure 6 and the printed numerical table include a `32% CdTe` specimen. Both statements are retained without deleting the row or revising the abstract.
+
+### Hansen lineage and admissibility
+
+Blue is not present in the reconstructed Hansen 22-source fitted graph. It predates Scott and Hansen and may serve as a historical external comparator for observation-model and sign-convention studies.
+
+It is not treated as a blinded modern holdout, and its theory-conditioned positive optical-fit parameter is not directly commensurate with every Hansen input observable or with signed-gap laws.
+
+### Validation state
+
+The focused Blue workflow verifies the exact source contract, seven rows, room-temperature-without-invented-kelvin status, positive non-signed semantics, printed uncertainty values, ambiguous composition-accuracy semantics, preserved `28%`/`32%` conflict, absent covariance, unavailable source hash, and absence of Figure 6 pseudo-data. Complete Python 3.11 and 3.13 suites pass with `981` tests on the audited pre-ledger Blue head.
+
+A final CI run is required on this state-ledger commit before Issue #267 is closed.
 
 ## Unresolved scientific questions
 
 - what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;
 - whether calibrated Scott Figure 2/5 markers can be recovered from a rendered source asset;
 - whether the Hansen/Camassel discrepancy persists when compared against Scott’s historical `alpha=500 cm^-1` observation definition rather than an exciton-conditioned gap;
+- what forward observation operator, if any, relates Blue’s positive theory-conditioned optical-fit parameter to signed band ordering near HgTe;
+- whether the Blue `28%` abstract limit and printed `32%` row can be resolved from another primary asset or author record;
 - which static composition law can predict independent observations without source-lineage leakage or unjustified flexibility;
 - whether independently composed fixed-specimen temperature series beyond Seiler sample 3 preserve the current thermal ranking;
 - what observation model explains the Camassel reflectivity–absorption difference;
@@ -434,15 +532,16 @@ A future paper requires:
 4. evidence stronger than another unconstrained polynomial or a fit to one source family;
 5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler, Camassel, and Scott source results do not authorize manuscript writing by themselves.
+The Seiler, Camassel, Scott, and Blue source results do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
 - obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
 - continue the Hansen source-by-source specimen reconstruction;
+- identify a source-supported observation operator before comparing Blue’s positive optical-fit parameters with signed-gap equations;
 - seek an independent low-temperature static-composition source that is not in the Camassel/Laurenti lineage;
-- test simple predeclared static laws under source-level holdout only after an independent source exists;
-- construct an explicit reflectivity-versus-absorption observation model only if another dataset can constrain it;
+- test simple predeclared static laws under source-level holdout only after a commensurate independent source exists;
+- construct explicit reflectivity-versus-absorption or high-absorption-fit observation models only if another dataset can constrain them;
 - obtain additional independently composed temperature series or author data;
 - quantify whether model separations exceed composition and edge-definition uncertainty;
 - audit close prior art before any novelty claim for a replacement static law or the provisional thermal reparameterization.
@@ -456,6 +555,13 @@ This program does not currently support:
 - universal rejection of Hansen for every measurement definition;
 - independent validation of Laurenti by Camassel 1988;
 - independent validation of Hansen by Scott 1969;
+- direct signed-gap validation or rejection using Blue 1964’s positive optical-fit parameters;
+- converting Blue’s positive HgTe-rich values into negative signed gaps without an observation model;
+- treating Blue’s one-percent composition statement as a numerical `sigma_x`;
+- treating Blue’s row fit uncertainties as Gaussian one-sigma values without justification;
+- assigning an exact kelvin temperature to Blue’s room-temperature table;
+- resolving Blue’s `28%`/`32%` source inconsistency by deleting or changing a row;
+- sampling Blue’s theoretical curves and presenting the samples as observations;
 - Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
 - treating composition as the only uncertainty in Camassel Table I;
 - treating Scott’s article-level `+/-0.01 eV` or `1–2 mole %` statements as independent pointwise Gaussian errors;
@@ -470,7 +576,7 @@ This program does not currently support:
 - assigning Table I pointwise energy covariance not reported by the source;
 - using Camassel as an independent held-out source against Laurenti 1990;
 - identifying `alpha` or `tau` as microscopic phonon parameters;
-- treating fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, reflectivity exciton-polariton gap, absorption excitonic gap, and intrinsic gap as interchangeable;
+- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, reflectivity exciton-polariton gap, absorption excitonic gap, and intrinsic signed gap as interchangeable;
 - fitting additional flexibility without held-out evidence;
 - production-equation, manuscript, or submission readiness from the current source set.
 
