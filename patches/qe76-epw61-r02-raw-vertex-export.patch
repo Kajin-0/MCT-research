@@ -30,7 +30,7 @@ index be4858854..000000000 100644
 +    !! Full-precision positive linewidth increment already computed by the standard path
      REAL(KIND = DP) :: g2
      !! Electron-phonon matrix elements squared in Ry^2
-@@ -168,6 +182,37 @@
+@@ -168,6 +182,38 @@
      COMPLEX(KIND = DP) :: fact
      !! Self-energy factor
      !
@@ -46,7 +46,8 @@ index be4858854..000000000 100644
 +      CALL GET_ENVIRONMENT_VARIABLE('R02_RAW_VERTEX_PATH', r02_export_path, &
 +                                    LENGTH = r02_env_length, STATUS = r02_env_status)
 +      IF (r02_env_status /= 0 .OR. r02_env_length < 1) THEN
-+        CALL errore('selfen_elec_q', 'R02_RAW_VERTEX_PATH is required when export is enabled', 1)
++        CALL errore('selfen_elec_q', &
++                    'R02_RAW_VERTEX_PATH is required when export is enabled', 1)
 +      ENDIF
 +      CALL GET_ENVIRONMENT_VARIABLE('R02_EXPORT_IK_GLOBAL', r02_export_ik_text, &
 +                                    LENGTH = r02_env_length, STATUS = r02_env_status)
@@ -57,17 +58,18 @@ index be4858854..000000000 100644
 +        ENDIF
 +      ENDIF
 +      OPEN(NEWUNIT = r02_export_unit, FILE = TRIM(r02_export_path), &
-+           STATUS = 'UNKNOWN', POSITION = 'APPEND', ACTION = 'WRITE', FORM = 'FORMATTED')
++           STATUS = 'UNKNOWN', POSITION = 'APPEND', ACTION = 'WRITE', &
++           FORM = 'FORMATTED')
 +      r02_export_raw_vertex = .TRUE.
 +      IF (iqq == 1) THEN
-+        WRITE(r02_export_unit, '(a)') &
-+          '# iqq iq ik ik_global imode ibnd jbnd itemp epf_re epf_im ekk ekq wq inv_wq mask q_weight f_occ bose eta fact1 fact2 dplus dminus g2 real_increment imag_increment'
++        WRITE(r02_export_unit, '(a)') '# R02_RAW_VERTEX_V1'
++        WRITE(r02_export_unit, '(a)') '# 8 integer fields followed by 19 real fields'
 +      ENDIF
 +    ENDIF
 +    !
      CALL start_clock('selfen_elec_q')
      !
-@@ -333,7 +378,8 @@
+@@ -333,7 +379,8 @@
          !$omp parallel do private(ikk,ikq,ik_global,imode,ibnd,ekk,eta_tmp) &
          !$omp private(sq_eta_tmp,inv_eta_tmp,jbnd,ekq,wgkq,g2,fact1,fact2) &
          !$omp private(etmp1,etmp2,weight,w0g1,w0g2,sq_etmp1,sq_etmp2,weight0) &
@@ -75,7 +77,7 @@ index be4858854..000000000 100644
 +        !$omp private(iw,etmpw1,etmpw2,fact,eval_plrn) &
 +        !$omp private(r02_real_increment,r02_imag_increment)
          DO ik = 1, nkf
-@@ -426,7 +472,8 @@
+@@ -426,7 +473,8 @@
                      weight = wqf_loc * REAL(fact1 / (etmp1 - ci * eta_tmp) + fact2 / (etmp2 - ci * eta_tmp))
                      !
                      ! \Re\Sigma [Eq. 3 in Comput. Phys. Commun. 209, 116 (2016)]
@@ -84,26 +86,29 @@ index be4858854..000000000 100644
 +                    sigmar_all(ibnd, ik_global, itemp) = sigmar_all(ibnd, ik_global, itemp) + r02_real_increment
                      !
                      ! Imaginary part of self-energy
-@@ -446,8 +493,19 @@
+@@ -446,8 +494,19 @@
                        CALL errore("selfen_elec_q", "Wrong broadening_method", 1)
                      ENDIF
                      !
 -                    sigmai_all(ibnd, ik_global, itemp) = sigmai_all(ibnd, ik_global, itemp) + g2 * weight
 +                    r02_imag_increment = g2 * weight
-+                    sigmai_all(ibnd, ik_global, itemp) = sigmai_all(ibnd, ik_global, itemp) + r02_imag_increment
++                    sigmai_all(ibnd, ik_global, itemp) = &
++                      sigmai_all(ibnd, ik_global, itemp) + r02_imag_increment
                      !
-+                    IF (r02_export_raw_vertex .AND. ik_global == r02_export_ik_global) THEN
-+                      WRITE(r02_export_unit, '(8(I0,1X),18(ES26.17E3,1X))') &
++                    IF (r02_export_raw_vertex .AND. &
++                        ik_global == r02_export_ik_global) THEN
++                      WRITE(r02_export_unit, '(8(I0,1X),19(ES26.17E3,1X))') &
 +                        iqq, iq, ik, ik_global, imode, ibnd, jbnd, itemp, &
 +                        REAL(epf17(jbnd, ibnd, imode, ik)), &
 +                        AIMAG(epf17(jbnd, ibnd, imode, ik)), &
 +                        ekk, ekq, wq(imode), inv_wq(imode), g2_tmp(imode), &
 +                        wqf_loc, wgkq, wgq(imode), eta_tmp, fact1, fact2, &
-+                        etmp1, etmp2, g2, r02_real_increment, r02_imag_increment
++                        etmp1, etmp2, g2, r02_real_increment, &
++                        r02_imag_increment, ryd2ev
 +                    ENDIF
 +                    !
                      ! Mode-resolved
-@@ -573,6 +631,9 @@
+@@ -573,6 +632,9 @@
        ENDIF ! in case of restart, do not do the first one
      ENDDO ! itemp
      !
