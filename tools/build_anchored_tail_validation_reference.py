@@ -17,7 +17,7 @@ DEFAULT_OUTPUT = ROOT / "data" / "validation" / "chang_anchored_tail_recoverabil
 
 def _quantize(value: Any) -> Any:
     if isinstance(value, float):
-        return round(value, 12)
+        return round(value, 10)
     if isinstance(value, list):
         return [_quantize(item) for item in value]
     if isinstance(value, tuple):
