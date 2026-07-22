@@ -50,7 +50,7 @@ jobs:
         run: |
           mkdir -p cdte-a0-zeu-zue-evidence/validated
           set -o pipefail
-          pytest -vv tests/test_cdte_a0_zeu_zue.py 2>&1 \
+          python -m pytest -vv tests/test_cdte_a0_zeu_zue.py 2>&1 \
             | tee cdte-a0-zeu-zue-evidence/validated/focused-pytest.txt
 
       - name: Execute one SCF and two fixed response routes
