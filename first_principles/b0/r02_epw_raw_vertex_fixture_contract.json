@@ -3,7 +3,7 @@
   "stage": "B0_epw_raw_vertex_fixture",
   "program": "R02",
   "issue": 300,
-  "phase": "fixture_execution",
+  "phase": "patch_requalification_only",
   "source": {
     "repository": "QEF/q-e",
     "clone_url": "https://github.com/QEF/q-e.git",
@@ -47,12 +47,14 @@
     "artifact_id": 8545959823,
     "artifact_digest": "sha256:467a7162704217efa1f49a79aa0e4d6a5a9b819c06cc4dfdf895b1966ebee811",
     "manifest_sha256": "bea4a04aba382c933b1ea83b8c5e0200dc88af40fd1cecdca5d72d321081f5c7",
+    "observational_patch_sha256": "8ab1f6733d096afa0d975819f56eda2c7428e47e7cc15fe6fc6fdae6fb3e47a4",
     "scientific_execution_count": 0,
-    "passed": true
+    "passed": true,
+    "current_patch_qualified": false
   },
   "observational_patch": {
     "path": "patches/qe76-epw61-r02-raw-vertex-export.patch",
-    "sha256": "8ab1f6733d096afa0d975819f56eda2c7428e47e7cc15fe6fc6fdae6fb3e47a4",
+    "sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
     "disabled_by_default": true,
     "scientific_contraction_added": false
   },
@@ -98,20 +100,21 @@
     "all_required_sha256_committed": true,
     "source_qualification_artifact_digest_committed": true,
     "observational_patch_sha256_committed": true,
+    "current_patch_qualification_artifact_committed": true,
     "focused_tests_pass": true
   },
   "authorization": {
     "source_clone_and_hash": true,
-    "qe_epw_build": true,
-    "upstream_fixture_execution": true,
-    "observational_export_patch_application": true,
-    "exactly_one_pinned_build": true,
-    "exactly_two_fixture_runs_same_state": true,
+    "qe_epw_build": false,
+    "upstream_fixture_execution": false,
+    "observational_export_patch_application": false,
+    "exactly_one_pinned_build": false,
+    "exactly_two_fixture_runs_same_state": false,
     "cdte_hgte_or_alloy_calculation": false,
     "a1_a2_a3": false,
     "dense_interpolation": false,
     "automatic_retry": false,
     "automatic_phase_transition": false
   },
-  "claim_boundary": "Passing validates raw complex-vertex export and scalar normalization only for the pinned upstream non-SOC diamond fixture. It does not validate SOC spinors, CdTe, HgTe, HgCdTe, a material self-energy, a generalized-Frohlich correction, or A1 readiness."
+  "claim_boundary": "This intermediate phase requalifies corrected observational-patch bytes only. It does not authorize a build, fixture execution, raw complex-vertex export, normalization result, SOC compatibility, or material self-energy."
 }
