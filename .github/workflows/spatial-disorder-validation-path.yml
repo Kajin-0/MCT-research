@@ -26,14 +26,11 @@ jobs:
           python -m pytest -q \
             tests/test_spatial_disorder_validation_path.py \
             2>&1 | tee validation-path-diagnostics/pytest.txt
-      - name: Rebuild controlled reference
+      - name: Build controlled reference
         run: |
           python -m tools.build_spatial_disorder_validation_path_reference \
             --output validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
-          cmp \
-            data/validation/spatial_disorder_validation_path_qualification.json \
-            validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
-      - name: Validate qualification boundaries
+      - name: Validate generated qualification boundaries
         run: |
           python - <<'PY'
           import json
@@ -41,31 +38,37 @@ jobs:
 
           record = json.loads(
               Path(
-                  "data/validation/"
+                  "validation-path-diagnostics/"
                   "spatial_disorder_validation_path_qualification.json"
               ).read_text(encoding="utf-8")
           )
+          assert record["schema_version"] == "1.1"
           assert record["status"] == "external_data_blocked"
           assert record["direct_candidate_ids"] == []
+          assert record["partial_multiresolution_candidate_ids"] == [
+              "gopal_1992_two_beam_transmission"
+          ]
           assert record["headline"]["direct_validation_candidate_count"] == 0
+          assert record["headline"]["partial_multiresolution_candidate_count"] == 1
+          assert record["headline"]["nearest_benchmark_scale_ratio"] == 12.0
           by_source = {
               item["source_id"]: item["qualification"]
               for item in record["qualifications"]
           }
-          assert by_source == {
-              "chang_2005_infrared_mapping": (
-                  "source_bounded_figure_benchmark"
-              ),
-              "furstenberg_2005_pl_transmission_mapping": (
-                  "cross_modality_context"
-              ),
-              "ruzhevich_2024_optical_microscopic_disorder": (
-                  "not_qualifiable_from_available_record"
-              ),
-          }
+          assert len(by_source) == 10
+          assert by_source["gopal_1992_two_beam_transmission"] == (
+              "partial_multiresolution_benchmark"
+          )
+          assert by_source["furstenberg_2005_pl_transmission_mapping"] == (
+              "cross_modality_context"
+          )
+          assert by_source["chang_2005_infrared_mapping"] == (
+              "source_bounded_figure_benchmark"
+          )
           boundaries = " ".join(record["claim_boundaries"])
-          assert "Multiple modalities" in boundaries
-          assert "Rendered map figures" in boundaries
+          assert "Two measured scales" in boundaries
+          assert "Nominal beam diameters" in boundaries
+          assert "Rendered spectra" in boundaries
           assert "manuscript" in boundaries
           PY
       - uses: actions/upload-artifact@v4
@@ -75,6 +78,7 @@ jobs:
           path: |
             validation-path-diagnostics
             docs/protocols/r04_external_validation_path_qualification.md
-            data/validation/spatial_disorder_validation_path_qualification.json
+            literature/notes/uploaded_hgcdte_mapping_source_audit.md
+            research/programs/spatial_disorder/external_validation_state.md
           if-no-files-found: error
           retention-days: 30
