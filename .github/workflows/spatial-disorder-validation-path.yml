@@ -25,10 +25,11 @@ jobs:
           mkdir -p validation-path-diagnostics
           python -m pytest -q \
             tests/test_spatial_disorder_validation_path.py \
+            tests/test_spatial_disorder_pixel_scale_source.py \
             2>&1 | tee validation-path-diagnostics/pytest.txt
       - name: Build controlled reference
         run: |
-          python -m tools.build_spatial_disorder_validation_path_reference \
+          python -m tools.build_spatial_disorder_pixel_scale_source_reference \
             --output validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
       - name: Compare generated and immutable decisions
         run: |
@@ -49,8 +50,8 @@ jobs:
               ).read_text(encoding="utf-8")
           )
 
-          assert generated["schema_version"] == "1.1"
-          assert immutable["schema_version"] == "1.0"
+          assert generated["schema_version"] == "1.2"
+          assert immutable["schema_version"] == "1.1"
           assert generated["status"] == immutable["status"]
           assert generated["direct_candidate_ids"] == (
               immutable["direct_validation_candidate_ids"]
@@ -64,31 +65,45 @@ jobs:
               for item in generated["qualifications"]
           }
           assert generated_classes == immutable["classifications"]
-          assert len(generated_classes) == 10
+          assert len(generated_classes) == 11
 
-          generated_headline = generated["headline"]
-          immutable_nearest = immutable["nearest_available_benchmark"]
-          assert generated_headline["direct_validation_candidate_count"] == 0
-          assert generated_headline["partial_multiresolution_candidate_count"] == 1
-          assert generated_headline["nearest_available_benchmark"] == (
-              immutable_nearest["source_id"]
+          headline = generated["headline"]
+          partial = immutable["nearest_partial_multiresolution_benchmark"]
+          pixel = immutable["nearest_detector_pixel_scale_benchmark"]
+          assert headline["direct_validation_candidate_count"] == 0
+          assert headline["partial_multiresolution_candidate_count"] == 1
+          assert headline["nearest_partial_multiresolution_benchmark"] == (
+              partial["source_id"]
           )
-          assert generated_headline[
-              "nearest_benchmark_scale_diameters_micrometre"
-          ] == immutable_nearest["nominal_beam_diameters_micrometre"]
-          assert generated_headline["nearest_benchmark_scale_ratio"] == (
-              immutable_nearest["nominal_diameter_ratio"]
+          assert headline["nearest_partial_scale_diameters_micrometre"] == (
+              partial["nominal_beam_diameters_micrometre"]
           )
-          assert generated_headline["minimum_data_upgrade_for_gopal_1992"] == (
-              immutable["minimum_gopal_data_upgrade"]
+          assert headline["nearest_partial_scale_ratio"] == (
+              partial["nominal_diameter_ratio"]
+          )
+          assert headline["nearest_detector_pixel_scale_benchmark"] == (
+              pixel["source_id"]
+          )
+          assert headline["pixel_scale_beam_diameter_micrometre"] == (
+              pixel["beam_diameter_micrometre"]
+          )
+          assert headline["pixel_scale_scan_spacing_micrometre"] == (
+              pixel["scan_spacing_micrometre"]
+          )
+          assert headline["pixel_scale_area_micrometre"] == pixel["area_micrometre"]
+          assert headline["pixel_scale_reported_spectrum_count"] == (
+              pixel["reported_spectrum_count"]
+          )
+          assert headline["minimum_data_upgrade_for_phillips_2003"] == (
+              immutable["minimum_phillips_data_upgrade"]
           )
 
           generated_boundaries = " ".join(generated["claim_boundaries"])
           immutable_boundaries = " ".join(immutable["claim_boundaries"])
-          assert "Two measured scales" in generated_boundaries
-          assert "Two scales" in immutable_boundaries
-          assert "Nominal beam diameters" in generated_boundaries
-          assert "Nominal beam diameter" in immutable_boundaries
+          assert "dense raster" in generated_boundaries
+          assert "dense raster" in immutable_boundaries
+          assert "Four hundred spectra" in generated_boundaries
+          assert "Four hundred spectra" in immutable_boundaries
           assert "Rendered spectra" in generated_boundaries
           assert "Rendered spectra" in immutable_boundaries
           assert "manuscript" in generated_boundaries
@@ -103,6 +118,8 @@ jobs:
             data/validation/spatial_disorder_uploaded_source_audit.json
             docs/protocols/r04_external_validation_path_qualification.md
             literature/notes/uploaded_hgcdte_mapping_source_audit.md
+            literature/notes/phillips_2003_pixel_scale_absorption_audit.md
+            literature/notes/hgcdte_spatial_mapping_doi_queue.md
             research/programs/spatial_disorder/external_validation_state.md
           if-no-files-found: error
           retention-days: 30
