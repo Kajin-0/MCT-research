@@ -3,47 +3,56 @@
   "stage": "B0_epw_raw_vertex_fixture",
   "program": "R02",
   "issue": 300,
-  "phase": "source_qualification_only",
+  "phase": "fixture_execution",
   "source": {
     "repository": "QEF/q-e",
     "clone_url": "https://github.com/QEF/q-e.git",
     "release_tag": "qe-7.6",
     "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
     "epw_version": "6.1",
     "required_files": {
       "EPW/src/selfen.f90": {
         "git_blob_sha": "be4858854d1ab26d27b3acf52a9a30c21fa8b472",
-        "sha256": null
+        "sha256": "92814fb0ba79b355cda842598fe6e22ee24a77027864524c91fd6ea4bf63ff97"
       },
       "test-suite/epw_base/scf.in": {
         "git_blob_sha": "aa6e84ee470749bceb22e43ae0f18396e34490b3",
-        "sha256": null
+        "sha256": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b"
       },
       "test-suite/epw_base/ph.in": {
         "git_blob_sha": "37450ee9680c455b75195787e05dca78e2e2c671",
-        "sha256": null
+        "sha256": "1dac9d47d8c234f7b88ef5f8ce7db6c9aaeb1c4a83f7b2cd13bd78e288b4983f"
       },
       "test-suite/epw_base/scf_epw.in": {
         "git_blob_sha": "1bdb39f7567c30cffafe38cebe9e6443f2d025f7",
-        "sha256": null
+        "sha256": "eccb8bd933e7748e65310d04e853992db0e2f353e8af062af26df00c4dc509f5"
       },
       "test-suite/epw_base/nscf_epw.in": {
         "git_blob_sha": "50542d302a8772f24d46e1d98e194cff51cb3f54",
-        "sha256": null
+        "sha256": "bc1dae9fecb2d589f33d8e0924a1d7aae0e29603e8d63c0380e5bf3173eb6f41"
       },
       "test-suite/epw_base/epw1.in": {
         "git_blob_sha": "624b4f8a47b003443a131f15afb7815b33a3398e",
-        "sha256": null
+        "sha256": "18e83caf042d88d59d23653cb83319aa0cad9a400d8422f13f11788373045999"
       },
       "pseudo/C_3.98148.UPF": {
         "git_blob_sha": "368260443c8341d971fe9da5690f6697f0f8864c",
-        "sha256": null
+        "sha256": "cc147806e663aa2c487cff67fc287a27d846edd438c7f4fc15d8851409244f2a"
       }
     }
   },
+  "source_qualification": {
+    "workflow_run_id": 29960964318,
+    "artifact_id": 8545959823,
+    "artifact_digest": "sha256:467a7162704217efa1f49a79aa0e4d6a5a9b819c06cc4dfdf895b1966ebee811",
+    "manifest_sha256": "bea4a04aba382c933b1ea83b8c5e0200dc88af40fd1cecdca5d72d321081f5c7",
+    "scientific_execution_count": 0,
+    "passed": true
+  },
   "observational_patch": {
     "path": "patches/qe76-epw61-r02-raw-vertex-export.patch",
-    "sha256": null,
+    "sha256": "8ab1f6733d096afa0d975819f56eda2c7428e47e7cc15fe6fc6fdae6fb3e47a4",
     "disabled_by_default": true,
     "scientific_contraction_added": false
   },
@@ -93,14 +102,16 @@
   },
   "authorization": {
     "source_clone_and_hash": true,
-    "qe_epw_build": false,
-    "upstream_fixture_execution": false,
-    "observational_export_patch_application": false,
+    "qe_epw_build": true,
+    "upstream_fixture_execution": true,
+    "observational_export_patch_application": true,
+    "exactly_one_pinned_build": true,
+    "exactly_two_fixture_runs_same_state": true,
     "cdte_hgte_or_alloy_calculation": false,
     "a1_a2_a3": false,
     "dense_interpolation": false,
     "automatic_retry": false,
     "automatic_phase_transition": false
   },
-  "claim_boundary": "Phase 1 qualifies immutable upstream and observational-patch bytes only. It does not validate a QE/EPW build, raw complex-vertex export, normalization, scalar diagonal equivalence, SOC compatibility, or any material self-energy."
+  "claim_boundary": "Passing validates raw complex-vertex export and scalar normalization only for the pinned upstream non-SOC diamond fixture. It does not validate SOC spinors, CdTe, HgTe, HgCdTe, a material self-energy, a generalized-Frohlich correction, or A1 readiness."
 }
