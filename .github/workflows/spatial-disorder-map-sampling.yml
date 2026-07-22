@@ -19,7 +19,12 @@ jobs:
       - name: Install package
         run: python -m pip install -e '.[test]'
       - name: Verify correlated-map theorems
-        run: python -m pytest -q tests/test_spatial_disorder_map_sampling.py
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p spatial-disorder-map-sampling-diagnostics
+          python -m pytest -q tests/test_spatial_disorder_map_sampling.py \
+            2>&1 | tee spatial-disorder-map-sampling-diagnostics/pytest.txt
       - name: Build deterministic map-sampling reference
         run: |
           mkdir -p spatial-disorder-map-sampling-generated
@@ -63,8 +68,11 @@ jobs:
           )
           PY
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: spatial-disorder-map-sampling
-          path: spatial-disorder-map-sampling-generated
+          path: |
+            spatial-disorder-map-sampling-diagnostics
+            spatial-disorder-map-sampling-generated
           if-no-files-found: error
           retention-days: 30
