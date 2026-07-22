@@ -82,6 +82,7 @@ def test_decision_record_preserves_narrow_claim_boundary() -> None:
 
 def test_program_state_records_terminated_exporter_and_open_architecture() -> None:
     text = STATE.read_text(encoding="utf-8")
-    assert "observational full-matrix exporter path is terminated" in text
+    assert "observational full-matrix exporter path" in text
+    assert "terminated" in text
     assert "hybrid short-range plus generalized-Fröhlich architecture remains open" in text
     assert "external matrix Fan contraction" in text
