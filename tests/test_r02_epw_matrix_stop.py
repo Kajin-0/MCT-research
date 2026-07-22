@@ -87,6 +87,7 @@ def test_program_state_preserves_stop_and_fail_closed_continuation() -> None:
     assert "## Selected continuation architecture" in text
     assert "Sigma_SR_lower_Fan" in text
     assert "Sigma_LR_Frohlich" in text
-    assert "external matrix Fan contraction" in text
+    assert "## External matrix-Fan synthetic result" in text
+    assert "external matrix-Fan algebra       RESTRICTED_GO" in text
     assert "CdTe, HgTe, or alloy AHC calculations" in text
     assert "Not authorized" in text
