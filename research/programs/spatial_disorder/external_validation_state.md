@@ -1,7 +1,7 @@
 # R04 external validation state
 
 **Portfolio contribution:** R04  
-**Controlling issues:** #196, #250, #272, #281, #291  
+**Controlling issues:** #196, #250, #272, #281, #291, #302  
 **State:** `external_data_blocked`  
 **Manuscript impact:** no manuscript authorization
 
@@ -10,15 +10,16 @@
 The audited source set now contains:
 
 ```text
-partial multiresolution candidates      = 1
-nearest detector-pixel raster           = 1 source-bounded benchmark
-depth-observation-model contexts        = 1
-direct validation candidates            = 0
+partial multiresolution candidates          = 1
+nearest detector-pixel raster               = 1 source-bounded benchmark
+depth-observation-model contexts            = 1
+spatial-observation-method contexts         = 1
+direct validation candidates                = 0
 ```
 
-Gopal et al. 1992 remains the nearest multiresolution source. Phillips et al. 2003 remains the nearest detector-pixel-scale spatial absorption source. Ariel et al. 1995 becomes the nearest explicit depth-observation-model context.
+Gopal et al. 1992 remains the nearest multiresolution source. Phillips et al. 2003 remains the nearest detector-pixel-scale spatial absorption source. Ariel et al. 1995 remains the nearest explicit depth-observation-model context. Ariel et al. 1996 becomes the nearest same-wafer spatial point-sampling method context, bounded to its accessible abstract.
 
-None supplies the numerical, kernel, uncertainty, registration, and scale diversity required for direct R04 inversion.
+None supplies the numerical arrays, calibrated kernels, uncertainty covariance, registration, and scale diversity required for direct R04 inversion.
 
 This is a data-readiness decision, not a failed scientific prediction.
 
@@ -102,6 +103,35 @@ The paper states that the CdTe/HgCdTe graded interface cannot be neglected for l
 
 The paper does not report lateral coordinates, a raster, aperture or PSF, a same-region scale sweep, numerical arrays, repeats, or observation covariance. Its `Delta Eg` is a depth-grading estimate, not a lateral covariance statistic.
 
+## Nearest spatial-observation-method context
+
+Ariel et al. (1996), *Monitoring HgCdTe Layer Uniformity by the Differential Absorption Technique*, Applied Physics Letters 69(13), 1864-1866, is audited from accessible abstract and bibliographic records. The exact DOI and full text were not retrieved; the DOI remains null rather than guessed.
+
+The abstract reports:
+
+```text
+measurement temperature                        room temperature
+minimum reliable layer thickness               8 micrometres
+reported thickness accuracy                    approximately +/-0.1 micrometre
+reported differential-absorption accuracy      approximately +/-0.5 meV
+sampling                                       different points on the same wafer
+reported effective lateral scales              1
+```
+
+The processing chain filters interference fringes and high-frequency noise, estimates thickness from the fringe spectrum, differentiates the absorption coefficient twice with respect to photon energy, and uses derivative extrema as approximate band-gap markers. The method is applied at different points on one HgCdTe wafer to address lateral and transverse band-gap fluctuations.
+
+**Qualification:** `spatial_observation_method_context`
+
+The accessible record does not provide point count, spacing, coordinates, acquisition order, aperture or PSF, a raster, arrays, repeats, covariance, or the numerical lateral/transverse decomposition.
+
+Different points establish same-wafer spatial sampling intent. They do not establish a calibrated map. The approximately +/-0.5 meV value is method accuracy, not repeat covariance.
+
+## Price and Boyd review retrieval state
+
+Price and Boyd, DOI `10.1088/0268-1242/8/6S/006`, is bibliographically verified as a review of HgCdTe FTIR, EDX, optical reflectance, and other composition methods. Its full text was not retrieved.
+
+The abstract does not support importing aperture, interaction-volume, spatial-resolution, precision, or same-region scale comparisons. Those remain retrieval targets rather than evidence.
+
 ## Direct qualification boundary
 
 Direct validation requires:
@@ -114,7 +144,7 @@ Direct validation requires:
 6. uncertainty, repeats, or covariance sufficient for the observation model;
 7. an explicit observable and preprocessing chain.
 
-A source is not promoted by raster density, modality count, specimen count, growth-technique diversity, or a weighted score when a mandatory item is absent.
+A source is not promoted by raster density, modality count, specimen count, growth-technique diversity, different point count, or a weighted score when a mandatory item is absent.
 
 ## Current source disposition
 
@@ -123,6 +153,7 @@ A source is not promoted by raster density, modality count, specimen count, grow
 | Gopal et al. 1992 | Partial multiresolution benchmark | Two rendered spectra, nominal beam diameters, no third scale, PSF, coordinates, or covariance |
 | Phillips et al. 2003 | Detector-pixel-scale source-bounded figure benchmark | 400 spectra at one approximately 9 micrometre scale; no arrays, full PSF, repeats, or scale sweep |
 | Ariel et al. 1995 | Depth-averaged FTIR observation-model context | One spatially averaged spectrum per specimen; no lateral map, kernel, arrays, registration, scale sweep, or covariance |
+| Ariel et al. 1996 | Same-wafer spatial point-sampling method context | Abstract only; no DOI record, full text, coordinates, raster, PSF, arrays, repeats, covariance, or scale sweep |
 | Chang et al. 2005 | Source-bounded figure benchmark | Published one 100-micrometre map; no raw same-region aperture sweep, measured PSF, or covariance |
 | Furstenberg et al. 2005 | Cross-modality context | PL and transmission at one representative 25-micrometre resolution; modalities are not scales |
 | Murakami et al. 1992 | Source-bounded figure benchmark | Rendered EPMA profiles; no arrays, kernel, or scale sweep |
@@ -152,24 +183,25 @@ one original numerical high-resolution map
 
 The package must additionally include PSF/aperture/pixel definitions, registration, thickness/depth model, uncertainty covariance, exact observable, preprocessing, raster geometry, and cross-scale sampling relationships.
 
-For Ariel 1995 specifically, a quantitative depth-operator upgrade requires:
+For Ariel 1996 specifically, a quantitative upgrade requires:
 
+- authoritative full text and DOI metadata;
 - original transmission, absorption, and derivative arrays;
-- exact smoothing and fringe-removal algorithms and parameters;
-- specimen-specific thickness and interface-profile metadata;
-- a measured or reconstructable lateral beam kernel;
-- measurement coordinates and acquisition order;
+- physical coordinates, point count, spacing, and acquisition order;
+- measured or reconstructable aperture and spatial PSF;
+- exact filtering and derivative parameters;
 - repeat uncertainty or observation covariance;
-- independent depth-profile validation for `Eg(z)`;
-- carrier-density information for Burstein-Moss assessment;
-- a forward model including nonparabolicity and the relevant interface region.
+- explicit numerical separation of lateral and transverse fluctuations;
+- specimen thickness and interface-profile metadata;
+- at least two additional calibrated effective scales, or one reusable high-resolution numerical map.
 
 ## Permitted work while blocked
 
 - treat Gopal 1992 as qualitative evidence that HgCdTe transmission can depend on probe diameter;
 - use Phillips 2003 as detector-pixel-scale absorption and raster-sampling context;
 - use Ariel 1995 to constrain depth averaging, derivative preprocessing, linear-grading, and interface-grading nuisance models;
-- search the reprioritized DOI queue for original arrays, third-scale measurements, and instrument metadata;
+- use Ariel 1996 as abstract-bounded same-wafer point-sampling and accuracy context;
+- continue full-text retrieval for Price and Boyd 1993, Ariel 1996, and the reprioritized DOI queue;
 - use other audited sources for bounded forward-model, growth-uniformity, and cross-modality context.
 
 ## Prohibited substitutions
@@ -178,6 +210,9 @@ For Ariel 1995 specifically, a quantitative depth-operator upgrade requires:
 - 400 spectra for 400 independent repeats;
 - two scales for a three-scale covariance-family test;
 - through-thickness `Delta Eg` for lateral spatial variance;
+- different wafer points for a calibrated raster without coordinates and registration;
+- approximately +/-0.5 meV method accuracy for observation covariance;
+- one uncharacterized optical setup for multiple effective scales;
 - multiple specimens or growth methods for spatial registration;
 - derivative peak positions for exact intrinsic band gaps;
 - linear-grading field estimates for model-independent electric-field measurements;
@@ -186,6 +221,7 @@ For Ariel 1995 specifically, a quantitative depth-operator upgrade requires:
 - adjustable aperture capability for an actual same-region aperture sweep;
 - digitized publication pixels for original arrays;
 - temporal scan drift for long-range spatial covariance;
+- an inferred DOI for an unresolved authoritative record;
 - absence from an accessible record for proof of source-level absence.
 
 ## Authorization consequence

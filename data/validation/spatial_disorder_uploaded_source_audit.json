@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "portfolio_contribution": "R04",
   "parent_issue": 196,
-  "implementation_issues": [272, 281, 291],
+  "implementation_issues": [272, 281, 291, 302],
   "status": "external_data_blocked",
   "direct_validation_candidate_ids": [],
   "partial_multiresolution_candidate_ids": [
@@ -11,6 +11,7 @@
   "classifications": {
     "aoki_2004_superlattice_microscopy": "source_bounded_figure_benchmark",
     "ariel_1995_derivative_depth_grading": "depth_observation_model_context",
+    "ariel_1996_same_wafer_differential_absorption": "spatial_observation_method_context",
     "chang_2005_infrared_mapping": "source_bounded_figure_benchmark",
     "feldman_1991_mqw_chemical_mapping": "source_bounded_figure_benchmark",
     "furstenberg_2005_pl_transmission_mapping": "cross_modality_context",
@@ -72,6 +73,27 @@
     "permitted_inference": "source-bounded depth-averaged absorption and preprocessing context",
     "prohibited_inference": "treating Delta Eg as lateral spatial variance, covariance recovery, or multiresolution validation"
   },
+  "nearest_spatial_observation_method_context": {
+    "source_id": "ariel_1996_same_wafer_differential_absorption",
+    "doi": null,
+    "doi_status": "unresolved_not_guessed",
+    "full_text_status": "not_retrieved",
+    "measurement_temperature_k": 300.0,
+    "minimum_reliable_layer_thickness_micrometre": 8.0,
+    "reported_thickness_accuracy_micrometre": 0.1,
+    "reported_band_gap_method_accuracy_mev": 0.5,
+    "same_wafer_multiple_positions_reported": true,
+    "reported_effective_lateral_scale_count": 1,
+    "permitted_inference": "source-bounded same-wafer spatial point-sampling method context",
+    "prohibited_inference": "treating unregistered points as a calibrated map, method accuracy as covariance, or one optical setup as multiresolution validation"
+  },
+  "price_boyd_review_retrieval": {
+    "doi": "10.1088/0268-1242/8/6S/006",
+    "bibliographic_status": "verified",
+    "full_text_status": "not_retrieved",
+    "permitted_inference": "review target and citation-chain context only",
+    "prohibited_inference": "importing aperture, spatial-resolution, or precision claims from an abstract-only record"
+  },
   "minimum_gopal_data_upgrade": [
     "original numerical wide- and focused-beam spectra",
     "coordinates proving the same sampled region",
@@ -94,6 +116,15 @@
     "physical measurement coordinates if any lateral claim is made",
     "repeat uncertainty or observation covariance",
     "independent depth-profile validation for Eg(z)"
+  ],
+  "minimum_ariel_1996_data_upgrade": [
+    "authoritative full text and DOI record",
+    "original transmission, absorption, and derivative arrays",
+    "physical coordinates, point count, spacing, and acquisition order",
+    "measured or reconstructable aperture and spatial PSF",
+    "repeat uncertainty or observation covariance",
+    "explicit numerical separation of lateral and transverse fluctuations",
+    "at least two additional calibrated effective scales or one reusable high-resolution map"
   ],
   "source_set_dois": [
     "10.1017/S1431927604882175",
@@ -119,6 +150,11 @@
     "Reported built-in fields are conditional on linear grading and the declared layer thickness.",
     "Smoothing and fringe filtering can shift the derivative extrema used by the estimator.",
     "The CdTe/HgCdTe graded interface cannot be neglected for the reported layers thinner than 15 micrometres.",
+    "Measurements at different points on one wafer establish spatial sampling intent but do not establish a calibrated raster or spatial map.",
+    "One uncharacterized optical setup remains one effective lateral scale.",
+    "A reported plus-or-minus 0.5 meV method accuracy is not repeat uncertainty or observation covariance.",
+    "Lateral and transverse fluctuation language does not supply their numerical decomposition without the full data and model.",
+    "An unresolved DOI must remain null rather than being inferred from journal metadata.",
     "Rendered spectra and maps are not original numerical arrays.",
     "A reported beam diameter is not a complete measured point-spread function or Gaussian standard deviation.",
     "Multiple modalities do not count as multiple probe scales.",
