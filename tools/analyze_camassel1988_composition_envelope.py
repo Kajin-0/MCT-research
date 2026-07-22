@@ -306,7 +306,11 @@ def _write_csv(path: str | Path, records: list[dict[str, Any]]) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     serialized = quantize_for_serialization(records)
     with output.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(serialized[0]))
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=list(serialized[0]),
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(serialized)
 
