@@ -9,7 +9,8 @@
     "standard_deviation_relation": "sigma_G=s",
     "source_convention_correction": "An earlier repository transcription used an inequivalent 4*s^2 denominator and incorrectly set sigma_G=sqrt(2)*s. The uploaded source PDF shows the ordinary standard-Gaussian convention."
   },
-  "controlled_calculation": {
+  "controlled_reproduction": {
+    "compatibility_note": "Legacy schema key retained for deterministic asset tooling. The calculation does not reproduce the source's approximate s/2 coefficient.",
     "mean_gap_ev": 0.1,
     "source_scale_s_ev": 0.008,
     "gap_standard_deviation_ev": 0.008,
