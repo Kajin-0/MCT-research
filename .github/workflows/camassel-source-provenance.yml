@@ -1,0 +1,71 @@
+name: camassel-source-provenance
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Camassel Table I reconstruction
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_camassel1988_table1.py \
+            2>&1 | tee /tmp/camassel-source-provenance-pytest.log
+      - name: Assert source boundary
+        run: |
+          python - <<'PY'
+          import csv
+          from collections import Counter
+          from pathlib import Path
+
+          root = Path('.')
+          specimens = list(csv.DictReader(
+              (root / 'data/experimental/camassel1988_specimens.csv')
+              .read_text(encoding='utf-8').splitlines()
+          ))
+          observations = list(csv.DictReader(
+              (root / 'data/experimental/camassel1988_table1_observations.csv')
+              .read_text(encoding='utf-8').splitlines()
+          ))
+          assert len(specimens) == 11
+          assert len(observations) == 13
+          assert Counter(row['modality'] for row in observations) == {
+              'reflectivity': 6,
+              'absorption_derivative': 7,
+          }
+          assert [float(row['composition_x']) for row in specimens] == [
+              1.000, 0.970, 0.955, 0.925, 0.880, 0.780,
+              0.710, 0.710, 0.620, 0.550, 0.500,
+          ]
+          assert all(row['energy_uncertainty_ev'] == '' for row in observations)
+          assert all(row['source_pdf_sha256'] == '' for row in observations)
+          assert all(
+              row['source_hash_status']
+              == 'file_library_binary_not_materialized_hash_unavailable'
+              for row in observations
+          )
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: camassel-source-provenance
+          path: |
+            /tmp/camassel-source-provenance-pytest.log
+            data/experimental/camassel1988_specimens.csv
+            data/experimental/camassel1988_table1_observations.csv
+            data/experimental/camassel1988_README.md
+          if-no-files-found: error
+          retention-days: 30
