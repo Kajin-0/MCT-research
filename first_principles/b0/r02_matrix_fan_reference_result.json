@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_external_matrix_fan_synthetic_reference",
+  "program": "R02",
+  "issue": 296,
+  "status": "all_mandatory_synthetic_gates_pass",
+  "implementation_head_before_reference_commit": "fb6453943f084b27647466706e882c1312a63d3a",
+  "ci": {
+    "workflow_run_id": 29958119446,
+    "python_3_11": "PASS",
+    "python_3_13": "PASS",
+    "all_specialized_workflows": "PASS"
+  },
+  "reference_fixture": {
+    "external_dimension": 2,
+    "intermediate_dimension": 3,
+    "contribution_count": 2,
+    "evaluation_energy_ev": 0.11,
+    "eta_ev": 0.012,
+    "q_weights": [
+      0.4,
+      0.6
+    ],
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "material_data_used": false
+  },
+  "measured_residuals": {
+    "diagonal_equivalence_max_abs_ev": 3.469446951953614e-18,
+    "external_covariance_max_abs_ev": 5.076104428597243e-18,
+    "intermediate_invariance_max_abs_ev": 1.6365348541700844e-17,
+    "linewidth_hermiticity_max_abs_ev": 0.0,
+    "linewidth_minimum_eigenvalue_ev": 0.001400816826522174,
+    "common_hermiticity_max_abs_ev": 0.0,
+    "derivative_finite_difference_max_abs": 1.6648715095105384e-10,
+    "on_shell_hermiticity_max_abs_ev": 0.0,
+    "on_shell_degenerate_covariance_max_abs_ev": 6.940543589269277e-18,
+    "zero_coupling_max_abs_ev": 0.0
+  },
+  "thresholds": {
+    "diagonal_equivalence_max_abs_ev": 1e-12,
+    "external_covariance_max_abs_ev": 1e-12,
+    "intermediate_invariance_max_abs_ev": 1e-12,
+    "hermiticity_max_abs_ev": 1e-12,
+    "causality_minimum_eigenvalue_ev": -1e-12,
+    "derivative_finite_difference_max_abs": 1e-8,
+    "zero_coupling_max_abs_ev": 1e-15
+  },
+  "decision": {
+    "classification": "RESTRICTED_GO",
+    "external_matrix_fan_algebra_validated": true,
+    "synthetic_kernel_validated": true,
+    "backend_vertex_export_validated": false,
+    "material_self_energy_validated": false,
+    "automatic_followup_authorized": false,
+    "next_permitted_gate": "separate upstream raw-complex-vertex fixture and normalization-equivalence design"
+  },
+  "authorization": {
+    "backend_build": false,
+    "backend_source_modification": false,
+    "raw_vertex_material_export": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "generalized_frohlich_material_prediction": false,
+    "production_quasiparticle_fit": false
+  },
+  "claim_boundary": "The result validates the matrix contraction algebra and synthetic implementation only. It does not establish backend vertex normalization, band-window convergence, a material self-energy, a long-range correction, or finite-temperature Kane parameters."
+}

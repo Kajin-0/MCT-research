@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_external_matrix_fan_contract",
+  "program": "R02",
+  "issue": 296,
+  "matrix_definition": "Sigma_R(E)=sum_qnu w_q G_qnu^dagger D_R_qnu(E) G_qnu at one common external frequency E+i*eta",
+  "required_record_fields": [
+    "schema_version",
+    "stage",
+    "metadata",
+    "external_dimension",
+    "external_energies_ev",
+    "external_degeneracy_groups",
+    "evaluation_energy_ev",
+    "eta_ev",
+    "contributions"
+  ],
+  "required_metadata": {
+    "vertex_normalization": "energy_normalized_includes_phonon_zero_point_amplitude",
+    "vertex_units": "eV",
+    "energy_units": "eV",
+    "q_weight_location": "separate_scalar_not_in_vertex",
+    "spin_convention": "explicit_spinors_no_extra_spin_factor",
+    "retarded_sign_convention": "positive_eta",
+    "long_range_included": false,
+    "thermal_expansion_included": false
+  },
+  "required_contribution_fields": [
+    "q_id",
+    "mode_id",
+    "source_id",
+    "q_weight",
+    "phonon_energy_ev",
+    "bose_occupation",
+    "intermediate_dimension",
+    "intermediate_energies_ev",
+    "intermediate_occupations",
+    "intermediate_degeneracy_groups",
+    "vertex"
+  ],
+  "vertex_encoding": {
+    "format": "complex_matrix_split_real_imag",
+    "axis_order": [
+      "intermediate_state",
+      "external_state"
+    ],
+    "hidden_frequency_mass_q_or_spin_factors_permitted": false
+  },
+  "invariants": {
+    "common_frequency_external_covariance": true,
+    "diagonal_scalar_equivalence": true,
+    "intermediate_rotations_require_commuting_denominator_operator": true,
+    "raw_retarded_matrix_is_not_declared_hermitian": true,
+    "linewidth_matrix_positive_semidefinite": true,
+    "long_range_included": false,
+    "thermal_expansion_included": false
+  },
+  "tolerances": {
+    "diagonal_equivalence_max_abs_ev": 1e-12,
+    "external_covariance_max_abs_ev": 1e-12,
+    "intermediate_invariance_max_abs_ev": 1e-12,
+    "hermiticity_max_abs_ev": 1e-12,
+    "causality_minimum_eigenvalue_ev": -1e-12,
+    "derivative_finite_difference_max_abs": 1e-8,
+    "zero_coupling_max_abs_ev": 1e-15,
+    "unitarity_max_abs": 1e-12,
+    "commutator_max_abs": 1e-12
+  },
+  "authorization": {
+    "analytical_derivation": true,
+    "synthetic_numpy_kernel": true,
+    "backend_build": false,
+    "backend_source_modification": false,
+    "raw_vertex_material_export": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "dense_interpolation": false,
+    "generalized_frohlich_material_prediction": false,
+    "production_quasiparticle_fit": false
+  },
+  "claim_boundary": "Passing validates the algebra, synthetic implementation, covariance domain and retarded sign convention only. It does not validate a backend vertex export, a material self-energy, a generalized-Frohlich correction or a finite-temperature Kane parameter set."
+}
