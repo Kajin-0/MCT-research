@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "status": "cdte_a0_zeu_zue_reference_result",
+  "source_evidence": {
+    "workflow_run": 29944282253,
+    "artifact_id": 8542244366,
+    "artifact_digest": "sha256:8379318f214a564fa1f7fd6ff6bd206b34d392cc4deca09e01f25234822fc6b9",
+    "head": "952db5786413522df6500ffc82d419fa76b97dea"
+  },
+  "execution": {
+    "scf_execution_count": 1,
+    "response_route_count": 2,
+    "scf_converged": true,
+    "zeu_response_converged": true,
+    "zue_response_converged": true,
+    "zeu_response_convergence_count": 2,
+    "zue_response_convergence_count": 2,
+    "same_state_save_tree_verified": true
+  },
+  "observables": {
+    "zeu_atoms": {
+      "Cd": [[2.90543, 0.0, 0.0], [0.0, 2.90543, 0.0], [0.0, 0.0, 2.90543]],
+      "Te": [[-4.15794, 0.0, 0.0], [0.0, -4.15794, 0.0], [0.0, 0.0, -4.15794]]
+    },
+    "zue_atoms": {
+      "Cd": [[2.90575, 0.0, 0.0], [0.0, 2.90575, 0.0], [0.0, 0.0, 2.90575]],
+      "Te": [[-4.16077, 0.0, 0.0], [0.0, -4.16077, 0.0], [0.0, 0.0, -4.16077]]
+    },
+    "zeu_raw_charge_sum_tensor_e": [[-1.25251, 0.0, 0.0], [0.0, -1.25251, 0.0], [0.0, 0.0, -1.25251]],
+    "zue_raw_charge_sum_tensor_e": [[-1.25502, 0.0, 0.0], [0.0, -1.25502, 0.0], [0.0, 0.0, -1.25502]],
+    "zeu_maximum_raw_charge_neutrality_residual_e": 1.25251,
+    "zue_maximum_raw_charge_neutrality_residual_e": 1.25502,
+    "maximum_zeu_zue_tensor_difference_e": 0.00283,
+    "minimum_sampled_occupied_unoccupied_separation_ev": 0.49733490292583227,
+    "minimum_sampled_k_point_crystal": [0.0, 0.0, 0.0],
+    "dielectric_tensor": [[62.332890864, 0.0, 0.0], [0.0, 62.332890864, 0.0], [0.0, 0.0, 62.332890864]]
+  },
+  "thresholds": {
+    "maximum_raw_charge_neutrality_residual_e": 0.05,
+    "maximum_route_tensor_difference_e": 0.05,
+    "minimum_sampled_occupied_unoccupied_separation_ev": 0.05
+  },
+  "checks": {
+    "zeu_raw_charge_neutrality": false,
+    "zue_raw_charge_neutrality": false,
+    "zeu_zue_tensor_agreement": true,
+    "sampled_insulating_separation": true,
+    "scf_converged": true,
+    "zeu_response_converged": true,
+    "zue_response_converged": true,
+    "same_state_provenance": true,
+    "complete_zeu_tensor": true,
+    "complete_zue_tensor": true
+  },
+  "decision": {
+    "all_mandatory_conditions_pass": false,
+    "failed_checks": ["zeu_raw_charge_neutrality", "zue_raw_charge_neutrality"],
+    "terminate_current_qe_pbe_pseudopotential_polar_path_for_a1": true,
+    "a1_electron_phonon_authorized": false,
+    "automatic_followup_authorized": false,
+    "authorize_only_separate_k_grid_cutoff_design_review": false
+  },
+  "claim_boundary": "This result establishes internal zeu/zue route agreement and a positive sampled electronic separation at one fixed state, but the order-unity raw charge-neutrality failure terminates the current QE/PBE/current-pseudopotential polar-response path for A1. It does not establish converged CdTe material properties."
+}
