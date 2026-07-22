@@ -25,6 +25,7 @@ jobs:
           mkdir -p joint-identifiability-diagnostics
           python -m pytest -q \
             tests/test_spatial_disorder_joint_identifiability.py \
+            tests/test_spatial_disorder_joint_identifiability_threshold.py \
             2>&1 | tee joint-identifiability-diagnostics/pytest.txt
       - name: Rebuild controlled reference
         run: |
