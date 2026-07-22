@@ -2,6 +2,7 @@
 """Build the immutable Chang anchored-tail recoverability record."""
 from __future__ import annotations
 
+import argparse
 import json
 from dataclasses import asdict
 from pathlib import Path
@@ -11,7 +12,7 @@ from mct_research.anchored_tail_validation import chang_reference_traces
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "data" / "validation" / "chang_anchored_tail_recoverability.json"
+DEFAULT_OUTPUT = ROOT / "data" / "validation" / "chang_anchored_tail_recoverability.json"
 
 
 def _quantize(value: Any) -> Any:
@@ -49,10 +50,20 @@ def build_record() -> dict[str, Any]:
     }
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    return parser.parse_args()
+
+
 def main() -> None:
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(build_record(), indent=2, sort_keys=True) + "\n")
-    print(OUTPUT)
+    output = _parse_args().output
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
+        json.dumps(build_record(), indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    print(output)
 
 
 if __name__ == "__main__":
