@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "stage": "A0_same_state_zeu_zue_response_diagnostic",
+  "program": "R02_finite_temperature_Kane_and_electronic_structure",
+  "issue": 271,
+  "parent_issue": 4,
+  "source": {
+    "diagnosis_issue": 261,
+    "diagnosis_pull_request": 263,
+    "diagnosis_merge_commit": "2c8c0cd7871ce5354c05ede842c3aee76096ff4b",
+    "stricter_response_record": "first_principles/a0/cdte_a0_stricter_response_reference_result.json",
+    "stricter_response_reference_settings_required": true
+  },
+  "required_settings": {
+    "reference_lattice_angstrom": 6.476035479332049,
+    "ecutwfc_ry": 114.0,
+    "ecutrho_ry": 570.0,
+    "k_grid": [
+      4,
+      4,
+      4
+    ],
+    "k_grid_shift": [
+      0,
+      0,
+      0
+    ],
+    "nbnd": 40,
+    "scf_conv_thr_ry": 1e-08,
+    "ph_tr2": 1e-14,
+    "q_point": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "occupations": "fixed",
+    "noncollinear": true,
+    "spin_orbit": true,
+    "functional": "PBE"
+  },
+  "routes": {
+    "zeu": {
+      "epsil": true,
+      "trans": true,
+      "zeu": true,
+      "zue": false,
+      "observable": "Born effective charge from dielectric-response force derivative"
+    },
+    "zue": {
+      "epsil": true,
+      "trans": true,
+      "zeu": false,
+      "zue": true,
+      "observable": "Born effective charge from phonon-density polarization derivative"
+    }
+  },
+  "thresholds": {
+    "maximum_raw_charge_neutrality_residual_e": 0.05,
+    "maximum_route_tensor_difference_e": 0.05,
+    "minimum_sampled_occupied_unoccupied_separation_ev": 0.05,
+    "minimum_phonon_response_convergence_count": 2
+  },
+  "authorization": {
+    "one_qe_scf_state": true,
+    "exactly_two_gamma_response_routes": true,
+    "complete_tensor_export": true,
+    "sampled_band_separation_audit": true,
+    "scientific_decision_record": true,
+    "automatic_retry": false,
+    "automatic_ladder_continuation": false,
+    "volume_change": false,
+    "functional_change": false,
+    "pseudopotential_change": false,
+    "ecutwfc_change": false,
+    "ecutrho_change": false,
+    "k_grid_change": false,
+    "band_count_change": false,
+    "threshold_change": false,
+    "charge_asr_repair": false,
+    "a1_electron_phonon": false,
+    "production_ahc": false,
+    "dense_epw": false,
+    "hgte": false,
+    "alloy": false
+  },
+  "decision_policy": {
+    "all_conditions_mandatory": true,
+    "failure_action": "terminate_current_QE_PBE_pseudopotential_polar_response_path_for_A1",
+    "pass_action": "authorize_only_a_separate_k_grid_and_cutoff_design_review",
+    "a1_remains_unauthorized_on_pass": true
+  },
+  "claim_boundary": [
+    "internal same-state route consistency only",
+    "not a converged CdTe dielectric constant or Born charge",
+    "not a converged phonon or equilibrium-structure result",
+    "not an AHC correction or reference Kane parameter set",
+    "not authorization for A1, HgTe, alloy, EPW, or a convergence sweep"
+  ],
+  "baseline_run_spec": {
+    "ecutrho_ry": 456.0,
+    "ph_tr2": 1e-10
+  }
+}
