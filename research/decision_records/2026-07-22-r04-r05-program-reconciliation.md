@@ -100,15 +100,17 @@ X =
 
 Here `V_i` is the inferred filtered composition or gap variance after applying the declared measurement-kernel and observation-operator contract. The reciprocal transformation must be propagated from the native observation space; it must not be assigned an ad hoc independent error bar.
 
-Let `C_y` be the complete covariance of `y`. It must include every applicable contribution and cross term from:
+Conditional on fixed `s_i`, let `C_y` be the complete covariance of `y`. It must include every applicable response-side contribution and cross term from:
 
 - observation uncertainty;
 - repeated-measurement covariance;
-- instrument calibration;
-- kernel uncertainty;
+- instrument calibration that affects the inferred response at fixed scale;
+- kernel uncertainty other than unresolved uncertainty in the scale coordinates themselves;
 - finite-map covariance;
 - same-raster cross-scale covariance;
 - observation-operator uncertainty.
+
+Material uncertainty in the `s_i` changes the design matrix and is handled as an errors-in-variables problem below. It may enter `C_y` only through a verified approximation that demonstrates adequate coverage and negligible decision-changing bias.
 
 Rank-one systematic terms, common calibration terms, and same-raster cross-scale terms generally make `C_y` non-diagonal. Nominal raster pixels and different resolutions of one material realization are not independent repeats.
 
@@ -355,17 +357,25 @@ C_{H\mid F}
 C_{HH}-C_{HF}C_{FF}^{-1}C_{FH}.
 \]
 
-Parameter uncertainty from fitting `F` must then be propagated. A verified first-order approximation is
+Let `J_F` and `J_H` be the fitting and held-out mean Jacobians with respect to the fitted latent parameters `theta`. If the covariance blocks are treated as parameter independent, the conditional prediction Jacobian is
+
+\[
+\widetilde J_H
+=
+J_H-C_{HF}C_{FF}^{-1}J_F.
+\]
+
+A verified first-order predictive covariance is then
 
 \[
 C_{\rm pred}
 \simeq
 C_{H\mid F}
 +
-J_H C_{\theta\mid F}J_H^T,
+\widetilde J_H C_{\theta\mid F}\widetilde J_H^T.
 \]
 
-where `theta` contains the fitted latent parameters and `J_H` is the held-out prediction Jacobian. If the model is nonlinear, scale uncertainty is material, constraints are active, or parameter/error correlations invalidate this additive approximation, use posterior-predictive or Monte Carlo integration through the complete model.
+If the covariance depends materially on `theta`, the model is nonlinear, scale uncertainty is material, constraints are active, or parameter/error correlations invalidate this approximation, use posterior-predictive or Monte Carlo integration through the complete model.
 
 Define the held-out residual
 
