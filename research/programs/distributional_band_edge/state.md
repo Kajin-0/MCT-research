@@ -12,7 +12,8 @@ Develop a constructive, falsifiable theory connecting latent signed-gap laws, sp
 - #22 — HgCdTe band-tail and composition-fluctuation primary data;
 - #167 — distributional band-edge program;
 - #225 — differential curvature and deep-tail structure of Gaussian-disorder absorption tails;
-- #235 — published-figure recoverability of logarithmic tail curvature.
+- #235 — published-figure recoverability of logarithmic tail curvature;
+- #251 — cross-material prior-art boundary for Gaussian-tail curvature and finite-window identifiability.
 
 ## Completed foundations
 
@@ -59,13 +60,13 @@ $$
 
 over `1-100 cm^-1`, not the source-reported approximate `s/2`. The former quantitative reproduction claim is retracted. The `60.1%` fit-window sensitivity from `1-100` to `100-500 cm^-1` remains valid.
 
-## Prior-art boundary
+## HgCdTe prior-art boundary
 
 An eight-paper full-text audit covers Finkman 1979/1984, Herrmann 1992/1993, Ariel 1995, and Chang 2004/2006/2007.
 
-Established prior art includes:
+Established HgCdTe prior art includes:
 
-- finite-range exponential and modified-Urbach fits in HgCdTe;
+- finite-range exponential and modified-Urbach fits;
 - composition and temperature scaling of empirical tail slopes;
 - Gaussian gap convolution producing a nearly exponential finite-range tail;
 - use of `d alpha/dE` and `d2 alpha/dE2` to estimate average gap and depth grading;
@@ -73,7 +74,7 @@ Established prior art includes:
 - first-derivative matching between Urbach and intrinsic branches;
 - sensitivity of derivative observables to smoothing and interference removal.
 
-Ariel 1995 is the closest derivative precedent but analyzes `d alpha/dE` and `d2 alpha/dE2`, not `d2 log(alpha)/dE2`. For a true exponential,
+Ariel 1995 analyzes `d alpha/dE` and `d2 alpha/dE2`, not `d2 log(alpha)/dE2`. For a true exponential,
 
 $$
 \alpha''=\alpha/W^2>0,
@@ -85,15 +86,36 @@ $$
 \frac{d^2\log\alpha}{dE^2}=0.
 $$
 
-The audited papers did not state:
+## Cross-material prior-art boundary
 
-- exact derivative identities for the Gaussian-power moment operator;
-- log-concavity of its absorption;
-- monotonic increase of local apparent tail energy;
-- the deep-tail limit `sigma_G^2 d2(log alpha)/dE2 -> -1`;
-- the finite-window non-falsifiability result or a scale-normalized curvature-recoverability test.
+Issue #251 audits random-potential, amorphous-semiconductor, kesterite, band-fluctuation, organic-semiconductor, and partial-moment precedents.
 
-These remain candidate contributions subject to wider cross-material prior-art review.
+The audit establishes that the following are not novel R03 claims:
+
+1. correlated Gaussian disorder can generate a broad apparently exponential interval;
+2. an intermediate Urbach-like regime can cross over to a deeper Gaussian tail;
+3. a Gaussian distribution of local gaps can be convolved with direct-gap square-root absorption;
+4. the local inverse logarithmic slope can be energy dependent and interpreted as an apparent Urbach energy;
+5. narrow fitting windows can force arbitrary exponential fits and fit-dependent tail energies;
+6. generic Gaussian partial moments and recurrence relations are standard mathematics;
+7. the asymptotic tail class depends on the fluctuation kernel, and non-Gaussian kernels can produce a true exponential asymptote.
+
+The closest audited precedents are:
+
+- John et al. 1986/1988: correlated Gaussian random-potential density-of-states theory with an intermediate approximately exponential regime and a deeper Gaussian tail;
+- O'Leary et al. 1995: density and joint-density-of-states functions averaged over Gaussian band-potential fluctuations across subgap and above-gap regimes;
+- Gokmen et al. 2013: Gaussian local-gap averaging of direct-gap square-root absorption in kesterites;
+- Guerra et al. 2019: a non-Gaussian band-fluctuation kernel selected to yield a true exponential asymptote;
+- Kaiser et al. 2021: energy-dependent apparent Urbach energy and explicit narrow-fit-window arbitrariness;
+- Winkler et al. 1972: generic partial-moment formulas and recurrences.
+
+The two O'Leary article full texts were not recovered in this workstream. Publisher abstracts and a first-party thesis record establish the Gaussian-potential averaging model, but they do not support a definitive equation-level exclusion of an equivalent curvature theorem.
+
+The defensible conclusion is:
+
+> The assembled all-`p` differential, asymptotic, and finite-window result was not located in the inspected primary-source material.
+
+The repository does not support the stronger statement that no equivalent result exists in the literature.
 
 ## Gaussian-tail differential structure
 
@@ -130,6 +152,8 @@ $$
 $$
 
 not zero. This is an analytical observation-model result, not evidence that a measured HgCdTe tail is caused by composition disorder.
+
+After the cross-material audit, the candidate contribution is the **assembled operator-specific theorem and measurement consequence**, not Gaussian convolution, square-root edge averaging, energy-dependent apparent Urbach energy, or partial-moment recurrence individually.
 
 ## Published-figure recoverability result
 
@@ -168,6 +192,19 @@ The low-temperature traces fail the conservative 18-pixel gate even if the upper
 
 The pixel dimensions and six-pixel uncertainty are audit scenarios, not source measurement covariance. The modified-Urbach trace spans are source-conditioned empirical slopes, not Gaussian-disorder parameters.
 
+## Retained candidate distinction
+
+No equivalent single result was located in the inspected material that combines, for arbitrary `p>=0` in the declared one-sided Gaussian-power threshold operator:
+
+- operator-specific first- and second-derivative identities;
+- log-concavity of the absorption;
+- monotone local inverse logarithmic slope;
+- normalized deep-tail logarithmic curvature approaching `-1`;
+- fixed-range best-affine residual decreasing as `O(|z_upper|^-2)`;
+- a source-conditioned HgCdTe recoverability and no-digitization consequence.
+
+This is a bounded candidate distinction, not a positive novelty determination.
+
 ## Published-data assessment
 
 The Chang 2004/2006/2007 spectra primarily cover approximately `10^2-10^4 cm^-1`. They are useful for intrinsic/tail joining but do not visibly provide the deep-subgap range needed for asymptotic curvature.
@@ -181,6 +218,7 @@ No new laboratory experiment is required. The validation program remains restric
 - which latent distributions are supported by specimen-level evidence;
 - how local-gap distributions relate to Urbach tails, PL widths, and detector cutoffs without conflation;
 - whether any published numerical spectrum has enough covariance and above-gap information to resolve log curvature;
+- whether the O'Leary 1995 full texts contain a closer equation-level precedent;
 - when carrier filling, free-carrier absorption, and defect state materially reorder inferred edges;
 - which cross-modal measurements identify latent parameters rather than only combinations.
 
@@ -188,15 +226,16 @@ No new laboratory experiment is required. The validation program remains restric
 
 The weak manuscript and submission bundle associated with PR #194 were retired from active publication status. This does not retire the program or its validated modules.
 
-No active manuscript is authorized. A new manuscript requires a coherent theorem, a defensible prior-art boundary, and a public-data or source-bounded falsification path. Issues #225 and #235 do not by themselves authorize manuscript writing.
+No active manuscript is authorized. A new manuscript requires a coherent theorem, a defensible prior-art boundary, and a public-data or source-bounded falsification path. Issues #225, #235, and #251 do not by themselves authorize manuscript writing.
 
 ## Authorized next gates
 
-- complete the wider cross-material logarithmic-curvature prior-art audit;
+- retrieve and inspect the O'Leary 1995 article full texts, or record a formal source-unavailable boundary after reasonable attempts;
 - seek numerical published absorption data with measurement covariance;
-- seek an independently constrained mean-gap location or above-gap intrinsic branch;
-- reproduce source-native optical or carrier branches only when decision-changing;
+- seek an independently constrained mean-gap location, intrinsic amplitude, or above-gap branch;
 - test another public spectrum only after a data- or figure-level recoverability gate passes;
+- reproduce source-native optical or carrier branches only when decision-changing;
+- stop the Gaussian-tail manuscript path if a close source establishes an equivalent assembled theorem or no externally anchored falsification path can be found;
 - split future papers by distinct scientific claim rather than forcing all operators into one flagship.
 
 ## Unsupported claims
@@ -212,7 +251,12 @@ This program does not currently support:
 - claiming Ariel's `d2 alpha/dE2` diagnostic is logarithmic curvature;
 - equating an empirical Finkman gap with the latent mean gap `mu_G`;
 - treating six audit-render pixels as a measured statistical standard deviation;
-- claiming submission readiness from synthetic recovery alone.
+- claiming novelty for Gaussian averaging of a square-root direct-gap edge;
+- claiming novelty for energy-dependent apparent Urbach energy or fit-window dependence;
+- claiming novelty for generic partial-moment recurrence relations;
+- claiming a universal Gaussian deep tail across disorder kernels;
+- claiming that an equivalent assembled theorem is absent from all literature;
+- claiming submission readiness from synthetic recovery or prior-art narrowing alone.
 
 ## Shared dependencies
 
