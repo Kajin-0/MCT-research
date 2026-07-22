@@ -19,7 +19,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #265 — Scott 1969 fixed-absorption optical-edge source audit;
 - #267 — Blue 1964 seven-sample optical-gap reconstruction;
 - #269 — Blue 1964 signed-gap non-commensurability certificate;
-- #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit.
+- #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit;
+- #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction.
 
 ## Completed foundations
 
@@ -35,7 +36,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - source-level Scott 1969 metrology and Figure 1 specimen audit with a fail-closed digitization gate;
 - seven-row Blue 1964 theory-conditioned positive optical-gap reconstruction;
 - executable Blue 1964 signed-gap non-commensurability certificate with zero fitted parameters and zero correction coefficients;
-- provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit.
+- provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit;
+- complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction.
 
 ## Hansen reconstruction state
 
@@ -106,7 +108,7 @@ Hansen fixed linear temperature term       1.824 meV
 published Seiler nonlinear relation         1.061 meV
 ```
 
-This was an in-sample reproduction because Seiler derived the relation from the same series.
+This was an in-sample reproduction because Seiler derived the same series.
 
 A later leave-one-specimen-out shape test found that nonlinear low-temperature curvature transfers across the three specimens and materially improves on Hansen’s fixed linear shape. However, the rational-family parameters are correlated, every fold trains on only two specimens, and generic smooth curvature also transfers reasonably well.
 
@@ -668,6 +670,96 @@ Groves 1967 is not one of the reconstructed Hansen 22 fitted alloy studies. It i
 
 The focused Groves workflow verifies the exact signed values, the conditional detailed parameter set, the 30 K/1.5 K/4.2 K separation, specimen and protocol metadata, absent covariance, absent Figure 4/5 ledgers, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `996` tests on the audited final Groves head. Issue #273 is closed as a completed signed-endpoint source audit.
 
+## Schmit and Stelzer 1969 Table III detector-cutoff reconstruction
+
+Issue #277 and draft PR #278 reconstruct the complete numerical table from Hansen fitted source `HSC_R01`.
+
+Canonical source files are:
+
+```text
+data/experimental/schmit1969_source_metadata.csv
+data/experimental/schmit1969_specimens.csv
+data/experimental/schmit1969_table3_cutoff_observations.csv
+data/experimental/schmit1969_README.md
+```
+
+The primary PDF is available in the user File Library as `schmit1969.pdf`. The source binary is not materialized in the active runtime, so the SHA256 remains explicitly unavailable.
+
+### Eight-specimen composition ledger
+
+Table III contains eight detectors with nominal source compositions and separate values adjusted during the source empirical fit:
+
+| Specimen | Nominal x | Printed limit | Fit-adjusted x | Rows |
+|---|---:|---:|---:|---:|
+| SS69_S01 | 0.600 | 0.030 | 0.599 | 4 |
+| SS69_S02 | 0.580 | 0.050 | 0.572 | 6 |
+| SS69_S03 | 0.325 | 0.010 | 0.329 | 8 |
+| SS69_S04 | 0.266 | 0.003 | 0.262 | 6 |
+| SS69_S05 | 0.217 | 0.006 | 0.223 | 8 |
+| SS69_S06 | 0.195 | 0.006 | 0.201 | 6 |
+| SS69_S07 | 0.180 | 0.006 | 0.183 | 10 |
+| SS69_S08 | 0.170 | 0.006 | 0.174 | 8 |
+
+The nominal compositions are source measurements. The adjusted values are fit-dependent nuisance quantities and are recorded as
+
+```text
+adjusted_x_is_independently_measured = false
+adjusted_x_is_eligible_for_held_out_composition_validation = false
+```
+
+The fact that the adjustments were generally within the composition limits does not convert them into new measurements.
+
+### Printed observation table and operational edge
+
+The reconstruction retains all `56` printed Table III rows, including source table order, temperature, half-peak cutoff wavelength, and source-converted cutoff energy.
+
+The measurement class is
+
+```text
+detector_half_peak_spectral_response_cutoff
+```
+
+with row-level semantics
+
+```text
+energy field = cutoff_energy_ev
+energy origin = source_converted_from_half_peak_cutoff_wavelength
+signed_gap_eligible = false
+intrinsic_gap_eligible_without_observation_operator = false
+```
+
+The source defines cutoff at half of peak detector response and states that it was generally about ten percent longer in wavelength than the response peak. This is source context, not a universal conversion to an intrinsic or signed gap.
+
+The printed energy values remain authoritative. The focused test verifies consistency with `1.23984/lambda_um` within less than `0.6 meV`, reflecting printed rounding, but does not overwrite the source column.
+
+### Detector, metrology, and uncertainty boundaries
+
+The `x=0.572` specimen is explicitly photovoltaic and the `x=0.329` specimen explicitly photoconductive. The detector types of the other six are not inferred.
+
+The `x=0.262` detector received greater source-fit weight because of its composition uniformity and density-based composition accuracy.
+
+Composition was evaluated using density and electron-beam microprobe measurements. The source gives a microprobe limit of approximately `+/-0.006` mole fraction. Temperature-control stability of approximately `+/-0.5 K` remains separate from absolute temperature accuracy believed better than `10 K`. Cutoff wavelength and converted energy precision are described as better than one percent of the listed value. None of these source-level statements is silently converted to independent pointwise Gaussian covariance.
+
+### Source relation and Hansen lineage
+
+The source relation is retained as historical fit metadata:
+
+```text
+E_cutoff(eV) = 1.59*x - 0.25
+             + 5.233e-4*T*(1 - 2.08*x)
+             + 0.327*x^3
+```
+
+The source identifies its strongest range as approximately `0.17 < x < 0.33` and `T > 77 K`. No equation samples or refitted coefficients are committed in this tranche.
+
+Schmit and Stelzer is Hansen source `HSC_R01` and therefore cannot independently validate Hansen. Hansen later excluded the four lowest-composition specimens because of mercury inclusions. That downstream rule is recorded for `SS69_S05` through `SS69_S08` without deleting any primary-source rows or silently converting it into a Schmit source statement.
+
+### Validation state
+
+The focused workflow verifies the exact eight specimens, all 56 observations, wavelength-energy consistency, operational cutoff semantics, measured-versus-adjusted composition distinction, detector-type boundary, uncertainty semantics, HSC_R01 lineage, downstream Hansen exclusions, absent Figure 1 pseudo-data, and the six-file tranche boundary. Complete Python 3.11 and 3.13 suites pass with `1007` tests on the audited pre-ledger Schmit head.
+
+A final CI run is required on this state-ledger commit before Issue #277 is closed.
+
 ## Unresolved scientific questions
 
 - what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;
@@ -677,6 +769,8 @@ The focused Groves workflow verifies the exact signed values, the conditional de
 - whether the Blue `28%` abstract limit and printed `32%` row can be resolved from another primary asset or author record;
 - whether calibrated Groves Figure 4/5 transition markers can be reconstructed with detector/run labels and experimental uncertainty separated from the fitted curves;
 - whether the approximate Groves 30 K and 1.5 K endpoint statements can be independently reproduced before any HgTe endpoint temperature law is inferred;
+- what observation operator relates Schmit half-peak detector cutoffs to intrinsic or signed gaps across detector types and geometry;
+- whether Schmit nominal compositions can support specimen-preserving analyses without leakage from the fit-adjusted compositions;
 - which static composition law can predict independent observations without source-lineage leakage or unjustified flexibility;
 - whether independently composed fixed-specimen temperature series beyond Seiler sample 3 preserve the current thermal ranking;
 - what observation model explains the Camassel reflectivity–absorption difference;
@@ -695,13 +789,15 @@ A future paper requires:
 4. evidence stronger than another unconstrained polynomial or a fit to one source family;
 5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler, Camassel, Scott, Blue, and Groves source results do not authorize manuscript writing by themselves.
+The Seiler, Camassel, Scott, Blue, Groves, and Schmit source results do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
 - obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
 - apply a calibrated Groves Figure 4/5 digitization gate only if transition-family, detector/run, field, and energy uncertainties can be retained;
 - continue the Hansen source-by-source specimen reconstruction;
+- use Schmit nominal compositions rather than fit-adjusted compositions for any held-out composition analysis;
+- require an explicit detector-response observation operator before pooling Schmit cutoffs with intrinsic, excitonic, or magneto-optical gaps;
 - seek an independently validated observation operator before any signed-gap use of Blue's positive optical-fit parameters;
 - seek an independent low-temperature static-composition source that is not in the Camassel/Laurenti lineage;
 - compare published HgTe endpoint values only after signed-observable convention and source temperature are aligned;
@@ -739,6 +835,16 @@ This program does not currently support:
 - treating Groves 1967 as an alloy composition-series validation or bowing constraint;
 - claiming that Groves Figure 4 or Figure 5 has been digitized on the current branch;
 - treating Groves's quoted parameter errors as pointwise experimental covariance;
+- treating Schmit fit-adjusted compositions as independently measured composition values;
+- using Schmit fit-adjusted compositions in a nominally held-out composition validation without leakage disclosure;
+- treating Schmit half-peak detector cutoff energies as intrinsic signed gaps;
+- applying the source's approximate ten-percent peak-to-cutoff statement as a universal correction law;
+- converting Schmit temperature accuracy, temperature stability, composition limits, or one-percent cutoff precision into independent pointwise Gaussian errors without an explicit model;
+- deleting the four low-composition Schmit specimens from the primary-source archive because Hansen later excluded them;
+- treating Hansen's mercury-inclusion exclusion as a Schmit source statement;
+- sampling the Schmit empirical equation and presenting those samples as observations;
+- claiming that Schmit Figure 1 has been digitized on the current branch;
+- using Schmit 1969 as independent validation of Hansen;
 - Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
 - treating composition as the only uncertainty in Camassel Table I;
 - treating Scott’s article-level `+/-0.01 eV` or `1–2 mole %` statements as independent pointwise Gaussian errors;
@@ -753,7 +859,7 @@ This program does not currently support:
 - assigning Table I pointwise energy covariance not reported by the source;
 - using Camassel as an independent held-out source against Laurenti 1990;
 - identifying `alpha` or `tau` as microscopic phonon parameters;
-- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, optical cutoff, PL peak, TPMA gap, interband-magnetoreflection interaction gap, reflectivity exciton-polariton gap, absorption excitonic gap, zero thermal gap, and intrinsic signed gap as interchangeable;
+- treating theory-conditioned positive optical-fit parameter, fixed-alpha optical edge, detector half-peak spectral-response cutoff, optical cutoff, PL peak, TPMA gap, interband-magnetoreflection interaction gap, reflectivity exciton-polariton gap, absorption excitonic gap, zero thermal gap, and intrinsic signed gap as interchangeable;
 - fitting additional flexibility without held-out evidence;
 - production-equation, manuscript, or submission readiness from the current source set.
 
