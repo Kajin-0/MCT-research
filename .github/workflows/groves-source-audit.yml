@@ -1,0 +1,101 @@
+name: groves-source-audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/groves-source-audit.yml'
+      - 'data/experimental/groves1967_README.md'
+      - 'data/experimental/groves1967_source_metadata.csv'
+      - 'data/experimental/groves1967_band_parameter_ledger.csv'
+      - 'research/programs/empirical_bandgap/state.md'
+      - 'tests/test_groves1967_signed_endpoint_audit.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Groves signed endpoint audit
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_groves1967_signed_endpoint_audit.py \
+            2>&1 | tee /tmp/groves-source-audit-pytest.log
+      - name: Assert sign, temperature, and figure boundary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('.')
+          metadata = list(csv.DictReader(
+              (root / 'data/experimental/groves1967_source_metadata.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          ledger = list(csv.DictReader(
+              (root / 'data/experimental/groves1967_band_parameter_ledger.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          assert len(metadata) == 1
+          assert len(ledger) == 3
+          assert metadata[0]['source_pdf_sha256'] == ''
+          assert metadata[0]['signed_observable'] == 'signed_Gamma6_minus_Gamma8_interaction_gap'
+          assert metadata[0]['detector_temperature_is_sample_temperature'] == 'false'
+          main = next(row for row in ledger if row['record_id'] == 'GROVES1967_ABSTRACT_FIT')
+          proof = next(row for row in ledger if row['record_id'] == 'GROVES1967_PROOF_UPDATE')
+          assert main['temperature_k'] == '30'
+          assert main['signed_gap_ev'] == '-0.283'
+          assert proof['temperature_k'] == '1.5'
+          assert proof['signed_gap_ev'] == ''
+          assert proof['gap_magnitude_ev'] == '0.30'
+          assert all(row['figure_point_count'] == '0' for row in ledger)
+          assert not (root / 'data/experimental/groves1967_figure4_digitized.csv').exists()
+          assert not (root / 'data/experimental/groves1967_figure5_digitized.csv').exists()
+          PY
+      - name: Assert tranche file boundary
+        if: github.head_ref == 'agent/groves1967-signed-endpoint-audit'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
+            | sort > /tmp/changed-files.txt
+          cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/groves-source-audit.yml
+          data/experimental/groves1967_README.md
+          data/experimental/groves1967_band_parameter_ledger.csv
+          data/experimental/groves1967_source_metadata.csv
+          research/programs/empirical_bandgap/state.md
+          tests/test_groves1967_signed_endpoint_audit.py
+          EOF
+          sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
+          unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: groves-source-audit
+          path: |
+            /tmp/groves-source-audit-pytest.log
+            data/experimental/groves1967_source_metadata.csv
+            data/experimental/groves1967_band_parameter_ledger.csv
+            data/experimental/groves1967_README.md
+            research/programs/empirical_bandgap/state.md
+          if-no-files-found: error
+          retention-days: 30
