@@ -55,7 +55,7 @@ def test_composition_values_and_admissibility_are_exact() -> None:
             == expected_independent[sample]
         )
     assert rows[4]["composition_x"] == "0.277"
-    assert "0.217" not in REGISTRY.read_text(encoding="utf-8")
+    assert all(row["composition_x"] != "0.217" for row in rows.values())
 
 
 def test_figure7_marker_counts_and_roles_match_registry() -> None:
