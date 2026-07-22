@@ -1,0 +1,96 @@
+name: blue-sign-identifiability
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/blue-sign-identifiability.yml'
+      - 'docs/insights/0029_blue1964_signed_gap_noncommensurability.md'
+      - 'research/programs/empirical_bandgap/state.md'
+      - 'tests/test_blue1964_sign_identifiability.py'
+      - 'tools/audit_blue1964_sign_identifiability.py'
+      - 'validation/blue1964_sign_identifiability_reference.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Blue sign-identifiability certificate
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_blue1964_sign_identifiability.py \
+            2>&1 | tee /tmp/blue-sign-identifiability-pytest.log
+      - name: Regenerate immutable certificate
+        run: |
+          python tools/audit_blue1964_sign_identifiability.py \
+            --output-json /tmp/blue-sign-identifiability-reference.json \
+            > /tmp/blue-sign-identifiability-stdout.json
+          diff -u \
+            validation/blue1964_sign_identifiability_reference.json \
+            /tmp/blue-sign-identifiability-reference.json
+      - name: Assert no signed ranking or source-row modification
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(
+              Path('validation/blue1964_sign_identifiability_reference.json')
+              .read_text(encoding='utf-8')
+          )
+          decision = payload['identifiability_decision']
+          bookkeeping = payload['analysis_bookkeeping']
+          assert decision['direct_signed_gap_residual_ranking_authorized'] is False
+          assert decision['universal_numerical_correction_identified'] is False
+          assert bookkeeping == {
+              'correction_coefficient_count': 0,
+              'fitted_parameter_count': 0,
+              'signed_model_evaluations': 0,
+              'source_rows_modified': 0,
+          }
+          PY
+      - name: Assert tranche file boundary
+        if: github.head_ref == 'agent/blue1964-sign-identifiability'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
+            | sort > /tmp/changed-files.txt
+          cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/blue-sign-identifiability.yml
+          docs/insights/0029_blue1964_signed_gap_noncommensurability.md
+          research/programs/empirical_bandgap/state.md
+          tests/test_blue1964_sign_identifiability.py
+          tools/audit_blue1964_sign_identifiability.py
+          validation/blue1964_sign_identifiability_reference.json
+          EOF
+          sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
+          unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: blue-sign-identifiability
+          path: |
+            /tmp/blue-sign-identifiability-pytest.log
+            /tmp/blue-sign-identifiability-reference.json
+            validation/blue1964_sign_identifiability_reference.json
+            docs/insights/0029_blue1964_signed_gap_noncommensurability.md
+          if-no-files-found: error
+          retention-days: 30
