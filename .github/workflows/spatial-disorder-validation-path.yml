@@ -27,10 +27,11 @@ jobs:
             tests/test_spatial_disorder_validation_path.py \
             tests/test_spatial_disorder_pixel_scale_source.py \
             tests/test_spatial_disorder_depth_observation_source.py \
+            tests/test_spatial_disorder_spatial_method_source.py \
             2>&1 | tee validation-path-diagnostics/pytest.txt
       - name: Build controlled reference
         run: |
-          python -m tools.build_spatial_disorder_depth_observation_source_reference \
+          python -m tools.build_spatial_disorder_spatial_method_source_reference \
             --output validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
       - name: Compare generated and immutable decisions
         run: |
@@ -51,8 +52,8 @@ jobs:
               ).read_text(encoding="utf-8")
           )
 
-          assert generated["schema_version"] == "1.3"
-          assert immutable["schema_version"] == "1.2"
+          assert generated["schema_version"] == "1.4"
+          assert immutable["schema_version"] == "1.3"
           assert generated["status"] == immutable["status"]
           assert generated["direct_candidate_ids"] == (
               immutable["direct_validation_candidate_ids"]
@@ -66,15 +67,20 @@ jobs:
               for item in generated["qualifications"]
           }
           assert generated_classes == immutable["classifications"]
-          assert len(generated_classes) == 12
+          assert len(generated_classes) == 13
           assert generated_classes["ariel_1995_derivative_depth_grading"] == (
               "depth_observation_model_context"
           )
+          assert generated_classes[
+              "ariel_1996_same_wafer_differential_absorption"
+          ] == "spatial_observation_method_context"
 
           headline = generated["headline"]
           partial = immutable["nearest_partial_multiresolution_benchmark"]
           pixel = immutable["nearest_detector_pixel_scale_benchmark"]
           depth = immutable["nearest_depth_observation_model_context"]
+          spatial = immutable["nearest_spatial_observation_method_context"]
+          price = immutable["price_boyd_review_retrieval"]
           assert headline["direct_validation_candidate_count"] == 0
           assert headline["partial_multiresolution_candidate_count"] == 1
           assert headline["nearest_partial_multiresolution_benchmark"] == (
@@ -111,39 +117,47 @@ jobs:
           assert headline["epitaxial_layer_thickness_range_micrometre"] == (
               depth["epitaxial_layer_thickness_range_micrometre"]
           )
-          assert headline[
-              "interface_grading_non_negligible_below_micrometre"
-          ] == depth["interface_grading_non_negligible_below_micrometre"]
-          assert headline["bulk_band_gap_variation_upper_bound_ev"] == (
-              depth["bulk_band_gap_variation_upper_bound_ev"]
+          assert headline["nearest_spatial_observation_method_context"] == (
+              spatial["source_id"]
           )
-          assert headline["lpe_band_gap_variation_approximate_ev"] == (
-              depth["lpe_band_gap_variation_approximate_ev"]
+          assert headline["spatial_method_doi_status"] == spatial["doi_status"]
+          assert headline["spatial_method_full_text_status"] == (
+              spatial["full_text_status"]
           )
-          assert headline["lpe_linear_grading_field_range_v_per_cm"] == (
-              depth["lpe_linear_grading_field_range_v_per_cm"]
+          assert headline["minimum_reliable_layer_thickness_micrometre"] == (
+              spatial["minimum_reliable_layer_thickness_micrometre"]
           )
-          assert headline[
-              "mocvd_linear_grading_field_approximate_v_per_cm"
-          ] == depth["mocvd_linear_grading_field_approximate_v_per_cm"]
-          assert headline["minimum_data_upgrade_for_ariel_1995"] == (
-              immutable["minimum_ariel_data_upgrade"]
+          assert headline["reported_thickness_accuracy_micrometre"] == (
+              spatial["reported_thickness_accuracy_micrometre"]
+          )
+          assert headline["reported_band_gap_method_accuracy_mev"] == (
+              spatial["reported_band_gap_method_accuracy_mev"]
+          )
+          assert headline["same_wafer_multiple_positions_reported"] == (
+              spatial["same_wafer_multiple_positions_reported"]
+          )
+          assert headline["reported_effective_lateral_scale_count"] == (
+              spatial["reported_effective_lateral_scale_count"]
+          )
+          assert headline["price_boyd_review_doi"] == price["doi"]
+          assert headline["price_boyd_full_text_status"] == price["full_text_status"]
+          assert headline["minimum_data_upgrade_for_ariel_1996"] == (
+              immutable["minimum_ariel_1996_data_upgrade"]
           )
 
           generated_boundaries = " ".join(generated["claim_boundaries"])
           immutable_boundaries = " ".join(immutable["claim_boundaries"])
-          assert "dense raster" in generated_boundaries
-          assert "dense raster" in immutable_boundaries
-          assert "through-thickness Delta Eg" in generated_boundaries
-          assert "through-thickness Delta Eg" in immutable_boundaries
-          assert "Derivative peak positions" in generated_boundaries
-          assert "Derivative peak positions" in immutable_boundaries
-          assert "Smoothing and fringe filtering" in generated_boundaries
-          assert "Smoothing and fringe filtering" in immutable_boundaries
-          assert "15 micrometres" in generated_boundaries
-          assert "15 micrometres" in immutable_boundaries
-          assert "manuscript" in generated_boundaries
-          assert "manuscript" in immutable_boundaries
+          for phrase in (
+              "dense raster",
+              "through-thickness Delta Eg",
+              "spatial sampling intent",
+              "one effective lateral scale",
+              "not repeat uncertainty",
+              "unresolved DOI",
+              "manuscript",
+          ):
+              assert phrase in generated_boundaries
+              assert phrase in immutable_boundaries
           PY
       - uses: actions/upload-artifact@v4
         if: always()
@@ -156,6 +170,7 @@ jobs:
             literature/notes/uploaded_hgcdte_mapping_source_audit.md
             literature/notes/phillips_2003_pixel_scale_absorption_audit.md
             literature/notes/ariel_1995_depth_grading_observation_audit.md
+            literature/notes/ariel_1996_same_wafer_uniformity_abstract_audit.md
             literature/notes/hgcdte_spatial_mapping_doi_queue.md
             research/programs/spatial_disorder/external_validation_state.md
           if-no-files-found: error
