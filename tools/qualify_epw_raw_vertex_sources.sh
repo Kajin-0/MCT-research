@@ -53,6 +53,9 @@ assert auth["upstream_fixture_execution"] is False
 assert auth["observational_export_patch_application"] is False
 assert auth["automatic_phase_transition"] is False
 assert all(item["sha256"] is None for item in contract["source"]["required_files"].values())
+assert contract["observational_patch"]["sha256"] is None
+assert contract["observational_patch"]["disabled_by_default"] is True
+assert contract["observational_patch"]["scientific_contraction_added"] is False
 PY
 
 stage="source_clone"
@@ -77,7 +80,8 @@ printf '%s\n' "$SOURCE_COMMIT" > "$EVIDENCE/source/commit.txt"
 git -C "$WORK/qe" show -s --format=fuller HEAD > "$EVIDENCE/source/commit-metadata.txt"
 
 stage="verify_blobs_and_hash"
-python - "$WORK/qe" "$CONTRACT" "$EVIDENCE/source/source-file-manifest.json" <<'PY'
+python - "$WORK/qe" "$CONTRACT" "$ROOT" \
+  "$EVIDENCE/source/source-file-manifest.json" <<'PY'
 from __future__ import annotations
 import hashlib
 import json
@@ -87,7 +91,8 @@ import sys
 
 repo = Path(sys.argv[1])
 contract_path = Path(sys.argv[2])
-output = Path(sys.argv[3])
+root = Path(sys.argv[3])
+output = Path(sys.argv[4])
 contract = json.loads(contract_path.read_text(encoding="utf-8"))
 records = []
 for relative, expected in contract["source"]["required_files"].items():
@@ -110,6 +115,14 @@ for relative, expected in contract["source"]["required_files"].items():
             "sha256": digest,
         }
     )
+patch_path = root / contract["observational_patch"]["path"]
+if not patch_path.is_file():
+    raise SystemExit(f"missing observational patch: {patch_path}")
+patch_record = {
+    "path": contract["observational_patch"]["path"],
+    "size_bytes": patch_path.stat().st_size,
+    "sha256": hashlib.sha256(patch_path.read_bytes()).hexdigest(),
+}
 manifest = {
     "schema_version": "1.0",
     "stage": "B0_epw_raw_vertex_source_qualification",
@@ -118,6 +131,7 @@ manifest = {
     "scientific_execution_count": 0,
     "qe_epw_build_executed": False,
     "files": records,
+    "observational_patch": patch_record,
 }
 output.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 PY
@@ -143,10 +157,15 @@ for path, specification in expected.items():
     assert observed[path]["git_blob_sha"] == specification["git_blob_sha"]
     assert len(observed[path]["sha256"]) == 64
     assert observed[path]["size_bytes"] > 0
+patch = manifest["observational_patch"]
+assert patch["path"] == contract["observational_patch"]["path"]
+assert len(patch["sha256"]) == 64
+assert patch["size_bytes"] > 0
 print(json.dumps({
     "passed": True,
     "phase": contract["phase"],
     "file_count": len(observed),
+    "observational_patch_hashed": True,
     "scientific_execution_count": 0,
     "phase_2_automatically_authorized": False,
 }, indent=2, sort_keys=True))
