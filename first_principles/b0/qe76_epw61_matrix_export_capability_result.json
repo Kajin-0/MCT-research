@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_qe76_epw61_matrix_export_capability",
+  "program": "R02",
+  "issue": 289,
+  "date": "2026-07-22",
+  "status": "source_level_mandatory_gate_failed_before_build",
+  "source": {
+    "repository": "QEF/q-e",
+    "release_tag": "qe-7.6",
+    "tag_commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "epw_version": "6.1",
+    "files": {
+      "EPW/src/selfen.f90": {
+        "git_blob_sha": "be4858854d1ab26d27b3acf52a9a30c21fa8b472",
+        "role": "lower-Fan diagonal contraction and standard self-energy accumulation"
+      },
+      "EPW/src/wfpt.f90": {
+        "git_blob_sha": "526405829090c4214eb87cff2af90bbd257efe3d",
+        "role": "upper-Fan and Debye-Waller matrix interpolation followed by diagonal accumulation"
+      },
+      "test-suite/ph_ahc_diam/diam.scf.in": {
+        "git_blob_sha": "5a895aacee9a0559de4c071be08c1fd54745b212",
+        "role": "candidate upstream insulating nonpolar diamond fixture"
+      },
+      "test-suite/ph_ahc_diam/diam.ph.in": {
+        "git_blob_sha": "11f358b98f789924022bbd16c7df589801475d98",
+        "role": "candidate upstream diamond phonon fixture"
+      },
+      "atomic/pseudo_library/LDA/REL/C.rel-pz-rrkjus.in": {
+        "git_blob_sha": "61a17ceaac6ddba89566902972b2eea8bc99d579",
+        "role": "upstream fully relativistic carbon pseudopotential generator input"
+      }
+    }
+  },
+  "source_findings": {
+    "lower_fan": {
+      "complex_vertex_available": true,
+      "standard_contraction": "g2 = abs(epf17(jbnd, ibnd, imode, ik))**2 times scalar factors",
+      "standard_accumulator": "sigmar_all(ibnd, ik_global, itemp)",
+      "complete_matrix_already_computed": false,
+      "observational_export_without_new_contraction": false,
+      "reason": "The standard path forms one scalar modulus squared for each external band and never constructs the off-diagonal product g*_{m n} g_{m n'} required for a complete lower-Fan matrix."
+    },
+    "upper_fan": {
+      "complete_complex_intermediate_available": true,
+      "intermediate": "sthf17 / sthmat",
+      "standard_final_accumulator": "sigma_ahc_uf(ibnd, ik_gl, itemp)",
+      "standard_output_is_band_diagonal_real": true
+    },
+    "debye_waller": {
+      "complete_complex_intermediate_available": true,
+      "intermediate": "dwf17 / dwmatf_trunc",
+      "standard_final_accumulator": "sigma_ahc_hdw(ibnd, ik_gl, itemp) and sigmar_dw_all",
+      "standard_output_is_band_diagonal_real": true
+    }
+  },
+  "mandatory_gates": {
+    "pinned_qe76_source": "PASS",
+    "candidate_insulating_nonpolar_upstream_fixture": "PASS",
+    "upper_fan_complex_matrix_exists_before_diagonal_reduction": "PASS",
+    "debye_waller_complex_matrix_exists_before_diagonal_reduction": "PASS",
+    "lower_fan_complex_matrix_exists_before_diagonal_reduction": "FAIL",
+    "disabled_by_default_exporter_can_be_observational_only": "FAIL",
+    "all_required_components_exportable_without_algorithm_change": "FAIL",
+    "combined_soc_wfpt_build_required_after_source_failure": "NO"
+  },
+  "execution": {
+    "qe_epw_build_executed": false,
+    "upstream_test_executed": false,
+    "combined_fixture_executed": false,
+    "material_calculation_executed": false,
+    "reason_not_executed": "Issue 289 requires immediate stop when a complete matrix would have to be newly reconstructed rather than observed before diagonal collapse."
+  },
+  "decision": {
+    "classification": "STOP",
+    "qe76_epw61_observational_full_matrix_export_path": "TERMINATED",
+    "hybrid_short_range_plus_generalized_frohlich_architecture": "REMAINS_CONCEPTUALLY_OPEN",
+    "automatic_followup_authorized": false,
+    "cdte_smoke_test_design_authorized": false,
+    "next_permitted_work": "A separately authorized analytical design for an external, explicitly scientific matrix Fan contraction or an alternative backend."
+  },
+  "authorization": {
+    "build_qe_epw_from_this_result": false,
+    "patch_epw_to_add_off_diagonal_lower_fan_contraction": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "dense_epw": false,
+    "generalized_frohlich_material_prediction": false
+  },
+  "claim_boundary": "This source-level result does not show that QE or EPW cannot support SOC electron-phonon calculations. It shows only that QE 7.6 / EPW 6.1 does not already compute a complete lower-Fan matrix in the standard path, so the issue-289 observational-export contract cannot pass without a new scientific contraction algorithm."
+}
