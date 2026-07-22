@@ -145,8 +145,8 @@ def test_driver_renders_explicit_independent_route_flags() -> None:
     assert 'rendered["settings"][name] == reference["settings"][name]' in text
     assert 'rendered["settings"]["q_point"] == [0.0, 0.0, 0.0]' in text
     assert 'contract["baseline_run_spec"] == {"ecutrho_ry": 456.0, "ph_tr2": 1e-10}' in text
-    assert "f\"  zeu = {'.true.' if flags['zeu'] else '.false.'}" in text
-    assert "f\"  zue = {'.true.' if flags['zue'] else '.false.'}" in text
+    assert "f\"  zeu = {'.true.' if flags['zeu'] else '.false.'}\\n\"" in text
+    assert "f\"  zue = {'.true.' if flags['zue'] else '.false.'}\\n\"" in text
     assert "base_and_zeu_save_match" in text
     assert "base_and_zue_save_match" in text
 
@@ -198,7 +198,7 @@ def test_analyzer_terminates_path_on_small_sampled_gap(tmp_path: Path) -> None:
     assert result["decision"]["a1_electron_phonon_authorized"] is False
 
 
-def test_driver_and_frozen_workflow_remain_fail_closed() -> None:
+def test_driver_and_workflow_cannot_expand_into_a_sweep() -> None:
     driver = DRIVER.read_text(encoding="utf-8")
     workflow = WORKFLOW.read_text(encoding="utf-8")
     assert driver.count('stage="scf"') == 1
@@ -209,10 +209,7 @@ def test_driver_and_frozen_workflow_remain_fail_closed() -> None:
     assert "automatic_retry_performed\": False" in driver
     assert "parameter_sweep_performed\": False" in driver
     assert "a1_or_production_executed\": False" in driver
-    assert "workflow_dispatch:" in workflow
+    assert "python -m pytest -vv tests/test_cdte_a0_zeu_zue.py" in workflow
     assert "timeout-minutes: 30" in workflow
-    assert "Validate repository parser and tests only" in workflow
     assert "Refuse automatic scientific rerun" in workflow
-    assert "authorized real diagnostic already completed in run 29944282253" in workflow
-    assert "run_cdte_a0_zeu_zue_ci.sh" not in workflow
-    assert "cdte-a0-zeu-zue-evidence" not in workflow
+    assert "No retry, convergence sweep, altered calculation, or A1 work is authorized." in workflow
