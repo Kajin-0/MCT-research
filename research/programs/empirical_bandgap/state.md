@@ -21,7 +21,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #269 — Blue 1964 signed-gap non-commensurability certificate;
 - #273 — Groves 1967 signed HgTe magnetoreflection endpoint audit;
 - #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction;
-- #283 — Finkman and Nemirovsky 1979 optical-absorption source audit.
+- #283 — Finkman and Nemirovsky 1979 optical-absorption source audit;
+- #293 — Weiler 1981 HSC_R04 source-lineage reconciliation.
 
 ## Completed foundations
 
@@ -39,7 +40,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - executable Blue 1964 signed-gap non-commensurability certificate with zero fitted parameters and zero correction coefficients;
 - provenance-controlled Groves 1967 signed HgTe endpoint and conditional Kane-parameter audit;
 - complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction;
-- provenance-controlled Finkman and Nemirovsky 1979 optical-absorption source audit.
+- provenance-controlled Finkman and Nemirovsky 1979 optical-absorption source audit;
+- fail-closed Weiler 1981 HSC_R04 chapter-lineage and private-composition provenance reconciliation.
 
 ## Hansen reconstruction state
 
@@ -880,9 +882,70 @@ The focused source audit validates the source identity, metrology, optical opera
 
 A repository-level integrity test now rejects placeholder or truncated R01 state ledgers and requires the major historical source sections and program claim boundaries to remain present.
 
+## Weiler 1981 HSC_R04 source-lineage reconciliation
+
+Issue #293 and draft PR #295 establish a fail-closed source contract for Hansen fitted source `HSC_R04`.
+
+Canonical files are:
+
+```text
+data/hansen/weiler1981_hsc_r04_source_metadata.csv
+data/hansen/weiler1981_hsc_r04_composition_provenance.csv
+data/hansen/weiler1981_hsc_r04_README.md
+```
+
+### Exact source and access state
+
+Hansen cites
+
+```text
+M. H. Weiler
+Magnetooptical Properties of Hg1-xCdxTe Alloys
+Semiconductors and Semimetals 16, 119-191 (1981)
+DOI 10.1016/S0080-8784(08)60130-1
+```
+
+Publisher metadata and summary are available, but the chapter full text is not present in the user File Library or repository runtime. No chapter hash, table, figure, specimen registry, or numerical series is fabricated.
+
+### Existing 1977 evidence lineage
+
+PR #158 already audits the primary Weiler, Aggarwal, and Lax 1977 magnetoreflectance paper in
+
+```text
+data/evidence/guldner_weiler_1977_magneto_core.json
+```
+
+The 1981 chapter is likely part of that scientific lineage, but the available evidence does not prove one-to-one identity between every chapter datum and the ten 1977 specimens. The existing evidence record is linked and remains unchanged.
+
+### Three composition-provenance layers
+
+The repository retains separately:
+
+```text
+Weiler 1977 published compositions
+Micklethwaite private transmission-cutoff compositions adopted by Hansen
+Reine private density alternatives reported as +0.01 to +0.035 higher
+```
+
+The private per-specimen values are unavailable. The Reine range is provenance context, not a transformation rule. No shifted or reconstructed private composition table is authorized.
+
+### Numerical and claim boundary
+
+```text
+HSC_R04 numerical reconstruction = blocked
+chapter-to-1977 specimen mapping = unresolved
+temperature-series mapping = unresolved
+private composition reconstruction = prohibited
+chapter figure digitization = prohibited in this tranche
+```
+
+The focused lineage workflow and both complete Python suites passed before this ledger synchronization. This result establishes source identity and a provenance boundary; it does not supply new gap observations, fit coefficients, composition corrections, or model ranking.
+
 ## Unresolved scientific questions
 
 - what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;
+- whether an authorized Weiler 1981 chapter copy can establish the chapter-to-1977 specimen and temperature-series mapping;
+- whether the Micklethwaite private compositions adopted by Hansen or the Reine density alternatives can be recovered from a traceable specimen-level source;
 - whether the primary-paper microprobe composition statement and Hansen's later Cominco composition description for Finkman 1979 can be reconciled from a specimen-level source record;
 - whether a source-independent observation operator can relate fixed-alpha optical-edge proxies to intrinsic signed gaps across the Finkman, Scott, and detector-cutoff source classes;
 - whether calibrated Scott Figure 2/5 markers can be recovered from a rendered source asset;
@@ -911,13 +974,15 @@ A future paper requires:
 4. evidence stronger than another unconstrained polynomial or a fit to one source family;
 5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler, Camassel, Scott, Blue, Groves, and Schmit source results do not authorize manuscript writing by themselves.
+The Seiler, Camassel, Scott, Blue, Groves, Schmit, Finkman, and Weiler source results do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
 - obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
 - apply a calibrated Groves Figure 4/5 digitization gate only if transition-family, detector/run, field, and energy uncertainties can be retained;
 - continue the Hansen source-by-source specimen reconstruction;
+- obtain an authorized full-text copy of Weiler 1981 before any HSC_R04 numerical reconstruction;
+- preserve published Weiler, Micklethwaite private, and Reine private composition layers separately;
 - preserve the Finkman primary-paper and Hansen composition-provenance descriptions separately until a specimen-level reconciliation source is obtained;
 - require an explicit optical observation operator before pooling Finkman fixed-alpha proxies with intrinsic, excitonic, detector-cutoff, or magneto-optical gaps;
 - use Schmit nominal compositions rather than fit-adjusted compositions for any held-out composition analysis;
@@ -975,6 +1040,10 @@ This program does not currently support:
 - presenting Finkman whole-composition parameter extrapolation as direct measurement outside `0.205 <= x <= 0.220`;
 - silently choosing between the primary-paper microprobe composition statement and Hansen's later Cominco provenance description;
 - digitizing Finkman Figures 3–6 as a model-independent logarithmic-curvature validation dataset;
+- treating the published Weiler 1977 compositions as the per-specimen values actually ingested by Hansen under HSC_R04;
+- reconstructing Micklethwaite private compositions by applying the Reine `+0.01` to `+0.035` range to published specimens;
+- treating the Reine range as a universal composition correction;
+- claiming one-to-one specimen identity or numerical chapter reconstruction for Weiler 1981 without the chapter full text;
 - Gaussian significance, p-values, or chi-square from the deterministic Camassel composition envelope;
 - treating composition as the only uncertainty in Camassel Table I;
 - treating Scott’s article-level `+/-0.01 eV` or `1–2 mole %` statements as independent pointwise Gaussian errors;

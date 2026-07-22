@@ -1,0 +1,105 @@
+name: weiler-hsc-r04-lineage
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/weiler-hsc-r04-lineage.yml'
+      - 'data/hansen/weiler1981_hsc_r04_README.md'
+      - 'data/hansen/weiler1981_hsc_r04_composition_provenance.csv'
+      - 'data/hansen/weiler1981_hsc_r04_source_metadata.csv'
+      - 'research/programs/empirical_bandgap/state.md'
+      - 'tests/test_weiler1981_hsc_r04_lineage.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Weiler HSC_R04 lineage and R01 state
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_weiler1981_hsc_r04_lineage.py \
+            2>&1 | tee /tmp/weiler-hsc-r04-lineage-pytest.log
+      - name: Assert provenance and fail-closed boundaries
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('.')
+          metadata = list(csv.DictReader(
+              (root / 'data/hansen/weiler1981_hsc_r04_source_metadata.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          provenance = list(csv.DictReader(
+              (root / 'data/hansen/weiler1981_hsc_r04_composition_provenance.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          assert len(metadata) == 1
+          assert metadata[0]['hansen_graph_id'] == 'HSC_R04'
+          assert metadata[0]['doi'] == '10.1016/S0080-8784(08)60130-1'
+          assert metadata[0]['full_text_status'] == 'not_available_in_user_file_library_or_repository'
+          assert metadata[0]['specimen_identity_mapping_status'] == 'unresolved'
+          assert len(provenance) == 3
+          assert all(row['synthetic_reconstruction_authorized'] == 'false' for row in provenance)
+          private = [row for row in provenance if row['source_layer'].startswith('Hansen_1982_private')]
+          assert len(private) == 2
+          assert all(row['per_specimen_values_available'] == 'false' for row in private)
+          assert (root / 'data/evidence/guldner_weiler_1977_magneto_core.json').exists()
+          state = (root / 'research/programs/empirical_bandgap/state.md').read_text(encoding='utf-8')
+          assert '## Weiler 1981 HSC_R04 source-lineage reconciliation' in state
+          assert 'HSC_R04 numerical reconstruction = blocked' in state
+          assert 'private composition reconstruction = prohibited' in state
+          PY
+      - name: Assert tranche and program boundary
+        if: github.head_ref == 'agent/weiler1981-hsc-r04-lineage'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
+            | sort > /tmp/changed-files.txt
+          cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/weiler-hsc-r04-lineage.yml
+          data/hansen/weiler1981_hsc_r04_README.md
+          data/hansen/weiler1981_hsc_r04_composition_provenance.csv
+          data/hansen/weiler1981_hsc_r04_source_metadata.csv
+          research/programs/empirical_bandgap/state.md
+          tests/test_weiler1981_hsc_r04_lineage.py
+          EOF
+          sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
+          unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+          if grep -Eq '^(data/evidence/guldner_weiler_1977_magneto_core.json|research/programs/(finite_temperature_kane|distributional_band_edge|spatial_disorder|correlated_random_mass_kane)|manuscript/|first_principles/)' /tmp/changed-files.txt; then
+            echo 'Protected evidence or non-R01 program modification detected'
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weiler-hsc-r04-lineage
+          path: |
+            /tmp/weiler-hsc-r04-lineage-pytest.log
+            data/hansen/weiler1981_hsc_r04_source_metadata.csv
+            data/hansen/weiler1981_hsc_r04_composition_provenance.csv
+            data/hansen/weiler1981_hsc_r04_README.md
+            research/programs/empirical_bandgap/state.md
+          if-no-files-found: error
+          retention-days: 30
