@@ -59,25 +59,35 @@ def test_controlled_dense_raster_reference() -> None:
     _, statistics, comparison = _controlled_result()
     assert statistics.nominal_pixel_count == 100
     assert statistics.deterministic_bias_factors == pytest.approx(
-        [0.52805134, 0.40194623, 0.08300702], rel=3.0e-8
+        [
+            0.5280513378006101,
+            0.40194623428860693,
+            0.08300701538782179,
+        ],
+        rel=5.0e-12,
     )
     assert statistics.delta_log_variance_standard_deviations == pytest.approx(
-        [0.69489827, 0.77465168, 0.95528224], rel=3.0e-8
+        [
+            0.6948982745063803,
+            0.7746516751988526,
+            0.9552822369280328,
+        ],
+        rel=5.0e-12,
     )
     assert statistics.delta_log_variance_correlation[0, 1] == pytest.approx(
-        0.94595396, rel=3.0e-8
+        0.9459539589244554, rel=5.0e-12
     )
     assert statistics.delta_log_variance_correlation[0, 2] == pytest.approx(
-        0.18004355, rel=3.0e-8
+        0.18004354861096536, rel=5.0e-12
     )
     assert statistics.delta_log_variance_correlation[1, 2] == pytest.approx(
-        0.28842180, rel=3.0e-8
+        0.28842179927397227, rel=5.0e-12
     )
     assert comparison.parameter_standard_deviation_inflation == pytest.approx(
-        [4.43971118, 2.86773360], rel=3.0e-8
+        [4.439711184141608, 2.867733597176781], rel=2.0e-10
     )
     assert comparison.parameter_covariance_determinant_inflation == pytest.approx(
-        404.68548880, rel=3.0e-8
+        404.6854887957287, rel=2.0e-10
     )
 
 
