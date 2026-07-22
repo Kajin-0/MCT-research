@@ -4,13 +4,13 @@
   "program": "R02",
   "issue": 300,
   "status": "passed",
-  "workflow_run_id": 29960964318,
-  "artifact_id": 8545959823,
-  "artifact_digest": "sha256:467a7162704217efa1f49a79aa0e4d6a5a9b819c06cc4dfdf895b1966ebee811",
+  "workflow_run_id": 29962102178,
+  "artifact_id": 8546387617,
+  "artifact_digest": "sha256:71531640506e788996169b0eaad4c19ee19fc9986f87cee56606cb182345b725",
   "source_commit": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
   "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
-  "source_file_manifest_sha256": "bea4a04aba382c933b1ea83b8c5e0200dc88af40fd1cecdca5d72d321081f5c7",
-  "observational_patch_sha256": "8ab1f6733d096afa0d975819f56eda2c7428e47e7cc15fe6fc6fdae6fb3e47a4",
+  "source_file_manifest_sha256": "c8ecca6ab427a262d5939545d2e834700604dc738de01d9e0285843a3be5360d",
+  "observational_patch_sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
   "qualified_files": {
     "EPW/src/selfen.f90": "92814fb0ba79b355cda842598fe6e22ee24a77027864524c91fd6ea4bf63ff97",
     "test-suite/epw_base/scf.in": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b",
@@ -31,5 +31,5 @@
     "automatic_phase_transition": false,
     "phase_two_authorized_only_by_later_contract_commit": true
   },
-  "claim_boundary": "The result establishes immutable source and patch bytes only. It does not establish build success, raw-vertex export, normalization equivalence, SOC support, or material physics."
+  "claim_boundary": "The result establishes immutable source and corrected observational-patch bytes only. It does not establish build success, raw-vertex export, normalization equivalence, SOC support, or material physics."
 }
