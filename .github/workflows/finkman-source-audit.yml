@@ -9,6 +9,7 @@ on:
       - 'data/experimental/finkman1979_source_metadata.csv'
       - 'research/programs/empirical_bandgap/state.md'
       - 'tests/test_finkman1979_source_contract.py'
+      - 'tests/test_r01_state_integrity.py'
   workflow_dispatch:
 
 permissions:
@@ -27,11 +28,13 @@ jobs:
           python-version: '3.13'
       - name: Install package
         run: python -m pip install -e '.[test]'
-      - name: Validate Finkman source contract
+      - name: Validate Finkman source contract and R01 state integrity
         shell: bash
         run: |
           set -o pipefail
-          python -m pytest -q tests/test_finkman1979_source_contract.py \
+          python -m pytest -q \
+            tests/test_finkman1979_source_contract.py \
+            tests/test_r01_state_integrity.py \
             2>&1 | tee /tmp/finkman-source-audit-pytest.log
       - name: Assert source and observation boundaries
         shell: bash
@@ -51,6 +54,9 @@ jobs:
                   newline='', encoding='utf-8'
               )
           ))
+          state = (root / 'research/programs/empirical_bandgap/state.md').read_text(
+              encoding='utf-8'
+          )
           assert len(metadata) == 1
           assert len(parameters) == 11
           assert metadata[0]['hansen_graph_id'] == 'HSC_R03'
@@ -67,6 +73,9 @@ jobs:
           )
           assert '2.20e-5*T_k' in fixed_energy['expression']
           assert '2.20e-7' not in fixed_energy['expression']
+          assert state.startswith('# Program state: empirical bandgap reconstruction\n')
+          assert len(state.encode('utf-8')) > 20_000
+          assert state.strip() != 'hello'
           for figure in range(3, 7):
               assert not (
                   root / f'data/experimental/finkman1979_figure{figure}_digitized.csv'
@@ -85,6 +94,7 @@ jobs:
           data/experimental/finkman1979_source_metadata.csv
           research/programs/empirical_bandgap/state.md
           tests/test_finkman1979_source_contract.py
+          tests/test_r01_state_integrity.py
           EOF
           sort -o /tmp/allowed-files.txt /tmp/allowed-files.txt
           unexpected=$(comm -23 /tmp/changed-files.txt /tmp/allowed-files.txt)
@@ -105,5 +115,6 @@ jobs:
             data/experimental/finkman1979_source_metadata.csv
             data/experimental/finkman1979_parameter_ledger.csv
             data/experimental/finkman1979_README.md
+            research/programs/empirical_bandgap/state.md
           if-no-files-found: error
           retention-days: 30
