@@ -169,7 +169,7 @@ def test_no_figure_pseudodata_or_claim_expansion_is_present() -> None:
         "This is not relabeled as 4.2 K or 5.5 K",
         "The detector operating temperature is not the sample temperature",
         "contains no calibrated marker coordinates",
-        "does not identify a temperature law",
+        "do not identify a temperature law",
         "It cannot by itself support",
     )
     assert all(token in text for token in required)
