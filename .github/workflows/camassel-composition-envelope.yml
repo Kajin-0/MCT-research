@@ -2,6 +2,15 @@ name: camassel-composition-envelope
 
 on:
   pull_request:
+    paths:
+      - '.github/workflows/camassel-composition-envelope.yml'
+      - 'data/experimental/camassel1988_specimens.csv'
+      - 'data/experimental/camassel1988_table1_observations.csv'
+      - 'docs/insights/0028_camassel_composition_envelope.md'
+      - 'tests/test_camassel1988_composition_envelope.py'
+      - 'tools/analyze_camassel1988_composition_envelope.py'
+      - 'validation/camassel1988_composition_envelope_records.csv'
+      - 'validation/camassel1988_composition_envelope_reference.json'
   workflow_dispatch:
 
 permissions:
