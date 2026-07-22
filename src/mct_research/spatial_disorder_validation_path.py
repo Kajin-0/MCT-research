@@ -1,8 +1,8 @@
 """Qualification of external validation paths for R04 spatial disorder.
 
 This module separates multiresolution evidence from merely multimodal,
-spatially resolved, or depth-observation evidence. It is a source-readiness
-protocol, not a scientific inference engine.
+spatially resolved, depth-observation, or point-sampling evidence. It is a
+source-readiness protocol, not a scientific inference engine.
 """
 
 from __future__ import annotations
@@ -31,6 +31,7 @@ class QualificationClass(str, Enum):
     CROSS_MODALITY_CONTEXT = "cross_modality_context"
     SOURCE_BOUNDED_FIGURE_BENCHMARK = "source_bounded_figure_benchmark"
     DEPTH_OBSERVATION_MODEL_CONTEXT = "depth_observation_model_context"
+    SPATIAL_OBSERVATION_METHOD_CONTEXT = "spatial_observation_method_context"
     NOT_QUALIFIABLE = "not_qualifiable_from_available_record"
 
 
@@ -73,6 +74,7 @@ class ValidationCandidate:
     spatial_map_reported: EvidenceState
     rendered_figure_available: EvidenceState
     depth_profile_observation_model: EvidenceState = EvidenceState.NOT_APPLICABLE
+    spatial_point_observation_method: EvidenceState = EvidenceState.NOT_APPLICABLE
     notes: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
@@ -332,6 +334,22 @@ def qualify_validation_candidate(
         prohibited = (
             "treat through-thickness grading as lateral covariance or probe-scale evidence",
             "infer lateral correlation length or claim direct multiresolution validation",
+        )
+    elif (
+        candidate.spatial_point_observation_method is EvidenceState.CONFIRMED
+        and candidate.same_specimen is EvidenceState.CONFIRMED
+        and candidate.observable_defined is EvidenceState.CONFIRMED
+        and candidate.preprocessing_declared is EvidenceState.CONFIRMED
+    ):
+        qualification = QualificationClass.SPATIAL_OBSERVATION_METHOD_CONTEXT
+        permitted = (
+            "establish source-bounded same-specimen spatial point-sampling method context",
+            "constrain future lateral-versus-depth observation and accuracy requirements",
+        )
+        prohibited = (
+            "treat unregistered point measurements as a calibrated raster or spatial map",
+            "treat method accuracy as repeat covariance or infer lateral covariance parameters",
+            "claim direct multiresolution validation from one uncharacterized optical kernel",
         )
     else:
         qualification = QualificationClass.NOT_QUALIFIABLE
