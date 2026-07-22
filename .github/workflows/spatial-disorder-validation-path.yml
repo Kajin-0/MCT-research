@@ -1,0 +1,41 @@
+name: spatial-disorder-validation-path
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify validation-path qualification
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p validation-path-diagnostics
+          python -m pytest -q \
+            tests/test_spatial_disorder_validation_path.py \
+            2>&1 | tee validation-path-diagnostics/pytest.txt
+      - name: Build controlled reference
+        run: |
+          python -m tools.build_spatial_disorder_validation_path_reference \
+            --output validation-path-diagnostics/spatial_disorder_validation_path_qualification.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spatial-disorder-validation-path
+          path: |
+            validation-path-diagnostics
+            docs/protocols/r04_external_validation_path_qualification.md
+          if-no-files-found: error
+          retention-days: 30
