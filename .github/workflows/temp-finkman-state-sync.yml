@@ -1,0 +1,216 @@
+name: temp-finkman-state-sync
+
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-finkman-state-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/agent/finkman1979-source-contract'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: agent/finkman1979-source-contract
+          fetch-depth: 0
+      - name: Apply deterministic R01 state update
+        shell: bash
+        run: |
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          path = Path('research/programs/empirical_bandgap/state.md')
+          text = path.read_text(encoding='utf-8')
+          actual = sha256(text.encode('utf-8')).hexdigest()
+          expected = '1d0959db8e11ba3a96107dcaab046d8ce863338aef8ea9350580d1574be62a95'
+          assert actual == expected, (actual, expected)
+
+          text = text.replace(
+              '- #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction.\n',
+              '- #277 — Schmit and Stelzer 1969 Table III detector-cutoff reconstruction;\n'
+              '- #283 — Finkman and Nemirovsky 1979 optical-absorption source audit.\n',
+          )
+          text = text.replace(
+              '- complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction.\n',
+              '- complete Schmit and Stelzer 1969 eight-specimen, 56-row detector-cutoff reconstruction;\n'
+              '- provenance-controlled Finkman and Nemirovsky 1979 optical-absorption source audit.\n',
+          )
+          for number in (264, 266, 268, 270, 274, 278):
+              text = text.replace(f'draft PR #{number}', f'merged PR #{number}')
+          text = text.replace(
+              'A final CI run is required on this state-ledger commit before Issue #277 is closed.',
+              'Issue #277 is closed. The focused reconstruction and complete Python 3.11/3.13 suites passed with `1007` tests on the audited final Schmit head before merge.',
+          )
+
+          finkman = r'''
+          ## Finkman and Nemirovsky 1979 optical-absorption source audit
+
+          Issue #283 and draft PR #284 establish the R01 source contract for Hansen fitted source `HSC_R03` without modifying the separate R03 logarithmic-curvature program.
+
+          Canonical source files are:
+
+          ```text
+          data/experimental/finkman1979_source_metadata.csv
+          data/experimental/finkman1979_parameter_ledger.csv
+          data/experimental/finkman1979_README.md
+          ```
+
+          The primary PDF is available in the user File Library as `finkman1979.pdf`. The binary is not materialized in the repository runtime, so its SHA256 remains explicitly unavailable.
+
+          ### Measured source range and specimen contract
+
+          The experiment covers
+
+          ```text
+          0.205 <= x <= 0.220
+          80 K <= T <= 300 K
+          20 <= alpha <= 1000 cm^-1 for the fitted exponential tail
+          alpha <= approximately 2000 cm^-1 for the presented inversion range
+          ```
+
+          The material was n type, with electron concentration approximately `(1–2)e15 cm^-3` and mobility approximately `1e5 cm^2 V^-1 s^-1` at 77 K. Optical specimens were initially approximately `80 um` thick and were thinned to approximately `15 um`; repeated-thickness measurements from the same original specimen agreed within source resolution.
+
+          The primary paper reports composition measured by electron-beam microprobe to approximately `+/-0.003`. Hansen 1982 later describes the compositions entering its source graph as vendor Cominco values calibrated from optical cutoff against destructive chemistry. Both statements are retained without silent reconciliation.
+
+          ### Optical observation operator and artifact controls
+
+          The stored measurement class is
+
+          ```text
+          transmission_inverted_optical_absorption_coefficient
+          ```
+
+          The source measured transmission and inferred absorption using refractive-index, reflection, and multiple-reflection terms. Article-level estimates for reflection approximation and refractive-index extrapolation remain source uncertainty statements rather than pointwise Gaussian covariance.
+
+          The source explicitly diagnosed infrared-source heating from an abnormal edge shift and reduced source power or inserted attenuators until the measured absorption no longer shifted.
+
+          ### Modified-Urbach parameterization
+
+          For `20 <= alpha <= 1000 cm^-1`, the source fits
+
+          ```text
+          alpha = alpha0 * exp[sigma*(E-E0)/(T+T0)]
+          ```
+
+          with `E` and `E0` in `cm^-1` and
+
+          ```text
+          sigma = 5.65 +/- 0.07 K per cm^-1
+          T0 = 80.5 +/- 2 K
+          summary sigma = 5.646
+          summary T0 = 80.51 K
+          E0_cm^-1 = -3109 + 16450*x
+          ln(alpha0_cm^-1) = -20.44 + 51.70*x
+          ```
+
+          `E0` is an intercept parameter of the exponential law. It is not stored as a signed interaction gap, an excitonic gap, or an independently observed slope-change energy.
+
+          ### Fixed-alpha relation and OCR correction
+
+          The source-consistent fixed-alpha relation is
+
+          ```text
+          E(alpha=const)_eV = -0.349
+                            + 1.77e-3*ln(alpha_cm_inverse)
+                            + 2.20e-5*T_k*[ln(alpha_cm_inverse)+20.44-51.70*x]
+                            + 1.95*x
+          ```
+
+          with
+
+          ```text
+          dE/dT|alpha = 2.20e-5*ln(alpha_cm_inverse)
+                        + 4.49e-4
+                        - 1.13e-3*x       eV/K.
+          ```
+
+          The coefficient `2.20e-5` follows from dimensional closure and reproduces the printed temperature-coefficient relation. The OCR value `2.20e-7` is rejected.
+
+          ### Gap-proxy and extrapolation boundaries
+
+          The paper states that the actual slope-change region associated with the gap generally lies above `1000 cm^-1`, but the approximately `15 um` minimum specimen thickness prevented reliable access to that region. The authors therefore used
+
+          ```text
+          E(alpha=1000 cm^-1)
+          ```
+
+          as a reasonable higher-temperature estimate. The repository stores it as
+
+          ```text
+          fixed_absorption_optical_edge_alpha_1000_cm_inverse_proxy
+          signed_gap_eligible = false
+          intrinsic_gap_eligible_without_observation_operator = false
+          ```
+
+          The fitted specimens occupy only `0.205 <= x <= 0.220`. Endpoint comparisons and broader-composition use are source extrapolation claims, not directly measured validation. The composition dependence of `T0` remains unresolved.
+
+          ### Hansen and R03 boundaries
+
+          ```text
+          hansen_graph_id = HSC_R03
+          role_in_hansen = fitted_data
+          independent_validation_of_hansen = false
+          ```
+
+          Figures 3–6 are not digitized in this tranche. No Gaussian-disorder parameter, logarithmic-curvature validation, or R03 source/state/workflow change is introduced. The prior R03 decision that the plotted spectra cannot provide model-independent curvature validation without an external latent-window or above-gap anchor remains intact.
+
+          ### Validation state
+
+          The focused source audit validates the source identity, metrology, optical operator, exact parameter relations, dimensional correction, primary-versus-Hansen composition provenance, non-signed `alpha=1000 cm^-1` proxy, measured-versus-extrapolated scope, R03 isolation, and absence of figure pseudo-data.
+
+          A repository-level integrity test now rejects placeholder or truncated R01 state ledgers and requires the major historical source sections and program claim boundaries to remain present.
+
+          '''
+          import textwrap
+          finkman = textwrap.dedent(finkman)
+          marker = '## Unresolved scientific questions\n'
+          assert marker in text
+          text = text.replace(marker, finkman + marker, 1)
+          text = text.replace(
+              '- what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;\n',
+              '- what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;\n'
+              "- whether the primary-paper microprobe composition statement and Hansen's later Cominco composition description for Finkman 1979 can be reconciled from a specimen-level source record;\n"
+              '- whether a source-independent observation operator can relate fixed-alpha optical-edge proxies to intrinsic signed gaps across the Finkman, Scott, and detector-cutoff source classes;\n',
+          )
+          text = text.replace(
+              '- continue the Hansen source-by-source specimen reconstruction;\n',
+              '- continue the Hansen source-by-source specimen reconstruction;\n'
+              '- preserve the Finkman primary-paper and Hansen composition-provenance descriptions separately until a specimen-level reconciliation source is obtained;\n'
+              '- require an explicit optical observation operator before pooling Finkman fixed-alpha proxies with intrinsic, excitonic, detector-cutoff, or magneto-optical gaps;\n',
+          )
+          text = text.replace(
+              '- using Schmit 1969 as independent validation of Hansen;\n',
+              '- using Schmit 1969 as independent validation of Hansen;\n'
+              '- using Finkman and Nemirovsky 1979 as independent validation of Hansen;\n'
+              '- treating Finkman `E0`, `sigma`, or `T0` as an intrinsic signed gap or latent Gaussian-disorder parameter;\n'
+              '- treating `E(alpha=1000 cm^-1)` as a directly observed slope-change gap or a signed interaction gap;\n'
+              '- presenting Finkman whole-composition parameter extrapolation as direct measurement outside `0.205 <= x <= 0.220`;\n'
+              "- silently choosing between the primary-paper microprobe composition statement and Hansen's later Cominco provenance description;\n"
+              '- digitizing Finkman Figures 3–6 as a model-independent logarithmic-curvature validation dataset;\n',
+          )
+          final = sha256(text.encode('utf-8')).hexdigest()
+          expected_final = 'dcb12eb82aaacb7d60064f9f1bd90089d07d0cd6e1f162efec4b25efd46d13b3'
+          assert final == expected_final, (final, expected_final)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit state and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/programs/empirical_bandgap/state.md
+          git rm .github/workflows/temp-finkman-state-sync.yml
+          git diff --cached --name-only | sort > /tmp/staged.txt
+          printf '%s\n' \
+            '.github/workflows/temp-finkman-state-sync.yml' \
+            'research/programs/empirical_bandgap/state.md' \
+            | sort > /tmp/expected.txt
+          diff -u /tmp/expected.txt /tmp/staged.txt
+          git commit -m 'Synchronize R01 state with Finkman 1979 audit'
+          git push origin HEAD:agent/finkman1979-source-contract
