@@ -209,5 +209,6 @@ def test_driver_and_workflow_cannot_expand_into_a_sweep() -> None:
     assert "automatic_retry_performed\": False" in driver
     assert "parameter_sweep_performed\": False" in driver
     assert "a1_or_production_executed\": False" in driver
+    assert "python -m pytest -vv tests/test_cdte_a0_zeu_zue.py" in workflow
     assert "timeout-minutes: 180" in workflow
     assert "cdte-a0-zeu-zue-evidence" in workflow
