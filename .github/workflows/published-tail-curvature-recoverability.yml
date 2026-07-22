@@ -19,10 +19,13 @@ jobs:
       - name: Install package
         run: python -m pip install -e '.[test]'
       - name: Run focused tests
+        shell: bash
         run: |
+          set -o pipefail
           python -m pytest -q \
             tests/test_published_tail_recoverability.py \
-            tests/test_published_tail_recoverability_reference.py
+            tests/test_published_tail_recoverability_reference.py \
+            2>&1 | tee /tmp/published-tail-curvature-recoverability-pytest.log
       - name: Rebuild immutable reference
         run: |
           python tools/build_published_tail_curvature_recoverability_reference.py \
@@ -50,6 +53,7 @@ jobs:
         with:
           name: published-tail-curvature-recoverability
           path: |
+            /tmp/published-tail-curvature-recoverability-pytest.log
             data/validation/published_tail_curvature_recoverability.json
             docs/derivations/019_published_tail_curvature_recoverability.md
           if-no-files-found: error
