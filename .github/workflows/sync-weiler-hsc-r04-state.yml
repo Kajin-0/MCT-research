@@ -1,9 +1,7 @@
 name: sync-weiler-hsc-r04-state
 
 on:
-  push:
-    branches:
-      - agent/weiler1981-hsc-r04-lineage
+  pull_request:
     paths:
       - '.github/workflows/sync-weiler-hsc-r04-state.yml'
 
@@ -12,7 +10,7 @@ permissions:
 
 jobs:
   synchronize:
-    if: github.actor != 'github-actions[bot]'
+    if: github.head_ref == 'agent/weiler1981-hsc-r04-lineage' && github.actor != 'github-actions[bot]'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
