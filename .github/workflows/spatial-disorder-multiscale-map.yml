@@ -1,0 +1,84 @@
+name: spatial-disorder-multiscale-map
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify cross-scale raster covariance
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p spatial-disorder-multiscale-map-diagnostics
+          python -m pytest -q tests/test_spatial_disorder_multiscale_map.py \
+            2>&1 | tee spatial-disorder-multiscale-map-diagnostics/pytest.txt
+      - name: Build deterministic reference
+        run: |
+          mkdir -p spatial-disorder-multiscale-map-generated
+          python -m tools.build_spatial_disorder_multiscale_map_reference \
+            --output spatial-disorder-multiscale-map-generated/spatial_disorder_multiscale_map.json
+      - name: Validate generated reference structure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path(
+              'spatial-disorder-multiscale-map-generated/'
+              'spatial_disorder_multiscale_map.json'
+          )
+          record = json.loads(path.read_text(encoding='utf-8'))
+          assert record['schema_version'] == '1.0'
+          assert record['program_issue'] == 196
+          assert record['implementation_issue'] == 246
+          assert record['portfolio_contribution'] == 'R04'
+          assert (
+              record['status']
+              == 'controlled_same_raster_covariance_not_specimen_inference'
+          )
+          headline = record['headline']
+          assert headline['dense_bias_factors'][0] < 0.55
+          assert headline['dense_bias_factors'][-1] < 0.1
+          assert headline['dense_log_estimator_standard_deviations'][0] > 0.69
+          assert headline['dense_log_estimator_standard_deviations'][-1] > 0.95
+          assert headline['dense_cross_scale_correlations'][0] > 0.94
+          assert headline['dense_parameter_sd_inflation'][0] > 4.4
+          assert headline['dense_parameter_sd_inflation'][1] > 2.8
+          assert (
+              headline['dense_parameter_covariance_determinant_inflation']
+              > 400.0
+          )
+          assert (
+              headline['fourfold_pixel_full_log_xi_precision_improvement_fraction']
+              < 0.005
+          )
+          assert (
+              headline['fourfold_pixel_nominal_log_xi_precision_improvement_fraction']
+              > 0.49
+          )
+          boundaries = record['claim_boundaries']
+          assert any('delta-method' in item for item in boundaries)
+          assert any('not an independent-repeat count' in item for item in boundaries)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spatial-disorder-multiscale-map
+          path: |
+            spatial-disorder-multiscale-map-diagnostics
+            spatial-disorder-multiscale-map-generated
+          if-no-files-found: error
+          retention-days: 30
