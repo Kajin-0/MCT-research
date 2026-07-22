@@ -82,3 +82,234 @@ jobs:
             data/experimental/scott1969_figure2_extraction_gate.csv
           if-no-files-found: error
           retention-days: 30
+
+  materialize-source-pages:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install deterministic PDF renderer
+        run: python -m pip install 'pypdfium2==4.30.0' 'Pillow==11.3.0'
+      - name: Resolve source PDF and render pages
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/scott-source-materialization
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import importlib.metadata
+          import json
+          import re
+          import ssl
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          import pypdfium2 as pdfium
+
+          DOI = '10.1063/1.1657147'
+          OUT = Path('/tmp/scott-source-materialization')
+          USER_AGENT = (
+              'MCT-research/Scott1969-source-audit '
+              '(research reproducibility; https://github.com/Kajin-0/MCT-research)'
+          )
+          SSL_CONTEXT = ssl.create_default_context()
+
+          diagnostics: dict[str, object] = {
+              'doi': DOI,
+              'retrieval_timestamp_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+              'metadata_queries': [],
+              'candidate_attempts': [],
+              'selected_source_url': None,
+              'source_pdf_sha256': None,
+              'source_pdf_size_bytes': None,
+              'renderer': {
+                  'name': 'pypdfium2',
+                  'version': importlib.metadata.version('pypdfium2'),
+                  'dpi': 600,
+              },
+              'rendered_pages': [],
+          }
+
+          def fetch(url: str, *, accept: str = '*/*', timeout: int = 45) -> tuple[bytes, str, str]:
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      'User-Agent': USER_AGENT,
+                      'Accept': accept,
+                      'Accept-Language': 'en-US,en;q=0.8',
+                  },
+              )
+              with urllib.request.urlopen(request, timeout=timeout, context=SSL_CONTEXT) as response:
+                  return response.read(), response.geturl(), response.headers.get('Content-Type', '')
+
+          candidates: list[tuple[str, str]] = []
+
+          metadata_urls = {
+              'crossref': 'https://api.crossref.org/works/10.1063%2F1.1657147',
+              'openalex': 'https://api.openalex.org/works/doi:10.1063/1.1657147',
+              'semantic_scholar': (
+                  'https://api.semanticscholar.org/graph/v1/paper/'
+                  'DOI:10.1063/1.1657147?fields=title,externalIds,openAccessPdf,url'
+              ),
+          }
+
+          for provider, url in metadata_urls.items():
+              record: dict[str, object] = {'provider': provider, 'url': url}
+              try:
+                  payload, resolved, content_type = fetch(url, accept='application/json')
+                  record.update({
+                      'status': 'success',
+                      'resolved_url': resolved,
+                      'content_type': content_type,
+                      'sha256': hashlib.sha256(payload).hexdigest(),
+                      'size_bytes': len(payload),
+                  })
+                  (OUT / f'{provider}.json').write_bytes(payload)
+                  data = json.loads(payload)
+                  if provider == 'crossref':
+                      message = data.get('message', {})
+                      for item in message.get('link', []) or []:
+                          candidate = item.get('URL')
+                          if candidate:
+                              candidates.append((f'{provider}:link', candidate))
+                      primary = (message.get('resource') or {}).get('primary', {}).get('URL')
+                      if primary:
+                          candidates.append((f'{provider}:resource', primary))
+                  elif provider == 'openalex':
+                      best = data.get('best_oa_location') or {}
+                      if best.get('pdf_url'):
+                          candidates.append((f'{provider}:best_oa', best['pdf_url']))
+                      for location in data.get('locations', []) or []:
+                          if location and location.get('pdf_url'):
+                              candidates.append((f'{provider}:location', location['pdf_url']))
+                  elif provider == 'semantic_scholar':
+                      oa = data.get('openAccessPdf') or {}
+                      if oa.get('url'):
+                          candidates.append((f'{provider}:open_access', oa['url']))
+              except Exception as exc:  # diagnostic workflow: preserve all failures
+                  record.update({'status': 'error', 'error': f'{type(exc).__name__}: {exc}'})
+              diagnostics['metadata_queries'].append(record)
+
+          mendeley_url = 'https://www.mendeley.com/catalogue/35108651-cba2-3acc-b948-97e988f2f9c0/'
+          try:
+              html, resolved, content_type = fetch(mendeley_url, accept='text/html')
+              (OUT / 'mendeley.html').write_bytes(html)
+              diagnostics['metadata_queries'].append({
+                  'provider': 'mendeley_catalogue',
+                  'url': mendeley_url,
+                  'status': 'success',
+                  'resolved_url': resolved,
+                  'content_type': content_type,
+                  'sha256': hashlib.sha256(html).hexdigest(),
+                  'size_bytes': len(html),
+              })
+              text = html.decode('utf-8', errors='replace')
+              for match in re.findall(r'https?://[^"\'<>\\ ]+', text):
+                  lowered = match.lower()
+                  if '.pdf' in lowered or 'download' in lowered:
+                      candidates.append(('mendeley_html', match.replace('\\u002F', '/')))
+          except Exception as exc:
+              diagnostics['metadata_queries'].append({
+                  'provider': 'mendeley_catalogue',
+                  'url': mendeley_url,
+                  'status': 'error',
+                  'error': f'{type(exc).__name__}: {exc}',
+              })
+
+          candidates.extend([
+              ('doi_content_negotiation', 'https://doi.org/10.1063/1.1657147'),
+              ('aip_current_doi_pdf', 'https://pubs.aip.org/aip/jap/article-pdf/doi/10.1063/1.1657147/4077_1_online.pdf'),
+              ('aip_current_article_id_pdf', 'https://pubs.aip.org/aip/jap/article-pdf/40/10/4077/1657147/4077_1_online.pdf'),
+              ('aip_current_candidate_pdf', 'https://pubs.aip.org/aip/jap/article-pdf/40/10/4077/7920951/4077_1_online.pdf'),
+              ('aip_scitation_doi_pdf', 'https://aip.scitation.org/doi/pdf/10.1063/1.1657147'),
+              ('aip_legacy_content_pdf', 'https://scitation.aip.org/content/aip/journal/jap/40/10/10.1063/1.1657147/pdf'),
+          ])
+
+          deduplicated: list[tuple[str, str]] = []
+          seen: set[str] = set()
+          for origin, url in candidates:
+              normalized = url.strip().replace('&amp;', '&')
+              if normalized and normalized not in seen:
+                  seen.add(normalized)
+                  deduplicated.append((origin, normalized))
+
+          pdf_bytes: bytes | None = None
+          selected_url: str | None = None
+          for origin, url in deduplicated:
+              attempt: dict[str, object] = {'origin': origin, 'url': url}
+              try:
+                  payload, resolved, content_type = fetch(url, accept='application/pdf')
+                  attempt.update({
+                      'status': 'fetched',
+                      'resolved_url': resolved,
+                      'content_type': content_type,
+                      'size_bytes': len(payload),
+                      'sha256': hashlib.sha256(payload).hexdigest(),
+                      'magic': payload[:8].hex(),
+                  })
+                  if payload.startswith(b'%PDF-') and len(payload) > 10000:
+                      try:
+                          document = pdfium.PdfDocument(payload)
+                          attempt['pdf_page_count'] = len(document)
+                          if len(document) >= 6:
+                              pdf_bytes = payload
+                              selected_url = resolved
+                              attempt['status'] = 'selected_valid_pdf'
+                              diagnostics['candidate_attempts'].append(attempt)
+                              break
+                          attempt['status'] = 'rejected_short_pdf'
+                      except Exception as exc:
+                          attempt['status'] = 'rejected_invalid_pdf'
+                          attempt['pdf_error'] = f'{type(exc).__name__}: {exc}'
+                  else:
+                      attempt['status'] = 'rejected_non_pdf'
+                      preview = payload[:400].decode('utf-8', errors='replace')
+                      attempt['body_preview'] = preview
+              except Exception as exc:
+                  attempt.update({'status': 'error', 'error': f'{type(exc).__name__}: {exc}'})
+              diagnostics['candidate_attempts'].append(attempt)
+
+          if pdf_bytes is not None:
+              pdf_sha = hashlib.sha256(pdf_bytes).hexdigest()
+              diagnostics['selected_source_url'] = selected_url
+              diagnostics['source_pdf_sha256'] = pdf_sha
+              diagnostics['source_pdf_size_bytes'] = len(pdf_bytes)
+              document = pdfium.PdfDocument(pdf_bytes)
+              for page_number in (4, 6):
+                  page = document[page_number - 1]
+                  bitmap = page.render(scale=600 / 72, rotation=0)
+                  image = bitmap.to_pil()
+                  page_path = OUT / f'scott1969_pdf_page_{page_number}_600dpi.png'
+                  image.save(page_path, format='PNG', optimize=False)
+                  diagnostics['rendered_pages'].append({
+                      'pdf_page_number': page_number,
+                      'article_page': 4079 if page_number == 4 else 4081,
+                      'width_px': image.width,
+                      'height_px': image.height,
+                      'sha256': hashlib.sha256(page_path.read_bytes()).hexdigest(),
+                      'file': page_path.name,
+                  })
+          else:
+              diagnostics['materialization_status'] = 'no_valid_pdf_retrieved'
+
+          (OUT / 'materialization.json').write_text(
+              json.dumps(diagnostics, indent=2, sort_keys=True) + '\n',
+              encoding='utf-8',
+          )
+          print(json.dumps(diagnostics, indent=2, sort_keys=True))
+          PY
+      - name: Upload source-resolution evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scott1969-source-materialization
+          path: /tmp/scott-source-materialization
+          if-no-files-found: error
+          retention-days: 2
