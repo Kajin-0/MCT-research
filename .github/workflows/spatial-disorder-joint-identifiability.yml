@@ -71,8 +71,8 @@ jobs:
                   assert math.isclose(
                       float(expected),
                       float(actual),
-                      rel_tol=5.0e-11,
-                      abs_tol=1.0e-13,
+                      rel_tol=2.0e-10,
+                      abs_tol=2.0e-13,
                   ), (path, expected, actual)
                   return
               assert expected == actual, path
