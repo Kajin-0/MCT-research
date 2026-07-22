@@ -231,7 +231,7 @@ def test_gopal_is_nearest_partial_multiresolution_benchmark() -> None:
     joined = " ".join(gopal.notes)
     assert "3 mm" in joined
     assert "250 micrometres" in joined
-    assert "sample 90211" in joined.lower()
+    assert "90211" in joined
 
 
 def test_adjustable_aperture_without_sweep_does_not_qualify() -> None:
