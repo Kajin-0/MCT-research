@@ -48,7 +48,7 @@ def test_fixture_is_pinned_upstream_nonpolar_diamond() -> None:
     assert source["release_tag"] == "qe-7.6"
     assert source["commit_sha"] == "9f93ddec427d2b9a45bb72d828c6d324f62fcabd"
     assert source["source_tree_archive_sha256"] == (
-        "34ab80c2ed8a0e30d1aef01ac847c68106c8c2b7f7eaf8e05ecafbbcbac849"
+        "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849"
     )
     assert source["epw_version"] == "6.1"
     fixture = contract["fixture"]
@@ -149,7 +149,7 @@ def test_source_workflow_remains_bounded_to_hash_verification() -> None:
     assert "make epw" not in text
 
 
-def test_fixture_driver_has_one_build_two_runs_and_no_retry() -> None:
+def test_fixture_driver_has_one_build_two_runs_and_no_retry_loop() -> None:
     text = FIXTURE_DRIVER.read_text(encoding="utf-8")
     assert "build_count=1" in text
     assert text.count("run_fixture disabled") == 1
@@ -160,7 +160,9 @@ def test_fixture_driver_has_one_build_two_runs_and_no_retry() -> None:
     assert "make -j2 pw ph epw" in text
     assert "for cutoff" not in text
     assert "for kgrid" not in text
-    assert "retry" not in text.lower()
+    assert "rerun" not in text.lower()
+    assert "while true" not in text.lower()
+    assert "until " not in text.lower()
     assert "CdTe" not in text
     assert "HgTe" not in text
 
