@@ -1,0 +1,39 @@
+name: spatial-disorder-joint-identifiability
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify joint identifiability layer
+        run: |
+          mkdir -p joint-identifiability-diagnostics
+          python -m pytest -q \
+            tests/test_spatial_disorder_joint_identifiability.py \
+            2>&1 | tee joint-identifiability-diagnostics/pytest.txt
+      - name: Build controlled reference
+        run: |
+          python -m tools.build_joint_identifiability_reference \
+            --output joint-identifiability-diagnostics/spatial_disorder_joint_identifiability.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spatial-disorder-joint-identifiability
+          path: |
+            joint-identifiability-diagnostics
+            docs/derivations/017_joint_identifiability_envelope.md
+          if-no-files-found: warn
+          retention-days: 30
