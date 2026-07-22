@@ -34,25 +34,19 @@ jobs:
             tests/test_spatial_disorder_calibration.py \
             tests/test_spatial_disorder_covariance_families.py \
             tests/test_spatial_disorder_covariance_bias.py \
+            tests/test_spatial_disorder_instrument.py \
             tests/test_spatial_disorder_posterior.py \
             2>&1 | tee spatial-disorder-diagnostics/pytest.txt
-      - name: Rebuild nonlinear posterior reference
+      - name: Rebuild deterministic references
         run: |
           python -m tools.build_nonlinear_common_scale_posterior_reference \
             --output spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
+          python -m tools.build_composite_instrument_kernel_reference \
+            --output spatial-disorder-diagnostics/spatial_disorder_composite_instrument_kernel.json
           python - <<'PY'
           import json
           import math
           from pathlib import Path
-
-          reference_path = Path(
-              'data/validation/nonlinear_common_scale_posterior.json'
-          )
-          rebuilt_path = Path(
-              'spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json'
-          )
-          reference = json.loads(reference_path.read_text(encoding='utf-8'))
-          rebuilt = json.loads(rebuilt_path.read_text(encoding='utf-8'))
 
           def compare(reference_value, rebuilt_value, path='$'):
               if isinstance(reference_value, dict):
@@ -91,7 +85,29 @@ jobs:
                   return
               assert reference_value == rebuilt_value, path
 
-          compare(reference, rebuilt)
+          pairs = (
+              (
+                  Path('data/validation/nonlinear_common_scale_posterior.json'),
+                  Path(
+                      'spatial-disorder-diagnostics/'
+                      'nonlinear_common_scale_posterior.json'
+                  ),
+              ),
+              (
+                  Path(
+                      'data/validation/'
+                      'spatial_disorder_composite_instrument_kernel.json'
+                  ),
+                  Path(
+                      'spatial-disorder-diagnostics/'
+                      'spatial_disorder_composite_instrument_kernel.json'
+                  ),
+              ),
+          )
+          for reference_path, rebuilt_path in pairs:
+              reference = json.loads(reference_path.read_text(encoding='utf-8'))
+              rebuilt = json.loads(rebuilt_path.read_text(encoding='utf-8'))
+              compare(reference, rebuilt)
           PY
       - name: Validate immutable references
         run: |
@@ -181,6 +197,32 @@ jobs:
               for item in bias['claim_boundaries']
           )
 
+          instrument_path = Path(
+              'data/validation/spatial_disorder_composite_instrument_kernel.json'
+          )
+          instrument = json.loads(instrument_path.read_text(encoding='utf-8'))
+          assert instrument['schema_version'] == '1.0'
+          assert instrument['program_issue'] == 196
+          assert instrument['implementation_issue'] == 228
+          assert instrument['portfolio_contribution'] == 'R04'
+          assert instrument['status'].endswith('not_specimen_calibration')
+          headline = instrument['headline']
+          assert 0.16 < headline['reference_exact_variance_ratio'] < 0.17
+          assert headline['reference_equivalent_gaussian_relative_error'] > 0.01
+          assert headline['pixel_dominated_equivalent_gaussian_relative_error'] > 0.08
+          assert headline['reference_calibration_relative_standard_deviation'] > 0.05
+          assert headline['stress_grid_maximum_relative_error'] > 0.09
+          assert headline['stress_grid_cases_above_one_percent'] == 18
+          grid = instrument['equivalent_gaussian_stress_grid']
+          assert grid['case_count'] == 42
+          assert grid['cases_above_one_percent_error'] == 18
+          verification = instrument['independent_axis_verification']
+          assert max(abs(item['relative_difference']) for item in verification) < 1.0e-12
+          assert any(
+              'not a universal instrument PSF' in item
+              for item in instrument['claim_boundaries']
+          )
+
           posterior_path = Path(
               'data/validation/nonlinear_common_scale_posterior.json'
           )
@@ -224,12 +266,14 @@ jobs:
             data/validation/spatial_disorder_probe_scale_calibration.json
             data/validation/three_scale_covariance_family_test.json
             data/validation/spatial_disorder_covariance_family_bias.json
+            data/validation/spatial_disorder_composite_instrument_kernel.json
             data/validation/nonlinear_common_scale_posterior.json
             docs/derivations/010_scale_dependent_spatial_disorder.md
             docs/derivations/011_probe_scale_calibration_limit.md
             docs/derivations/012_three_scale_covariance_family_test.md
             docs/derivations/013_exact_common_scale_posterior.md
             docs/derivations/014_covariance_family_bias_and_pairwise_drift.md
+            docs/derivations/015_composite_instrument_kernel.md
             literature/notes/scale_dependent_disorder_prior_art.md
           if-no-files-found: warn
           retention-days: 30

@@ -1,0 +1,204 @@
+{
+  "anisotropic_case": {
+    "correlation_lengths": [
+      2.0,
+      4.0,
+      1.0
+    ],
+    "depth_ratio": 0.6561192842903185,
+    "effective_variance": 0.22882649824454349,
+    "equivalent_gaussian_effective_variance": 0.23411688986037674,
+    "equivalent_gaussian_relative_error": 0.023119663397459744,
+    "equivalent_gaussian_variance_ratio": 0.23411688986037674,
+    "exact_variance_ratio": 0.22882649824454349,
+    "kernel": {
+      "attenuation_coefficient": 1.0,
+      "pixel_width_x": 4.0,
+      "pixel_width_y": 12.0,
+      "psf_sigma_x": 1.0,
+      "psf_sigma_y": 3.0,
+      "side": "front",
+      "thickness": 8.0
+    },
+    "lateral_ratio_x": 0.6739336784634828,
+    "lateral_ratio_y": 0.5174952313852539,
+    "moment_matched_sigma_x": 1.5275252316519468,
+    "moment_matched_sigma_y": 4.58257569495584,
+    "point_variance": 1.0
+  },
+  "calibration_case": {
+    "first_order_relative_standard_deviation": 0.05354423535417186,
+    "independent_log_standard_deviations": [
+      0.05,
+      0.05,
+      0.01,
+      0.01,
+      0.1,
+      0.05
+    ],
+    "log_sensitivity": [
+      -0.4833963716976974,
+      -0.4833963716976974,
+      -0.27490544243224946,
+      -0.27490544243224946,
+      0.40899976191388626,
+      -0.06542851335167299
+    ],
+    "log_variance_standard_deviation": 0.05354423535417186,
+    "lognormal_relative_standard_deviation": 0.053582635918322324,
+    "parameter_names": [
+      "psf_sigma_x",
+      "psf_sigma_y",
+      "pixel_width_x",
+      "pixel_width_y",
+      "attenuation_coefficient",
+      "thickness"
+    ]
+  },
+  "claim_boundaries": [
+    "The model is a declared representative separable kernel, not a universal instrument PSF.",
+    "The analytical result applies to axis-aligned separable Gaussian covariance and lateral kernels.",
+    "The finite-depth Gaussian factor is evaluated by deterministic quadrature rather than a new closed finite-slab formula.",
+    "Moment matching preserves the lateral kernel covariance but not its full shape.",
+    "The stress grid is dimensionless controlled analysis, not a survey of commercial instruments.",
+    "The calibration case is synthetic and does not estimate a specimen correlation length.",
+    "No covariance family, specimen parameter, manuscript, or novelty claim is authorized."
+  ],
+  "equivalent_gaussian_stress_grid": {
+    "case_count": 42,
+    "cases_above_one_percent_error": 18,
+    "maximum_error_case": {
+      "equivalent_gaussian_ratio_2d": 0.01935483870967742,
+      "exact_lateral_ratio_2d": 0.017749371622051695,
+      "pixel_width_over_xi": 16.0,
+      "psf_sigma_over_xi": 2.0,
+      "relative_error": 0.0904520521521508
+    },
+    "pixel_width_over_xi": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0
+    ],
+    "psf_sigma_over_xi": [
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ]
+  },
+  "headline": {
+    "pixel_dominated_equivalent_gaussian_relative_error": 0.08876457091123835,
+    "reference_calibration_relative_standard_deviation": 0.05354423535417186,
+    "reference_equivalent_gaussian_relative_error": 0.011158554307355129,
+    "reference_exact_variance_ratio": 0.16258468104950388,
+    "stress_grid_cases_above_one_percent": 18,
+    "stress_grid_maximum_relative_error": 0.0904520521521508
+  },
+  "implementation_issue": 228,
+  "independent_axis_verification": [
+    {
+      "analytical_ratio": 0.4213256656468798,
+      "correlation_length": 0.2,
+      "pixel_width": 1,
+      "psf_sigma": 0,
+      "quadrature_ratio": 0.42132566564688206,
+      "relative_difference": 5.329070518200751e-15
+    },
+    {
+      "analytical_ratio": 0.7276864485457062,
+      "correlation_length": 1,
+      "pixel_width": 2,
+      "psf_sigma": 0.3,
+      "quadrature_ratio": 0.7276864485457071,
+      "relative_difference": 1.1102230246251565e-15
+    },
+    {
+      "analytical_ratio": 0.49466379334485655,
+      "correlation_length": 2,
+      "pixel_width": 5,
+      "psf_sigma": 2,
+      "quadrature_ratio": 0.49466379334485694,
+      "relative_difference": 8.881784197001252e-16
+    },
+    {
+      "analytical_ratio": 0.613511432690323,
+      "correlation_length": 10,
+      "pixel_width": 30,
+      "psf_sigma": 0.1,
+      "quadrature_ratio": 0.6135114326903247,
+      "relative_difference": 2.6645352591003757e-15
+    }
+  ],
+  "model": {
+    "depth_evaluation": "deterministic Gauss-Legendre covariance quadratic form",
+    "depth_kernel": "normalized exponential sensitivity in a homogeneous finite slab",
+    "equivalent_gaussian": "axiswise second-moment matching",
+    "lateral_evaluation": "analytical",
+    "lateral_kernel": "axis-aligned elliptical Gaussian PSF convolved with a rectangular pixel or scan bin",
+    "material_covariance": "axis-aligned separable Gaussian in 3D"
+  },
+  "pixel_dominated_case": {
+    "correlation_lengths": [
+      5.0,
+      5.0,
+      2.0
+    ],
+    "depth_ratio": 0.6644455179635949,
+    "effective_variance": 0.04020396471922381,
+    "equivalent_gaussian_effective_variance": 0.04377265239645627,
+    "equivalent_gaussian_relative_error": 0.08876457091123835,
+    "equivalent_gaussian_variance_ratio": 0.04377265239645627,
+    "exact_variance_ratio": 0.04020396471922381,
+    "kernel": {
+      "attenuation_coefficient": 0.5,
+      "pixel_width_x": 44.2,
+      "pixel_width_y": 44.2,
+      "psf_sigma_x": 3.8,
+      "psf_sigma_y": 3.8,
+      "side": "front",
+      "thickness": 10.0
+    },
+    "lateral_ratio_x": 0.24598280722371874,
+    "lateral_ratio_y": 0.24598280722371874,
+    "moment_matched_sigma_x": 13.313276581418016,
+    "moment_matched_sigma_y": 13.313276581418016,
+    "point_variance": 1.0
+  },
+  "portfolio_contribution": "R04",
+  "program_issue": 196,
+  "reference_case": {
+    "correlation_lengths": [
+      2.0,
+      2.0,
+      2.0
+    ],
+    "depth_ratio": 0.6644455179635942,
+    "effective_variance": 0.001625846810495039,
+    "equivalent_gaussian_effective_variance": 0.0016439889104253877,
+    "equivalent_gaussian_relative_error": 0.011158554307355129,
+    "equivalent_gaussian_variance_ratio": 0.16439889104253877,
+    "exact_variance_ratio": 0.16258468104950388,
+    "kernel": {
+      "attenuation_coefficient": 0.5,
+      "pixel_width_x": 5.0,
+      "pixel_width_y": 5.0,
+      "psf_sigma_x": 2.0,
+      "psf_sigma_y": 2.0,
+      "side": "front",
+      "thickness": 10.0
+    },
+    "lateral_ratio_x": 0.49466379334485655,
+    "lateral_ratio_y": 0.49466379334485655,
+    "moment_matched_sigma_x": 2.466441431158124,
+    "moment_matched_sigma_y": 2.466441431158124,
+    "point_variance": 0.01
+  },
+  "schema_version": "1.0",
+  "status": "controlled_instrument_kernel_not_specimen_calibration"
+}
