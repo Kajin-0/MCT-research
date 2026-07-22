@@ -5,7 +5,7 @@
 
 ## Objective
 
-Determine how a spatially correlated HgCdTe composition field combines with finite lateral and depth measurement kernels, instrument calibration, covariance-family uncertainty, observation operators, and finite-map sampling to control apparent composition variance, gap width, optical response, detector cutoff, and recoverable information.
+Determine how a spatially correlated HgCdTe composition field combines with finite lateral and depth measurement kernels, instrument calibration, covariance-family uncertainty, observation operators, finite-map sampling, and same-raster cross-scale covariance to control apparent composition variance, gap width, optical response, detector cutoff, and recoverable information.
 
 ## Controlling issues
 
@@ -17,7 +17,8 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 - #228 — composite optical, pixel, and finite-depth instrument kernel;
 - #230 — optimal multiscale repeat allocation;
 - #232 — joint instrument, covariance-family, fitting, and observation-operator identifiability;
-- #234 — correlated-map effective sample size and variance-estimator bias.
+- #234 — correlated-map effective sample size and variance-estimator bias;
+- #246 — cross-scale covariance of map-variance estimates from one raster.
 
 ## Completed implementation tranches
 
@@ -34,7 +35,8 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 - PR #229 — composite optical-PSF, pixel, and absorption-depth kernel;
 - PR #231 — optimal repeat allocation and three-scale precision/falsification compromise;
 - PR #233 — joint identifiability envelope across instrument, family, fit, and observation operators;
-- PR #236 — exact filtered-map cross covariance, effective sample size, and correlated sample-variance moments.
+- PR #236 — exact filtered-map cross covariance, effective sample size, and correlated sample-variance moments;
+- PR #247 — exact same-raster cross-scale variance-estimator covariance and Fisher information.
 
 Representative modules:
 
@@ -53,6 +55,7 @@ src/mct_research/spatial_disorder_instrument.py
 src/mct_research/spatial_disorder_allocation.py
 src/mct_research/spatial_disorder_joint_identifiability.py
 src/mct_research/spatial_disorder_map_sampling.py
+src/mct_research/spatial_disorder_multiscale_map.py
 src/mct_research/spatial_disorder_posterior.py
 ```
 
@@ -246,6 +249,68 @@ The repeat counts in the allocation theorem represent independent realizations o
 
 The effective variance degrees of freedom are moment matched. They are not an exact chi-square law for an arbitrary correlated covariance spectrum.
 
+### Same-raster cross-scale variance covariance
+
+For multiresolution map vectors $\mathbf y_i$ and $\mathbf y_j$ measured at common sample centers, define
+
+$$
+q_i=\frac{\mathbf y_i^TP\mathbf y_i}{n-1}.
+$$
+
+Joint Gaussianity gives
+
+$$
+\mathbb E[q_i]=\frac{\operatorname{tr}(PC_{ii})}{n-1}
+$$
+
+and
+
+$$
+\operatorname{Cov}(q_i,q_j)
+=\frac{2\operatorname{tr}(PC_{ij}PC_{ji})}{(n-1)^2}.
+$$
+
+The diagonal recovers the single-scale finite-map theorem. The first-order logarithmic covariance is
+
+$$
+\operatorname{Cov}(\log q_i,\log q_j)
+\simeq
+\frac{\operatorname{Cov}(q_i,q_j)}
+{\mathbb E[q_i]\mathbb E[q_j]}.
+$$
+
+This is a delta-method result, not an exact jointly log-normal or chi-square law.
+
+For the existing controlled three-scale design
+
+```text
+point sigma_x = 0.005
+xi = 2 um
+probe sigmas = [0.23094, 1.15470, 4.61880] um
+map = 10 x 10
+spacing = 0.5 um
+```
+
+the same-raster map-variance estimators have:
+
+```text
+bias factors                    [0.528051, 0.401946, 0.083007]
+log-estimator SD                [0.694898, 0.774652, 0.955282]
+cross-scale correlations       [0.945954, 0.180044, 0.288422]
+```
+
+Treating 100 pixels as independent at every scale understates the controlled parameter uncertainty by:
+
+```text
+SD(log A) inflation                 4.4397x
+SD(log xi) inflation                2.8677x
+parameter covariance determinant   404.6855x
+```
+
+At approximately fixed field of view, increasing from `10 x 10` pixels at `0.5 µm` spacing to `20 x 20` pixels at `0.25 µm` spacing improves the full-covariance `log xi` precision by only `0.393%`. The nominal independent-pixel model incorrectly predicts `50.188%` improvement, and its false covariance-volume optimism becomes `16.01x` more severe.
+
+Deterministic correction of the mean map-variance bias does not create independent information. Multiple resolutions measured on one field are not independent scale observations.
+
 ## Current scientific interpretation
 
 The analytical and synthetic infrastructure now specifies what a credible experiment must report:
@@ -259,7 +324,8 @@ The analytical and synthetic infrastructure now specifies what a credible experi
 7. shared calibration covariance across scales;
 8. sample-center geometry and the full within-map covariance, or independently justified sampling separation;
 9. independent-map or covariance-weighted information counts rather than nominal pixel counts;
-10. a predeclared separation or termination threshold.
+10. cross-scale covariance when multiple resolutions observe the same specimen region;
+11. a predeclared separation or termination threshold.
 
 The main bottleneck is no longer missing analytical machinery. It is external specification and validation.
 
@@ -275,12 +341,13 @@ Completed controlled gates:
 - representative composite instrument kernel;
 - optimal repeat allocation;
 - joint calibration/family/fit/operator uncertainty envelope;
-- exact Gaussian finite-map covariance and correlated-sampling diagnostics.
+- exact Gaussian finite-map covariance and correlated-sampling diagnostics;
+- exact same-raster cross-scale variance-estimator covariance and Fisher information.
 
 Remaining authorization gates:
 
 1. complete the finite-aperture full-text prior-art audit;
-2. obtain or declare one experimentally specified PSF, pixel geometry, thickness, absorption coefficient, calibrated scale range, raster geometry, and sampling covariance;
+2. obtain or declare one experimentally specified PSF, pixel geometry, thickness, absorption coefficient, calibrated scale range, raster geometry, within-map covariance, and cross-scale sampling relationship;
 3. identify one public-data or experimentally specified multiresolution validation path;
 4. test the combined model against that path;
 5. prepare a concise theorem-centered figure and claim plan.
@@ -290,7 +357,7 @@ Remaining authorization gates:
 - complete PR #223 or explicitly record the unavailable-source boundary;
 - define an experimental specification record for one real or planned instrument and map geometry;
 - ingest or construct a provenance-controlled multiresolution dataset;
-- run the joint envelope with measured instrument covariance, observation uncertainty, and map covariance;
+- run the joint envelope with measured instrument covariance, observation uncertainty, within-map covariance, and cross-scale covariance;
 - test whether multiple modalities from one specimen can be predicted from one latent spatial field;
 - reassess manuscript authorization only after those results.
 
@@ -303,7 +370,10 @@ This program does not currently support:
 - a universal Gaussian optical PSF or rectangular-pixel model;
 - replacing a measured point-spread function with nominal pixel pitch;
 - treating nominal raster pixel count as independent repeat count;
+- treating multiple resolutions of the same raster as independent scale observations;
+- treating deterministic map-variance bias correction as additional information;
 - treating moment-matched effective degrees of freedom as an exact chi-square distribution;
+- treating delta-method log covariance as an exact joint log-normal distribution;
 - interpreting failure to reject Gaussian covariance as proof of Gaussian covariance;
 - interpreting pairwise parameter spread as a confidence interval;
 - reporting a misspecified Gaussian parameter without declaring the fitting loss and scale design;
@@ -319,7 +389,7 @@ This program does not currently support:
 
 This program uses empirical gap slopes, distributional absorption and cutoff operators, literature records, and validation infrastructure shared with other works.
 
-The covariance-family, bias, instrument, allocation, joint-identifiability, map-sampling, and posterior modules are additive shared infrastructure. They reuse established Gaussian prediction, recovery, depth filtering, family filtering, optical operators, and calibration definitions.
+The covariance-family, bias, instrument, allocation, joint-identifiability, map-sampling, multiscale-map, and posterior modules are additive shared infrastructure. They reuse established Gaussian prediction, recovery, depth filtering, family filtering, optical operators, and calibration definitions.
 
 ## Stage-2 boundary
 
