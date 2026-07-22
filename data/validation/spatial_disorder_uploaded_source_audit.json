@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "portfolio_contribution": "R04",
   "parent_issue": 196,
-  "implementation_issues": [272, 281],
+  "implementation_issues": [272, 281, 291],
   "status": "external_data_blocked",
   "direct_validation_candidate_ids": [],
   "partial_multiresolution_candidate_ids": [
@@ -10,6 +10,7 @@
   ],
   "classifications": {
     "aoki_2004_superlattice_microscopy": "source_bounded_figure_benchmark",
+    "ariel_1995_derivative_depth_grading": "depth_observation_model_context",
     "chang_2005_infrared_mapping": "source_bounded_figure_benchmark",
     "feldman_1991_mqw_chemical_mapping": "source_bounded_figure_benchmark",
     "furstenberg_2005_pl_transmission_mapping": "cross_modality_context",
@@ -49,6 +50,28 @@
     "permitted_inference": "source-bounded detector-pixel-scale absorption and sampling benchmark",
     "prohibited_inference": "treating 400 spectra as 400 probe scales, specimen covariance recovery, or direct multiresolution validation"
   },
+  "nearest_depth_observation_model_context": {
+    "source_id": "ariel_1995_derivative_depth_grading",
+    "doi": "10.1063/1.113916",
+    "measurement_temperature_k": 300.0,
+    "bulk_sample_thickness_micrometre": 500.0,
+    "epitaxial_layer_thickness_range_micrometre": [10.0, 25.0],
+    "interface_grading_non_negligible_below_micrometre": 15.0,
+    "bulk_band_gap_variation_upper_bound_ev": 0.005,
+    "lpe_band_gap_variation_approximate_ev": 0.02,
+    "lpe_linear_grading_field_range_v_per_cm": [10.0, 20.0],
+    "mocvd_linear_grading_field_approximate_v_per_cm": 30.0,
+    "reported_effective_lateral_scale_count": 1,
+    "declared_observation_chain": [
+      "room-temperature FTIR transmission",
+      "absorption coefficient extraction",
+      "smoothing and interference-fringe filtering",
+      "first derivative with respect to photon energy",
+      "second derivative with respect to photon energy"
+    ],
+    "permitted_inference": "source-bounded depth-averaged absorption and preprocessing context",
+    "prohibited_inference": "treating Delta Eg as lateral spatial variance, covariance recovery, or multiresolution validation"
+  },
   "minimum_gopal_data_upgrade": [
     "original numerical wide- and focused-beam spectra",
     "coordinates proving the same sampled region",
@@ -64,6 +87,14 @@
     "at least two additional calibrated effective scales for family closure",
     "provenance for source-intensity drift and spatial-drift correction"
   ],
+  "minimum_ariel_data_upgrade": [
+    "original transmission, absorption, and derivative arrays",
+    "exact smoothing and fringe-removal operator with parameters",
+    "beam aperture or measured spatial PSF",
+    "physical measurement coordinates if any lateral claim is made",
+    "repeat uncertainty or observation covariance",
+    "independent depth-profile validation for Eg(z)"
+  ],
   "source_set_dois": [
     "10.1017/S1431927604882175",
     "10.1016/j.jcrysgro.2005.01.051",
@@ -74,6 +105,7 @@
     "10.1016/0022-0248(92)90712-R",
     "10.1016/0022-0248(92)90743-3",
     "10.1016/0022-0248(95)00846-2",
+    "10.1063/1.113916",
     "10.1063/1.1625776",
     "10.1364/JOT.91.000077"
   ],
@@ -81,6 +113,12 @@
     "A dense raster at one measurement kernel remains one effective probe scale.",
     "Four hundred spectra do not constitute four hundred independent probe scales.",
     "Two scales can establish qualitative scale dependence but cannot test covariance-family closure.",
+    "A through-thickness Delta Eg estimate is not a lateral spatial variance or covariance statistic.",
+    "One spatially averaged FTIR spectrum remains one effective lateral measurement kernel.",
+    "Derivative peak positions are approximate observation-model markers, not precise intrinsic band-gap values.",
+    "Reported built-in fields are conditional on linear grading and the declared layer thickness.",
+    "Smoothing and fringe filtering can shift the derivative extrema used by the estimator.",
+    "The CdTe/HgCdTe graded interface cannot be neglected for the reported layers thinner than 15 micrometres.",
     "Rendered spectra and maps are not original numerical arrays.",
     "A reported beam diameter is not a complete measured point-spread function or Gaussian standard deviation.",
     "Multiple modalities do not count as multiple probe scales.",
