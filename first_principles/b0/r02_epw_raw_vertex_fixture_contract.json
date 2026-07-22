@@ -41,6 +41,12 @@
       }
     }
   },
+  "observational_patch": {
+    "path": "patches/qe76-epw61-r02-raw-vertex-export.patch",
+    "sha256": null,
+    "disabled_by_default": true,
+    "scientific_contraction_added": false
+  },
   "fixture": {
     "upstream_category": "epw_base",
     "material": "diamond",
@@ -96,5 +102,5 @@
     "automatic_retry": false,
     "automatic_phase_transition": false
   },
-  "claim_boundary": "Phase 1 qualifies immutable upstream bytes only. It does not validate a QE/EPW build, raw complex-vertex export, normalization, scalar diagonal equivalence, SOC compatibility, or any material self-energy."
+  "claim_boundary": "Phase 1 qualifies immutable upstream and observational-patch bytes only. It does not validate a QE/EPW build, raw complex-vertex export, normalization, scalar diagonal equivalence, SOC compatibility, or any material self-energy."
 }
