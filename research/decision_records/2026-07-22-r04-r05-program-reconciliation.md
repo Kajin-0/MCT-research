@@ -9,288 +9,403 @@
 
 ## Executive decision
 
-Do **not** begin the broad Stage 1 implementation sequence described in the new two-stage brief. Current `main` already contains most of that sequence as the R04 theorem and inference hierarchy.
+Do **not** reopen the broad two-stage implementation plan. Current `main` already contains most of the proposed Stage 1 analytical, numerical, uncertainty, and observation-operator hierarchy under R04.
 
-Do **not** activate R05. The repository does not yet possess an independently supported HgCdTe composition-correlation-length range near the normal--inverted transition, and no observable has been shown to require finite-correlation-length random-mass Kane physics rather than the existing scalar distributional and finite-kernel models.
+Do **not** activate R05. The repository does not yet contain an independently supported HgCdTe composition-correlation-length range near the normal--inverted transition, bounded random-mass control parameters, or an observable that has been shown to require finite-correlation-length Kane physics rather than the existing R03/R04 models.
 
-The next decision-changing milestone is external validation of R04 using one qualifying numerical multiresolution data package. R04 is analytically mature but remains `external_data_blocked`:
+The next decision-changing milestone is external validation of R04 on one registered specimen region using original numerical data and characterized measurement kernels. R04 remains analytically mature but externally data blocked:
 
 ```text
 partial multiresolution candidates = 1
 direct validation candidates       = 0
 ```
 
-The immediate research question is therefore not whether the kernel-aware theory can be implemented. It is whether a real HgCdTe specimen, measured with characterized kernels at sufficient scales, exhibits a scale dependence that identifies or falsifies a covariance model after instrument, finite-map, and cross-scale covariance are included.
+The governing question is now experimental and inferential:
 
-The new brief also assumes that a distributional flagship manuscript is near submission. That assumption is incompatible with current repository governance. The earlier PR #194 manuscript bundle is retired, no active R03 or R04 manuscript is authorized, and there is no repository-wide flagship submission path to preserve.
+> After accounting for measured kernels, scale calibration, finite-map covariance, same-raster cross-scale covariance, and the declared observation operator, does a real HgCdTe specimen exhibit a variance-versus-scale relation that closes under a declared covariance family, yields practically recoverable parameters, and predicts an unused scale or modality without refitting?
 
-## What is already solved
+The earlier PR #194 manuscript bundle is retired. No active R03 or R04 manuscript is authorized, and no repository-wide flagship submission path exists to preserve.
 
-### 1. Stationary Gaussian field and arbitrary Gaussian kernel
+## Repository reconciliation
 
-R04 implements the stationary anisotropic Gaussian covariance
+The proposed Stage 1 work is not an unimplemented program. R04 already provides, under explicit model boundaries:
 
-```text
-C(h) = A exp[-0.5 h^T Lambda^-1 h]
-```
+- stationary anisotropic Gaussian covariance and Gaussian measurement kernels;
+- exact Gaussian/Gaussian variance filtering;
+- point-probe and scalar limits;
+- one-scale non-identifiability and exact two-scale inversion;
+- conditioning, Fisher information, and common-scale calibration limits;
+- Gaussian covariance-family closure and Matérn `nu=1/2, 3/2, 5/2` alternatives;
+- covariance-family misspecification and fitting-convention diagnostics;
+- finite-slab Beer--Lambert depth weighting and exact asymptotic benchmarks;
+- composite optical-PSF, rectangular pixel or scan-bin, and depth kernels;
+- transmission and detector-cutoff operation-order models;
+- exact finite-map Gaussian quadratic-form moments;
+- exact same-raster cross-scale covariance;
+- experiment allocation and joint identifiability under observation, instrument, kernel, and operator uncertainty.
 
-and a normalized Gaussian measurement kernel with covariance `Sigma_w`. The exact filtered variance is
-
-```text
-V_w = A sqrt[det(Lambda) / det(Lambda + 2 Sigma_w)].
-```
-
-For the isotropic `D`-dimensional benchmark,
-
-```text
-V(s) = A [1 + 2 s^2/xi^2]^(-D/2).
-```
-
-This is the requested arbitrary-kernel effective-variance result for the Gaussian/Gaussian benchmark, including anisotropy and stable log-determinant evaluation.
-
-### 2. Scalar limit, one-scale no-go theorem, and exact multiscale inversion
-
-The point-probe limit recovers the scalar realization variance. One scale identifies only
+Representative exact results already implemented include
 
 ```text
-A [1 + 2 s^2/xi^2]^(-D/2)
+V_w = A sqrt[det(Lambda) / det(Lambda + 2 Sigma_w)]
 ```
 
-and cannot separately identify point variance and correlation length.
-
-Two distinct scales recover `A` and `xi` exactly within the declared Gaussian model. The implementation also quantifies loss of conditioning when scales are nearly equal or occupy the same asymptotic regime. Algebraic invertibility is kept distinct from practical recoverability.
-
-### 3. Covariance-family falsification and misspecification
-
-R04 supports Gaussian covariance and half-integer Matérn alternatives:
+for anisotropic Gaussian covariance `Lambda` and Gaussian kernel covariance `Sigma_w`, and
 
 ```text
-nu = 1/2, 3/2, 5/2.
+V(s) = A [1 + 2 s^2/xi^2]^(-D/2)
 ```
 
-For the isotropic two-dimensional Gaussian family,
+for the isotropic `D`-dimensional benchmark.
+
+For an isotropic two-dimensional field,
 
 ```text
 1/V(s) = 1/A + 2 s^2/(A xi^2).
 ```
 
-Two scales fit this line exactly and therefore cannot test the family. A third scale supplies the first exact reciprocal-linearity closure test.
+Two scales determine the affine line exactly and cannot test the covariance family. A third calibrated scale provides the first residual degree of freedom.
 
-In the committed broad five-scale synthetic design, forcing Matérn `nu=1/2` truth through a Gaussian inverse produces:
+The external state, not missing theory, is controlling. The nearest source-level benchmark remains Gopal, Ashokan, and Dhar (1992): the same epilayer was measured using nominal incident beam diameters of `3 mm` and `250 micrometres`, and one specimen showed a rendered spectral shift. The source lacks original numerical spectra, a third scale, measured PSFs, registration, repeat covariance, and complete depth metadata. It is therefore a partial multiresolution benchmark, not direct validation.
 
-```text
-pairwise point-variance spread       2.820x
-pairwise correlation-length spread  3.418x
-best Gaussian A_fit/A_true           0.8351
-best Gaussian xi_fit/ell             1.0406
-```
+## Exact Gaussian covariance-family closure test
 
-Thus a fitted Gaussian correlation length is scale-design- and loss-function-dependent when the covariance family is wrong.
+### Declared observation vector
 
-### 4. Finite thickness and penetration-depth weighting
+For `m` calibrated effective scales, define
 
-R04 implements normalized finite-slab Beer--Lambert depth kernels, front/back reflection, exact semi-infinite Gaussian and exponential limits, an exact finite-slab exponential-covariance result, and deterministic Gauss--Legendre reference quadrature.
+\[
+y_i = \frac{1}{V_i},
+\qquad
+x_i = s_i^2,
+\]
 
-For a stationary homogeneous slab, front/back reflection leaves the filtered variance unchanged. Front/back observable differences require a depth-dependent mean, covariance, optical law, or collection model; they cannot be manufactured from a stationary homogeneous field.
+and
 
-### 5. Composite instrument kernels
+\[
+\mathbf y =
+\begin{bmatrix}
+y_1\\
+\vdots\\
+y_m
+\end{bmatrix},
+\qquad
+X =
+\begin{bmatrix}
+1 & x_1\\
+\vdots & \vdots\\
+1 & x_m
+\end{bmatrix}.
+\]
 
-The implemented representative instrument combines:
+Here `V_i` is the inferred filtered composition or gap variance after applying the declared measurement-kernel and observation-operator contract. The reciprocal transformation must be propagated from the native observation space; it must not be assigned an ad hoc independent error bar.
 
-```text
-elliptical Gaussian optical PSF
-convolved with rectangular pixel or scan-bin integration
-multiplied by finite-slab exponential depth weighting.
-```
+Let `C_y` be the complete covariance of `y`. It must include every applicable contribution and cross term from:
 
-For axis-aligned separable Gaussian covariance, the measured-to-point variance ratio factorizes as
+- observation uncertainty;
+- repeated-measurement covariance;
+- instrument calibration;
+- kernel uncertainty;
+- finite-map covariance;
+- same-raster cross-scale covariance;
+- observation-operator uncertainty.
 
-```text
-V_measured/A = F_x F_y F_z.
-```
+Rank-one systematic terms, common calibration terms, and same-raster cross-scale terms generally make `C_y` non-diagonal. Nominal raster pixels and different resolutions of one material realization are not independent repeats.
 
-In the controlled reference case, the complete kernel transmits `0.162585` of point variance. Replacing the lateral kernel by a moment-matched Gaussian changes the result by `1.116%`, while the declared instrument-calibration budget contributes `5.35%` relative uncertainty. Across the declared 42-case stress grid, 18 cases exceed 1% equivalent-Gaussian error and the maximum reaches `9.045%`.
+### Generalized least squares
 
-### 6. Gap propagation and observation operators
+For fixed calibrated scales and positive-definite `C_y`, define
 
-The repository already contains:
-
-- second-order propagation of filtered composition variance through declared signed-gap laws;
-- exact bounded Gaussian quadrature and local sign probability;
-- Gaussian local-gap convolution into controlled absorption models;
-- transmission averaging with the correct operation order;
-- fixed-response detector-cutoff operators;
-- source-bounded unified-spectrum and detector models.
-
-For lateral heterogeneous columns,
-
-```text
-alpha_T(E) = -log E[exp(-d alpha(E|G))]/d
-```
-
-is kept distinct from
-
-```text
-E[alpha(E|G)].
-```
-
-Jensen's inequality gives `alpha_T <= E[alpha]`. The corresponding fixed-response detector cutoff from transmission averaging occurs at equal or higher photon energy than the mean-absorption closure. This directly implements the noncommutation required by the new brief.
-
-### 7. Calibration, uncertainty, and recoverability
-
-A common multiplicative probe-scale calibration error is exactly confounded with absolute correlation length. Under the declared independent broad-prior conditions,
-
-```text
-Var(log xi_absolute)
+\[
+\widehat{\boldsymbol\beta}
 =
-Var(log xi_relative) + tau_scale^2.
-```
+\left(X^T C_y^{-1}X\right)^{-1}
+X^T C_y^{-1}\mathbf y,
+\]
 
-The result has both a local Fisher derivation and an exact nonlinear posterior factorization. Finite prior boundaries are explicitly tested as a failure mode.
+where
 
-The joint R04 envelope combines observation covariance, instrument-calibration covariance, kernel-reduction bias, and operation-order uncertainty. For the controlled three-scale design with 3% observation uncertainty, the committed full-envelope family distances are:
-
-```text
-true family       full-distance range       decision
-Matérn nu=1/2       6.187 to 6.571          resolved
-Matérn nu=3/2       3.030 to 3.113          resolved, marginal
-Matérn nu=5/2       1.954 to 1.987          observation limited
-```
-
-These are design-level Mahalanobis separations, not specimen results, posterior model probabilities, or discovery significances.
-
-### 8. Finite-map and same-raster covariance
-
-For a Gaussian map vector `y ~ N(0,C)` and centering projector `P`, R04 implements the exact moments
-
-```text
-E[s_naive^2] = tr(P C)/(n-1)
-Var(s_naive^2) = 2 tr[(P C)^2]/(n-1)^2.
-```
-
-For two resolutions measured on the same raster,
-
-```text
-Cov(q_i,q_j)
+\[
+\boldsymbol\beta =
+\begin{bmatrix}
+\beta_0\\
+\beta_1
+\end{bmatrix}
 =
-2 tr(P C_ij P C_ji)/(n-1)^2.
-```
+\begin{bmatrix}
+1/A\\
+2/(A\xi^2)
+\end{bmatrix}.
+\]
 
-The controlled `10 x 10` raster has only `1.7377` effective samples for the map mean and a naive-variance expectation equal to `0.4288` of the marginal filtered variance. Treating all 100 pixels as independent understates the controlled parameter uncertainty by:
+When the fitted coefficients are physically admissible,
 
-```text
-SD(log A) inflation                 4.4397x
-SD(log xi) inflation                2.8677x
-parameter covariance determinant   404.6855x
-```
+\[
+\widehat A = \frac{1}{\widehat\beta_0},
+\qquad
+\widehat\xi =
+\sqrt{\frac{2\widehat\beta_0}{\widehat\beta_1}}.
+\]
 
-Increasing nominal pixel count by `4x` at approximately fixed field of view improves full-covariance `log xi` precision by only `0.393%`, whereas the independent-pixel approximation predicts `50.188%`.
+A negative intercept or slope is not a valid Gaussian material estimate. If positivity constraints become active, the ordinary interior chi-square reference below is no longer automatic; the constrained test must be calibrated by a predeclared parametric bootstrap or posterior-predictive calculation.
 
-### 9. Measurement design
+Define the closure residual
 
-For the declared homoscedastic Gaussian model, the locally D-optimal two-scale allocation places equal weight at the smallest and largest feasible scales. Two endpoints estimate the Gaussian parameters but cannot test the family. The implemented three-scale optimizer reserves an interior scale while enforcing a D-efficiency floor.
+\[
+\mathbf r_G
+=
+\mathbf y-X\widehat{\boldsymbol\beta}
+\]
 
-The existing framework therefore already answers most of the requested questions about the minimum number, placement, calibration, and covariance treatment of probe scales.
+and the Gaussian-family closure statistic
 
-## Strongest unsolved question
+\[
+\boxed{
+Q_G
+=
+\mathbf r_G^T C_y^{-1}\mathbf r_G.
+}
+\]
 
-The strongest unresolved question is:
+Under the declared linear-Gaussian closure assumptions, with fixed scales, correctly specified `C_y`, full column rank of `X`, an interior parameter point, and no data-dependent model selection,
 
-> After correcting for measured PSF, pixel integration, finite depth, map geometry, within-map covariance, and same-raster cross-scale covariance, does a real HgCdTe specimen exhibit a reproducible variance-versus-scale curve that identifies or falsifies a declared covariance family and predicts a second modality from the same latent spatial field?
+\[
+Q_G \sim \chi^2_{m-2}.
+\]
 
-This question is stronger than adding another synthetic covariance family or observation operator. It directly determines whether R04 is a material result or only a rigorous design framework.
+For exactly three scales,
 
-## Precise novelty opportunity
+\[
+Q_G \sim \chi^2_1.
+\]
 
-The defensible candidate contribution is narrow:
+Only in this one-residual-degree-of-freedom case define
 
-> A calibrated multiresolution HgCdTe metrology theory that separates microscopic point variance, probe-filtered variance, map-estimator bias, effective information, covariance-family closure, and modality-specific reported edges, then validates those distinctions on one registered numerical specimen dataset.
+\[
+\Delta_G = \sqrt{Q_G}.
+\]
 
-General covariance filtering, Gaussian convolution, Matérn covariance, Fisher information, quadratic-form moments, finite-aperture mapping, PL/transmission mapping, and disorder-broadened optical edges are prior art. The remaining potential novelty lies in the integrated HgCdTe inference and falsification consequence, not in any one mathematical ingredient.
-
-A targeted current search did not locate an HgCdTe paper that already combines measured multiscale kernels, covariance-family testing, full map covariance, and cross-modal prediction. This is not proof of absence and must remain a bounded candidate distinction until a claim-level review accompanies any manuscript authorization.
-
-## Nearest prior art
-
-### Measurement-scale HgCdTe evidence
-
-1. **Gopal, Ashokan, and Dhar (1992), DOI `10.1016/0020-0891(92)90053-V`.** Same epilayer measured with nominal `3 mm` and `250 micrometre` incident beams. Sample 90239 shows a rendered transmission shift interpreted as lateral composition nonuniformity; sample 90211 is a qualitative control. This is the nearest same-specimen scale-dependent benchmark, but it lacks original arrays, a third scale, measured PSFs, registration, repeat covariance, and complete depth metadata.
-
-2. **Chang et al. (2005), DOI `10.1016/j.jcrysgro.2005.01.051`.** Establishes finite-aperture transmission mapping and model-conditioned composition/thickness maps. It does not report a same-region aperture sweep or covariance inverse.
-
-3. **Furstenberg, White, and Olson (2005), DOI `10.1007/s11664-005-0022-8`.** Establishes spatially resolved PL and transmission and documents excitation, collection, thickness, composition, and inclusion ambiguities. Multiple modalities are not multiple probe scales.
-
-4. **Ruzhevich et al. (2024), DOI `10.1364/JOT.91.000077`.** The accessible abstract establishes composition-regime-dependent optical interpretation and localization language. The full spatial and numerical method remains access bounded in the repository audit.
-
-### Random-mass and topological context
-
-1. **Krishtopenko et al. (2022), DOI `10.1103/PhysRevB.105.195408`.** Provides the nearest HgCdTe disorder/topology reference identified in the audit: an uncorrelated-disorder SCBA treatment in a reduced Kane model. Reproducing that limit would be Stage 2 validation, not novelty.
-
-2. Correlated random-mass Dirac models and disorder-driven topological transitions are established in broader systems. Their existence does not establish mesoscopic topological domains in HgCdTe.
-
-No full Stage 2 claim is currently defensible because the missing HgCdTe input is not Hamiltonian code; it is a supported physical correlation-length range and a decision-changing observable beyond the scalar R03/R04 portfolio.
-
-## Minimum viable Stage 1 model
-
-The minimum viable Stage 1 model is the existing R04 hierarchy, not a new parallel implementation:
+Because a squared standard normal variate has a `chi-square_1` distribution, the predeclared rule
 
 ```text
-stationary covariance family
-+ measured lateral PSF and pixel/scan-bin kernel
-+ finite-slab depth weighting
-+ registered raster geometry
-+ exact within-map and cross-scale covariance
-+ declared gap law
-+ one primary observation operator
-+ one held-out modality or scale
-+ uncertainty-aware covariance-family closure test.
+reject Gaussian covariance closure when Delta_G > 3
 ```
 
-Do not add non-Gaussian fields, bimodality, grading, PL localization, or additional mechanisms until one qualifying dataset is analyzed and a residual requires them.
+is an approximately two-sided three-standard-deviation rule under the assumptions above. Its exact `chi-square_1` tail probability should be reported.
 
-The first real-data analysis should use the smallest model that can fail:
+For `m > 3`, `sqrt(Q_G)` is not a Gaussian z score. Use the `chi-square_(m-2)` tail probability or a predeclared critical value for `m-2` residual degrees of freedom. The report may provide `sqrt(Q_G)` as a distance magnitude only if it is explicitly labeled as such and not interpreted as a number of standard deviations.
+
+If `C_y` is positive semidefinite rather than positive definite, use a declared rank-aware whitening or Moore--Penrose pseudoinverse after removing numerically null directions. The reference degrees of freedom then follow the rank of the whitened residual subspace, not automatically `m-2`. The retained eigenvalue threshold and any regularization must be predeclared. When covariance is estimated with material uncertainty or the asymptotic chi-square approximation is doubtful, calibrate `Q_G` by simulation under the complete null model.
+
+### What the closure test establishes
+
+The closure statistic tests only the relation between measured scale dependence and the declared Gaussian covariance/kernel model. Passing closure does not prove that:
+
+- the covariance is uniquely Gaussian;
+- `A` and `xi` are well conditioned;
+- an unused scale or modality is predicted;
+- the latent field is composition rather than thickness, carriers, defects, or preprocessing structure.
+
+Failure to reject Gaussian closure is not evidence of a universal Gaussian HgCdTe covariance law.
+
+## Scale uncertainty is an errors-in-variables problem
+
+The chi-square result above conditions on fixed calibrated `s_i`. Material uncertainty in the effective scales changes the design matrix `X` and must not automatically be absorbed into `C_y` as if only the response variable were uncertain.
+
+Distinguish four scale-calibration components:
+
+1. **Relative scale spacing.** Ratios and separations among the `s_i` control covariance-family shape information and closure power.
+2. **Absolute scale calibration.** The common physical length scale controls the inferred absolute `xi`.
+3. **Common-mode calibration uncertainty.** A multiplicative error shared by all scales is exactly confounded with absolute correlation length under the established R04 assumptions.
+4. **Scale-specific calibration uncertainty.** Independent or partially correlated errors distort relative scale spacing and can alter both closure and family discrimination.
+
+The retained exact common-mode result is
+
+\[
+\operatorname{Var}(\log\xi_{\rm absolute})
+=
+\operatorname{Var}(\log\xi_{\rm relative})
++
+\tau_{\rm scale}^2
+\]
+
+under the declared independent broad-prior conditions. Repeats cannot remove this absolute calibration floor.
+
+When scale uncertainty is material, use one of the following predeclared methods:
+
+- joint nuisance-parameter inference for the effective `s_i`;
+- generalized total least squares;
+- an errors-in-variables likelihood;
+- posterior-predictive integration over scale calibration;
+- Monte Carlo propagation through the complete PSF, pixel, depth, and observation model.
+
+A first-order reduction of scale uncertainty into response covariance is acceptable only after verification against the nonlinear kernel model over the declared uncertainty range. The verification must show that bias, closure-tail probability, and parameter uncertainty remain within predeclared tolerances. Otherwise, retain the scale variables explicitly.
+
+## Three scales, four scales, and held-out validation
+
+The acquisition and evidence hierarchy is:
+
+```text
+three calibrated scales
+= minimum Gaussian covariance-family closure test
+```
+
+because two scales determine the affine line exactly.
+
+```text
+four calibrated scales
+= preferred minimum for an internal held-out-scale prediction
+```
+
+when a predeclared subset fits the covariance model and at least one unused scale is reserved for validation.
+
+An equally strong alternative is
+
+```text
+three calibrated scales
++ one independently modeled second modality
+```
+
+where the latent covariance is inferred without the held-out modality and the second modality is predicted without refitting `A`, `xi`, or covariance-family identity.
+
+A three-scale closure test performed on the same three observations is a family-falsification test. It is not independent external predictive validation.
+
+The qualifying external-data threshold remains at least three calibrated scales, but acquisition priority is:
+
+1. four or more calibrated scales;
+2. three calibrated scales plus a held-out independently modeled modality;
+3. three calibrated scales only, as the minimum family-closure package.
+
+## Four evidential levels
+
+### Level 1 — Model closure
+
+Does the variance-versus-scale curve satisfy the declared covariance-family relation under the complete covariance and kernel model?
+
+Primary evidence: `Q_G`, its degrees of freedom, and its calibrated tail probability, plus corresponding tests for supported alternative families.
+
+### Level 2 — Parameter recoverability
+
+Are `A` and `xi` practically estimable with acceptable uncertainty and conditioning?
+
+Required evidence includes:
+
+- full parameter covariance or posterior;
+- conditioning and parameter correlation;
+- sensitivity to scale calibration and fitting convention;
+- physical admissibility of the inferred parameters;
+- predeclared useful-precision thresholds.
+
+Finite algebraic rank does not establish recoverability.
+
+### Level 3 — Held-out predictive validation
+
+Can the inferred latent covariance predict an unused scale or second modality without refitting the covariance amplitude, correlation length, or family?
+
+A closure pass on the fitting observations does not establish this level.
+
+### Level 4 — Material interpretation
+
+Can the inferred `A`, `xi`, and covariance family be assigned to a physically meaningful HgCdTe composition field rather than thickness variation, carrier variation, defects, inclusions, excitation or collection variation, interference processing, or another latent field?
+
+This level requires independent specimen evidence, cross-modal consistency, nuisance discrimination, and source provenance. Passing Levels 1--3 does not by itself establish composition disorder.
+
+Each level is necessary but not sufficient for the next.
+
+## Predeclared held-out prediction rule
+
+Partition the observations before analysis into a fitting set `F` and a held-out set `H`.
+
+The protocol must predeclare:
+
+- which scales or modalities belong to `F` and `H`;
+- the covariance family fitted on `F`;
+- which observations estimate `A` and `xi`;
+- which instrument and observation-operator quantities are independently calibrated;
+- which quantities are frozen before revealing `H`;
+- the complete joint covariance blocks `C_FF`, `C_FH`, `C_HF`, and `C_HH`;
+- the acceptance statistic and critical value.
+
+After fitting on `F`, freeze:
+
+- covariance-family identity;
+- `A`;
+- `xi`;
+- all shared latent-field parameters;
+- any fitting convention or model-selection decision.
+
+The held-out result must not be used to re-estimate those quantities.
+
+Instrument or modality-specific nuisance quantities may enter the prediction only when they are independently calibrated, fixed by a source contract, or integrated over a prior established without using the held-out measurement. A nuisance parameter inferred from `H` weakens or invalidates the held-out test and must be reported as such.
+
+For jointly Gaussian observation errors and fixed fitted parameters, the same-specimen correlation between fitting and held-out observations must be retained. The conditional predictive mean and covariance are
+
+\[
+\boldsymbol\mu_{H\mid F}
+=
+\boldsymbol\mu_H
++
+C_{HF}C_{FF}^{-1}
+\left(\mathbf y_F-\boldsymbol\mu_F\right),
+\]
+
+\[
+C_{H\mid F}
+=
+C_{HH}-C_{HF}C_{FF}^{-1}C_{FH}.
+\]
+
+Parameter uncertainty from fitting `F` must then be propagated. A verified first-order approximation is
+
+\[
+C_{\rm pred}
+\simeq
+C_{H\mid F}
++
+J_H C_{\theta\mid F}J_H^T,
+\]
+
+where `theta` contains the fitted latent parameters and `J_H` is the held-out prediction Jacobian. If the model is nonlinear, scale uncertainty is material, constraints are active, or parameter/error correlations invalidate this additive approximation, use posterior-predictive or Monte Carlo integration through the complete model.
+
+Define the held-out residual
+
+\[
+\mathbf r_H
+=
+\mathbf y_H-\widehat{\boldsymbol\mu}_{H\mid F}
+\]
+
+and the predictive statistic
+
+\[
+Q_H
+=
+\mathbf r_H^T C_{\rm pred}^{-1}\mathbf r_H.
+\]
+
+Under a fixed, correctly specified linear-Gaussian prediction with known covariance, `Q_H` is compared with the appropriate chi-square distribution for the retained predictive rank. Otherwise, use a predeclared posterior-predictive or simulation-calibrated tail probability.
+
+A valid held-out test does not refit `A`, `xi`, covariance-family identity, or shared latent-field parameters after observing `H`.
+
+## Minimum viable external R04 analysis
+
+The first real-data analysis should use the smallest existing hierarchy that can fail:
 
 1. Gaussian covariance baseline;
 2. Matérn `nu=1/2, 3/2, 5/2` alternatives already implemented;
-3. measured instrument kernels at three scales;
-4. full raster and cross-scale covariance;
-5. one source-appropriate observation operator;
-6. predeclared family-separation and residual thresholds.
+3. measured instrument kernels at the available scales;
+4. explicit scale-calibration model;
+5. full within-map and same-raster cross-scale covariance;
+6. one source-appropriate observation operator;
+7. GLS, errors-in-variables, or posterior closure test as warranted;
+8. conditioning and practical recoverability analysis;
+9. one predeclared held-out scale or modality when the package permits it.
 
-## First falsifiable prediction
+Do not add non-Gaussian fields, bimodality, grading, PL localization, or other mechanisms until a qualifying dataset leaves a decision-changing residual that requires them.
 
-For one registered specimen region measured at at least three calibrated effective scales, define the inferred filtered composition or gap variances `V_i` after applying the declared observation operator and uncertainty model.
+## Preferred external package
 
-Under the isotropic two-dimensional Gaussian covariance benchmark,
-
-```text
-Y_i = 1/V_i
-X_i = s_i^2
-```
-
-must be affine after the complete kernel correction. Equivalently, the second divided difference of `(X_i,Y_i)` must vanish within the propagated full covariance.
-
-Predeclare:
-
-```text
-H0: Gaussian covariance closure
-R3: covariance-weighted reciprocal-linearity residual
-reject H0 when Delta_G > 3
-```
-
-where `Delta_G` is the rank-aware standardized residual using observation, calibration, kernel, map, and cross-scale covariance.
-
-This produces three decision-changing outcomes:
-
-1. **Reject Gaussian covariance.** The scalar one-width interpretation is falsified, and the scale dependence determines which existing Matérn alternatives remain viable.
-2. **Fail to reject Gaussian covariance but retain poor recoverability.** Report only filtered variance combinations; do not report a specimen correlation length.
-3. **Pass closure with adequate conditioning.** Infer `A` and `xi`, then predict a held-out scale or second modality without refitting the latent covariance. Failure of the held-out prediction falsifies the composed observation model.
-
-This is more informative than claiming an apparent Urbach width or PL linewidth equals a microscopic disorder parameter.
-
-## Required public or author-supplied datasets
-
-A qualifying package must provide either:
+A qualifying package must contain either:
 
 ```text
 same registered specimen region measured at >=3 calibrated effective scales
@@ -301,51 +416,55 @@ or
 ```text
 one original numerical high-resolution map
 + physical coordinates
++ calibration metadata
 + permission to apply >=3 declared numerical kernels.
 ```
 
-Mandatory metadata:
+Preferred acquisition order is:
+
+1. **Four or more calibrated scales** on one registered region, allowing closure plus a held-out scale.
+2. **Three calibrated scales plus one independently modeled modality**, allowing closure plus cross-modal prediction.
+3. **Three calibrated scales only**, allowing the minimum covariance-family closure test but not independent predictive validation.
+
+Mandatory metadata are:
 
 - original numerical spectra or map arrays;
-- specimen and region identity;
-- beam centers or registration transform;
-- measured or reconstructable PSF at each scale and wavelength;
+- specimen and registered region identity;
+- beam centers or a registration transform;
+- measured or reconstructable PSF at every scale and relevant wavelength;
 - aperture, pixel, scan-bin, and sampling definitions;
+- absolute and relative scale-calibration covariance;
 - film thickness and depth-weighting or absorption model;
-- repeats, uncertainty, or covariance;
+- repeats, observation uncertainty, and repeated-measurement covariance;
 - observable definition and preprocessing chain;
-- raster geometry and cross-scale sampling relationship.
+- raster geometry and cross-scale sampling relationship;
+- independently calibrated modality-specific nuisance parameters when a held-out modality is proposed.
 
-For the Gopal 1992 path, the minimum upgrade is:
+For the Gopal 1992 path, the minimum upgrade remains:
 
 - original wide- and focused-beam spectra;
 - beam-center coordinates;
 - measured aperture/PSF descriptions;
 - sample 90239 thickness and depth model;
 - repeat uncertainty;
-- one additional calibrated beam size.
+- at least one additional calibrated beam size.
 
-Rendered publication pixels, nominal beam diameters, multiple modalities, or nominal raster pixels are not substitutes.
+A fourth scale or independently modeled modality is preferred. Rendered publication pixels, nominal beam diameters, multiple unregistered modalities, or nominal raster pixels are not substitutes.
 
-## Major scientific risks
+## Decision-changing outcomes
 
-1. **External-data nonavailability.** The current source portfolio may never supply original arrays and instrument covariance.
-2. **Insufficient scale leverage.** Available probe sizes may all lie in one asymptotic regime, making `xi` practically unrecoverable despite finite algebraic rank.
-3. **Instrument uncertainty dominates family differences.** PSF or depth calibration may erase covariance-family separation.
-4. **Nonstationarity.** Mean grading, wafer-scale drift, discrete inclusions, or mixed populations may dominate the stationary covariance signal.
-5. **Observation-model mismatch.** Thickness, free-carrier absorption, interference, excitation, collection, or detector physics may dominate the apparent edge.
-6. **Finite-map information collapse.** Dense raster pixels may supply little independent information.
-7. **Prior-art compression.** A broader literature audit may reduce the candidate contribution to a measurement-design note.
-8. **R05 physical gate failure.** Recovered or bounded `xi` may be far from any electronic length scale for which finite-correlation-length random mass changes an observable.
-9. **R02 readiness.** Existing 8-band infrastructure is validated as software foundation, but current endpoint first-principles polar-response work is not a converged material basis for production alloy or disorder calculations.
+The first qualifying analysis has four possible outcomes:
 
-## Computational cost estimate
+1. **Reject Gaussian closure.** Report `Q_G`, degrees of freedom, tail probability, covariance assumptions, and which existing alternatives remain viable. Do not infer a Gaussian `xi`.
+2. **Fail to reject closure but fail recoverability.** Report only identifiable filtered combinations or bounds. Do not report a specimen correlation length.
+3. **Pass closure and recoverability but fail held-out prediction.** The composed kernel or observation model is falsified or incomplete; do not promote the result to external validation.
+4. **Pass closure, recoverability, and held-out prediction.** Proceed to Level 4 material-interpretation tests and a claim-level prior-art refresh. Do not automatically identify the latent field as composition.
 
-### R04 qualifying-data analysis
+## Computational cost and numerical discipline
 
-For a small set of spectra or summary variances at `m <= 10` scales, the current forward, inverse, quadrature, and joint-envelope calculations are CPU-only and low cost: typically matrix operations below `100 x 100` plus one-dimensional deterministic quadrature. No accelerator or cluster allocation is justified.
+For source-native spectra or summary variances at `m <= 10` scales, the existing forward, inverse, quadrature, and covariance calculations are CPU-only and low cost. No accelerator or cluster allocation is justified.
 
-For a raster with `n` registered centers and `m` scales, dense block construction requires approximately
+For a raster with `n` registered centers and `m` scales, dense covariance storage and construction scale as
 
 ```text
 unique covariance blocks = m(m+1)/2
@@ -354,123 +473,134 @@ construction work         = O(m^2 n^2)
 quadratic-form moments    = O(m^2 n^2)
 ```
 
-Representative storage:
+Representative storage is approximately:
 
 ```text
-n = 2,500   one block about 50 MB
+n = 2,500   one dense block about 50 MB
 m = 3       six unique blocks about 300 MB before overhead
-n = 10,000  one block about 800 MB
+n = 10,000  one dense block about 800 MB
 ```
 
-Therefore:
+Begin direct dense validation at approximately `n <= 2,500`. Use stationarity-aware FFT, Toeplitz, sparse, low-rank, or stochastic trace methods before scaling above that range. Do not use full 8-band real-space computation for an R04 data-fit question.
 
-- begin with source-native spectra or rasters no larger than approximately `n=2,500` for direct dense validation;
-- use stationarity-aware FFT, Toeplitz, sparse, or stochastic trace methods before scaling to `n=10,000` or above;
-- do not use full 8-band real-space computation for an R04 data-fit question.
+Every external result must include dimensional checks, limiting cases, covariance positive-semidefiniteness checks, scale-unit invariance, convergence or approximation verification, immutable inputs and outputs, and a predeclared failure criterion.
 
-### R05
+## Major scientific risks
 
-Current authorized cost is zero production computation. A future activation tranche must first reproduce a homogeneous limit and one uncorrelated SCBA reference with an explicit basis and unit contract. Large real-space Kane calculations, finite-size scaling, and topological diagnostics remain unauthorized.
+1. **External-data nonavailability.** Original arrays and instrument covariance may remain inaccessible.
+2. **Insufficient scale leverage.** All available scales may occupy one asymptotic regime.
+3. **Errors-in-variables dominance.** Scale uncertainty may erase family closure or correlation-length information.
+4. **Instrument uncertainty dominance.** PSF, pixel, or depth calibration may exceed family differences.
+5. **Finite-map information collapse.** Dense raster pixels may supply few independent degrees of freedom.
+6. **Nonstationarity.** Mean grading, drift, inclusions, or mixed populations may dominate a stationary covariance signal.
+7. **Observation-model mismatch.** Thickness, free carriers, interference, excitation, collection, or detector physics may dominate the apparent edge.
+8. **Material ambiguity.** A successful latent-field fit may not identify composition as the field.
+9. **Prior-art compression.** Wider literature may reduce the contribution to a measurement-design result.
+10. **R05 gate failure.** Any recovered or bounded `xi` may be irrelevant to electronic random-mass physics.
 
-## Stop conditions
+## R04 stop and publication conditions
 
-### Stop or publish R04 as a bounded metrology framework if any condition holds
+Stop the external inversion path, or retain R04 as a bounded metrology framework, if any of the following holds:
 
-1. No qualifying numerical dataset can be obtained after a documented source and author-data search.
-2. All accessible scale designs are practically rank deficient or have `SD(log xi)` above the predeclared useful threshold.
-3. Instrument, map, and cross-scale covariance reduce every supported family separation below `Delta=3`.
-4. A held-out scale or modality cannot be predicted without adding unidentifiable nuisance mechanisms.
-5. Prior art establishes the same integrated HgCdTe multiscale covariance and information result.
-6. The result remains only a synthetic sensitivity study with no falsifiable external path.
+1. No qualifying numerical dataset is obtained after a documented source and author-data search.
+2. All available designs are practically rank deficient or exceed the predeclared useful uncertainty for `xi`.
+3. Scale uncertainty cannot be controlled by an adequate errors-in-variables treatment.
+4. Instrument, map, and cross-scale covariance remove family discrimination.
+5. No held-out scale or modality can be predicted without fitting unidentifiable nuisance parameters to the held-out result.
+6. Level 4 cannot distinguish composition from competing latent fields.
+7. Prior art establishes the same integrated HgCdTe inference and validation result.
+8. The result remains synthetic with no falsifiable external path.
 
-A negative data-readiness or recoverability result is publishable only if it establishes a general, quantitatively useful measurement-design or non-identifiability conclusion. It is not experimental validation.
+A negative data-readiness, closure, or recoverability result is publishable only if it establishes a general and quantitatively useful metrology or non-identifiability conclusion. It is not experimental material validation.
 
-### Do not activate or terminate R05 if any condition holds
+## R05 remains inactive
 
-1. No independently supported HgCdTe `xi_x` range exists near the target composition and temperature.
-2. The resulting `kappa = xi_x/ell_K` remains asymptotically small or large over all plausible parameter bounds and finite correlation length does not change a measurable prediction.
-3. The candidate anomaly is explained by R03/R04 scalar distributional, finite-kernel, carrier, defect, or observation-operator effects.
-4. The full Kane structure does not alter the reduced controlled prediction.
-5. The uncorrelated SCBA reference cannot be reproduced under matched conventions.
-6. No defensible topological diagnostic and no experimentally falsifiable consequence are available.
-7. Prior art already establishes the finite-correlation-length result under equivalent assumptions.
+No R05 implementation or production calculation is authorized. Specifically prohibited are:
 
-Local opposite-sign probability, connected sign domains, or a visually suggestive mass map do not satisfy the topological gate.
+- SCBA implementation;
+- finite-correlation-length self-energy calculations;
+- real-space Kane calculations;
+- percolation calculations;
+- domain-wall calculations;
+- topological-invariant calculations;
+- production first-principles alloy calculations.
+
+A separate R05 gate issue is required before any branch or computational tranche. It must establish all of the following:
+
+1. an independently supported HgCdTe correlation-length range near the target composition and temperature;
+2. bounded
+   \[
+   \eta = \sigma_E/|\bar E_g|;
+   \]
+3. bounded
+   \[
+   \kappa = \xi_x/\ell_K;
+   \]
+   under a declared Kane-length convention;
+4. an observable not explained by R03/R04 scalar, finite-kernel, carrier, defect, or observation-operator models;
+5. a matched homogeneous and uncorrelated-disorder validation target;
+6. a defensible topological diagnostic with a stated domain of validity;
+7. a predeclared computation budget, convergence metric, and termination criterion.
+
+The gate must also define the target composition, temperature, basis, units, maximum grid or basis size, and the decision that would change if the calculation succeeds.
+
+A local sign probability, connected sign map, percolating-looking realization, or visually suggestive random-mass domain pattern does not satisfy this gate and does not establish a bulk topological invariant.
+
+Current authorized R05 production cost is zero.
 
 ## Proposed issue and pull-request sequence
 
 ### Tranche 0 — current decision record
 
-- **Issue #279:** reconcile the new brief with current R04/R05 state.
-- **PR:** add this documentation-only memo.
-- No code, numerical record, program state, manuscript, or first-principles file changes.
+- Issue #279 and PR #280 refine this documentation-only decision.
+- No source, tests, validation JSON, program state, manuscript, first-principles, or active-program file is changed.
 
 ### Tranche 1 — qualifying data acquisition
 
-Open one issue for either:
+Open one focused issue for Gopal 1992 author-data recovery or an equivalent multiresolution numerical package. Deliver an immutable source inventory, rights and provenance record, qualification decision, and explicit missing-field report. Stop if mandatory fields are absent.
 
-- Gopal 1992 author-data recovery; or
-- an equivalent same-region three-scale dataset; or
-- one reusable numerical high-resolution map with full calibration metadata.
+### Tranche 2 — specimen-specific instrument and validation contract
 
-Deliverables: immutable source inventory, rights and provenance record, qualification decision, and explicit missing-field report. Stop if mandatory fields are absent.
-
-### Tranche 2 — instrument and observation contract
-
-Create one specimen-specific instrument specification containing PSF, pixel/aperture, depth kernel, thickness, registration, preprocessing, observable, and covariance. Add no new mechanism.
+Record the fitting and held-out observations, PSFs, scale covariance, pixel or aperture geometry, depth model, registration, preprocessing, observation operator, nuisance-parameter policy, `Q_G`, held-out statistic, and critical values. Add no new physical mechanism.
 
 ### Tranche 3 — external R04 validation
 
-Run the existing Gaussian/Matérn hierarchy against the qualifying data. Add:
-
-- exact source-native forward calculation;
-- full within-map and cross-scale covariance;
-- covariance-family closure;
-- conditioning and uncertainty;
-- held-out scale or modality prediction;
-- immutable validation record and CI.
-
-Terminate if the data cannot distinguish the declared alternatives.
+Run the existing Gaussian/Matérn hierarchy with the complete covariance and errors-in-variables treatment. Report Levels 1--4 separately. Add immutable validation records and CI only for the source-native analysis.
 
 ### Tranche 4 — R04 publication decision
 
-Perform a claim-level prior-art refresh and create a theorem-and-data figure plan. Authorize a manuscript only if the external result is decision changing and the claim remains distinct.
+Refresh claim-level prior art and authorize a manuscript only if the external result is decision changing, predictively validated, materially interpretable, and distinct.
 
-### Tranche 5 — separate R05 gate audit, only if activated by Tranche 3
+### Tranche 5 — separate R05 gate audit
 
-Open a new controlling R05 issue only if R04 supplies or independently corroborates a physically meaningful `sigma_E` and `xi_x` range. The issue must define:
-
-- target composition and temperature;
-- `eta` and `kappa` bounds;
-- observable not explained by R03/R04;
-- nearest correlated and uncorrelated prior art;
-- homogeneous and SCBA validation targets;
-- maximum basis/grid size;
-- topological diagnostic;
-- predeclared termination criterion.
-
-No R05 branch should be created before that issue passes review.
+Open only if independent evidence establishes the complete R05 activation requirements above. No R05 branch should exist before that gate passes review.
 
 ## Claim boundaries
 
 This memo supports:
 
-- the conclusion that most requested Stage 1 analytical infrastructure already exists in R04;
-- the conclusion that direct external validation is presently blocked by data and instrument metadata;
-- the conclusion that R05 activation gates are not satisfied;
-- a non-duplicative issue sequence centered on one qualifying data package.
+- the conclusion that most proposed Stage 1 infrastructure already exists under R04;
+- the conclusion that R04 is blocked by qualifying external data and instrument metadata;
+- a mathematically defined Gaussian covariance-family closure statistic;
+- an errors-in-variables requirement for uncertain effective scales;
+- separation of closure, recoverability, held-out prediction, and material interpretation;
+- a preferred four-scale or three-scale-plus-modality external package;
+- the conclusion that R05 activation requirements are not satisfied.
 
 This memo does not support:
 
 - a specimen point variance, correlation length, covariance family, or random-mass field;
-- an experimental validation claim;
+- independent validation from a three-scale fit-and-test on the same observations;
+- identification of composition from a latent variance curve alone;
 - an Urbach, PL, cutoff, or topological interpretation from one latent width;
 - a major novelty claim;
 - manuscript or submission authorization;
-- any production SCBA, real-space Kane, finite-size, percolation, or topological computation.
+- any SCBA, self-energy, real-space Kane, finite-size, percolation, domain-wall, topological, or production alloy computation.
 
 ## Final recommendation
 
-Concentrate the next research effort on obtaining one high-quality registered multiresolution numerical dataset and applying the existing R04 machinery without adding mechanisms. Treat inability to obtain or identify such a dataset as a formal R04 stop decision.
+Concentrate the next R04 effort on acquiring one registered numerical package with characterized kernels and scale covariance. Prefer four or more scales, then three scales plus a held-out modality, and accept three scales alone only as the minimum family-closure package.
 
-Keep R05 inactive. Reassess it only after an independent HgCdTe length-scale bound and an observable beyond R03/R04 are established.
+Apply the existing R04 hierarchy with a formally defined closure test, an explicit errors-in-variables treatment, separate evidential levels, and a predeclared held-out prediction. Treat failure to obtain such a package as a formal data-access stop decision.
+
+Keep R05 inactive. Reassess it only through a separate gate after independent HgCdTe length-scale and energy-disorder bounds establish a decision-changing regime beyond R03/R04.
