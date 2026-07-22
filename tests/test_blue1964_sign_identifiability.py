@@ -98,8 +98,11 @@ def test_decision_note_preserves_source_and_claim_boundaries() -> None:
     required = (
         "actual energy gap at 50 K = 0",
         "band shape corresponds to a gap scale = 0.03 eV",
-        "0.02 eV\n0.03 eV\n0.04 eV",
-        "does not identify the sign or a unique magnitude",
+        "0.02 eV\n0.03 eV\n0.04 eV.",
+        (
+            "cannot identify whether a modern signed band-ordering quantity is "
+            "negative, zero, or positive"
+        ),
         "excluded from direct residual ranking of signed gap equations",
         "This audit does not establish:\n\n- the corrected signed gap",
     )
