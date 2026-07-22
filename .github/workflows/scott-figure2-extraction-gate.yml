@@ -1,0 +1,84 @@
+name: scott-figure2-extraction-gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/scott-figure2-extraction-gate.yml'
+      - 'data/experimental/scott1969_figure2_extraction_README.md'
+      - 'data/experimental/scott1969_figure2_extraction_gate.csv'
+      - 'data/experimental/scott1969_figure2_digitized.csv'
+      - 'data/experimental/scott1969_figure2_calibration.csv'
+      - 'tests/test_scott1969_figure2_extraction_gate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Validate Scott Figure 2 extraction gate
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_scott1969_figure2_extraction_gate.py \
+            2>&1 | tee /tmp/scott-figure2-extraction-gate.log
+      - name: Assert fail-closed source boundary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('.')
+          gate = list(csv.DictReader(
+              (root / 'data/experimental/scott1969_figure2_extraction_gate.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          assert len(gate) == 2
+          rows = {row['record_id']: row for row in gate}
+          assert rows['SCOTT69_F2']['role'] == 'direct_marker_source'
+          assert rows['SCOTT69_F2']['numerical_rows_authorized'] == 'false'
+          assert rows['SCOTT69_F5']['role'] == 'provenance_cross_check_only'
+          assert rows['SCOTT69_F5']['status'] == 'rejected_as_independent_dataset'
+          assert not (root / 'data/experimental/scott1969_figure2_digitized.csv').exists()
+          assert not (root / 'data/experimental/scott1969_figure2_calibration.csv').exists()
+          PY
+      - name: Assert tranche boundary
+        if: github.head_ref == 'agent/scott1969-figure2-digitization'
+        shell: bash
+        run: |
+          git diff --name-only "origin/${{ github.base_ref }}...HEAD" | sort > /tmp/changed.txt
+          cat > /tmp/allowed.txt <<'EOF'
+          .github/workflows/scott-figure2-extraction-gate.yml
+          data/experimental/scott1969_figure2_extraction_README.md
+          data/experimental/scott1969_figure2_extraction_gate.csv
+          tests/test_scott1969_figure2_extraction_gate.py
+          EOF
+          sort -o /tmp/allowed.txt /tmp/allowed.txt
+          unexpected=$(comm -23 /tmp/changed.txt /tmp/allowed.txt)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected changed files:\n%s\n' "$unexpected"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scott-figure2-extraction-gate
+          path: |
+            /tmp/scott-figure2-extraction-gate.log
+            data/experimental/scott1969_figure2_extraction_README.md
+            data/experimental/scott1969_figure2_extraction_gate.csv
+          if-no-files-found: error
+          retention-days: 30
