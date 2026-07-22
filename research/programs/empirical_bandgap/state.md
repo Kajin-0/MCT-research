@@ -17,7 +17,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - #258 — Camassel Table I specimen and excitonic-edge reconstruction;
 - #260 — Camassel deterministic composition-envelope evaluation;
 - #265 — Scott 1969 fixed-absorption optical-edge source audit;
-- #267 — Blue 1964 seven-sample optical-gap reconstruction.
+- #267 — Blue 1964 seven-sample optical-gap reconstruction;
+- #269 — Blue 1964 signed-gap non-commensurability certificate.
 
 ## Completed foundations
 
@@ -31,7 +32,8 @@ Reconstruct the provenance, specimen definitions, observables, and fitted datase
 - specimen- and modality-resolved Camassel 1988 Cd-rich reconstruction;
 - bounded Camassel forward evaluation without parameter fitting;
 - source-level Scott 1969 metrology and Figure 1 specimen audit with a fail-closed digitization gate;
-- seven-row Blue 1964 theory-conditioned positive optical-gap reconstruction.
+- seven-row Blue 1964 theory-conditioned positive optical-gap reconstruction;
+- executable Blue 1964 signed-gap non-commensurability certificate with zero fitted parameters and zero correction coefficients.
 
 ## Hansen reconstruction state
 
@@ -503,16 +505,86 @@ It is not treated as a blinded modern holdout, and its theory-conditioned positi
 
 ### Validation state
 
-The focused Blue workflow verifies the exact source contract, seven rows, room-temperature-without-invented-kelvin status, positive non-signed semantics, printed uncertainty values, ambiguous composition-accuracy semantics, preserved `28%`/`32%` conflict, absent covariance, unavailable source hash, and absence of Figure 6 pseudo-data. Complete Python 3.11 and 3.13 suites pass with `981` tests on the audited pre-ledger Blue head.
+The focused Blue workflow verifies the exact source contract, seven rows, room-temperature-without-invented-kelvin status, positive non-signed semantics, printed uncertainty values, ambiguous composition-accuracy semantics, preserved `28%`/`32%` conflict, absent covariance, unavailable source hash, and absence of Figure 6 pseudo-data. Complete Python 3.11 and 3.13 suites pass with `981` tests on the audited final Blue source head. Issue #267 is closed as a completed primary-table reconstruction.
 
-A final CI run is required on this state-ledger commit before Issue #267 is closed.
+## Blue 1964 signed-gap non-commensurability certificate
+
+Issue #269 and draft PR #270 test whether Blue's positive optical-fit parameter can be treated as a modern signed `Gamma6-Gamma8` gap without an independently validated observation operator.
+
+The executable and immutable records are:
+
+```text
+tools/audit_blue1964_sign_identifiability.py
+validation/blue1964_sign_identifiability_reference.json
+docs/insights/0029_blue1964_signed_gap_noncommensurability.md
+```
+
+### Source two-scale counterexample
+
+Blue explicitly distinguishes the actual absorption-edge gap from the positive band-curvature scale used to reproduce the nonparabolic absorption shape. The source gives the hypothetical example
+
+```text
+actual energy gap at 50 K = 0
+band shape corresponds to a gap scale = 0.03 eV
+```
+
+so the positive curve-shape scale is not identical to the actual edge gap even at the zero-gap boundary.
+
+### High-energy magnitude near-degeneracy
+
+For room-temperature HgTe, the source compares theoretical absorption curves generated with positive scales
+
+```text
+0.02 eV
+0.03 eV
+0.04 eV
+```
+
+and reports essentially the same higher-photon-energy result because the density-of-states contributions are similar.
+
+The seven Table II values were selected by comparison with theory at absorption approximately above `10^3 cm^-1`, the same regime where the source reports weak discrimination among nearby curvature scales.
+
+### Identifiability decision
+
+Under Blue's declared observation model:
+
+```text
+source parameterization represents signed band order = false
+Blue parameter equals actual edge gap = false
+sign of modern Gamma6-Gamma8 identified = false
+one-to-one gap magnitude identified = false
+direct signed residual ranking authorized = false
+external validated observation operator required = true
+universal numerical correction identified = false
+```
+
+The deterministic audit performs:
+
+```text
+fitted parameters = 0
+correction coefficients = 0
+signed model evaluations = 0
+source rows modified = 0
+```
+
+The Blue table remains useful for historical absorption-model and observation-operator studies, but it is excluded from direct residual ranking of signed gap laws.
+
+### Cross-source context
+
+Later signed-band-ordering work, including Scott 1969 and Groves 1967, treats HgTe with a negative signed separation, while Blue reports a positive room-temperature curve-fit parameter. This establishes non-commensurability of the observables; it does not establish a universal offset, sign flip, scale factor, or nonlinear correction.
+
+### Validation state
+
+The focused certificate workflow passes exact source assertions, immutable JSON regeneration, zero-fit/zero-correction enforcement, and the tranche file boundary. Complete Python 3.11 and 3.13 suites pass with `988` tests on the audited pre-ledger certificate head.
+
+A final CI run is required on this state-ledger commit before Issue #269 is closed.
 
 ## Unresolved scientific questions
 
 - what datum-level evidence and edge definitions Hansen actually fitted across the remaining source graph;
 - whether calibrated Scott Figure 2/5 markers can be recovered from a rendered source asset;
 - whether the Hansen/Camassel discrepancy persists when compared against Scott’s historical `alpha=500 cm^-1` observation definition rather than an exciton-conditioned gap;
-- what forward observation operator, if any, relates Blue’s positive theory-conditioned optical-fit parameter to signed band ordering near HgTe;
+- whether an independently validated forward observation operator can relate Blue’s positive curve-shape parameter to a signed gap; Blue's source alone does not identify one;
 - whether the Blue `28%` abstract limit and printed `32%` row can be resolved from another primary asset or author record;
 - which static composition law can predict independent observations without source-lineage leakage or unjustified flexibility;
 - whether independently composed fixed-specimen temperature series beyond Seiler sample 3 preserve the current thermal ranking;
@@ -532,13 +604,13 @@ A future paper requires:
 4. evidence stronger than another unconstrained polynomial or a fit to one source family;
 5. an independently validated replacement or a decisive limitation theorem with appropriate external anchors.
 
-The Seiler, Camassel, Scott, and Blue source results do not authorize manuscript writing by themselves.
+The Seiler, Camassel, Scott, Blue source reconstruction, and Blue non-commensurability certificate do not authorize manuscript writing by themselves.
 
 ## Authorized next gates
 
 - obtain a rendered Scott 1969 asset and apply a calibrated Figure 2/5 digitization gate;
 - continue the Hansen source-by-source specimen reconstruction;
-- identify a source-supported observation operator before comparing Blue’s positive optical-fit parameters with signed-gap equations;
+- seek an independently validated observation operator before any signed-gap use of Blue's positive optical-fit parameters;
 - seek an independent low-temperature static-composition source that is not in the Camassel/Laurenti lineage;
 - test simple predeclared static laws under source-level holdout only after a commensurate independent source exists;
 - construct explicit reflectivity-versus-absorption or high-absorption-fit observation models only if another dataset can constrain them;
@@ -556,7 +628,10 @@ This program does not currently support:
 - independent validation of Laurenti by Camassel 1988;
 - independent validation of Hansen by Scott 1969;
 - direct signed-gap validation or rejection using Blue 1964’s positive optical-fit parameters;
-- converting Blue’s positive HgTe-rich values into negative signed gaps without an observation model;
+- converting Blue’s positive HgTe-rich values into negative signed gaps without an independently validated observation model;
+- treating the Blue parameter as the absolute value of a modern signed gap;
+- applying a universal sign flip, offset, scale factor, or nonlinear correction to Blue's parameters;
+- claiming a unique Blue curve-shape magnitude from the stated high-energy comparison;
 - treating Blue’s one-percent composition statement as a numerical `sigma_x`;
 - treating Blue’s row fit uncertainties as Gaussian one-sigma values without justification;
 - assigning an exact kelvin temperature to Blue’s room-temperature table;
