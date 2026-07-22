@@ -1,0 +1,113 @@
+name: spatial-disorder-allocation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Verify allocation theorem and optimizer
+        run: python -m pytest -q tests/test_spatial_disorder_allocation.py
+      - name: Rebuild deterministic allocation reference
+        run: |
+          mkdir -p spatial-disorder-allocation-generated
+          python -m tools.build_spatial_disorder_allocation_reference \
+            --output spatial-disorder-allocation-generated/spatial_disorder_optimal_allocation.json
+      - name: Compare rebuilt reference with immutable record
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          reference_path = Path(
+              'data/validation/spatial_disorder_optimal_allocation.json'
+          )
+          rebuilt_path = Path(
+              'spatial-disorder-allocation-generated/'
+              'spatial_disorder_optimal_allocation.json'
+          )
+          reference = json.loads(reference_path.read_text(encoding='utf-8'))
+          rebuilt = json.loads(rebuilt_path.read_text(encoding='utf-8'))
+
+          def compare(expected, actual, path='$'):
+              if isinstance(expected, dict):
+                  assert isinstance(actual, dict), path
+                  assert expected.keys() == actual.keys(), path
+                  for key in expected:
+                      compare(expected[key], actual[key], f'{path}.{key}')
+                  return
+              if isinstance(expected, list):
+                  assert isinstance(actual, list), path
+                  assert len(expected) == len(actual), path
+                  for index, (left, right) in enumerate(
+                      zip(expected, actual, strict=True)
+                  ):
+                      compare(left, right, f'{path}[{index}]')
+                  return
+              if (
+                  isinstance(expected, (int, float))
+                  and not isinstance(expected, bool)
+              ):
+                  assert isinstance(actual, (int, float)), path
+                  assert math.isclose(
+                      float(expected),
+                      float(actual),
+                      rel_tol=5.0e-13,
+                      abs_tol=1.0e-15,
+                  ), (path, expected, actual)
+                  return
+              assert expected == actual, path
+
+          compare(reference, rebuilt)
+          assert reference['schema_version'] == '1.0'
+          assert reference['program_issue'] == 196
+          assert reference['implementation_issue'] == 230
+          assert reference['portfolio_contribution'] == 'R04'
+          assert (
+              reference['status']
+              == 'local_optimal_design_not_specimen_prescription'
+          )
+          recommendations = reference['three_scale_recommendations']
+          assert [item['total_repeats'] for item in recommendations] == [12, 30, 60]
+          assert recommendations[1]['recommended_repeats'] == [11, 7, 12]
+          assert recommendations[1]['d_efficiency'] > 0.8
+          assert (
+              recommendations[1]['worst_case_absolute_standardized_residual']
+              > 3.7
+          )
+          tradeoff = reference['thirty_repeat_precision_falsification_tradeoff']
+          assert (
+              tradeoff[0]['achieved_d_efficiency']
+              > tradeoff[-1]['achieved_d_efficiency']
+          )
+          assert (
+              tradeoff[0]['worst_case_absolute_standardized_residual']
+              < tradeoff[-1]['worst_case_absolute_standardized_residual']
+          )
+          endpoint = reference['endpoint_reference_30']
+          assert endpoint['repeats'] == [15, 15]
+          assert abs(endpoint['d_efficiency'] - 1.0) < 1.0e-12
+          assert (
+              endpoint['absolute_log_xi_standard_deviation']
+              > endpoint['relative_log_xi_standard_deviation']
+          )
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spatial-disorder-optimal-allocation
+          path: spatial-disorder-allocation-generated
+          if-no-files-found: error
+          retention-days: 30

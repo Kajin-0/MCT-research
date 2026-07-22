@@ -1,0 +1,257 @@
+{
+  "claim_boundaries": [
+    "Optimal-design, Fisher, Popoviciu, and Neyman-allocation mathematics are established.",
+    "The physical scales are local design ratios relative to a declared correlation length, not universal spot sizes.",
+    "The common absolute-scale calibration floor cannot be removed by repeat allocation.",
+    "The Matérn residuals are controlled synthetic family-separation diagnostics, not specimen covariance evidence.",
+    "This result does not authorize a manuscript or prescribe a laboratory instrument configuration."
+  ],
+  "endpoint_reference_30": {
+    "absolute_log_xi_standard_deviation": 0.020969047286167993,
+    "absolute_parameter_covariance": [
+      [
+        6.276782181016449e-05,
+        -3.606817796370641e-05
+      ],
+      [
+        -3.6068177963706415e-05,
+        0.0004397009440895493
+      ]
+    ],
+    "d_efficiency": 1.0,
+    "fisher_determinant": 839610596.1145064,
+    "relative_log_xi_standard_deviation": 0.006300868518668451,
+    "relative_parameter_covariance": [
+      [
+        6.276782181016449e-05,
+        -3.606817796370625e-05
+      ],
+      [
+        -3.606817796370625e-05,
+        3.970094408954716e-05
+      ]
+    ],
+    "repeats": [
+      15,
+      15
+    ],
+    "sensitivity_endpoints": [
+      0.03921568627450981,
+      1.7777777777777777
+    ]
+  },
+  "exact_theorems": {
+    "a_optimal_lower_endpoint_fraction": 0.6708536549182099,
+    "common_scale_floor": "Var(log xi_absolute)=Var(log xi_relative)+tau_scale^2",
+    "continuous_d_optimal_support": "equal weight at feasible endpoints",
+    "correlation_length_variance": "sigma_y^2 N/[n_low n_high (g_high-g_low)^2]",
+    "fisher_determinant": "N sum_i n_i(g_i-g_bar)^2 / sigma_y^4",
+    "integer_d_optimal_counts": "floor(N/2), ceil(N/2)",
+    "log_xi_sensitivity": "4(s/xi)^2/[1+2(s/xi)^2]"
+  },
+  "implementation_issue": 230,
+  "model": {
+    "candidate_scale_ratios": [
+      0.1,
+      1.0,
+      2.0
+    ],
+    "common_log_scale_standard_deviation": 0.02,
+    "parameters": [
+      "log A",
+      "log xi"
+    ],
+    "single_repeat_relative_standard_deviation": 0.03,
+    "variance": "A/(1+2s^2/xi^2)"
+  },
+  "portfolio_contribution": "R04",
+  "program_issue": 196,
+  "schema_version": "1.0",
+  "status": "local_optimal_design_not_specimen_prescription",
+  "thirty_repeat_precision_falsification_tradeoff": [
+    {
+      "achieved_d_efficiency": 0.9611047669298551,
+      "minimum_d_efficiency": 0.95,
+      "recommended_repeats": [
+        13,
+        1,
+        16
+      ],
+      "worst_case_absolute_standardized_residual": 1.6206546699834254
+    },
+    {
+      "achieved_d_efficiency": 0.9017219741082028,
+      "minimum_d_efficiency": 0.9,
+      "recommended_repeats": [
+        12,
+        3,
+        15
+      ],
+      "worst_case_absolute_standardized_residual": 2.7051026557580675
+    },
+    {
+      "achieved_d_efficiency": 0.8006806489908997,
+      "minimum_d_efficiency": 0.8,
+      "recommended_repeats": [
+        11,
+        7,
+        12
+      ],
+      "worst_case_absolute_standardized_residual": 3.7816460279252246
+    },
+    {
+      "achieved_d_efficiency": 0.719744222712168,
+      "minimum_d_efficiency": 0.7,
+      "recommended_repeats": [
+        10,
+        10,
+        10
+      ],
+      "worst_case_absolute_standardized_residual": 4.17126954652881
+    },
+    {
+      "achieved_d_efficiency": 0.6100876250777313,
+      "minimum_d_efficiency": 0.6,
+      "recommended_repeats": [
+        8,
+        13,
+        9
+      ],
+      "worst_case_absolute_standardized_residual": 4.402875126863284
+    }
+  ],
+  "three_scale_recommendations": [
+    {
+      "absolute_log_xi_standard_deviation": 0.02286495578053284,
+      "absolute_parameter_covariance": [
+        [
+          0.00018403530826728736,
+          -0.00011571608438077414
+        ],
+        [
+          -0.00011571608438077414,
+          0.0005228062028457221
+        ]
+      ],
+      "d_efficiency": 0.8082031519902512,
+      "matern_smoothness": [
+        0.5,
+        1.5,
+        2.5
+      ],
+      "mean_absolute_standardized_residual": 4.503248600098243,
+      "pareto_front_size": 13,
+      "recommended_repeats": [
+        5,
+        3,
+        4
+      ],
+      "relative_log_xi_standard_deviation": 0.0110817960117358,
+      "relative_parameter_covariance": [
+        [
+          0.00018403530826728733,
+          -0.0001157160843807743
+        ],
+        [
+          -0.0001157160843807743,
+          0.00012280620284572347
+        ]
+      ],
+      "standardized_family_residuals": [
+        7.4487087718393585,
+        3.658618042764655,
+        2.4024189856907174
+      ],
+      "total_repeats": 12,
+      "worst_case_absolute_standardized_residual": 2.4024189856907174
+    },
+    {
+      "absolute_log_xi_standard_deviation": 0.021203395800979883,
+      "absolute_parameter_covariance": [
+        [
+          8.328009692697428e-05,
+          -5.1398832470535924e-05
+        ],
+        [
+          -5.1398832470535924e-05,
+          0.0004495839934930113
+        ]
+      ],
+      "d_efficiency": 0.8006806489908997,
+      "matern_smoothness": [
+        0.5,
+        1.5,
+        2.5
+      ],
+      "mean_absolute_standardized_residual": 7.0678023393385585,
+      "pareto_front_size": 45,
+      "recommended_repeats": [
+        11,
+        7,
+        12
+      ],
+      "relative_log_xi_standard_deviation": 0.007041590267334096,
+      "relative_parameter_covariance": [
+        [
+          8.328009692697432e-05,
+          -5.1398832470536364e-05
+        ],
+        [
+          -5.139883247053637e-05,
+          4.958399349301427e-05
+        ]
+      ],
+      "standardized_family_residuals": [
+        11.66875380911481,
+        5.753007180975642,
+        3.7816460279252246
+      ],
+      "total_repeats": 30,
+      "worst_case_absolute_standardized_residual": 3.7816460279252246
+    },
+    {
+      "absolute_log_xi_standard_deviation": 0.020607625497545325,
+      "absolute_parameter_covariance": [
+        [
+          3.8275463711207496e-05,
+          -2.3964642986640287e-05
+        ],
+        [
+          -2.3964642986640283e-05,
+          0.0004246742286470802
+        ]
+      ],
+      "d_efficiency": 0.804502233026176,
+      "matern_smoothness": [
+        0.5,
+        1.5,
+        2.5
+      ],
+      "mean_absolute_standardized_residual": 10.1237200757976,
+      "pareto_front_size": 114,
+      "recommended_repeats": [
+        24,
+        15,
+        21
+      ],
+      "relative_log_xi_standard_deviation": 0.004967316040587628,
+      "relative_parameter_covariance": [
+        [
+          3.827546371120749e-05,
+          -2.396464298664028e-05
+        ],
+        [
+          -2.3964642986640276e-05,
+          2.467422864707915e-05
+        ]
+      ],
+      "standardized_family_residuals": [
+        16.739191851326748,
+        8.228013509403988,
+        5.403954866662064
+      ],
+      "total_repeats": 60,
+      "worst_case_absolute_standardized_residual": 5.403954866662064
+    }
+  ]
+}
