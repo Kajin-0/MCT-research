@@ -1,8 +1,8 @@
 """Qualification of external validation paths for R04 spatial disorder.
 
-This module separates multiresolution evidence from merely multimodal or
-spatially resolved evidence. It is a source-readiness protocol, not a
-scientific inference engine.
+This module separates multiresolution evidence from merely multimodal,
+spatially resolved, or depth-observation evidence. It is a source-readiness
+protocol, not a scientific inference engine.
 """
 
 from __future__ import annotations
@@ -30,6 +30,7 @@ class QualificationClass(str, Enum):
     SINGLE_SCALE_SPATIAL_BENCHMARK = "single_scale_spatial_benchmark"
     CROSS_MODALITY_CONTEXT = "cross_modality_context"
     SOURCE_BOUNDED_FIGURE_BENCHMARK = "source_bounded_figure_benchmark"
+    DEPTH_OBSERVATION_MODEL_CONTEXT = "depth_observation_model_context"
     NOT_QUALIFIABLE = "not_qualifiable_from_available_record"
 
 
@@ -71,6 +72,7 @@ class ValidationCandidate:
     modality_count: int
     spatial_map_reported: EvidenceState
     rendered_figure_available: EvidenceState
+    depth_profile_observation_model: EvidenceState = EvidenceState.NOT_APPLICABLE
     notes: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
@@ -313,6 +315,23 @@ def qualify_validation_candidate(
         prohibited = (
             "represent digitized pixels as original numerical data",
             "perform direct multiresolution validation",
+        )
+    elif (
+        candidate.depth_profile_observation_model is EvidenceState.CONFIRMED
+        and candidate.same_specimen is EvidenceState.CONFIRMED
+        and candidate.thickness_characterized is EvidenceState.CONFIRMED
+        and candidate.depth_model_declared is EvidenceState.CONFIRMED
+        and candidate.observable_defined is EvidenceState.CONFIRMED
+        and candidate.preprocessing_declared is EvidenceState.CONFIRMED
+    ):
+        qualification = QualificationClass.DEPTH_OBSERVATION_MODEL_CONTEXT
+        permitted = (
+            "constrain a depth-averaged absorption observation operator and its preprocessing sensitivity",
+            "separate through-thickness grading hypotheses from lateral spatial-disorder hypotheses",
+        )
+        prohibited = (
+            "treat through-thickness grading as lateral covariance or probe-scale evidence",
+            "infer lateral correlation length or claim direct multiresolution validation",
         )
     else:
         qualification = QualificationClass.NOT_QUALIFIABLE
