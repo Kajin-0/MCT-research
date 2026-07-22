@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "program_issue": 196,
+  "implementation_issue": 224,
+  "extends_issue": 218,
+  "portfolio_contribution": "R04",
+  "status": "controlled_synthetic_gaussian_inverse_bias_not_specimen_covariance",
+  "model": {
+    "inverse_family": "isotropic 2D Gaussian covariance with Gaussian probes",
+    "alternative_families": [
+      "Matern nu=1/2",
+      "Matern nu=3/2",
+      "Matern nu=5/2"
+    ],
+    "family_normalization": "standard sqrt(2*nu)/ell Matern parameterization; common point value and leading 2D large-probe inverse-area coefficient",
+    "pairwise_diagnostic": "recover Gaussian A and xi independently from every scale pair",
+    "global_surrogate": "equal-weight log-variance least squares unless otherwise stated",
+    "claim_scope": "synthetic family-conditioned parameter bias and scale-selection drift"
+  },
+  "three_scale_transition_design": {
+    "true_point_variance": 0.01,
+    "true_correlation_length": 2.0,
+    "probe_sigmas": [0.25, 1.0, 4.0],
+    "families": {
+      "gaussian": {
+        "point_variance_spread_ratio": 1.0,
+        "correlation_length_spread_ratio": 1.0,
+        "point_variance_bias_ratio": 1.0000000000002447,
+        "correlation_length_bias_ratio": 0.9999999999997063,
+        "rms_log_error": 2.0886675854931372e-13,
+        "maximum_absolute_relative_variance_error": 2.7755575615628914e-13
+      },
+      "matern_0.5": {
+        "point_variance_spread_ratio": 1.3975508242290218,
+        "correlation_length_spread_ratio": 1.6028178770971595,
+        "point_variance_bias_ratio": 0.7594677130319091,
+        "correlation_length_bias_ratio": 1.040087746978964,
+        "rms_log_error": 0.0962492067956851,
+        "maximum_absolute_relative_variance_error": 0.14315129656512116
+      },
+      "matern_1.5": {
+        "point_variance_spread_ratio": 1.185674093630499,
+        "correlation_length_spread_ratio": 1.2721020055443135,
+        "point_variance_bias_ratio": 0.9240572997540158,
+        "correlation_length_bias_ratio": 0.9971575221616651,
+        "rms_log_error": 0.047283573941459885,
+        "maximum_absolute_relative_variance_error": 0.06816191538632088
+      },
+      "matern_2.5": {
+        "point_variance_spread_ratio": 1.116108844075014,
+        "correlation_length_spread_ratio": 1.1708639161467125,
+        "point_variance_bias_ratio": 0.9566583842517651,
+        "correlation_length_bias_ratio": 0.9953851065426622,
+        "rms_log_error": 0.030289548697869238,
+        "maximum_absolute_relative_variance_error": 0.043150942592083075
+      }
+    }
+  },
+  "five_scale_broad_design": {
+    "true_point_variance": 0.01,
+    "true_correlation_length": 2.0,
+    "probe_sigmas": [0.0, 0.5, 2.0, 8.0, 20.0],
+    "families": {
+      "gaussian": {
+        "point_variance_spread_ratio": 1.0000000000000004,
+        "correlation_length_spread_ratio": 1.0000000000000004,
+        "point_variance_bias_ratio": 0.9999999999996922,
+        "correlation_length_bias_ratio": 1.0000000000002813,
+        "rms_log_error": 2.366094640835523e-13,
+        "maximum_absolute_relative_variance_error": 3.077538224260934e-13
+      },
+      "matern_0.5": {
+        "point_variance_spread_ratio": 2.8201137091661646,
+        "correlation_length_spread_ratio": 3.418125791274161,
+        "point_variance_bias_ratio": 0.8351085397306751,
+        "correlation_length_bias_ratio": 1.0406401414252207,
+        "rms_log_error": 0.13884402801719883,
+        "maximum_absolute_relative_variance_error": 0.21153344208906844
+      },
+      "matern_1.5": {
+        "point_variance_spread_ratio": 1.6298233141951524,
+        "correlation_length_spread_ratio": 1.734080708556861,
+        "point_variance_bias_ratio": 0.9440816766301919,
+        "correlation_length_bias_ratio": 1.0084167220663531,
+        "rms_log_error": 0.05160451288719941,
+        "maximum_absolute_relative_variance_error": 0.08684991810832621
+      },
+      "matern_2.5": {
+        "point_variance_spread_ratio": 1.3810108431423465,
+        "correlation_length_spread_ratio": 1.4170478987427264,
+        "point_variance_bias_ratio": 0.967767655551015,
+        "correlation_length_bias_ratio": 1.0035242713279676,
+        "rms_log_error": 0.03170551393421066,
+        "maximum_absolute_relative_variance_error": 0.0551576579412596
+      }
+    }
+  },
+  "headline": {
+    "five_scale_exponential_pairwise_correlation_length_spread": 3.418125791274161,
+    "five_scale_exponential_point_variance_underestimate_fraction": 0.1648914602693249,
+    "three_scale_exponential_maximum_relative_surrogate_error": 0.14315129656512116,
+    "smoothness_ordering": "Matern 1/2 produces greater pairwise drift and surrogate error than Matern 3/2, which exceeds Matern 5/2 for both declared designs"
+  },
+  "claim_boundaries": [
+    "This record extends the family-falsification result of issue 218; it does not duplicate or replace it.",
+    "The calculations are controlled synthetic misspecification diagnostics, not specimen covariance inference.",
+    "Pairwise spread ratios are sensitivity diagnostics, not confidence intervals.",
+    "Global Gaussian bias depends on the declared fitting loss, weights, and probe-scale design.",
+    "A low drift or residual does not prove Gaussian covariance.",
+    "No covariance family, HgCdTe correlation length, manuscript, or novelty claim is authorized."
+  ]
+}

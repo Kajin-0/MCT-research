@@ -33,15 +33,66 @@ jobs:
             tests/test_spatial_disorder_design.py \
             tests/test_spatial_disorder_calibration.py \
             tests/test_spatial_disorder_covariance_families.py \
+            tests/test_spatial_disorder_covariance_bias.py \
             tests/test_spatial_disorder_posterior.py \
             2>&1 | tee spatial-disorder-diagnostics/pytest.txt
       - name: Rebuild nonlinear posterior reference
         run: |
           python -m tools.build_nonlinear_common_scale_posterior_reference \
             --output spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
-          cmp \
-            data/validation/nonlinear_common_scale_posterior.json \
-            spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          reference_path = Path(
+              'data/validation/nonlinear_common_scale_posterior.json'
+          )
+          rebuilt_path = Path(
+              'spatial-disorder-diagnostics/nonlinear_common_scale_posterior.json'
+          )
+          reference = json.loads(reference_path.read_text(encoding='utf-8'))
+          rebuilt = json.loads(rebuilt_path.read_text(encoding='utf-8'))
+
+          def compare(reference_value, rebuilt_value, path='$'):
+              if isinstance(reference_value, dict):
+                  assert isinstance(rebuilt_value, dict), path
+                  assert reference_value.keys() == rebuilt_value.keys(), path
+                  for key in reference_value:
+                      compare(
+                          reference_value[key],
+                          rebuilt_value[key],
+                          f'{path}.{key}',
+                      )
+                  return
+              if isinstance(reference_value, list):
+                  assert isinstance(rebuilt_value, list), path
+                  assert len(reference_value) == len(rebuilt_value), path
+                  for index, (expected, actual) in enumerate(
+                      zip(reference_value, rebuilt_value, strict=True)
+                  ):
+                      compare(expected, actual, f'{path}[{index}]')
+                  return
+              if (
+                  isinstance(reference_value, (int, float))
+                  and not isinstance(reference_value, bool)
+              ):
+                  assert isinstance(rebuilt_value, (int, float)), path
+                  assert math.isclose(
+                      float(reference_value),
+                      float(rebuilt_value),
+                      rel_tol=5.0e-13,
+                      abs_tol=1.0e-15,
+                  ), (
+                      path,
+                      reference_value,
+                      rebuilt_value,
+                  )
+                  return
+              assert reference_value == rebuilt_value, path
+
+          compare(reference, rebuilt)
+          PY
       - name: Validate immutable references
         run: |
           python - <<'PY'
@@ -105,6 +156,31 @@ jobs:
               for item in family['claim_boundaries']
           )
 
+          bias_path = Path(
+              'data/validation/spatial_disorder_covariance_family_bias.json'
+          )
+          bias = json.loads(bias_path.read_text(encoding='utf-8'))
+          assert bias['schema_version'] == '1.0'
+          assert bias['program_issue'] == 196
+          assert bias['implementation_issue'] == 224
+          assert bias['extends_issue'] == 218
+          assert bias['portfolio_contribution'] == 'R04'
+          assert bias['status'].endswith('not_specimen_covariance')
+          broad = bias['five_scale_broad_design']['families']
+          assert broad['gaussian']['correlation_length_spread_ratio'] < 1.0 + 1.0e-12
+          assert broad['matern_0.5']['correlation_length_spread_ratio'] > 3.0
+          assert (
+              broad['matern_0.5']['rms_log_error']
+              > broad['matern_1.5']['rms_log_error']
+              > broad['matern_2.5']['rms_log_error']
+              > 0.0
+          )
+          assert broad['matern_0.5']['point_variance_bias_ratio'] < 0.9
+          assert any(
+              'does not duplicate' in item
+              for item in bias['claim_boundaries']
+          )
+
           posterior_path = Path(
               'data/validation/nonlinear_common_scale_posterior.json'
           )
@@ -147,11 +223,13 @@ jobs:
             data/validation/spatial_disorder_theorem_extension.json
             data/validation/spatial_disorder_probe_scale_calibration.json
             data/validation/three_scale_covariance_family_test.json
+            data/validation/spatial_disorder_covariance_family_bias.json
             data/validation/nonlinear_common_scale_posterior.json
             docs/derivations/010_scale_dependent_spatial_disorder.md
             docs/derivations/011_probe_scale_calibration_limit.md
             docs/derivations/012_three_scale_covariance_family_test.md
             docs/derivations/013_exact_common_scale_posterior.md
+            docs/derivations/014_covariance_family_bias_and_pairwise_drift.md
             literature/notes/scale_dependent_disorder_prior_art.md
           if-no-files-found: warn
           retention-days: 30

@@ -12,7 +12,8 @@ Determine how a spatially correlated HgCdTe composition field combines with fini
 - #196 — scale-dependent spatial-disorder theorem and replacement scientific core;
 - #215 — probe-scale calibration limits in multiscale disorder inference;
 - #218 — three-scale covariance-family falsification;
-- #220 — exact nonlinear common-scale posterior propagation.
+- #220 — exact nonlinear common-scale posterior propagation;
+- #224 — Gaussian-surrogate bias and pairwise drift under covariance misspecification.
 
 ## Completed foundations
 
@@ -26,7 +27,8 @@ Merged or current implementation tranches include:
 - PR #212 — end-to-end multiscale disorder-to-cutoff design;
 - PR #216 — probe-scale calibration theorem and nuisance marginalization;
 - PR #219 — reciprocal-linearity family test and half-integer Matérn alternatives;
-- PR #221 — exact nonlinear posterior factorization and bounded-prior failure.
+- PR #221 — exact nonlinear posterior factorization and bounded-prior failure;
+- PR #227 — pairwise Gaussian-parameter drift and global-surrogate bias extension.
 
 Representative modules:
 
@@ -40,6 +42,7 @@ src/mct_research/spatial_disorder_cutoff.py
 src/mct_research/spatial_disorder_design.py
 src/mct_research/spatial_disorder_calibration.py
 src/mct_research/spatial_disorder_covariance_families.py
+src/mct_research/spatial_disorder_covariance_bias.py
 src/mct_research/spatial_disorder_posterior.py
 ```
 
@@ -55,6 +58,7 @@ Established within declared models:
 - analytical marginalization of arbitrary Gaussian log-probe calibration modes;
 - exact reciprocal-linearity condition for the Gaussian covariance/probe family;
 - stable Gaussian-probe filtering for Matérn `nu=1/2, 3/2, 5/2` alternatives;
+- pairwise scale-selection drift and fitting-convention-dependent Gaussian-surrogate bias under covariance misspecification;
 - exact nonlinear convolution of the relative correlation-length posterior with an independent common-scale calibration prior.
 
 ## Probe-scale calibration result
@@ -194,13 +198,41 @@ Matern nu=5/2           5.207%                         1.319
 
 The rough family is distinguishable at this uncertainty; the smoothest family is not. Failure to reject Gaussian covariance does not establish Gaussian covariance.
 
+## Covariance-family bias extension
+
+The family test above answers whether Gaussian covariance can be rejected. PR #227 separately quantifies what is reported when a Gaussian inverse is still imposed.
+
+For each scale pair $(i,j)$, the exact Gaussian two-scale theorem returns $(A_{ij},\xi_{ij})$. Exact Gaussian data give one common pair. Under misspecification, the values drift with scale selection.
+
+For the broad controlled design
+
+```text
+A = 0.01
+ell = 2
+s = [0, 0.5, 2, 8, 20]
+```
+
+the diagnostics are:
+
+```text
+true family       pairwise A spread    pairwise xi spread    A_fit/A    xi_fit/ell    RMS log error
+Gaussian               1.000                 1.000             1.0000       1.0000        <3e-13
+Matern nu=1/2          2.820                 3.418             0.8351       1.0406         0.1388
+Matern nu=3/2          1.630                 1.734             0.9441       1.0084         0.0516
+Matern nu=5/2          1.381                 1.417             0.9678       1.0035         0.0317
+```
+
+For the exponential covariance, different scale pairs therefore report Gaussian correlation lengths spanning a factor of approximately `3.42`, while the equal-weight log-variance surrogate underestimates point variance by approximately `16.5%`.
+
+This extension does not duplicate the reciprocal-linearity test. It adds scale-selection and fitting-convention sensitivity after family misspecification is present. Pairwise spreads are diagnostics, not confidence intervals, and the global bias depends on the declared fitting loss and weights.
+
 ## Unresolved scientific questions
 
 - whether available HgCdTe data contain enough multi-resolution information to estimate a correlation length;
 - whether experimentally achievable uncertainty resolves Gaussian versus smooth Matérn covariance;
 - how lateral and depth kernels combine in specific instruments and devices;
 - how uncertainty in kernel shape differs from uncertainty in one effective Gaussian width;
-- whether the predicted scale effect survives thickness, carrier, defect, calibration, covariance-family, and operation-order nuisance variables jointly;
+- whether the predicted scale effect survives thickness, carrier, defect, calibration, covariance-family, fitting-convention, and operation-order nuisance variables jointly;
 - whether the full contribution is sufficiently distinct from existing finite-aperture mapping and random-field literature.
 
 ## Manuscript status
@@ -213,13 +245,13 @@ No manuscript is currently authorized. A candidate paper becomes writeable only 
 4. combined calibration, covariance-family, thickness, and observation-operator stress testing;
 5. a concise theorem-centered figure and claim plan.
 
-The local-to-nonlinear common-calibration gate and the declared covariance-family stress-test gate are completed. Neither establishes a specimen parameter or covariance family.
+The local-to-nonlinear common-calibration gate and the declared covariance-family stress-test gate are completed. The pairwise-drift extension sharpens interpretation but does not establish a specimen parameter or covariance family.
 
 ## Authorized next gates
 
 - complete full-text audits for the highest-priority finite-aperture sources;
 - build representative instrument and detector kernels with declared scale and shape uncertainty;
-- combine calibration and covariance-family uncertainty in one design calculation;
+- combine calibration, covariance-family, fitting-convention, and observation-operator uncertainty in one design calculation;
 - test whether distinct modalities can be predicted from one latent field;
 - identify one public-data or experimentally specified validation path.
 
@@ -231,6 +263,8 @@ This program does not currently support:
 - a universal Gaussian or Matérn covariance law;
 - replacing a measured point-spread function with nominal pixel pitch;
 - interpreting a low reciprocal-linearity residual as proof of Gaussian covariance;
+- interpreting pairwise parameter spread as a statistical confidence interval;
+- reporting a misspecified Gaussian parameter without declaring the fitting loss and scale design;
 - applying the exact common-scale convolution when an active bounded absolute-length prior couples $\lambda$ and $\delta$;
 - identifying optical tail energy with microscopic composition variance;
 - treating controlled cutoff shifts as measured detector behavior;
@@ -242,7 +276,7 @@ This program does not currently support:
 
 This program uses empirical gap slopes, distributional absorption and cutoff operators, literature records, and validation infrastructure shared with other works.
 
-The covariance-family and posterior modules are additive shared infrastructure. They reuse existing Gaussian prediction, recovery, and calibration definitions without changing their numerical behavior.
+The covariance-family, bias, and posterior modules are additive shared infrastructure. They reuse existing Gaussian prediction, recovery, family filtering, and calibration definitions without changing their numerical behavior.
 
 ## Stage-2 boundary
 
