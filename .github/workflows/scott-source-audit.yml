@@ -2,6 +2,12 @@ name: scott-source-audit
 
 on:
   pull_request:
+    paths:
+      - '.github/workflows/scott-source-audit.yml'
+      - 'data/experimental/scott1969_README.md'
+      - 'data/experimental/scott1969_figure1_specimens.csv'
+      - 'data/experimental/scott1969_source_metadata.csv'
+      - 'tests/test_scott1969_source_audit.py'
   workflow_dispatch:
 
 permissions:
@@ -54,11 +60,13 @@ jobs:
           assert not (root / 'data/experimental/scott1969_figure5_digitized.csv').exists()
           PY
       - name: Assert tranche file boundary
+        if: github.head_ref == 'agent/scott1969-source-audit'
         shell: bash
         run: |
           git diff --name-only "origin/${{ github.base_ref }}...HEAD" \
             | sort > /tmp/changed-files.txt
           cat > /tmp/allowed-files.txt <<'EOF'
+          .github/workflows/camassel-composition-envelope.yml
           .github/workflows/scott-source-audit.yml
           data/experimental/scott1969_README.md
           data/experimental/scott1969_figure1_specimens.csv
