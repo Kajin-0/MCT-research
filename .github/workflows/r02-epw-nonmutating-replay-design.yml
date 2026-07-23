@@ -1,0 +1,78 @@
+name: r02-epw-nonmutating-replay-design
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r02-epw-nonmutating-replay-design.yml'
+      - 'first_principles/b0/r02_epw_nonmutating_replay.in'
+      - 'first_principles/b0/r02_epw_replay_output_boundary_contract.json'
+      - 'first_principles/b0/r02_epw_replay_output_boundary_source_audit.json'
+      - 'research/capability_audits/qe76_epw61_nonmutating_replay_boundary.md'
+      - 'research/decision_records/2026-07-23-r02-epw-nonmutating-replay-boundary.md'
+      - 'research/programs/finite_temperature_kane/state_updates/2026-07-23-epw-nonmutating-replay-boundary.md'
+      - 'tools/design_epw_replay_output_boundary.py'
+      - 'tests/test_r02_epw_replay_output_boundary_design.py'
+  workflow_dispatch:
+
+concurrency:
+  group: r02-epw-nonmutating-replay-design-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  design-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install test dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Validate replay boundary and completion evidence
+        run: python -m pytest -vv tests/test_r02_epw_replay_output_boundary_design.py
+
+      - name: Confirm execution remains prohibited
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          contract = json.loads(
+              Path(
+                  "first_principles/b0/r02_epw_replay_output_boundary_contract.json"
+              ).read_text()
+          )
+          audit = json.loads(
+              Path(
+                  "first_principles/b0/r02_epw_replay_output_boundary_source_audit.json"
+              ).read_text()
+          )
+          assert contract["phase"] == "design_only"
+          assert contract["historical_issue_350_result_unchanged"] is True
+          assert audit["classification"] == "REPLAY_BOUNDARY_SUPPORTED"
+          assert audit["runtime_validation_performed"] is False
+          authorization = contract["authorization"]
+          assert authorization["configure_or_build"] is False
+          assert authorization["patch_application"] is False
+          assert authorization["preparation_execution"] is False
+          assert authorization["epw_replay_execution"] is False
+          assert authorization["exporter_enabled_execution"] is False
+          assert authorization["automatic_retry"] is False
+          assert authorization["marker_or_threshold_fitting"] is False
+          assert authorization["mpi_execution"] is False
+          assert authorization["soc_fixture"] is False
+          assert authorization["cdte_hgte_or_alloy_calculation"] is False
+          assert authorization["a1_a2_a3"] is False
+          assert authorization["automatic_executable_successor"] is False
+          PY
+
+      - name: Confirm design tool cannot launch external processes
+        run: |
+          ! grep -E 'subprocess|os\.system|Popen|execv|spawn|run\(' \
+            tools/design_epw_replay_output_boundary.py
