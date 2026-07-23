@@ -33,6 +33,13 @@ def _metric_headline(metrics: Mapping[str, object]) -> dict[str, object]:
     return {key: metrics[key] for key in _METRIC_KEYS if key in metrics}
 
 
+def _stable_model_fields(model: Mapping[str, object]) -> dict[str, object]:
+    fields = {key: value for key, value in model.items() if key != "metrics"}
+    if "condition_number" in fields:
+        fields["condition_number"] = round(float(fields["condition_number"]), 10)
+    return fields
+
+
 def compact_reference(reference: Mapping[str, object]) -> dict[str, object]:
     full = reference["subset_analyses"]["full_9_specimens"]
     independent = full["S0_independent_specimen_slopes"]
@@ -79,11 +86,11 @@ def compact_reference(reference: Mapping[str, object]) -> dict[str, object]:
             ],
             "S0_metrics": _metric_headline(s0["metrics"]),
             "S1": {
-                **{key: value for key, value in s1.items() if key != "metrics"},
+                **_stable_model_fields(s1),
                 "metrics": _metric_headline(s1["metrics"]),
             },
             "SH": {
-                **{key: value for key, value in sh.items() if key != "metrics"},
+                **_stable_model_fields(sh),
                 "metrics": _metric_headline(sh["metrics"]),
             },
             "hansen_longest_same_sign_run": analysis[
