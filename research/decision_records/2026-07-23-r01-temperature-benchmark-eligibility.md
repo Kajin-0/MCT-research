@@ -22,17 +22,17 @@ canonical result
 canonical JSON SHA256
   f6760549685f53980ff8dfb9a36fba8b0019dfa02419edd0f75b39579d56d201
 
-candidate workflow run
-  30012926375
+final validation workflow run
+  30013345882
 
-candidate artifact
-  8565889560
+final validation artifact
+  8566054719
 
-candidate artifact digest
-  sha256:1c849b96b2d1155c6af53049ad18908b1a8a27f2d143ab81e9b5ef760c6be4eb
+final validation artifact digest
+  sha256:225f38f4a0ffdafc4ce97b256f2be7de1ce5f53d26ddccc3dd8983dad0e8343a
 ```
 
-The candidate was generated twice and compared byte-for-byte before publication.
+The final workflow generated the reference twice, compared the candidate files byte-for-byte, and exactly matched the committed canonical JSON.
 
 ## Source graph
 
