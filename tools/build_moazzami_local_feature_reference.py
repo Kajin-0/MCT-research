@@ -123,7 +123,7 @@ def build(root: str | Path) -> dict[str, Any]:
 
 def write_csv(path: Path, result: dict[str, Any]) -> None:
     with path.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.writer(stream)
+        writer = csv.writer(stream, lineterminator="\n")
         writer.writerow(
             [
                 "specimen_id",
