@@ -98,7 +98,14 @@ def test_documents_use_supported_classification_and_closed_execution_boundary() 
     state = STATE.read_text(encoding="utf-8")
     for text in (capability, decision, state):
         assert "REPLAY_BOUNDARY_SUPPORTED" in text
-        assert "not authorized" in text.lower()
+    assert "Not authorized:" in capability
+    assert "configure or build" in capability
+    assert "automatic executable successor" in capability.lower()
+    assert "Closed:" in decision
+    assert "configure or compilation" in decision
+    assert "automatic executable successor" in decision.lower()
+    assert "Closed:" in state
+    assert "build, patch application, preparation or replay" in state
+    assert "automatic executable successor" in state.lower()
     assert "SERIAL_EPWREAD_PATCH_VALIDATION_STOP" in decision
     assert "historical" in decision.lower()
-    assert "automatic executable successor" in capability.lower()
