@@ -10,6 +10,10 @@ REFERENCE_JSON = (
 REFERENCE_CSV = (
     ROOT / "data/validation/moazzami2005_local_feature_sensitivity_summary.csv"
 )
+ADDENDUM = (
+    ROOT
+    / "manuscript/observation_model_uncertainty/local_feature_robustness_addendum.md"
+)
 
 
 def test_compact_reference_regenerates_exactly() -> None:
@@ -43,3 +47,23 @@ def test_stress_diagnostic_does_not_erase_operator_dominance() -> None:
     ] is True
     for specimen in result["specimens"]:
         assert specimen["minimum_operator_span_to_hansen_seiler_ratio"] > 19.0
+
+
+def test_manuscript_addendum_preserves_numerics_and_semantics() -> None:
+    text = ADDENDUM.read_text(encoding="utf-8")
+    for value in (
+        "0.196491228",
+        "0.197543860",
+        "0.116875 meV",
+        "0.959441 meV",
+        "4.984375",
+        "3.385375",
+        "19.5764",
+        "19.1746",
+    ):
+        assert value in text
+    assert "not a random sample" in text
+    assert "No smoothing, interpolation, point replacement" in text
+    assert "physical origin" in text
+    assert "no spectrum correction is authorized" in text.lower()
+    assert "Boundary-limited candidates" in text
