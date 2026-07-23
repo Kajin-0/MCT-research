@@ -1,0 +1,82 @@
+{
+  "analysis": "Moazzami 2005 localized reconstruction influence",
+  "claim_boundary": "The visible plateau is not assigned a physical mechanism. Exact-pair deletion and global window deletion quantify influence without smoothing, interpolation, or alteration of the committed reconstruction.",
+  "decision": {
+    "operator_span_dominance_survives_all_sliding_windows": true,
+    "physical_origin_identified": false,
+    "questioned_figure6a_pair_nominal_below_1mev": true,
+    "questioned_figure6a_pair_plus_coordinate_below_1mev": true,
+    "spectrum_correction_authorized": false
+  },
+  "methods": {
+    "boundary_limited_fits": "reported but excluded from stability certification",
+    "coordinate_combination": "four coherent energy/log-absorption corners",
+    "feature_core": "delete exact adjacent source-pixel monotonicity-reversal pair; no replacement",
+    "global_leverage": "slide every contiguous 1-, 3-, and 5-sample omission across the fixed 600-5000 cm^-1 fit population",
+    "probability_semantics": "none; deterministic sensitivity and leverage diagnostics"
+  },
+  "schema_version": "1.0",
+  "specimens": [
+    {
+      "boundary_limited_candidate_ids": [
+        "chu_1994_kane_region",
+        "fractional_power_p_0.5"
+      ],
+      "hansen_seiler_prediction_separation_mev": 0.2546117537826076,
+      "maximum_exact_pair_nominal_identified_shift_mev": 0.11687500000001627,
+      "maximum_exact_pair_plus_coordinate_identified_shift_mev": 0.9594410000000053,
+      "maximum_five_point_window_identified_shift_mev": 3.5956250000000187,
+      "maximum_leave_one_out_identified_shift_mev": 0.900625000000016,
+      "maximum_three_point_window_identified_shift_mev": 2.330625000000003,
+      "minimum_identified_operator_span_across_all_nominal_windows_mev": 4.984375000000013,
+      "minimum_operator_span_to_hansen_seiler_ratio": 19.576374326598327,
+      "pixel_reversal_pair_count": 1,
+      "questioned_pair": {
+        "identified_joint_max_shift_mev": 0.9594410000000053,
+        "identified_nominal_max_shift_mev": 0.11687500000001627,
+        "identified_operator_span_after_pair_deletion_mev": 5.1218749999999975,
+        "joint_max_absolute_shift_mev": {
+          "chu_1994_kane_region": 0.5263159999999989,
+          "fractional_power_free": 0.7325660000000178,
+          "fractional_power_p_0.5": 0.5263159999999989,
+          "fractional_power_p_0.7": 0.6913159999999974,
+          "fractional_power_p_0.872": 0.8494410000000063,
+          "fractional_power_p_1": 0.9594410000000053
+        },
+        "nominal_absolute_shift_mev": {
+          "chu_1994_kane_region": 0.0,
+          "fractional_power_free": 0.11687500000001627,
+          "fractional_power_p_0.5": 0.0,
+          "fractional_power_p_0.7": 0.048125000000009965,
+          "fractional_power_p_0.872": 0.07562499999999583,
+          "fractional_power_p_1": 0.07562499999999583
+        },
+        "pixel_y_reversal": 3.0,
+        "removed_energy_ev": [
+          0.196491228,
+          0.19754386
+        ],
+        "source_pixel_y_center": [
+          160.0,
+          163.0
+        ]
+      },
+      "specimen_id": "moazzami2005_x0.226"
+    },
+    {
+      "boundary_limited_candidate_ids": [
+        "chu_1994_kane_region"
+      ],
+      "hansen_seiler_prediction_separation_mev": 0.17655559568868773,
+      "maximum_exact_pair_nominal_identified_shift_mev": 0.1391250000000177,
+      "maximum_exact_pair_plus_coordinate_identified_shift_mev": 0.7051910000000494,
+      "maximum_five_point_window_identified_shift_mev": 4.504999999999981,
+      "maximum_leave_one_out_identified_shift_mev": 1.0335000000000205,
+      "maximum_three_point_window_identified_shift_mev": 3.0077500000000312,
+      "minimum_identified_operator_span_across_all_nominal_windows_mev": 3.385375000000024,
+      "minimum_operator_span_to_hansen_seiler_ratio": 19.17455511276628,
+      "pixel_reversal_pair_count": 5,
+      "specimen_id": "moazzami2005_x0.310"
+    }
+  ]
+}
