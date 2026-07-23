@@ -84,7 +84,8 @@ def test_required_documents_exist_and_preserve_claim_boundary() -> None:
         + "\n"
         + AUDIT_PATH.read_text(encoding="utf-8")
     )
-    assert "RESTRICTED_GO" in combined
-    assert "does not contain the raw per-pixel PL spectral cube" in combined
-    assert "must not report a latent physical correlation length" in combined
-    assert "HgCdTe external validation remains `blocked`" in combined
+    normalized = " ".join(combined.split())
+    assert "RESTRICTED_GO" in normalized
+    assert "does not contain the raw per-pixel PL spectral cube" in normalized
+    assert "must not report a latent physical correlation length" in normalized
+    assert "HgCdTe external validation remains `blocked`" in normalized
