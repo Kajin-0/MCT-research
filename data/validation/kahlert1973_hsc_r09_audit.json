@@ -1,0 +1,106 @@
+{
+  "decision": {
+    "controlling_decision": "primary_source_recovered_temperature_relation_reconstructed_hansen_marker_mapping_unresolved",
+    "direct_hansen_validation_authorized": false,
+    "hansen_exact_ingestion_mapping_resolved": false,
+    "measurement_class_corrected": true,
+    "primary_source_recovered": true,
+    "temperature_relation_reconstructed": true
+  },
+  "hansen_descriptive_comparison": {
+    "external_direct_comparison_is_source_measurement": false,
+    "external_direct_comparison_slope_ev_per_k": 0.00035,
+    "hansen_gap_ev": {
+      "0": 0.078682762496,
+      "130": 0.118743562496,
+      "4.2": 0.079977034496,
+      "50": 0.094090762496,
+      "77": 0.102411082496,
+      "80": 0.103335562496
+    },
+    "hansen_slope_ev_per_k": 0.00030816,
+    "independent_validation": false,
+    "residual_hansen_minus_rounded_relation_80k_ev": -0.047464437504,
+    "residual_hansen_minus_source_relation_80k_ev": -0.047864437504,
+    "source_exact_to_hansen_slope_ratio": 2.482476635514
+  },
+  "hansen_ingestion": {
+    "candidate_count": 2,
+    "candidate_ids": [
+      "KAH73_RELATION_80K",
+      "KAH73_ROUNDED_SLOPE_80K"
+    ],
+    "exact_ingestion_mapping_resolved": false,
+    "per_marker_source_labels_available": false,
+    "reason": "Kahlert and Bauer print a complete temperature relation, but Hansen does not expose source-labeled HSC_R09 markers or state whether the relation, a rounded 80 K conversion, or selected figure points were ingested.",
+    "source_relation_available": true
+  },
+  "measurement_identity": {
+    "direct_observations": [
+      "longitudinal_resistivity_vs_magnetic_field",
+      "shubnikov_de_haas_extremum_positions",
+      "magnetophonon_resonance_extremum_positions_vs_temperature"
+    ],
+    "direct_optical_edge": false,
+    "gap_relation_is_model_conditioned": true,
+    "primary_gap_observable": "temperature-dependent Kane nonparabolic-band gap inferred from magnetophonon peak positions",
+    "primary_measurement_class": "longitudinal_magnetoresistance_sdh_and_magnetophonon_resonance"
+  },
+  "sample_population": {
+    "carrier_concentration_4p2k_cm3": 1600000000000000.0,
+    "composition_uncertainty_status": "not_reported",
+    "composition_x": 0.212,
+    "mobility_4p2k_cm2_v_s": 85600.0,
+    "specimen_count_status": "plural_samples_count_not_reported",
+    "vendor": "Cominco"
+  },
+  "schema_version": "1.0",
+  "source_id": "KAHLERT1973_HSC_R09",
+  "source_pdf_sha256": "3052179e8d216de4d7ba015ef61e1ce73d193127602418075cf3c096fa09275a",
+  "source_reported_parameters": {
+    "accepted_hgte_like_lo_phonon_ev": 0.0171,
+    "band_edge_effective_mass_half_width": 0.0003,
+    "band_edge_effective_mass_ratio": 0.005,
+    "effective_g_factor": -172.0,
+    "effective_g_factor_half_width": 10.0,
+    "fermi_energy_ev": 0.009065,
+    "rejected_cdte_like_lo_phonon_ev": 0.0196,
+    "sdh_gap_input_ev": 0.093,
+    "spin_orbit_splitting_ev": 0.96
+  },
+  "source_scope": {
+    "article_pages": [
+      1211,
+      1214
+    ],
+    "copyrighted_source_committed": false,
+    "figure_digitization_performed": false,
+    "named_specimen_count": 0,
+    "physical_specimen_count_reported": false,
+    "pointwise_covariance_reported": false,
+    "source_level_sample_population_rows": 1
+  },
+  "temperature_relation": {
+    "Eg0_ev": 0.09,
+    "alpha_per_k": 0.0085,
+    "exact_slope_from_printed_factors_ev_per_k": 0.000765,
+    "fit_covariance_reported": false,
+    "mass_relation": "mstar(T)=mstar0*(1+alpha*T)",
+    "relation": "Eg(T)=Eg0*(1+alpha*T)",
+    "rounded_slope_gap_80k_ev": 0.1508,
+    "rounding_difference_ev_per_k": 5e-06,
+    "source_model_gap_ev": {
+      "0": 0.09,
+      "130": 0.18945,
+      "4.2": 0.093213,
+      "50": 0.12825,
+      "77": 0.148905,
+      "80": 0.1512
+    },
+    "source_reported_rounded_slope_ev_per_k": 0.00076,
+    "temperature_range_k": [
+      50.0,
+      130.0
+    ]
+  }
+}
