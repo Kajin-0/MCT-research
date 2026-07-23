@@ -13,7 +13,7 @@
     "clone_url": "https://github.com/QEF/q-e.git",
     "release_tag": "qe-7.6",
     "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
-    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c2b7f7eaf8e05ecafbbcbac849",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
     "epw_version": "6.1",
     "run_epw_git_blob_sha": "8f6a915fb656e424f8e4c03b3e5ea301d83953ae",
     "required_sha256": {
