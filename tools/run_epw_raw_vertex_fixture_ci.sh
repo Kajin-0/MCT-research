@@ -6,6 +6,7 @@ WORK="${RUNNER_TEMP:-/tmp}/r02-epw-raw-vertex-fixture"
 EVIDENCE="$ROOT/r02-epw-raw-vertex-fixture-evidence"
 CONTRACT="$ROOT/first_principles/b0/r02_epw_raw_vertex_fixture_contract.json"
 PATCH="$ROOT/patches/qe76-epw61-r02-raw-vertex-export.patch"
+CAPTURE_HELPER="$WORK/capture_epw_test_output.py"
 
 rm -rf "$WORK" "$EVIDENCE"
 mkdir -p "$WORK" "$EVIDENCE"/{build,disabled,enabled,raw,validated,runtime,source}
@@ -70,7 +71,126 @@ assert contract["fixture"]["long_range_included"] is False
 assert contract["fixture"]["epsilon_response_enabled"] is False
 PY
 
+stage="capture_locator_definition"
+cat > "$CAPTURE_HELPER" <<'PY'
+from __future__ import annotations
+
+import argparse
+import shutil
+import tempfile
+from pathlib import Path
+
+STDOUT_GLOB = "test.out.*.inp=epw1.in.args=3"
+STDERR_PREFIX_FROM = "test.out."
+STDERR_PREFIX_TO = "test.err."
+
+
+class CaptureError(RuntimeError):
+    pass
+
+
+def locate_unique_pair(root: Path) -> tuple[Path, Path]:
+    candidates = sorted(path for path in root.glob(STDOUT_GLOB) if path.is_file())
+    if len(candidates) != 1:
+        rendered = ", ".join(path.name for path in candidates) or "none"
+        raise CaptureError(
+            f"expected exactly one {STDOUT_GLOB!r} in {root}, "
+            f"found {len(candidates)}: {rendered}"
+        )
+    stdout = candidates[0]
+    stderr = root / stdout.name.replace(STDERR_PREFIX_FROM, STDERR_PREFIX_TO, 1)
+    if not stderr.is_file():
+        raise CaptureError(f"missing matching EPW stderr file: {stderr}")
+    if stdout.stat().st_size == 0:
+        raise CaptureError(f"EPW stdout is empty: {stdout}")
+    return stdout, stderr
+
+
+def capture_pair(
+    root: Path,
+    stdout_destination: Path,
+    stderr_destination: Path,
+) -> tuple[Path, Path]:
+    stdout, stderr = locate_unique_pair(root)
+    stdout_destination.parent.mkdir(parents=True, exist_ok=True)
+    stderr_destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(stdout, stdout_destination)
+    shutil.copy2(stderr, stderr_destination)
+    stdout_destination.with_suffix(stdout_destination.suffix + ".source-path.txt").write_text(
+        str(stdout) + "\n",
+        encoding="utf-8",
+    )
+    stderr_destination.with_suffix(stderr_destination.suffix + ".source-path.txt").write_text(
+        str(stderr) + "\n",
+        encoding="utf-8",
+    )
+    return stdout, stderr
+
+
+def self_test() -> None:
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        try:
+            locate_unique_pair(root)
+        except CaptureError as error:
+            assert "found 0" in str(error)
+        else:
+            raise AssertionError("zero-match case did not fail closed")
+
+        stdout = root / "test.out.220726.inp=epw1.in.args=3"
+        stderr = root / "test.err.220726.inp=epw1.in.args=3"
+        stdout.write_text("EPW stdout\n", encoding="utf-8")
+        stderr.write_text("EPW stderr\n", encoding="utf-8")
+        out_copy = root / "captured" / "epw1.stdout.txt"
+        err_copy = root / "captured" / "epw1.stderr.txt"
+        capture_pair(root, out_copy, err_copy)
+        assert out_copy.read_text(encoding="utf-8") == "EPW stdout\n"
+        assert err_copy.read_text(encoding="utf-8") == "EPW stderr\n"
+
+        second_stdout = root / "test.out.220727.inp=epw1.in.args=3"
+        second_stderr = root / "test.err.220727.inp=epw1.in.args=3"
+        second_stdout.write_text("second\n", encoding="utf-8")
+        second_stderr.write_text("second err\n", encoding="utf-8")
+        try:
+            locate_unique_pair(root)
+        except CaptureError as error:
+            assert "found 2" in str(error)
+        else:
+            raise AssertionError("multiple-match case did not fail closed")
+
+        second_stdout.unlink()
+        second_stderr.unlink()
+        stderr.unlink()
+        try:
+            locate_unique_pair(root)
+        except CaptureError as error:
+            assert "missing matching EPW stderr" in str(error)
+        else:
+            raise AssertionError("missing-stderr case did not fail closed")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path)
+    parser.add_argument("--stdout-destination", type=Path)
+    parser.add_argument("--stderr-destination", type=Path)
+    parser.add_argument("--self-test", action="store_true")
+    args = parser.parse_args()
+    if args.self_test:
+        self_test()
+        return
+    if args.root is None or args.stdout_destination is None or args.stderr_destination is None:
+        parser.error("--root, --stdout-destination, and --stderr-destination are required")
+    capture_pair(args.root, args.stdout_destination, args.stderr_destination)
+
+
+if __name__ == "__main__":
+    main()
+PY
+
 stage="focused_tests"
+python "$CAPTURE_HELPER" --self-test \
+  2>&1 | tee "$EVIDENCE/validated/capture-locator-self-test.txt"
 python -m pytest -vv \
   tests/test_r02_epw_raw_vertex_source_gate.py \
   tests/test_r02_epw_raw_vertex_analyzer.py \
@@ -160,32 +280,10 @@ ldd bin/epw.x > "$EVIDENCE/build/epw-ldd.txt" || true
 
 capture_epw_output() {
   local destination="$1"
-  python - "$FIXTURE" "$destination" <<'PY'
-from pathlib import Path
-import re
-import shutil
-import sys
-root = Path(sys.argv[1])
-destination = Path(sys.argv[2])
-pattern = re.compile(r"^\s*\d+\s+\d+\s+[-+0-9.EeDd]+(?:\s+[-+0-9.EeDd]+){4}\s*$", re.MULTILINE)
-candidates = []
-for path in root.rglob("*"):
-    if not path.is_file() or path.stat().st_size == 0 or path.stat().st_size > 100_000_000:
-        continue
-    try:
-        text = path.read_text(encoding="utf-8", errors="replace")
-    except OSError:
-        continue
-    count = len(pattern.findall(text))
-    if "Electron Self-Energy" in text and count:
-        candidates.append((count, path.stat().st_size, path))
-if not candidates:
-    raise SystemExit("could not locate EPW electron self-energy stdout")
-_, _, selected = max(candidates)
-destination.parent.mkdir(parents=True, exist_ok=True)
-shutil.copy2(selected, destination)
-(destination.with_suffix(destination.suffix + ".source-path.txt")).write_text(str(selected) + "\n")
-PY
+  python "$CAPTURE_HELPER" \
+    --root "$WORK/qe/test-suite" \
+    --stdout-destination "$destination/epw1.stdout.txt" \
+    --stderr-destination "$destination/epw1.stderr.txt"
 }
 
 run_fixture() {
@@ -206,9 +304,12 @@ run_fixture() {
   scientific_execution_count=$((scientific_execution_count + 1))
   make -C "$WORK/qe/test-suite" run-custom-test testdir=r02_epw_raw_vertex \
     2>&1 | tee "$destination/test-suite-driver.txt"
-  capture_epw_output "$destination/epw1.stdout.txt"
+  capture_epw_output "$destination"
   find "$FIXTURE" -maxdepth 3 -type f -printf '%P %s\n' | sort \
     > "$destination/generated-files.txt"
+  find "$WORK/qe/test-suite" -maxdepth 1 -type f \
+    \( -name 'test.out.*.inp=epw1.in.args=3' -o -name 'test.err.*.inp=epw1.in.args=3' \) \
+    -printf '%f %s\n' | sort > "$destination/epw-generated-files.txt"
 }
 
 stage="fixture_disabled"
