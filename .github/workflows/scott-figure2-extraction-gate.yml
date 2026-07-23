@@ -4,10 +4,14 @@ on:
   pull_request:
     paths:
       - '.github/workflows/scott-figure2-extraction-gate.yml'
+      - 'data/experimental/scott1969_README.md'
+      - 'data/experimental/scott1969_source_metadata.csv'
+      - 'data/experimental/scott1969_figure1_specimens.csv'
       - 'data/experimental/scott1969_figure2_extraction_README.md'
       - 'data/experimental/scott1969_figure2_extraction_gate.csv'
       - 'data/experimental/scott1969_figure2_digitized.csv'
       - 'data/experimental/scott1969_figure2_calibration.csv'
+      - 'tests/test_scott1969_source_audit.py'
       - 'tests/test_scott1969_figure2_extraction_gate.py'
   workflow_dispatch:
 
@@ -27,11 +31,13 @@ jobs:
           python-version: '3.13'
       - name: Install package
         run: python -m pip install -e '.[test]'
-      - name: Validate Scott Figure 2 digitization
+      - name: Validate Scott source and Figure 2 digitization
         shell: bash
         run: |
           set -o pipefail
-          python -m pytest -q tests/test_scott1969_figure2_extraction_gate.py \
+          python -m pytest -q \
+            tests/test_scott1969_source_audit.py \
+            tests/test_scott1969_figure2_extraction_gate.py \
             2>&1 | tee /tmp/scott-figure2-digitization.log
       - name: Assert scientific boundary
         shell: bash
@@ -84,6 +90,7 @@ jobs:
               == 'direct_marker_center_only_not_connecting_line_or_equation'
               for row in markers
           )
+          assert not (data / 'scott1969_figure5_digitized.csv').exists()
           PY
       - name: Assert tranche boundary
         if: github.head_ref == 'agent/scott1969-figure2-digitization'
@@ -92,10 +99,14 @@ jobs:
           git diff --name-only "origin/${{ github.base_ref }}...HEAD" | sort > /tmp/changed.txt
           cat > /tmp/allowed.txt <<'EOF'
           .github/workflows/scott-figure2-extraction-gate.yml
+          data/experimental/scott1969_README.md
+          data/experimental/scott1969_source_metadata.csv
+          data/experimental/scott1969_figure1_specimens.csv
           data/experimental/scott1969_figure2_calibration.csv
           data/experimental/scott1969_figure2_digitized.csv
           data/experimental/scott1969_figure2_extraction_README.md
           data/experimental/scott1969_figure2_extraction_gate.csv
+          tests/test_scott1969_source_audit.py
           tests/test_scott1969_figure2_extraction_gate.py
           EOF
           sort -o /tmp/allowed.txt /tmp/allowed.txt
@@ -110,6 +121,9 @@ jobs:
           name: scott-figure2-digitization
           path: |
             /tmp/scott-figure2-digitization.log
+            data/experimental/scott1969_README.md
+            data/experimental/scott1969_source_metadata.csv
+            data/experimental/scott1969_figure1_specimens.csv
             data/experimental/scott1969_figure2_extraction_README.md
             data/experimental/scott1969_figure2_extraction_gate.csv
             data/experimental/scott1969_figure2_calibration.csv
