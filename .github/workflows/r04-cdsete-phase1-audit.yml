@@ -5,6 +5,10 @@ on:
     paths:
       - '.github/workflows/r04-cdsete-phase1-audit.yml'
       - 'tools/r04_cdsete_phase1_audit.py'
+      - 'data/external/cdsete2024/**'
+      - 'data/validation/r04_cdsete_phase1_decision.json'
+      - 'literature/notes/cdsete2024_open_data_audit.md'
+      - 'tests/test_r04_cdsete_phase1_decision.py'
   workflow_dispatch:
 
 permissions:
@@ -21,10 +25,10 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Install structural readers
+      - name: Install structural readers and tests
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy scipy h5py pillow openpyxl tifffile
+          python -m pip install numpy scipy h5py pillow openpyxl tifffile pytest
 
       - name: Compile audit tool
         run: python -m py_compile tools/r04_cdsete_phase1_audit.py
@@ -53,6 +57,9 @@ jobs:
           assert Path('r04-cdsete-phase1/Datasets.zip').stat().st_size > 0
           assert Path('r04-cdsete-phase1/extracted').is_dir()
           PY
+
+      - name: Verify reviewed restricted-go decision
+        run: python -m pytest -q tests/test_r04_cdsete_phase1_decision.py
 
       - uses: actions/upload-artifact@v4
         if: always()
