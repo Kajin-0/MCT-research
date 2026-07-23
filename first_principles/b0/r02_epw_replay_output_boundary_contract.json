@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_replay_output_boundary_design",
+  "program": "R02",
+  "issue": 355,
+  "predecessor_issue": 350,
+  "predecessor_result_commit": "743f34f8f3e0e9edbdf66185ffaa62df67ac4a6d",
+  "phase": "design_only",
+  "classification_target": "REPLAY_BOUNDARY_SUPPORTED",
+  "historical_issue_350_result_unchanged": true,
+  "source": {
+    "repository": "QEF/q-e",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "git_blobs": {
+      "EPW/src/input.f90": "caf48c74542f522aeff9ed8431e27512999c3ced",
+      "EPW/src/readin.f90": "1f4a3bca3aa511d9782e3d50ce4c66d47f9f5589",
+      "EPW/src/ep_coarse_unfolding.f90": "b9dcb97df833c42d1e3d793c5d66046a42c7ff77",
+      "EPW/src/epw.f90": "fca6e313d45ef636a81ca45b3585d2abe3124da5",
+      "EPW/src/stop.f90": "33e504b8c473ac5ca9ad26a59e56b8e5eda0c29a",
+      "EPW/src/printing.f90": "5437074def616e315e85f3cdfd988fbabcbb1aeb",
+      "EPW/src/io/io_var.f90": "39e6f840dea02719607f370ab743233575b01346",
+      "test-suite/epw_base/epw2.in": "a30b69515a204f74d1565f43806efa72f064e67a"
+    }
+  },
+  "source_findings": {
+    "epbread_definition": "read epmatq from prefix.epb pool files",
+    "epbwrite_definition": "write epmatq to prefix.epb pool files",
+    "epbread_default": false,
+    "epbwrite_default": false,
+    "epwread_default": false,
+    "epwwrite_default": true,
+    "epwread_without_epbread_skips_coarse_epmatq_reconstruction": true,
+    "epwread_without_epbread_message": "Do not need to read .epb files; read .fmt files",
+    "epb_serialization_condition": "epbread OR epbwrite",
+    "epbwrite_changes_self_energy_control_flow": false,
+    "epbwrite_changes_in_memory_physics": false,
+    "epbwrite_role": "optional coarse-Bloch serialization after restart-state loading",
+    "diam_epb1_consumed_by_tested_replay": false,
+    "diam_epb1_rewritten_because_epbwrite_true": true,
+    "stop_epw_calls_print_clock_epw": true,
+    "total_program_execution_is_source_grounded": true,
+    "linewidth_elself_is_declared_physical_output": true
+  },
+  "replay_input": {
+    "path": "first_principles/b0/r02_epw_nonmutating_replay.in",
+    "sha256": "e56d76aad9dd4fd6f8a5e2969bcc66ebff0fa468836cb2a313adffb11b5d8dda",
+    "derived_from": "first_principles/b0/r02_epw_same_state_replay.in",
+    "delta": {
+      "epbwrite": [true, false],
+      "epbread": [false, false]
+    },
+    "explicit_restart_controls": {
+      "epbwrite": false,
+      "epbread": false,
+      "epwwrite": false,
+      "epwread": true,
+      "wannierize": false,
+      "elecselfen": true,
+      "nest_fn": false
+    },
+    "physical_parameter_change": false,
+    "self_energy_parameter_change": false,
+    "restart_format_change": false,
+    "output_control_change_only": true
+  },
+  "state_projection": {
+    "source": "complete successful preparation tree",
+    "procedure": [
+      "manifest every regular file and reject symlinks or special files",
+      "require all source-audited consumed paths",
+      "remove every declared output path before constructing the replay seed",
+      "remove every forbidden epb path before constructing the replay seed",
+      "manifest the remaining complete tree as immutable seed",
+      "make byte-identical replay clones from that seed"
+    ],
+    "unknown_regular_files_retained_as_immutable": true,
+    "declared_outputs_removed_before_clone": true,
+    "forbidden_epb_files_removed_before_clone": true,
+    "copy_on_write_overlap_allowed": false
+  },
+  "path_classes": {
+    "consumed_immutable_state": {
+      "required_exact_paths": [
+        "epwdata.fmt",
+        "crystal.fmt",
+        "vmedata.fmt",
+        "dmedata.fmt",
+        "wigner.fmt",
+        "diam.epmatwp",
+        "diam.ukk"
+      ],
+      "additional_unknown_regular_files": "retain and hash unless classified below",
+      "mutation_allowed": false,
+      "deletion_allowed": false
+    },
+    "replay_declared_outputs": {
+      "patterns": [
+        "EPW.bib",
+        "linewidth.elself.*",
+        "selecq.fmt",
+        "*.kgmap",
+        "*_0.kmap",
+        "*.freq",
+        "*.qdos_*",
+        "*.self",
+        "*.res*"
+      ],
+      "must_be_absent_from_seed": true,
+      "creation_allowed": true,
+      "replacement_allowed": false,
+      "must_be_manifested_after_replay": true
+    },
+    "transient_runtime_files": {
+      "patterns": [
+        "out.*_*"
+      ],
+      "must_be_absent_from_seed": true,
+      "may_be_removed_by_epw_startup": true,
+      "not_completion_evidence": true
+    },
+    "forbidden_unknown_files": {
+      "patterns": [
+        "*.epb*",
+        "*raw*vertex*"
+      ],
+      "must_be_absent_before_replay": true,
+      "must_be_absent_after_replay": true
+    }
+  },
+  "path_class_invariants": {
+    "classes_are_pairwise_disjoint": true,
+    "exact_required_paths_cannot_match_output_transient_or_forbidden_patterns": true,
+    "every_post_replay_path_must_be_classified": true,
+    "immutable_seed_pre_and_post_hashes_must_match": true,
+    "declared_outputs_are_created_from_absence": true,
+    "unknown_post_replay_path_is_terminal": true
+  },
+  "completion_observables": {
+    "necessary": {
+      "process_exit_code_zero": true,
+      "fatal_or_signal_marker_absent": true,
+      "total_program_execution_marker": "Total program execution",
+      "selfen_timer_name": "selfen_elec_",
+      "selfen_timer_positive_call_count": true,
+      "electron_self_energy_result_pattern": "linewidth.elself.*",
+      "result_file_count_minimum": 1,
+      "result_file_nonempty": true,
+      "result_file_numeric_row_minimum": 1
+    },
+    "forbidden_markers": [
+      "SIGSEGV",
+      "Segmentation fault",
+      "Program received signal",
+      "Error in routine",
+      "%%%%%%"
+    ],
+    "timer_regex": "selfen_elec_\\s*:\\s*.*?\\(\\s*(?P<calls>[0-9]+) calls\\)",
+    "total_marker_source": "EPW/src/printing.f90 through stop_epw -> print_clock_epw",
+    "result_file_source": "EPW/src/io/io_var.f90 linewidth_elself physical-output unit",
+    "redundant_supporting": [
+      "Electron-Phonon interpolation",
+      "Reading Hamiltonian, Dynamical matrix and EP vertex in Wann rep from file",
+      "EPW total timer line"
+    ],
+    "rejected_markers": {
+      "JOB DONE.": "not emitted by pinned EPW completion path",
+      "Electron Self-Energy": "not a stable literal in pinned release output"
+    },
+    "post_hoc_marker_substitution_allowed": false,
+    "exit_code_alone_is_sufficient": false,
+    "stdout_marker_alone_is_sufficient": false
+  },
+  "design_gates": {
+    "epb_ownership_resolved": true,
+    "epbwrite_false_is_output_only": true,
+    "consumed_and_output_sets_disjoint": true,
+    "completion_observables_source_grounded": true,
+    "synthetic_false_positive_tests_required": true,
+    "inert_dry_run_required": true
+  },
+  "authorization": {
+    "source_inspection": true,
+    "contract_and_input_design": true,
+    "pure_python_policy_model": true,
+    "synthetic_parser_and_filesystem_tests": true,
+    "inert_dry_run": true,
+    "configure_or_build": false,
+    "patch_application": false,
+    "preparation_execution": false,
+    "epw_replay_execution": false,
+    "exporter_enabled_execution": false,
+    "automatic_retry": false,
+    "marker_or_threshold_fitting": false,
+    "mpi_execution": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_executable_successor": false
+  },
+  "claim_boundary": "This design resolves the pinned-source replay boundary and prospective completion evidence. It does not runtime-validate epbwrite=false, alter the historical issue-350 stop, validate exporter noninterference, validate SOC, or authorize material calculations."
+}
