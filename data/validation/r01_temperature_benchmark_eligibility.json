@@ -1,0 +1,271 @@
+{
+  "claim_boundary": {
+    "authorized": [
+      "class_specific_single_source_shape_or_forward_evaluations",
+      "source_bounded_eligibility_reporting"
+    ],
+    "not_authorized": [
+      "source_held_out_model_ranking",
+      "pooled_cross_class_ranking",
+      "new_gap_law_coefficients",
+      "universal_HgCdTe_equation",
+      "manuscript_authorization"
+    ]
+  },
+  "context_only_exclusions": [
+    {
+      "reason": "low_temperature_composition_anchors_not_specimen_temperature_series",
+      "source_id": "camassel1988"
+    },
+    {
+      "reason": "no_committed_specimen_temperature_point_ledger",
+      "source_id": "finkman_nemirovsky1979"
+    },
+    {
+      "reason": "direct_experimental_temperature_series_not_available_as_calibrated_ledger",
+      "source_id": "laurenti1990_figure2"
+    },
+    {
+      "reason": "room_temperature_context_and_non_signed_theory_conditioned_parameter",
+      "source_id": "blue1964"
+    },
+    {
+      "reason": "endpoint_and_sign_constraints_not_multi_temperature_specimen_series",
+      "source_id": "groves1967"
+    }
+  ],
+  "decision": "class_specific_single_source_benchmarks_only",
+  "gates": {
+    "E1_all_in_scope_sources_eligible": true,
+    "E2_any_exact_class_source_holdout_authorized": false,
+    "E3_any_exact_class_absolute_ranking_authorized": false,
+    "E4_universal_model_advancement_authorized": false
+  },
+  "issue": 320,
+  "measurement_classes": [
+    {
+      "absolute_gap_eligible_source_count": 0,
+      "absolute_material_gap_ranking_authorized": false,
+      "blocking_reasons": [
+        "fewer_than_two_independent_sources_in_exact_measurement_class"
+      ],
+      "e1_eligible_source_count": 1,
+      "measurement_class": "absorption_turning_point_edge",
+      "source_count": 1,
+      "source_held_out_ranking_authorized": false,
+      "source_ids": [
+        "chu_mi_tang_1991"
+      ]
+    },
+    {
+      "absolute_gap_eligible_source_count": 0,
+      "absolute_material_gap_ranking_authorized": false,
+      "blocking_reasons": [
+        "fewer_than_two_independent_sources_in_exact_measurement_class"
+      ],
+      "e1_eligible_source_count": 1,
+      "measurement_class": "detector_half_peak_spectral_response_cutoff",
+      "source_count": 1,
+      "source_held_out_ranking_authorized": false,
+      "source_ids": [
+        "schmit_stelzer1969"
+      ]
+    },
+    {
+      "absolute_gap_eligible_source_count": 0,
+      "absolute_material_gap_ranking_authorized": false,
+      "blocking_reasons": [
+        "fewer_than_two_independent_sources_in_exact_measurement_class"
+      ],
+      "e1_eligible_source_count": 1,
+      "measurement_class": "fixed_absorption_optical_edge_alpha_500_cm_inverse",
+      "source_count": 1,
+      "source_held_out_ranking_authorized": false,
+      "source_ids": [
+        "scott1969"
+      ]
+    },
+    {
+      "absolute_gap_eligible_source_count": 1,
+      "absolute_material_gap_ranking_authorized": false,
+      "blocking_reasons": [
+        "fewer_than_two_independent_sources_in_exact_measurement_class"
+      ],
+      "e1_eligible_source_count": 1,
+      "measurement_class": "two_photon_magnetoabsorption_modified_Pidgeon_Brown_gap",
+      "source_count": 1,
+      "source_held_out_ranking_authorized": false,
+      "source_ids": [
+        "seiler1990"
+      ]
+    }
+  ],
+  "observation_boundary": {
+    "composition_shifts_fitted": 0,
+    "cross_class_pooling_authorized": false,
+    "deterministic_bounds_recast_as_gaussian_sigma": false,
+    "exact_measurement_class_matching_required": true,
+    "model_coefficients_fitted": 0,
+    "observation_operator_inference_authorized": false,
+    "source_offsets_fitted": 0
+  },
+  "parent_issue": 8,
+  "program": "R01",
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "absolute_gap_eligible_specimen_count": 0,
+      "canonical_files": [
+        {
+          "path": "data/evidence/hgcdte_chu_1991_turning_point_series.json",
+          "sha256": "b3e64b586650e7aa55fd26ec0d0dd9cfdaca48b61b6c2c4b8024587d799d8425"
+        }
+      ],
+      "composition_provenance": "density estimate with electron-beam microprobe spatial audit",
+      "e1_eligible": true,
+      "e1_failures": [],
+      "eligible_for_absolute_gap_ranking": false,
+      "eligible_for_intercept_profiled_shape": true,
+      "eligible_for_source_holdout": false,
+      "energy_uncertainty_semantics": "printed_label_rounding_half_width_0p5_meV_not_experimental_sigma",
+      "exclusion_reasons": [
+        "no_second_independent_source_with_same_exact_measurement_class"
+      ],
+      "independently_composed_temperature_series_count": 1,
+      "intrinsic_gap_eligible_without_observation_operator": false,
+      "measurement_class": "absorption_turning_point_edge",
+      "row_count": 7,
+      "signed_gap_eligible": null,
+      "source_asset_sha256": "d5b3054790b2ebd2f880d12d12adc00434c4f7f7f16e55b2bf9754d5d9cbc490",
+      "source_id": "chu_mi_tang_1991",
+      "source_lineage_dependencies": [
+        "Chu_1983_equation_same_source_family"
+      ],
+      "source_native_or_auditable_status": "source_printed_figure_labels",
+      "specimen_count": 1,
+      "temperature_series_specimen_count": 1,
+      "temperature_uncertainty_semantics": "printed_temperature_labels"
+    },
+    {
+      "absolute_gap_eligible_specimen_count": 0,
+      "canonical_files": [
+        {
+          "path": "data/experimental/schmit1969_table3_cutoff_observations.csv",
+          "sha256": "5b096149f91d13dbaa3d0b531ee1905df9b4671118d2fcf4034f8a4fab1aaf8e"
+        },
+        {
+          "path": "data/experimental/schmit1969_specimens.csv",
+          "sha256": "25dc18f5f952bd2182856fe9fbc8f71ec24b50a84c038c12d2caf7193a01fcb0"
+        }
+      ],
+      "composition_provenance": "nominal_density_and_microprobe_values_are_measured; fit_adjusted_compositions_are_not_independent",
+      "e1_eligible": true,
+      "e1_failures": [],
+      "eligible_for_absolute_gap_ranking": false,
+      "eligible_for_intercept_profiled_shape": true,
+      "eligible_for_source_holdout": false,
+      "energy_uncertainty_semantics": "source_level_better_than_1_percent_not_pointwise_sigma; pointwise_covariance_not_reported",
+      "exclusion_reasons": [
+        "no_second_independent_source_with_same_exact_measurement_class"
+      ],
+      "independently_composed_temperature_series_count": 8,
+      "intrinsic_gap_eligible_without_observation_operator": false,
+      "measurement_class": "detector_half_peak_spectral_response_cutoff",
+      "row_count": 56,
+      "signed_gap_eligible": false,
+      "source_asset_sha256": null,
+      "source_id": "schmit_stelzer1969",
+      "source_lineage_dependencies": [
+        "Schmit_Stelzer_1969_equation_same_source",
+        "Hansen_1982_fitted_source_HSC_R01"
+      ],
+      "source_native_or_auditable_status": "source_native_printed_table",
+      "specimen_count": 8,
+      "temperature_series_specimen_count": 8,
+      "temperature_uncertainty_semantics": "plus_minus_0p5_K_control_stability_separate_from_better_than_10_K_absolute_accuracy; neither_is_pointwise_sigma"
+    },
+    {
+      "absolute_gap_eligible_specimen_count": 0,
+      "canonical_files": [
+        {
+          "path": "data/experimental/scott1969_figure2_digitized.csv",
+          "sha256": "6fd672cb9469d16d0dce2dc4657af99391e1652b79a2e59cd4661d03bdebc851"
+        },
+        {
+          "path": "data/experimental/scott1969_figure2_extraction_README.md",
+          "sha256": "ea341b1c5572fdd44600e59e7fff586270f39b9f4762c6108abba0e9a18a2315"
+        }
+      ],
+      "composition_provenance": "density_measured_plus_minus_0p005_with_microprobe_spatial_audit",
+      "e1_eligible": true,
+      "e1_failures": [],
+      "eligible_for_absolute_gap_ranking": false,
+      "eligible_for_intercept_profiled_shape": true,
+      "eligible_for_source_holdout": false,
+      "energy_uncertainty_semantics": "plus_minus_4p7_meV_digitization_bound; pointwise_experimental_covariance_not_reported",
+      "exclusion_reasons": [
+        "no_second_independent_source_with_same_exact_measurement_class"
+      ],
+      "independently_composed_temperature_series_count": 9,
+      "intrinsic_gap_eligible_without_observation_operator": false,
+      "measurement_class": "fixed_absorption_optical_edge_alpha_500_cm_inverse",
+      "row_count": 70,
+      "signed_gap_eligible": false,
+      "source_asset_sha256": "7b2e5790745897ecd75bd22134e5d9293397820c3b7851eb5a9e648a5c441324",
+      "source_id": "scott1969",
+      "source_lineage_dependencies": [
+        "Scott_1969_equation_same_source",
+        "Hansen_1982_fitted_source_HSC_R02"
+      ],
+      "source_native_or_auditable_status": "auditable_direct_marker_digitization",
+      "specimen_count": 9,
+      "temperature_series_specimen_count": 9,
+      "temperature_uncertainty_semantics": "plus_minus_1p75_K_digitization_bound_not_sigma"
+    },
+    {
+      "absolute_gap_eligible_specimen_count": 1,
+      "canonical_files": [
+        {
+          "path": "data/experimental/seiler1990_figure7_digitized.csv",
+          "sha256": "3aac14aa2658162bfe7e03a46e636ef7d6529269675df63f2d191ffc69e1a6d6"
+        },
+        {
+          "path": "data/experimental/seiler1990_specimens.csv",
+          "sha256": "1596629bc536174b269746d9a87ecef1664b7e011a198de15022715dbf7db4c5"
+        }
+      ],
+      "composition_provenance": "sample_3_independent_wet_chemistry_tied_value; samples_1_2_cutoff_or_HSC_conditioned",
+      "e1_eligible": true,
+      "e1_failures": [],
+      "eligible_for_absolute_gap_ranking": true,
+      "eligible_for_intercept_profiled_shape": true,
+      "eligible_for_source_holdout": false,
+      "energy_uncertainty_semantics": "Figure_7_digitization_half_widths_are_coordinate_bounds; pointwise_experimental_covariance_not_reported",
+      "exclusion_reasons": [
+        "no_second_independent_source_with_same_exact_measurement_class"
+      ],
+      "independently_composed_temperature_series_count": 1,
+      "intrinsic_gap_eligible_without_observation_operator": true,
+      "measurement_class": "two_photon_magnetoabsorption_modified_Pidgeon_Brown_gap",
+      "row_count": 34,
+      "signed_gap_eligible": null,
+      "source_asset_sha256": "5bc624ca8292fcba72ae55d13c5be03d07af03b57afc4584c2314ca08e459a49",
+      "source_id": "seiler1990",
+      "source_lineage_dependencies": [
+        "published_Seiler_relation_derived_from_same_source",
+        "provisional_Hansen_Pade_primarily_trained_on_Seiler_Figure_7"
+      ],
+      "source_native_or_auditable_status": "auditable_direct_marker_digitization",
+      "specimen_count": 3,
+      "temperature_series_specimen_count": 3,
+      "temperature_uncertainty_semantics": "source_approximately_plus_minus_0p2_K_article_level; digitization_bounds_separate"
+    }
+  ],
+  "summary": {
+    "exact_measurement_class_count": 4,
+    "maximum_sources_in_one_exact_class": 1,
+    "row_count": 167,
+    "source_count": 4,
+    "temperature_series_specimen_count": 21
+  }
+}
