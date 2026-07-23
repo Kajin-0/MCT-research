@@ -22,6 +22,7 @@ from mct_research.scott_temperature_coefficients import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data/experimental/scott1969_figure2_digitized.csv"
+COEFFICIENT_ABS_TOL = 5e-13
 
 
 def _points():
@@ -49,17 +50,21 @@ def test_source_contract_and_specimen_counts() -> None:
 
 def test_independent_specimen_slopes_match_centered_coordinates() -> None:
     slopes = _slopes_by_composition(_points())
-    assert slopes[0.23] == pytest.approx(3.250202919e-4, abs=1e-13)
-    assert slopes[0.35] == pytest.approx(1.611972379e-4, abs=1e-13)
-    assert slopes[0.46] == pytest.approx(4.267729535e-5, abs=1e-13)
-    assert slopes[0.61] == pytest.approx(-7.646551428e-5, abs=1e-13)
+    assert slopes[0.23] == pytest.approx(3.250202919e-4, abs=COEFFICIENT_ABS_TOL)
+    assert slopes[0.35] == pytest.approx(1.611972379e-4, abs=COEFFICIENT_ABS_TOL)
+    assert slopes[0.46] == pytest.approx(4.267729535e-5, abs=COEFFICIENT_ABS_TOL)
+    assert slopes[0.61] == pytest.approx(-7.646551428e-5, abs=COEFFICIENT_ABS_TOL)
 
 
 def test_full_shared_slope_is_close_to_but_not_fixed_to_hansen() -> None:
     fit = fit_shared_composition_slope(_points())
     assert fit["rank"] == 2
-    assert fit["b0_ev_per_k"] == pytest.approx(5.497835425e-4, abs=1e-13)
-    assert fit["b1_ev_per_k_per_x"] == pytest.approx(-1.076209537e-3, abs=1e-13)
+    assert fit["b0_ev_per_k"] == pytest.approx(
+        5.497835425e-4, abs=COEFFICIENT_ABS_TOL
+    )
+    assert fit["b1_ev_per_k_per_x"] == pytest.approx(
+        -1.076209537e-3, abs=COEFFICIENT_ABS_TOL
+    )
     assert fit["b0_ev_per_k"] != HANSEN_B0_EV_PER_K
     assert fit["b1_ev_per_k_per_x"] != HANSEN_B1_EV_PER_K_PER_X
 
@@ -86,8 +91,12 @@ def test_core_neither_shared_nor_hansen_model_is_box_feasible() -> None:
     result = analyze_subset(core)
     s1 = result["S1_shared_linear_composition_slope"]
     sh = result["SH_hansen_fixed_slope"]
-    assert s1["b0_ev_per_k"] == pytest.approx(6.038727338e-4, abs=1e-13)
-    assert s1["b1_ev_per_k_per_x"] == pytest.approx(-1.235286852e-3, abs=1e-13)
+    assert s1["b0_ev_per_k"] == pytest.approx(
+        6.038727338e-4, abs=COEFFICIENT_ABS_TOL
+    )
+    assert s1["b1_ev_per_k_per_x"] == pytest.approx(
+        -1.235286852e-3, abs=COEFFICIENT_ABS_TOL
+    )
     assert s1["metrics"]["maximum_normalized_box_residual"] == pytest.approx(
         1.418088513, abs=1e-9
     )
@@ -122,16 +131,16 @@ def test_linearized_box_sensitivity_contains_hansen_coefficients() -> None:
     assert sensitivity["probabilistic_interpretation"] is False
     assert sensitivity["hansen_coefficients_inside_componentwise_envelope"] is True
     assert sensitivity["lower"]["b0_ev_per_k"] == pytest.approx(
-        3.914851145e-4, abs=1e-13
+        3.914851145e-4, abs=COEFFICIENT_ABS_TOL
     )
     assert sensitivity["upper"]["b0_ev_per_k"] == pytest.approx(
-        8.162603531e-4, abs=1e-13
+        8.162603531e-4, abs=COEFFICIENT_ABS_TOL
     )
     assert sensitivity["lower"]["b1_ev_per_k_per_x"] == pytest.approx(
-        -1.809474839e-3, abs=1e-13
+        -1.809474839e-3, abs=COEFFICIENT_ABS_TOL
     )
     assert sensitivity["upper"]["b1_ev_per_k_per_x"] == pytest.approx(
-        -6.610988646e-4, abs=1e-13
+        -6.610988646e-4, abs=COEFFICIENT_ABS_TOL
     )
 
 
