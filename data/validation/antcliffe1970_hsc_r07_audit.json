@@ -1,0 +1,94 @@
+{
+  "decision": {
+    "controlling_decision": "primary_source_recovered_hansen_ingestion_mapping_unresolved",
+    "direct_hansen_validation_authorized": false,
+    "hansen_exact_ingestion_mapping_resolved": false,
+    "primary_source_recovered": true,
+    "primary_transport_table_reconstructed": true,
+    "source_reported_band_parameters_reconstructed": true
+  },
+  "hansen_descriptive_comparison": {
+    "hansen_gap_4p2k_ev": 0.06640466444799997,
+    "hansen_gap_77k_ev": 0.08946188044799996,
+    "hansen_gap_80k_ev": 0.09041204044799997,
+    "independent_validation": false,
+    "residual_hansen_minus_derived_optical_77k_ev": -0.0010375344667447467,
+    "residual_hansen_minus_ratio_check_normalized_80k_ev": -0.0010945769869517563,
+    "residual_hansen_minus_source_optical_proxy_4p2k_ev": -9.533555200003097e-05,
+    "residual_hansen_minus_source_reported_optical_pair_normalized_80k_ev": -0.0010763613450995996,
+    "residual_hansen_minus_source_transport_gap_4p2k_ev": 0.0029046644479999717,
+    "residual_hansen_minus_transport_to_optical_normalized_80k_ev": -0.001199987718725981
+  },
+  "primary_source_observations": {
+    "composition_spatial_half_width_x": 0.003,
+    "composition_x": 0.204,
+    "maximum_magnetic_field_kg": 20.0,
+    "optical_4p2k": {
+      "ratio_implied_energy_ev": 0.06605796709105452,
+      "source_reported_half_width_ev": 0.002,
+      "source_reported_proxy_ev": 0.0665,
+      "wavelength_ratio_to_77k": 1.37
+    },
+    "optical_77k": {
+      "derived_energy_ev": 0.09049941491474471,
+      "derived_energy_interval_ev": [
+        0.08731281579802835,
+        0.09392742305545475
+      ],
+      "wavelength_half_width_um": 0.5,
+      "wavelength_um": 13.7
+    },
+    "temperature_range_k": [
+      1.5,
+      77.0
+    ],
+    "transport_kp_gap": {
+      "measurement_class": "shubnikov_de_haas_effective_mass_kane_two_band_fit",
+      "source_reported_ev": 0.0635,
+      "source_reported_half_width_ev": 0.008
+    }
+  },
+  "rounded_table_reproduction": {
+    "Ep_ev": 15.127722471940565,
+    "band_edge_mass_ratio": 0.005098080627572088,
+    "exactly_reproduces_source_reported_parameters": false,
+    "interaction_gap_ev": 0.05167835969340909,
+    "interpretation": "Table I contains rounded sample averages and does not expose the underlying approximately fifteen mass determinations per specimen, weighting, or fit covariance.",
+    "mass_squared_rmse": 3.4761903058788726e-06,
+    "method": "ordinary_least_squares_of_mr_squared_vs_inverse_period_using_source_A4_small_mass_approximation"
+  },
+  "schema_version": "1.0",
+  "source_id": "ANTCLIFFE1970_HSC_R07",
+  "source_pdf_sha256": "43743f5f12598b0f7987be6fa1df2199f52b845b3c163189ac93d8d811901240",
+  "source_reported_fit": {
+    "Ep_ev": 17.0,
+    "Ep_half_width_ev": 1.4,
+    "band_edge_mass_half_width": 0.00025,
+    "band_edge_mass_ratio": 0.0056,
+    "fit_parameter_covariance_reported": false,
+    "interaction_gap_ev": 0.0635,
+    "interaction_gap_half_width_ev": 0.008
+  },
+  "source_scope": {
+    "complete_experimental_specimen_count_reported": false,
+    "copyrighted_source_committed": false,
+    "figure_digitization_performed": false,
+    "named_figure_only_specimens": 2,
+    "table1_transport_rows": 6
+  },
+  "temperature_lineage": {
+    "candidate_ids": [
+      "ANT70_PC_RATIO_CHECK",
+      "ANT70_PC_REPORTED_PAIR",
+      "ANT70_SDH_TO_PC_PAIR"
+    ],
+    "hansen_source_specific_ingestion_mapping": "unresolved_no_per_marker_source_labels",
+    "ratio_check_normalized_80k_ev": 0.09150661743495173,
+    "ratio_check_slope_ev_per_k": 0.0003357341734023378,
+    "reason": "Antcliffe reports a 77 K photoconductive threshold, a 4.2 K threshold-derived proxy, and a low-temperature transport-model gap. Hansen labels the study magneto-optical but does not identify which low-temperature value was paired with the 77 K point.",
+    "source_reported_optical_pair_normalized_80k_ev": 0.09148840179309957,
+    "source_reported_optical_pair_slope_ev_per_k": 0.0003296622927849548,
+    "transport_to_optical_normalized_80k_ev": 0.09161202816672595,
+    "transport_to_optical_slope_ev_per_k": 0.00037087108399374603
+  }
+}
