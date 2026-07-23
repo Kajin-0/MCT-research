@@ -1,7 +1,6 @@
 """Generate the real-spectrum observation-model SVG."""
 from __future__ import annotations
 
-import csv
 import html
 import math
 from pathlib import Path
@@ -57,19 +56,12 @@ def polyline(points: list[tuple[float, float]], attrs: str) -> str:
     return f'<polyline points="{values}" fill="none" {attrs}/>'
 
 
-def _source_pixel_centers(path: Path) -> np.ndarray:
-    with path.open(newline="", encoding="utf-8") as stream:
-        rows = list(csv.DictReader(stream))
-    return np.asarray([float(row["source_pixel_y_center"]) for row in rows])
-
-
 def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
     csv_path = root / "data/manuscript/moazzami2005_figure6a_irse_digitized.csv"
     calibration_path = root / "data/manuscript/moazzami2005_figure6a_irse_calibration.json"
     contract, _ = build_contract(csv_path, calibration_path)
     energy = np.asarray(contract["spectrum"]["energy_ev"], dtype=float)
     absorption = np.asarray(contract["spectrum"]["absorption_cm1"], dtype=float)
-    pixel_y = _source_pixel_centers(csv_path)
     candidates = base["specimens"][0]["contract_result"]["model_candidates"]
     low, high = (
         float(value)
@@ -79,11 +71,6 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
     fit_indices = np.flatnonzero(fit_mask)
     fit_min = float(energy[fit_indices[0]])
     fit_max = float(energy[fit_indices[-1]])
-
-    reversal_pairs: list[tuple[int, int]] = []
-    for left, right in zip(fit_indices[:-1], fit_indices[1:], strict=True):
-        if int(right) == int(left) + 1 and pixel_y[right] > pixel_y[left]:
-            reversal_pairs.append((int(left), int(right)))
 
     width, height = 1220, 700
     left, top, plot_w, plot_h = 105, 95, 760, 490
@@ -105,20 +92,10 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
         '.subtitle{font-size:14px;fill:#333}'
         '.legend-title{font-size:14px;font-weight:700}'
         '</style>',
-        '<text x="35" y="35" class="title">Reconstructed HgCdTe spectrum and observation-operator fits</text>',
+        '<text x="35" y="35" class="title">Reconstructed published HgCdTe spectrum and fitted extraction models</text>',
         '<text x="485" y="64" text-anchor="middle" class="subtitle">Moazzami 2005 Figure 6a; x=0.226, T=300 K, thickness=15.40 um</text>',
         f'<rect x="{xmap(fit_min):.2f}" y="{top}" width="{xmap(fit_max)-xmap(fit_min):.2f}" height="{plot_h}" fill="#f4f6f8"/>',
     ]
-
-    for left_index, right_index in reversal_pairs:
-        half_step = 0.5 * float(np.median(np.diff(energy)))
-        band_low = float(energy[left_index]) - half_step
-        band_high = float(energy[right_index]) + half_step
-        body.append(
-            f'<rect x="{xmap(band_low):.2f}" y="{top}" '
-            f'width="{xmap(band_high)-xmap(band_low):.2f}" height="{plot_h}" '
-            'fill="#F0E442" fill-opacity="0.22"/>'
-        )
 
     for tick in (0.18, 0.20, 0.22, 0.24, 0.26, 0.28, 0.30):
         x = xmap(tick)
@@ -179,30 +156,19 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
         f'<text x="{0.5*(xmap(fit_min)+xmap(fit_max)):.2f}" y="{top+29}" text-anchor="middle" class="small">declared fit population: 600-5000 cm-1</text>',
     ]
 
-    if reversal_pairs:
-        first_left, first_right = reversal_pairs[0]
-        feature_x = 0.5 * (xmap(float(energy[first_left])) + xmap(float(energy[first_right])))
-        body += [
-            f'<line x1="{feature_x:.2f}" y1="{ymap(float(absorption[first_left]))-10:.2f}" x2="{feature_x+58:.2f}" y2="{ymap(float(absorption[first_left]))-52:.2f}" stroke="#8a6d00" stroke-width="1"/>',
-            f'<text x="{feature_x+62:.2f}" y="{ymap(float(absorption[first_left]))-57:.2f}" class="small" fill="#6f5700">source-pixel reversal</text>',
-            f'<text x="{feature_x+62:.2f}" y="{ymap(float(absorption[first_left]))-41:.2f}" class="small" fill="#6f5700">influence audited; no physical attribution</text>',
-        ]
-
     body += [
-        f'<rect x="{legend_x-18}" y="92" width="285" height="350" rx="6" fill="#ffffff" stroke="#c8c8c8"/>',
-        f'<text x="{legend_x}" y="120" class="legend-title">Observation coordinates</text>',
+        f'<rect x="{legend_x-18}" y="92" width="285" height="328" rx="6" fill="#ffffff" stroke="#c8c8c8"/>',
+        f'<text x="{legend_x}" y="120" class="legend-title">Reconstructed coordinates</text>',
         f'<line x1="{legend_x}" y1="145" x2="{legend_x+42}" y2="145" stroke="#9a9a9a" stroke-width="1.2"/>',
         f'<circle cx="{legend_x+21}" cy="145" r="2" fill="#9a9a9a"/>',
-        f'<text x="{legend_x+53}" y="150" class="small">reconstructed source, outside fit</text>',
+        f'<text x="{legend_x+53}" y="150" class="small">outside declared fit population</text>',
         f'<line x1="{legend_x}" y1="172" x2="{legend_x+42}" y2="172" stroke="#9a9a9a" stroke-width="1.2"/>',
         f'<circle cx="{legend_x+21}" cy="172" r="2.25" fill="#111"/>',
-        f'<text x="{legend_x+53}" y="177" class="small">reconstructed source, used in fit</text>',
-        f'<rect x="{legend_x}" y="193" width="42" height="12" fill="#F0E442" fill-opacity="0.30"/>',
-        f'<text x="{legend_x+53}" y="204" class="small">raw pixel-center reversal</text>',
-        f'<text x="{legend_x}" y="238" class="legend-title">Fitted observation operators</text>',
+        f'<text x="{legend_x+53}" y="177" class="small">used in fitted-model analysis</text>',
+        f'<text x="{legend_x}" y="216" class="legend-title">Fitted extraction models</text>',
     ]
     for index, candidate in enumerate(candidates):
-        y = 266 + index * 28
+        y = 244 + index * 28
         dash = f' stroke-dasharray="{DASHES[index]}"' if DASHES[index] else ""
         body += [
             f'<line x1="{legend_x}" y1="{y}" x2="{legend_x+42}" y2="{y}" stroke="{COLORS[index]}" stroke-width="2.0"{dash}/>',
@@ -210,15 +176,15 @@ def build_spectrum_svg(root: Path, base: dict[str, Any]) -> str:
         ]
 
     body += [
-        f'<text x="{legend_x-18}" y="480" class="note">The gray/black coordinates are a reconstruction of the</text>',
-        f'<text x="{legend_x-18}" y="498" class="note">published bitmap, not native instrument-export data.</text>',
-        f'<text x="{legend_x-18}" y="528" class="note">Colored fits are displayed only over the declared fit</text>',
-        f'<text x="{legend_x-18}" y="546" class="note">population. No local feature is assigned a mechanism.</text>',
+        f'<text x="{legend_x-18}" y="458" class="note">Coordinates were reconstructed from a published bitmap,</text>',
+        f'<text x="{legend_x-18}" y="476" class="note">not obtained from the native ellipsometer export.</text>',
+        f'<text x="{legend_x-18}" y="506" class="note">A local two-point reconstruction irregularity was tested</text>',
+        f'<text x="{legend_x-18}" y="524" class="note">separately and is not highlighted as a physical feature.</text>',
     ]
 
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-        f'viewBox="0 0 {width} {height}"><title>Reconstructed spectrum and fitted observation operators</title>'
+        f'viewBox="0 0 {width} {height}"><title>Reconstructed spectrum and fitted extraction models</title>'
         + "".join(body)
         + "</svg>\n"
     )
