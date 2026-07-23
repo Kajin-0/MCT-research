@@ -3,313 +3,365 @@
 **Last updated:** 2026-07-23  
 **Program ID:** `stochastic_transport_noise`  
 **Contribution:** R06  
-**Controlling issue:** #339  
-**Current phase:** Phase 1 — literature and model definition
+**Controlling issues:** #341 and #343  
+**Current phase:** Phase 1C — HgCdTe statistics, parameter provenance, and solver architecture
 
 ## Objective
 
-Develop a self-consistent stochastic drift-diffusion-Poisson theory for a finite one-dimensional HgCdTe photoconductor and determine how space charge, finite diffusion length, contact recombination, applied electric field, and optical generation modify:
+Develop a verified one-dimensional stochastic drift-diffusion-Poisson framework for a finite HgCdTe photoconductor and quantify the error incurred when the full model is reduced to conventional quasineutral, deterministic-contact, or single-lifetime interpretations.
 
-1. nonlinear steady-state carrier, field, potential, recombination, and current distributions;
-2. terminal resistance and current;
+Target observables:
+
+1. nonlinear steady-state carrier, field, potential, recombination, and current profiles;
+2. terminal current, differential resistance, and conductance;
 3. photoconductive responsivity;
-4. terminal generation-recombination noise magnitude;
-5. characteristic noise frequencies and modal bandwidths;
-6. departures from a spatially uniform single-Lorentzian noise model.
+4. terminal current and voltage power spectral densities;
+5. dominant modal frequencies and fitted noise corners;
+6. error in lifetime inferred from a terminal corner;
+7. responsivity-noise-bandwidth and detectivity trade space;
+8. dimensionless regime boundaries for valid reduced models.
 
-The intended observable is the externally measurable terminal-current or terminal-voltage power spectral density under a declared electrical boundary condition and PSD convention. Local carrier-number fluctuations are intermediate state variables, not the final observable.
+The final observable is the terminal response under a declared external circuit. Local carrier-number and interface fluctuations are intermediate state variables.
 
-## Core scientific question
+## Revised core scientific question
 
-How do finite device dimensions, self-consistent electrostatics, contact boundary conditions, and carrier diffusion modify the terminal-current noise spectrum of an HgCdTe photoconductor relative to the conventional quasi-neutral, spatially uniform generation-recombination model?
+Under what dimensionless conditions can a finite bipolar HgCdTe photoconductor with self-consistent electrostatics, dynamic traps, stochastic interfaces, optical generation, and a loaded terminal circuit be reduced to:
 
-## Current state
+- a quasineutral ambipolar model;
+- a deterministic finite surface-recombination velocity;
+- a one-carrier model;
+- a single-Lorentzian GR spectrum;
+- a corner-frequency lifetime estimate;
 
-The program is a **gated active research program**. Phase 1 is authorized. Deterministic production simulations, stochastic parameter sweeps, manuscript drafting, and novelty claims are not authorized until the Phase 1 gate is passed.
+without exceeding a declared error tolerance?
 
-No scientific result has yet been established. The current program state records scope, conventions to be fixed, verification requirements, prior-art risks, and termination criteria.
+## Current decision
 
-## Baseline geometry and physics
+R06 remains a gated active research program.
 
-The baseline system is a one-dimensional slab on `x in [0,L]` with uniform cross-sectional area `A` and uniform HgCdTe composition.
+The broad novelty premise has been rejected. Prior work already establishes finite spatial GR noise, diffusion and drift effects, Poisson correlations, dynamic traps, stochastic semiconductor interfaces, thermionic-emission contact noise, impedance-field transfer, contact-controlled HgCdTe noise, and non-Lorentzian spectra.
 
-Initial physical scope:
+The program proceeds as a **controlled reduction and error-bound study**. Novelty is not claimed.
+
+Production parameter sweeps and manuscript drafting remain unauthorized until the final Phase 1 gate is passed.
+
+## Baseline geometry
+
+A one-dimensional HgCdTe slab occupies
+
+\[
+0\le x\le L
+\]
+
+with uniform cross-sectional area `A` and uniform composition in the baseline model.
+
+Initial operating scope:
 
 - temperature near 77 K;
-- applied terminal voltage `V_b`;
+- applied terminal voltage or current through an explicit external circuit;
 - uniform or Beer-Lambert optical generation;
-- electron and hole drift-diffusion transport;
+- electron and hole drift-diffusion;
 - Poisson electrostatics;
-- Shockley-Read-Hall recombination;
-- Ohmic, finite-recombination, or blocking-contact limits;
-- small-signal frequency-domain perturbations around the nonlinear steady state;
-- bulk, transport, and contact Langevin sources only when their covariance follows from an authoritative derivation, local detailed balance, or fluctuation-dissipation consistency.
+- one explicit two-state SRH trap family;
+- stochastic bulk reactions and transport;
+- stochastic ideal, interface-state, finite-exchange, or blocking-contact limits;
+- small-signal frequency-domain analysis around the nonlinear steady state.
 
-Radiative and Auger recombination are deferred until the SRH baseline and its equilibrium limit are verified.
+Radiative and Auger recombination remain deferred until the SRH baseline passes equilibrium and bulk-limit tests.
 
-## Baseline deterministic equations
+## Accepted sign and terminal conventions
 
-The sign convention is provisional until the Phase 1 conventions document is accepted. The intended convention uses electrostatic potential `phi`, electric field `E = -d phi/dx`, positive conventional current in the `+x` direction, and positive elementary charge `q > 0`.
+The program uses:
 
-The baseline equations are:
+\[
+E=-\frac{\partial\phi}{\partial x},
+\qquad q>0,
+\]
 
-```text
-d/dx(epsilon dphi/dx)
-    = -q(p - n + N_D^+ - N_A^- + rho_t/q)
+with conventional current positive in `+x`.
 
-E = -dphi/dx
+Electron and hole current densities are
 
-J_n = q mu_n n E + q D_n dn/dx
-J_p = q mu_p p E - q D_p dp/dx
+\[
+J_n=q\mu_n nE+qD_n\frac{\partial n}{\partial x},
+\]
 
-partial n/partial t = +(1/q) partial J_n/partial x + G - R
-partial p/partial t = -(1/q) partial J_p/partial x + G - R
-```
+\[
+J_p=q\mu_p pE-qD_p\frac{\partial p}{\partial x}.
+\]
 
-The initial recombination law is:
+Continuity equations are
 
-```text
-R_SRH = (n p - n_i^2)
-        / [tau_p (n + n_1) + tau_n (p + p_1)]
-```
+\[
+\frac{\partial n}{\partial t}
+=\frac{1}{q}\frac{\partial J_n}{\partial x}+G-R,
+\]
 
-The final Phase 1 formulation must specify:
+\[
+\frac{\partial p}{\partial t}
+=-\frac{1}{q}\frac{\partial J_p}{\partial x}+G-R.
+\]
 
-- whether `R` denotes net recombination or total event rate;
-- trap-charge closure and trap occupancy;
-- Einstein relations under nondegenerate and degenerate statistics;
-- carrier-density definitions under Fermi-Dirac statistics;
-- electrostatic and carrier boundary conditions;
-- voltage-driven versus current-driven terminal conditions;
-- displacement-current contribution to the measured terminal current.
+The conserved total current density is
 
-## Stochastic formulation target
+\[
+J_{tot}=J_n+J_p+\frac{\partial(\varepsilon E)}{\partial t}.
+\]
 
-The fields are decomposed as:
+At fixed voltage and constant area, the terminal current is the spatial average of conduction current plus any nonzero voltage-derivative displacement term. It is not generally the conduction current evaluated at an arbitrary interior point.
 
-```text
-n = n_0 + delta n
-p = p_0 + delta p
-phi = phi_0 + delta phi
-```
+Internal stochastic derivations use a two-sided angular-frequency covariance. Reported detector spectra use one-sided PSD per hertz with explicit conversion.
 
-and transformed using `partial/partial t -> j omega`.
+## Deterministic baseline equations
 
-The linearized problem should ultimately have the operator form:
+Poisson electrostatics is
 
-```text
-(j omega M - J) delta u = B xi
+\[
+\frac{\partial}{\partial x}
+\left(\varepsilon\frac{\partial\phi}{\partial x}\right)
+=-q\left(p-n+N_D^+-N_A^-+\frac{\rho_t}{q}\right).
+\]
 
-delta I = c(omega)^T delta u + d(omega)^T xi
-```
+The reference trap model retains explicit occupancy. The algebraic SRH law is a steady reduction of four positive channels:
 
-where:
+1. electron capture;
+2. electron emission;
+3. hole capture;
+4. hole emission.
 
-- `delta u` contains the discretized carrier and electrostatic perturbations;
-- `M` is the dynamic mass matrix;
-- `J` is the Jacobian of the deterministic residual;
-- `xi` contains independently defined primitive stochastic processes;
-- `Q_xi(omega)` is their covariance matrix or covariance operator;
-- `delta I` is the conserved external terminal-current perturbation.
+The net SRH residual is not a noise intensity.
 
-The resulting terminal PSD is expected to be evaluated as:
+## Stochastic operator architecture
 
-```text
-S_I(omega) = H(omega) Q_xi(omega) H(omega)^H
-```
+The discretized linearized system will have the form
 
-with all factor-of-two and angular-frequency conversions controlled by the declared PSD convention.
+\[
+(i\omega M-J)\delta u=B\xi,
+\]
 
-No stochastic source may be introduced solely because it produces a desired spectral shape.
+\[
+\delta I=C\delta u+D\xi,
+\]
 
-## Initial dimensionless groups
+with primitive-event covariance
 
-The initial scaling analysis must assess, reduce, and if necessary replace:
+\[
+Q_\xi=\sum_r \nu_r\nu_r^T a_r.
+\]
 
-- `Pi_D = L/L_D`, where `L_D = sqrt(D_ref tau_ref)`;
-- `Pi_E = q E_ref L/(k_B T)` or an equivalent applied-voltage parameter;
-- `Pi_C,n = S_n L/D_n` and `Pi_C,p = S_p L/D_p`;
-- `Pi_lambda = L/L_Debye`;
-- `Pi_G = G_ref tau_ref/n_ref`;
-- `Pi_mu = mu_n/mu_p`;
-- optical depth `Pi_alpha = alpha L`;
-- compensation and equilibrium-injection ratios;
-- trap-energy and trap-density ratios;
-- degeneracy parameters relative to the band edges;
-- dielectric relaxation to recombination-time ratio;
-- transit-time to recombination-time ratio;
-- normalized external impedance where terminal loading is not ideal.
+The terminal PSD is
 
-The program must distinguish independent control parameters from derived combinations and avoid device-by-device sweeps that obscure similarity structure.
+\[
+S_I=H_IQ_\xi H_I^\dagger.
+\]
+
+A second implementation based on an adjoint or impedance field is mandatory for selected benchmarks.
+
+## Accepted stochastic-interface hierarchy
+
+### Ideal exchange
+
+For forward and reverse event activities,
+
+\[
+\bar\Gamma=a_+-a_-,
+\qquad
+Q_\Gamma=\frac{a_++a_-}{A_c}.
+\]
+
+This structure is source-established by Gomila and Rubí (1998).
+
+### Nonideal interface
+
+Interface states are represented by explicit primitive processes. Composite interface currents have cross covariance whenever they share a primitive event.
+
+### Schottky specialization
+
+Thermionic-emission contact noise and its thermal-to-shot crossover are established. The contact source must enter as a stochastic boundary condition.
+
+### Deterministic finite velocity
+
+A boundary such as
+
+\[
+\Gamma=S(c-c_{eq})
+\]
+
+is a reduced mean law. It is not a complete stochastic contact model.
+
+The reference implementation will compare:
+
+1. explicit ideal interface exchange;
+2. explicit dynamic interface-state exchange;
+3. stochastic reduced boundary after state elimination;
+4. deterministic Robin boundary without interface covariance.
+
+## Dimensionless baseline
+
+For nondegenerate isothermal transport, define
+
+\[
+\Pi_D=\frac{L}{\sqrt{D_r\tau_r}},
+\qquad
+\Lambda=\frac{L}{L_{D,r}},
+\qquad
+U=\frac{qV_b}{k_BT}.
+\]
+
+Derived ratios include
+
+\[
+\frac{\tau_r}{t_{tr}}=\frac{U}{\Pi_D^2},
+\]
+
+and, for the unipolar reference conductivity,
+
+\[
+\frac{\tau_r}{\tau_{dr}}=\frac{\Lambda^2}{\Pi_D^2}.
+\]
+
+Additional independent controls include:
+
+- electron/hole mobility and equilibrium-density ratios;
+- left/right, electron/hole contact Biot numbers;
+- thermionic-to-diffusion contact ratio;
+- optical depth and injection level;
+- trap density, trap energy, and nonredundant transition-rate ratios;
+- generalized Einstein factors when degenerate;
+- normalized external impedance.
+
+## Completed Phase 1 work
+
+### Literature and prior art
+
+- full equation-level audits of Smith 1982, Smith 1984, Iverson-Smith 1985, Shockley-Read 1952, Bulashenko et al. 1998, Zocchi 2006, Gomila-Rubí 1997, Gomila-Rubí 1998, and Gomila-Bulashenko-Rubí 1998;
+- literature matrix with explicit verification depth;
+- source acquisition and substitution records;
+- broad novelty hypothesis rejected;
+- stochastic-interface novelty hypothesis rejected.
+
+### Conventions and derivations
+
+- sign, voltage, Fourier, PSD, and terminal-current conventions;
+- event-level bulk reaction covariance;
+- explicit trap-state requirement;
+- contact detailed balance;
+- contact Onsager-FDT relation;
+- blocking and fast-reservoir singular-limit analysis;
+- reduced dimensionless parameter set.
+
+### Benchmark design
+
+- B0-B9 benchmark ladder;
+- source-derived HgCdTe and finite-size targets;
+- stochastic-interface benchmarks;
+- direct-versus-adjoint comparison requirement;
+- equilibrium FDT and current-conservation tolerances.
+
+## Established prior art exclusions
+
+R06 will not claim novelty for:
+
+- finite one-dimensional drift-diffusion noise;
+- Poisson and dielectric-relaxation effects;
+- dynamic trap populations;
+- stochastic semiconductor-interface boundary conditions;
+- thermionic-emission contact noise;
+- interface-state cross covariance;
+- Green-function or impedance-field transfer;
+- deterministic finite contact recombination velocity;
+- contact-controlled HgCdTe responsivity and GR noise;
+- non-Lorentzian spatial spectra;
+- apparent lifetime changes caused by transport and contacts in principle.
+
+## Candidate contribution
+
+A paper-level contribution remains possible only if R06 establishes a new quantitative result such as:
+
+1. a controlled asymptotic error for eliminating dynamic interface states;
+2. a dimensionless validity boundary for deterministic `S`;
+3. a quantitative error boundary for quasineutral ambipolar reduction;
+4. an uncertainty-robust criterion for when a terminal corner misestimates microscopic lifetime;
+5. a falsifiable HgCdTe regime map separating contact, trap, screening, diffusion, drift, and circuit modes.
 
 ## Required limiting cases
 
-The model is not considered physically verified until the relevant implementation recovers, within stated numerical tolerances:
+The model must recover:
 
-1. thermal equilibrium at zero applied bias;
-2. equilibrium detailed balance and zero mean terminal current;
-3. Johnson-Nyquist terminal noise under the declared one-sided or two-sided convention;
-4. strong-screening quasi-neutrality;
-5. uniform-field drift-dominated transport;
+1. zero-bias thermal equilibrium;
+2. detailed balance and zero mean terminal current;
+3. Johnson-Nyquist terminal noise;
+4. strong-screening quasineutrality;
+5. uniform-field drift transport;
 6. diffusion-dominated transport;
-7. infinite surface/contact recombination;
+7. ideal reservoir and absorbing-contact limits;
 8. blocking-contact behavior;
-9. bulk or infinite-device generation-recombination noise;
-10. low-frequency GR-noise plateau;
-11. high-frequency modal roll-off;
-12. spatial conservation of total conduction plus displacement current;
-13. agreement between at least two independent numerical or analytical methods for selected cases.
+9. Smith 1982 and Smith 1984 HgCdTe limits;
+10. Iverson-Smith dynamic-trap limit;
+11. Gomila-Rubí ideal and interface-state stochastic boundaries;
+12. Gomila-Bulashenko-Rubí Schottky thermal-shot and Nyquist limits;
+13. Zocchi finite Poisson-trap spectra;
+14. conventional bulk Lorentzian;
+15. spatial conservation of conduction plus displacement current;
+16. agreement between direct and adjoint terminal-noise methods.
 
-## Phase 1 deliverables
+## Preliminary numerical acceptance targets
 
-Phase 1 must produce:
+| Metric | Target after convergence |
+|---|---:|
+| Normalized nonlinear residual | `< 1e-10` |
+| Integrated carrier-continuity imbalance | `< 1e-9` |
+| Spatial terminal-current variation | `< 1e-8` |
+| Equilibrium FDT relative error | `< 1e-4` |
+| Direct-versus-adjoint PSD discrepancy | `< 1e-5` |
+| Mesh change in terminal DC observables | `< 1e-4` |
+| Mesh change in terminal PSD | `< 5e-3` |
+| Frequency-grid interpolation error near poles | `< 1e-3` |
 
-1. a verified literature matrix and claim-level source ledger;
-2. final governing equations and state-variable definitions;
-3. carrier, electrostatic, optical, and terminal boundary conditions;
-4. sign, Fourier-transform, angular-frequency, and PSD conventions;
-5. source-covariance requirements and fluctuation-dissipation strategy;
-6. parameter and uncertainty table for HgCdTe;
-7. reduced dimensionless formulation;
-8. prior-art and novelty-risk assessment;
-9. deterministic and stochastic solver architecture;
-10. numerical acceptance tests and convergence metrics;
-11. unresolved scientific questions;
-12. a decision record authorizing, revising, or terminating Phase 2.
+These are design requirements, not completed results.
 
-## Planned later phases
+## Remaining Phase 1C work
 
-### Phase 2 — deterministic baseline
+1. Build the HgCdTe parameter and uncertainty table.
+2. Classify each relation as source-established, uncertain literature input, or exploratory.
+3. Decide the baseline carrier-statistics closure near 77 K.
+4. Quantify the error of the nondegenerate Einstein relation over the intended composition and density range.
+5. Finalize deterministic contact and external-circuit boundary hierarchy.
+6. Select numerical dependencies and solver architecture.
+7. Specify Phase 2 executable tests and file layout.
+8. Record the final Phase 1 proceed, reframe, or terminate decision.
 
-- equilibrium solution;
-- biased dark solution;
-- illuminated solution;
-- conservation checks;
-- mesh-convergence study;
-- analytical-limit comparisons.
+## Authorized next work
 
-### Phase 3 — linearized stochastic model
+Authorized:
 
-- Jacobian and mass operators;
-- primitive source covariance;
-- frequency-domain transfer functions;
-- terminal-current conservation;
-- equilibrium fluctuation-dissipation verification.
+- material/statistics source audit;
+- parameter uncertainty table;
+- generalized Einstein validity analysis;
+- deterministic solver architecture;
+- small analytical prototypes that do not constitute production sweeps;
+- preparation of a final Phase 1 gate.
 
-### Phase 4 — dimensionless parameter study
+Not authorized:
 
-Sweep the independent groups established in Phase 1 rather than arbitrary device parameter sets.
+- production HgCdTe sweeps;
+- predictive detector claims;
+- manuscript drafting;
+- claims that contact noise or dynamic traps are new;
+- arbitrary fitted source terms;
+- three-dimensional simulation.
 
-### Phase 5 — theory extraction
+## Termination criteria
 
-Identify scaling laws, asymptotic formulas, regime boundaries, failure criteria for the lumped model, and falsifiable experimental predictions.
+Reframe R06 as a benchmark/synthesis package or terminate the paper objective if:
 
-### Phase 6 — paper preparation
-
-Paper preparation remains unauthorized until the evidence, novelty, and reproducibility gates are passed.
-
-## Verification metrics
-
-Later numerical work must report, as applicable:
-
-- nonlinear residual norms by equation block;
-- mesh-convergence error for terminal and field observables;
-- frequency-grid convergence;
-- global and local charge-conservation error;
-- terminal-current conservation error;
-- conditioning or pseudospectral sensitivity of the linearized operator;
-- sensitivity to boundary-condition discretization;
-- equilibrium Johnson-Nyquist relative error;
-- bulk-GR-limit relative error;
-- cross-method discrepancy;
-- uncertainty sensitivity for weakly constrained material parameters.
-
-Solver convergence is not evidence of physical correctness.
-
-## Completed foundations
-
-At program creation:
-
-- repository governance supports independent programs and contribution tracking;
-- shared literature, validation, derivation, benchmark, and test directories exist;
-- public HgCdTe gap-law and selected material-relation infrastructure may be reusable after dependency review;
-- issue #339 records the Phase 1 authorization boundary.
-
-No stochastic transport solver or validated noise result is claimed as complete.
-
-## Shared dependencies
-
-Expected initial dependencies:
-
-- repository literature and source-provenance conventions;
-- general validation and benchmark organization;
-- HgCdTe composition/temperature material relations where their observable and validity range match this program;
-- uncertainty and sensitivity conventions.
-
-Existing band-edge, spatial-disorder, and Kane program modules are intentionally not scientific dependencies unless a later PR documents a direct need and tests the interface.
-
-## Unresolved scientific questions
-
-1. Which primitive Langevin sources form a nonredundant covariance representation after Poisson coupling and contact constraints are imposed?
-2. What contact model permits finite recombination while remaining thermodynamically consistent at equilibrium?
-3. Under voltage bias, which external-circuit degrees of freedom must be included for exact Johnson-Nyquist recovery?
-4. Does the one-dimensional model require explicit trap-occupancy dynamics to represent HgCdTe GR noise rather than an algebraic SRH closure?
-5. Under what regimes can quasi-neutral ambipolar reduction reproduce the full drift-diffusion-Poisson spectrum within controlled error?
-6. Which HgCdTe lifetime, mobility, trap, and surface-recombination relations are sufficiently established for quantitative regime boundaries?
-7. Can overlapping discrete transport-recombination modes mimic an apparent `1/f^alpha` interval over experimentally meaningful bandwidths without a broad trap distribution?
-8. Which terminal observable is most directly comparable to common photoconductor noise measurements: current under ideal voltage bias, voltage under current bias, or loaded transimpedance output?
-
-## Novelty status and risks
-
-Novelty is unresolved. A provisional hypothesis is:
-
-> Existing HgCdTe GR-noise treatments often use quasi-neutral or spatially uniform carrier fluctuations, whereas this program seeks a terminal-current theory resolving coupled charge, electric-field, diffusion, recombination, and contact modes and the dimensionless boundaries where a lumped approximation fails.
-
-This statement is not a novelty claim. It must be revised or rejected after verified prior-art review.
-
-Principal novelty risks:
-
-- equivalent finite-device stochastic drift-diffusion theories may already exist in semiconductor noise literature outside HgCdTe-specific indexing;
-- impedance-field and Green-function device-noise methods may already imply the proposed terminal transfer formulation;
-- contact and diffusion eigenmodes may already be established for photoconductors under different terminology;
-- the HgCdTe specialization may be parameter substitution rather than new physics;
-- apparent multimode behavior may reduce to known distributed-recombination or transmission-line results.
-
-## Authorized next gate
-
-Complete Phase 1 documentation and source verification. Do not begin broad simulations until a decision record confirms:
-
-- internally consistent equations and conventions;
-- non-arbitrary stochastic covariance;
-- a viable equilibrium fluctuation-dissipation test;
-- sufficient material-parameter support;
-- a defensible prior-art boundary;
-- a numerical plan with independent verification.
-
-## Prohibited or unsupported claims
-
-Until later gates pass, do not claim:
-
-- original theory;
-- quantitative prediction of HgCdTe detector noise;
-- recovery of Johnson-Nyquist noise;
-- measured or material validation;
-- universal failure of the Lorentzian model;
-- emergence of true `1/f` noise;
-- identification of microscopic lifetime from a terminal noise corner;
-- manuscript readiness.
-
-## Termination or pause criteria
-
-Pause, merge into established theory, or terminate the program if:
-
-- materially equivalent coupled theory and observables are already established;
-- fluctuation-dissipation consistency cannot be achieved under the intended state and boundary variables;
-- the one-dimensional observable is structurally non-identifiable;
-- uncertain material parameters prevent falsifiable regime boundaries;
-- a reduced analytical model reproduces all departures within controlled tolerances;
-- numerical conditioning makes the claimed modal interpretation nonrobust over the physical parameter range.
+- reduction errors are negligible across all plausible HgCdTe regimes;
+- equivalent quantitative boundaries are found in prior work;
+- material uncertainty prevents a stable regime boundary;
+- the one-dimensional terminal observable is structurally non-identifiable;
+- equilibrium FDT cannot be recovered from one consistent event model;
+- modal conclusions are not robust to discretization or parameter uncertainty.
 
 ## Manuscript status
 
-No manuscript is authorized. R06 is a candidate-work concept pending Phase 1 completion, prior-art review, and a positive Phase 2 decision gate.
+No manuscript is authorized. The project remains a candidate theoretical work pending completion of Phase 1C and a positive Phase 2 gate.
