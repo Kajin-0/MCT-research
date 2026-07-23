@@ -8,6 +8,8 @@ on:
       - 'data/manuscript/moazzami2005_figure6*_irse_calibration.json'
       - 'data/validation/moazzami2005_local_feature_sensitivity_reference.json'
       - 'data/validation/moazzami2005_local_feature_sensitivity_summary.csv'
+      - 'data/validation/moazzami2005_model_robustness_reference.json'
+      - 'data/validation/moazzami2005_model_robustness_summary.csv'
       - 'src/mct_research/absorption_edge_uncertainty.py'
       - 'tools/analyze_moazzami2005_real_spectra.py'
       - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
@@ -15,12 +17,14 @@ on:
       - 'tools/audit_moazzami2005_model_robustness.py'
       - 'tools/run_moazzami2005_model_robustness.py'
       - 'tools/build_moazzami_local_feature_reference.py'
+      - 'tools/build_moazzami_model_robustness_reference.py'
       - 'tools/build_observation_model_manuscript_assets.py'
       - 'tools/observation_manuscript_figure_spectrum.py'
       - 'tests/test_moazzami2005_local_feature_sensitivity.py'
       - 'tests/test_moazzami2005_pixel_reversal_core.py'
       - 'tests/test_moazzami2005_local_feature_reference.py'
       - 'tests/test_moazzami2005_model_robustness.py'
+      - 'tests/test_moazzami2005_model_robustness_reference.py'
       - 'manuscript/observation_model_uncertainty/**'
   workflow_dispatch:
 
@@ -58,6 +62,10 @@ jobs:
             --repository-root . \
             --output-json /tmp/moazzami-local-feature-reference.json \
             --output-csv /tmp/moazzami-local-feature-summary.csv
+          python -m tools.build_moazzami_model_robustness_reference \
+            --repository-root . \
+            --output-json /tmp/moazzami-model-robustness-reference.json \
+            --output-csv /tmp/moazzami-model-robustness-summary.csv
       - name: Build revised manuscript assets
         run: |
           python -m tools.build_observation_model_manuscript_assets \
@@ -69,6 +77,10 @@ jobs:
             data/validation/moazzami2005_local_feature_sensitivity_reference.json
           cmp /tmp/moazzami-local-feature-summary.csv \
             data/validation/moazzami2005_local_feature_sensitivity_summary.csv
+          cmp /tmp/moazzami-model-robustness-reference.json \
+            data/validation/moazzami2005_model_robustness_reference.json
+          cmp /tmp/moazzami-model-robustness-summary.csv \
+            data/validation/moazzami2005_model_robustness_summary.csv
       - name: Run focused tests
         shell: bash
         run: |
@@ -78,6 +90,7 @@ jobs:
             tests/test_moazzami2005_pixel_reversal_core.py \
             tests/test_moazzami2005_local_feature_reference.py \
             tests/test_moazzami2005_model_robustness.py \
+            tests/test_moazzami2005_model_robustness_reference.py \
             2>&1 | tee /tmp/moazzami-focused-pytest.log
       - name: Publish clean-built frozen spectrum asset
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
@@ -131,6 +144,7 @@ jobs:
               'moazzami-pixel-reversal-core.json',
               'moazzami-local-feature-reference.json',
               'moazzami-model-robustness.json',
+              'moazzami-model-robustness-reference.json',
           ):
               result = json.loads(Path('/tmp', filename).read_text())
               print(filename)
@@ -151,6 +165,8 @@ jobs:
             /tmp/moazzami-local-feature-reference.json
             /tmp/moazzami-local-feature-summary.csv
             /tmp/moazzami-model-robustness.json
+            /tmp/moazzami-model-robustness-reference.json
+            /tmp/moazzami-model-robustness-summary.csv
             /tmp/moazzami-model-robustness.log
             /tmp/moazzami-focused-pytest.log
             /tmp/observation-manuscript-assets
