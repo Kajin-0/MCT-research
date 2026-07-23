@@ -74,13 +74,15 @@ jobs:
       - name: Validate committed reference when present
         run: |
           if [ -f data/validation/scott1969_temperature_coefficient_test.json ]; then
+            cp data/validation/scott1969_temperature_coefficient_test.json \
+              /tmp/scott-temperature-coefficient-committed.json
             sha256sum /tmp/scott-temperature-coefficient-a.json \
-              data/validation/scott1969_temperature_coefficient_test.json
+              /tmp/scott-temperature-coefficient-committed.json
             cmp -l /tmp/scott-temperature-coefficient-a.json \
-              data/validation/scott1969_temperature_coefficient_test.json \
+              /tmp/scott-temperature-coefficient-committed.json \
               | head -n 20 || true
             cmp /tmp/scott-temperature-coefficient-a.json \
-                data/validation/scott1969_temperature_coefficient_test.json
+                /tmp/scott-temperature-coefficient-committed.json
             python -m pytest -vv \
               tests/test_scott_temperature_coefficient_reference.py
           fi
@@ -91,6 +93,6 @@ jobs:
           path: |
             /tmp/scott-temperature-coefficient-tests.log
             /tmp/scott-temperature-coefficient-a.json
-            data/validation/scott1969_temperature_coefficient_test.json
+            /tmp/scott-temperature-coefficient-committed.json
           if-no-files-found: error
           retention-days: 30
