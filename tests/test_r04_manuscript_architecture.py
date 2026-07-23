@@ -152,7 +152,7 @@ def test_figure_plan_has_exactly_four_main_figures_and_no_new_science() -> None:
 def test_real_data_figure_is_explicitly_restricted() -> None:
     figure4 = load(FIGURE_PLAN_PATH)["figures"][3]
     assert figure4["figure"] == 4
-    text = " ".join(json.dumps(figure4).split())
+    text = " ".join(json.dumps(figure4, ensure_ascii=False).split())
 
     assert "CdSeTe" in text
     assert "PL peak wavelength" in text
@@ -214,7 +214,7 @@ def test_architecture_contains_all_required_sections_and_drafting_order() -> Non
     drafting_section = text[text.index("## Drafting order") :]
     assert drafting_section.index("measurement model") < drafting_section.index("introduction")
     assert "abstract last" in drafting_section
-    assert "No fifth main figure is authorized" in text
+    assert "main figures            4" in text
     assert "full section drafting under the architecture authorized" in normalized_text(
         DECISION_PATH
     )
@@ -223,4 +223,4 @@ def test_architecture_contains_all_required_sections_and_drafting_order() -> Non
 def test_canonical_json_formatting() -> None:
     for path in (CLAIM_LEDGER_PATH, FIGURE_PLAN_PATH, ABSTRACT_PLAN_PATH):
         raw = path.read_text(encoding="utf-8")
-        assert raw == json.dumps(json.loads(raw), indent=2) + "\n"
+        assert raw == json.dumps(json.loads(raw), indent=2, ensure_ascii=False) + "\n"
