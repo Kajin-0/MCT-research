@@ -1,0 +1,12 @@
+observation_id,sample_id,temperature_k,pressure_condition,carrier,concentration_cm3,mobility_cm2_v_s,value_status,source_location,notes
+ELL72_T1_7B_77_H,7B,77,P_gt_5_kbar,hole,1.5e16,450,exact_table,Table I,"High-pressure limiting hole values; footnoted P>5 kbar, not atmospheric-pressure hole values."
+ELL72_T1_7B_77_E,7B,77,P_eq_0,electron,5.3e15,3.7e5,exact_table,Table I,
+ELL72_T1_7B1_77_H,7B1,77,P_eq_0,hole,6.3e17,174,exact_table,Table I,
+ELL72_T1_7B1_77_E,7B1,77,P_eq_0,electron,3.0e15,3.2e4,exact_table,Table I,
+ELL72_T1_8B_77_H,8B,77,P_eq_0,hole,8.3e17,168,exact_table,Table I,
+ELL72_T1_8B_77_E,8B,77,P_eq_0,electron,4.8e15,2.5e4,exact_table,Table I,
+ELL72_T1_7B_4P2_E,7B,4.2,P_eq_0,electron,3.4e14,6.3e5,exact_table,Table I,"Hole values omitted by source."
+ELL72_T1_7B1_4P2_H,7B1,4.2,P_eq_0,hole,1.5e17,76,exact_table,Table I,
+ELL72_T1_7B1_4P2_E,7B1,4.2,P_eq_0,electron,8.8e14,4.6e4,exact_table,Table I,
+ELL72_T1_8B_4P2_H,8B,4.2,P_eq_0,hole,7.6e17,78,exact_table,Table I,
+ELL72_T1_8B_4P2_E,8B,4.2,P_eq_0,electron,3.2e15,1.6e4,exact_table,Table I,
