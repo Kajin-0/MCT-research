@@ -107,7 +107,7 @@ def build_manifest(
 
     input_hashes = verify_fixture_inputs(contract, fixture) if verify_inputs else {}
     commands: list[dict[str, Any]] = []
-    destinations: set[str] = set()
+    destinations: set[Path] = set()
     for sequence, item in enumerate(contract["command_sequence"], 1):
         argv = [str(value) for value in item["argv"]]
         argv = [
@@ -117,13 +117,13 @@ def build_manifest(
             for value in argv
         ]
         stdin = str((fixture / item["stdin"]).resolve()) if item["stdin"] else None
-        stdout = str((evidence / Path(item["stdout"]).relative_to("evidence")).resolve())
-        stderr = str((evidence / Path(item["stderr"]).relative_to("evidence")).resolve())
+        stdout = (evidence / Path(item["stdout"]).relative_to("evidence")).resolve()
+        stderr = (evidence / Path(item["stderr"]).relative_to("evidence")).resolve()
         for destination in (stdout, stderr):
             if destination in destinations:
                 raise DirectFixtureDesignError(f"duplicate output destination: {destination}")
             destinations.add(destination)
-            if str(fixture) in Path(destination).parents:
+            if destination == fixture or fixture in destination.parents:
                 raise DirectFixtureDesignError("output overlaps fixture cleanup scope")
         quoted_words = [executable_labels[item["executable_symbol"]], *argv]
         commands.append(
@@ -135,8 +135,8 @@ def build_manifest(
                 "executable_label": executable_labels[item["executable_symbol"]],
                 "argv": argv,
                 "stdin": stdin,
-                "stdout": stdout,
-                "stderr": stderr,
+                "stdout": str(stdout),
+                "stderr": str(stderr),
                 "quoted_command_text": shlex.join(quoted_words),
                 "upstream_run_epw_branch": item["upstream_run_epw_branch"],
             }
