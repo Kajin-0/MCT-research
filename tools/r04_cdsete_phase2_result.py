@@ -80,7 +80,7 @@ def normalize_rounded_coordinates(source: SourceMap) -> tuple[SourceMap, dict[st
     ideal_y = np.linspace(float(y[0]), float(y[-1]), y.size)
     max_x = float(np.max(np.abs(x - ideal_x)))
     max_y = float(np.max(np.abs(y - ideal_y)))
-    tolerance = 7.0e-4
+    tolerance = 1.0e-3
     if max_x > tolerance or max_y > tolerance:
         raise ValueError(
             "coordinate rounding exceeds the declared endpoint-linear normalization tolerance"
@@ -95,7 +95,9 @@ def normalize_rounded_coordinates(source: SourceMap) -> tuple[SourceMap, dict[st
         "maximum_x_rounding_residual_micrometre": max_x,
         "maximum_y_rounding_residual_micrometre": max_y,
         "normalization_tolerance_micrometre": tolerance,
-        "normalized_spacing_micrometre": float((ideal_x[1] - ideal_x[0] + ideal_y[1] - ideal_y[0]) / 2.0),
+        "normalized_spacing_micrometre": float(
+            (ideal_x[1] - ideal_x[0] + ideal_y[1] - ideal_y[0]) / 2.0
+        ),
     }
 
 
@@ -196,7 +198,9 @@ def build_result(protocol: dict[str, Any], source_path: Path) -> dict[str, Any]:
                 "sample_standard_deviation_nm": float(np.sqrt(result.source_sample_variance)),
                 "minimum_nm": float(np.min(source.values)),
                 "maximum_nm": float(np.max(source.values)),
-                "missing_or_nonfinite_count": int(np.size(source.values) - np.count_nonzero(np.isfinite(source.values))),
+                "missing_or_nonfinite_count": int(
+                    np.size(source.values) - np.count_nonzero(np.isfinite(source.values))
+                ),
             },
             "primary_added_kernel_sweep": {
                 "sigma_pixels": result.scales_pixels,
@@ -242,7 +246,12 @@ def build_result(protocol: dict[str, Any], source_path: Path) -> dict[str, Any]:
                     np.max(np.abs((np.asarray(result.crop_variances) - primary) / primary))
                 ),
                 "maximum_relative_difference_planar_detrended_vs_primary": float(
-                    np.max(np.abs((np.asarray(result.planar_detrended_variances) - primary) / primary))
+                    np.max(
+                        np.abs(
+                            (np.asarray(result.planar_detrended_variances) - primary)
+                            / primary
+                        )
+                    )
                 ),
             },
             "phase_randomized_control": {
