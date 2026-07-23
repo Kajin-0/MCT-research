@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "program": "R04",
+  "issue": 330,
+  "decision_dependency": "data/validation/r04_manuscript_authorization_review.json",
+  "final_claim_audit_required_before_submission": true,
+  "claims": [
+    {
+      "claim_id": "R04-C01",
+      "claim_text": "Finite-aperture HgCdTe transmission and photoluminescence mapping, spatial variation, and model-conditioned composition or thickness inference predate R04.",
+      "claim_class": "established_prior_art",
+      "supporting_theorem_result_source": [
+        "literature/notes/finite_aperture_hgcdte_mapping_audit.md",
+        "PR_223",
+        "Chang_2005",
+        "Furstenberg_2005"
+      ],
+      "main_text_location": "Section_1_Introduction_and_prior_art_boundary",
+      "figure_table_support": "Figure_1a_context_only",
+      "scope_conditions": "Claim is limited to the audited full texts and bounded source-access record.",
+      "unsupported_stronger_version": "R04 invented finite-aperture or spatially resolved HgCdTe mapping.",
+      "required_citation_class": "primary_HgCdTe_mapping_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C02",
+      "claim_text": "A finite linear measurement of a stationary spatial field reports covariance filtered by the complete measurement kernel.",
+      "claim_class": "established_mathematics",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder.py",
+        "PR_199"
+      ],
+      "main_text_location": "Section_2_Measurement_model_and_kernel_filtered_covariance",
+      "figure_table_support": "Figure_1a_1b",
+      "scope_conditions": "Stationary field and declared linear normalized kernel; nonlinear observation operators are treated separately.",
+      "unsupported_stronger_version": "The filtering identity is new mathematics or proves a universal HgCdTe covariance law.",
+      "required_citation_class": "random_field_and_linear_filtering_texts",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C03",
+      "claim_text": "For the isotropic Gaussian benchmark, filtered variance obeys V(s)=A/(1+2s^2/xi^2).",
+      "claim_class": "established_mathematics",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder.py",
+        "research/programs/spatial_disorder/state.md"
+      ],
+      "main_text_location": "Section_2_Measurement_model_and_kernel_filtered_covariance",
+      "figure_table_support": "Figure_1b",
+      "scope_conditions": "Two-dimensional isotropic Gaussian material covariance and Gaussian probe benchmark.",
+      "unsupported_stronger_version": "All HgCdTe spatial fields follow this Gaussian law.",
+      "required_citation_class": "Gaussian_integral_and_random_field_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C04",
+      "claim_text": "One scale cannot identify both point variance and correlation length; two scales estimate the Gaussian benchmark but do not test its covariance family.",
+      "claim_class": "candidate_integrated_R04_contribution",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_inference.py",
+        "src/mct_research/spatial_disorder_theorems.py",
+        "PR_204"
+      ],
+      "main_text_location": "Section_3_Recoverability_and_absolute_scale_calibration",
+      "figure_table_support": "Figure_1b",
+      "scope_conditions": "Identifiability statement is conditional on the declared Gaussian variance-versus-scale observation model.",
+      "unsupported_stronger_version": "Two scales validate Gaussian covariance or independently determine a universal material law.",
+      "required_citation_class": "inverse_problem_identifiability_and_R04_derivation",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C05",
+      "claim_text": "A common multiplicative scale-calibration error is exactly confounded with absolute correlation length, producing an irreducible absolute-length uncertainty floor.",
+      "claim_class": "candidate_integrated_R04_contribution",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_calibration.py",
+        "src/mct_research/spatial_disorder_posterior.py",
+        "PR_216",
+        "PR_221"
+      ],
+      "main_text_location": "Section_3_Recoverability_and_absolute_scale_calibration",
+      "figure_table_support": "Figure_1c",
+      "scope_conditions": "Exact local identity and declared nonlinear posterior conditions; bounded absolute-length priors can break factorization.",
+      "unsupported_stronger_version": "Calibration uncertainty can be removed by adding repeats at the same uncalibrated scales.",
+      "required_citation_class": "calibration_and_identifiability_sources_plus_R04_derivation",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C06",
+      "claim_text": "Gaussian covariance requires reciprocal variance to be linear in squared probe scale, so a third scale provides the first exact family-closure residual.",
+      "claim_class": "candidate_integrated_R04_contribution",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_covariance_families.py",
+        "PR_219"
+      ],
+      "main_text_location": "Section_4_Three_scale_family_closure_and_misspecification",
+      "figure_table_support": "Figure_2a_2b",
+      "scope_conditions": "Closure applies to the Gaussian covariance/Gaussian probe benchmark and requires calibrated scales and covariance-aware uncertainty.",
+      "unsupported_stronger_version": "Failure to reject Gaussian closure proves Gaussian covariance.",
+      "required_citation_class": "covariance_family_and_R04_derivation",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C07",
+      "claim_text": "Forcing a misspecified Gaussian covariance model produces scale-selection- and fitting-convention-dependent estimates of variance and correlation scale.",
+      "claim_class": "synthetic_design_consequence",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_covariance_bias.py",
+        "PR_227"
+      ],
+      "main_text_location": "Section_4_Three_scale_family_closure_and_misspecification",
+      "figure_table_support": "Figure_2c_2d",
+      "scope_conditions": "Controlled supported Matérn alternatives and declared fitting losses; not a specimen result.",
+      "unsupported_stronger_version": "The synthetic parameter drift measures uncertainty in a real HgCdTe wafer.",
+      "required_citation_class": "Matern_covariance_and_model_misspecification_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C08",
+      "claim_text": "Optical PSF, pixel or scan-bin integration, and depth weighting can materially change the transmitted variance and must remain explicit outside verified surrogate regimes.",
+      "claim_class": "synthetic_design_consequence",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_instrument.py",
+        "PR_229"
+      ],
+      "main_text_location": "Section_2_Measurement_model_and_kernel_filtered_covariance",
+      "figure_table_support": "Appendix_A_instrument_kernel",
+      "scope_conditions": "Declared separable covariance and representative instrument stress grid.",
+      "unsupported_stronger_version": "A universal Gaussian PSF or rectangular pixel model applies to all instruments.",
+      "required_citation_class": "optical_transfer_pixel_integration_and_depth_weighting_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C09",
+      "claim_text": "For a correlated finite raster, ordinary map variance can be biased relative to marginal filtered variance and nominal pixel count can greatly exceed effective information.",
+      "claim_class": "candidate_integrated_R04_contribution",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_map_sampling.py",
+        "PR_236"
+      ],
+      "main_text_location": "Section_5_Finite_map_information_and_same_raster_covariance",
+      "figure_table_support": "Figure_3a_3b",
+      "scope_conditions": "Exact Gaussian quadratic-form moments for declared covariance; effective degrees of freedom are moment matched.",
+      "unsupported_stronger_version": "Nominal map pixels are independent repeats or effective degrees of freedom follow an exact chi-square law generally.",
+      "required_citation_class": "Gaussian_quadratic_form_and_spatial_sampling_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C10",
+      "claim_text": "Variance estimates at multiple scales obtained from one registered raster are correlated and require their full cross-scale covariance in parameter inference.",
+      "claim_class": "candidate_integrated_R04_contribution",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_multiscale_map.py",
+        "PR_247"
+      ],
+      "main_text_location": "Section_5_Finite_map_information_and_same_raster_covariance",
+      "figure_table_support": "Figure_3c_3d",
+      "scope_conditions": "Exact under joint Gaussian map model; delta-method logarithmic covariance is approximate.",
+      "unsupported_stronger_version": "Numerically smoothed scales are independent measurements or model-conditioned covariance is empirical repeat covariance.",
+      "required_citation_class": "quadratic_form_covariance_and_multiscale_statistics_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C11",
+      "claim_text": "Parameter-efficient endpoint allocation and covariance-family falsification require different scale allocations, so an interior scale must be reserved when family testing is a design goal.",
+      "claim_class": "synthetic_design_consequence",
+      "supporting_theorem_result_source": [
+        "src/mct_research/spatial_disorder_allocation.py",
+        "PR_231"
+      ],
+      "main_text_location": "Section_7_Measurement_design_consequences",
+      "figure_table_support": "Appendix_B_allocation",
+      "scope_conditions": "Declared local Gaussian Fisher design, scale interval, uncertainty model, and efficiency floor.",
+      "unsupported_stronger_version": "The reported allocation is a universal experimental prescription.",
+      "required_citation_class": "optimal_design_and_R04_allocation_sources",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C12",
+      "claim_text": "On the public CdSeTe PL peak-wavelength map, added numerical smoothing reduced apparent variance to 11.24 percent of its unsmoothed value at four pixels.",
+      "claim_class": "restricted_cross_material_demonstration",
+      "supporting_theorem_result_source": [
+        "data/validation/r04_cdsete_real_data_result.json",
+        "research/decision_records/2026-07-23-r04-cdsete-real-data-demonstration.md",
+        "PR_326"
+      ],
+      "main_text_location": "Section_6_Restricted_CdSeTe_real_map_demonstration",
+      "figure_table_support": "Figure_4a_4b",
+      "scope_conditions": "One 24 by 24 source-data-derived PL observation field with unknown native sample-plane kernel.",
+      "unsupported_stronger_version": "The result validates HgCdTe covariance or measures a physical CdSeTe correlation length.",
+      "required_citation_class": "Bowman_article_dataset_and_R04_result",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C13",
+      "claim_text": "The same CdSeTe map exhibits strong model-conditioned same-raster dependence, while boundary and crop choices change the variance curve more than the descriptive covariance-family separation.",
+      "claim_class": "restricted_cross_material_demonstration",
+      "supporting_theorem_result_source": [
+        "data/validation/r04_cdsete_real_data_result.json",
+        "src/mct_research/spatial_disorder_real_data.py",
+        "PR_326"
+      ],
+      "main_text_location": "Section_6_Restricted_CdSeTe_real_map_demonstration",
+      "figure_table_support": "Figure_4c_4d",
+      "scope_conditions": "Cross-scale covariance is conditional on a fitted descriptive Gaussian field; edge and crop results are finite-map sensitivities.",
+      "unsupported_stronger_version": "Matérn nu=3/2 is the material covariance law or the held-out numerical scale is independent validation.",
+      "required_citation_class": "Bowman_article_dataset_and_R04_result",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C14",
+      "claim_text": "No qualifying public source-native HgCdTe dataset was found for specimen-specific multiresolution validation under the declared public-only search.",
+      "claim_class": "explicit_limitation",
+      "supporting_theorem_result_source": [
+        "data/validation/r04_public_data_recovery_ledger.json",
+        "literature/notes/r04_public_data_recovery_audit.md",
+        "PR_308"
+      ],
+      "main_text_location": "Section_8_Limitations",
+      "figure_table_support": "none",
+      "scope_conditions": "Publicly indexed and audited sources only; does not prove private or unindexed data do not exist.",
+      "unsupported_stronger_version": "No suitable HgCdTe data exist anywhere.",
+      "required_citation_class": "repository_audit_and_primary_source_records",
+      "final_claim_audit_status": "required"
+    },
+    {
+      "claim_id": "R04-C15",
+      "claim_text": "The manuscript reports no specimen-specific HgCdTe point variance, physical correlation length, universal covariance family, or composition assignment from the CdSeTe PL field.",
+      "claim_class": "explicit_limitation",
+      "supporting_theorem_result_source": [
+        "data/validation/r04_manuscript_authorization_review.json",
+        "research/decision_records/2026-07-23-r04-manuscript-authorization-review.md"
+      ],
+      "main_text_location": "Abstract_Section_8_Limitations_and_Section_9_Discussion",
+      "figure_table_support": "unsupported_claims_box",
+      "scope_conditions": "Applies to the entire manuscript and all figures, captions, abstract, and conclusions.",
+      "unsupported_stronger_version": "Descriptive pixel-space parameters or synthetic values are material constants.",
+      "required_citation_class": "not_applicable_internal_claim_boundary",
+      "final_claim_audit_status": "required"
+    }
+  ]
+}
