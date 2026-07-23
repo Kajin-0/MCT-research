@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_same_state_attribution_design",
+  "program": "R02",
+  "issue": 318,
+  "predecessor_issue": 313,
+  "predecessor_result_commit": "49476afe6f9b4c3b2be534bc9d81ada67c4ecab9",
+  "phase": "design_only",
+  "source": {
+    "repository": "QEF/q-e",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "files": {
+      "EPW/src/epw.f90": "fca6e313d45ef636a81ca45b3585d2abe3124da5",
+      "EPW/src/ep_coarse_unfolding.f90": "b9dcb97df833c42d1e3d793c5d66046a42c7ff77",
+      "EPW/src/wannier.f90": "a2b706939505a84b2d082e5a83a3dbb1ae8eef57",
+      "EPW/src/use_wannier.f90": "104bfee94e9b32e5cb1f86c47382f34090393f3b",
+      "EPW/src/io/io.f90": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+      "test-suite/epw_base/epw1.in": "624b4f8a47b003443a131f15afb7815b33a3398e",
+      "test-suite/epw_base/epw2.in": "a30b69515a204f74d1565f43806efa72f064e67a"
+    }
+  },
+  "upstream_control_flow": {
+    "epwread_skips_pw_restart_loading": true,
+    "epwread_skips_coarse_regeneration_in_ep_coarse_unfolding": true,
+    "epwread_reads_crystal_fmt_directly_in_ep_coarse_unfolding": true,
+    "epwread_reconstructs_wigner_seitz_from_saved_centers": true,
+    "epwread_calls_epw_read": true,
+    "epwread_calls_epw_read_ws_data": false,
+    "wannierize_false_loads_existing_rotation_matrices": true,
+    "epmatwp_open_mode_mpi": "MPI_MODE_RDONLY",
+    "formatted_restart_open_status": "old",
+    "evidence": [
+      "EPW/src/epw.f90 epwread restart branches",
+      "EPW/src/ep_coarse_unfolding.f90 epwread skip and crystal.fmt read branches",
+      "EPW/src/wannier.f90 build_wannier epwread branch",
+      "EPW/src/io/io.f90 epw_read",
+      "test-suite/epw_base/epw2.in"
+    ]
+  },
+  "preparation": {
+    "input_path": "test-suite/epw_base/epw1.in",
+    "input_role": "one upstream preparation run only",
+    "prepared_state_captured_after_success": true,
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "soc_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false
+  },
+  "replay_input": {
+    "path": "first_principles/b0/r02_epw_same_state_replay.in",
+    "sha256": "6e36c722d58c90cb6d58ffdee06568d1803fdea41c1d1196f57c583e8add7b73",
+    "derived_from_epw1": {
+      "epwwrite": [true, false],
+      "epwread": [false, true],
+      "wannierize": [true, false]
+    },
+    "borrowed_restart_controls_from_epw2": [
+      "epwwrite=.false.",
+      "epwread=.true.",
+      "wannierize=.false."
+    ],
+    "preserved_from_epw1": [
+      "prefix",
+      "amass",
+      "outdir",
+      "iverbosity",
+      "elph",
+      "epbwrite",
+      "epbread",
+      "etf_mem",
+      "vme",
+      "nbndsub",
+      "num_iter",
+      "iprint",
+      "dis_win_max",
+      "dis_froz_max",
+      "proj",
+      "elecselfen",
+      "nest_fn",
+      "phonselfen",
+      "a2f",
+      "fsthick",
+      "temps",
+      "degaussw",
+      "dvscf_dir",
+      "nkf1",
+      "nkf2",
+      "nkf3",
+      "nqf1",
+      "nqf2",
+      "nqf3",
+      "nk1",
+      "nk2",
+      "nk3",
+      "nq1",
+      "nq2",
+      "nq3"
+    ],
+    "electron_self_energy_enabled": true,
+    "nest_function_enabled": false,
+    "physical_parameter_change": false
+  },
+  "prepared_state": {
+    "source_audited_consumed_paths": [
+      "epwdata.fmt",
+      "crystal.fmt",
+      "vmedata.fmt",
+      "dmedata.fmt",
+      "diam.epmatwp",
+      "diam.ukk"
+    ],
+    "source_audited_preparation_outputs": [
+      "epwdata.fmt",
+      "crystal.fmt",
+      "vmedata.fmt",
+      "dmedata.fmt",
+      "wigner.fmt",
+      "diam.epmatwp",
+      "diam.ukk"
+    ],
+    "source_audited_required_paths": [
+      "epwdata.fmt",
+      "crystal.fmt",
+      "vmedata.fmt",
+      "dmedata.fmt",
+      "wigner.fmt",
+      "diam.epmatwp",
+      "diam.ukk"
+    ],
+    "wigner_fmt_written_by_preparation": true,
+    "wigner_fmt_consumed_by_replay_path": false,
+    "complete_tree_manifest_required": true,
+    "manifest_fields": [
+      "relative_path",
+      "file_type",
+      "mode",
+      "size_bytes",
+      "sha256"
+    ],
+    "symlinks_allowed": false,
+    "special_files_allowed": false,
+    "unknown_regular_files_included": true,
+    "three_byte_identical_clones_required": true,
+    "clone_ids": [
+      "disabled_a",
+      "disabled_b",
+      "enabled"
+    ],
+    "pre_replay_manifest_equality_required": true,
+    "preexisting_file_mutation_allowed": false,
+    "preexisting_file_deletion_allowed": false,
+    "new_files_allowed_only_by_declared_pattern": true,
+    "allowed_new_file_patterns": [
+      "EPW.bib",
+      "linewidth.elself.*",
+      "selecq.fmt",
+      "*.kgmap",
+      "*_0.kmap",
+      "*.freq",
+      "*.qdos_*",
+      "*.self",
+      "*.res*"
+    ]
+  },
+  "replays": {
+    "count": 3,
+    "order": [
+      "disabled_a",
+      "disabled_b",
+      "enabled"
+    ],
+    "same_executable_required": true,
+    "same_replay_input_required": true,
+    "same_environment_required": true,
+    "same_thread_settings_required": true,
+    "same_prepared_state_manifest_required": true,
+    "upstream_regeneration_allowed": false,
+    "pw_x_allowed": false,
+    "ph_x_allowed": false,
+    "pp_py_allowed": false,
+    "wannierization_allowed": false,
+    "enabled_environment": {
+      "R02_EXPORT_RAW_VERTEX": "1",
+      "R02_EXPORT_IK_GLOBAL": "1"
+    },
+    "disabled_environment_requires_export_variables_unset": true,
+    "stdout_stderr_opened_before_process_start": true
+  },
+  "attribution_rule": {
+    "name": "disabled_replay_interval_with_fixed_floor",
+    "historical_issue_313_result_unchanged": true,
+    "numerical_floors": {
+      "energy_ev": 1e-12,
+      "self_energy_ev": 1e-12,
+      "dimensionless": 1e-12
+    },
+    "baseline_reproducibility_ceilings": {
+      "energy_ev": 1e-12,
+      "self_energy_ev": 1e-12,
+      "dimensionless": 1e-12
+    },
+    "baseline_definition": "absolute componentwise difference between disabled_a and disabled_b",
+    "enabled_envelope_definition": "componentwise closed interval spanning disabled_a and disabled_b, expanded on each side by the fixed numerical floor",
+    "baseline_pass_required_before_enabled_evaluation": true,
+    "all_components_must_pass": true,
+    "retrospective_floor_or_threshold_change_allowed": false,
+    "claim_if_passed": "exporter output is observationally indistinguishable from disabled replay variability for this pinned non-SOC fixture and replay protocol",
+    "claim_if_failed": "exporter noninterference is not established",
+    "statistical_population_claim_allowed": false
+  },
+  "design_gates": {
+    "source_read_set_enumerated": true,
+    "complete_tree_clone_policy_defined": true,
+    "replay_input_derived_line_by_line": true,
+    "pre_and_post_hash_policy_defined": true,
+    "baseline_control_defined": true,
+    "enabled_attribution_rule_defined": true,
+    "synthetic_mutation_tests_required": true,
+    "synthetic_attribution_tests_required": true,
+    "inert_dry_run_manifest_required": true
+  },
+  "authorization": {
+    "source_inspection": true,
+    "contract_and_manifest_design": true,
+    "replay_input_derivation": true,
+    "synthetic_filesystem_tests": true,
+    "synthetic_attribution_tests": true,
+    "inert_dry_run": true,
+    "configure_or_build": false,
+    "preparation_execution": false,
+    "epw_replay_execution": false,
+    "automatic_retry": false,
+    "threshold_fitting": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_phase_transition": false
+  },
+  "claim_boundary": "This contract designs an identifiable same-state EPW exporter attribution experiment. It does not execute preparation or replay, establish saved-state completeness empirically, validate exporter noninterference, validate SOC, or authorize material calculations."
+}
