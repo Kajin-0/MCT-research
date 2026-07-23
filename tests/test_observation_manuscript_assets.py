@@ -23,6 +23,9 @@ ASSET_NAMES = {
 FROZEN_ASSET_NAMES = ASSET_NAMES | {
     "figure4_identifiability.svg",
     "figure5_paired_acquisition_design.svg",
+    "figure6_relative_fitted_intercepts.svg",
+    "figure7_robustness_scales.svg",
+    "figure8_model_residual_compatibility.svg",
     "conceptual_figure_summary.json",
 }
 
