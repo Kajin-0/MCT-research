@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "stage": "B0_epw_raw_vertex_fixture",
   "program": "R02",
   "issue": 300,
-  "phase": "fixture_execution",
-  "execution_mode": "one_audited_replacement_after_harness_stop",
+  "phase": "terminal_harness_stop",
+  "execution_mode": "no_further_execution_under_issue_300",
   "source": {
     "repository": "QEF/q-e",
     "clone_url": "https://github.com/QEF/q-e.git",
@@ -76,7 +76,8 @@
       "all_intermediate_bands": true,
       "all_temperatures": true
     },
-    "deterministic_stdout_pattern": "test.out.*.inp=epw1.in.args=3"
+    "testcode_stdout_pattern": "test.out.*.inp=epw1.in.args=3",
+    "testcode_fixture_path_terminated": true
   },
   "normalization": {
     "backend_vertex": "epf17 in Ry-dependent EPW convention",
@@ -98,62 +99,74 @@
     "maximum_workflow_minutes": 120,
     "maximum_evidence_bytes": 2147483648
   },
-  "prior_attempt": {
-    "record_path": "first_principles/b0/r02_epw_raw_vertex_fixture_harness_stop_29962340413.json",
-    "workflow_run_id": 29962340413,
-    "workflow_job_id": 89066052310,
-    "artifact_id": 8546683709,
-    "artifact_digest": "sha256:9073466e47eff31d301d7d9b54675edffc420e7f160cecd3c8a523c057166971",
-    "classification": "HARNESS_STOP",
-    "build_count": 1,
-    "scientific_execution_count": 1,
-    "disabled_fixture_sequence_passed": true,
-    "disabled_stdout_preserved": false,
-    "enabled_fixture_sequence_executed": false,
-    "analyzer_executed": false,
-    "failure_stage": "fixture_disabled",
-    "failure_reason": "heuristic_stdout_discovery_failed"
+  "attempts": [
+    {
+      "record_path": "first_principles/b0/r02_epw_raw_vertex_fixture_harness_stop_29962340413.json",
+      "workflow_run_id": 29962340413,
+      "artifact_id": 8546683709,
+      "artifact_digest": "sha256:9073466e47eff31d301d7d9b54675edffc420e7f160cecd3c8a523c057166971",
+      "classification": "HARNESS_STOP",
+      "build_count": 1,
+      "scientific_execution_count": 1,
+      "disabled_fixture_sequence_passed": true,
+      "enabled_fixture_sequence_executed": false,
+      "analyzer_executed": false,
+      "stdout_preserved": false,
+      "failure_reason": "heuristic_stdout_discovery_failed"
+    },
+    {
+      "record_path": "first_principles/b0/r02_epw_raw_vertex_fixture_terminal_harness_stop_29971955581.json",
+      "workflow_run_id": 29971955581,
+      "artifact_id": 8550168667,
+      "artifact_digest": "sha256:59e73383c7b25a77cb6bc45a19adae80e0c644c1dfc26509c1e7175620e2fe61",
+      "classification": "TERMINAL_HARNESS_STOP",
+      "build_count": 1,
+      "scientific_execution_count": 1,
+      "disabled_fixture_sequence_passed": true,
+      "enabled_fixture_sequence_executed": false,
+      "analyzer_executed": false,
+      "stdout_preserved": false,
+      "failure_reason": "testcode_output_directory_not_established"
+    }
+  ],
+  "aggregate_execution": {
+    "pinned_build_count": 2,
+    "disabled_fixture_sequence_count": 2,
+    "enabled_fixture_sequence_count": 0,
+    "analyzer_execution_count": 0,
+    "material_calculation_count": 0
   },
-  "replacement_authorization": {
-    "authorized": true,
-    "maximum_replacement_builds": 1,
-    "required_replacement_fixture_sequences": [
-      "exporter_disabled",
-      "exporter_enabled"
-    ],
-    "deterministic_stdout_capture_required": true,
-    "source_commit_unchanged": true,
-    "source_tree_unchanged": true,
-    "observational_patch_unchanged": true,
-    "pseudopotential_unchanged": true,
-    "fixture_inputs_unchanged": true,
-    "thresholds_unchanged": true,
-    "automatic_retry": false,
-    "automatic_phase_transition": false
+  "terminal_decision": {
+    "classification": "TERMINAL_HARNESS_STOP",
+    "scientific_failure": false,
+    "backend_normalization_validated": false,
+    "testcode_wrapper_strategy_terminated": true,
+    "additional_execution_under_issue_300": false,
+    "next_strategy": "design_direct_executable_fixture_with_explicit_stdout_stderr_redirection",
+    "next_strategy_execution_authorized": false
   },
   "phase_transition_requirements": {
-    "all_required_sha256_committed": true,
-    "source_qualification_artifact_digest_committed": true,
-    "observational_patch_sha256_committed": true,
-    "current_patch_qualification_artifact_committed": true,
-    "prior_harness_stop_committed": true,
-    "deterministic_stdout_selector_tests_pass": true,
-    "focused_tests_pass": true
+    "terminal_stop_record_committed": true,
+    "fixture_workflow_frozen": true,
+    "issue_300_closed_before_new_execution": true,
+    "new_design_issue_required": true,
+    "source_level_command_reconstruction_required": true,
+    "synthetic_capture_tests_required": true,
+    "dry_run_manifest_required": true,
+    "separate_execution_authorization_required": true
   },
   "authorization": {
-    "source_clone_and_hash": true,
-    "qe_epw_build": true,
-    "upstream_fixture_execution": true,
-    "observational_export_patch_application": true,
-    "exactly_one_pinned_build": true,
-    "exactly_two_fixture_runs_same_state": true,
-    "one_audited_replacement_build": true,
-    "one_replacement_disabled_enabled_pair": true,
+    "source_clone_and_hash": false,
+    "qe_epw_build": false,
+    "upstream_fixture_execution": false,
+    "observational_export_patch_application": false,
+    "additional_fixture_execution": false,
     "cdte_hgte_or_alloy_calculation": false,
     "a1_a2_a3": false,
     "dense_interpolation": false,
     "automatic_retry": false,
-    "automatic_phase_transition": false
+    "automatic_phase_transition": false,
+    "design_only_followup": true
   },
-  "claim_boundary": "Passing validates raw complex-vertex export and scalar normalization only for the pinned upstream non-SOC diamond fixture. It does not validate SOC spinors, CdTe, HgTe, HgCdTe, a material self-energy, a generalized-Frohlich correction, or A1 readiness."
+  "claim_boundary": "The QE testcode-wrapped fixture strategy is terminated after two successful pinned builds and two successful disabled-export diamond sequences failed to preserve EPW stdout. No enabled-export run or normalization analysis occurred. This is a terminal harness result, not a scientific backend failure."
 }
