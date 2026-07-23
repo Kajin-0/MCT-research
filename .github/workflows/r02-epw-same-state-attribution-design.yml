@@ -9,6 +9,7 @@ on:
       - 'research/capability_audits/qe76_epw61_same_state_attribution_design.md'
       - 'tools/design_epw_same_state_attribution.py'
       - 'tests/test_r02_epw_same_state_attribution_design.py'
+      - 'tests/test_r02_epw_same_state_source_identities.py'
   workflow_dispatch:
 
 concurrency:
@@ -32,7 +33,10 @@ jobs:
           python -m pip install -e ".[test]"
 
       - name: Validate source audit and attribution design
-        run: python -m pytest -vv tests/test_r02_epw_same_state_attribution_design.py
+        run: |
+          python -m pytest -vv \
+            tests/test_r02_epw_same_state_attribution_design.py \
+            tests/test_r02_epw_same_state_source_identities.py
 
       - name: Confirm all execution remains closed
         run: |
