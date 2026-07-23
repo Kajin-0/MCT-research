@@ -21,6 +21,7 @@ This registry tracks distinct scientific works that share the repository. It rec
 | R03 | Distributional, modality-aware theory of reported HgCdTe band edges | Distributional band-edge observables | Candidate work; analytical foundations implemented | No active manuscript; prior weak draft retired | #22, #167; distributional and observation modules |
 | R04 | Scale-dependent spatial disorder under finite measurement kernels | Measurement-kernel-aware spatial disorder | Active-result / candidate work; bounded prior-art audit complete, but current audited external sources do not qualify for direct multiresolution validation | Manuscript not authorized; status `external_data_blocked` pending a real instrument and numerical data package | #196, #215, #218, #220, #222, #224, #228, #230, #232, #234, #246, #250; PRs #199, #202, #204, #207, #210, #212, #216, #219, #221, #223, #227, #229, #231, #233, #236, #247, #252 |
 | R05 | Correlated random-mass Kane regime with finite correlation length | Correlated random-mass Kane | Gated | No manuscript authorized | Requires independent length-scale, novelty, and model-validity gates |
+| R06 | Coupled drift-diffusion-Poisson theory of finite-size HgCdTe photoconductor noise | Stochastic transport and finite-size noise | Gated candidate-work concept; Phase 1 literature and model definition authorized | No manuscript authorized | #339; `research/programs/stochastic_transport_noise/state.md` |
 
 ## Historical manuscript note
 
