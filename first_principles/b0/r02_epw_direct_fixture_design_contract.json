@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_direct_fixture_design",
+  "program": "R02",
+  "issue": 309,
+  "predecessor_issue": 300,
+  "predecessor_closed_pr": 305,
+  "phase": "design_only",
+  "source": {
+    "repository": "QEF/q-e",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "run_epw_path": "test-suite/run-epw.sh",
+    "run_epw_git_blob_sha": "8f6a915fb656e424f8e4c03b3e5ea301d83953ae",
+    "run_epw_branches_used": [1, 2, 3],
+    "fixture_path": "test-suite/epw_base",
+    "fixture_files": {
+      "scf.in": {
+        "sha256": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b",
+        "run_epw_branch": 1
+      },
+      "ph.in": {
+        "sha256": "1dac9d47d8c234f7b88ef5f8ce7db6c9aaeb1c4a83f7b2cd13bd78e288b4983f",
+        "run_epw_branch": 2
+      },
+      "pp.in": {
+        "git_blob_sha": "77f0608592eb79f58644ff1fbb0efe8572bbfd56",
+        "sha256": "f052c801085cf37855fbab544b5cbe46c864e54c37a163a2bc6eab51c2a34e47",
+        "role": "stdin_for_EPWBIN_pp_py_after_ph"
+      },
+      "scf_epw.in": {
+        "sha256": "eccb8bd933e7748e65310d04e853992db0e2f353e8af062af26df00c4dc509f5",
+        "run_epw_branch": 1
+      },
+      "nscf_epw.in": {
+        "sha256": "bc1dae9fecb2d589f33d8e0924a1d7aae0e29603e8d63c0380e5bf3173eb6f41",
+        "run_epw_branch": 1
+      },
+      "epw1.in": {
+        "sha256": "18e83caf042d88d59d23653cb83319aa0cad9a400d8422f13f11788373045999",
+        "run_epw_branch": 3
+      },
+      "C_3.98148.UPF": {
+        "repository_path": "pseudo/C_3.98148.UPF",
+        "sha256": "cc147806e663aa2c487cff67fc287a27d846edd438c7f4fc15d8851409244f2a"
+      }
+    }
+  },
+  "working_directory": {
+    "policy": "all scientific commands use one copied fixture directory",
+    "symbol": "FIXTURE_DIR",
+    "required_relative_paths": [
+      "./scf.in",
+      "./ph.in",
+      "./pp.in",
+      "./scf_epw.in",
+      "./nscf_epw.in",
+      "./epw1.in",
+      "./save/"
+    ],
+    "upstream_outdir_semantics_unchanged": true,
+    "upstream_prefix_semantics_unchanged": true,
+    "upstream_dvscf_dir_semantics_unchanged": true
+  },
+  "command_sequence": [
+    {
+      "id": "pw_scf",
+      "executable_symbol": "PW_X",
+      "argv": ["-input", "scf.in"],
+      "stdin": null,
+      "stdout": "evidence/commands/01-pw-scf.stdout.txt",
+      "stderr": "evidence/commands/01-pw-scf.stderr.txt",
+      "upstream_run_epw_branch": 1
+    },
+    {
+      "id": "ph",
+      "executable_symbol": "PH_X",
+      "argv": ["-input", "ph.in"],
+      "stdin": null,
+      "stdout": "evidence/commands/02-ph.stdout.txt",
+      "stderr": "evidence/commands/02-ph.stderr.txt",
+      "upstream_run_epw_branch": 2
+    },
+    {
+      "id": "pp",
+      "executable_symbol": "PYTHON",
+      "argv": ["EPW_BIN/pp.py"],
+      "stdin": "pp.in",
+      "stdout": "evidence/commands/03-pp.stdout.txt",
+      "stderr": "evidence/commands/03-pp.stderr.txt",
+      "upstream_run_epw_branch": 2
+    },
+    {
+      "id": "pw_scf_epw",
+      "executable_symbol": "PW_X",
+      "argv": ["-input", "scf_epw.in"],
+      "stdin": null,
+      "stdout": "evidence/commands/04-pw-scf-epw.stdout.txt",
+      "stderr": "evidence/commands/04-pw-scf-epw.stderr.txt",
+      "upstream_run_epw_branch": 1
+    },
+    {
+      "id": "pw_nscf_epw",
+      "executable_symbol": "PW_X",
+      "argv": ["-input", "nscf_epw.in"],
+      "stdin": null,
+      "stdout": "evidence/commands/05-pw-nscf-epw.stdout.txt",
+      "stderr": "evidence/commands/05-pw-nscf-epw.stderr.txt",
+      "upstream_run_epw_branch": 1
+    },
+    {
+      "id": "epw",
+      "executable_symbol": "EPW_X",
+      "argv": ["-input", "epw1.in"],
+      "stdin": null,
+      "stdout": "evidence/commands/06-epw.stdout.txt",
+      "stderr": "evidence/commands/06-epw.stderr.txt",
+      "upstream_run_epw_branch": 3
+    }
+  ],
+  "preservation": {
+    "stdout_stderr_opened_before_process_start": true,
+    "paths_unique": true,
+    "paths_outside_fixture_cleanup_scope": true,
+    "nonempty_required_after_each_command": true,
+    "manifest_written_before_execution": true,
+    "manifest_sha256_written_before_execution": true,
+    "cleanup_before_evidence_copy_prohibited": true
+  },
+  "design_gates": {
+    "command_count": 6,
+    "source_branches_exact": true,
+    "pp_step_preserved": true,
+    "working_directory_unambiguous": true,
+    "all_output_paths_explicit": true,
+    "all_output_paths_unique": true,
+    "synthetic_capture_tests_required": true,
+    "shell_quoting_tests_required": true,
+    "dry_run_manifest_required": true,
+    "qe_execution_required": false
+  },
+  "authorization": {
+    "source_inspection": true,
+    "manifest_generation": true,
+    "synthetic_filesystem_tests": true,
+    "dry_run": true,
+    "configure_or_build": false,
+    "pw_x_execution": false,
+    "ph_x_execution": false,
+    "epw_x_execution": false,
+    "pp_py_execution": false,
+    "fixture_execution": false,
+    "automatic_retry": false,
+    "parameter_sweep": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_phase_transition": false
+  },
+  "claim_boundary": "This contract defines a direct-executable command and evidence-preservation design only. It does not establish build success, executable behavior, raw-vertex export, normalization equivalence, SOC compatibility, or material physics."
+}
