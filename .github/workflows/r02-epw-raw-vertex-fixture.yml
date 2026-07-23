@@ -44,21 +44,15 @@ jobs:
                   "first_principles/b0/r02_epw_raw_vertex_fixture_contract.json"
               ).read_text()
           )
-          assert contract["phase"] in {
-              "fixture_execution",
-              "terminal_harness_stop",
-          }
-          if contract["phase"] == "terminal_harness_stop":
-              auth = contract["authorization"]
-              assert auth["qe_epw_build"] is False
-              assert auth["upstream_fixture_execution"] is False
-              assert auth["observational_export_patch_application"] is False
-              assert auth["automatic_retry"] is False
-              assert auth["design_only_followup"] is True
+          assert contract["phase"] == "terminal_harness_stop"
+          auth = contract["authorization"]
+          assert auth["qe_epw_build"] is False
+          assert auth["upstream_fixture_execution"] is False
+          assert auth["observational_export_patch_application"] is False
+          assert auth["additional_fixture_execution"] is False
+          assert auth["automatic_retry"] is False
+          assert auth["design_only_followup"] is True
           PY
-          python -m pytest -vv tests/test_select_epw_fixture_stdout.py
-
-      - name: Confirm no scientific executable is invoked
-        run: |
-          ! grep -E 'make -j[0-9]+ pw ph epw|pw\.x|ph\.x|epw\.x' \
-            .github/workflows/r02-epw-raw-vertex-fixture.yml
+          python -m pytest -vv \
+            tests/test_select_epw_fixture_stdout.py \
+            tests/test_r02_epw_raw_vertex_source_gate.py
