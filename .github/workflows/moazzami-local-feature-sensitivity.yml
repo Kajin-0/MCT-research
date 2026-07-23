@@ -6,13 +6,17 @@ on:
       - '.github/workflows/moazzami-local-feature-sensitivity.yml'
       - 'data/manuscript/moazzami2005_figure6*_irse_digitized.csv'
       - 'data/manuscript/moazzami2005_figure6*_irse_calibration.json'
+      - 'data/validation/moazzami2005_local_feature_sensitivity_reference.json'
+      - 'data/validation/moazzami2005_local_feature_sensitivity_summary.csv'
       - 'src/mct_research/absorption_edge_uncertainty.py'
       - 'tools/analyze_moazzami2005_real_spectra.py'
       - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
       - 'tools/audit_moazzami2005_pixel_reversal_core.py'
+      - 'tools/build_moazzami_local_feature_reference.py'
       - 'tools/observation_manuscript_figure_spectrum.py'
       - 'tests/test_moazzami2005_local_feature_sensitivity.py'
       - 'tests/test_moazzami2005_pixel_reversal_core.py'
+      - 'tests/test_moazzami2005_local_feature_reference.py'
   workflow_dispatch:
 
 permissions:
@@ -37,11 +41,22 @@ jobs:
           python -m tools.audit_moazzami2005_pixel_reversal_core \
             --repository-root . \
             --output-json /tmp/moazzami-pixel-reversal-core.json
+          python -m tools.build_moazzami_local_feature_reference \
+            --repository-root . \
+            --output-json /tmp/moazzami-local-feature-reference.json \
+            --output-csv /tmp/moazzami-local-feature-summary.csv
+      - name: Verify immutable compact outputs
+        run: |
+          cmp /tmp/moazzami-local-feature-reference.json \
+            data/validation/moazzami2005_local_feature_sensitivity_reference.json
+          cmp /tmp/moazzami-local-feature-summary.csv \
+            data/validation/moazzami2005_local_feature_sensitivity_summary.csv
       - name: Run focused tests
         run: |
           python -m pytest -q \
             tests/test_moazzami2005_local_feature_sensitivity.py \
-            tests/test_moazzami2005_pixel_reversal_core.py
+            tests/test_moazzami2005_pixel_reversal_core.py \
+            tests/test_moazzami2005_local_feature_reference.py
       - name: Record compact decision summary
         run: |
           python - <<'PY'
@@ -51,13 +66,15 @@ jobs:
           for filename in (
               'moazzami-local-feature-sensitivity.json',
               'moazzami-pixel-reversal-core.json',
+              'moazzami-local-feature-reference.json',
           ):
               result = json.loads(Path('/tmp', filename).read_text())
               print(filename)
               print(json.dumps(result['decision'], indent=2, sort_keys=True))
               for specimen in result['specimens']:
                   print(specimen['specimen_id'])
-                  print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
+                  if 'decision' in specimen:
+                      print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
@@ -66,5 +83,7 @@ jobs:
           path: |
             /tmp/moazzami-local-feature-sensitivity.json
             /tmp/moazzami-pixel-reversal-core.json
+            /tmp/moazzami-local-feature-reference.json
+            /tmp/moazzami-local-feature-summary.csv
           if-no-files-found: error
           retention-days: 30
