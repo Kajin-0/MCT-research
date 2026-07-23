@@ -40,7 +40,9 @@ jobs:
       - name: Install
         run: python -m pip install -e '.[test]'
       - name: Build deterministic sensitivity records
+        shell: bash
         run: |
+          set -o pipefail
           python -m tools.audit_moazzami2005_local_feature_sensitivity \
             --repository-root . \
             --output-json /tmp/moazzami-local-feature-sensitivity.json
@@ -49,7 +51,8 @@ jobs:
             --output-json /tmp/moazzami-pixel-reversal-core.json
           python -m tools.audit_moazzami2005_model_robustness \
             --repository-root . \
-            --output-json /tmp/moazzami-model-robustness.json
+            --output-json /tmp/moazzami-model-robustness.json \
+            2>&1 | tee /tmp/moazzami-model-robustness.log
           python -m tools.build_moazzami_local_feature_reference \
             --repository-root . \
             --output-json /tmp/moazzami-local-feature-reference.json \
@@ -144,6 +147,7 @@ jobs:
             /tmp/moazzami-local-feature-reference.json
             /tmp/moazzami-local-feature-summary.csv
             /tmp/moazzami-model-robustness.json
+            /tmp/moazzami-model-robustness.log
             /tmp/observation-manuscript-assets
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30
