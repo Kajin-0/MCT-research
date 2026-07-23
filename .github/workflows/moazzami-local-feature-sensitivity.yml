@@ -13,6 +13,7 @@ on:
       - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
       - 'tools/audit_moazzami2005_pixel_reversal_core.py'
       - 'tools/audit_moazzami2005_model_robustness.py'
+      - 'tools/run_moazzami2005_model_robustness.py'
       - 'tools/build_moazzami_local_feature_reference.py'
       - 'tools/build_observation_model_manuscript_assets.py'
       - 'tools/observation_manuscript_figure_spectrum.py'
@@ -49,7 +50,7 @@ jobs:
           python -m tools.audit_moazzami2005_pixel_reversal_core \
             --repository-root . \
             --output-json /tmp/moazzami-pixel-reversal-core.json
-          python -m tools.audit_moazzami2005_model_robustness \
+          python -m tools.run_moazzami2005_model_robustness \
             --repository-root . \
             --output-json /tmp/moazzami-model-robustness.json \
             2>&1 | tee /tmp/moazzami-model-robustness.log
