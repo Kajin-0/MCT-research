@@ -7,6 +7,9 @@ on:
       - 'data/experimental/scott1969_README.md'
       - 'data/experimental/scott1969_figure1_specimens.csv'
       - 'data/experimental/scott1969_source_metadata.csv'
+      - 'data/experimental/scott1969_figure2_digitized.csv'
+      - 'data/experimental/scott1969_figure2_calibration.csv'
+      - 'data/experimental/scott1969_figure2_extraction_gate.csv'
       - 'research/programs/empirical_bandgap/state.md'
       - 'tests/test_scott1969_source_audit.py'
   workflow_dispatch:
@@ -38,27 +41,47 @@ jobs:
         run: |
           python - <<'PY'
           import csv
+          from collections import Counter
           from pathlib import Path
 
           root = Path('.')
+          data = root / 'data/experimental'
           metadata = list(csv.DictReader(
-              (root / 'data/experimental/scott1969_source_metadata.csv').open(
+              (data / 'scott1969_source_metadata.csv').open(
                   newline='', encoding='utf-8'
               )
           ))
           specimens = list(csv.DictReader(
-              (root / 'data/experimental/scott1969_figure1_specimens.csv').open(
+              (data / 'scott1969_figure1_specimens.csv').open(
+                  newline='', encoding='utf-8'
+              )
+          ))
+          markers = list(csv.DictReader(
+              (data / 'scott1969_figure2_digitized.csv').open(
                   newline='', encoding='utf-8'
               )
           ))
           assert len(metadata) == 1
           assert len(specimens) == 10
-          assert metadata[0]['source_pdf_sha256'] == ''
+          assert metadata[0]['source_pdf_sha256'] == (
+              '7b2e5790745897ecd75bd22134e5d9293397820c3b7851eb5a9e648a5c441324'
+          )
           assert metadata[0]['pointwise_energy_covariance'] == 'not_reported'
           assert all(row['pointwise_gap_ev'] == '' for row in specimens)
           assert all(row['pointwise_gap_uncertainty_ev'] == '' for row in specimens)
-          assert not (root / 'data/experimental/scott1969_figure2_digitized.csv').exists()
-          assert not (root / 'data/experimental/scott1969_figure5_digitized.csv').exists()
+          assert len(markers) == 70
+          assert Counter(row['specimen_label'] for row in markers) == {
+              '61': 8,
+              '53': 6,
+              '46': 9,
+              '40.5': 8,
+              '38.5': 8,
+              '35': 8,
+              '31': 8,
+              '25': 7,
+              '23': 8,
+          }
+          assert not (data / 'scott1969_figure5_digitized.csv').exists()
           PY
       - name: Assert tranche file boundary
         if: github.head_ref == 'agent/scott1969-source-audit'
@@ -90,6 +113,9 @@ jobs:
             data/experimental/scott1969_source_metadata.csv
             data/experimental/scott1969_figure1_specimens.csv
             data/experimental/scott1969_README.md
+            data/experimental/scott1969_figure2_extraction_gate.csv
+            data/experimental/scott1969_figure2_calibration.csv
+            data/experimental/scott1969_figure2_digitized.csv
             research/programs/empirical_bandgap/state.md
           if-no-files-found: error
           retention-days: 30

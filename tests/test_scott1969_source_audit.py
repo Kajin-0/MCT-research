@@ -1,15 +1,20 @@
 from __future__ import annotations
 
 import csv
+from collections import Counter
 from pathlib import Path
 
 import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-METADATA = ROOT / "data" / "experimental" / "scott1969_source_metadata.csv"
-SPECIMENS = ROOT / "data" / "experimental" / "scott1969_figure1_specimens.csv"
-README = ROOT / "data" / "experimental" / "scott1969_README.md"
+DATA = ROOT / "data" / "experimental"
+METADATA = DATA / "scott1969_source_metadata.csv"
+SPECIMENS = DATA / "scott1969_figure1_specimens.csv"
+README = DATA / "scott1969_README.md"
+FIGURE2 = DATA / "scott1969_figure2_digitized.csv"
+FIGURE5 = DATA / "scott1969_figure5_digitized.csv"
+PDF_SHA = "7b2e5790745897ecd75bd22134e5d9293397820c3b7851eb5a9e648a5c441324"
 
 
 def _rows(path: Path) -> list[dict[str, str]]:
@@ -26,10 +31,13 @@ def test_source_metadata_contract_is_exact() -> None:
     assert row["pages"] == "4077-4081"
     assert row["source_file_library_name"] == "scott1969.pdf"
     assert row["source_binary_status"] == (
-        "available_in_user_file_library_not_materialized"
+        "materialized_from_user_uploaded_pdf_in_extraction_runtime"
     )
-    assert row["source_pdf_sha256"] == ""
-    assert row["source_pdf_sha256_status"] == "unavailable_not_computed"
+    assert row["source_pdf_sha256"] == PDF_SHA
+    assert row["source_pdf_sha256_status"] == "computed_and_verified"
+    assert row["digitization_status"] == (
+        "figure2_70_direct_markers_calibrated_figure5_crosscheck_only"
+    )
 
 
 def test_metrology_and_operational_edge_are_preserved() -> None:
@@ -94,6 +102,9 @@ def test_figure1_specimen_labels_are_exact_and_unique() -> None:
     assert {row["figure1_room_temperature_absorption_present"] for row in rows} == {
         "true"
     }
+    assert {row["source_pdf_sha256_status"] for row in rows} == {
+        "computed_and_verified"
+    }
 
 
 def test_source_specific_quality_flags_are_exact() -> None:
@@ -113,22 +124,44 @@ def test_source_specific_quality_flags_are_exact() -> None:
     } == unflagged
 
 
-def test_digitization_gate_is_fail_closed() -> None:
-    rows = _rows(SPECIMENS)
-    assert {row["figure2_temperature_marker_ledger_status"] for row in rows} == {
-        "not_reconstructed_current_interface"
+def test_figure2_extension_replaces_the_old_fail_closed_state() -> None:
+    specimens = {
+        row["figure1_label_mole_percent_cdte"]: row for row in _rows(SPECIMENS)
     }
-    assert {row["figure5_measured_vs_fit_label_status"] for row in rows} == {
-        "not_reconstructed_current_interface"
+    assert specimens["21"]["figure2_temperature_marker_ledger_status"] == (
+        "not_present_in_figure2"
+    )
+    reconstructed = {"23", "25", "31", "35", "38.5", "40.5", "46", "53", "61"}
+    assert {
+        label
+        for label, row in specimens.items()
+        if row["figure2_temperature_marker_ledger_status"]
+        == "reconstructed_direct_marker_ledger"
+    } == reconstructed
+    assert {
+        specimens[label]["figure5_measured_vs_fit_label_status"]
+        for label in reconstructed
+    } == {"provenance_cross_check_only_not_independent_data"}
+    assert {row["pointwise_gap_ev"] for row in specimens.values()} == {""}
+    assert {row["pointwise_gap_uncertainty_ev"] for row in specimens.values()} == {
+        ""
     }
-    assert {row["pointwise_gap_ev"] for row in rows} == {""}
-    assert {row["pointwise_gap_uncertainty_ev"] for row in rows} == {""}
-    assert not (
-        ROOT / "data" / "experimental" / "scott1969_figure2_digitized.csv"
-    ).exists()
-    assert not (
-        ROOT / "data" / "experimental" / "scott1969_figure5_digitized.csv"
-    ).exists()
+
+    assert FIGURE2.exists()
+    markers = _rows(FIGURE2)
+    assert len(markers) == 70
+    assert Counter(row["specimen_label"] for row in markers) == {
+        "61": 8,
+        "53": 6,
+        "46": 9,
+        "40.5": 8,
+        "38.5": 8,
+        "35": 8,
+        "31": 8,
+        "25": 7,
+        "23": 8,
+    }
+    assert not FIGURE5.exists()
 
 
 def test_lineage_measurement_class_and_equation_boundaries_are_explicit() -> None:
@@ -154,12 +187,14 @@ def test_lineage_measurement_class_and_equation_boundaries_are_explicit() -> Non
     }
 
 
-def test_readme_prohibits_equation_sampling_and_overclaiming() -> None:
+def test_readme_records_numerical_extension_without_overclaiming() -> None:
     text = README.read_text(encoding="utf-8")
     required = (
-        "Sampling it does not reconstruct the experimental marker dataset.",
-        "no Figure 2 or Figure 5 energy coordinate is committed",
+        PDF_SHA,
+        "70 visually identifiable direct `x` marker centers",
+        "Only direct Figure 2 marker centers are admitted.",
+        "Figure 5 remains a provenance cross-check only.",
         "cannot be used as an independent held-out validation of Hansen",
-        "does not:\n\n- digitize Figures 2 or 5",
+        "sample Equation (3) or Figure 5 curves as data",
     )
     assert all(token in text for token in required)
