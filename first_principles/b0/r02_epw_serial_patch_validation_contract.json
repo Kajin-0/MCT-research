@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_serial_patch_validation",
+  "program": "R02",
+  "issue": 350,
+  "source_diagnosis_commit": "2fcd412581fe55e69d722effb2f9a93b10ddb490",
+  "phase": "one_pinned_execution",
+  "source": {
+    "repository": "QEF/q-e",
+    "clone_url": "https://github.com/QEF/q-e.git",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "io_f90_git_blob_sha": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+    "required_files_sha256": {
+      "test-suite/epw_base/scf.in": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b",
+      "test-suite/epw_base/ph.in": "1dac9d47d8c234f7b88ef5f8ce7db6c9aaeb1c4a83f7b2cd13bd78e288b4983f",
+      "test-suite/epw_base/pp.in": "f052c801085cf37855fbab544b5cbe46c864e54c37a163a2bc6eab51c2a34e47",
+      "test-suite/epw_base/scf_epw.in": "eccb8bd933e7748e65310d04e853992db0e2f353e8af062af26df00c4dc509f5",
+      "test-suite/epw_base/nscf_epw.in": "bc1dae9fecb2d589f33d8e0924a1d7aae0e29603e8d63c0380e5bf3173eb6f41",
+      "test-suite/epw_base/epw1.in": "18e83caf042d88d59d23653cb83319aa0cad9a400d8422f13f11788373045999",
+      "pseudo/C_3.98148.UPF": "cc147806e663aa2c487cff67fc287a27d846edd438c7f4fc15d8851409244f2a"
+    }
+  },
+  "patch": {
+    "path": "patches/qe76-epw61-serial-epwread-epmatwp-allocation.patch",
+    "sha256": "ce24ab3ce90f8fa0d0d098f8e8761511204a99bf96589b9ff37eaff79a330e70",
+    "allowed_source_path": "EPW/src/io/io.f90",
+    "allocation_count_after_patch": 1,
+    "scientific_contraction_changed": false,
+    "restart_format_changed": false,
+    "mpi_offset_or_broadcast_changed": false
+  },
+  "fixture": {
+    "upstream_path": "test-suite/epw_base",
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "soc_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "preparation_commands": [
+      "pw.x -input scf.in",
+      "ph.x -input ph.in",
+      "python EPW/bin/pp.py < pp.in",
+      "pw.x -input scf_epw.in",
+      "pw.x -input nscf_epw.in",
+      "epw.x -input epw1.in"
+    ],
+    "replay_input_path": "first_principles/b0/r02_epw_same_state_replay.in",
+    "replay_input_sha256": "6e36c722d58c90cb6d58ffdee06568d1803fdea41c1d1196f57c583e8add7b73",
+    "replay_command": "epw.x -input r02_epw_same_state_replay.in",
+    "exporter_enabled": false,
+    "export_environment_variables_required_unset": [
+      "R02_EXPORT_RAW_VERTEX",
+      "R02_EXPORT_IK_GLOBAL",
+      "R02_RAW_VERTEX_PATH"
+    ],
+    "required_prepared_state_paths": [
+      "epwdata.fmt",
+      "crystal.fmt",
+      "vmedata.fmt",
+      "dmedata.fmt",
+      "wigner.fmt",
+      "diam.epmatwp",
+      "diam.ukk"
+    ],
+    "complete_tree_manifest_required": true,
+    "preexisting_file_mutation_allowed": false,
+    "preexisting_file_deletion_allowed": false,
+    "allowed_new_file_patterns": [
+      "EPW.bib",
+      "linewidth.elself.*",
+      "selecq.fmt",
+      "*.kgmap",
+      "*_0.kmap",
+      "*.freq",
+      "*.qdos_*",
+      "*.self",
+      "*.res*"
+    ]
+  },
+  "success_markers": {
+    "required_stdout_substrings": [
+      "Electron Self-Energy",
+      "JOB DONE."
+    ],
+    "forbidden_stdout_or_stderr_substrings": [
+      "SIGSEGV",
+      "Segmentation fault",
+      "wigner_divide_ndegen_epmat"
+    ],
+    "raw_export_file_must_be_absent": true
+  },
+  "resource_limits": {
+    "maximum_workflow_minutes": 120,
+    "maximum_evidence_bytes": 2147483648,
+    "omp_threads": 1,
+    "blas_threads": 1,
+    "make_jobs": 2
+  },
+  "authorization": {
+    "source_clone_and_verify": true,
+    "apply_exact_patch": true,
+    "exactly_one_build": true,
+    "exactly_one_preparation": true,
+    "exactly_one_serial_replay": true,
+    "repository_analysis": true,
+    "automatic_retry": false,
+    "patch_adjustment_after_execution": false,
+    "enabled_exporter_replay": false,
+    "second_disabled_replay": false,
+    "mpi_execution": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "parameter_sweep": false,
+    "automatic_successor": false
+  },
+  "pass_classification": "SERIAL_EPWREAD_HARNESS_PASS",
+  "failure_classification": "SERIAL_EPWREAD_PATCH_VALIDATION_STOP",
+  "claim_boundary": "A pass validates only one patched serial epwread restart of the pinned upstream non-SOC diamond fixture. It does not validate exporter noninterference, matrix normalization, SOC, CdTe, HgTe, HgCdTe, or A1 readiness."
+}
