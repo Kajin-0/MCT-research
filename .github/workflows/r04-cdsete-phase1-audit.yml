@@ -32,6 +32,7 @@ jobs:
       - name: Acquire and audit public archive
         run: |
           set -o pipefail
+          mkdir -p r04-cdsete-phase1
           python tools/r04_cdsete_phase1_audit.py \
             --workdir r04-cdsete-phase1 \
             2>&1 | tee r04-cdsete-phase1/audit-run.log
