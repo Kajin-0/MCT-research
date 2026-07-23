@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_serial_patch_validation_terminal_result",
+  "program": "R02",
+  "issue": 350,
+  "closed_pr": 352,
+  "status": "stop",
+  "classification": "SERIAL_EPWREAD_PATCH_VALIDATION_STOP",
+  "strict_harness_passed": false,
+  "serial_restart_crash_removed": true,
+  "electron_self_energy_execution_completed": true,
+  "material_prediction_validated": false,
+  "workflow": {
+    "run_id": 30046644183,
+    "job_id": 89339231302,
+    "head_sha": "33939fbaaee71ad1952e14534675e55396460d85",
+    "artifact_id": 8579603653,
+    "artifact_digest": "sha256:17c155f502ecc36cfd88940035ff3c84166d23ac483e09f70ed04dd4a7eb7a67",
+    "artifact_size_bytes": 294560
+  },
+  "prebuild_attempt": {
+    "run_id": 30045897907,
+    "artifact_id": 8579298688,
+    "artifact_digest": "sha256:6c0c63f425b5a3644c0bc40643116f3add137da3f78975a526f86753b1e66e5d",
+    "classification": "PREBUILD_STATIC_STOP",
+    "build_count": 0,
+    "preparation_count": 0,
+    "replay_count": 0,
+    "focused_tests_collected": 39,
+    "focused_tests_passed": 37,
+    "scientific_authorization_consumed": false,
+    "correction_scope": "two brittle test assertions only"
+  },
+  "source": {
+    "qe_release": "7.6",
+    "epw_release": "6.1",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "io_f90_git_blob_sha": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+    "patch_sha256": "ce24ab3ce90f8fa0d0d098f8e8761511204a99bf96589b9ff37eaff79a330e70",
+    "applied_patch_sha256": "0605191df17b9abb8dec794c1beb9e663b396ab12049c1189ab4ca0e6b57ae43",
+    "replay_input_sha256": "6e36c722d58c90cb6d58ffdee06568d1803fdea41c1d1196f57c583e8add7b73",
+    "patched_source_check": {
+      "epmatwp_allocation_count": 1,
+      "allocation_before_mpi_split": true
+    },
+    "executables_sha256": {
+      "pw.x": "898aebd4f600bf1558df0386ca6c794ada1267f029de55915eb8148c896dae3d",
+      "ph.x": "4101806792b6c7b6753ccdfcb29ed969b0eab81abe6b26bcda4ed62f814e390a",
+      "epw.x": "4c09cc6d66a6dae5f778d72d4d0959bc66fd2f164cc306aa86f443c171d406af"
+    }
+  },
+  "fixture": {
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "soc_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "exporter_enabled": false,
+    "export_environment_variables_unset": true,
+    "raw_export_candidates": []
+  },
+  "execution": {
+    "build_count": 1,
+    "preparation_count": 1,
+    "preparation_command_count": 6,
+    "preparation_commands_with_zero_exit_code": 6,
+    "replay_count": 1,
+    "replay_exit_code": 0,
+    "material_calculation_count": 0,
+    "focused_tests_collected": 39,
+    "focused_tests_passed": 39
+  },
+  "runtime_evidence": {
+    "crash_markers_present": {
+      "SIGSEGV": false,
+      "Segmentation fault": false,
+      "wigner_divide_ndegen_epmat": false
+    },
+    "actual_completion_evidence": {
+      "saved_wannier_state_read": true,
+      "electron_phonon_interpolation_present": true,
+      "selfen_elec_call_count": 216,
+      "total_program_execution_present": true,
+      "reported_epw_cpu_seconds": 1.60,
+      "reported_epw_wall_seconds": 1.67
+    },
+    "predeclared_literal_markers": {
+      "Electron Self-Energy": false,
+      "JOB DONE.": false
+    }
+  },
+  "prepared_state": {
+    "prepared_file_count": 168,
+    "replay_pre_file_count": 168,
+    "replay_post_file_count": 168,
+    "prepared_manifest_sha256": "431ab24f64e76bb1d57627b8019b69eb3e65fd5007226f5b4b6cf69645d9836a",
+    "replay_pre_manifest_sha256": "431ab24f64e76bb1d57627b8019b69eb3e65fd5007226f5b4b6cf69645d9836a",
+    "replay_post_manifest_sha256": "7de96a7b5728c4b5fbbc0eaa39a41f0b04a98c04834f29f17aaeb3deb777f50d",
+    "clone_identity_before_replay": true,
+    "deleted_paths": [],
+    "new_paths": [],
+    "unauthorized_new_paths": [],
+    "mutated_paths": [
+      {
+        "path": "diam.epb1",
+        "before_size_bytes": 1137036,
+        "before_sha256": "cae2607e190fbf4ef25ad27f49231bbfff011d5d42f234d86beccefdd9654b55",
+        "after_size_bytes": 660,
+        "after_sha256": "834e3e9735f346b065f8ec270c4cdce672d72a901f684e5afba1e08eac3d29c1"
+      }
+    ],
+    "byte_identity_passed": false
+  },
+  "binding_failures": {
+    "preexisting_state_mutation": true,
+    "required_literal_completion_markers_missing": true,
+    "retrospective_marker_substitution_allowed": false,
+    "retrospective_state_allowlist_change_allowed": false
+  },
+  "interpretation": {
+    "positive_result": "The minimal epmatwp allocation patch removed the observed serial epwread crash and allowed the pinned replay to complete electron-phonon interpolation and 216 self-energy calls with exit code zero.",
+    "binding_result": "The predeclared harness contract failed because diam.epb1 changed bytes and the selected literal completion markers were absent.",
+    "causal_boundary": "The run supports the source diagnosis and runtime effect of the allocation patch for the pinned serial fixture, but does not establish a fully immutable replay protocol.",
+    "scientific_boundary": "No SOC, material, exporter-attribution, or matrix-normalization claim is established."
+  },
+  "decision": {
+    "serial_epwread_allocation_diagnosis": "runtime_supported",
+    "serial_restart_crash": "removed_in_patched_fixture",
+    "strict_restart_harness": "failed",
+    "patch_merge_authorized": false,
+    "additional_execution_under_issue_350": false,
+    "next_gate": "design_epb1_rewrite_and_completion_observable_contract",
+    "next_gate_execution_authorized": false
+  },
+  "authorization": {
+    "additional_build": false,
+    "additional_preparation": false,
+    "additional_replay": false,
+    "patch_adjustment": false,
+    "marker_relaxation": false,
+    "state_allowlist_relaxation": false,
+    "mpi_execution": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "design_only_followup": true
+  },
+  "claim_boundary": "The allocation patch is runtime-supported as a fix for the observed pinned serial restart crash, but the strict issue-350 harness remains a stop because a preexisting state file was rewritten and predeclared literal completion markers were absent. No exporter, SOC, or material capability is validated."
+}
