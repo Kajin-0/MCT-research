@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R04",
+  "issue": 317,
+  "phase": 2,
+  "protocol_date": "2026-07-23",
+  "protocol_status": "frozen_before_formal_result_generation",
+  "parent_decision": "data/validation/r04_cdsete_phase1_decision.json",
+  "source": {
+    "article_doi": "10.1038/s41467-024-52889-z",
+    "dataset_doi": "10.5281/zenodo.13869384",
+    "archive_sha256": "cc3e1ce1a02266da2d0e0f301464a9d8a519855f33a597adeb7f16048684c9a6",
+    "archive_member": "Datasets/Figure 3e.csv"
+  },
+  "primary_field": {
+    "sample": "Cl-treated CdSe_xTe_1-x film fabricated with a 200 nm CdSe underlayer",
+    "observable": "Gaussian-fitted photoluminescence peak wavelength",
+    "units": "nm",
+    "shape": [
+      24,
+      24
+    ],
+    "coordinate_units": "micrometre",
+    "native_kernel_status": "unmeasured_and_unbounded",
+    "interpretation": "source-data-derived PL observation field; not an alloy-composition field"
+  },
+  "primary_numerical_kernel_sweep": {
+    "kernel_family": "isotropic discrete Gaussian",
+    "implementation": "scipy.ndimage.gaussian_filter",
+    "added_sigma_pixels": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "scale_selection_rule": "zero plus a half-pixel transition and powers of two through one-sixth of the 24-pixel field width",
+    "truncate_standard_deviations": 4.0,
+    "primary_edge_mode": "reflect",
+    "sensitivity_edge_modes": [
+      "wrap",
+      "nearest"
+    ],
+    "combined_kernel_interpretation": "unknown native instrument kernel convolved with the declared added numerical kernel",
+    "independent_physical_measurements": false,
+    "absolute_physical_scale_interpretation": false
+  },
+  "variance_estimator": {
+    "definition": "ordinary sample variance of all retained map cells",
+    "ddof": 1,
+    "mean_subtraction": "one map mean at each scale",
+    "primary_detrending": "none beyond map mean",
+    "sensitivity_detrending": "least-squares planar trend removed before smoothing",
+    "mask_policy": "fail if any primary-field value is missing or non-finite; do not impute"
+  },
+  "training_and_holdout": {
+    "training_sigma_pixels": [
+      0.0,
+      0.5,
+      2.0,
+      4.0
+    ],
+    "held_out_sigma_pixels": 1.0,
+    "held_out_metric": "signed and absolute relative variance-prediction error",
+    "status": "descriptive closure check on deterministic transforms of one raster, not independent predictive validation"
+  },
+  "covariance_family_diagnostics": {
+    "families": [
+      "Gaussian",
+      "Matern_nu_1_over_2",
+      "Matern_nu_3_over_2",
+      "Matern_nu_5_over_2"
+    ],
+    "fit_parameters": [
+      "descriptive point variance of the already observed field",
+      "descriptive pixel-space correlation scale"
+    ],
+    "fit_loss": "unweighted sum of squared log-variance residuals on the four training scales",
+    "optimization": "deterministic bounded optimization in log-parameter space",
+    "primary_gaussian_check": "reciprocal variance linearity versus added sigma squared",
+    "family_result_status": "model-conditioned descriptive comparison only",
+    "universal_family_claim_authorized": false
+  },
+  "same_raster_dependence": {
+    "reference_family": "fitted isotropic Gaussian descriptive covariance",
+    "positions": "all 24 x 24 integer pixel centers",
+    "required_outputs": [
+      "model-conditioned expected finite-map variance bias at every scale",
+      "exact Gaussian quadratic-form covariance of variance estimators across scales",
+      "delta-method log-variance covariance and correlation",
+      "moment-matched effective variance degrees of freedom",
+      "comparison with the false independent-pixel and independent-scale covariance"
+    ],
+    "claim_boundary": "the covariance calculation evaluates consequences of the fitted descriptive Gaussian model; it is not empirical repeat covariance"
+  },
+  "field_of_view_and_edge_sensitivity": {
+    "central_crop": {
+      "row_slice_python": [
+        4,
+        20
+      ],
+      "column_slice_python": [
+        4,
+        20
+      ],
+      "shape": [
+        16,
+        16
+      ],
+      "application": "crop the source field first, then repeat the complete primary reflect-mode sweep"
+    },
+    "required_comparisons": [
+      "full 24 x 24 reflect result",
+      "central 16 x 16 reflect result",
+      "full 24 x 24 wrap result",
+      "full 24 x 24 nearest result",
+      "full 24 x 24 planar-detrended reflect result"
+    ]
+  },
+  "synthetic_control": {
+    "type": "Fourier phase-randomized surrogate",
+    "seed": 3172026,
+    "construction": "preserve the centered field Fourier amplitudes, impose conjugate-symmetric random phases, inverse transform, and restore the source mean and variance",
+    "required_checks": [
+      "real-valued reconstruction",
+      "mean and variance recovery",
+      "periodic power-spectrum and wrap-mode smoothing-variance identity within numerical tolerance",
+      "reflect-mode comparison to expose boundary and phase sensitivity"
+    ],
+    "interpretation": "the control tests whether a reported scale-variance feature follows the power spectrum alone; it is not a semiconductor mechanism model"
+  },
+  "reporting": {
+    "primary_scale_units": "pixels",
+    "supplementary_coordinate_conversion": "added sigma multiplied by the source coordinate spacing, explicitly not a native effective PSF or latent physical correlation length",
+    "numerical_precision": "binary64 with immutable JSON values serialized to at least 12 significant digits",
+    "required_result_files": [
+      "data/validation/r04_cdsete_real_data_result.json",
+      "literature/notes/cdsete2024_real_data_result.md"
+    ]
+  },
+  "authorization": {
+    "real_semiconductor_method_demonstration": true,
+    "hgcdte_external_validation": false,
+    "native_kernel_deconvolution": false,
+    "latent_physical_correlation_length": false,
+    "composition_assignment": false,
+    "independent_scale_claim": false,
+    "new_r04_mechanism": false,
+    "r05": false,
+    "manuscript": false
+  },
+  "stop_rules": [
+    "source archive or admitted member fails immutable hash and structural checks",
+    "coordinate or map parsing is ambiguous",
+    "any primary-field value is missing or non-finite",
+    "the numerical implementation requires changing the frozen scale grid, holdout, field, estimator, or primary edge convention after viewing results",
+    "the result can only be presented by relabeling the PL observation as composition or by treating numerical scales as independent physical measurements"
+  ]
+}
