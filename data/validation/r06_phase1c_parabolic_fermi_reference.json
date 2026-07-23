@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "quantity": "normalized complete Fermi-Dirac integrals",
+  "definition": "F_j(eta)=Gamma(j+1)^-1 integral_0^infinity t^j/[1+exp(t-eta)] dt",
+  "generation": "80-digit mpmath quadrature outside the package runtime; decimal values rounded to 18 significant digits",
+  "points": [
+    {
+      "eta": -8.0,
+      "F_half": 0.000335422847973596,
+      "F_minus_half": 0.0003353830753067651,
+      "theta": 1.0001185887713461
+    },
+    {
+      "eta": -5.0,
+      "F_half": 0.006721954314505913,
+      "F_minus_half": 0.006706019989268209,
+      "theta": 1.002376122538138
+    },
+    {
+      "eta": -4.0,
+      "F_half": 0.01819820350836711,
+      "F_minus_half": 0.018081922991399386,
+      "theta": 1.0064307605459348
+    },
+    {
+      "eta": -3.0,
+      "F_half": 0.04893370569649578,
+      "F_minus_half": 0.04810263533220408,
+      "theta": 1.0172770235674657
+    },
+    {
+      "eta": -2.0,
+      "F_half": 0.1292985133200756,
+      "F_minus_half": 0.12366562180120994,
+      "theta": 1.0455493728719564
+    },
+    {
+      "eta": -1.0,
+      "F_half": 0.32779515926071155,
+      "F_minus_half": 0.2940276176114512,
+      "theta": 1.1148447956133261
+    },
+    {
+      "eta": 0.0,
+      "F_half": 0.7651470246254079,
+      "F_minus_half": 0.6048986434216304,
+      "theta": 1.2649177394370187
+    },
+    {
+      "eta": 2.0,
+      "F_half": 2.8237212774015843,
+      "F_minus_half": 1.464294589087629,
+      "theta": 1.9283833310898082
+    },
+    {
+      "eta": 5.0,
+      "F_half": 8.844208895242954,
+      "F_minus_half": 2.472987622482944,
+      "theta": 3.5763255807819765
+    }
+  ]
+}

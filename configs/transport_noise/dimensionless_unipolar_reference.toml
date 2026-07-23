@@ -1,0 +1,41 @@
+schema_version = 1
+program = "stochastic_transport_noise"
+contribution = "R06"
+status = "phase1c_prototype_only"
+
+[model]
+dimensionless = true
+carrier_model = "unipolar_electron"
+statistics = "log_density_state"
+poisson = true
+recombination = false
+optical_generation = false
+stochastic = false
+external_circuit = false
+
+[mesh]
+length = 1.0
+intervals = 32
+
+[parameters]
+screening_strength = 10.0
+diffusion_ratio = 1.0
+background_density = 1.0
+
+[boundary]
+potential_left = 0.0
+potential_right = -1.0
+density_left = 1.0
+density_right = 1.0
+
+[expected]
+solution = "uniform_density_linear_potential"
+face_current = 1.0
+poisson_residual_max = 1.0e-12
+continuity_residual_max = 1.0e-12
+relative_current_variation_max = 1.0e-12
+
+[claim_boundary]
+material_accurate_hgcdte = false
+production_solver = false
+stochastic_noise = false
