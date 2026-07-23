@@ -145,6 +145,8 @@
     "qe_epw_build": true,
     "upstream_fixture_execution": true,
     "observational_export_patch_application": true,
+    "exactly_one_pinned_build": true,
+    "exactly_two_fixture_runs_same_state": true,
     "one_audited_replacement_build": true,
     "one_replacement_disabled_enabled_pair": true,
     "cdte_hgte_or_alloy_calculation": false,
