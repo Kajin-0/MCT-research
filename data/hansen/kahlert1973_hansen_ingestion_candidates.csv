@@ -1,0 +1,3 @@
+candidate_id,source_id,candidate_basis,temperature_k,gap_eV,temperature_slope_eV_per_K,candidate_status,reason
+KAH73_RELATION_80K,KAHLERT1973_HSC_R09,printed_Eg0_and_alpha_relation,80,0.1512,0.000765,plausible_not_proven,"The source prints an explicit temperature law, but Hansen does not expose source-labeled HSC_R09 markers or state whether an 80 K value was generated from this relation."
+KAH73_ROUNDED_SLOPE_80K,KAHLERT1973_HSC_R09,printed_Eg0_plus_rounded_dEg_dT,80,0.1508,0.00076,plausible_not_proven,"This uses the separately printed rounded coefficient rather than alpha*Eg0; Hansen does not identify which numerical convention was ingested."
