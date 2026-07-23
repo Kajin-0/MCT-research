@@ -107,7 +107,9 @@ def test_four_result_and_four_figure_scope_ceiling() -> None:
     assert len(review["minimum_main_text_result_set"]) == 4
     assert len(review["main_figure_plan"]) == 4
     assert [figure["figure"] for figure in review["main_figure_plan"]] == [1, 2, 3, 4]
-    assert "finite-map" in review["one_sentence_contribution_claim"].lower()
+    claim = review["one_sentence_contribution_claim"].lower()
+    assert "finite field of view" in claim
+    assert "same-raster cross-scale dependence" in claim
     assert "HgCdTe" in review["provisional_title"]
 
 
