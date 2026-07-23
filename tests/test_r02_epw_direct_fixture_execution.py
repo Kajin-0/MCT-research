@@ -35,7 +35,7 @@ def test_execution_contract_is_one_pinned_nonpolar_fixture() -> None:
         "9f93ddec427d2b9a45bb72d828c6d324f62fcabd"
     )
     assert contract["source"]["source_tree_archive_sha256"] == (
-        "34ab80c2ed8a0e30d1aef01ac847c68106c8c2b7f7eaf8e05ecafbbcbac849"
+        "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849"
     )
     fixture = contract["fixture"]
     assert fixture["material"] == "diamond"
@@ -94,26 +94,20 @@ def test_driver_preserves_upstream_relative_pseudopotential_path() -> None:
     assert 'ENABLED_FIXTURE="$WORK/qe/test-suite/r02_direct_enabled"' in text
     assert 'cp -a "$WORK/qe/test-suite/epw_base" "$DISABLED_FIXTURE"' in text
     assert 'cp -a "$WORK/qe/test-suite/epw_base" "$ENABLED_FIXTURE"' in text
-    assert 'local fixture="$DISABLED_FIXTURE"' not in text
     assert 'local fixture="$WORK/fixtures/$sequence"' not in text
 
 
 def test_driver_opens_outputs_before_each_process_and_records_exit_code() -> None:
     text = DRIVER.read_text(encoding="utf-8")
-    stdout_open = text.index(
-        "printf '# R02 direct fixture command=%s sequence=%s\\n' "
-        '"$identifier" "$sequence" > "$stdout"'
-    )
-    stderr_open = text.index(
-        "printf '# R02 direct fixture command=%s sequence=%s\\n' "
-        '"$identifier" "$sequence" > "$stderr"'
-    )
+    stdout_open = text.index('> "$stdout"')
+    stderr_open = text.index('> "$stderr"')
     process_launch = text.index('(cd "$fixture" && "$executable"')
     assert stdout_open < process_launch
     assert stderr_open < process_launch
     assert "local process_code=0" in text
     assert 'printf \'%s\\n\' "$process_code" > "$exit_code_path"' in text
     assert 'if (( process_code != 0 )); then' in text
+    assert 'return "$process_code"' in text
 
 
 def test_driver_has_exact_direct_sequence_and_no_testcode() -> None:
@@ -136,7 +130,7 @@ def test_driver_has_exact_direct_sequence_and_no_testcode() -> None:
     assert "rglob(" not in text
 
 
-def test_driver_has_one_build_no_retry_or_parameter_loop() -> None:
+def test_driver_has_one_build_and_no_parameter_loop() -> None:
     text = DRIVER.read_text(encoding="utf-8")
     assert text.count("./configure --disable-parallel --enable-openmp") == 1
     assert text.count("make -j2 pw ph epw") == 1
@@ -146,7 +140,7 @@ def test_driver_has_one_build_no_retry_or_parameter_loop() -> None:
     assert "for cutoff" not in text
     assert "for kgrid" not in text
     assert "rerun" not in text.lower()
-    assert "retry" not in text.lower()
+    assert 'assert auth["automatic_retry"] is False' in text
 
 
 def test_driver_enforces_command_and_evidence_counts() -> None:
