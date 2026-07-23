@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "program": "R04",
+  "issue": 330,
+  "status": "structured_plan_not_final_prose",
+  "problem": {
+    "function": "State that finite-resolution HgCdTe maps are routinely interpreted as material-uniformity fields even though their apparent variance depends on the measurement kernel, calibration, field of view, and spatial dependence.",
+    "required_terms": [
+      "HgCdTe",
+      "finite-resolution map",
+      "measurement kernel",
+      "apparent spatial variance"
+    ],
+    "prohibited_terms": [
+      "new mapping technique",
+      "first spatial map",
+      "experimentally validated HgCdTe covariance"
+    ]
+  },
+  "method": {
+    "function": "Describe an integrated analytical framework for kernel-filtered covariance, scale recoverability, common calibration uncertainty, covariance-family closure, finite-map moments, and same-raster cross-scale covariance.",
+    "required_terms": [
+      "kernel-filtered covariance",
+      "three-scale closure",
+      "finite-map information",
+      "same-raster dependence"
+    ],
+    "prohibited_terms": [
+      "universal covariance model",
+      "independent numerical resolutions"
+    ]
+  },
+  "analytical_result": {
+    "function": "State the minimum decision-changing results: one scale cannot identify variance and correlation scale; two Gaussian-benchmark scales estimate but cannot test the family; a third scale supplies closure; common scale calibration sets an absolute-length floor; correlated finite maps and shared scales contain less information than nominal counts imply.",
+    "required_terms": [
+      "one-scale non-identifiability",
+      "third-scale closure",
+      "absolute scale-calibration floor",
+      "effective information"
+    ],
+    "prohibited_terms": [
+      "new Gaussian-process mathematics",
+      "measured HgCdTe correlation length"
+    ]
+  },
+  "real_map_demonstration": {
+    "function": "State that a public 24 by 24 CdSeTe Gaussian-fitted PL peak-wavelength map is used only as a cross-material method demonstration; added numerical smoothing retains 11.24 percent of unsmoothed variance at four pixels and exposes strong same-raster and finite-field sensitivity.",
+    "required_terms": [
+      "cross-material method demonstration",
+      "CdSeTe PL observation field",
+      "numerical scales from one raster are dependent",
+      "finite-field sensitivity"
+    ],
+    "prohibited_terms": [
+      "HgCdTe validation",
+      "composition map",
+      "independent held-out experiment",
+      "Matérn nu=3/2 material law"
+    ]
+  },
+  "limitation": {
+    "function": "State explicitly that no qualifying public source-native HgCdTe multiresolution package was found, the CdSeTe native sample-plane kernel is unmeasured, and the manuscript reports no HgCdTe specimen covariance family or physical correlation length.",
+    "required_terms": [
+      "HgCdTe external validation remains blocked",
+      "no physical correlation length is reported",
+      "no covariance-family identification"
+    ],
+    "prohibited_terms": [
+      "data do not exist",
+      "validation complete"
+    ]
+  },
+  "practical_consequence": {
+    "function": "Conclude that credible spatial-uniformity studies must report calibrated kernels, at least three informative scales for family closure, finite-map covariance, cross-scale dependence, and predeclared field and edge conventions.",
+    "required_terms": [
+      "calibrated measurement kernel",
+      "three informative scales",
+      "finite-map covariance",
+      "predeclared conventions"
+    ],
+    "prohibited_terms": [
+      "universal scan pitch",
+      "universal probe size"
+    ]
+  }
+}
