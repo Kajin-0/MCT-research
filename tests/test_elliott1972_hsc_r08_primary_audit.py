@@ -16,6 +16,7 @@ PAIRINGS = ROOT / "data/hansen/elliott1972_hansen_ingestion_candidates.csv"
 README = ROOT / "data/hansen/elliott1972_hsc_r08_README.md"
 REFERENCE = ROOT / "data/validation/elliott1972_hsc_r08_audit.json"
 TOOL = ROOT / "tools/audit_elliott1972_hsc_r08.py"
+SOURCE_GRAPH = ROOT / "data/hansen/hansen_1982_source_graph.csv"
 
 
 def _csv(path: Path) -> list[dict[str, str]]:
@@ -42,6 +43,17 @@ def test_measurement_class_is_pressure_magnetotransport() -> None:
     text = README.read_text(encoding="utf-8")
     assert "not direct optical edges" in text
     assert "Hansen 1982 grouped HSC_R08 with magneto-optical gap evidence" in text
+
+
+def test_hansen_source_graph_is_corrected() -> None:
+    rows = {row["graph_id"]: row for row in _csv(SOURCE_GRAPH)}
+    row = rows["HSC_R08"]
+    assert row["measurement_group"] == "hydrostatic_pressure_magnetotransport"
+    assert "signed zero-pressure gap" in row["gap_observable"]
+    assert row["temperature_series_mapping"] == (
+        "unresolved_heavy_hole_mass_branch_and_per_marker_mapping"
+    )
+    assert row["acquisition_priority"] == "complete_primary_source_audit"
 
 
 def test_specimen_registry_and_transition_intervals() -> None:
