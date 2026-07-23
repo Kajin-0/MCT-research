@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_direct_fixture_execution",
+  "program": "R02",
+  "issue": 313,
+  "design_issue": 309,
+  "design_merge_commit": "cd87a414b645a773724ffde9699695954aad36ed",
+  "phase": "one_pinned_execution",
+  "source": {
+    "repository": "QEF/q-e",
+    "clone_url": "https://github.com/QEF/q-e.git",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "epw_version": "6.1",
+    "run_epw_git_blob_sha": "8f6a915fb656e424f8e4c03b3e5ea301d83953ae",
+    "required_files": {
+      "EPW/src/selfen.f90": "92814fb0ba79b355cda842598fe6e22ee24a77027864524c91fd6ea4bf63ff97",
+      "test-suite/epw_base/scf.in": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b",
+      "test-suite/epw_base/ph.in": "1dac9d47d8c234f7b88ef5f8ce7db6c9aaeb1c4a83f7b2cd13bd78e288b4983f",
+      "test-suite/epw_base/pp.in": "f052c801085cf37855fbab544b5cbe46c864e54c37a163a2bc6eab51c2a34e47",
+      "test-suite/epw_base/scf_epw.in": "eccb8bd933e7748e65310d04e853992db0e2f353e8af062af26df00c4dc509f5",
+      "test-suite/epw_base/nscf_epw.in": "bc1dae9fecb2d589f33d8e0924a1d7aae0e29603e8d63c0380e5bf3173eb6f41",
+      "test-suite/epw_base/epw1.in": "18e83caf042d88d59d23653cb83319aa0cad9a400d8422f13f11788373045999",
+      "pseudo/C_3.98148.UPF": "cc147806e663aa2c487cff67fc287a27d846edd438c7f4fc15d8851409244f2a"
+    }
+  },
+  "observational_patch": {
+    "path": "patches/qe76-epw61-r02-raw-vertex-export.patch",
+    "sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
+    "disabled_by_default": true,
+    "scientific_contraction_added": false
+  },
+  "fixture": {
+    "upstream_path": "test-suite/epw_base",
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "external_band_count": 4,
+    "intermediate_band_count": 4,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "selected_ik_global": 1,
+    "sequence_ids": ["disabled", "enabled"],
+    "commands_per_sequence": 6,
+    "direct_commands": [
+      ["PW_X", "-input", "scf.in"],
+      ["PH_X", "-input", "ph.in"],
+      ["PYTHON", "EPW_BIN/pp.py", "<", "pp.in"],
+      ["PW_X", "-input", "scf_epw.in"],
+      ["PW_X", "-input", "nscf_epw.in"],
+      ["EPW_X", "-input", "epw1.in"]
+    ],
+    "one_working_directory_per_sequence": true,
+    "testcode_used": false,
+    "output_discovery_used": false,
+    "outputs_opened_before_process_start": true
+  },
+  "thresholds": {
+    "exporter_enabled_disabled_standard_output_max_abs_ev": 1e-12,
+    "normalization_identity_max_abs_ry2": 1e-14,
+    "per_state_real_diagonal_max_abs_ev": 1e-12,
+    "summed_real_diagonal_max_abs_ev": 1e-12,
+    "synthetic_external_covariance_max_abs_ev": 1e-12,
+    "q_weight_sum_max_abs": 1e-12,
+    "maximum_workflow_minutes": 120,
+    "maximum_evidence_bytes": 2147483648,
+    "required_command_count": 12,
+    "required_output_file_count": 24
+  },
+  "authorization": {
+    "source_clone_and_verify": true,
+    "observational_patch_application": true,
+    "exactly_one_pinned_build": true,
+    "exactly_one_disabled_sequence": true,
+    "exactly_one_enabled_sequence": true,
+    "repository_analysis": true,
+    "automatic_retry": false,
+    "testcode_execution": false,
+    "alternate_build": false,
+    "parameter_sweep": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_phase_transition": false
+  },
+  "claim_boundary": "A pass validates raw complex-vertex export and scalar normalization only for the pinned non-SOC upstream diamond fixture. It does not validate SOC spinors, CdTe, HgTe, HgCdTe, generalized-Frohlich material physics, or A1 readiness."
+}
