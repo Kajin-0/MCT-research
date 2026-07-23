@@ -1,0 +1,8 @@
+parameter_id,parameter_name,value,half_width,units,temperature_context,derivation,source_location,error_semantics,independent_observation,notes
+ANT70_M0,band_edge_effective_mass_ratio,0.00560,0.00025,m0_units,low_temperature_1.5_to_4.2K,least_squares_intercept_of_Figure5_relation,Abstract and page 349,source_reported_fit_half_width_covariance_not_reported,false,"Figure 5 states all experimental mass-ratio error bars are +/-5 percent."
+ANT70_EP,interband_matrix_element_Ep,17,1.4,eV,low_temperature_1.5_to_4.2K,least_squares_slope_of_Figure5_relation,Abstract and page 349,source_reported_fit_half_width_covariance_not_reported,false,"Jointly fitted with band-edge mass."
+ANT70_EG,k0_interaction_energy_gap,0.0635,0.008,eV,source_associates_with_4.2K,derived_from_band_edge_mass_and_Ep_under_Kane_two_band_model,Abstract and page 349,source_reported_fit_half_width_covariance_not_reported,false,"Positive semiconducting Gamma6-minus-Gamma8 ordering."
+ANT70_G0,band_edge_electron_g_factor,164,16,dimensionless,band_edge,extrapolated_from_energy_dependent_g_values,Abstract and page 350,source_reported_half_width_covariance_not_reported,false,
+ANT70_DELTA_N1,preferred_observed_spin_to_Landau_splitting_ratio,0.46,0.02,dimensionless,N_equals_1,derivative_extrema_across_all_samples,Page 350,source_reported_sample_summary_not_pointwise_covariance,false,
+ANT70_DELTA_CORRECTED,fermi_shift_corrected_spin_to_Landau_splitting_ratio,0.44,,dimensionless,N_equals_1,0.96_times_preferred_observed_ratio,Page 350,no_uncertainty_reported,false,
+ANT70_SO,spin_orbit_splitting,0.75,,eV,low_temperature,derived_from_g_relation_with_source_model,Page 350,no_uncertainty_reported,false,
