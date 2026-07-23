@@ -65,5 +65,5 @@ def test_manuscript_addendum_preserves_numerics_and_semantics() -> None:
     assert "not a random sample" in text
     assert "No smoothing, interpolation, point replacement" in text
     assert "physical origin" in text
-    assert "no spectrum correction is authorized" in text.lower()
+    assert "no correction of the nominal reconstructed trace is warranted" in text.lower()
     assert "Boundary-limited candidates" in text
