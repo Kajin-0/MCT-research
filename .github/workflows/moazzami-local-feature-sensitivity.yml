@@ -9,7 +9,10 @@ on:
       - 'src/mct_research/absorption_edge_uncertainty.py'
       - 'tools/analyze_moazzami2005_real_spectra.py'
       - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
+      - 'tools/audit_moazzami2005_pixel_reversal_core.py'
+      - 'tools/observation_manuscript_figure_spectrum.py'
       - 'tests/test_moazzami2005_local_feature_sensitivity.py'
+      - 'tests/test_moazzami2005_pixel_reversal_core.py'
   workflow_dispatch:
 
 permissions:
@@ -26,32 +29,42 @@ jobs:
           python-version: '3.13'
       - name: Install
         run: python -m pip install -e '.[test]'
-      - name: Build deterministic sensitivity record
+      - name: Build deterministic sensitivity records
         run: |
           python -m tools.audit_moazzami2005_local_feature_sensitivity \
             --repository-root . \
             --output-json /tmp/moazzami-local-feature-sensitivity.json
+          python -m tools.audit_moazzami2005_pixel_reversal_core \
+            --repository-root . \
+            --output-json /tmp/moazzami-pixel-reversal-core.json
       - name: Run focused tests
         run: |
           python -m pytest -q \
-            tests/test_moazzami2005_local_feature_sensitivity.py
+            tests/test_moazzami2005_local_feature_sensitivity.py \
+            tests/test_moazzami2005_pixel_reversal_core.py
       - name: Record compact decision summary
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path('/tmp/moazzami-local-feature-sensitivity.json')
-          result = json.loads(path.read_text())
-          print(json.dumps(result['decision'], indent=2, sort_keys=True))
-          for specimen in result['specimens']:
-              print(specimen['specimen_id'])
-              print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
+          for filename in (
+              'moazzami-local-feature-sensitivity.json',
+              'moazzami-pixel-reversal-core.json',
+          ):
+              result = json.loads(Path('/tmp', filename).read_text())
+              print(filename)
+              print(json.dumps(result['decision'], indent=2, sort_keys=True))
+              for specimen in result['specimens']:
+                  print(specimen['specimen_id'])
+                  print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: moazzami-local-feature-sensitivity
-          path: /tmp/moazzami-local-feature-sensitivity.json
+          path: |
+            /tmp/moazzami-local-feature-sensitivity.json
+            /tmp/moazzami-pixel-reversal-core.json
           if-no-files-found: error
           retention-days: 30
