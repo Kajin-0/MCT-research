@@ -77,6 +77,10 @@ jobs:
               data/validation/scott1969_temperature_coefficient_test.json
           python -m pytest -vv \
             tests/test_scott_temperature_coefficient_reference.py
+      - name: Preserve current R01 state for reconciliation
+        run: |
+          cp research/programs/empirical_bandgap/state.md \
+            /tmp/empirical-bandgap-state.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -84,6 +88,6 @@ jobs:
           path: |
             /tmp/scott-temperature-coefficient-tests.log
             /tmp/scott-temperature-coefficient-a.json
-            research/programs/empirical_bandgap/state.md
+            /tmp/empirical-bandgap-state.md
           if-no-files-found: error
           retention-days: 30
