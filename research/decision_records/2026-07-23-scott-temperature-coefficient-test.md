@@ -22,20 +22,20 @@ path
 source CSV SHA256
   6fd672cb9469d16d0dce2dc4657af99391e1652b79a2e59cd4661d03bdebc851
 
-candidate workflow run
-  29974393772
+successful workflow run
+  29975036133
 
-candidate artifact
-  8550871821
+successful artifact
+  8551086863
 
-candidate artifact digest
-  sha256:1c0568e17bd27a0f3970466d62d5faf9d71bd2769aba34d67d0b90f7d96b279a
+successful artifact digest
+  sha256:40ddecb17b6bfdbedc74680a5601508062c1a602e5da65f769f8d646cd3d7fea
 
 committed JSON SHA256
-  2137d0e1e5cbd594b36b069b54449e4603f756904d7b6f61041673960ebaf5e3
+  f261dadaff21f751f2b90bab9b45dfaa5b7ff9923f091b7eedc62e7308d63eeb
 ```
 
-The workflow generated the compact result twice and compared the files byte-for-byte before publication.
+The workflow generated the compact result twice, compared the files byte-for-byte, and compared the regenerated result against the committed canonical JSON. Condition numbers alone are serialized to ten decimal places to exclude observed last-bit SVD variation; all decision metrics remain quantized to twelve decimal places.
 
 ## Observation boundary
 
