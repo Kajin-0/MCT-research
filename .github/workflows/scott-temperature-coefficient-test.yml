@@ -1,6 +1,12 @@
 name: scott-temperature-coefficient-test
 
 on:
+  push:
+    branches:
+      - agent/scott1969-temperature-coefficients
+    paths:
+      - '.github/workflows/scott-temperature-coefficient-test.yml'
+      - 'research/programs/empirical_bandgap/state.md'
   pull_request:
     paths:
       - '.github/workflows/scott-temperature-coefficient-test.yml'
@@ -25,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
@@ -81,7 +87,7 @@ jobs:
             tests/test_scott_temperature_coefficient_reference.py
       - name: Reconcile Scott result into R01 state once
         env:
-          HEAD_REF: ${{ github.head_ref }}
+          TARGET_REF: ${{ github.head_ref || github.ref_name }}
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -116,12 +122,17 @@ jobs:
               text = text.replace(foundation_old, foundation_new, 1)
 
           start_header = '## Scott 1969 fixed-absorption optical-edge source audit\n'
+          replacement_header = (
+              '## Scott 1969 fixed-alpha optical-edge reconstruction and '
+              'temperature test\n'
+          )
           end_header = '## Blue 1964 theory-conditioned optical-gap reconstruction\n'
-          assert text.count(start_header) == 1
-          assert text.count(end_header) == 1
-          start = text.index(start_header)
-          end = text.index(end_header, start)
-          scott_section = '''## Scott 1969 fixed-alpha optical-edge reconstruction and temperature test
+          if start_header in text:
+              assert text.count(start_header) == 1
+              assert text.count(end_header) == 1
+              start = text.index(start_header)
+              end = text.index(end_header, start)
+              scott_section = '''## Scott 1969 fixed-alpha optical-edge reconstruction and temperature test
 
 Issues #265, #303, and #312, merged PR #304, and the current temperature-coefficient tranche establish the source contract, direct-marker ledger, and bounded thermal-trend result for Scott 1969.
 
@@ -272,14 +283,16 @@ deterministic box qualification                 validated
 leave-one-specimen-out prediction               validated
 Hansen temperature-coefficient compatibility    unresolved
 fixed-alpha observation-specific correction     unresolved
-absolute Hansen polynomial validation            not authorized
+absolute Hansen polynomial validation           not authorized
 new universal HgCdTe equation                    not authorized.
 ```
 
 The Scott path is closed under current public source precision. Reopening requires a materially higher-resolution or source-native numerical record with adequate uncertainty semantics. It must not be reopened by sampling Equation (3) or Figure 5, adding nonlinear temperature terms to manufacture compatibility, substituting fit-required compositions, treating extraction bounds as covariance, or pooling incompatible measurement classes.
 
 '''
-          text = text[:start] + scott_section + text[end:]
+              text = text[:start] + scott_section + text[end:]
+          else:
+              assert replacement_header in text
 
           stale_unresolved = (
               '- whether calibrated Scott Figure 2/5 markers can be recovered '
@@ -307,11 +320,12 @@ The Scott path is closed under current public source precision. Reopening requir
           if stale_comparison in text:
               text = text.replace(stale_comparison, resolved_comparison, 1)
 
-          stale_gate = (
+          text = text.replace(
               '- obtain a rendered Scott 1969 asset and apply a calibrated '
-              'Figure 2/5 digitization gate;\n'
+              'Figure 2/5 digitization gate;\n',
+              '',
+              1,
           )
-          text = text.replace(stale_gate, '', 1)
           text = text.replace(
               '- obtain additional independently composed temperature series or '
               'author data;',
@@ -348,7 +362,7 @@ The Scott path is closed under current public source precision. Reopening requir
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add research/programs/empirical_bandgap/state.md
             git commit -m 'Reconcile Scott result in R01 state'
-            git push origin HEAD:"$HEAD_REF"
+            git push origin HEAD:"$TARGET_REF"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
