@@ -30,7 +30,11 @@ jobs:
         run: python -m pip install pytest
 
       - name: Run focused architecture tests
-        run: python -m pytest -q tests/test_r04_manuscript_architecture.py
+        run: |
+          set -o pipefail
+          mkdir -p r04-manuscript-architecture-diagnostics
+          python -m pytest -q tests/test_r04_manuscript_architecture.py \
+            2>&1 | tee r04-manuscript-architecture-diagnostics/pytest.txt
 
       - name: Verify architecture decision and scope ceiling
         run: |
@@ -68,3 +72,11 @@ jobs:
               'practical_consequence',
           }
           PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r04-manuscript-architecture-diagnostics
+          path: r04-manuscript-architecture-diagnostics
+          if-no-files-found: error
+          retention-days: 30
