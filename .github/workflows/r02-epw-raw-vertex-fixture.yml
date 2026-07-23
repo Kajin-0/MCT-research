@@ -6,13 +6,10 @@ on:
       - '.github/workflows/r02-epw-raw-vertex-fixture.yml'
       - 'first_principles/b0/r02_epw_raw_vertex_fixture_contract.json'
       - 'first_principles/b0/r02_epw_raw_vertex_fixture_harness_stop_29962340413.json'
-      - 'first_principles/b0/r02_epw_raw_vertex_source_qualification_result.json'
-      - 'patches/qe76-epw61-r02-raw-vertex-export.patch'
+      - 'first_principles/b0/r02_epw_raw_vertex_fixture_terminal_harness_stop_29971955581.json'
       - 'tools/run_epw_raw_vertex_fixture_ci.sh'
-      - 'tools/analyze_epw_raw_vertex_fixture.py'
       - 'tools/select_epw_fixture_stdout.py'
       - 'tests/test_r02_epw_raw_vertex_source_gate.py'
-      - 'tests/test_r02_epw_raw_vertex_analyzer.py'
       - 'tests/test_select_epw_fixture_stdout.py'
   workflow_dispatch:
 
@@ -24,35 +21,44 @@ permissions:
   contents: read
 
 jobs:
-  one-pinned-build-two-identical-fixtures:
+  frozen-terminal-harness-stop:
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
-    env:
-      OMP_NUM_THREADS: '1'
-      OPENBLAS_NUM_THREADS: '1'
-      MKL_NUM_THREADS: '1'
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
 
-      - name: Install compiler and numerical dependencies
+      - name: Install focused test dependency
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            build-essential gfortran git make perl python3-pip \
-            libblas-dev liblapack-dev libfftw3-dev
           python -m pip install --upgrade pip
           python -m pip install -e ".[test]"
 
-      - name: Execute one pinned build and two identical fixture sequences
-        run: bash tools/run_epw_raw_vertex_fixture_ci.sh
+      - name: Verify fail-closed fixture state
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Upload complete fixture evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: r02-epw-raw-vertex-fixture-evidence
-          path: r02-epw-raw-vertex-fixture-evidence
-          if-no-files-found: error
-          retention-days: 30
-          compression-level: 6
+          contract = json.loads(
+              Path(
+                  "first_principles/b0/r02_epw_raw_vertex_fixture_contract.json"
+              ).read_text()
+          )
+          assert contract["phase"] in {
+              "fixture_execution",
+              "terminal_harness_stop",
+          }
+          if contract["phase"] == "terminal_harness_stop":
+              auth = contract["authorization"]
+              assert auth["qe_epw_build"] is False
+              assert auth["upstream_fixture_execution"] is False
+              assert auth["observational_export_patch_application"] is False
+              assert auth["automatic_retry"] is False
+              assert auth["design_only_followup"] is True
+          PY
+          python -m pytest -vv tests/test_select_epw_fixture_stdout.py
+
+      - name: Confirm no scientific executable is invoked
+        run: |
+          ! grep -E 'make -j[0-9]+ pw ph epw|pw\.x|ph\.x|epw\.x' \
+            .github/workflows/r02-epw-raw-vertex-fixture.yml
