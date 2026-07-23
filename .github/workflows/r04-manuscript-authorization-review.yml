@@ -1,0 +1,54 @@
+name: r04-manuscript-authorization-review
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r04-manuscript-authorization-review.yml'
+      - 'data/validation/r04_manuscript_authorization_review.json'
+      - 'research/decision_records/2026-07-23-r04-manuscript-authorization-review.md'
+      - 'research/programs/spatial_disorder/state_updates/2026-07-23-manuscript-authorization-review.md'
+      - 'tests/test_r04_manuscript_authorization_review.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install tests
+        run: python -m pip install pytest
+
+      - name: Run focused review tests
+        run: python -m pytest -q tests/test_r04_manuscript_authorization_review.py
+
+      - name: Verify immutable decision and JSON formatting
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/validation/r04_manuscript_authorization_review.json')
+          raw = path.read_text(encoding='utf-8')
+          review = json.loads(raw)
+          assert raw == json.dumps(review, indent=2) + '\n'
+          assert review['decision'] == 'AUTHORIZE_RESTRICTED_MANUSCRIPT'
+          assert review['authorization']['restricted_manuscript_drafting'] is True
+          assert review['authorization']['submission'] is False
+          assert review['authorization']['submission_requires_separate_final_claim_audit'] is True
+          assert review['authorization']['HgCdTe_validation_claim'] is False
+          assert review['authorization']['physical_correlation_length_claim'] is False
+          assert review['authorization']['covariance_family_selection'] is False
+          assert review['authorization']['R05'] is False
+          assert review['second_dataset_decision']['required_before_drafting'] is False
+          assert len(review['minimum_main_text_result_set']) == 4
+          assert len(review['main_figure_plan']) == 4
+          PY
