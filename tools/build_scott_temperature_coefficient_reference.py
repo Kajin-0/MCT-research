@@ -174,7 +174,7 @@ def main() -> None:
     quantized = quantize_for_json(compact_reference(full_reference))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
-        json.dumps(quantized, indent=2, sort_keys=True) + "\n",
+        json.dumps(quantized, sort_keys=True, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
 
