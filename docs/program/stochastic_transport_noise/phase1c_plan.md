@@ -1,52 +1,67 @@
-# R06 Phase 1C plan: HgCdTe statistics, parameters, and solver architecture
+# R06 Phase 1C plan: HgCdTe statistics, parameters, and deterministic kernel architecture
 
 **Program:** stochastic transport and finite-size noise  
 **Contribution:** R06  
-**Status:** authorized Phase 1 planning; production simulation remains gated
+**Controlling issue:** #346  
+**Status:** active Phase 1C; production simulation remains gated
 
 ## Objective
 
-Complete the remaining work required for a defensible Phase 2 deterministic implementation:
+Complete the remaining material, nonlinear-solver, uncertainty, and verification gates required before a limited Phase 2 deterministic implementation can be authorized.
 
-1. select and justify the HgCdTe carrier-statistics closure;
-2. populate the material and uncertainty table;
-3. define deterministic bulk and contact boundary hierarchies;
-4. specify the numerical discretization and nonlinear-solver architecture;
-5. define executable conservation, convergence, and analytical-limit tests;
-6. issue the final Phase 1 proceed, reframe, or terminate decision.
+## Completed Phase 1C gates
 
-## Workstream A — composition and thermodynamics
+### Carrier-statistics architecture
 
-Required relations:
+- Fermi-Dirac statistics with a source-controlled nonparabolic density of states selected as the reference architecture;
+- generalized Einstein relation tied to carrier susceptibility;
+- susceptibility-based screening selected;
+- Boltzmann statistics retained only as a quantified reduction;
+- parabolic Fermi-integral prototype and immutable reference data implemented;
+- Hansen-Schmit abstract fit implemented as a benchmark only.
 
-- `E_g(x,T)`;
-- electron and hole density of states;
-- effective-mass or Kane nonparabolicity closure;
-- intrinsic carrier density;
-- charge neutrality and ionization;
-- dielectric permittivity;
-- reduced chemical potentials.
+### Boundary and circuit architecture
 
-Decision required:
+- carrier-contact physics separated from terminal electrical ensemble;
+- blocking, reservoir, finite exchange, dynamic interface-state, pair-recombination, Smith finite-`S`, and asymmetric contact classes defined;
+- fixed-voltage, fixed-current, open-circuit, finite-load, and capacitive terminal ensembles defined.
 
-- Boltzmann baseline with quantified degeneracy error; or
-- Fermi-Dirac/Kane baseline from the start.
+### Deterministic numerical kernel
 
-The decision metric is the maximum relative error in carrier density, compressibility `partial n/partial mu`, generalized Einstein factor, Debye length, and terminal current over the intended parameter range.
+- dimensionless steady unipolar Poisson-continuity prototype implemented;
+- logarithmic density state used for positivity;
+- Scharfetter-Gummel fitted electron face current implemented;
+- conservative residual implemented;
+- dense analytical Jacobian implemented;
+- residual-independent current-conservation metrics implemented;
+- exact equilibrium, uniform-resistor, zero-field diffusion, telescoping balance, and Jacobian checks passed locally.
 
-## Workstream B — transport
+## Active workstream A — exact HgCdTe statistics source audit
 
-Required inputs:
+Required:
 
-- electron and hole mobility ranges;
+1. Madarasz-Szmulowicz 1985 equation-quality source;
+2. Lowney et al. 1992 equation-quality source;
+3. exact dispersion, density-of-states, degeneracy, mass, gap, and neutrality definitions;
+4. source validity and parameter provenance;
+5. intrinsic-density model comparison over one declared `x,T` grid.
+
+Fallback: retain a dimensionless nonparabolic statistics family without material-accuracy claims.
+
+## Active workstream B — transport and electrostatic parameters
+
+Required:
+
+- low-field electron mobility near 77 K with specimen, doping, and compensation context;
+- heavy-hole mobility range with comparable context;
 - field-dependence criterion;
 - generalized diffusion coefficients;
-- velocity-saturation or hot-carrier exclusion criterion;
+- static electrostatic permittivity relation and uncertainty;
 - local-transport validity versus mean free path and mesh scale.
 
 The baseline may use constant low-field mobility only if the resulting error is bounded for all benchmark fields.
 
-## Workstream C — traps and recombination
+## Active workstream C — traps and recombination
 
 Required inputs:
 
@@ -56,9 +71,9 @@ Required inputs:
 - equilibrium trap occupancy and charge convention;
 - direct band-to-band generation/recombination baseline if retained.
 
-The explicit four-channel trap model remains the stochastic reference.
+The explicit four-channel trap model remains the stochastic reference. No trap code enters before the deterministic bipolar block passes equilibrium and conservation tests.
 
-## Workstream D — optics
+## Active workstream D — optics
 
 Required inputs:
 
@@ -69,7 +84,7 @@ Required inputs:
 
 Uniform generation is the first deterministic benchmark. Beer-Lambert generation follows only after the uniform case converges and conserves charge.
 
-## Workstream E — contacts and external circuit
+## Active workstream E — contacts and external circuit
 
 Deterministic hierarchy:
 
@@ -87,36 +102,38 @@ External-circuit hierarchy:
 3. finite source and load impedance;
 4. optional contact and parasitic capacitance.
 
-## Workstream F — discretization
+## Active workstream F — nonlinear deterministic solve
 
-Reference deterministic method:
+Next implementation steps:
 
-- conservative finite volume on a one-dimensional nonuniform mesh;
-- Scharfetter-Gummel or generalized exponential fitting for carrier fluxes;
-- cell-centered carrier and trap variables;
-- face electric field or potential-difference formulation;
-- exact event-compatible boundary fluxes;
-- sparse Newton solve with continuation in bias and generation.
+1. damped Newton iteration;
+2. residual and variable scaling;
+3. continuation in normalized voltage and screening strength;
+4. exact equilibrium and uniform-resistor convergence;
+5. manufactured nonuniform solution;
+6. mesh-refinement study;
+7. sparse Jacobian representation preserving the verified dense derivatives.
 
-Independent verification method:
+Independent verification remains:
 
 - second-order finite differences or a one-dimensional finite-element formulation;
-- analytical eigenfunction solutions for reduced linear limits.
+- analytical solutions for reduced limits.
 
-## Workstream G — nonlinear solver
+## Active workstream G — bipolar deterministic block specification
 
-Required features:
+Before coding, fix:
 
-- equilibrium initialization;
-- continuation in terminal voltage;
-- continuation in optical generation;
-- variable scaling and nondimensional residuals;
-- damped Newton or trust-region fallback;
-- sparse direct solve for initial development;
-- iterative PETSc option only after the small problem is verified;
-- explicit reporting of block residuals and conditioning.
+- electron and hole log-density variables;
+- current signs and fitted fluxes;
+- Poisson charge derivatives;
+- generation-recombination source placement;
+- ideal-reservoir and blocking limits;
+- terminal current reconstruction;
+- block Jacobian sparsity.
 
-## Workstream H — Phase 2 acceptance suite
+No stochastic operator enters before this block passes equilibrium, conservation, and mesh tests.
+
+## Active workstream H — Phase 2 acceptance suite
 
 Minimum deterministic tests:
 
@@ -130,36 +147,69 @@ Minimum deterministic tests:
 8. blocking and reservoir contact limits;
 9. Smith 1982 absorbing-contact profile;
 10. Smith 1984 finite-`S` profile;
-11. mesh refinement over bulk and Debye boundary layers;
+11. mesh refinement over bulk and screening boundary layers;
 12. agreement with the independent discretization.
+
+## Active workstream I — uncertainty and research viability
+
+Demonstrate at least one reduction-error boundary that remains stable under credible uncertainty in:
+
+- carrier statistics;
+- gap and intrinsic density;
+- mobility ratio;
+- permittivity and screening;
+- contact controls;
+- trap parameters where used.
+
+Failure to obtain a stable boundary triggers reframe to a benchmark/synthesis package or termination of the paper objective.
 
 ## Dependency strategy
 
 Keep the base package lightweight.
 
-Provisional optional dependencies:
+Current prototype dependencies:
+
+- NumPy;
+- pytest for tests.
+
+Potential Phase 2 optional dependencies:
 
 - SciPy for sparse nonlinear and linear algebra;
 - matplotlib and pandas for analysis only;
-- h5py or NetCDF for reproducible result storage;
+- h5py or NetCDF for compact reproducible result storage;
 - PETSc/SLEPc in a separate optional environment after baseline verification.
 
 FEniCSx is not the initial reference method because a conservative one-dimensional finite-volume implementation provides more transparent flux and stochastic-event bookkeeping. It may be used later as an independent method.
 
-## Deliverables
+## Next executable increment
 
-1. populated parameter table with source locations and uncertainty classes;
-2. statistics and generalized Einstein decision record;
-3. deterministic boundary-condition specification;
-4. solver architecture document;
-5. Phase 2 issue and file layout;
-6. final Phase 1 gate decision.
+The next code increment is limited to a damped Newton solver and manufactured-solution tests for the existing dimensionless unipolar kernel.
+
+It must not add:
+
+- source-unsupported HgCdTe material parameters;
+- holes or traps before the block specification is approved;
+- stochastic operators;
+- production parameter sweeps.
+
+## Phase 1 completion criteria
+
+A final proceed/reframe/terminate record requires:
+
+1. statistics model decision with source and error evidence;
+2. mobility and permittivity bounds or explicit exploratory classification;
+3. nonlinear deterministic convergence and mesh evidence;
+4. bipolar block specification;
+5. executable Phase 2 test plan;
+6. at least one uncertainty-robust candidate reduction observable;
+7. explicit authorized and prohibited Phase 2 scope.
 
 ## Stop criteria
 
-Pause before implementation if:
+Pause or reframe if:
 
 - no defensible low-temperature carrier-statistics closure is available;
 - mobility or trap uncertainty prevents even dimensionless benchmark construction;
 - one-dimensional contact parameters cannot be mapped to any falsifiable observable;
-- the numerical hierarchy cannot recover the required analytical limits without incompatible assumptions.
+- the numerical hierarchy cannot recover the required analytical limits without incompatible assumptions;
+- no candidate reduction boundary survives credible material uncertainty.
