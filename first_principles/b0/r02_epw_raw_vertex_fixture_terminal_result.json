@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_raw_vertex_fixture_terminal_result",
+  "program": "R02",
+  "issue": 300,
+  "closed_pr": 305,
+  "status": "stop",
+  "classification": "STOP_HARNESS_BUDGET_EXHAUSTED",
+  "scientific_failure_established": false,
+  "backend_normalization_validated": false,
+  "source_qualification": {
+    "qe_release": "7.6",
+    "epw_release": "6.1",
+    "source_commit": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "observational_patch_sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
+    "workflow_run_id": 29962102178,
+    "artifact_id": 8546387617,
+    "artifact_digest": "sha256:71531640506e788996169b0eaad4c19ee19fc9986f87cee56606cb182345b725",
+    "build_count": 0,
+    "scientific_execution_count": 0,
+    "passed": true
+  },
+  "fixture": {
+    "upstream_category": "test-suite/epw_base",
+    "material": "diamond",
+    "nonpolar": true,
+    "external_band_count": 4,
+    "intermediate_band_count": 4,
+    "material_calculation": false
+  },
+  "attempts": [
+    {
+      "workflow_run_id": 29962340413,
+      "workflow_job_id": 89066052310,
+      "head_sha": "f9afa6518dd388a21cb8f5adb0375c3af0cec315",
+      "artifact_id": 8546683709,
+      "artifact_digest": "sha256:9073466e47eff31d301d7d9b54675edffc420e7f160cecd3c8a523c057166971",
+      "classification": "HARNESS_STOP",
+      "build_count": 1,
+      "scientific_execution_count": 1,
+      "disabled_fixture_programs_passed": 5,
+      "disabled_fixture_program_count": 5,
+      "stdout_preserved": false,
+      "enabled_fixture_executed": false,
+      "analyzer_executed": false,
+      "failure_stage": "fixture_disabled",
+      "failure_reason": "heuristic_stdout_discovery_failed"
+    },
+    {
+      "workflow_run_id": 29971955581,
+      "workflow_job_id": 89095664081,
+      "head_sha": "8a5032b217d4c8b32471ffe77dfbfa7806c54e50",
+      "artifact_id": 8550168667,
+      "artifact_digest": "sha256:59e73383c7b25a77cb6bc45a19adae80e0c644c1dfc26509c1e7175620e2fe61",
+      "classification": "TERMINAL_HARNESS_STOP",
+      "build_count": 1,
+      "scientific_execution_count": 1,
+      "disabled_fixture_programs_passed": 5,
+      "disabled_fixture_program_count": 5,
+      "reported_stdout_filename": "test.out.230726.inp=epw1.in.args=3",
+      "reported_stderr_filename": "test.err.230726.inp=epw1.in.args=3",
+      "stdout_preserved": false,
+      "enabled_fixture_executed": false,
+      "analyzer_executed": false,
+      "failure_stage": "fixture_disabled",
+      "failure_reason": "testcode_output_working_directory_not_preserved"
+    }
+  ],
+  "aggregate_execution": {
+    "pinned_build_count": 2,
+    "disabled_fixture_sequence_count": 2,
+    "disabled_fixture_programs_passed": 10,
+    "disabled_fixture_program_count": 10,
+    "enabled_fixture_sequence_count": 0,
+    "analyzer_execution_count": 0,
+    "material_calculation_count": 0
+  },
+  "decision": {
+    "qe_testcode_wrapper_strategy": "terminated",
+    "raw_complex_vertex_export": "not_validated",
+    "scalar_diagonal_equivalence": "not_evaluated",
+    "backend_covariance": "not_evaluated",
+    "soc_spinor_compatibility": "not_authorized",
+    "next_gate": "design_direct_executable_fixture_with_explicit_output_redirection",
+    "next_issue": 309,
+    "next_gate_execution_authorized": false
+  },
+  "authorization": {
+    "qe_epw_build": false,
+    "fixture_execution": false,
+    "automatic_retry": false,
+    "parameter_sweep": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "design_only_followup": true
+  },
+  "claim_boundary": "Two pinned builds and two exporter-disabled upstream diamond sequences completed all declared programs, but neither attempt preserved EPW stdout. No exporter-enabled sequence or normalization analysis occurred. This is a terminal harness result, not a scientific backend failure."
+}
