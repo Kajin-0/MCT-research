@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_raw_vertex_fixture_attempt",
+  "program": "R02",
+  "issue": 300,
+  "workflow_run_id": 29971955581,
+  "workflow_job_id": 89095664081,
+  "artifact_id": 8550168667,
+  "artifact_digest": "sha256:59e73383c7b25a77cb6bc45a19adae80e0c644c1dfc26509c1e7175620e2fe61",
+  "head_sha": "8a5032b217d4c8b32471ffe77dfbfa7806c54e50",
+  "status": "failed",
+  "classification": "TERMINAL_HARNESS_STOP",
+  "last_stage": "fixture_disabled",
+  "exit_code": 1,
+  "execution": {
+    "build_count": 1,
+    "scientific_execution_count": 1,
+    "disabled_fixture_sequence_executed": true,
+    "enabled_fixture_sequence_executed": false,
+    "analyzer_executed": false,
+    "material_calculation_executed": false
+  },
+  "disabled_fixture": {
+    "upstream_program_count": 5,
+    "upstream_programs_passed": 5,
+    "steps": [
+      "scf.in arg 1",
+      "ph.in arg 2",
+      "scf_epw.in arg 1",
+      "nscf_epw.in arg 1",
+      "epw1.in arg 3"
+    ],
+    "test_suite_summary": "5 out of 5 tests passed",
+    "stdout_filename_reported_by_driver": "test.out.230726.inp=epw1.in.args=3",
+    "stderr_filename_reported_by_driver": "test.err.230726.inp=epw1.in.args=3",
+    "stdout_preserved": false,
+    "stderr_preserved": false
+  },
+  "failure": {
+    "category": "evidence_collection",
+    "message": "expected exactly one 'test.out.*.inp=epw1.in.args=3' in the QE test-suite root, found 0",
+    "root_cause": "The deterministic filename was correct, but the harness assumed the output lived in the test-suite root. QE testcode emitted or managed the file in another working location and removed or relocated it before the capture step.",
+    "scientific_failure": false,
+    "source_failure": false,
+    "patch_failure": false,
+    "build_failure": false,
+    "fixture_program_failure": false,
+    "normalization_evaluated": false
+  },
+  "evidence_sha256": {
+    "status_txt": "773f4c80c4914f6b3f093ab1f28be7bf098afe08aea48d45ae3904a3490e4c22",
+    "driver_stderr_txt": "81d95909fcf4d80ef75bbc95d134de9ea9da9ca2c137cb997e7c7b36bd658650",
+    "driver_stdout_txt": "01190bc09af50a1559abf6db447d7ec5c252dd8da2fb7a9765cf7915f0772580",
+    "disabled_test_suite_driver_txt": "557419ccb673ab62f2d438b0e67ca96aab0c142455f0dfae1351fda28d96694d",
+    "focused_pytest_txt": "d553dcfa4dc5692d4077f645f538b21e6f20e741d9360c7d9e4348742ae7c157",
+    "build_make_txt": "97ffed84c1f748ab975caac3e7a68d8481a1ff9604832ef5c09c1244d3f4d859"
+  },
+  "authorization": {
+    "additional_qe_epw_build": false,
+    "additional_fixture_execution": false,
+    "automatic_retry": false,
+    "parameter_sweep": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "design_only_followup": true
+  },
+  "required_followup": {
+    "strategy": "Bypass QE testcode output management and design a direct-executable fixture with explicit shell redirection to immutable evidence paths.",
+    "execution_authorized": false,
+    "required_before_any_future_execution": [
+      "source-level reconstruction of the exact pw.x/ph.x/epw.x command sequence",
+      "synthetic tests for explicit stdout and stderr preservation",
+      "dry-run command manifest with no QE execution",
+      "new bounded issue and separate authorization"
+    ]
+  },
+  "claim_boundary": "This terminal stop establishes that two pinned builds and two disabled-export upstream diamond sequences completed successfully, but neither attempt preserved EPW stdout and no enabled-export or normalization analysis occurred. It does not constitute a scientific failure or validate any backend normalization."
+}
