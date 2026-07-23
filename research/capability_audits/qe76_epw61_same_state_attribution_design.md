@@ -26,29 +26,31 @@ release     qe-7.6
 commit      9f93ddec427d2b9a45bb72d828c6d324f62fcabd
 ```
 
-Source identities:
+Git blob identities at the pinned commit:
 
 ```text
-EPW/src/epw.f90             11020ee802f815eb446769980bca6d9f065590fa
-EPW/src/wannier.f90         a2b95b9641180a01a8889df526aef74f32a47c21
-EPW/src/use_wannier.f90     104bfee94e9b32e5cb1f86c47382f34090393f3b
-EPW/src/io/io.f90           73fb24ecbf4b690c460006ec354d0b9a7772a044
-test-suite/epw_base/epw1.in 624b4f8a47b003443a131f15afb7815b33a3398e
-test-suite/epw_base/epw2.in a30b69515a204f74d1565f43806efa72f064e67a
+EPW/src/epw.f90                     fca6e313d45ef636a81ca45b3585d2abe3124da5
+EPW/src/ep_coarse_unfolding.f90     b9dcb97df833c42d1e3d793c5d66046a42c7ff77
+EPW/src/wannier.f90                 a2b706939505a84b2d082e5a83a3dbb1ae8eef57
+EPW/src/use_wannier.f90             104bfee94e9b32e5cb1f86c47382f34090393f3b
+EPW/src/io/io.f90                   73fb24ecbf4b690c460006ec354d0b9a7772a044
+test-suite/epw_base/epw1.in         624b4f8a47b003443a131f15afb7815b33a3398e
+test-suite/epw_base/epw2.in         a30b69515a204f74d1565f43806efa72f064e67a
 ```
 
 ## Read/restart control flow
 
 The pinned source establishes the following:
 
-1. `epwread=.true.` bypasses the PW restart-file opening and coarse electron-phonon regeneration path in `epw.f90`.
-2. `build_wannier` loads existing rotation matrices when `wannierize=.false.`.
-3. The `epwread` branch invokes:
-   - `epw_read_ws_data`;
-   - `epw_read_crystal`;
-   - `epw_read`.
-4. `epw_read` opens the formatted restart data with `STATUS='old'` and the electron-phonon matrix file with `MPI_MODE_RDONLY` when MPI I/O is used.
-5. Upstream `epw2.in` demonstrates the restart controls:
+1. In `epw.f90`, `epwread=.true.` and `epbread=.false.` skip `setups`, `openfilepw`, and `init`; the restart therefore does not require the PW save tree.
+2. `epw.f90` still calls `ep_coarse_unfolding`, `build_wannier`, and `use_wannier`.
+3. Inside `ep_coarse_unfolding`, the `epwread` branch skips projector generation, coarse q-grid regeneration, external-eigenvalue loading, k-map generation, and coarse electron-phonon reconstruction.
+4. That same branch reads `crystal.fmt` directly with `STATUS='old'` to restore crystal, mass, band-skip, Wannier-center, and related state.
+5. When `wannierize=.false.`, `epw.f90` loads the existing band-manifold/rotation data through `loadbm` and the `.ukk` file.
+6. In `build_wannier`, the `epwread` branch reconstructs the Wigner–Seitz cells from the saved Wannier centers, then calls `epw_read`.
+7. The active replay path does **not** call `epw_read_ws_data`; the call in `wannier.f90` is commented. Consequently `wigner.fmt` is a preparation output retained by the complete-tree policy, not an active replay input in this source revision.
+8. `epw_read` opens `epwdata.fmt`, `vmedata.fmt`, and `dmedata.fmt` with `STATUS='old'`. Under MPI, it opens `prefix.epmatwp` with `MPI_MODE_RDONLY`.
+9. Upstream `epw2.in` demonstrates the restart controls:
 
 ```text
 epwwrite   = .false.
@@ -56,7 +58,18 @@ epwread    = .true.
 wannierize = .false.
 ```
 
-The source-audited minimum restart set is:
+### Source-audited consumed paths
+
+```text
+epwdata.fmt
+crystal.fmt
+vmedata.fmt
+dmedata.fmt
+diam.epmatwp
+diam.ukk
+```
+
+### Source-audited preparation outputs retained in the clone
 
 ```text
 epwdata.fmt
@@ -68,7 +81,7 @@ diam.epmatwp
 diam.ukk
 ```
 
-The design does not assume this minimum is exhaustive. Every regular file in the completed preparation tree is included in the immutable manifest and copied into every replay clone.
+The design does not assume either list is exhaustive. Every regular file in the completed preparation tree is included in the immutable manifest and copied into every replay clone.
 
 ## Replay-input derivation
 
@@ -111,18 +124,10 @@ After one future preparation run completes successfully:
 1. Stop all processes and flush the filesystem.
 2. Walk the complete preparation directory.
 3. Reject symlinks and special files.
-4. Record every regular file with:
-   - relative path;
-   - file type;
-   - mode;
-   - size;
-   - SHA-256.
-5. Require the source-audited minimum restart paths.
+4. Record every regular file with relative path, file type, mode, size, and SHA-256.
+5. Require the source-audited preparation outputs.
 6. Include unknown regular files rather than silently discarding them.
-7. Create three byte-identical copies:
-   - `disabled_a`;
-   - `disabled_b`;
-   - `enabled`.
+7. Create three byte-identical copies: `disabled_a`, `disabled_b`, and `enabled`.
 8. Recompute and compare all three pre-replay manifests.
 
 This complete-tree policy is intentionally stricter than a restart-file whitelist. It prevents an unrecognized saved-state dependency from differing between controls and treatment.
@@ -166,14 +171,7 @@ enabled     R02_EXPORT_RAW_VERTEX=1
             R02_EXPORT_IK_GLOBAL=1
 ```
 
-All three use:
-
-- one executable hash;
-- one replay-input hash;
-- one environment definition;
-- one thread configuration;
-- one byte-identical prepared-state manifest;
-- separate immutable stdout/stderr paths.
+All three use one executable hash, one replay-input hash, one environment definition, one thread configuration, one byte-identical prepared-state manifest, and separate immutable stdout/stderr paths.
 
 No PW, PH, `pp.py`, Wannierization, or upstream-state regeneration is allowed during replay.
 
@@ -201,9 +199,7 @@ Only after the baseline passes, define the deterministic disabled interval:
 [min(A,B), max(A,B)]
 ```
 
-Expand the interval on each side by the same fixed `1e-12` numerical floor. The enabled component passes only when it lies inside that expanded interval.
-
-Equivalent condition:
+Expand the interval on each side by the same fixed `1e-12` numerical floor. The enabled component passes only when:
 
 ```text
 E >= min(A,B) - 1e-12
@@ -212,11 +208,7 @@ E <= max(A,B) + 1e-12
 
 Every component must pass.
 
-This rule has three important properties:
-
-1. It preserves the original issue-313 `1e-12` standard.
-2. It measures replay reproducibility before evaluating exporter treatment.
-3. It makes no statistical population claim from three deterministic replays.
+This rule preserves the original issue-313 standard, measures replay reproducibility before evaluating exporter treatment, and makes no statistical population claim from three deterministic replays.
 
 If disabled A/B fails, attribution stops before interpreting the enabled replay. If enabled falls outside the envelope, exporter noninterference is not established. Threshold or floor fitting after execution is prohibited.
 
@@ -232,25 +224,13 @@ The repository design tool performs no process launch. It provides:
 - deterministic attribution-envelope evaluation;
 - inert dry-run replay manifests.
 
-Adversarial tests cover:
-
-- missing restart files;
-- symlinks;
-- clone drift;
-- state mutation or deletion;
-- unauthorized output files;
-- unstable disabled baseline;
-- enabled-envelope violation;
-- nonfinite or shape-mismatched data;
-- negative or incomplete thresholds;
-- replay-input hash drift;
-- accidental execution authorization.
+Adversarial tests cover missing restart files, symlinks, clone drift, state mutation or deletion, unauthorized outputs, unstable disabled baselines, enabled-envelope violations, nonfinite or shape-mismatched data, negative or incomplete thresholds, replay-input hash drift, and accidental execution authorization.
 
 ## Stop conditions
 
 Stop at design or future execution if:
 
-- the required restart set is absent;
+- the required preparation outputs are absent;
 - three pre-replay manifests differ;
 - any preexisting file mutates or disappears;
 - a replay creates an undeclared file;
@@ -263,13 +243,6 @@ Stop at design or future execution if:
 
 Issue #318 authorizes source inspection, replay-input derivation, hashing/manifests, synthetic tests, and inert JSON only.
 
-It does not authorize:
-
-- configure or build;
-- state preparation;
-- EPW replay;
-- threshold fitting;
-- SOC;
-- CdTe, HgTe, HgCdTe, A1, A2, or A3.
+It does not authorize configure/build, state preparation, EPW replay, threshold fitting, SOC, CdTe, HgTe, HgCdTe, A1, A2, or A3.
 
 A future execution requires a separate bounded issue after this design gate passes and merges.
