@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R04",
+  "issue": 327,
+  "review_date": "2026-07-23",
+  "decision": "AUTHORIZE_RESTRICTED_MANUSCRIPT",
+  "decision_scope": "one concise theory_and_methodology manuscript with an explicitly restricted cross_material real_map demonstration",
+  "evidence_basis": {
+    "analytical_program_issue": 196,
+    "prior_art_issue": 222,
+    "prior_art_pr": 223,
+    "prior_art_merge_commit": "7e9f8295af66800fdaf1c7da1ad505ff3c6bce40",
+    "public_data_issue": 290,
+    "public_data_pr": 308,
+    "public_data_merge_commit": "ad705f13995ae0eb42ec1ad72ab6ecac470ba226",
+    "real_data_issue": 317,
+    "source_qualification_pr": 319,
+    "source_qualification_merge_commit": "75d2d84acd2d778b5e4ba922b20b2cf3879b4b18",
+    "real_data_pr": 326,
+    "real_data_merge_commit": "c706da20115ae193aae1af460dca5e6962e39a09",
+    "real_data_result": "data/validation/r04_cdsete_real_data_result.json"
+  },
+  "current_evidence_state": {
+    "analytical_and_synthetic_hierarchy": "complete_at_current_scope",
+    "finite_aperture_prior_art_audit": "bounded_complete_no_positive_novelty_guarantee",
+    "qualifying_public_hgcdte_source_native_package": "not_found",
+    "hgcdte_external_validation": "blocked",
+    "cross_material_real_data_demonstration": "complete_restricted",
+    "r05": "inactive"
+  },
+  "one_sentence_contribution_claim": "Finite-resolution HgCdTe maps identify a kernel-filtered and calibration-limited spatial field whose recoverable variance, correlation scale, covariance-family closure, and effective information require explicit treatment of the measurement kernel, finite field of view, and same-raster cross-scale dependence.",
+  "provisional_title": "What Finite-Resolution HgCdTe Maps Can Identify: Measurement Kernels, Calibration, and Correlated-Raster Information",
+  "article_type": "theory_and_methodology_article",
+  "audience": [
+    "infrared_material_characterization",
+    "HgCdTe_growth_and_process_engineering",
+    "semiconductor_optical_mapping",
+    "spatial_statistics_and_metrology"
+  ],
+  "claim_matrix": [
+    {
+      "topic": "finite_aperture_hgcdte_mapping_and_spatial_variation",
+      "classification": "established_prior_art",
+      "manuscript_role": "motivation_and_boundary",
+      "novelty_claim_authorized": false,
+      "evidence": [
+        "PR_223_full_text_audit",
+        "Chang_2005",
+        "Furstenberg_2005"
+      ]
+    },
+    {
+      "topic": "Gaussian_covariance_filtering_identity",
+      "classification": "established_mathematics_applied_to_declared_measurement_problem",
+      "manuscript_role": "foundational_theorem",
+      "novelty_claim_authorized": "application_and_integrated_consequence_only"
+    },
+    {
+      "topic": "one_scale_and_two_scale_identifiability",
+      "classification": "established_inverse_problem_consequence",
+      "manuscript_role": "measurement_information_result",
+      "novelty_claim_authorized": "explicit_HgCdTe_design_consequence_only"
+    },
+    {
+      "topic": "absolute_probe_scale_calibration_floor",
+      "classification": "candidate_distinct_integrated_R04_result",
+      "manuscript_role": "core_result",
+      "novelty_claim_authorized": "candidate_not_exhaustive_guarantee",
+      "demonstration": "analytical_and_synthetic"
+    },
+    {
+      "topic": "three_scale_covariance_family_closure",
+      "classification": "candidate_distinct_integrated_R04_result",
+      "manuscript_role": "core_result",
+      "novelty_claim_authorized": "candidate_not_exhaustive_guarantee",
+      "demonstration": "analytical_and_synthetic"
+    },
+    {
+      "topic": "covariance_misspecification_and_fit_convention_dependence",
+      "classification": "candidate_distinct_integrated_R04_result",
+      "manuscript_role": "core_caution",
+      "novelty_claim_authorized": "integrated_HgCdTe_consequence_only",
+      "demonstration": "synthetic"
+    },
+    {
+      "topic": "composite_optical_pixel_and_depth_kernel",
+      "classification": "established_convolution_mathematics_with_candidate_instrument_design_consequence",
+      "manuscript_role": "instrument_bridge",
+      "novelty_claim_authorized": "integrated_error_and_design_consequence_only",
+      "demonstration": "synthetic"
+    },
+    {
+      "topic": "finite_map_variance_bias_and_effective_information",
+      "classification": "established_Gaussian_quadratic_form_statistics_with_candidate_HgCdTe_mapping_consequence",
+      "manuscript_role": "core_result",
+      "novelty_claim_authorized": "integrated_measurement_consequence_only",
+      "demonstration": "analytical_synthetic_and_cross_material_real_map"
+    },
+    {
+      "topic": "same_raster_cross_scale_variance_estimator_covariance",
+      "classification": "established_Gaussian_quadratic_form_identity_with_candidate_integrated_R04_consequence",
+      "manuscript_role": "core_result",
+      "novelty_claim_authorized": "explicit_multiscale_mapping_consequence_only",
+      "demonstration": "analytical_synthetic_and_cross_material_model_conditioned_real_map"
+    },
+    {
+      "topic": "optimal_scale_and_repeat_allocation",
+      "classification": "established_optimal_design_mathematics_with_candidate_R04_measurement_design_consequence",
+      "manuscript_role": "design_result",
+      "novelty_claim_authorized": "integrated_design_consequence_only",
+      "demonstration": "synthetic"
+    },
+    {
+      "topic": "CdSeTe_real_map_scale_dependence",
+      "classification": "cross_material_method_demonstration",
+      "manuscript_role": "bounded_real_data_example",
+      "novelty_claim_authorized": false,
+      "demonstration": "real_source_data_derived_map"
+    },
+    {
+      "topic": "HgCdTe_specimen_covariance_family_or_physical_correlation_length",
+      "classification": "blocked",
+      "manuscript_role": "explicit_unsupported_claim",
+      "novelty_claim_authorized": false
+    }
+  ],
+  "reviewer_risks": [
+    {
+      "risk": "individual_formulas_are_established_mathematics",
+      "severity": "high",
+      "disposition": "manageable_by_claim_restriction",
+      "required_response": "Claim novelty only for the integrated HgCdTe information and measurement-design hierarchy, not for Gaussian convolution, Fisher information, quadratic-form moments, or D-optimal design separately."
+    },
+    {
+      "risk": "no_qualifying_HgCdTe_external_validation",
+      "severity": "high",
+      "disposition": "manageable_for_theory_methodology_article_but_fatal_for_material_validation_claim",
+      "required_response": "Frame the paper as a theorem and measurement-design framework; place the blocked HgCdTe data state in the limitations section and never imply specimen validation."
+    },
+    {
+      "risk": "one_small_24_by_24_cross_material_derived_map",
+      "severity": "medium_high",
+      "disposition": "manageable_by_restricting_real_data_role",
+      "required_response": "Use the CdSeTe map only to demonstrate scale suppression, dependence, and finite-field sensitivity; do not use it to validate HgCdTe physics or select a covariance law."
+    },
+    {
+      "risk": "boundary_and_crop_sensitivity_reaches_approximately_72p7_percent",
+      "severity": "high",
+      "disposition": "positive_methodological_result_not_a_failure",
+      "required_response": "Present the sensitivity as evidence that finite-field conventions can dominate covariance-family differences and must be predeclared."
+    },
+    {
+      "risk": "PL_peak_wavelength_is_not_composition",
+      "severity": "high",
+      "disposition": "manageable_by_observation_operator_boundary",
+      "required_response": "Call it a PL observation field throughout and separate latent composition interpretation from the demonstrated map statistics."
+    },
+    {
+      "risk": "native_sample_plane_PSF_is_unmeasured",
+      "severity": "high",
+      "disposition": "fatal_for_physical_correlation_length_but_not_for_pixel_space_demonstration",
+      "required_response": "Report only added numerical scales and descriptive pixel-space parameters; prohibit deconvolution and physical correlation-length language."
+    },
+    {
+      "risk": "numerical_scales_are_not_independent_experiments",
+      "severity": "high",
+      "disposition": "central_result",
+      "required_response": "Use the exact same-raster covariance result and call the held-out scale a closure check rather than independent prediction."
+    },
+    {
+      "risk": "scope_is_too_broad",
+      "severity": "high",
+      "disposition": "requires_strict_scope_reduction",
+      "required_response": "Limit the main paper to four linked results and move secondary optical and allocation details to appendices or supplementary material."
+    }
+  ],
+  "second_dataset_decision": {
+    "required_before_drafting": false,
+    "reason": "A second cross-material map without a calibrated native kernel would not resolve the blocked HgCdTe validation or physical-scale gate. The current small-map sensitivity is itself a decision-changing methodology result. A second dataset may be added only if a bounded public source directly reduces the finite-field or source-native-spectral limitation without expanding scope.",
+    "automatic_search_authorized": false,
+    "large_multigigabyte_acquisition_authorized": false
+  },
+  "minimum_main_text_result_set": [
+    "kernel_filtered_variance_recoverability_and_absolute_scale_calibration_floor",
+    "three_scale_family_closure_with_misspecification_boundary",
+    "finite_map_and_same_raster_information_accounting",
+    "restricted_CdSeTe_real_map_scale_and_finite_field_demonstration"
+  ],
+  "main_figure_plan": [
+    {
+      "figure": 1,
+      "purpose": "measurement_kernel_and_information_hierarchy",
+      "panels": [
+        "latent_field_to_finite_kernel_observation",
+        "variance_vs_scale_and_identifiability",
+        "absolute_scale_calibration_confounding"
+      ]
+    },
+    {
+      "figure": 2,
+      "purpose": "family_closure_and_misspecification",
+      "panels": [
+        "reciprocal_linearity_and_third_scale_test",
+        "Matern_alternative_residuals",
+        "pairwise_parameter_drift_under_wrong_family"
+      ]
+    },
+    {
+      "figure": 3,
+      "purpose": "finite_map_and_same_raster_information",
+      "panels": [
+        "effective_information_vs_nominal_pixels",
+        "variance_bias",
+        "cross_scale_correlation_and_covariance_volume"
+      ]
+    },
+    {
+      "figure": 4,
+      "purpose": "restricted_real_map_demonstration",
+      "panels": [
+        "source_CdSeTe_PL_peak_wavelength_field",
+        "variance_vs_added_scale",
+        "family_closure_residuals",
+        "boundary_crop_and_detrending_sensitivity"
+      ]
+    }
+  ],
+  "real_data_role": "Demonstrate that one real semiconductor observation field exhibits strong added-scale variance suppression, high same-raster dependence, and finite-field sensitivity; do not validate HgCdTe material covariance or identify a family.",
+  "unsupported_claims_box": [
+    "HgCdTe_specimen_specific_point_variance",
+    "HgCdTe_or_CdSeTe_physical_correlation_length",
+    "universal_Gaussian_or_Matern_covariance_family",
+    "composition_assignment_from_PL_peak_wavelength",
+    "independent_validation_from_numerically_smoothed_scales",
+    "empirical_repeat_covariance_from_model_conditioned_map_statistics",
+    "universal_optical_PSF_or_pixel_model",
+    "R05_random_mass_or_topological_conclusion"
+  ],
+  "strongest_expected_reviewer_objection": "The paper combines established statistical identities and lacks a qualifying HgCdTe multiresolution dataset, so the claimed contribution may appear to be an application note without material validation.",
+  "predeclared_response": "The manuscript must demonstrate that the contribution is the closed information hierarchy linking kernel calibration, family closure, finite-map bias, and same-raster dependence for HgCdTe measurement design. The CdSeTe example is explicitly illustrative. If a target venue requires HgCdTe experimental validation as a condition of publication, withdraw from that venue rather than broaden the claims or fabricate validation.",
+  "authorization": {
+    "outline_and_figure_planning": true,
+    "restricted_manuscript_drafting": true,
+    "submission": false,
+    "submission_requires_separate_final_claim_audit": true,
+    "new_R04_mechanism": false,
+    "new_external_data_search": false,
+    "HgCdTe_validation_claim": false,
+    "physical_correlation_length_claim": false,
+    "covariance_family_selection": false,
+    "R05": false
+  },
+  "required_drafting_conditions": [
+    "Use the provisional claim or a narrower equivalent.",
+    "Cite finite-aperture and spatial-mapping prior art as established work.",
+    "Separate established mathematics from the candidate integrated R04 contribution in the introduction and discussion.",
+    "Limit the main text to the four declared result groups.",
+    "Label the CdSeTe field as a source-data-derived PL observation and the numerical scales as deterministic transforms.",
+    "State that HgCdTe external validation is blocked and that no physical correlation length is reported.",
+    "Include the unsupported-claims box or an equivalent explicit limitations section.",
+    "Require a separate final claim audit before submission."
+  ]
+}
