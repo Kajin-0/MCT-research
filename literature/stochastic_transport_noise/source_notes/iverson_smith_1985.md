@@ -2,106 +2,225 @@
 
 **Source:** A. Evan Iverson and D. L. Smith, “Theory of deep level trap effects on generation-recombination noise in HgCdTe photoconductors,” *Journal of Applied Physics* **58**, 579–587 (1985).  
 **DOI:** `10.1063/1.335666`  
-**Verification status:** full text inspected from an accessible article copy; covariance normalization and every appendix coefficient still require line-by-line transcription before implementation.
+**Verification status:** user-supplied publisher PDF inspected in full; state equations, trap rates, Green functions, instantaneous covariance, spectral convention, noise decomposition, and HgCdTe parameter study verified.
 
-## Model actually treated
+## 1. Model actually treated
 
-The paper studies a one-dimensional, low-level-excitation intrinsic photoconductor with an n-type majority population and a deep center having two charge states. The numerical specialization is approximately `x = 0.21` HgCdTe.
+The paper studies a one-dimensional, low-level-excitation intrinsic photoconductor with an n-type majority population and a deep center having two accessible charge states. The numerical specialization is `x = 0.21` HgCdTe.
 
-The theory is not a full drift-diffusion-Poisson model. It imposes quasineutrality in the form
+The detector length is `2L`, with ohmic contacts at `x=+-L`. All excess populations vanish at both contacts.
+
+The theory is not a full drift-diffusion-Poisson model. It imposes quasineutrality,
 
 \[
 \Delta p+\Delta N^+=\Delta n,
 \]
 
-where `N+` is the occupied/charged deep-level population under the paper’s charge-state convention. This eliminates one free-carrier fluctuation before the transport problem is solved.
+where `N+` is the positively charged deep-level population under the paper's charge-state convention.
 
 The paper assumes:
 
 - small photogenerated density relative to the equilibrium majority density;
-- one-dimensional transport over a detector of length `2L`;
+- equilibrium electron density much greater than the charged deep-level population;
+- one-dimensional transport;
 - ohmic contacts;
-- ambipolar mobility and diffusivity after quasineutral reduction;
 - explicit deep-level population dynamics;
+- ambipolar drift and diffusion after quasineutral reduction;
+- constant-current terminal voltage noise;
 - field-dependent sweepout;
-- a Green-function frequency-domain solution.
+- frequency-domain Green functions.
 
-## Dynamic state and operator structure
+## 2. Spectral and terminal conventions
 
-After using quasineutrality, the coupled fluctuation state can be represented by a free-carrier fluctuation and a deep-center population fluctuation. The paper writes coupled differential operators, shown in its Eqs. (10a–f), containing:
-
-- time derivatives;
-- recombination/capture coefficients;
-- field-driven first spatial derivatives;
-- ambipolar second spatial derivatives;
-- coupling between free and bound populations.
-
-Green functions are then defined by the coupled operator equations in Eqs. (11a–b). The frequency-domain Green functions are introduced by a one-sided time transform in Eq. (15),
+The paper uses
 
 \[
-\widetilde K_i(x,x',\omega)=\int_0^\infty e^{-i\omega t}K_i(x,x',t)\,dt.
+G(V,\omega)=4\int_0^\infty
+\cos(\omega t)
+\langle\Delta V(t)\Delta V(0)\rangle dt
 \]
 
-The sign convention differs from the R06 internal transform and must be translated rather than copied.
+and
 
-## Noise decomposition
+\[
+V_N=[G(V,\omega)\Delta f]^{1/2}.
+\]
 
-The resulting voltage-noise calculation separates three physical components:
+The factor `4` and bandwidth `Delta f` indicate the paper's engineering one-sided convention, although the independent variable is angular frequency. R06 must translate the normalization explicitly.
 
-1. band-to-band thermal generation-recombination noise;
+Under constant current, Eq. (5) relates terminal voltage to spatial integrals of electron and hole fluctuations. Because all excess densities vanish at the ohmic contacts, diffusion boundary terms drop out.
+
+## 3. Microscopic deep-level rates
+
+The electron and hole current densities are Eqs. (8a)-(8b). The deep-level transition rates are Eqs. (9a)-(9d):
+
+\[
+r_e=B_enN^+,
+\]
+
+\[
+r_h=B_hp(N_T-N^+),
+\]
+
+\[
+g_h=B_hp_1N^+,
+\]
+
+\[
+g_e=B_en_1(N_T-N^+),
+\]
+
+with
+
+\[
+B_e=\langle v_e\rangle\sigma_e,
+\qquad
+B_h=\langle v_h\rangle\sigma_h.
+\]
+
+These are the same four Shockley-Read capture/emission channels written for the paper's `N^0/N^+` convention.
+
+## 4. Dynamic state and operator structure
+
+After applying quasineutrality, the coupled state can be represented by the free-electron fluctuation and charged-center fluctuation. Eqs. (10a)-(10f) define coupled operators containing:
+
+- time derivatives;
+- band-to-band lifetime;
+- deep-level capture and emission rates;
+- field-driven first derivatives;
+- ambipolar second derivatives;
+- coupling between free and bound populations.
+
+Green functions are defined by Eqs. (11a)-(11d). The relevant frequency-domain transform uses
+
+\[
+\widetilde K_i(x,x',\omega)
+=\int_0^\infty e^{-i\omega t}K_i(x,x',t)dt.
+\]
+
+The transform sign differs from the R06 internal convention and must be translated.
+
+## 5. Instantaneous population covariance
+
+The full PDF resolves an important item left open in the first audit. Under the paper's n-type, low-level assumptions, Eqs. (30a)-(30d) give the zero-time correlations:
+
+\[
+\langle\Delta n(x,0)\Delta n(x',0)\rangle
+=
+\frac{\mathcal N^+(x)+p(x)}{Wd}
+\delta(x-x'),
+\]
+
+\[
+\langle\Delta N^+(x,0)\Delta n(x',0)\rangle
+=
+\frac{\mathcal N^+(x)}{Wd}
+\delta(x-x'),
+\]
+
+\[
+\langle\Delta n(x,0)\Delta p(x',0)\rangle
+=
+\frac{p(x)}{Wd}
+\delta(x-x'),
+\]
+
+\[
+\langle\Delta N^+(x,0)\Delta p(x',0)\rangle=0.
+\]
+
+Here
+
+\[
+\mathcal N^+(x)
+=N^+(x)\left(1-\frac{N^+(x)}{N_T}\right)
+\approx N^+(x)
+\]
+
+when `N+(x) << N_T`.
+
+These equations show explicitly that free-electron and trap-population fluctuations are correlated. The paper uses a zero-time population-covariance representation, not a primitive white event-source matrix.
+
+R06 must demonstrate that the event-level four-channel covariance reproduces these equilibrium population correlations after solving the associated Lyapunov/equilibrium covariance problem in the same reduced limit.
+
+## 6. Noise decomposition
+
+Equation (32) and the main text separate three terminal voltage-noise components:
+
+1. band-to-band thermal GR noise;
 2. background-photon generation noise;
-3. a distinct trap exchange noise associated with fluctuations between bound and free populations.
+3. thermal bound/free trap-exchange noise.
 
-The third term is important for R06 because it demonstrates that a deep level does more than modify an effective lifetime. It introduces an additional stochastic population channel.
+The components are added quadratically in the reported detector-noise calculation.
 
-The paper reports that minority-carrier trapping can reduce the effective mobility and diffusivity and thereby weaken sweepout. Consequently, the measured corner or rolloff cannot generally be identified with a bare microscopic SRH lifetime.
+The deep level therefore does more than modify an effective lifetime. It adds a distinct stochastic population channel and modifies the transport response.
 
-## Verified numerical specialization
+## 7. Trap-modified transport and rolloff
 
-The paper evaluates approximately `x = 0.21`, n-type HgCdTe and uses a deep center motivated by measured capture parameters. It explores deep-level densities from roughly `10^14` to `10^16 cm^-3`. Its reported detector degradation becomes substantial near the upper part of that range for the selected operating conditions.
+The paper shows that minority-carrier trapping changes effective mobility and diffusivity. Strong trapping reduces sweepout and lowers the rolloff frequency.
 
-These are specimen/model-conditioned values, not universal HgCdTe parameters.
+Consequently:
 
-## Direct implications for R06
+- the terminal corner is not generally one bare SRH lifetime;
+- trap population, mobility reduction, diffusion, and contact sweepout jointly set the observed response;
+- multiple physical noise components can roll off in approximately the same frequency range without being one microscopic process.
 
-### Established prior art
+## 8. Verified HgCdTe specialization
+
+The paper evaluates n-type `x=0.21` HgCdTe using a commonly observed deep center with approximate values:
+
+- trap energy near `0.4 E_g` above the valence band;
+- electron capture cross section near `1e-15 cm^2`;
+- hole capture cross section near `1e-17 cm^2`;
+- trap densities approximately `1e14-1e16 cm^-3`.
+
+For the selected `T=77 K`, `E=40 V/cm`, and background flux near `1e17 photons/(cm^2 s)`, performance begins to degrade materially when trap density approaches or exceeds `1e16 cm^-3`.
+
+The authors also reverse the capture-cross-section hierarchy as an exploratory case to demonstrate strong minority trapping. That case is not presented as measured HgCdTe behavior.
+
+## 9. Established prior art
 
 The following cannot be claimed as new:
 
-- explicit deep-level population dynamics in HgCdTe photoconductor GR-noise theory;
-- a bound/free-carrier stochastic contribution distinct from ordinary band-to-band GR noise;
-- field-dependent sweepout coupled to trap-modified mobility and diffusion;
-- Green-function frequency-domain evaluation of finite photoconductor noise;
-- failure of a single bare lifetime to control all observed rolloff behavior.
+- explicit dynamic deep-level populations in HgCdTe photoconductor GR-noise theory;
+- four-channel capture/emission kinetics in the detector model;
+- correlated free-carrier and trap population fluctuations;
+- a bound/free thermal-noise component distinct from band-to-band GR noise;
+- trap-modified mobility, diffusivity, and sweepout;
+- Green-function frequency-domain finite-device noise;
+- failure of one bare lifetime to control the measured rolloff.
 
-### Remaining distinction
+## 10. Limitations relative to R06
 
-The paper does not remove the R06 target because it uses quasineutral ambipolar reduction and ohmic contacts rather than self-consistent bipolar drift-diffusion-Poisson dynamics with finite stochastic contact exchange.
+- quasineutral ambipolar reduction;
+- no self-consistent Poisson equation;
+- ohmic absorbing contacts only;
+- constant-current voltage-noise ensemble;
+- zero-time population covariance rather than a full primitive source covariance;
+- no finite stochastic contact exchange;
+- no external circuit beyond ideal current bias;
+- low-level n-type assumptions;
+- selected material parameters and one trap family.
 
-R06 must reproduce the quasineutral limit of this model before claiming a more general result.
+## 11. Mandatory benchmark
 
-## Mandatory benchmark extracted from this source
-
-A reduced R06 implementation should be able to impose:
+A reduced R06 implementation must impose:
 
 - strong screening;
 - low-level n-type excitation;
-- a single two-state trap;
-- ohmic end contacts;
+- one two-state trap;
+- ohmic contacts;
 - ambipolar transport;
+- constant-current voltage observation;
 
-and recover a two-population modal structure with separate band-to-band and trap-exchange source contributions.
+and recover:
 
-Exact numerical equality is not yet required because the article’s complete source normalization and parameter conventions have not been transcribed. The initial benchmark is structural: pole count, source decomposition, sweepout trend, and limiting behavior.
+1. the coupled operator structure of Eqs. (10)-(11);
+2. the population covariance of Eqs. (30a)-(30d);
+3. separate band-to-band, background, and trap-exchange contributions;
+4. the change in rolloff with trap-modified mobility/diffusion;
+5. the reported weak-versus-strong minority-trapping trends.
 
-## Unresolved items
+## 12. Novelty consequence
 
-1. Transcribe the paper’s primitive fluctuation correlation functions and units.
-2. Reconcile its charge-state notation with the R06 trap occupancy variable.
-3. Determine whether the reported noise components are statistically independent or contain cross terms after the quasineutral elimination.
-4. Derive the R06 strong-screening reduction and compare operator coefficients term by term.
-5. Identify the exact ohmic fluctuation boundary conditions used by the Green functions.
-
-## Novelty consequence
-
-Any R06 novelty statement must explicitly acknowledge that dynamic trap populations and trap-generated thermal noise in HgCdTe photoconductors were already treated in 1985. A defensible contribution must concern the controlled error of quasineutral/ohmic reductions, stochastic finite contacts, self-consistent space charge, or experimentally interpretable dimensionless regime boundaries.
+Dynamic traps and trap-generated thermal noise in HgCdTe were already treated in 1985. A defensible R06 contribution must concern the controlled error of the quasineutral/ohmic reduction, stochastic finite contacts, self-consistent space charge, circuit loading, or a quantitative regime boundary unavailable in this prior theory.
