@@ -12,6 +12,7 @@ on:
       - 'research/programs/finite_temperature_kane/state_updates/2026-07-23-epw-nonmutating-replay-boundary.md'
       - 'tools/design_epw_replay_output_boundary.py'
       - 'tests/test_r02_epw_replay_output_boundary_design.py'
+      - 'tests/test_r02_epw_replay_output_boundary_source_audit.py'
   workflow_dispatch:
 
 concurrency:
@@ -34,8 +35,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e ".[test]"
 
-      - name: Validate replay boundary and completion evidence
-        run: python -m pytest -vv tests/test_r02_epw_replay_output_boundary_design.py
+      - name: Validate replay boundary, source audit and completion evidence
+        run: |
+          python -m pytest -vv \
+            tests/test_r02_epw_replay_output_boundary_design.py \
+            tests/test_r02_epw_replay_output_boundary_source_audit.py
 
       - name: Confirm execution remains prohibited
         run: |
