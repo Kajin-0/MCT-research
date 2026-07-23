@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_direct_fixture_terminal_result",
+  "program": "R02",
+  "issue": 313,
+  "closed_pr": 315,
+  "status": "stop",
+  "classification": "STOP_NONPERTURBATION_GATE",
+  "scientific_failure_established": false,
+  "exporter_nonperturbation_validated": false,
+  "exporter_causal_perturbation_established": false,
+  "backend_normalization_validated": false,
+  "workflow": {
+    "run_id": 29974357056,
+    "job_id": 89102877132,
+    "head_sha": "973f480035dd9d0e5d9471b1a94ccd84825ce8e0",
+    "artifact_id": 8550988501,
+    "artifact_digest": "sha256:516340d80619da0145a29d53c9ab0fbbf6e747649f3254b5fafb78ebba589da4",
+    "artifact_size_bytes": 2212617
+  },
+  "source": {
+    "qe_release": "7.6",
+    "epw_release": "6.1",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "run_epw_git_blob_sha": "8f6a915fb656e424f8e4c03b3e5ea301d83953ae",
+    "observational_patch_sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
+    "applied_patch_sha256": "a0c25cc7041847f59e0436a1c45b4dc2d2e49a0527c8f8ddb4414063fab558aa",
+    "executables_sha256": {
+      "pw.x": "5a58debaea913401b7da27c12cd2f8f346c958c420d65dd9f87b882000a5339f",
+      "ph.x": "810d536a9ecdcdd281866d676604948ea4ad2c422733d967efd1025ca182478e",
+      "epw.x": "0e9409b836c37bc0e2158caa987c75f70d4e0349592df8837ac55b28f5c9a4e6"
+    }
+  },
+  "fixture": {
+    "upstream_category": "test-suite/epw_base",
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "soc_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "testcode_used": false,
+    "output_discovery_used": false,
+    "selected_ik_global": 1,
+    "external_band_count": 4,
+    "intermediate_band_count": 4
+  },
+  "execution": {
+    "build_count": 1,
+    "sequence_count": 2,
+    "disabled_sequence_count": 1,
+    "enabled_sequence_count": 1,
+    "command_count": 12,
+    "commands_with_zero_exit_code": 12,
+    "preserved_stdout_stderr_count": 24,
+    "exit_code_file_count": 12,
+    "material_calculation_count": 0,
+    "focused_test_count": 28,
+    "focused_tests_passed": 28
+  },
+  "evidence_sha256": {
+    "disabled_epw_stdout": "a38d0cf18a3c9856164e5c331e7cd0be905836283e9720dd504e46ae87e0ffb4",
+    "enabled_epw_stdout": "c7c28e7ec8ba6fb8a536004601a3ba708ef6e42d2c0e23583a6613886bb92bd2",
+    "raw_vertex": "9ed7f0d895426898da6355a8d49508a10b9e0742b33ef0ad8f4d799a3c9afcca",
+    "fixture_result": "68f0e8851dc7157f4eb4a818d3f2b2740f7d9862deee0d33aec234b87d631ecf",
+    "status": "7d159275a2432aa82c8a5ae958b34d4c5fd76ffb00a7ba63f5e5648af63b0b52",
+    "disabled_command_manifest": "4079bcffd3e1b30300b3d6d72f1c6aea3f6c11fde7743e9022c2ed7c2e23bc97",
+    "enabled_command_manifest": "f8511ecdffa11384c2871b2b152787c6e2cc35e5bfa2c3a6de591b9b15b7469a"
+  },
+  "raw_export": {
+    "row_count": 20736,
+    "active_row_count": 20688,
+    "zero_mask_row_count": 48,
+    "unique_q_temperature_count": 216,
+    "contribution_count": 1296,
+    "complete_four_band_blocks": true,
+    "nonfinite_value_detected": false
+  },
+  "diagnostic_checks": {
+    "normalization_identity": {
+      "passed": true,
+      "residual_ry2": 2.168404344971009e-19,
+      "threshold_ry2": 1e-14
+    },
+    "per_row_real_diagonal": {
+      "passed": true,
+      "residual_ev": 6.505213034913027e-19,
+      "threshold_ev": 1e-12
+    },
+    "summed_real_diagonal": {
+      "passed": true,
+      "residual_ev": 2.0816681711721685e-16,
+      "threshold_ev": 1e-12
+    },
+    "synthetic_external_covariance": {
+      "passed": true,
+      "residual_ev": 1.9544770354189817e-16,
+      "threshold_ev": 1e-12
+    },
+    "q_weight_closure": {
+      "passed": true,
+      "residual": 0.0,
+      "threshold": 1e-12
+    },
+    "denominator_identity": {
+      "passed": true,
+      "residual_ry": 2.220446049250313e-16
+    },
+    "occupation_numerator": {
+      "passed": true,
+      "residual": 0.0
+    },
+    "acoustic_mask": {
+      "passed": true,
+      "zero_mask_residual": 0.0
+    },
+    "retarded_imaginary_sign": {
+      "passed": true,
+      "failure_count": 0
+    }
+  },
+  "selected_window_real_diagonal_ev": {
+    "backend": [
+      -0.06467139846995636,
+      0.1446010967162575,
+      0.1436078176956045,
+      0.14402652715529615
+    ],
+    "reconstructed": [
+      -0.06467139846995656,
+      0.1446010967162575,
+      0.14360781769560432,
+      0.1440265271552962
+    ]
+  },
+  "nonperturbation_gate": {
+    "passed": false,
+    "threshold_ev": 1e-12,
+    "maximum_self_energy_difference_ev": 1.9286256500095078e-7,
+    "maximum_energy_difference_ev": 1.554600004283202e-9,
+    "maximum_dimensionless_difference": 5.509000011727494e-8,
+    "self_energy_threshold_exceedance_factor": 192862.56500095077,
+    "energy_threshold_exceedance_factor": 1554.600004283202,
+    "comparison_row_count": 864
+  },
+  "interpretation": {
+    "binding_result": "The predeclared enabled/disabled standard-output nonperturbation requirement failed.",
+    "attribution": "The comparison used two independently regenerated full fixture states. The observed difference cannot be attributed uniquely to exporter I/O versus ordinary run-to-run numerical variation.",
+    "diagnostic_value": "The exported raw records satisfy the declared normalization, scalar-diagonal, covariance, q-weight, acoustic-mask, and retarded-sign identities to high precision.",
+    "authorization_value": "Those diagnostic passes do not override the binding nonperturbation failure and do not authorize backend or material progression."
+  },
+  "decision": {
+    "direct_full_sequence_exporter_strategy": "terminated",
+    "raw_export_normalization": "diagnostically_consistent_but_not_validated",
+    "standard_output_nonperturbation": "failed",
+    "soc_spinor_fixture": "not_authorized",
+    "material_self_energy": "not_authorized",
+    "next_gate": "design_same_immutable_state_nonperturbation_attribution",
+    "next_gate_execution_authorized": false
+  },
+  "authorization": {
+    "additional_build": false,
+    "additional_sequence": false,
+    "automatic_retry": false,
+    "threshold_change": false,
+    "parameter_sweep": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "design_only_followup": true
+  },
+  "claim_boundary": "The direct fixture produced complete raw complex-vertex evidence whose normalization and matrix reconstruction identities passed, but the required enabled/disabled nonperturbation gate failed. The result does not establish exporter causality, validate a production backend, validate SOC, or authorize material calculations."
+}
