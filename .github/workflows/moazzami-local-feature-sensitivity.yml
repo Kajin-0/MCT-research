@@ -12,12 +12,15 @@ on:
       - 'tools/analyze_moazzami2005_real_spectra.py'
       - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
       - 'tools/audit_moazzami2005_pixel_reversal_core.py'
+      - 'tools/audit_moazzami2005_model_robustness.py'
       - 'tools/build_moazzami_local_feature_reference.py'
       - 'tools/build_observation_model_manuscript_assets.py'
       - 'tools/observation_manuscript_figure_spectrum.py'
       - 'tests/test_moazzami2005_local_feature_sensitivity.py'
       - 'tests/test_moazzami2005_pixel_reversal_core.py'
       - 'tests/test_moazzami2005_local_feature_reference.py'
+      - 'tests/test_moazzami2005_model_robustness.py'
+      - 'manuscript/observation_model_uncertainty/**'
   workflow_dispatch:
 
 permissions:
@@ -44,6 +47,9 @@ jobs:
           python -m tools.audit_moazzami2005_pixel_reversal_core \
             --repository-root . \
             --output-json /tmp/moazzami-pixel-reversal-core.json
+          python -m tools.audit_moazzami2005_model_robustness \
+            --repository-root . \
+            --output-json /tmp/moazzami-model-robustness.json
           python -m tools.build_moazzami_local_feature_reference \
             --repository-root . \
             --output-json /tmp/moazzami-local-feature-reference.json \
@@ -64,7 +70,8 @@ jobs:
           python -m pytest -q \
             tests/test_moazzami2005_local_feature_sensitivity.py \
             tests/test_moazzami2005_pixel_reversal_core.py \
-            tests/test_moazzami2005_local_feature_reference.py
+            tests/test_moazzami2005_local_feature_reference.py \
+            tests/test_moazzami2005_model_robustness.py
       - name: Publish clean-built frozen spectrum asset
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         env:
@@ -116,11 +123,13 @@ jobs:
               'moazzami-local-feature-sensitivity.json',
               'moazzami-pixel-reversal-core.json',
               'moazzami-local-feature-reference.json',
+              'moazzami-model-robustness.json',
           ):
               result = json.loads(Path('/tmp', filename).read_text())
               print(filename)
-              print(json.dumps(result['decision'], indent=2, sort_keys=True))
-              for specimen in result['specimens']:
+              if 'decision' in result:
+                  print(json.dumps(result['decision'], indent=2, sort_keys=True))
+              for specimen in result.get('specimens', []):
                   print(specimen['specimen_id'])
                   if 'decision' in specimen:
                       print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
@@ -134,6 +143,7 @@ jobs:
             /tmp/moazzami-pixel-reversal-core.json
             /tmp/moazzami-local-feature-reference.json
             /tmp/moazzami-local-feature-summary.csv
+            /tmp/moazzami-model-robustness.json
             /tmp/observation-manuscript-assets
           if-no-files-found: error
           retention-days: 30
