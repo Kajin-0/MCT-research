@@ -6,16 +6,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "first_principles/b0/r02_epw_raw_vertex_fixture_contract.json"
 SOURCE_RESULT = ROOT / "first_principles/b0/r02_epw_raw_vertex_source_qualification_result.json"
-FIRST_STOP = (
-    ROOT
-    / "first_principles/b0/"
-    / "r02_epw_raw_vertex_fixture_harness_stop_29962340413.json"
-)
-TERMINAL_STOP = (
-    ROOT
-    / "first_principles/b0/"
-    / "r02_epw_raw_vertex_fixture_terminal_harness_stop_29971955581.json"
-)
+FIRST_STOP = ROOT / "first_principles/b0/r02_epw_raw_vertex_fixture_harness_stop_29962340413.json"
+TERMINAL_STOP = ROOT / "first_principles/b0/r02_epw_raw_vertex_fixture_terminal_harness_stop_29971955581.json"
 SELECTION = ROOT / "research/capability_audits/qe76_epw61_raw_vertex_fixture_selection.md"
 SOURCE_DRIVER = ROOT / "tools/qualify_epw_raw_vertex_sources.sh"
 SOURCE_WORKFLOW = ROOT / ".github/workflows/r02-epw-raw-vertex-source-qualification.yml"
@@ -125,11 +117,14 @@ def test_terminal_harness_stop_exhausts_execution_authority() -> None:
     )
     assert stop["classification"] == "TERMINAL_HARNESS_STOP"
     assert stop["last_stage"] == "fixture_disabled"
-    assert stop["execution"]["build_count"] == 1
-    assert stop["execution"]["scientific_execution_count"] == 1
+    execution = stop["execution"]
+    assert execution["build_count"] == 1
+    assert execution["scientific_execution_count"] == 1
+    assert execution["disabled_fixture_sequence_executed"] is True
+    assert execution["enabled_fixture_sequence_executed"] is False
+    assert execution["analyzer_executed"] is False
     assert stop["disabled_fixture"]["upstream_programs_passed"] == 5
     assert stop["disabled_fixture"]["stdout_preserved"] is False
-    assert stop["enabled_fixture_sequence_executed"] is False if "enabled_fixture_sequence_executed" in stop else True
     assert stop["failure"]["scientific_failure"] is False
     assert stop["failure"]["normalization_evaluated"] is False
     assert stop["authorization"]["additional_qe_epw_build"] is False
@@ -149,11 +144,13 @@ def test_contract_aggregates_both_consumed_attempts() -> None:
         "TERMINAL_HARNESS_STOP",
     ]
     aggregate = contract["aggregate_execution"]
-    assert aggregate["pinned_build_count"] == 2
-    assert aggregate["disabled_fixture_sequence_count"] == 2
-    assert aggregate["enabled_fixture_sequence_count"] == 0
-    assert aggregate["analyzer_execution_count"] == 0
-    assert aggregate["material_calculation_count"] == 0
+    assert aggregate == {
+        "pinned_build_count": 2,
+        "disabled_fixture_sequence_count": 2,
+        "enabled_fixture_sequence_count": 0,
+        "analyzer_execution_count": 0,
+        "material_calculation_count": 0,
+    }
     decision = contract["terminal_decision"]
     assert decision["scientific_failure"] is False
     assert decision["backend_normalization_validated"] is False
@@ -166,10 +163,10 @@ def test_source_qualification_workflow_is_frozen() -> None:
     text = SOURCE_WORKFLOW.read_text(encoding="utf-8")
     assert "frozen-source-record" in text
     assert "timeout-minutes: 10" in text
-    assert "qualify_epw_raw_vertex_sources.sh" in text
-    assert "! grep -E" in text
+    assert "Validate immutable source and terminal records" in text
     assert "Clone exact source and calculate immutable hashes" not in text
     assert "bash tools/qualify_epw_raw_vertex_sources.sh" not in text
+    assert "git fetch" not in text
 
 
 def test_fixture_execution_workflow_is_frozen() -> None:
@@ -177,9 +174,9 @@ def test_fixture_execution_workflow_is_frozen() -> None:
     assert "frozen-terminal-harness-stop" in text
     assert "timeout-minutes: 10" in text
     assert "Verify fail-closed fixture state" in text
-    assert "Confirm no scientific executable is invoked" in text
     assert "bash tools/run_epw_raw_vertex_fixture_ci.sh" not in text
     assert "Install compiler and numerical dependencies" not in text
+    assert "make -j2 pw ph epw" not in text
 
 
 def test_historical_driver_remains_auditable_but_unreachable() -> None:
@@ -193,8 +190,9 @@ def test_historical_driver_remains_auditable_but_unreachable() -> None:
     assert "for kgrid" not in text
     assert "while true" not in text.lower()
     assert "until " not in text.lower()
-    workflow = FIXTURE_WORKFLOW.read_text(encoding="utf-8")
-    assert "run_epw_raw_vertex_fixture_ci.sh" not in workflow
+    assert "run_epw_raw_vertex_fixture_ci.sh" not in FIXTURE_WORKFLOW.read_text(
+        encoding="utf-8"
+    )
 
 
 def test_repository_stdout_selector_has_fail_closed_regressions() -> None:
@@ -233,7 +231,8 @@ def test_selection_record_retains_original_claim_boundaries() -> None:
     assert "does not establish" in text
 
 
-def test_source_driver_is_not_reachable_from_frozen_workflow() -> None:
+def test_source_driver_is_preserved_but_unreachable() -> None:
     assert SOURCE_DRIVER.is_file()
-    workflow = SOURCE_WORKFLOW.read_text(encoding="utf-8")
-    assert "bash tools/qualify_epw_raw_vertex_sources.sh" not in workflow
+    assert "bash tools/qualify_epw_raw_vertex_sources.sh" not in SOURCE_WORKFLOW.read_text(
+        encoding="utf-8"
+    )
