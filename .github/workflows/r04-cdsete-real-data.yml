@@ -31,7 +31,11 @@ jobs:
         run: python -m pip install -e '.[test]'
 
       - name: Run focused analytical tests
-        run: python -m pytest -q tests/test_r04_cdsete_real_data.py
+        run: |
+          set -o pipefail
+          mkdir -p r04-cdsete-real-data
+          python -m pytest -q tests/test_r04_cdsete_real_data.py \
+            2>&1 | tee r04-cdsete-real-data/focused-pytest.txt
 
       - name: Generate frozen real-data result
         run: |
