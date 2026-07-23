@@ -1,0 +1,70 @@
+name: r02-epw-serial-epmatwp-diagnosis
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r02-epw-serial-epmatwp-diagnosis.yml'
+      - 'first_principles/b0/r02_epw_serial_epmatwp_source_audit.json'
+      - 'research/capability_audits/qe76_epw61_serial_epwread_epmatwp_diagnosis.md'
+      - 'research/decision_records/2026-07-23-r02-serial-epwread-source-diagnosis.md'
+      - 'research/patch_proposals/qe76-epw61-serial-epwread-epmatwp-allocation.patch'
+      - 'research/programs/finite_temperature_kane/state_updates/2026-07-23-serial-epwread-source-diagnosis.md'
+      - 'research/upstream_reports/qe-epw-serial-epwread-epmatwp-segfault-draft.md'
+      - 'tools/model_epw_serial_epmatwp_allocation.py'
+      - 'tests/test_r02_epw_serial_epmatwp_diagnosis.py'
+  workflow_dispatch:
+
+concurrency:
+  group: r02-epw-serial-epmatwp-diagnosis-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  source-design-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install test dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Validate source diagnosis and synthetic model
+        run: python -m pytest -vv tests/test_r02_epw_serial_epmatwp_diagnosis.py
+
+      - name: Confirm execution remains prohibited
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          audit = json.loads(
+              Path(
+                  "first_principles/b0/r02_epw_serial_epmatwp_source_audit.json"
+              ).read_text()
+          )
+          assert audit["phase"] == "design_only"
+          assert audit["classification"] == "SOURCE_DIAGNOSIS_SUPPORTED"
+          assert audit["minimal_patch_design"]["executed"] is False
+          assert audit["diagnosis"]["runtime_patch_validated"] is False
+          authorization = audit["authorization"]
+          assert authorization["configure_or_build"] is False
+          assert authorization["serial_execution"] is False
+          assert authorization["mpi_execution"] is False
+          assert authorization["patch_application_and_execution"] is False
+          assert authorization["preparation_or_replay"] is False
+          assert authorization["soc_fixture"] is False
+          assert authorization["cdte_hgte_or_alloy_calculation"] is False
+          assert authorization["a1_a2_a3"] is False
+          assert authorization["automatic_executable_successor"] is False
+          PY
+
+      - name: Confirm model cannot launch external processes
+        run: |
+          ! grep -E 'subprocess|os\.system|Popen|execv|spawn|requests|urllib' \
+            tools/model_epw_serial_epmatwp_allocation.py

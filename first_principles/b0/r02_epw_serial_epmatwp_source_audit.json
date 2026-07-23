@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_serial_epmatwp_source_diagnosis",
+  "program": "R02",
+  "issue": 335,
+  "predecessor_issue": 332,
+  "terminal_result_commit": "e48abeb2d691f4cef6e4048e0987e205773c728d",
+  "phase": "design_only",
+  "classification": "SOURCE_DIAGNOSIS_SUPPORTED",
+  "source": {
+    "repository": "QEF/q-e",
+    "release": "qe-7.6",
+    "epw_version": "6.1",
+    "pinned_commit": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "pinned_git_blob_ids": {
+      "EPW/src/global_var.f90": "45ece671c03903d2186b118827cc5f7a31145da5",
+      "EPW/src/io/io.f90": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+      "EPW/src/wannier.f90": "a2b706939505a84b2d082e5a83a3dbb1ae8eef57",
+      "EPW/src/wigner.f90": "85e7498a89e43632a5392f11828da9b247212223"
+    },
+    "later_checked_commit": "61569eb480231b649c47f631df9c5c83537df461",
+    "later_io_blob_id": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+    "later_source_retains_same_serial_branch": true,
+    "historical_commits": [
+      {
+        "sha": "cbd08e75df513def922f37272d5f3c1ef1b78928",
+        "date": "2017-01-27",
+        "message": "Restart with arbitray number of cores after epmatwp has been written to file",
+        "relevance": "Introduced restart-aware epmatwp lifecycle and deallocation logic."
+      },
+      {
+        "sha": "9707a90417d4b2915c2345c23d2f7aeb8f752c9c",
+        "date": "2017-10-20",
+        "message": "Debug closing epmatwp file in sequential.",
+        "relevance": "Confirms the sequential epmatwp path historically required distinct file-lifetime handling."
+      },
+      {
+        "sha": "a3e738ab6e6f436d08ee54d68406eac196b784c2",
+        "date": "2017-12-08",
+        "message": "Make Buildbot happy again",
+        "relevance": "Explicitly describes debugging the sequential version and epmatwp file-unit handling."
+      }
+    ]
+  },
+  "observed_failure": {
+    "workflow_run": 30020494017,
+    "artifact_id": 8569280948,
+    "artifact_digest": "sha256:1d80fb575a5d736dbd3211edb7dad4c694c151a7209dffed954489924e65dcd8",
+    "replay": "disabled_a",
+    "exporter_enabled": false,
+    "exit_code": 139,
+    "signal": "SIGSEGV",
+    "routine": "wigner_divide_ndegen_epmat",
+    "source_path": "EPW/src/wigner.f90",
+    "source_line": 1009,
+    "caller": "build_wannier",
+    "caller_source_path": "EPW/src/wannier.f90",
+    "caller_source_line": 452,
+    "occurred_before_self_energy_evaluation": true
+  },
+  "array_declaration": {
+    "module": "global_var",
+    "name": "epmatwp",
+    "type": "COMPLEX(KIND=DP), ALLOCATABLE",
+    "rank": 5,
+    "semantic_dimensions": [
+      "nbndsub",
+      "nbndsub",
+      "nrr_k",
+      "nmodes",
+      "local_or_global_electron_phonon_WS_count"
+    ],
+    "distributed_companion": {
+      "name": "epmatwp_dist",
+      "rank": 4,
+      "used_in_observed_failure_path": false
+    }
+  },
+  "control_flow": {
+    "normal_preparation_etf_mem_0": [
+      "build_wannier enters the non-restart branch",
+      "ws_indexes_distribution computes irg_start, irg_stop, nirg_loc, irn_start, irn_stop and nirn_loc",
+      "build_wannier allocates epmatwp(nbndsub,nbndsub,nrr_k,nmodes,nirg_loc)",
+      "epmatwp is initialized to zero",
+      "Bloch-to-Wannier transformation fills the array",
+      "epw_write serializes the array"
+    ],
+    "restart_common": [
+      "epwread=true and epbread=false bypass the normal build_wannier allocation block",
+      "Wigner-Seitz sets are reconstructed",
+      "ws_indexes_distribution computes the same distribution variables",
+      "epw_read is responsible for restoring epmatwp",
+      "build_wannier calls wigner_divide_ndegen_epmat after epw_read returns"
+    ],
+    "restart_mpi": [
+      "epw_read allocates epmatwp(nbndsub,nbndsub,nrr_k,nmodes,nirg_loc)",
+      "epmatwp is initialized to zero",
+      "MPI_FILE_READ_AT_ALL reads the local distributed records",
+      "MPI_BCAST distributes the local block within the image"
+    ],
+    "restart_serial": [
+      "no allocation of epmatwp is visible after the normal allocation block was bypassed",
+      "the direct-access file is opened",
+      "davcio is called with epmatwp(:,:,:,:,irg) for irg=1..nrr_g",
+      "wigner_divide_ndegen_epmat later divides slices of epmatwp",
+      "the observed execution terminates at the first such division"
+    ]
+  },
+  "dimension_model": {
+    "distribution_formula": {
+      "use_ws_false_or_etf_mem_0": {
+        "distributed_total": "nrr_g * nmodes",
+        "irg_start": "floor((irn_start-1)/nmodes)+1",
+        "irg_stop": "floor((irn_stop-1)/nmodes)+1",
+        "nirg_loc": "irg_stop-irg_start+1",
+        "nirn_loc": "irn_stop-irn_start+1"
+      }
+    },
+    "serial_single_process": {
+      "irn_start": 1,
+      "irn_stop": "nrr_g * nmodes",
+      "irg_start": 1,
+      "irg_stop": "nrr_g",
+      "nirg_loc": "nrr_g",
+      "required_epmatwp_shape": "(nbndsub,nbndsub,nrr_k,nmodes,nrr_g)"
+    },
+    "mpi_multi_process": {
+      "irn_start": "local lower bound",
+      "irn_stop": "local upper bound",
+      "irg_start": "local first WS index",
+      "irg_stop": "local last WS index",
+      "nirg_loc": "irg_stop-irg_start+1 <= nrr_g",
+      "current_epmatwp_shape": "(nbndsub,nbndsub,nrr_k,nmodes,nirg_loc)"
+    }
+  },
+  "candidate_causes": [
+    {
+      "rank": 1,
+      "candidate": "missing serial restart allocation of epmatwp",
+      "assessment": "supported",
+      "evidence_for": [
+        "normal preparation allocates the array before use",
+        "restart bypasses the normal allocation block",
+        "MPI epw_read explicitly replaces the missing allocation",
+        "serial epw_read does not",
+        "the backtrace fails when the serial restart array is first divided"
+      ],
+      "evidence_against": [],
+      "causal_confidence": "high"
+    },
+    {
+      "rank": 2,
+      "candidate": "restart-file corruption or record-length mismatch",
+      "assessment": "unlikely_primary",
+      "evidence_for": [
+        "direct-access unformatted I/O is compiler-layout dependent"
+      ],
+      "evidence_against": [
+        "preparation and replay used the same binary and compiler",
+        "the complete state was copied byte-for-byte",
+        "the source shows an independent allocation defect sufficient to explain the failure"
+      ],
+      "causal_confidence": "low"
+    },
+    {
+      "rank": 3,
+      "candidate": "STATUS='unknown' creates or truncates the restart file",
+      "assessment": "not_supported_as_observed_cause",
+      "evidence_for": [
+        "STATUS='unknown' is weaker than STATUS='old' for a required restart file"
+      ],
+      "evidence_against": [
+        "the required file existed in the immutable manifest",
+        "the failure backtrace is an array operation rather than file open failure"
+      ],
+      "causal_confidence": "very_low"
+    },
+    {
+      "rank": 4,
+      "candidate": "MPI local fifth-dimension versus explicit dummy global bound mismatch",
+      "assessment": "latent_separate_risk",
+      "evidence_for": [
+        "the actual MPI allocation uses nirg_loc while wigner_divide_ndegen_epmat declares the fifth dummy extent as nrr_g"
+      ],
+      "evidence_against": [
+        "the observed execution was serial where nirg_loc equals nrr_g",
+        "the observed failure does not test MPI behavior"
+      ],
+      "causal_confidence": "not_applicable_to_observed_serial_failure"
+    }
+  ],
+  "diagnosis": {
+    "classification": "SOURCE_DIAGNOSIS_SUPPORTED",
+    "statement": "The pinned serial epwread path lacks the epmatwp allocation required after the normal build_wannier allocation block is bypassed.",
+    "observed_failure_explained": true,
+    "runtime_patch_validated": false,
+    "mpi_behavior_validated": false,
+    "scientific_behavior_changed": false
+  },
+  "minimal_patch_design": {
+    "path": "research/patch_proposals/qe76-epw61-serial-epwread-epmatwp-allocation.patch",
+    "strategy": "Move the existing epmatwp allocation and zero initialization immediately before the MPI preprocessor branch so both serial and MPI readers share exactly one allocation.",
+    "serial_shape": "nirg_loc equals nrr_g on one process",
+    "mpi_shape": "unchanged nirg_loc allocation",
+    "restart_format_changed": false,
+    "scientific_contraction_changed": false,
+    "file_io_layout_changed": false,
+    "executed": false
+  },
+  "proof_obligations": {
+    "allocation_exactly_once": "supported_by_static_patch_structure",
+    "serial_fifth_dimension_covers_1_to_nrr_g": "supported_by_single_process_distribution model",
+    "mpi_shape_unchanged": "supported_by moving rather than changing the allocation expression",
+    "mpi_read_offset_unchanged": true,
+    "restart_file_format_unchanged": true,
+    "physical_parameters_unchanged": true,
+    "scientific_contractions_unchanged": true,
+    "runtime_success": "not_evaluated"
+  },
+  "authorization": {
+    "source_inspection": true,
+    "history_inspection": true,
+    "static_patch_text": true,
+    "synthetic_shape_tests": true,
+    "upstream_report_draft": true,
+    "configure_or_build": false,
+    "serial_execution": false,
+    "mpi_execution": false,
+    "patch_application_and_execution": false,
+    "preparation_or_replay": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_executable_successor": false
+  },
+  "claim_boundary": "This source diagnosis supports a missing serial restart allocation as the cause of the observed harness failure and defines an inert minimal patch. It does not validate the patch at runtime, establish MPI correctness, restore exporter attribution, or authorize scientific calculations."
+}
