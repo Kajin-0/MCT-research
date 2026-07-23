@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R04",
+  "issue": 317,
+  "audit_date": "2026-07-23",
+  "decision": "RESTRICTED_GO",
+  "decision_scope": "real-semiconductor source-data-derived-map demonstration",
+  "source": {
+    "article_title": "Spatially resolved photoluminescence analysis of the role of Se in CdSe_xTe_1-x thin films",
+    "article_doi": "10.1038/s41467-024-52889-z",
+    "dataset_doi": "10.5281/zenodo.13869384",
+    "archive_filename": "Datasets.zip",
+    "archive_url": "https://zenodo.org/records/13869384/files/Datasets.zip?download=1",
+    "license": "CC-BY-4.0",
+    "creator_credit_required": true
+  },
+  "archive_provenance": {
+    "size_bytes": 14969970,
+    "zenodo_md5": "1401ee9b5372edb78f888d152940fc79",
+    "observed_md5": "1401ee9b5372edb78f888d152940fc79",
+    "observed_sha256": "cc3e1ce1a02266da2d0e0f301464a9d8a519855f33a597adeb7f16048684c9a6",
+    "integrity_pass": true,
+    "archive_member_count": 61,
+    "uncompressed_size_bytes": 41274666,
+    "file_type_counts": {
+      "csv": 54,
+      "png": 5,
+      "jpg": 1,
+      "db": 1
+    }
+  },
+  "archive_content_decision": {
+    "raw_per_pixel_pl_spectral_cube_present": false,
+    "raw_per_pixel_pl_interferograms_present": false,
+    "source_data_derived_pl_maps_present": true,
+    "physical_coordinate_axes_present": true,
+    "rendered_publication_images_present": true,
+    "repeat_maps_of_same_region_present": false,
+    "timestamps_or_acquisition_order_arrays_present": false,
+    "drift_records_present": false,
+    "measured_native_sample_plane_psf_present": false,
+    "collection_psf_present": false,
+    "per_pixel_fit_uncertainty_present": false,
+    "processing_code_present": false
+  },
+  "predeclared_primary_field": {
+    "path": "Datasets/Figure 3e.csv",
+    "article_panel": "Figure 3e",
+    "sample": "Cl-treated CdSe_xTe_1-x film fabricated with a 200 nm CdSe underlayer",
+    "observable": "Gaussian-fitted photoluminescence peak wavelength",
+    "observable_units": "nm",
+    "source_data_class": "source-data-derived numerical map",
+    "map_shape": [
+      24,
+      24
+    ],
+    "x_coordinate_units": "micrometre",
+    "y_coordinate_units": "micrometre",
+    "x_range_micrometre": [
+      0.0,
+      12.545
+    ],
+    "y_range_micrometre": [
+      0.0,
+      12.545
+    ],
+    "nominal_grid_spacing_micrometre": 0.54545,
+    "coordinate_rounding_present": true,
+    "missing_value_count": 0,
+    "value_range_nm": [
+      837.0,
+      862.5
+    ],
+    "primary_field_frozen_before_multiscale_results": true,
+    "selection_reason": "The main-text 200 nm CdSe map is a complete registered two-dimensional PL peak-wavelength field with explicit physical coordinates and a source-declared Gaussian peak-fitting operator. It is selected before any numerical-kernel family residual is evaluated."
+  },
+  "instrument_contract": {
+    "excitation_wavelength_nm": 488.0,
+    "objective_magnification": "100x",
+    "objective_na": 0.85,
+    "stage": "MS20",
+    "scan_mode": "snake scan with real-time linear encoder feedback",
+    "stage_minimum_step_micrometre": 0.1,
+    "source_map_spacing_micrometre": 0.54545,
+    "native_spot_description": "diffraction limited",
+    "spot_boundary_definition": "1/e^2 intensity boundary",
+    "numerical_spot_diameter_reported": false,
+    "native_psf_measured": false,
+    "collection_psf_reported": false,
+    "pixel_or_scan_bin_integration_reported": false,
+    "native_effective_kernel_bounded": false
+  },
+  "observation_operator": {
+    "peak_wavelength_extraction": "Gaussian fit to the PL data from each pixel",
+    "full_fit_code_available": false,
+    "per_pixel_fit_covariance_available": false,
+    "raw_spectrum_at_each_primary_map_pixel_available": false,
+    "composition_field_directly_observed": false,
+    "material_interpretation_from_article": "The article interprets longer peak wavelengths at grain boundaries in the 200 nm CdSe sample as evidence of lower local bandgaps, but the R04 demonstration retains the field as a PL peak-wavelength observation and does not relabel it as composition."
+  },
+  "uncertainty_and_dependence": {
+    "independent_repeat_maps": 0,
+    "repeat_covariance_available": false,
+    "drift_covariance_available": false,
+    "same_raster_numerical_scales_are_independent": false,
+    "nominal_pixels_are_independent_repeats": false,
+    "native_absolute_length_scale_for_latent_covariance_identified": false
+  },
+  "phase_2_authorization": {
+    "authorized": true,
+    "mode": "restricted pixel-space and added-kernel demonstration",
+    "allowed": [
+      "deterministic parsing of the admitted source-data map",
+      "variance versus predeclared added numerical kernel scale",
+      "finite-field map-variance diagnostics",
+      "same-raster cross-scale variance-estimator covariance",
+      "comparison with false independent-pixel and independent-scale treatments",
+      "predeclared held-out added-kernel scale as a descriptive closure test",
+      "crop and edge-convention sensitivity",
+      "phase-randomized or covariance-matched synthetic controls"
+    ],
+    "required_scale_reporting": "pixels, with added-kernel micrometre values permitted only as coordinate conversions; no latent physical correlation length",
+    "prohibited": [
+      "HgCdTe experimental validation",
+      "HgCdTe point variance or correlation length",
+      "physical deconvolution of the unmeasured native sample-plane kernel",
+      "identification of a universal semiconductor covariance family",
+      "assignment of PL peak-wavelength variation to alloy composition without an independent observation model",
+      "treating numerically smoothed maps as independent physical measurements",
+      "treating raster pixels as independent repeats",
+      "new R04 mechanisms",
+      "R05 activation",
+      "manuscript authorization"
+    ]
+  },
+  "headline": {
+    "archive_integrity": "pass",
+    "source_native_raw_cube": "not_found",
+    "source_data_derived_map": "qualified",
+    "physical_coordinates": "qualified",
+    "native_psf": "unbounded",
+    "phase_2": "restricted_go",
+    "hgcdte_external_validation": "blocked"
+  }
+}
