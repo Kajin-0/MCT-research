@@ -1,0 +1,64 @@
+name: r02-epw-same-state-attribution-design
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r02-epw-same-state-attribution-design.yml'
+      - 'first_principles/b0/r02_epw_same_state_attribution_contract.json'
+      - 'first_principles/b0/r02_epw_same_state_replay.in'
+      - 'research/capability_audits/qe76_epw61_same_state_attribution_design.md'
+      - 'tools/design_epw_same_state_attribution.py'
+      - 'tests/test_r02_epw_same_state_attribution_design.py'
+  workflow_dispatch:
+
+concurrency:
+  group: r02-epw-same-state-attribution-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  design-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install test dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Validate source audit and attribution design
+        run: python -m pytest -vv tests/test_r02_epw_same_state_attribution_design.py
+
+      - name: Confirm all execution remains closed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          contract = json.loads(
+              Path(
+                  "first_principles/b0/r02_epw_same_state_attribution_contract.json"
+              ).read_text()
+          )
+          assert contract["phase"] == "design_only"
+          authorization = contract["authorization"]
+          assert authorization["configure_or_build"] is False
+          assert authorization["preparation_execution"] is False
+          assert authorization["epw_replay_execution"] is False
+          assert authorization["automatic_retry"] is False
+          assert authorization["threshold_fitting"] is False
+          assert authorization["soc_fixture"] is False
+          assert authorization["cdte_hgte_or_alloy_calculation"] is False
+          assert authorization["a1_a2_a3"] is False
+          assert authorization["automatic_phase_transition"] is False
+          PY
+
+      - name: Confirm design tool cannot launch a process
+        run: |
+          ! grep -E 'subprocess|os\.system|Popen|execv|spawn' \
+            tools/design_epw_same_state_attribution.py
