@@ -1,0 +1,6 @@
+observation_id,sample_id,temperature_k,composition_x,composition_half_width_x,hole_mass_ratio_assumption,fermi_energy_from_valence_mev,zero_pressure_gap_mev,value_status,measurement_class,source_location,hansen_candidate_status,notes
+ELL72_T2_7B_4P2,7B,4.2,0.149,0.005,,9,-16,exact_table_model_output,pressure_magnetotransport_kane_kp,Table II,candidate_not_proven,"Source model-derived signed gap."
+ELL72_T2_7B1_4P2,7B1,4.2,0.149,0.005,,16,-10,exact_table_model_output,pressure_magnetotransport_kane_kp,Table II,candidate_not_proven,"Source model-derived signed gap."
+ELL72_T2_8B_4P2,8B,4.2,0.138,0.005,,20,-33,exact_table_model_output,pressure_magnetotransport_kane_kp,Table II,candidate_not_proven,"Source model-derived signed gap."
+ELL72_T2_7B_77_MH03,7B,77,0.149,0.005,0.3,23,-8.0,exact_table_model_output,pressure_magnetotransport_kane_kp,Table II,candidate_not_proven,"Alternative 77 K solution using heavy-hole mass 0.3 m0."
+ELL72_T2_7B_77_MH07,7B,77,0.149,0.005,0.7,31,2.0,exact_table_model_output,pressure_magnetotransport_kane_kp,Table II,candidate_not_proven,"Alternative 77 K solution using heavy-hole mass 0.7 m0."
