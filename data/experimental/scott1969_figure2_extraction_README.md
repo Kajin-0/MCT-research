@@ -1,4 +1,4 @@
-# Scott 1969 Figure 2 fixed-alpha temperature-series extraction gate
+# Scott 1969 Figure 2 fixed-alpha temperature-series digitization
 
 ## Primary source
 
@@ -7,20 +7,59 @@ M. W. Scott
 Energy Gap in Hg1-xCdxTe by Optical Absorption
 Journal of Applied Physics 40, 4077-4081 (1969)
 DOI: 10.1063/1.1657147
-File Library asset: scott1969.pdf
+Working PDF filename: scott1969(1).pdf
 ```
 
-The full rendered PDF is available in the user File Library. The binary and page raster are not materialized in the repository runtime, so this tranche does not invent a PDF hash, page-image hash, pixel calibration, or marker coordinates.
+The uploaded PDF is the source used for this extraction. The article identifies Figure 2 on article page 4079 as the measured temperature dependence of the optical edge. Figure 5 is retained only as a specimen-label and measured-versus-fit-composition provenance cross-check.
+
+## Immutable source and render record
+
+```text
+source PDF SHA256
+7b2e5790745897ecd75bd22134e5d9293397820c3b7851eb5a9e648a5c441324
+
+render command
+python /home/oai/skills/pdfs/scripts/render_pdf.py scott1969(1).pdf --out_dir <render_dir> --dpi 600
+
+renderer
+pypdfium2 5.8.0
+
+PDF page number
+4
+
+article page
+4079
+
+page image dimensions
+4900 x 6580 px
+
+page-image SHA256
+1fbdea6692eec2f411b8dd0b01cddb02d46e426066cb140a87fc6ee4af63d694
+
+Figure 2 crop bounds in page-image pixels
+left=2750, top=450, right=4700, bottom=2600
+
+Figure 2 crop SHA256
+a4e9354ad30692b77b9a8e44cba9aed5b65aa2e6f1bdb7f1824dac5bddaef7a8
+
+rectified plot dimensions
+1500 x 1600 px
+
+rectified plot SHA256
+da7b37b73fce3fcafc3231b80ebf17459d20754870e58e9119d0825649d1730e
+```
+
+The page image, crop, and rectified derivative are not committed because the article is copyrighted. Their hashes, dimensions, crop bounds, plot corners, renderer version, and calibration coordinates are retained in `scott1969_figure2_calibration.csv`.
 
 ## Source observation definition
 
-The article states that every Figure 2 energy value was obtained from the photon energy at
+Scott states that every Figure 2 value was obtained from the photon energy at
 
 ```text
 alpha = 500 cm^-1.
 ```
 
-The repository observation class is therefore
+The repository observation class is
 
 ```text
 fixed_absorption_optical_edge_alpha_500_cm_inverse
@@ -34,24 +73,33 @@ intrinsic_gap_eligible_without_observation_operator = false
 pointwise_experimental_covariance = not_reported
 ```
 
-The approximately 50-micrometre specimens limited the highest measurable absorption coefficient to about `1000 cm^-1`. The paper states that the available range was too narrow for a meaningful `(alpha h nu)^2` extrapolation. Figure 2 must not be relabeled as a Tauc-gap dataset.
+The approximately 50-micrometre specimens limited measurable absorption to about `1000 cm^-1`. Scott states that this range was too narrow for a meaningful `(alpha h nu)^2` extrapolation. These rows are not Tauc gaps and are not silently recast as model-independent intrinsic gaps.
 
-## Figure-role decision
+## Figure roles
 
-### Figure 2: direct-marker source
+### Figure 2: direct-marker numerical source
 
-Figure 2 is the only approved numerical extraction source in this tranche. It displays the fixed-alpha edge versus temperature for individual specimen series.
+Only the centers of the printed `x` markers were digitized. Connecting lines were not sampled. A marker was admitted only when its center was visually separable from the line, specimen label, axes, ticks, and neighboring series.
 
-A point may be admitted only when the direct marker center is distinguishable from:
+The final ledger contains 70 direct markers:
 
-- the connecting line;
-- a specimen label;
-- an axis or tick;
-- another specimen series.
+| measured composition x | printed label | marker count | extracted T range (K) | extracted edge range (eV) |
+|---:|---:|---:|---:|---:|
+| 0.610 | 61 | 8 | 10.944-292.631 | 0.714574-0.734595 |
+| 0.530 | 53 | 6 | 99.434-293.632 | 0.609968-0.618977 |
+| 0.460 | 46 | 9 | 31.365-293.632 | 0.503359-0.520377 |
+| 0.405 | 40.5 | 8 | 10.343-293.231 | 0.396250-0.427282 |
+| 0.385 | 38.5 | 8 | 29.963-293.031 | 0.352706-0.387241 |
+| 0.350 | 35 | 8 | 38.772-292.431 | 0.300153-0.344698 |
+| 0.310 | 31 | 8 | 7.140-292.831 | 0.230582-0.294647 |
+| 0.250 | 25 | 7 | 40.174-292.631 | 0.155005-0.229581 |
+| 0.230 | 23 | 8 | 9.342-292.631 | 0.111460-0.203554 |
+
+No additional distinguishable Figure 2 `x` marker was omitted. The unequal series counts reflect the markers actually printed, not interpolation or curve completion.
 
 ### Figure 5: provenance cross-check only
 
-Figure 5 overlays measured values with curves generated from Equation (3). It prints density-measured compositions on the right and equation-fit-required compositions on the left.
+Figure 5 overlays the measurements with Equation (3) curves. The numbers on the right are measured density compositions; the parenthesized numbers on the left are compositions required to fit Equation (3).
 
 Permitted uses:
 
@@ -67,96 +115,97 @@ Prohibited uses:
 - replace a density-measured composition with a fit-required value;
 - infer a missing Figure 2 point from the equation or connecting line.
 
-## Required page-asset contract
+The digitized ledger therefore uses the measured labels `23`, `25`, `31`, `35`, `38.5`, `40.5`, `46`, `53`, and `61`.
 
-Before numerical extraction, materialize one rights-compliant page image containing Figure 2 and record:
+## Axis calibration
 
-```text
-source PDF identity
-source PDF SHA256 or explicit unavailable status
-rendering tool and version
-rendering resolution or DPI
-page number in the source PDF
-page-image width and height in pixels
-page-image SHA256
-crop bounds containing the complete axes and labels
-```
-
-The page image itself need not be committed if rights or repository-size policy prohibit it, but its immutable digest and rendering recipe are mandatory.
-
-## Required axis-calibration contract
-
-The calibration ledger must contain at least two separated reference positions for each axis and must retain:
+The plot was rectified from four fitted border intersections. Labeled source ticks were then detected independently and fit with linear least squares.
 
 ```text
-axis name
-pixel coordinate
-source tick value
-units
-calibration role
-visual half-width in pixels
-```
-
-The expected source axes are temperature in kelvin and fixed-alpha edge energy in electron volts. Exact tick values must be read from the materialized page image rather than reconstructed from Equation (3).
-
-## Required marker ledger
-
-Every admitted row must preserve:
-
-```text
-source_id
-figure_id
-article_page
-specimen_label
-nominal_density_composition_x
-shared_specimen_group
-pixel_x
-pixel_y
 temperature_k
-fixed_alpha_edge_ev
-pixel_half_width_x
-pixel_half_width_y
-temperature_extraction_half_width_k
-energy_extraction_half_width_ev
-visibility_status
-marker_assignment_basis
-measurement_class
-signed_gap_eligible
-intrinsic_gap_eligible_without_observation_operator
-pointwise_experimental_covariance
+= 0.200203995237 * rectified_pixel_x
+  - 0.267693527909
+
+temperature calibration
+8 labeled ticks: 0, 40, 80, 120, 160, 200, 240, 280 K
+maximum absolute tick residual: 0.514745 K
+tick-fit RMSE: 0.254841 K
 ```
 
-Coordinate-extraction bounds are not source measurement covariance. Scott's article-level approximate uncertainty of `1-2 mole % CdTe` and `+/-0.01 eV` remains a separate source statement.
+```text
+fixed_alpha_edge_ev
+= -0.000500509426406 * rectified_pixel_y
+  + 0.799660915146
 
-## Fail-closed conditions
+energy calibration
+9 labeled ticks: 0.0 through 0.8 eV in 0.1 eV increments
+maximum absolute tick residual: 0.00162907 eV
+tick-fit RMSE: 0.000845608 eV
+```
 
-Reject a point when:
+Equation (3) was not used to calibrate either axis or to place any marker.
 
-- its center is not visually separable from a line or label;
-- specimen assignment depends on following a fitted curve through an overlap;
-- the local axis mapping is ambiguous;
-- its coordinate is inferred from the empirical equation;
-- its temperature or energy is copied from Figure 5 rather than Figure 2;
-- its composition is a Figure 5 fit-required value rather than the source density value.
+## Coordinate-extraction bounds
 
-Partial specimen series are acceptable. Every omitted candidate must be recorded by reason before the issue closes.
+Each `x` marker center is assigned a conservative visual half-width of 6 rectified pixels in both directions. The committed extraction bounds add the marker-center allowance linearly to the maximum calibration residual:
+
+```text
+temperature extraction half-width = +/-1.75 K
+energy extraction half-width      = +/-0.0047 eV
+```
+
+These are bounded digitization uncertainties. They are not source measurement covariance.
+
+## Source uncertainty and specimen structure
+
+Scott reports:
+
+```text
+density composition precision
++/-0.005 in fractional x
+
+maximum composition variation across the illuminated area
+approximately 0.02 in x, typically less
+
+approximate article-level comparison uncertainty
+1-2 mole % CdTe
++/-0.01 eV
+```
+
+These statements are retained separately from the digitization bounds. They are not assigned as independent Gaussian errors to every marker, and no pointwise covariance matrix is reported.
+
+Every row from one printed composition series shares one `shared_specimen_group`. This prevents the temperature markers from being treated as independent composition measurements.
+
+Source quality flags are retained:
+
+- `38.5` and `53`: kinked absorption edges attributed to compositional nonuniformity;
+- `25`: high residual absorption attributed mainly to inhomogeneity;
+- `61`: directly measured but outside Equation (3)'s stated `x <= 0.6` range;
+- remaining Figure 2 series: no additional specimen-specific exclusion inferred.
+
+## Canonical files
+
+```text
+data/experimental/scott1969_figure2_calibration.csv
+data/experimental/scott1969_figure2_digitized.csv
+data/experimental/scott1969_figure2_extraction_gate.csv
+data/experimental/scott1969_figure2_extraction_README.md
+tests/test_scott1969_figure2_extraction_gate.py
+.github/workflows/scott-figure2-extraction-gate.yml
+```
 
 ## Current disposition
 
 ```text
 Figure 2 scientific extraction target       approved
-Figure 5 independent numerical dataset      rejected
-page image available in File Library         yes
-page image materialized in repo runtime      no
-calibrated pixel extraction                  blocked
-numerical marker ledger                      absent by design
-model fitting or ranking                     prohibited
+Figure 2 page asset provenance               materialized and hashed
+axis calibration                             complete
+direct-marker ledger                         70 rows
+Figure 5 independent numerical dataset       rejected
+Equation (3) curve samples                    absent
+model fitting or ranking                     not performed
 ```
-
-## Reopening condition
-
-Proceed with numerical extraction only after a pixel-addressable Figure 2 page image is materialized with an immutable rendering record. Until then, absence of `scott1969_figure2_digitized.csv` is the correct fail-closed state.
 
 ## Claim boundary
 
-This record establishes source and extraction governance. It does not reconstruct any marker coordinate, estimate a specimen gap, fit Scott's equation, validate or reject Hansen, infer covariance, authorize a production equation, or authorize a manuscript.
+This tranche reconstructs the Figure 2 fixed-absorption marker ledger with reproducible pixel provenance and bounded coordinate-extraction uncertainty. It does not treat Scott as independent validation of Hansen, fit Scott's equation, infer pointwise experimental covariance, convert the rows into signed intrinsic gaps, authorize a production equation, or authorize a manuscript.
