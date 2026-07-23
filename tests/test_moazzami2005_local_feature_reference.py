@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from tools.build_moazzami_local_feature_reference import build, write_csv
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,8 +36,19 @@ def test_questioned_pair_claim_boundary() -> None:
     pair = specimen["questioned_pair"]
     assert pair["removed_energy_ev"] == [0.196491228, 0.19754386]
     assert pair["pixel_y_reversal"] == 3.0
-    assert pair["identified_nominal_max_shift_mev"] < 1.0
-    assert pair["identified_joint_max_shift_mev"] < 1.0
+    assert pair["identified_nominal_max_shift_mev"] == pytest.approx(
+        0.11687500000001627
+    )
+    assert pair["identified_joint_max_shift_mev"] == pytest.approx(
+        0.9594410000000053
+    )
+    assert pair["identified_operator_span_after_pair_deletion_mev"] == pytest.approx(
+        5.1218749999999975
+    )
+    assert (
+        pair["identified_joint_max_shift_mev"]
+        < pair["identified_operator_span_after_pair_deletion_mev"]
+    )
     assert result["decision"]["physical_origin_identified"] is False
     assert result["decision"]["spectrum_correction_authorized"] is False
 
@@ -56,10 +69,10 @@ def test_manuscript_addendum_preserves_numerics_and_semantics() -> None:
         "0.197543860",
         "0.116875 meV",
         "0.959441 meV",
-        "4.984375",
-        "3.385375",
-        "19.5764",
-        "19.1746",
+        "4.984",
+        "3.385",
+        "19.6",
+        "19.2",
     ):
         assert value in text
     assert "not a random sample" in text
@@ -67,3 +80,9 @@ def test_manuscript_addendum_preserves_numerics_and_semantics() -> None:
     assert "physical origin" in text
     assert "no correction of the nominal reconstructed trace is warranted" in text.lower()
     assert "Boundary-limited candidates" in text
+    assert "two-point reconstruction irregularity" in text
+    assert "secondary robustness check" in text
+    assert "avoid highlighting" in text
+    assert "not as a material feature" in text
+    assert "physical `core`" in text
+    assert "Full numerical precision is retained in machine-readable records" in text
