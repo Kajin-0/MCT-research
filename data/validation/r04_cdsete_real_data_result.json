@@ -1,0 +1,315 @@
+{
+  "schema_version": "1.0",
+  "portfolio_contribution": "R04",
+  "issue": 317,
+  "result_date": "2026-07-23",
+  "decision": "RESTRICTED_REAL_DATA_DEMONSTRATION_COMPLETE",
+  "source": {
+    "article_doi": "10.1038/s41467-024-52889-z",
+    "dataset_doi": "10.5281/zenodo.13869384",
+    "archive_sha256": "cc3e1ce1a02266da2d0e0f301464a9d8a519855f33a597adeb7f16048684c9a6",
+    "archive_member": "Datasets/Figure 3e.csv",
+    "archive_member_sha256": "49422bda851686db62574fb30354d698138f221db4b66d8782e0717698bc5679",
+    "license": "CC-BY-4.0"
+  },
+  "protocol": {
+    "path": "data/validation/r04_cdsete_phase2_protocol.json",
+    "status": "frozen_before_formal_result_generation",
+    "primary_edge_mode": "reflect",
+    "variance_ddof": 1,
+    "training_sigma_pixels": [
+      0.0,
+      0.5,
+      2.0,
+      4.0
+    ],
+    "held_out_sigma_pixels": 1.0,
+    "formal_scale_grid_changed_after_result": false
+  },
+  "coordinate_normalization": {
+    "maximum_x_rounding_residual_micrometre": 0.000869565217392676,
+    "maximum_y_rounding_residual_micrometre": 0.000869565217392676,
+    "normalization_tolerance_micrometre": 0.001,
+    "normalized_spacing_micrometre": 0.5454347826086956
+  },
+  "field": {
+    "shape": [
+      24,
+      24
+    ],
+    "observable": "Gaussian-fitted photoluminescence peak wavelength",
+    "units": "nm",
+    "mean_nm": 844.8215104166667,
+    "sample_variance_nm2": 13.73732519293478,
+    "sample_standard_deviation_nm": 3.706389778873072,
+    "minimum_nm": 837.0,
+    "maximum_nm": 862.5,
+    "missing_or_nonfinite_count": 0
+  },
+  "primary_added_kernel_sweep": {
+    "sigma_pixels": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "sigma_coordinate_conversion_micrometre": [
+      0.0,
+      0.2727173913043478,
+      0.5454347826086956,
+      1.0908695652173912,
+      2.1817391304347824
+    ],
+    "sample_variance_nm2": [
+      13.73732519293478,
+      11.374408090901321,
+      7.829969631751158,
+      4.3497792689765,
+      1.5443547243068794
+    ],
+    "variance_fraction_of_unsmoothed": [
+      1.0,
+      0.8279929266544024,
+      0.5699777447052193,
+      0.3166394627691879,
+      0.11242033675530617
+    ],
+    "interpretation": "unknown native instrument kernel convolved with declared added numerical kernels"
+  },
+  "family_diagnostics": {
+    "fit_loss": "unweighted sum of squared log-variance residuals on the four training scales",
+    "records": [
+      {
+        "family": "Gaussian",
+        "descriptive_point_variance_nm2": 13.21678131498281,
+        "descriptive_correlation_scale_pixels": 2.026593897986698,
+        "predicted_variances_nm2": [
+          13.21678131498281,
+          11.782383257658836,
+          8.888436116919435,
+          4.4835255813268455,
+          1.503373059276061
+        ],
+        "training_log_rms": 0.033070139680487234,
+        "held_out_signed_relative_error": 0.13518142916878112,
+        "held_out_absolute_relative_error": 0.13518142916878112
+      },
+      {
+        "family": "Matern_nu_1_over_2",
+        "descriptive_point_variance_nm2": 15.098694512975305,
+        "descriptive_correlation_scale_pixels": 2.20293046935142,
+        "predicted_variances_nm2": [
+          15.098694512975305,
+          10.31363904032607,
+          7.322736638290744,
+          4.065022895952115,
+          1.6581772135945099
+        ],
+        "training_log_rms": 0.08389566636356509,
+        "held_out_signed_relative_error": -0.06478096561237529,
+        "held_out_absolute_relative_error": 0.06478096561237529
+      },
+      {
+        "family": "Matern_nu_3_over_2",
+        "descriptive_point_variance_nm2": 13.796354367926678,
+        "descriptive_correlation_scale_pixels": 2.0971200089552284,
+        "predicted_variances_nm2": [
+          13.796354367926678,
+          11.37499839384947,
+          8.2076941021328,
+          4.281631452374281,
+          1.5621412406147448
+        ],
+        "training_log_rms": 0.009985930970150807,
+        "held_out_signed_relative_error": 0.04824086020077761,
+        "held_out_absolute_relative_error": 0.04824086020077761
+      },
+      {
+        "family": "Matern_nu_5_over_2",
+        "descriptive_point_variance_nm2": 13.540300552512424,
+        "descriptive_correlation_scale_pixels": 2.072394722922338,
+        "predicted_variances_nm2": [
+          13.540300552512424,
+          11.570806826616105,
+          8.457766036678072,
+          4.350209778837825,
+          1.5400794186219486
+        ],
+        "training_log_rms": 0.011285582261024055,
+        "held_out_signed_relative_error": 0.0801786513170049,
+        "held_out_absolute_relative_error": 0.0801786513170049
+      }
+    ],
+    "lowest_training_log_rms_family": "Matern_nu_3_over_2",
+    "lowest_held_out_absolute_error_family": "Matern_nu_3_over_2",
+    "selection_status": "descriptive only; no universal-family or independent-prediction claim",
+    "gaussian_reciprocal_fit": {
+      "point_variance_nm2": 12.107653381697672,
+      "correlation_scale_pixels": 2.1592435587852115,
+      "maximum_absolute_relative_variance_residual": 0.11863094076532901
+    }
+  },
+  "same_raster_gaussian_model_conditioned": {
+    "finite_map_bias_factors": [
+      0.9625876449009557,
+      0.9582025140885805,
+      0.9453816543879127,
+      0.8980918474831142,
+      0.7487851555512602
+    ],
+    "delta_log_variance_covariance": [
+      [
+        0.04066028428764558,
+        0.04284338013633567,
+        0.04796361923729693,
+        0.057712493112307924,
+        0.06090864956179577
+      ],
+      [
+        0.04284338013633567,
+        0.045297340270705345,
+        0.0511312272810286,
+        0.06264492519345898,
+        0.06738090125421754
+      ],
+      [
+        0.04796361923729693,
+        0.0511312272810286,
+        0.05890908841700004,
+        0.07563195963410713,
+        0.08573538884488952
+      ],
+      [
+        0.057712493112307924,
+        0.06264492519345898,
+        0.07563195963410713,
+        0.10945622263396436,
+        0.1457809137837587
+      ],
+      [
+        0.06090864956179577,
+        0.06738090125421754,
+        0.08573538884488952,
+        0.1457809137837587,
+        0.26496578356209144
+      ]
+    ],
+    "cross_scale_correlation": [
+      [
+        1.0,
+        0.9983025276659658,
+        0.9800214697490014,
+        0.8650961955345152,
+        0.5868118398447996
+      ],
+      [
+        0.9983025276659658,
+        1.0,
+        0.9898256749981729,
+        0.8896707566967885,
+        0.6150431232839885
+      ],
+      [
+        0.9800214697490014,
+        0.9898256749981729,
+        0.9999999999999999,
+        0.9418765270653499,
+        0.6862369099565983
+      ],
+      [
+        0.8650961955345152,
+        0.8896707566967885,
+        0.9418765270653499,
+        1.0,
+        0.8560232146021146
+      ],
+      [
+        0.5868118398447996,
+        0.6150431232839885,
+        0.6862369099565983,
+        0.8560232146021146,
+        0.9999999999999998
+      ]
+    ],
+    "moment_matched_effective_degrees_of_freedom": [
+      49.18804762532587,
+      44.15270274253692,
+      33.95061872019799,
+      18.27214526384906,
+      7.548144417414276
+    ],
+    "parameter_standard_deviation_inflation_vs_false_independence": [
+      4.524956168633019,
+      0.9064386724870949
+    ],
+    "parameter_covariance_determinant_inflation_vs_false_independence": 16.981246288547148,
+    "status": "exact quadratic-form result conditional on fitted descriptive Gaussian covariance; not empirical repeat covariance"
+  },
+  "sensitivity": {
+    "full_reflect_variances_nm2": [
+      13.73732519293478,
+      11.374408090901321,
+      7.829969631751158,
+      4.3497792689765,
+      1.5443547243068794
+    ],
+    "full_wrap_variances_nm2": [
+      13.73732519293478,
+      10.690343983038364,
+      6.251004614336071,
+      2.384191423110248,
+      0.42274848916916186
+    ],
+    "full_nearest_variances_nm2": [
+      13.73732519293478,
+      11.374695191268478,
+      7.87117002321064,
+      4.558626216200849,
+      2.1268069549637385
+    ],
+    "central_16x16_reflect_variances_nm2": [
+      9.429282254901947,
+      7.256211001406998,
+      4.224922579267697,
+      1.7995213301807227,
+      0.4209222179638343
+    ],
+    "planar_detrended_full_reflect_variances_nm2": [
+      13.27142966123658,
+      10.911864951059627,
+      7.380534577058055,
+      3.944011566371389,
+      1.238422603640518
+    ],
+    "maximum_relative_difference_wrap_vs_reflect": 0.7262620546203236,
+    "maximum_relative_difference_nearest_vs_reflect": 0.37714925301133073,
+    "maximum_relative_difference_crop_vs_full_reflect": 0.7274446010758648,
+    "maximum_relative_difference_planar_detrended_vs_primary": 0.19809705364398494
+  },
+  "phase_randomized_control": {
+    "seed": 3172026,
+    "mean_residual_nm": -1.1368683772161603e-13,
+    "sample_variance_relative_residual": -3.8792635708598764e-16,
+    "wrap_variance_maximum_relative_residual": 2.521154139982431e-14,
+    "reflect_variances_nm2": [
+      13.737325192934774,
+      10.820223748455986,
+      6.552244987590379,
+      2.6836947041281687,
+      0.511010563226188
+    ],
+    "status": "power-spectrum-preserving control; not a semiconductor mechanism model"
+  },
+  "claim_boundary": {
+    "real_semiconductor_method_demonstration": true,
+    "hgcdte_external_validation": false,
+    "native_kernel_deconvolution": false,
+    "latent_physical_correlation_length": false,
+    "composition_assignment": false,
+    "independent_scale_claim": false,
+    "universal_covariance_family": false,
+    "r05": false,
+    "manuscript": false
+  }
+}
