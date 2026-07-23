@@ -3,12 +3,12 @@
 **Last updated:** 2026-07-23  
 **Program ID:** `stochastic_transport_noise`  
 **Contribution:** R06  
-**Controlling issues:** #341 and #343  
-**Current phase:** Phase 1C — HgCdTe statistics, parameter provenance, and solver architecture
+**Controlling issues:** #341, #343, and #346  
+**Current phase:** Phase 1C — HgCdTe statistics, parameter provenance, and deterministic kernel architecture
 
 ## Objective
 
-Develop a verified one-dimensional stochastic drift-diffusion-Poisson framework for a finite HgCdTe photoconductor and quantify the error incurred when the full model is reduced to conventional quasineutral, deterministic-contact, or single-lifetime interpretations.
+Develop a verified one-dimensional stochastic drift-diffusion-Poisson framework for a finite HgCdTe photoconductor and quantify the error incurred when the full model is reduced to conventional quasineutral, deterministic-contact, Boltzmann, one-carrier, or single-lifetime interpretations.
 
 Target observables:
 
@@ -30,6 +30,7 @@ Under what dimensionless conditions can a finite bipolar HgCdTe photoconductor w
 - a quasineutral ambipolar model;
 - a deterministic finite surface-recombination velocity;
 - a one-carrier model;
+- Boltzmann carrier statistics;
 - a single-Lorentzian GR spectrum;
 - a corner-frequency lifetime estimate;
 
@@ -71,7 +72,7 @@ Radiative and Auger recombination remain deferred until the SRH baseline passes 
 
 ## Accepted sign and terminal conventions
 
-The program uses:
+The program uses
 
 \[
 E=-\frac{\partial\phi}{\partial x},
@@ -108,9 +109,29 @@ The conserved total current density is
 J_{tot}=J_n+J_p+\frac{\partial(\varepsilon E)}{\partial t}.
 \]
 
-At fixed voltage and constant area, the terminal current is the spatial average of conduction current plus any nonzero voltage-derivative displacement term. It is not generally the conduction current evaluated at an arbitrary interior point.
+At fixed voltage and constant area, terminal current is the spatial average of conduction current plus any nonzero voltage-derivative displacement term. It is not generally the conduction current evaluated at an arbitrary interior point.
 
 Internal stochastic derivations use a two-sided angular-frequency covariance. Reported detector spectra use one-sided PSD per hertz with explicit conversion.
+
+## Reference carrier-statistics architecture
+
+The reference material architecture uses Fermi-Dirac carrier statistics with a source-controlled nonparabolic density of states. Carrier density and susceptibility must be calculated from the same band model.
+
+For species `s`,
+
+\[
+\chi_s=\left(\frac{\partial n_s}{\partial\mu_s}\right)_T,
+\]
+
+and
+
+\[
+\frac{D_s}{\mu_s}=\frac{n_s}{q\chi_s}.
+\]
+
+Boltzmann transport remains a quantified reduction. Preliminary parabolic checks identify `eta <= -3` as a candidate two-percent domain and `eta <= -4` as a candidate one-percent domain, subject to direct comparison with the final HgCdTe Kane/nonparabolic closure.
+
+The executable statistics prototype currently includes only normalized parabolic Fermi integrals, generalized-Einstein reduction diagnostics, and the abstract-reported Hansen-Schmit intrinsic-density fit. It is not the final HgCdTe material model.
 
 ## Deterministic baseline equations
 
@@ -131,9 +152,62 @@ The reference trap model retains explicit occupancy. The algebraic SRH law is a 
 
 The net SRH residual is not a noise intensity.
 
+## Conservative deterministic prototype
+
+The Phase 1C executable deterministic kernel is deliberately restricted to a dimensionless, steady, unipolar benchmark with ideal fixed reservoir values.
+
+Its unknowns are interior potential and log density,
+
+\[
+\psi_i,
+\qquad
+\nu_i=\ln N_i.
+\]
+
+For a fixed positive background `N_B`,
+
+\[
+R_{\psi,i}
+=
+\frac{\psi_{i+1}-2\psi_i+\psi_{i-1}}{h^2}
+-
+\Lambda^2(N_i-N_B).
+\]
+
+The fitted electron face current is
+
+\[
+j_{i+1/2}
+=
+\frac{d_n}{h}
+\left[
+B(\psi_{i+1}-\psi_i)N_{i+1}
+-
+B(\psi_i-\psi_{i+1})N_i
+\right],
+\]
+
+with
+
+\[
+B(z)=\frac{z}{e^z-1}.
+\]
+
+The source-free continuity residual is
+
+\[
+R_{n,i}
+=
+\frac{j_{i+1/2}-j_{i-1/2}}{h}.
+\]
+
+The implementation includes a dense analytical Jacobian and an independent face-current conservation diagnostic. Dense assembly is for transparent verification only; sparse assembly is required later.
+
+Local isolated validation of the statistics and deterministic prototypes reports 46 passed tests. GitHub Actions remains the repository-level authority for committed heads.
+
 ## Stochastic operator architecture
 
-The discretized linearized system will have the form
+The future discretized linearized system will have the form
 
 \[
 (i\omega M-J)\delta u=B\xi,
@@ -146,7 +220,7 @@ The discretized linearized system will have the form
 with primitive-event covariance
 
 \[
-Q_\xi=\sum_r \nu_r\nu_r^T a_r.
+Q_\xi=\sum_r\nu_r\nu_r^Ta_r.
 \]
 
 The terminal PSD is
@@ -156,6 +230,8 @@ S_I=H_IQ_\xi H_I^\dagger.
 \]
 
 A second implementation based on an adjoint or impedance field is mandatory for selected benchmarks.
+
+Stochastic implementation remains unauthorized until the deterministic bipolar and equilibrium gates pass.
 
 ## Accepted stochastic-interface hierarchy
 
@@ -248,17 +324,31 @@ Additional independent controls include:
 - contact detailed balance;
 - contact Onsager-FDT relation;
 - blocking and fast-reservoir singular-limit analysis;
-- reduced dimensionless parameter set.
+- reduced dimensionless parameter set;
+- Fermi-Dirac/generalized-Einstein reference architecture;
+- deterministic contact and circuit hierarchy;
+- conservative finite-volume residual and Jacobian specification.
+
+### Executable prototypes
+
+- normalized parabolic Fermi integrals and Boltzmann-reduction diagnostics;
+- Hansen-Schmit abstract fit benchmark;
+- conservative unipolar Poisson-continuity residual;
+- fitted electron face current;
+- analytical Jacobian;
+- independent current-conservation metrics.
 
 ### Benchmark design
 
-- B0-B9 benchmark ladder;
+- B0-B9 stochastic-transport benchmark ladder;
+- S0-S10 statistics targets;
+- D0-D10 deterministic-kernel targets;
 - source-derived HgCdTe and finite-size targets;
 - stochastic-interface benchmarks;
 - direct-versus-adjoint comparison requirement;
 - equilibrium FDT and current-conservation tolerances.
 
-## Established prior art exclusions
+## Established prior-art exclusions
 
 R06 will not claim novelty for:
 
@@ -322,14 +412,17 @@ These are design requirements, not completed results.
 
 ## Remaining Phase 1C work
 
-1. Build the HgCdTe parameter and uncertainty table.
-2. Classify each relation as source-established, uncertain literature input, or exploratory.
-3. Decide the baseline carrier-statistics closure near 77 K.
-4. Quantify the error of the nondegenerate Einstein relation over the intended composition and density range.
-5. Finalize deterministic contact and external-circuit boundary hierarchy.
-6. Select numerical dependencies and solver architecture.
-7. Specify Phase 2 executable tests and file layout.
-8. Record the final Phase 1 proceed, reframe, or terminate decision.
+1. Acquire or independently verify the exact Madarasz-Szmulowicz and Lowney nonparabolic statistics equations.
+2. Compare accepted intrinsic-density models over the intended composition-temperature domain.
+3. Audit low-temperature electron and hole mobility relations with specimen context.
+4. Select a static permittivity relation and uncertainty.
+5. Define material-specific contact ranges or retain them as dimensionless exploratory variables.
+6. Add a damped Newton solver limited to exact and manufactured benchmarks.
+7. Add mesh-refinement and continuation tests.
+8. Specify and prototype the bipolar deterministic block structure.
+9. Connect equilibrium density and susceptibility through the selected statistics interface.
+10. Demonstrate that at least one reduction-error boundary remains stable under material uncertainty.
+11. Record the final Phase 1 proceed, reframe, or terminate decision.
 
 ## Authorized next work
 
@@ -338,7 +431,9 @@ Authorized:
 - material/statistics source audit;
 - parameter uncertainty table;
 - generalized Einstein validity analysis;
-- deterministic solver architecture;
+- damped Newton and manufactured-solution deterministic prototypes;
+- sparse residual/Jacobian planning;
+- bipolar deterministic block specification;
 - small analytical prototypes that do not constitute production sweeps;
 - preparation of a final Phase 1 gate.
 
@@ -346,6 +441,7 @@ Not authorized:
 
 - production HgCdTe sweeps;
 - predictive detector claims;
+- stochastic production code;
 - manuscript drafting;
 - claims that contact noise or dynamic traps are new;
 - arbitrary fitted source terms;
