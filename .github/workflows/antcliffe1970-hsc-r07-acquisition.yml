@@ -1,0 +1,41 @@
+name: Antcliffe 1970 HSC_R07 acquisition
+
+on:
+  pull_request:
+    paths:
+      - "data/hansen/antcliffe1970_hsc_r07_source_metadata.csv"
+      - "data/hansen/antcliffe1970_hsc_r07_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "tests/test_antcliffe1970_hsc_r07_acquisition.py"
+      - ".github/workflows/antcliffe1970-hsc-r07-acquisition.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-23-antcliffe1970-hsc-r07-acquisition.md"
+  push:
+    branches:
+      - main
+    paths:
+      - "data/hansen/antcliffe1970_hsc_r07_source_metadata.csv"
+      - "data/hansen/antcliffe1970_hsc_r07_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "tests/test_antcliffe1970_hsc_r07_acquisition.py"
+      - ".github/workflows/antcliffe1970-hsc-r07-acquisition.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-23-antcliffe1970-hsc-r07-acquisition.md"
+
+permissions:
+  contents: read
+
+jobs:
+  acquisition-boundary:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install focused test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Verify fail-closed Antcliffe acquisition record
+        run: python -m pytest -q tests/test_antcliffe1970_hsc_r07_acquisition.py
