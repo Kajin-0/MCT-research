@@ -1,0 +1,85 @@
+name: r04-cdsete-real-data
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r04-cdsete-real-data.yml'
+      - 'data/validation/r04_cdsete_phase2_protocol.json'
+      - 'data/validation/r04_cdsete_real_data_result.json'
+      - 'literature/notes/cdsete2024_real_data_result.md'
+      - 'src/mct_research/spatial_disorder_real_data.py'
+      - 'tools/r04_cdsete_phase2_result.py'
+      - 'tests/test_r04_cdsete_real_data.py'
+      - 'tests/test_r04_cdsete_real_data_result.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demonstrate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install package and tests
+        run: python -m pip install -e '.[test]'
+
+      - name: Run focused analytical tests
+        run: python -m pytest -q tests/test_r04_cdsete_real_data.py
+
+      - name: Generate frozen real-data result
+        run: |
+          set -o pipefail
+          mkdir -p r04-cdsete-real-data/generated
+          python tools/r04_cdsete_phase2_result.py \
+            --protocol data/validation/r04_cdsete_phase2_protocol.json \
+            --workdir r04-cdsete-real-data/work \
+            --output-json r04-cdsete-real-data/generated/r04_cdsete_real_data_result.json \
+            --output-markdown r04-cdsete-real-data/generated/cdsete2024_real_data_result.md \
+            2>&1 | tee r04-cdsete-real-data/run.log
+
+      - name: Verify generated claim boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('r04-cdsete-real-data/generated/r04_cdsete_real_data_result.json')
+          result = json.loads(path.read_text(encoding='utf-8'))
+          assert result['decision'] == 'RESTRICTED_REAL_DATA_DEMONSTRATION_COMPLETE'
+          assert result['source']['archive_sha256'] == 'cc3e1ce1a02266da2d0e0f301464a9d8a519855f33a597adeb7f16048684c9a6'
+          assert result['source']['archive_member_sha256'] == '49422bda851686db62574fb30354d698138f221db4b66d8782e0717698bc5679'
+          assert result['field']['shape'] == [24, 24]
+          assert result['field']['missing_or_nonfinite_count'] == 0
+          assert result['protocol']['formal_scale_grid_changed_after_result'] is False
+          assert result['claim_boundary']['real_semiconductor_method_demonstration'] is True
+          assert result['claim_boundary']['hgcdte_external_validation'] is False
+          assert result['claim_boundary']['latent_physical_correlation_length'] is False
+          assert result['claim_boundary']['independent_scale_claim'] is False
+          assert result['claim_boundary']['manuscript'] is False
+          PY
+
+      - name: Verify immutable result when present
+        if: ${{ hashFiles('data/validation/r04_cdsete_real_data_result.json') != '' }}
+        run: |
+          cmp \
+            r04-cdsete-real-data/generated/r04_cdsete_real_data_result.json \
+            data/validation/r04_cdsete_real_data_result.json
+          cmp \
+            r04-cdsete-real-data/generated/cdsete2024_real_data_result.md \
+            literature/notes/cdsete2024_real_data_result.md
+          python -m pytest -q tests/test_r04_cdsete_real_data_result.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r04-cdsete-real-data
+          path: r04-cdsete-real-data
+          if-no-files-found: error
+          retention-days: 30
