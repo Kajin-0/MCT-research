@@ -1,0 +1,58 @@
+name: Kahlert 1973 HSC_R09 primary-source audit
+
+on:
+  pull_request:
+    paths:
+      - "data/hansen/kahlert1973_hsc_r09_source_metadata.csv"
+      - "data/hansen/kahlert1973_sample_population.csv"
+      - "data/hansen/kahlert1973_model_parameters.csv"
+      - "data/hansen/kahlert1973_temperature_relation.csv"
+      - "data/hansen/kahlert1973_hansen_ingestion_candidates.csv"
+      - "data/hansen/kahlert1973_hsc_r09_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/kahlert1973_hsc_r09_audit.json"
+      - "tools/audit_kahlert1973_hsc_r09.py"
+      - "tests/test_kahlert1973_hsc_r09_primary_audit.py"
+      - ".github/workflows/kahlert1973-hsc-r09-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-23-kahlert1973-hsc-r09-primary-audit.md"
+  push:
+    branches: [main]
+    paths:
+      - "data/hansen/kahlert1973_hsc_r09_source_metadata.csv"
+      - "data/hansen/kahlert1973_sample_population.csv"
+      - "data/hansen/kahlert1973_model_parameters.csv"
+      - "data/hansen/kahlert1973_temperature_relation.csv"
+      - "data/hansen/kahlert1973_hansen_ingestion_candidates.csv"
+      - "data/hansen/kahlert1973_hsc_r09_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/kahlert1973_hsc_r09_audit.json"
+      - "tools/audit_kahlert1973_hsc_r09.py"
+      - "tests/test_kahlert1973_hsc_r09_primary_audit.py"
+      - ".github/workflows/kahlert1973-hsc-r09-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-23-kahlert1973-hsc-r09-primary-audit.md"
+
+permissions:
+  contents: read
+
+jobs:
+  primary-source-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install focused test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Verify Kahlert primary-source reconstruction
+        run: python -m pytest -q tests/test_kahlert1973_hsc_r09_primary_audit.py
+      - name: Regenerate immutable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/audit_kahlert1973_hsc_r09.py > /tmp/kahlert-audit.json
+          cmp /tmp/kahlert-audit.json data/validation/kahlert1973_hsc_r09_audit.json
