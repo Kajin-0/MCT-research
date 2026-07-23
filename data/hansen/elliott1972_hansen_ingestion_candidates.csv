@@ -1,0 +1,3 @@
+candidate_id,low_temperature_observation_id,high_temperature_observation_id,composition_x,delta_temperature_k,slope_ev_per_k,normalized_80k_ev,candidate_status,reason
+ELL72_PAIR_7B_MH03,ELL72_T2_7B_4P2,ELL72_T2_7B_77_MH03,0.149,72.8,0.00010989010989010989,-0.007670329670329671,plausible_not_proven,"Same named sample; 77 K result depends on assumed heavy-hole mass 0.3 m0. Hansen markers are not source-labeled."
+ELL72_PAIR_7B_MH07,ELL72_T2_7B_4P2,ELL72_T2_7B_77_MH07,0.149,72.8,0.00024725274725274725,0.0027417582417582417,plausible_not_proven,"Same named sample; 77 K result depends on assumed heavy-hole mass 0.7 m0. Hansen markers are not source-labeled."
