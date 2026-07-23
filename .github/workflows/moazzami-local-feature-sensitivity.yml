@@ -19,12 +19,15 @@ on:
       - 'tools/build_moazzami_local_feature_reference.py'
       - 'tools/build_moazzami_model_robustness_reference.py'
       - 'tools/build_observation_model_manuscript_assets.py'
+      - 'tools/build_observation_model_robustness_figures.py'
       - 'tools/observation_manuscript_figure_spectrum.py'
       - 'tests/test_moazzami2005_local_feature_sensitivity.py'
       - 'tests/test_moazzami2005_pixel_reversal_core.py'
       - 'tests/test_moazzami2005_local_feature_reference.py'
       - 'tests/test_moazzami2005_model_robustness.py'
       - 'tests/test_moazzami2005_model_robustness_reference.py'
+      - 'tests/test_observation_model_robustness_figures.py'
+      - 'tests/test_observation_manuscript_assets.py'
       - 'manuscript/observation_model_uncertainty/**'
   workflow_dispatch:
 
@@ -67,10 +70,42 @@ jobs:
             --output-json /tmp/moazzami-model-robustness-reference.json \
             --output-csv /tmp/moazzami-model-robustness-summary.csv
       - name: Build revised manuscript assets
+        shell: bash
         run: |
+          set -euo pipefail
           python -m tools.build_observation_model_manuscript_assets \
             --repository-root . \
             --output-dir /tmp/observation-manuscript-assets
+          python -m tools.build_observation_model_robustness_figures \
+            --reference-json data/validation/moazzami2005_model_robustness_reference.json \
+            --output-dir /tmp/observation-robustness-figures
+          target=manuscript/observation_model_uncertainty
+          cp /tmp/observation-manuscript-assets/figure1_spectrum_models.svg \
+            "$target/figure1_spectrum_models.svg"
+          cp /tmp/observation-robustness-figures/*.svg "$target/"
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          target = Path('manuscript/observation_model_uncertainty')
+          names = (
+              'figure1_spectrum_models.svg',
+              'figure6_relative_fitted_intercepts.svg',
+              'figure7_robustness_scales.svg',
+              'figure8_model_residual_compatibility.svg',
+          )
+          manifest = target / 'SHA256SUMS'
+          records = {}
+          for line in manifest.read_text(encoding='utf-8').splitlines():
+              digest, name = line.split(maxsplit=1)
+              records[name] = digest
+          for name in names:
+              records[name] = sha256((target / name).read_bytes()).hexdigest()
+          manifest.write_text(
+              ''.join(f'{records[name]}  {name}\n' for name in sorted(records)),
+              encoding='utf-8',
+          )
+          PY
       - name: Verify immutable compact outputs
         run: |
           cmp /tmp/moazzami-local-feature-reference.json \
@@ -91,8 +126,10 @@ jobs:
             tests/test_moazzami2005_local_feature_reference.py \
             tests/test_moazzami2005_model_robustness.py \
             tests/test_moazzami2005_model_robustness_reference.py \
+            tests/test_observation_model_robustness_figures.py \
+            tests/test_observation_manuscript_assets.py \
             2>&1 | tee /tmp/moazzami-focused-pytest.log
-      - name: Publish clean-built frozen spectrum asset
+      - name: Publish clean-built frozen manuscript assets
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         env:
           HEAD_BRANCH: ${{ github.head_ref }}
@@ -100,38 +137,18 @@ jobs:
         run: |
           set -euo pipefail
           target=manuscript/observation_model_uncertainty
-          cp /tmp/observation-manuscript-assets/figure1_spectrum_models.svg \
-            "$target/figure1_spectrum_models.svg"
-          python - <<'PY'
-          from hashlib import sha256
-          from pathlib import Path
-
-          target = Path('manuscript/observation_model_uncertainty')
-          name = 'figure1_spectrum_models.svg'
-          digest = sha256((target / name).read_bytes()).hexdigest()
-          manifest = target / 'SHA256SUMS'
-          lines = []
-          replaced = False
-          for line in manifest.read_text(encoding='utf-8').splitlines():
-              old_digest, old_name = line.split(maxsplit=1)
-              if old_name == name:
-                  lines.append(f'{digest}  {name}')
-                  replaced = True
-              else:
-                  lines.append(f'{old_digest}  {old_name}')
-          if not replaced:
-              raise RuntimeError(f'{name} is missing from SHA256SUMS')
-          manifest.write_text('\n'.join(lines) + '\n', encoding='utf-8')
-          print(f'{digest}  {name}')
-          PY
-          if git diff --quiet -- "$target/figure1_spectrum_models.svg" "$target/SHA256SUMS"; then
-            echo 'Frozen spectrum asset is already current.'
+          if git diff --quiet -- "$target"; then
+            echo 'Frozen manuscript assets are already current.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$target/figure1_spectrum_models.svg" "$target/SHA256SUMS"
-          git commit -m 'Refresh audited observation-model spectrum figure'
+          git add "$target/figure1_spectrum_models.svg" \
+            "$target/figure6_relative_fitted_intercepts.svg" \
+            "$target/figure7_robustness_scales.svg" \
+            "$target/figure8_model_residual_compatibility.svg" \
+            "$target/SHA256SUMS"
+          git commit -m 'Refresh strict observation-model manuscript figures'
           git push origin "HEAD:$HEAD_BRANCH"
       - name: Record compact decision summary
         run: |
@@ -170,5 +187,6 @@ jobs:
             /tmp/moazzami-model-robustness.log
             /tmp/moazzami-focused-pytest.log
             /tmp/observation-manuscript-assets
+            /tmp/observation-robustness-figures
           if-no-files-found: warn
           retention-days: 30
