@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_same_state_attribution_execution",
+  "program": "R02",
+  "issue": 332,
+  "design_issue": 318,
+  "design_merge_commit": "cb4b13c36bca8d1b47080be23a2c7190b35c6f1a",
+  "predecessor_issue": 313,
+  "historical_result_commit": "49476afe6f9b4c3b2be534bc9d81ada67c4ecab9",
+  "phase": "one_pinned_execution",
+  "source": {
+    "repository": "QEF/q-e",
+    "clone_url": "https://github.com/QEF/q-e.git",
+    "release_tag": "qe-7.6",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c2b7f7eaf8e05ecafbbcbac849",
+    "epw_version": "6.1",
+    "run_epw_git_blob_sha": "8f6a915fb656e424f8e4c03b3e5ea301d83953ae",
+    "required_files": {
+      "EPW/src/selfen.f90": "92814fb0ba79b355cda842598fe6e22ee24a77027864524c91fd6ea4bf63ff97",
+      "EPW/src/epw.f90": "1126156b25ff57dab5160bebf9e18c44884c4f32f169cb899498bd84409fcaf6",
+      "EPW/src/ep_coarse_unfolding.f90": "d55d43cc00bd6d663361c2fb2e1beb9dcc2ca4e488136441951fcf1622a706c1",
+      "EPW/src/wannier.f90": "160bf700c95ded2c732051f55c8aa55afe9c77ae2f4b57c38822721f99bd1503",
+      "EPW/src/use_wannier.f90": "5ba6b83d7df4d38acb6b5fa942cf2786aa68fedebbd0fcbd486d36bf08ac25e9",
+      "EPW/src/io/io.f90": "881ace72de3dc22224cf1daf96ae65dc6531b1583f639645fe360fcfb6f22cd0",
+      "EPW/src/close.f90": "c8444add55b09c2fec3d047d543a33bef3dcc24d442a0b11758ec133eeab7d7a",
+      "test-suite/epw_base/scf.in": "74d06ffa7c45aef4fe11094e430d0cef00ccac74bcf689189ea1d6e84506563b",
+      "test-suite/epw_base/ph.in": "1dac9d47d8c234f7b88ef5f8ce7db6c9aaeb1c4a83f7b2cd13bd78e288b4983f",
+      "test-suite/epw_base/pp.in": "f052c801085cf37855fbab544b5cbe46c864e54c37a163a2bc6eab51c2a34e47",
+      "test-suite/epw_base/scf_epw.in": "eccb8bd933e7748e65310d04e853992db0e2f353e8af062af26df00c4dc509f5",
+      "test-suite/epw_base/nscf_epw.in": "bc1dae9fecb2d589f33d8e0924a1d7aae0e29603e8d63c0380e5bf3173eb6f41",
+      "test-suite/epw_base/epw1.in": "18e83caf042d88d59d23653cb83319aa0cad9a400d8422f13f11788373045999",
+      "test-suite/epw_base/epw2.in": "f666d775574b60e9866c20098a3f9a43354b2b5a9cd1c66be0617ca492d0b113",
+      "pseudo/C_3.98148.UPF": "cc147806e663aa2c487cff67fc287a27d846edd438c7f4fc15d8851409244f2a"
+    },
+    "git_blob_ids": {
+      "EPW/src/epw.f90": "fca6e313d45ef636a81ca45b3585d2abe3124da5",
+      "EPW/src/ep_coarse_unfolding.f90": "b9dcb97df833c42d1e3d793c5d66046a42c7ff77",
+      "EPW/src/wannier.f90": "a2b706939505a84b2d082e5a83a3dbb1ae8eef57",
+      "EPW/src/use_wannier.f90": "104bfee94e9b32e5cb1f86c47382f34090393f3b",
+      "EPW/src/io/io.f90": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+      "EPW/src/close.f90": "f9693bb6e7f8afbe1643cd6f039e90805aa0e100"
+    }
+  },
+  "observational_patch": {
+    "path": "patches/qe76-epw61-r02-raw-vertex-export.patch",
+    "sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
+    "disabled_by_default": true,
+    "scientific_contraction_added": false
+  },
+  "preparation": {
+    "upstream_fixture_path": "test-suite/epw_base",
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "commands": [
+      ["PW_X", "-input", "scf.in"],
+      ["PH_X", "-input", "ph.in"],
+      ["PYTHON", "EPW_BIN/pp.py", "<", "pp.in"],
+      ["PW_X", "-input", "scf_epw.in"],
+      ["PW_X", "-input", "nscf_epw.in"],
+      ["EPW_X", "-input", "epw1.in"]
+    ],
+    "command_count": 6,
+    "export_variables_unset": true,
+    "stdout_stderr_outside_state": true
+  },
+  "replay": {
+    "input_path": "first_principles/b0/r02_epw_same_state_replay.in",
+    "input_sha256": "6e36c722d58c90cb6d58ffdee06568d1803fdea41c1d1196f57c583e8add7b73",
+    "clone_ids": ["disabled_a", "disabled_b", "enabled"],
+    "replay_count": 3,
+    "same_executable_required": true,
+    "same_input_required": true,
+    "same_environment_required": true,
+    "same_threads_required": true,
+    "upstream_regeneration_allowed": false,
+    "enabled_environment": {
+      "R02_EXPORT_RAW_VERTEX": "1",
+      "R02_EXPORT_IK_GLOBAL": "1"
+    },
+    "raw_path_outside_state": true,
+    "stdout_stderr_outside_state": true
+  },
+  "prepared_state": {
+    "required_paths": [
+      "epwdata.fmt",
+      "crystal.fmt",
+      "vmedata.fmt",
+      "dmedata.fmt",
+      "wigner.fmt",
+      "diam.epmatwp",
+      "diam.ukk"
+    ],
+    "complete_tree_manifest_required": true,
+    "symlinks_allowed": false,
+    "special_files_allowed": false,
+    "unknown_regular_files_included": true,
+    "three_byte_identical_clones_required": true,
+    "preexisting_mutation_allowed": false,
+    "preexisting_deletion_allowed": false,
+    "allowed_new_file_patterns": [
+      "EPW.bib",
+      "linewidth.elself.*",
+      "selecq.fmt",
+      "*.kgmap",
+      "*_0.kmap",
+      "*.freq",
+      "*.qdos_*",
+      "*.self",
+      "*.res*"
+    ],
+    "preparation_outputs_may_not_be_removed_before_manifest": true
+  },
+  "thresholds": {
+    "baseline_energy_max_abs_ev": 1e-12,
+    "baseline_self_energy_max_abs_ev": 1e-12,
+    "baseline_dimensionless_max_abs": 1e-12,
+    "enabled_energy_floor_ev": 1e-12,
+    "enabled_self_energy_floor_ev": 1e-12,
+    "enabled_dimensionless_floor": 1e-12,
+    "normalization_identity_max_abs_ry2": 1e-14,
+    "per_state_real_diagonal_max_abs_ev": 1e-12,
+    "summed_real_diagonal_max_abs_ev": 1e-12,
+    "synthetic_external_covariance_max_abs_ev": 1e-12,
+    "q_weight_sum_max_abs": 1e-12,
+    "maximum_workflow_minutes": 120,
+    "maximum_evidence_bytes": 2147483648,
+    "required_preparation_command_count": 6,
+    "required_replay_count": 3,
+    "required_preparation_stdout_stderr_count": 12,
+    "required_replay_stdout_stderr_count": 6
+  },
+  "classification_priority": [
+    "STOP_HARNESS",
+    "STOP_STATE_MUTATION",
+    "STOP_UNDECLARED_OUTPUT",
+    "STOP_BASELINE_REPRODUCIBILITY",
+    "STOP_EXPORTER_ATTRIBUTION",
+    "STOP_RAW_DIAGNOSTIC",
+    "RESTRICTED_GO_SAME_STATE_NONINTERFERENCE"
+  ],
+  "authorization": {
+    "source_clone_and_verify": true,
+    "observational_patch_application": true,
+    "exactly_one_pinned_build": true,
+    "exactly_one_preparation_sequence": true,
+    "exactly_three_final_replays": true,
+    "repository_analysis": true,
+    "automatic_retry": false,
+    "fourth_replay": false,
+    "alternate_build": false,
+    "parameter_sweep": false,
+    "output_removal_or_manifest_relaxation": false,
+    "threshold_fitting": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_phase_transition": false
+  },
+  "claim_boundary": "A restricted go would establish only that the exporter is observationally indistinguishable from disabled same-state replay variability for this pinned non-SOC upstream diamond fixture and protocol. It would not alter the historical issue-313 stop, validate SOC, validate a material backend, or authorize material calculations."
+}
