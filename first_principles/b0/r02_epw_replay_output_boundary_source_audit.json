@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_replay_output_boundary_source_audit",
+  "program": "R02",
+  "issue": 355,
+  "classification": "REPLAY_BOUNDARY_SUPPORTED",
+  "runtime_validation_performed": false,
+  "source": {
+    "repository": "QEF/q-e",
+    "release": "QE 7.6 / EPW 6.1",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "git_blobs": {
+      "EPW/src/input.f90": "caf48c74542f522aeff9ed8431e27512999c3ced",
+      "EPW/src/readin.f90": "1f4a3bca3aa511d9782e3d50ce4c66d47f9f5589",
+      "EPW/src/ep_coarse_unfolding.f90": "b9dcb97df833c42d1e3d793c5d66046a42c7ff77",
+      "EPW/src/epw.f90": "fca6e313d45ef636a81ca45b3585d2abe3124da5",
+      "EPW/src/stop.f90": "33e504b8c473ac5ca9ad26a59e56b8e5eda0c29a",
+      "EPW/src/printing.f90": "5437074def616e315e85f3cdfd988fbabcbb1aeb",
+      "EPW/src/io/io_var.f90": "39e6f840dea02719607f370ab743233575b01346",
+      "test-suite/epw_base/epw2.in": "a30b69515a204f74d1565f43806efa72f064e67a"
+    }
+  },
+  "input_semantics": {
+    "epbread": {
+      "default": false,
+      "definition": "read coarse Bloch-representation epmatq data from prefix.epb pool files"
+    },
+    "epbwrite": {
+      "default": false,
+      "definition": "write coarse Bloch-representation epmatq data to prefix.epb pool files"
+    },
+    "epwread": {
+      "default": false,
+      "definition": "read Wannier-representation state from epw restart files"
+    },
+    "epwwrite": {
+      "default": true,
+      "definition": "write Wannier-representation state to epw restart files"
+    }
+  },
+  "control_flow": [
+    {
+      "condition": "epwread AND NOT epbread",
+      "effect": "skip coarse epmatq reconstruction and use formatted/Wannier restart state"
+    },
+    {
+      "condition": "epbread OR epbwrite",
+      "effect": "enter independent prefix.epb pool-file serialization block"
+    },
+    {
+      "condition": "epbread",
+      "effect": "read nqc, xqc, et_loc, dynq, epmatq, zstar and epsi from prefix.epb files"
+    },
+    {
+      "condition": "epbwrite",
+      "effect": "write nqc, xqc, et_loc, dynq, epmatq, zstar and epsi to prefix.epb files"
+    },
+    {
+      "condition": "NOT epbread AND epwread",
+      "effect": "report that epb files are not needed because fmt files are read"
+    }
+  ],
+  "diam_epb1_ownership": {
+    "file_role": "optional coarse Bloch-representation serialization output",
+    "consumed_when_epwread_true_epbread_false": false,
+    "written_when_epbwrite_true": true,
+    "required_by_electron_self_energy_replay": false,
+    "may_be_removed_before_replay_seed": true,
+    "must_not_be_created_by_nonmutating_replay": true,
+    "issue_350_mutation_explanation": "the replay input retained epbwrite=true, so the independent serialization block truncated and rewrote diam.epb1"
+  },
+  "epbwrite_false_assessment": {
+    "changes_physical_parameters": false,
+    "changes_self_energy_parameters": false,
+    "changes_restart_read_path": false,
+    "changes_in_memory_interpolation_or_self_energy_contraction": false,
+    "suppresses_only_optional_epb_serialization": true,
+    "upstream_restart_precedent": "test-suite/epw_base/epw2.in uses epwread=true and omits epbwrite, leaving its false default"
+  },
+  "completion_evidence": {
+    "graceful_program_path": "EPW main calls stop_epw after all selected calculations",
+    "stop_epw_action": "calls print_clock_epw before process shutdown",
+    "source_grounded_total_marker": "Total program execution",
+    "self_energy_timer": "selfen_elec_",
+    "self_energy_timer_requirement": "positive call count",
+    "physical_result_unit": "linewidth_elself",
+    "physical_result_pattern": "linewidth.elself.*",
+    "result_requirement": "at least one nonempty file with at least one finite numeric data row",
+    "fatal_markers_required_absent": [
+      "SIGSEGV",
+      "Segmentation fault",
+      "Program received signal",
+      "Error in routine",
+      "%%%%%%"
+    ],
+    "rejected_post_hoc_markers": [
+      "JOB DONE.",
+      "Electron Self-Energy"
+    ]
+  },
+  "future_seed_boundary": {
+    "construction": "project complete successful preparation tree into immutable seed",
+    "retain": "all unknown regular files plus source-audited consumed restart files",
+    "remove_before_hashing_seed": [
+      "all declared result outputs",
+      "all transient runtime files",
+      "all prefix.epb pool files"
+    ],
+    "post_replay_rule": "every retained seed byte must match; outputs must be created from absence; epb files and unknown new paths are forbidden"
+  },
+  "proof_obligations_satisfied": {
+    "epb_input_output_ownership_resolved": true,
+    "epbwrite_false_output_only_from_source": true,
+    "consumed_and_mutable_sets_can_be_disjoint": true,
+    "completion_evidence_is_release_grounded": true,
+    "historical_issue_350_stop_preserved": true
+  },
+  "remaining_uncertainty": {
+    "runtime_nonmutation_with_epbwrite_false": "not tested",
+    "future_exporter_noninterference": "not tested",
+    "soc_or_material_applicability": "not tested"
+  },
+  "authorization": {
+    "source_and_design_work": true,
+    "runtime_validation": false,
+    "automatic_executable_successor": false
+  }
+}
