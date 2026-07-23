@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_same_state_attribution_terminal_result",
+  "program": "R02",
+  "issue": 332,
+  "closed_pr": 333,
+  "status": "stop",
+  "classification": "STOP_HARNESS",
+  "harness_failure_established": true,
+  "scientific_failure_established": false,
+  "historical_issue_313_result_changed": false,
+  "exporter_noninterference_established": false,
+  "exporter_causal_perturbation_established": false,
+  "backend_normalization_validated": false,
+  "workflow": {
+    "run_id": 30020494017,
+    "job_id": 89251617785,
+    "head_sha": "6b7cee7aa043789a273e1b12d2738522992385a6",
+    "artifact_id": 8569280948,
+    "artifact_digest": "sha256:1d80fb575a5d736dbd3211edb7dad4c694c151a7209dffed954489924e65dcd8",
+    "artifact_size_bytes": 241357
+  },
+  "source": {
+    "qe_release": "7.6",
+    "epw_release": "6.1",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "observational_patch_sha256": "b1cb083f4ff859a33d3f990dce3a0389b37372b251f037c4b479bc7e9832dee1",
+    "applied_patch_sha256": "a0c25cc7041847f59e0436a1c45b4dc2d2e49a0527c8f8ddb4414063fab558aa",
+    "executables_sha256": {
+      "pw.x": "572e97aca36d6841d31add2ad803b1ebaf234af9f006c847afdc146aa02a2d73",
+      "ph.x": "e1717cb27c1b9227947331dce0ea1b1d50db580a8bdd2a16fe15c2864eacd51a",
+      "epw.x": "9692de1f980314548a7df455d679340d45a028a4768cf14bd42b06fe7800855f"
+    }
+  },
+  "fixture": {
+    "upstream_category": "test-suite/epw_base",
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "soc_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "testcode_used": false,
+    "material_calculation_count": 0
+  },
+  "execution": {
+    "build_count": 1,
+    "preparation_command_count": 6,
+    "preparation_commands_with_zero_exit_code": 6,
+    "prepared_state_file_count": 168,
+    "replay_count_authorized": 3,
+    "replays_launched": 1,
+    "replays_completed": 0,
+    "disabled_a_launched": true,
+    "disabled_b_launched": false,
+    "enabled_launched": false,
+    "raw_exporter_invoked": false
+  },
+  "prepared_state": {
+    "complete_tree_manifest_created": true,
+    "required_paths_present": true,
+    "three_pre_replay_manifests_identical": true,
+    "manifest_payload_sha256": "6478b7db2839930e8edfdf9350b5f530255a7356305c1da9f89d77be22123289",
+    "prepared_manifest_file_sha256": "646df1e09b0bd986ca980fa5a7193721c8bdbeb05a727b3fc5dd16cfd4a7148c",
+    "pre_replay_gate_sha256": "dbf1e4bacbd11a63dc2677aed22e55cf8658a9cc7537c853dbba22d57e5b0eda",
+    "disabled_a_pre_manifest_sha256": "646df1e09b0bd986ca980fa5a7193721c8bdbeb05a727b3fc5dd16cfd4a7148c",
+    "disabled_b_pre_manifest_sha256": "646df1e09b0bd986ca980fa5a7193721c8bdbeb05a727b3fc5dd16cfd4a7148c",
+    "enabled_pre_manifest_sha256": "646df1e09b0bd986ca980fa5a7193721c8bdbeb05a727b3fc5dd16cfd4a7148c",
+    "post_replay_manifests_created": false,
+    "state_mutation_evaluated": false
+  },
+  "failure": {
+    "replay_id": "disabled_a",
+    "exporter_enabled": false,
+    "exit_code": 139,
+    "signal": "SIGSEGV",
+    "occurred_before_self_energy_evaluation": true,
+    "routine": "wigner_divide_ndegen_epmat",
+    "source_path": "EPW/src/wigner.f90",
+    "source_line": 1009,
+    "caller": "build_wannier",
+    "caller_source_path": "EPW/src/wannier.f90",
+    "caller_source_line": 452,
+    "disabled_a_stdout_sha256": "da3421f9bae60fc2cef344756e67d32818de4d17990fe812c237615560654a46",
+    "disabled_a_stderr_sha256": "24c2562bb9088f776b78fee404e1369ada4a3dbd7a937cd3001515181874b3bd",
+    "disabled_a_exit_code_file_sha256": "690e07064753123c967bbac0180f32da6a753a5bd8b79a47644cef58e776d9f0"
+  },
+  "source_supported_inference": {
+    "statement": "The pinned serial epwread path appears to read and later divide epmatwp without a visible serial-branch allocation, while the explicit allocation is inside the MPI branch.",
+    "support": [
+      "EPW/src/io/io.f90 allocates epmatwp under the MPI conditional before reading it.",
+      "The non-MPI branch reads epmatwp records without a visible allocation in that branch.",
+      "EPW/src/wannier.f90 then passes epmatwp to wigner_divide_ndegen_epmat.",
+      "The observed SIGSEGV occurs in that routine during the first exporter-disabled replay."
+    ],
+    "causal_diagnosis_proven": false,
+    "minimal_patch_validated": false
+  },
+  "evidence_sha256": {
+    "preparation_epw_stdout": "2b0f77fc44686bb40a5a6ec71786c777c9f9e94f36c38090fc5437d0a86ee993",
+    "status": "f3b7f0404d9778fb68d2439f3d316d5fd873a53a179088f79d840cc821298f76"
+  },
+  "gates": {
+    "source_and_build": "passed",
+    "preparation": "passed",
+    "pre_replay_state_identity": "passed",
+    "disabled_a_replay": "harness_failure",
+    "disabled_baseline_reproducibility": "not_evaluated",
+    "enabled_attribution": "not_evaluated",
+    "raw_vertex_diagnostics": "not_evaluated",
+    "post_replay_state_integrity": "not_evaluated"
+  },
+  "metrics": {
+    "baseline_energy_max_abs_ev": null,
+    "baseline_self_energy_max_abs_ev": null,
+    "baseline_dimensionless_max_abs": null,
+    "enabled_energy_envelope_max_violation_ev": null,
+    "enabled_self_energy_envelope_max_violation_ev": null,
+    "enabled_dimensionless_envelope_max_violation": null,
+    "raw_row_count": null,
+    "normalization_identity_max_abs_ry2": null,
+    "summed_real_diagonal_max_abs_ev": null
+  },
+  "decision": {
+    "serial_epwread_same_state_protocol": "terminated",
+    "exporter_attribution": "not_evaluated",
+    "raw_export_normalization": "not_evaluated",
+    "soc_spinor_fixture": "not_authorized",
+    "material_self_energy": "not_authorized",
+    "next_gate": "design_only_serial_epwread_source_diagnosis",
+    "next_gate_execution_authorized": false
+  },
+  "authorization": {
+    "additional_build": false,
+    "additional_preparation": false,
+    "additional_replay": false,
+    "automatic_retry": false,
+    "mpi_substitution": false,
+    "source_patch_execution": false,
+    "alternate_build": false,
+    "threshold_change": false,
+    "parameter_sweep": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "design_only_source_diagnosis": true
+  },
+  "claim_boundary": "The run establishes a reproducible harness stop in the pinned serial same-state epwread protocol after a successful build, preparation, and immutable-state freeze. It does not evaluate exporter noninterference, state mutation, raw normalization, SOC, or material physics."
+}
