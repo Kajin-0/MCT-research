@@ -1,7 +1,7 @@
 import math
 from pathlib import Path
 
-from tools.audit_moazzami2005_model_robustness import build
+from tools.run_moazzami2005_model_robustness import build
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -15,6 +15,7 @@ def test_model_robustness_audit_is_deterministic_and_separates_estimands() -> No
     assert result["schema_version"] == "1.0"
     assert "not experimental uncertainty" in result["claim_boundary"]
     assert result["methods"]["model_class"].startswith("fitted intercept models only")
+    assert result["methods"]["infeasible_scenario_policy"].startswith("exclude")
     assert len(result["specimens"]) == 2
     for specimen in result["specimens"]:
         candidates = specimen["nominal_candidates"]
@@ -22,6 +23,9 @@ def test_model_robustness_audit_is_deterministic_and_separates_estimands() -> No
         assert all("threshold" not in item["candidate_id"] for item in candidates)
         assert specimen["decision"]["fixed_absorption_thresholds_excluded_from_model_span"]
         assert specimen["decision"]["adequacy_metrics_are_descriptive_not_probabilistic"]
+        assert specimen["decision"][
+            "inadmissible_membership_scenarios_excluded_without_changing_bounds"
+        ]
         assert len(specimen["fit_domain_and_weighting_sensitivity"]) >= 12
         rules = {
             item["weighting_rule"]
@@ -39,6 +43,8 @@ def test_model_robustness_audit_is_deterministic_and_separates_estimands() -> No
         assert "inverse_variance_weighted_isotonic" in reconstructions
         assert "isotonic_lower_line_envelope" in reconstructions
         assert "isotonic_upper_line_envelope" in reconstructions
+        for exclusion in specimen["excluded_reconstruction_scenarios"]:
+            assert "reason" in exclusion
         for value in specimen["maximum_reconstruction_shift_mev_by_candidate"].values():
             assert math.isfinite(value) and value >= 0.0
         for value in specimen["maximum_fit_domain_or_weighting_shift_mev_by_candidate"].values():
