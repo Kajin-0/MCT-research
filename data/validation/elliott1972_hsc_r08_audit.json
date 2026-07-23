@@ -1,0 +1,177 @@
+{
+  "decision": {
+    "controlling_decision": "primary_source_recovered_source_native_gap_candidates_reconstructed_hansen_marker_mapping_unresolved",
+    "direct_hansen_validation_authorized": false,
+    "figure_curve_digitization_authorized": false,
+    "hansen_exact_ingestion_mapping_resolved": false,
+    "pointwise_pressure_covariance_authorized": false,
+    "primary_measurement_class_corrected": true,
+    "primary_source_recovered": true,
+    "table1_carrier_summary_reconstructed": true,
+    "table2_gap_candidates_reconstructed": true
+  },
+  "hansen_lineage": {
+    "candidate_source_native_points_reconstructed": true,
+    "corrected_primary_classification": "hydrostatic_pressure_magnetotransport",
+    "exact_hansen_per_marker_mapping": "unresolved_no_source_labels",
+    "hansen_original_classification": "magneto_optical_gap",
+    "independent_validation": false,
+    "reason": "Elliott is part of Hansen's fitted lineage. Table II exposes source-native model-derived gaps, but Hansen does not label individual HSC_R08 markers and the 77 K result has two heavy-hole-mass alternatives."
+  },
+  "measurement_contract": {
+    "composition_half_width_x": 0.005,
+    "composition_method": "electron_microprobe",
+    "gap_observable": "Kane k.p zero-pressure signed gap inferred from pressure-dependent electron concentration",
+    "pressure_medium": "helium gas; solid helium at 4.2 K with stated pressure-history systematic",
+    "pressure_range_kbar": [
+      0.0,
+      9.0
+    ],
+    "pressure_systematic": "At 4.2 K the authors assume the bomb pressure equals the externally maintained pressure; they discuss possible pressure loss during helium solidification and cooling but do not assign a pointwise uncertainty.",
+    "primary_class": "hydrostatic_pressure_magnetotransport",
+    "temperatures_k": [
+      1.3,
+      4.0,
+      4.2,
+      77.0
+    ]
+  },
+  "schema_version": "1.0",
+  "source_id": "ELLIOTT1972_HSC_R08",
+  "source_interpretation": {
+    "acceptor_model_status": "proposed_source_model_not_direct_observation",
+    "annealed_sample_acceptor_level_mev": 9.0,
+    "as_grown_impurity_band_energy_mev_approx": 20.0,
+    "fermi_level_pressure_independence": "At 4.2 K the source reports pressure-independent Fermi energies of 9, 16, and 20 meV above the valence-band edge for 7B, 7B1, and 8B.",
+    "magnetic_freeze_out_assignment": "lowest-energy spin-split zero-order Landau level passing through the Fermi energy"
+  },
+  "source_pdf_sha256": "509bbcfd3c4b72312ab49ee2460e56561a9324e4e96af56dd29e8612b0b2b328",
+  "source_reported_parameters": {
+    "deformation_potential_ev": 3.3,
+    "fit_covariance_reported": false,
+    "gap_pressure_coefficient_ev_per_bar": 7e-06,
+    "gap_pressure_coefficient_ev_per_kbar": 0.007,
+    "heavy_hole_mass_sensitivity_range_m0": [
+      0.3,
+      0.7
+    ],
+    "kane_matrix_ev_cm": 8.4e-08,
+    "kane_matrix_role": "fixed_inherited_parameter_not_fitted_in_source"
+  },
+  "source_scope": {
+    "article_pages": "2985-2997",
+    "copyrighted_source_committed": false,
+    "figure_digitization_performed": false,
+    "hansen_pairing_candidates": 2,
+    "named_sample_identities": 3,
+    "pdf_pages": 13,
+    "physical_specimen_count_lower_bound": 4,
+    "table1_carrier_rows": 11,
+    "table2_gap_rows": 5
+  },
+  "specimens": [
+    {
+      "anneal_state": "annealed",
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.149,
+      "sample_id": "7B",
+      "transition_interval_4p2k_kbar": [
+        3.0,
+        4.0
+      ]
+    },
+    {
+      "anneal_state": "unannealed",
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.149,
+      "sample_id": "7B1",
+      "transition_interval_4p2k_kbar": [
+        3.0,
+        4.0
+      ]
+    },
+    {
+      "anneal_state": "unannealed",
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.138,
+      "sample_id": "8B",
+      "transition_interval_4p2k_kbar": [
+        7.0,
+        8.0
+      ]
+    }
+  ],
+  "table2_model_outputs": [
+    {
+      "composition_x": 0.149,
+      "fermi_energy_from_valence_mev": 9.0,
+      "hansen_gap_ev": -0.028083202432,
+      "hansen_minus_source_ev": -0.012083202432,
+      "hole_mass_ratio_assumption": null,
+      "observation_id": "ELL72_T2_7B_4P2",
+      "sample_id": "7B",
+      "source_zero_pressure_gap_ev": -0.016,
+      "temperature_k": 4.2
+    },
+    {
+      "composition_x": 0.149,
+      "fermi_energy_from_valence_mev": 16.0,
+      "hansen_gap_ev": -0.028083202432,
+      "hansen_minus_source_ev": -0.018083202432,
+      "hole_mass_ratio_assumption": null,
+      "observation_id": "ELL72_T2_7B1_4P2",
+      "sample_id": "7B1",
+      "source_zero_pressure_gap_ev": -0.01,
+      "temperature_k": 4.2
+    },
+    {
+      "composition_x": 0.138,
+      "fermi_energy_from_valence_mev": 20.0,
+      "hansen_gap_ev": -0.047272256096,
+      "hansen_minus_source_ev": -0.014272256096,
+      "hole_mass_ratio_assumption": null,
+      "observation_id": "ELL72_T2_8B_4P2",
+      "sample_id": "8B",
+      "source_zero_pressure_gap_ev": -0.033,
+      "temperature_k": 4.2
+    },
+    {
+      "composition_x": 0.149,
+      "fermi_energy_from_valence_mev": 23.0,
+      "hansen_gap_ev": -0.000741706432,
+      "hansen_minus_source_ev": 0.007258293568,
+      "hole_mass_ratio_assumption": 0.3,
+      "observation_id": "ELL72_T2_7B_77_MH03",
+      "sample_id": "7B",
+      "source_zero_pressure_gap_ev": -0.008,
+      "temperature_k": 77.0
+    },
+    {
+      "composition_x": 0.149,
+      "fermi_energy_from_valence_mev": 31.0,
+      "hansen_gap_ev": -0.000741706432,
+      "hansen_minus_source_ev": -0.002741706432,
+      "hole_mass_ratio_assumption": 0.7,
+      "observation_id": "ELL72_T2_7B_77_MH07",
+      "sample_id": "7B",
+      "source_zero_pressure_gap_ev": 0.002,
+      "temperature_k": 77.0
+    }
+  ],
+  "temperature_pairing_candidates": [
+    {
+      "candidate_id": "ELL72_PAIR_7B_MH03",
+      "candidate_status": "plausible_not_proven",
+      "composition_x": 0.149,
+      "normalized_80k_ev": -0.00767032967,
+      "slope_ev_per_k": 0.00010989011
+    },
+    {
+      "candidate_id": "ELL72_PAIR_7B_MH07",
+      "candidate_status": "plausible_not_proven",
+      "composition_x": 0.149,
+      "normalized_80k_ev": 0.002741758242,
+      "slope_ev_per_k": 0.000247252747
+    }
+  ]
+}
