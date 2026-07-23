@@ -1,0 +1,90 @@
+name: scott-temperature-coefficient-test
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/scott-temperature-coefficient-test.yml'
+      - 'data/experimental/scott1969_figure2_digitized.csv'
+      - 'data/validation/scott1969_temperature_coefficient_test.json'
+      - 'docs/derivations/021_scott_fixed_alpha_temperature_coefficients.md'
+      - 'research/decision_records/2026-07-23-scott-temperature-coefficient-test.md'
+      - 'research/programs/empirical_bandgap/state.md'
+      - 'src/mct_research/scott_temperature_coefficients.py'
+      - 'tests/test_scott_temperature_coefficients.py'
+      - 'tests/test_scott_temperature_coefficient_reference.py'
+      - 'tools/build_scott_temperature_coefficient_reference.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Run focused analysis tests
+        run: |
+          python -m pytest -vv tests/test_scott_temperature_coefficients.py \
+            2>&1 | tee /tmp/scott-temperature-coefficient-tests.log
+      - name: Build deterministic candidate reference twice
+        run: |
+          python tools/build_scott_temperature_coefficient_reference.py \
+            --output /tmp/scott-temperature-coefficient-a.json
+          python tools/build_scott_temperature_coefficient_reference.py \
+            --output /tmp/scott-temperature-coefficient-b.json
+          cmp /tmp/scott-temperature-coefficient-a.json \
+              /tmp/scott-temperature-coefficient-b.json
+      - name: Assert candidate decision and claim boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('/tmp/scott-temperature-coefficient-a.json').read_text()
+          )
+          assert result['program'] == 'R01'
+          assert result['issue'] == 312
+          assert result['source']['row_count'] == 70
+          assert result['source']['specimen_count'] == 9
+          assert result['decision']['decision'] == (
+              'non_identifiable_at_figure_precision'
+          )
+          boundary = result['observation_boundary']
+          assert boundary['signed_gap_eligible'] is False
+          assert (
+              boundary['intrinsic_gap_eligible_without_observation_operator']
+              is False
+          )
+          assert boundary['coordinate_half_widths_are_gaussian_sigma'] is False
+          assert result['decision']['gates'][
+              'S1_core_box_feasible'
+          ] is False
+          assert result['decision']['gates'][
+              'SH_core_box_feasible'
+          ] is False
+          PY
+      - name: Validate committed reference when present
+        run: |
+          if [ -f data/validation/scott1969_temperature_coefficient_test.json ]; then
+            cmp /tmp/scott-temperature-coefficient-a.json \
+                data/validation/scott1969_temperature_coefficient_test.json
+            python -m pytest -vv \
+              tests/test_scott_temperature_coefficient_reference.py
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scott-temperature-coefficient-candidate
+          path: |
+            /tmp/scott-temperature-coefficient-tests.log
+            /tmp/scott-temperature-coefficient-a.json
+          if-no-files-found: error
+          retention-days: 30
