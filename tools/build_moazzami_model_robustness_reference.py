@@ -136,7 +136,7 @@ def write_csv(path: Path, result: dict[str, Any]) -> None:
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for specimen in result["specimens"]:
             row = {key: specimen[key] for key in fields}
