@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_raw_vertex_fixture_attempt",
+  "program": "R02",
+  "issue": 300,
+  "workflow_run_id": 29962340413,
+  "workflow_job_id": 89066052310,
+  "artifact_id": 8546683709,
+  "artifact_digest": "sha256:9073466e47eff31d301d7d9b54675edffc420e7f160cecd3c8a523c057166971",
+  "head_sha": "f9afa6518dd388a21cb8f5adb0375c3af0cec315",
+  "status": "failed",
+  "classification": "HARNESS_STOP",
+  "last_stage": "fixture_disabled",
+  "exit_code": 1,
+  "execution": {
+    "build_count": 1,
+    "scientific_execution_count": 1,
+    "disabled_fixture_sequence_executed": true,
+    "enabled_fixture_sequence_executed": false,
+    "analyzer_executed": false,
+    "material_calculation_executed": false
+  },
+  "disabled_fixture": {
+    "upstream_program_count": 5,
+    "upstream_programs_passed": 5,
+    "steps": [
+      "scf.in arg 1",
+      "ph.in arg 2",
+      "scf_epw.in arg 1",
+      "nscf_epw.in arg 1",
+      "epw1.in arg 3"
+    ],
+    "test_suite_summary": "5 out of 5 tests passed",
+    "stdout_preserved": false
+  },
+  "failure": {
+    "category": "evidence_collection",
+    "message": "could not locate EPW electron self-energy stdout",
+    "root_cause": "The harness searched generated files heuristically for content signatures instead of selecting the deterministic QE test-suite filename test.out.*.inp=epw1.in.args=3.",
+    "scientific_failure": false,
+    "source_failure": false,
+    "patch_failure": false,
+    "build_failure": false,
+    "fixture_program_failure": false
+  },
+  "replacement_authorization": {
+    "authorized": true,
+    "maximum_replacement_builds": 1,
+    "required_fixture_sequences": [
+      "exporter_disabled",
+      "exporter_enabled"
+    ],
+    "reason": "The first disabled stdout was not preserved, so enabled/disabled same-state comparison cannot be completed from the consumed attempt.",
+    "source_commit_unchanged": true,
+    "source_tree_unchanged": true,
+    "observational_patch_unchanged": true,
+    "pseudopotential_unchanged": true,
+    "fixture_inputs_unchanged": true,
+    "thresholds_unchanged": true,
+    "automatic_retry": false,
+    "parameter_sweep": false
+  },
+  "claim_boundary": "This record establishes only that the pinned build and disabled-export upstream diamond sequence completed before a deterministic evidence-capture failure. It does not validate enabled/disabled equivalence, raw complex-vertex export, normalization, SOC, or material physics."
+}
