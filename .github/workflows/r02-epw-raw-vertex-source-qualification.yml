@@ -5,8 +5,8 @@ on:
     paths:
       - '.github/workflows/r02-epw-raw-vertex-source-qualification.yml'
       - 'first_principles/b0/r02_epw_raw_vertex_fixture_contract.json'
-      - 'research/capability_audits/qe76_epw61_raw_vertex_fixture_selection.md'
-      - 'tools/qualify_epw_raw_vertex_sources.sh'
+      - 'first_principles/b0/r02_epw_raw_vertex_source_qualification_result.json'
+      - 'first_principles/b0/r02_epw_raw_vertex_fixture_terminal_harness_stop_29971955581.json'
       - 'tests/test_r02_epw_raw_vertex_source_gate.py'
   workflow_dispatch:
 
@@ -18,9 +18,9 @@ permissions:
   contents: read
 
 jobs:
-  qualify-upstream-bytes:
+  frozen-source-record:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -30,22 +30,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e ".[test]"
 
-      - name: Validate fail-closed source gate
+      - name: Validate immutable source and terminal records
+        run: python -m pytest -vv tests/test_r02_epw_raw_vertex_source_gate.py
+
+      - name: Confirm source workflow cannot clone or execute QE
         run: |
-          mkdir -p r02-epw-raw-vertex-source-evidence/validated
-          set -o pipefail
-          python -m pytest -vv tests/test_r02_epw_raw_vertex_source_gate.py 2>&1 \
-            | tee r02-epw-raw-vertex-source-evidence/validated/focused-pytest.txt
-
-      - name: Clone exact source and calculate immutable hashes
-        run: bash tools/qualify_epw_raw_vertex_sources.sh
-
-      - name: Upload source qualification evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: r02-epw-raw-vertex-source-evidence
-          path: r02-epw-raw-vertex-source-evidence
-          if-no-files-found: error
-          retention-days: 30
-          compression-level: 6
+          ! grep -E 'git clone|git init|git fetch|qualify_epw_raw_vertex_sources|pw\.x|ph\.x|epw\.x|make -j' \
+            .github/workflows/r02-epw-raw-vertex-source-qualification.yml
