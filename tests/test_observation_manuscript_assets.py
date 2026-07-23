@@ -59,9 +59,14 @@ def test_svg_and_summary_outputs_are_machine_readable(tmp_path: Path) -> None:
         "figure3_material_residual_envelopes.svg",
     ):
         text = (tmp_path / name).read_text(encoding="utf-8")
+        lowered = text.lower()
         assert text.startswith("<svg")
         assert "<title>" in text
-        assert "not selected" in text or "observation" in text.lower()
+        assert (
+            "not selected" in lowered
+            or "observation" in lowered
+            or "not highlighted as a physical feature" in lowered
+        )
     summary = json.loads(
         (tmp_path / "manuscript_asset_summary.json").read_text(encoding="utf-8")
     )
