@@ -7,6 +7,7 @@ on:
       - 'data/validation/r04_cdsete_phase2_protocol.json'
       - 'data/validation/r04_cdsete_real_data_result.json'
       - 'literature/notes/cdsete2024_real_data_result.md'
+      - 'research/decision_records/2026-07-23-r04-cdsete-real-data-demonstration.md'
       - 'src/mct_research/spatial_disorder_real_data.py'
       - 'tools/r04_cdsete_phase2_result.py'
       - 'tests/test_r04_cdsete_real_data.py'
