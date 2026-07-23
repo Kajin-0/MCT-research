@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """Audit localized reconstruction influence in the Moazzami 2005 spectra.
 
-The audit does not smooth, replace, or reinterpret any measured coordinate.  It
-quantifies how fitted edge candidates change when every possible contiguous
-one-, three-, and five-sample window is removed from the declared fit
-population.  A second, joint audit combines the pre-existing coherent
-coordinate perturbations with windows that contain raw source-pixel
-monotonicity reversals.  Boundary-limited fits remain reported but are excluded
-from stability certification because censoring at a search bound can mimic
+The audit does not smooth, replace, or reinterpret any measured coordinate. It
+removes every possible contiguous one-, three-, and five-sample window from the
+declared fit population. A second audit combines the pre-existing coherent
+coordinate perturbations with windows containing raw source-pixel monotonicity
+reversals. Boundary-limited fits remain reported but are excluded from
+stability certification because censoring at a search bound can mimic
 robustness.
+
+The repeated grid evaluation is vectorized algebraically. Each specimen's
+nominal vectorized result is required to reproduce the controlling scalar
+implementation exactly on the 4001-point search grid before any sensitivity
+result is accepted.
 """
 from __future__ import annotations
 
@@ -22,6 +26,7 @@ from typing import Any, Iterable
 import numpy as np
 
 from mct_research.absorption_edge_uncertainty import (
+    chu_1994_beta_ev_inverse,
     fit_chu_1994_kane_edge,
     fit_fractional_power_edge,
 )
@@ -32,6 +37,8 @@ from tools.analyze_moazzami2005_real_spectra import build_contract
 WINDOW_SIZES = (1, 3, 5)
 STABILITY_GATE_MEV = 1.0
 BOUNDARY_TOLERANCE_EV = 1.0e-9
+GRID_POINTS = 4001
+SCALAR_REPRODUCTION_TOLERANCE_EV = 1.0e-12
 
 
 def _load_points(path: str | Path) -> dict[str, np.ndarray]:
@@ -48,6 +55,93 @@ def _load_points(path: str | Path) -> dict[str, np.ndarray]:
             [float(row["source_pixel_y_center"]) for row in rows]
         ),
     }
+
+
+def _fractional_edge_vectorized(
+    energy: np.ndarray,
+    absorption: np.ndarray,
+    *,
+    bounds: tuple[float, float],
+    exponent: float | None,
+) -> float:
+    edge_grid = np.linspace(bounds[0], bounds[1], GRID_POINTS)
+    predictor = np.log(energy[None, :] - edge_grid[:, None])
+    target = np.log(absorption * energy)
+    if exponent is None:
+        x_mean = np.mean(predictor, axis=1)
+        y_mean = float(np.mean(target))
+        centered_x = predictor - x_mean[:, None]
+        centered_y = target - y_mean
+        denominator = np.sum(centered_x * centered_x, axis=1)
+        slope = np.sum(centered_x * centered_y[None, :], axis=1) / denominator
+        intercept = y_mean - slope * x_mean
+        predicted = intercept[:, None] + slope[:, None] * predictor
+        mse = np.mean((target[None, :] - predicted) ** 2, axis=1)
+        mse[(slope < 0.2) | (slope > 1.5)] = np.inf
+    else:
+        fixed = float(exponent)
+        log_amplitude = np.mean(target[None, :] - fixed * predictor, axis=1)
+        predicted = log_amplitude[:, None] + fixed * predictor
+        mse = np.mean((target[None, :] - predicted) ** 2, axis=1)
+    if not np.any(np.isfinite(mse)):
+        raise RuntimeError("no valid vectorized fractional-power edge candidate")
+    return float(edge_grid[int(np.argmin(mse))])
+
+
+def _chu_edge_vectorized(
+    energy: np.ndarray,
+    absorption: np.ndarray,
+    *,
+    bounds: tuple[float, float],
+    composition_x: float,
+    temperature_k: float,
+) -> float:
+    edge_grid = np.linspace(bounds[0], bounds[1], GRID_POINTS)
+    beta = chu_1994_beta_ev_inverse(composition_x, temperature_k)
+    predictor = np.sqrt(beta * (energy[None, :] - edge_grid[:, None]))
+    target = np.log(absorption)
+    log_alpha_g = np.mean(target[None, :] - predictor, axis=1)
+    predicted = log_alpha_g[:, None] + predictor
+    mse = np.mean((target[None, :] - predicted) ** 2, axis=1)
+    return float(edge_grid[int(np.argmin(mse))])
+
+
+def _fit_model_edges_scalar(
+    points: dict[str, np.ndarray],
+    contract: dict[str, Any],
+    keep_mask: np.ndarray,
+) -> dict[str, float]:
+    assumptions = contract["analysis_assumptions"]
+    bounds = tuple(float(value) for value in assumptions["edge_search_bounds_ev"])
+    energy = points["energy"][keep_mask]
+    absorption = points["absorption"][keep_mask]
+    edges: dict[str, float] = {}
+    for exponent in assumptions["fractional_power_exponents"]:
+        fixed = None if exponent == "free" else float(exponent)
+        identifier = (
+            "fractional_power_free"
+            if fixed is None
+            else f"fractional_power_p_{fixed:g}"
+        )
+        edges[identifier] = float(
+            fit_fractional_power_edge(
+                energy,
+                absorption,
+                edge_bounds_ev=bounds,
+                exponent=fixed,
+            )["edge_ev"]
+        )
+    if assumptions.get("include_chu_1994_kane_region", False):
+        edges["chu_1994_kane_region"] = float(
+            fit_chu_1994_kane_edge(
+                energy,
+                absorption,
+                edge_bounds_ev=bounds,
+                composition_x=float(contract["metadata"]["composition_x"]),
+                temperature_k=float(contract["metadata"]["temperature_k"]),
+            )["edge_ev"]
+        )
+    return edges
 
 
 def _fit_model_edges(
@@ -80,23 +174,19 @@ def _fit_model_edges(
             if fixed is None
             else f"fractional_power_p_{fixed:g}"
         )
-        edges[identifier] = float(
-            fit_fractional_power_edge(
-                fit_energy,
-                fit_absorption,
-                edge_bounds_ev=bounds,
-                exponent=fixed,
-            )["edge_ev"]
+        edges[identifier] = _fractional_edge_vectorized(
+            fit_energy,
+            fit_absorption,
+            bounds=bounds,
+            exponent=fixed,
         )
     if assumptions.get("include_chu_1994_kane_region", False):
-        edges["chu_1994_kane_region"] = float(
-            fit_chu_1994_kane_edge(
-                fit_energy,
-                fit_absorption,
-                edge_bounds_ev=bounds,
-                composition_x=float(contract["metadata"]["composition_x"]),
-                temperature_k=float(contract["metadata"]["temperature_k"]),
-            )["edge_ev"]
+        edges["chu_1994_kane_region"] = _chu_edge_vectorized(
+            fit_energy,
+            fit_absorption,
+            bounds=bounds,
+            composition_x=float(contract["metadata"]["composition_x"]),
+            temperature_k=float(contract["metadata"]["temperature_k"]),
         )
     return edges
 
@@ -171,7 +261,17 @@ def audit_specimen(csv_path: str | Path, calibration_path: str | Path) -> dict[s
     )
     base_mask = (points["absorption"] >= low) & (points["absorption"] <= high)
     fit_indices = np.flatnonzero(base_mask)
+    scalar_base_edges = _fit_model_edges_scalar(points, contract, base_mask)
     base_edges = _fit_model_edges(points, contract, base_mask)
+    scalar_reproduction_error = max(
+        abs(base_edges[key] - scalar_base_edges[key]) for key in base_edges
+    )
+    if scalar_reproduction_error > SCALAR_REPRODUCTION_TOLERANCE_EV:
+        raise RuntimeError(
+            "vectorized audit does not reproduce controlling scalar edge grid: "
+            f"{scalar_reproduction_error:.3e} eV"
+        )
+
     upper_bound = float(contract["analysis_assumptions"]["edge_search_bounds_ev"][1])
     boundary_ids = sorted(
         key
@@ -212,7 +312,10 @@ def audit_specimen(csv_path: str | Path, calibration_path: str | Path) -> dict[s
     candidate_ids = sorted(base_edges)
     identified_spans = [
         1000.0
-        * (max(base_edges[key] for key in identified_ids) - min(base_edges[key] for key in identified_ids))
+        * (
+            max(base_edges[key] for key in identified_ids)
+            - min(base_edges[key] for key in identified_ids)
+        )
     ]
     full_spans = [1000.0 * (max(base_edges.values()) - min(base_edges.values()))]
     all_identified_winners = {
@@ -312,6 +415,8 @@ def audit_specimen(csv_path: str | Path, calibration_path: str | Path) -> dict[s
         "fit_absorption_window_cm1": [low, high],
         "window_sizes_samples": list(WINDOW_SIZES),
         "base_edge_ev": base_edges,
+        "scalar_base_edge_ev": scalar_base_edges,
+        "maximum_vectorized_scalar_reproduction_error_ev": scalar_reproduction_error,
         "boundary_limited_candidate_ids": boundary_ids,
         "identified_candidate_ids": identified_ids,
         "raw_source_pixel_monotonicity_reversals": violations,
@@ -331,6 +436,7 @@ def audit_specimen(csv_path: str | Path, calibration_path: str | Path) -> dict[s
             key: sorted(values) for key, values in all_identified_winners.items()
         },
         "decision": {
+            "vectorized_grid_reproduces_controlling_scalar_grid": True,
             "points_smoothed_or_replaced": False,
             "interpolation_used": False,
             "physical_origin_of_local_feature_identified": False,
@@ -382,6 +488,10 @@ def analyze(root: str | Path) -> dict[str, Any]:
                 "combine four coherent digitization-coordinate corners with all "
                 "windows containing raw source-pixel monotonicity reversals"
             ),
+            "repeated_grid_evaluation": (
+                "algebraically vectorized and required to reproduce the controlling "
+                "scalar 4001-point grid at the nominal spectrum"
+            ),
             "point_replacement": "forbidden",
             "smoothing": "forbidden",
             "probability_semantics": "none; deterministic sensitivity envelope",
@@ -389,6 +499,10 @@ def analyze(root: str | Path) -> dict[str, Any]:
         "specimens": specimens,
         "decision": {
             "specimen_count": len(specimens),
+            "all_vectorized_grids_reproduce_controlling_scalar_grids": all(
+                item["decision"]["vectorized_grid_reproduces_controlling_scalar_grid"]
+                for item in specimens
+            ),
             "all_nominal_local_deletion_gates_passed": all(
                 item["decision"]["nominal_local_deletion_gate_passed"]
                 for item in specimens
