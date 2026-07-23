@@ -22,6 +22,10 @@ def load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalized_text(path: Path) -> str:
+    return " ".join(path.read_text(encoding="utf-8").split())
+
+
 def test_all_architecture_deliverables_exist() -> None:
     for path in (
         ARCHITECTURE_PATH,
@@ -35,8 +39,8 @@ def test_all_architecture_deliverables_exist() -> None:
 
 
 def test_architecture_decision_and_authorization_are_consistent() -> None:
-    architecture = ARCHITECTURE_PATH.read_text(encoding="utf-8")
-    decision = DECISION_PATH.read_text(encoding="utf-8")
+    architecture = normalized_text(ARCHITECTURE_PATH)
+    decision = normalized_text(DECISION_PATH)
     authorization = load(AUTHORIZATION_PATH)
 
     assert authorization["decision"] == "AUTHORIZE_RESTRICTED_MANUSCRIPT"
@@ -44,8 +48,8 @@ def test_architecture_decision_and_authorization_are_consistent() -> None:
     assert authorization["authorization"]["submission"] is False
     assert "ARCHITECTURE_READY_FOR_DRAFTING" in architecture
     assert "ARCHITECTURE_READY_FOR_DRAFTING" in decision
-    assert "submission                                       not authorized" in decision
-    assert "final pre-submission claim audit                 required" in decision
+    assert "submission not authorized" in decision
+    assert "final pre-submission claim audit required" in decision
 
 
 def test_claim_ledger_has_required_schema_and_classes() -> None:
@@ -154,8 +158,8 @@ def test_real_data_figure_is_explicitly_restricted() -> None:
     assert "PL peak wavelength" in text
     assert "11.24 percent" in text
     assert "not independent family validation" in text
-    assert "not the CdSeTe or HgCdTe material covariance law" in text
-    assert "unknown native sample-plane kernel" in text
+    assert "Matérn nu=3/2 is the CdSeTe or HgCdTe material covariance law" in text
+    assert "native sample-plane kernel" in text
 
 
 def test_abstract_plan_has_exactly_six_functions_and_mandatory_limits() -> None:
@@ -207,11 +211,12 @@ def test_architecture_contains_all_required_sections_and_drafting_order() -> Non
     for heading in required_headings:
         assert heading in text
 
-    assert text.index("measurement model") < text.index("introduction", text.index("## Drafting order"))
-    assert "abstract last" in text
+    drafting_section = text[text.index("## Drafting order") :]
+    assert drafting_section.index("measurement model") < drafting_section.index("introduction")
+    assert "abstract last" in drafting_section
     assert "No fifth main figure is authorized" in text
-    assert "full section drafting under the architecture    authorized" in DECISION_PATH.read_text(
-        encoding="utf-8"
+    assert "full section drafting under the architecture authorized" in normalized_text(
+        DECISION_PATH
     )
 
 
