@@ -166,14 +166,14 @@ def test_driver_prohibits_exporter_mpi_retry_and_parameter_sweeps() -> None:
     assert "for cutoff" not in text.lower()
     assert "for kgrid" not in text.lower()
     assert "for qgrid" not in text.lower()
-    assert 'auth["automatic_retry"]' in text
-    assert 'auth["mpi_execution"]' in text
+    assert '"automatic_retry"' in text
+    assert '"mpi_execution"' in text
 
 
 def test_terminal_evidence_is_written_for_pass_and_stop() -> None:
     text = DRIVER.read_text(encoding="utf-8")
     assert "trap finish EXIT" in text
-    assert "runtime/status.json" in text
+    assert 'evidence / "runtime" / "status.json"' in text
     assert "validated/result.json" in text
     assert "evidence_sha256.txt" in text
     assert "SERIAL_EPWREAD_HARNESS_PASS" in text
