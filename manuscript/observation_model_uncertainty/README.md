@@ -4,10 +4,11 @@ This directory contains reproducible assets for the strict manuscript revision:
 
 > **Extraction-model and fit-domain dependence of reported HgCdTe optical band edges: a two-spectrum case study**
 
-The earlier `manuscript_draft.md` is an archived working draft. It overemphasizes a broad uncertainty interpretation, fixed-alpha/equation-ranking results, and a proposed acquisition design. It is not the controlling scientific framing.
+The controlling scientific summary is `strict_revision_summary.md`. The earlier `manuscript_draft.md` is an archived working draft. It overemphasizes a broad uncertainty interpretation, fixed-alpha/equation-ranking results, and a proposed acquisition design. It is not the controlling scientific framing.
 
-The controlling revision must incorporate:
+The strict revision incorporates:
 
+- `strict_revision_summary.md`;
 - `local_feature_robustness_addendum.md`;
 - `data/validation/moazzami2005_model_robustness_reference.json`;
 - `data/validation/moazzami2005_model_robustness_summary.csv`;
