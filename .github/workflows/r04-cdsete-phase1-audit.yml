@@ -1,0 +1,62 @@
+name: r04-cdsete-phase1-audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r04-cdsete-phase1-audit.yml'
+      - 'tools/r04_cdsete_phase1_audit.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install structural readers
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy h5py pillow openpyxl tifffile
+
+      - name: Compile audit tool
+        run: python -m py_compile tools/r04_cdsete_phase1_audit.py
+
+      - name: Acquire and audit public archive
+        run: |
+          set -o pipefail
+          python tools/r04_cdsete_phase1_audit.py \
+            --workdir r04-cdsete-phase1 \
+            2>&1 | tee r04-cdsete-phase1/audit-run.log
+
+      - name: Verify fail-closed structural result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('r04-cdsete-phase1/audit/inventory.json')
+          result = json.loads(path.read_text(encoding='utf-8'))
+          assert result['dataset']['record_doi'] == '10.5281/zenodo.13869384'
+          assert result['dataset']['article_doi'] == '10.1038/s41467-024-52889-z'
+          assert result['dataset']['md5_matches_record'] is True
+          assert result['automatic_decision']['archive_integrity'] == 'pass'
+          assert result['automatic_decision']['phase_2_authorized'] is False
+          assert Path('r04-cdsete-phase1/Datasets.zip').stat().st_size > 0
+          assert Path('r04-cdsete-phase1/extracted').is_dir()
+          PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r04-cdsete-phase1-audit
+          path: r04-cdsete-phase1
+          if-no-files-found: error
+          retention-days: 30
