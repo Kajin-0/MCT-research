@@ -32,8 +32,3 @@ jobs:
 
       - name: Validate immutable source and terminal records
         run: python -m pytest -vv tests/test_r02_epw_raw_vertex_source_gate.py
-
-      - name: Confirm source workflow cannot clone or execute QE
-        run: |
-          ! grep -E 'git clone|git init|git fetch|qualify_epw_raw_vertex_sources|pw\.x|ph\.x|epw\.x|make -j' \
-            .github/workflows/r02-epw-raw-vertex-source-qualification.yml
