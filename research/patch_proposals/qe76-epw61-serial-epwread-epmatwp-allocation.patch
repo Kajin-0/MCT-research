@@ -1,0 +1,41 @@
+From: R02 source-diagnosis design
+Subject: [DESIGN ONLY] Allocate epmatwp for serial and MPI epwread paths
+
+This patch is an inert proposal for QE 7.6 / EPW 6.1 at commit
+9f93ddec427d2b9a45bb72d828c6d324f62fcabd. It has not been compiled or run.
+
+The existing allocation is moved above the MPI preprocessor split. The
+allocation expression, MPI read offsets, file format, and scientific
+contractions are unchanged.
+
+--- a/EPW/src/io/io.f90
++++ b/EPW/src/io/io.f90
+@@
+     IF (etf_mem == 0) THEN
+       !
+       filint = TRIM(tmp_dir) // TRIM(prefix) // '.epmatwp'
+       IF (TRIM(lsda) == 'down') filint = TRIM(tmp_dir) // TRIM(prefix) // '.down.epmatwp'
+       !
++      ALLOCATE(epmatwp(nbndsub, nbndsub, nrr_k, nmodes, nirg_loc), STAT = ierr)
++      IF (ierr /= 0) CALL errore('epw_read', 'Error allocating epmatwp', 1)
++      epmatwp = czero
++      !
+ #if defined(__MPI)
+       !
+-      ALLOCATE(epmatwp(nbndsub, nbndsub, nrr_k, nmodes, nirg_loc), STAT = ierr)
+-      IF (ierr /= 0) CALL errore('epw_read', 'Error allocating epmatwp', 1)
+-      epmatwp = czero
+-      !
+       CALL MPI_TYPE_CONTIGUOUS((nbndsub**2) * nrr_k, MPI_DOUBLE_COMPLEX, epmatwp_block_dtype, ierr)
+       IF (ierr /= 0) CALL errore('epw_read', 'Error creating epmatwp_block_dtype', 1)
+
+Design proof obligations:
+
+1. `epw_read` contains one allocation of `epmatwp` for `etf_mem == 0`.
+2. Serial execution has `nirg_loc == nrr_g`, so the direct-read loop
+   `irg = 1..nrr_g` is covered.
+3. MPI retains the pre-existing local shape ending in `nirg_loc`.
+4. MPI file offsets, counts, broadcasts, and preprocessor branches are unchanged.
+5. No restart file name, record length, physical parameter, matrix element,
+   degeneracy, or self-energy expression changes.
+6. Runtime validity remains untested and requires a separate bounded issue.
