@@ -1,114 +1,191 @@
-# Bulashenko et al. (1998) source audit
+# Bulashenko et al. (1998) equation-level audit
 
 **Source:** O. M. Bulashenko, G. Gomila, J. M. Rubí, and V. A. Kochelap, “Extension of the impedance field method to the noise analysis of a semiconductor junction: Analytical approach,” *Journal of Applied Physics* **83**, 2610–2618 (1998).  
 **DOI:** `10.1063/1.367023`  
-**Stable institutional record:** `hdl:2445/22078`  
-**Verification status:** published full text inspected through an institutional repository and an accessible article copy.
+**Verification status:** user-supplied publisher PDF inspected in full; drift-diffusion operator, impedance-field expression, local source normalization, equilibrium decomposition, cross terms, and stated frequency limitations verified.
 
-## Scope
+## 1. Scope
 
-The paper derives an analytical impedance-field method for local and terminal noise in a one-dimensional semiconductor junction when both drift and diffusion contribute. The worked structure is an inhomogeneous `n+–n` homojunction with nonuniform electric field and carrier density.
+The paper derives an analytical impedance-field method for local and terminal voltage noise in a one-dimensional semiconductor junction when both drift and diffusion contribute. The worked structure is an inhomogeneous `n+–n` homojunction with nonuniform electric field and carrier density.
 
-It is not a GR-photoconductor theory. Its relevance is methodological: it supplies an independent terminal-noise transfer formulation and an equilibrium Nyquist check for a nonuniform drift-diffusion device.
+It is not a generation-recombination photoconductor theory. Its relevance to R06 is methodological:
 
-## Deterministic structure
+- it provides an independent terminal-noise transfer formulation;
+- it distinguishes primitive local source strength from terminal weighting;
+- it demonstrates that electrostatic cross terms are required for equilibrium Nyquist consistency.
 
-The method assumes that the stationary electric-field and carrier profiles are known. Linearization then produces a transfer or impedance field that maps distributed microscopic current fluctuations to terminal voltage fluctuations.
+## 2. Stationary drift-diffusion model
 
-The formulation allows:
-
-- drift and diffusion simultaneously;
-- spatially nonuniform charge and field;
-- field-dependent mobility and diffusion coefficients;
-- junction/contact regions with strong gradients;
-- local decomposition of terminal-noise contributions.
-
-## Terminal transfer formulation
-
-The central observable has the form
+The device current density is written in Eq. (2) as
 
 \[
-\delta V(\omega)=\int Z(x,\omega)\,\delta j_s(x,\omega)\,dx,
+J=q\mu nE+qD\frac{dn}{dx}
++\frac{\varepsilon}{4\pi}\frac{\partial E}{\partial t},
 \]
 
-with the terminal spectrum obtained by weighting the local source covariance with the impedance field. The exact paper notation and normalization must be retained when the benchmark is implemented.
+in the paper's Gaussian-unit convention.
 
-This is the continuous adjoint analogue of the R06 matrix expression
+The steady-state analysis uses drift and diffusion with Poisson electrostatics and permits field-dependent mobility and diffusivity. The example has a strongly inhomogeneous `n+–n` junction.
+
+The paper then restricts the analytical noise calculation to frequencies low compared with dielectric relaxation, so the displacement-current term is neglected in deriving the impedance field. This is an explicit limitation: the complete current equation contains displacement current, but the published transfer solution is quasistatic in that sense.
+
+## 3. Terminal impedance-field formula
+
+For constant-current operation, the paper writes the terminal voltage PSD as Eq. (1):
 
 \[
-H_I=c^T(i\omega M-J)^{-1}B+d^T.
+S_V
+=A\int_{-L}^{L}
+|\nabla Z(x)|^2K(x)\,dx,
 \]
 
-The source and observation operators differ, but both propagate distributed fluctuations to a terminal observable without evaluating a local current at an arbitrary interior point.
+where:
 
-## Equilibrium verification
+- `A` is cross-sectional area;
+- `K(x)` is the primitive local microscopic noise source;
+- `\nabla Z(x)` is the scalar one-dimensional impedance field mapping a local current fluctuation to terminal voltage.
 
-The paper explicitly compares the integrated local equilibrium noise with the Nyquist terminal result. It identifies cross terms associated with electric-field fluctuations near the junction/interface as necessary contributors to the equilibrium balance.
+For equilibrium diffusion noise with weak carrier heating, the local source is
 
-This is a critical warning for R06: a decomposition into apparently independent local conduction sources can miss terminal equilibrium noise if the field-mediated correlations or observation operator are simplified inconsistently.
+\[
+K(x)=4q^2n(x)D(x)
+\]
 
-## Spatial interpretation
+under the paper's one-sided convention.
 
-The paper shows that local contributions to terminal noise can be strongly concentrated near an inhomogeneous junction and can contain positive and negative cross contributions. A map of “where the noise comes from” is therefore transfer-function dependent; it is not identical to a map of local source intensity.
+The formulation is therefore the continuous adjoint analogue of the R06 resolvent expression
 
-R06 figures should distinguish:
+\[
+H_y=C(i\omega M-J)^{-1}B+D.
+\]
 
-1. primitive local source covariance;
-2. transfer/adjoint weighting;
-3. weighted local contribution to the terminal PSD;
-4. cross-correlation contributions.
+The paper's specific result is low-frequency and scalar, while R06 requires a full-frequency multi-state operator. The transfer principle itself is established prior art.
 
-## Direct implications for R06
+## 4. Impedance-field structure
+
+The paper derives a closed analytical impedance field for the inhomogeneous drift-diffusion junction from the linearized transport equation. The weighting depends on:
+
+- stationary density and electric-field profiles;
+- differential conductivity;
+- diffusion;
+- junction asymmetry;
+- contact-to-junction coupling.
+
+The result can be decomposed into contributions associated with:
+
+1. the homogeneous sample resistance;
+2. the junction perturbation;
+3. sample-contact or interface cross terms.
+
+The exact decomposition is represented in the paper by the functions `s_1(x)`, `s_2(x)`, and `s_3(x)`.
+
+## 5. Equilibrium Nyquist recovery
+
+At equilibrium, Eq. (35) gives the separate local contributions. Their sum satisfies
+
+\[
+s_V^{eq}(x)=4k_BT R(x),
+\]
+
+where `R(x)` is the local differential resistance contribution.
+
+The paper explicitly states that **all contributions, including the cross correlations, are necessary** to recover the Nyquist theorem. Near the junction/interface, the cross terms associated with electric-field fluctuations dominate substantial parts of the local terminal-noise contribution.
+
+This is a direct acceptance requirement for R06:
+
+- local conduction-noise sources alone are insufficient if electrostatic response and observation cross terms are omitted;
+- an apparently positive local source map is not equivalent to a terminal contribution map;
+- negative or cross contributions are physically required by the transfer decomposition.
+
+## 6. Spatial interpretation
+
+The paper's figures show that:
+
+- primitive local source intensity follows local carrier density and diffusion;
+- impedance weighting concentrates terminal sensitivity near the inhomogeneous junction;
+- cross terms can be positive or negative;
+- the total equilibrium contribution recovers the local resistance profile only after summation.
+
+R06 visualizations must distinguish:
+
+1. primitive source covariance;
+2. adjoint/impedance weighting;
+3. weighted diagonal contribution;
+4. cross-correlation contribution;
+5. total terminal PSD.
+
+A statement that noise “originates” at a position is incomplete without specifying which of these quantities is plotted.
+
+## 7. Direct implications for R06
 
 ### Established prior art
 
 R06 cannot claim novelty for:
 
-- impedance-field propagation of distributed drift-diffusion noise;
-- analytical terminal-noise evaluation in a nonuniform one-dimensional semiconductor;
-- local source-contribution maps;
-- field/source cross terms required by equilibrium Nyquist consistency;
-- using a transfer field as an independent alternative to direct stochastic state solves.
+- impedance-field propagation of distributed semiconductor noise;
+- analytical terminal-noise evaluation in a nonuniform one-dimensional drift-diffusion device;
+- local terminal-contribution maps;
+- field/source cross terms required for equilibrium Nyquist consistency;
+- using an adjoint weighting field as an alternative to direct stochastic-state propagation.
 
 ### Required independent solver
 
-The stochastic implementation should provide two terminal-noise evaluations for selected cases:
+Selected benchmarks must be evaluated by both:
 
 1. direct resolvent covariance propagation;
 2. adjoint/impedance-field propagation.
 
-Agreement should be checked over frequency, not only at zero frequency.
+Agreement must be checked over frequency in the R06 formulation, even though the published Bulashenko solution is quasistatic relative to dielectric relaxation.
 
 ### Required equilibrium metric
 
 Define
 
 \[
-\epsilon_{\mathrm{FDT}}(\omega)
+\epsilon_{FDT}(\omega)
 =
-\frac{|S_V^{\mathrm{model}}(\omega)-4k_BT\operatorname{Re}Z(\omega)|}
+\frac{
+|S_V^{model}(\omega)-4k_BT\operatorname{Re}Z(\omega)|
+}
 {4k_BT\operatorname{Re}Z(\omega)}.
 \]
 
-The permitted tolerance must be separated into spatial-discretization, linear-solver, and source-normalization contributions.
+The error budget must separate:
 
-## Limitations relative to R06
+- spatial discretization;
+- linear-solver tolerance;
+- source normalization;
+- omitted cross terms;
+- frequency-range violation of any quasistatic approximation.
 
-- unipolar junction example;
+## 8. Contact interpretation
+
+The “sample-contact” and junction cross terms in this paper arise from an inhomogeneous drift-diffusion junction and its electrostatic transfer field. They are not a stochastic finite-surface-recombination boundary and do not supply forward/reverse contact exchange propensities.
+
+Thus this paper does not close the R06 finite-contact covariance question.
+
+## 9. Limitations relative to R06
+
+- unipolar electron example;
 - no optical generation;
-- no explicit HgCdTe material physics;
-- no full electron-hole-trap GR closure;
-- contact regions are part of a junction profile rather than finite stochastic surface-recombination boundaries;
-- hot-carrier source corrections are discussed but not a baseline for R06.
+- no explicit electron-hole-trap GR closure;
+- no HgCdTe material specialization;
+- no dynamic trap population;
+- no finite stochastic surface-recombination boundary;
+- analytical noise solution limited to frequencies below dielectric relaxation;
+- primitive source is assumed from diffusion-noise theory rather than derived from a complete event network.
 
-## Unresolved items
+## 10. Mandatory benchmark
 
-1. Transcribe the exact impedance-field differential equation and boundary conditions.
-2. Extract the complete local source-correlation tensor used in the worked example.
-3. Record the PSD bandwidth and one-/two-sided convention.
-4. Reproduce one published equilibrium local-contribution profile as a benchmark.
-5. Determine the exact relation between its voltage weighting field and the R06 fixed-voltage current weighting operator.
+A reduced R06 implementation should reproduce:
 
-## Novelty consequence
+1. the stationary inhomogeneous drift-diffusion junction;
+2. the published impedance-field weighting;
+3. the local source `K=4q^2nD` after convention translation;
+4. the separate `s_1`, `s_2`, and `s_3` contribution structure;
+5. equilibrium recovery of `4k_BTR(x)` only when cross terms are included;
+6. agreement between direct and adjoint terminal voltage PSDs in the same low-frequency limit.
 
-A terminal transfer-function formulation is established methodology. R06 novelty, if any, must lie in the physical closure and controlled HgCdTe/contact reductions, not in using a Green function, impedance field, or adjoint to compute terminal noise.
+## 11. Novelty consequence
+
+A terminal transfer-function or adjoint formulation is established methodology. R06 novelty, if any, must lie in the physical closure and controlled HgCdTe/contact reductions, not in using a Green function, impedance field, local contribution map, or adjoint to compute terminal noise.
