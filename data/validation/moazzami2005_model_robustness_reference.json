@@ -1,6 +1,6 @@
 {
   "analysis": "Moazzami 2005 compact fitted-model robustness reference",
-  "claim_boundary": "These are deterministic reconstruction, endpoint, weighting, and model-adequacy diagnostics for two bitmap-derived spectra. They are not experimental uncertainty intervals and do not identify a unique latent material gap.",
+  "claim_boundary": "These are deterministic reconstruction, endpoint, weighting, residual, and screen-threshold diagnostics for two bitmap-derived spectra. They are not experimental uncertainty intervals and do not identify a unique latent material gap.",
   "decision": {
     "fit_domain_and_weighting_are_material_sensitivity_axes": true,
     "fixed_absorption_coordinates_excluded_from_fitted_model_span": true,
@@ -24,6 +24,19 @@
     },
     "grid_points": 4001,
     "infeasible_scenario_policy": "exclude without changing predeclared edge-search bounds",
+    "line_envelope_screen_grid": {
+      "minimum_fraction_within_two_vertical_halfwidths": [
+        0.9,
+        0.95,
+        0.975
+      ],
+      "normalized_rms_maximum": [
+        0.75,
+        1.0,
+        1.25,
+        1.5
+      ]
+    },
     "model_class": "fitted intercept models only; fixed-alpha operational coordinates are excluded",
     "reconstruction_variants": [
       "committed isotonic reconstruction",
