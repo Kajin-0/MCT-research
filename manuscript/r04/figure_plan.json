@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "program": "R04",
+  "issue": 330,
+  "main_figure_ceiling": 4,
+  "new_scientific_calculations_authorized": false,
+  "figures": [
+    {
+      "figure": 1,
+      "title": "A finite measurement kernel determines what spatial disorder is recoverable",
+      "purpose": "Introduce the observation model, scale-dependent variance, identifiability, and absolute scale-calibration floor as one information hierarchy.",
+      "panels": [
+        {
+          "panel": "1a",
+          "short_title": "Latent field to finite observation",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder.py",
+            "src/mct_research/spatial_disorder_instrument.py",
+            "literature/notes/finite_aperture_hgcdte_mapping_audit.md"
+          ],
+          "plotted_variables_and_units": "Schematic only: latent x(r), normalized lateral/depth kernel w(r,z), and measured X_w; no specimen units or fitted values.",
+          "evidence_type": "analytical_schema_with_prior_art_context",
+          "caption_level_claim": "A finite HgCdTe map pixel is a kernel-weighted observation rather than a point sample; finite-aperture mapping itself is established prior art.",
+          "prohibited_interpretation": "The schematic is a measured instrument PSF, a new mapping method, or a universal HgCdTe observation kernel.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Create a clean vector schematic from existing equations and declared composite-kernel components."
+        },
+        {
+          "panel": "1b",
+          "short_title": "Variance versus scale and recoverability",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder.py",
+            "src/mct_research/spatial_disorder_inference.py",
+            "src/mct_research/spatial_disorder_theorems.py"
+          ],
+          "plotted_variables_and_units": "Normalized filtered variance V(s)/A versus normalized scale s/xi, with one-scale and two-scale observation markers; dimensionless axes.",
+          "evidence_type": "analytical_and_controlled_synthetic",
+          "caption_level_claim": "One scale cannot recover both point variance and correlation length; two Gaussian-benchmark scales estimate them but do not test the covariance family.",
+          "prohibited_interpretation": "The curve is a fit to an HgCdTe specimen or proves Gaussian covariance.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Regenerate from the existing Gaussian benchmark API using the immutable normalized design."
+        },
+        {
+          "panel": "1c",
+          "short_title": "Absolute scale-calibration confounding",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_calibration.py",
+            "src/mct_research/spatial_disorder_posterior.py",
+            "PR_216",
+            "PR_221"
+          ],
+          "plotted_variables_and_units": "Posterior or uncertainty decomposition for log xi_relative, common log-scale calibration, and log xi_absolute; dimensionless log-length coordinates.",
+          "evidence_type": "analytical_and_controlled_synthetic",
+          "caption_level_claim": "A common multiplicative scale error is exactly confounded with absolute correlation length and creates an uncertainty floor that repeats cannot remove.",
+          "prohibited_interpretation": "The displayed uncertainty is a measured HgCdTe correlation-length posterior.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Use the existing local theorem and nonlinear posterior benchmark; show the bounded-prior exception in the caption or inset note."
+        }
+      ]
+    },
+    {
+      "figure": 2,
+      "title": "A third scale tests covariance-family closure and exposes misspecification",
+      "purpose": "Separate parameter estimation from family testing and show how wrong-family fits become scale and convention dependent.",
+      "panels": [
+        {
+          "panel": "2a",
+          "short_title": "Gaussian reciprocal linearity",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_covariance_families.py",
+            "PR_219"
+          ],
+          "plotted_variables_and_units": "1/V versus s^2 for an exact Gaussian benchmark; normalized reciprocal-variance and squared-scale axes.",
+          "evidence_type": "analytical",
+          "caption_level_claim": "Gaussian covariance requires reciprocal filtered variance to be linear in squared Gaussian-probe scale.",
+          "prohibited_interpretation": "Reciprocal linearity is a universal property of spatial disorder or its visual appearance proves the family under uncertain kernels.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Render exact line and three declared observation locations from the existing closure API."
+        },
+        {
+          "panel": "2b",
+          "short_title": "Third-scale closure residual",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_covariance_families.py",
+            "research/programs/spatial_disorder/state.md"
+          ],
+          "plotted_variables_and_units": "Standardized held-out closure residual or z-like distance for Gaussian truth and supported Matérn alternatives; dimensionless residual.",
+          "evidence_type": "controlled_synthetic",
+          "caption_level_claim": "Two scales estimate a Gaussian benchmark, while the third supplies the first exact family-closure residual under calibrated uncertainty.",
+          "prohibited_interpretation": "The residuals identify a covariance family in a real wafer or are universal detection thresholds.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Use the immutable three-scale 3-percent-noise benchmark already recorded in R04 state."
+        },
+        {
+          "panel": "2c",
+          "short_title": "Pairwise parameter drift",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_covariance_bias.py",
+            "PR_227"
+          ],
+          "plotted_variables_and_units": "Pairwise fitted A/A_true and xi/ell versus selected scale pair for Matérn nu=1/2 truth forced through a Gaussian inverse; dimensionless ratios.",
+          "evidence_type": "controlled_synthetic",
+          "caption_level_claim": "A wrong Gaussian family produces scale-pair-dependent variance and correlation-scale estimates.",
+          "prohibited_interpretation": "The synthetic spread is a confidence interval or a measured HgCdTe parameter range.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Regenerate the declared five-scale misspecification benchmark."
+        },
+        {
+          "panel": "2d",
+          "short_title": "Fit-convention dependence",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_joint_identifiability.py",
+            "src/mct_research/spatial_disorder_covariance_bias.py",
+            "PR_233"
+          ],
+          "plotted_variables_and_units": "Fitted Gaussian parameter locations or family-separation distance under weighted log-variance and reciprocal-variance losses; dimensionless parameter ratios or Mahalanobis distance.",
+          "evidence_type": "controlled_synthetic",
+          "caption_level_claim": "When the family is misspecified, fitted parameters depend on the declared loss even when the broad resolved or unresolved classification is unchanged.",
+          "prohibited_interpretation": "One fitting convention is universally correct or the Mahalanobis distance is a posterior probability.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Select the smallest existing comparison that supports the claim; place the full joint envelope in supplementary material."
+        }
+      ]
+    },
+    {
+      "figure": 3,
+      "title": "Finite maps and shared rasters contain far less independent information than their pixel count suggests",
+      "purpose": "Connect exact finite-map moments to effective information and same-raster cross-scale covariance.",
+      "panels": [
+        {
+          "panel": "3a",
+          "short_title": "Nominal pixels versus effective information",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_map_sampling.py",
+            "PR_236"
+          ],
+          "plotted_variables_and_units": "Nominal pixel count and map-mean effective sample count versus pixel spacing at approximately fixed field of view; counts and normalized spacing.",
+          "evidence_type": "analytical_and_controlled_synthetic",
+          "caption_level_claim": "Dense resampling can multiply nominal pixel count while adding negligible independent information at fixed field of view.",
+          "prohibited_interpretation": "The effective count is universal for all maps or equals the number of independent experimental repeats.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Use the existing 10 by 10 and 20 by 20 fixed-FOV benchmark."
+        },
+        {
+          "panel": "3b",
+          "short_title": "Naive map-variance bias",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_map_sampling.py",
+            "research/programs/spatial_disorder/state.md"
+          ],
+          "plotted_variables_and_units": "Expected ordinary sample variance divided by marginal filtered variance versus normalized field size or spacing; dimensionless ratio.",
+          "evidence_type": "analytical_and_controlled_synthetic",
+          "caption_level_claim": "Mean subtraction on a correlated finite map can make ordinary sample variance underestimate marginal filtered variance.",
+          "prohibited_interpretation": "The correction creates new information or applies without a declared covariance model.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Use the immutable controlled result and one compact field-size sensitivity curve if already supported by the module."
+        },
+        {
+          "panel": "3c",
+          "short_title": "Same-raster cross-scale correlation",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_multiscale_map.py",
+            "PR_247"
+          ],
+          "plotted_variables_and_units": "Heat map of correlation among log map-variance estimators at the declared three scales; dimensionless correlation.",
+          "evidence_type": "analytical_and_controlled_synthetic",
+          "caption_level_claim": "Variance estimates from several resolutions of one field can be strongly correlated and cannot be treated as independent scale observations.",
+          "prohibited_interpretation": "The matrix is empirical repeat covariance or applies to arbitrary non-Gaussian maps without qualification.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Render the immutable three-scale correlation matrix."
+        },
+        {
+          "panel": "3d",
+          "short_title": "Full covariance versus false independence",
+          "source_module_or_result": [
+            "src/mct_research/spatial_disorder_multiscale_map.py",
+            "research/programs/spatial_disorder/state.md"
+          ],
+          "plotted_variables_and_units": "Parameter uncertainty ellipse or covariance-volume comparison for full same-raster covariance and false independent-pixel/scale treatment; log A and log xi axes.",
+          "evidence_type": "controlled_synthetic",
+          "caption_level_claim": "Ignoring within-map and cross-scale dependence can make the inferred parameter covariance volume hundreds of times too small in the controlled design.",
+          "prohibited_interpretation": "The inflation factor is universal or is a measured uncertainty correction for a specific wafer.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Use the controlled 404.6855 covariance-determinant ratio; report parameter-specific SD ratios in the caption."
+        }
+      ]
+    },
+    {
+      "figure": 4,
+      "title": "A public CdSeTe PL map demonstrates scale suppression, shared-raster dependence, and finite-field sensitivity",
+      "purpose": "Exercise the analytical workflow on one real semiconductor observation field while preserving the cross-material and unknown-kernel limitations.",
+      "panels": [
+        {
+          "panel": "4a",
+          "short_title": "Source PL peak-wavelength field",
+          "source_module_or_result": [
+            "data/validation/r04_cdsete_real_data_result.json",
+            "Datasets/Figure_3e.csv_via_Zenodo_10.5281/zenodo.13869384",
+            "PR_326"
+          ],
+          "plotted_variables_and_units": "Gaussian-fitted PL peak wavelength over the 24 by 24 registered field; x and y in micrometres, wavelength in nanometres.",
+          "evidence_type": "restricted_cross_material_real_data",
+          "caption_level_claim": "The admitted field is a source-data-derived CdSeTe PL observation with physical coordinates and an unmeasured native sample-plane kernel.",
+          "prohibited_interpretation": "The colors are composition, intrinsic bandgap truth, or an HgCdTe map.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Plot the immutable admitted field with source attribution and no interpolation beyond display rasterization."
+        },
+        {
+          "panel": "4b",
+          "short_title": "Variance versus added numerical scale",
+          "source_module_or_result": [
+            "data/validation/r04_cdsete_real_data_result.json",
+            "src/mct_research/spatial_disorder_real_data.py"
+          ],
+          "plotted_variables_and_units": "Ordinary sample variance in nm^2 versus added Gaussian sigma in pixels; optional secondary coordinate conversion in micrometres explicitly labeled as added-kernel conversion only.",
+          "evidence_type": "restricted_cross_material_real_data",
+          "caption_level_claim": "Added smoothing reduces apparent map variance to 11.24 percent of the unsmoothed value at four pixels.",
+          "prohibited_interpretation": "The x axis is the native effective PSF or the curve yields a physical material correlation length.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Plot the five immutable variance values and retained fractions."
+        },
+        {
+          "panel": "4c",
+          "short_title": "Held-out descriptive closure",
+          "source_module_or_result": [
+            "data/validation/r04_cdsete_real_data_result.json"
+          ],
+          "plotted_variables_and_units": "Training log-RMS and held-out one-pixel relative variance error for Gaussian and supported Matérn families; dimensionless residuals.",
+          "evidence_type": "restricted_cross_material_model_conditioned_demonstration",
+          "caption_level_claim": "Matérn nu=3/2 has the smallest residual under the frozen convention, but the comparison is descriptive and not independent family validation.",
+          "prohibited_interpretation": "Matérn nu=3/2 is the CdSeTe or HgCdTe material covariance law.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Render the immutable four-family residual table as a compact point or bar plot."
+        },
+        {
+          "panel": "4d",
+          "short_title": "Finite-field sensitivity",
+          "source_module_or_result": [
+            "data/validation/r04_cdsete_real_data_result.json",
+            "research/decision_records/2026-07-23-r04-cdsete-real-data-demonstration.md"
+          ],
+          "plotted_variables_and_units": "Maximum relative variance-curve change for wrap boundary, nearest boundary, central crop, and planar detrending relative to the primary reflect convention; percent.",
+          "evidence_type": "restricted_cross_material_real_data_sensitivity",
+          "caption_level_claim": "Boundary and crop choices change the variance curve by about 72.7 percent, exceeding the descriptive family separation and preventing a family claim from this map.",
+          "prohibited_interpretation": "One edge convention is physically correct or the sensitivity invalidates the analytical theory.",
+          "new_scientific_calculation_required": false,
+          "rendering_action": "Plot the four immutable maximum relative differences and state the primary convention."
+        }
+      ]
+    }
+  ],
+  "supplementary_placement": [
+    {
+      "item": "composite_instrument_kernel_stress_grid",
+      "source": "src/mct_research/spatial_disorder_instrument.py",
+      "placement": "Appendix_A_or_Supplementary_Figure_S1"
+    },
+    {
+      "item": "transmission_and_cutoff_operation_order",
+      "source": [
+        "src/mct_research/spatial_disorder_optics.py",
+        "src/mct_research/spatial_disorder_cutoff.py"
+      ],
+      "placement": "Appendix_A_or_Supplementary_Note_S1"
+    },
+    {
+      "item": "repeat_and_scale_allocation",
+      "source": "src/mct_research/spatial_disorder_allocation.py",
+      "placement": "Appendix_B_or_Supplementary_Figure_S2"
+    },
+    {
+      "item": "joint_instrument_family_fit_operator_envelope",
+      "source": "src/mct_research/spatial_disorder_joint_identifiability.py",
+      "placement": "Supplementary_Figure_S3"
+    },
+    {
+      "item": "full_CdSeTe_same_raster_covariance_matrix_and_phase_randomized_control",
+      "source": "data/validation/r04_cdsete_real_data_result.json",
+      "placement": "Supplementary_Figure_S4"
+    }
+  ]
+}
