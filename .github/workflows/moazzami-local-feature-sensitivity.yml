@@ -1,0 +1,57 @@
+name: moazzami-local-feature-sensitivity
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/moazzami-local-feature-sensitivity.yml'
+      - 'data/manuscript/moazzami2005_figure6*_irse_digitized.csv'
+      - 'data/manuscript/moazzami2005_figure6*_irse_calibration.json'
+      - 'src/mct_research/absorption_edge_uncertainty.py'
+      - 'tools/analyze_moazzami2005_real_spectra.py'
+      - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
+      - 'tests/test_moazzami2005_local_feature_sensitivity.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: python -m pip install -e '.[test]'
+      - name: Build deterministic sensitivity record
+        run: |
+          python -m tools.audit_moazzami2005_local_feature_sensitivity \
+            --repository-root . \
+            --output-json /tmp/moazzami-local-feature-sensitivity.json
+      - name: Run focused tests
+        run: |
+          python -m pytest -q \
+            tests/test_moazzami2005_local_feature_sensitivity.py
+      - name: Record compact decision summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('/tmp/moazzami-local-feature-sensitivity.json')
+          result = json.loads(path.read_text())
+          print(json.dumps(result['decision'], indent=2, sort_keys=True))
+          for specimen in result['specimens']:
+              print(specimen['specimen_id'])
+              print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: moazzami-local-feature-sensitivity
+          path: /tmp/moazzami-local-feature-sensitivity.json
+          if-no-files-found: error
+          retention-days: 30
