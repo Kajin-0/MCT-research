@@ -1,0 +1,6 @@
+parameter_id,value,unit,error_value,error_semantics,value_status,source_location,notes
+ELL72_GAP_PRESSURE_COEFF,7.0e-6,eV_per_bar,,not_reported,source_reported_fit,Abstract; Figure 5 caption; Analysis using k.p model,"Equivalent to 7.0e-3 eV/kbar; fitted from 7B at 77 K."
+ELL72_KANE_MATRIX,8.4e-8,eV_cm,,not_reported,fixed_inherited_parameter,Introduction; Analysis using k.p model,"Adopted from earlier magnetoreflection work; not fitted in Elliott 1972."
+ELL72_HOLE_MASS_LOW,0.3,m0,,assumption,model_sensitivity_endpoint,Analysis using k.p model; Table II,"Lower endpoint of assumed heavy-hole mass range."
+ELL72_HOLE_MASS_HIGH,0.7,m0,,assumption,model_sensitivity_endpoint,Analysis using k.p model; Table II,"Upper endpoint of assumed heavy-hole mass range."
+ELL72_DEFORMATION_POTENTIAL,3.3,eV,,not_reported,derived_source_value,Discussion,"Obtained using the fitted pressure coefficient and interpolated elastic constants."
