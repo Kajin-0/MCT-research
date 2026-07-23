@@ -1,0 +1,12 @@
+parameter_id,source_id,parameter_name,value,half_width,unit,temperature_context_k,evidence_role,derivation_status,notes
+KAH73_MSTAR0,KAHLERT1973_HSC_R09,band_edge_effective_mass_ratio,0.005,0.0003,m0_ratio,4.2,source_reported_sdh_result,fit_from_sdh_amplitude,"Deduced from SdH extrema at 4.2 K and lower temperatures."
+KAH73_GSTAR0,KAHLERT1973_HSC_R09,effective_g_factor_band_edge,-172,10,dimensionless,4.2,source_reported_sdh_result,fit_from_sdh_positions,"Effective spectroscopic splitting factor at the conduction-band bottom."
+KAH73_EG_SDH_INPUT,KAHLERT1973_HSC_R09,gap_parameter_used_for_sdh_extrema,0.093,,eV,4.2,source_reported_calculation_input,fixed_in_source_calculation,"Parameter used in the Figure 1 extrema calculation; not presented as an independently fitted gap uncertainty."
+KAH73_DELTA,KAHLERT1973_HSC_R09,spin_orbit_splitting,0.96,,eV,4.2,source_reported_calculation_input,fixed_in_source_calculation,"Spin-orbit parameter used in the nonparabolic-band calculation."
+KAH73_EF,KAHLERT1973_HSC_R09,fermi_energy,0.009065,,eV,4.2,source_reported_calculation_input,derived_from_carrier_state,"Fermi energy used in the Figure 1 calculation."
+KAH73_HGTE_LO,KAHLERT1973_HSC_R09,HgTe_like_LO_phonon_energy,0.0171,,eV,50-130,source_reported_resonance_assignment,fixed_phonon_energy,"Observed resonance branches were assigned to this phonon energy."
+KAH73_CDTE_LO,KAHLERT1973_HSC_R09,CdTe_like_LO_phonon_energy,0.0196,,eV,50-130,source_reported_rejected_assignment,fixed_phonon_energy,"The source reports that attempts to fit the observed lines with this branch were unsuccessful."
+KAH73_EG0,KAHLERT1973_HSC_R09,zero_temperature_gap_parameter,0.09,,eV,0,source_reported_temperature_model_parameter,fixed_in_temperature_fit,"Used in Eg(T)=Eg0(1+alpha T)."
+KAH73_ALPHA,KAHLERT1973_HSC_R09,relative_gap_temperature_coefficient,0.0085,,K^-1,50-130,source_reported_temperature_fit,fit_to_magnetophonon_peak_positions,"The same alpha is imposed in m*(T)=m*(0)(1+alpha T)."
+KAH73_DEGDT,KAHLERT1973_HSC_R09,absolute_gap_temperature_coefficient,0.00076,,eV_per_K,50-130,source_reported_rounded_fit_result,derived_as_alpha_times_Eg0,"Printed rounded result; alpha*Eg0 from the printed parameters is 0.000765 eV/K."
+KAH73_DIRECT_COMPARISON,KAHLERT1973_HSC_R09,directly_measured_comparison_temperature_coefficient,0.00035,,eV_per_K,similar_composition,external_comparison_reported_in_source,secondary_source_context,"Quoted by Kahlert and Bauer from Ref. 18; not measured in this experiment."
