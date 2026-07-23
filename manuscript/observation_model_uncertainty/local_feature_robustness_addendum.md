@@ -16,7 +16,7 @@ energy_eV       source_pixel_y_center
 
 Increasing source-image pixel `y` corresponds to decreasing reconstructed absorption. These two adjacent bitmap-derived coordinates therefore reverse the expected local direction. Nondecreasing isotonic reconstruction pools the violation and produces the short visible plateau near `0.198 eV`.
 
-This pair is a feature of the reconstruction record, not an identified material feature. The available bitmap cannot distinguish a physical fluctuation from instrument response, source processing, printed-line thickness, rasterization, or coordinate extraction effects.
+This pair is a feature of the reconstruction record, not an identified material feature. Its physical origin remains unidentified. The available bitmap cannot distinguish a physical fluctuation from instrument response, source processing, printed-line thickness, rasterization, or coordinate extraction effects.
 
 The committed coordinates remain unchanged. No smoothing, interpolation, point replacement, local baseline correction, or deletion is applied to the nominal analysis.
 
