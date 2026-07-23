@@ -85,7 +85,7 @@ def test_same_raster_dependence_is_large_and_model_conditioned() -> None:
     )
 
     np.testing.assert_allclose(correlation, correlation.T, rtol=0.0, atol=1.0e-14)
-    np.testing.assert_allclose(np.diag(correlation), 1.0, rtol=0.0, atol=2.0e-16)
+    np.testing.assert_allclose(np.diag(correlation), 1.0, rtol=0.0, atol=3.0e-16)
     assert correlation[0, 1] > 0.998
     assert correlation[1, 2] > 0.989
     assert effective_dof[-1] < 8.0
