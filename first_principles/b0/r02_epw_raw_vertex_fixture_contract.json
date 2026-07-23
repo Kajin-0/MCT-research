@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_raw_vertex_fixture",
+  "program": "R02",
+  "issue": 332,
+  "phase": "fixture_execution",
+  "source_contract": "first_principles/b0/r02_epw_same_state_execution_contract.json",
+  "fixture": {
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "external_band_count": 4,
+    "intermediate_band_count": 4,
+    "selected_export_window": {
+      "ik_global": 1,
+      "all_q_points": true,
+      "all_modes": true,
+      "all_external_bands": true,
+      "all_intermediate_bands": true,
+      "all_temperatures": true
+    }
+  },
+  "thresholds": {
+    "exporter_enabled_disabled_standard_output_max_abs_ev": 1e-12,
+    "normalization_identity_max_abs_ry2": 1e-14,
+    "per_state_real_diagonal_max_abs_ev": 1e-12,
+    "summed_real_diagonal_max_abs_ev": 1e-12,
+    "synthetic_external_covariance_max_abs_ev": 1e-12,
+    "q_weight_sum_max_abs": 1e-12
+  },
+  "authorization": {
+    "qe_epw_build": true,
+    "upstream_fixture_execution": true,
+    "observational_export_patch_application": true,
+    "exactly_one_pinned_build": true,
+    "exactly_one_preparation_sequence": true,
+    "exactly_three_final_replays": true,
+    "automatic_retry": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "automatic_followup": false
+  },
+  "claim_boundary": "This compatibility contract supports the already qualified raw-vertex normalization analyzer inside issue #332. Its enabled/disabled comparison is diagnostic only; the controlling same-state attribution decision is made by r02_epw_same_state_execution_contract.json."
+}
