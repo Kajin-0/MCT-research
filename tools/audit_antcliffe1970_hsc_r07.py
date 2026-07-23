@@ -34,6 +34,25 @@ def _ols_intercept_slope(x: list[float], y: list[float]) -> tuple[float, float]:
     return intercept, slope
 
 
+def _stable_tree(value: Any) -> Any:
+    """Round derived floats beyond the source-supported precision.
+
+    CPython 3.12 changed the implementation of ``sum`` for floats.  The
+    resulting last-bit differences are scientifically irrelevant here but
+    would otherwise make the immutable JSON interpreter-dependent.  Twelve
+    decimal places remain far finer than every source uncertainty retained in
+    this audit.
+    """
+
+    if isinstance(value, float):
+        return round(value, 12)
+    if isinstance(value, dict):
+        return {key: _stable_tree(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_stable_tree(item) for item in value]
+    return value
+
+
 def hansen_gap_ev(x: float, temperature_k: float) -> float:
     return (
         -0.302
@@ -108,7 +127,7 @@ def build_audit() -> dict[str, Any]:
     source_ep = float(parameters["ANT70_EP"]["value"])
     source_eg = float(parameters["ANT70_EG"]["value"])
 
-    return {
+    result = {
         "schema_version": "1.0",
         "source_id": metadata["source_id"],
         "source_pdf_sha256": metadata["source_pdf_sha256"],
@@ -214,6 +233,7 @@ def build_audit() -> dict[str, Any]:
             "controlling_decision": "primary_source_recovered_hansen_ingestion_mapping_unresolved",
         },
     }
+    return _stable_tree(result)
 
 
 def render_reference() -> str:
