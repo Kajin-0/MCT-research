@@ -5,12 +5,15 @@ on:
     paths:
       - '.github/workflows/r02-epw-raw-vertex-fixture.yml'
       - 'first_principles/b0/r02_epw_raw_vertex_fixture_contract.json'
+      - 'first_principles/b0/r02_epw_raw_vertex_fixture_harness_stop_29962340413.json'
       - 'first_principles/b0/r02_epw_raw_vertex_source_qualification_result.json'
       - 'patches/qe76-epw61-r02-raw-vertex-export.patch'
       - 'tools/run_epw_raw_vertex_fixture_ci.sh'
       - 'tools/analyze_epw_raw_vertex_fixture.py'
+      - 'tools/select_epw_fixture_stdout.py'
       - 'tests/test_r02_epw_raw_vertex_source_gate.py'
       - 'tests/test_r02_epw_raw_vertex_analyzer.py'
+      - 'tests/test_select_epw_fixture_stdout.py'
   workflow_dispatch:
 
 concurrency:
