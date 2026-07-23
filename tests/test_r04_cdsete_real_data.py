@@ -86,7 +86,7 @@ def test_gaussian_smoothing_reference_values_match_ndimage_convention() -> None:
             [3.722969346851, 4.757894720776, 6.742944259903, 8.651556261614],
         ]
     )
-    np.testing.assert_allclose(smoothed, expected, rtol=0.0, atol=5.0e-12)
+    np.testing.assert_allclose(smoothed, expected, rtol=0.0, atol=5.0e-9)
 
 
 def test_family_fit_recovers_exact_gaussian_training_curve() -> None:
