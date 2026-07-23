@@ -6,6 +6,17 @@ This directory contains reproducible assets for the strengthened manuscript revi
 
 The controlling scientific scope is `strengthened_revision_scope.md`. The earlier `manuscript_draft.md` is an archived working draft and must not override the strengthened title, estimand separation, residual-screen treatment, or claim boundaries.
 
+## Controlling LaTeX source
+
+The complete current manuscript source is under `strengthened/`:
+
+- `strengthened/manuscript.tex` - root LaTeX source;
+- `strengthened/frontmatter.tex` and `strengthened/sections/*.tex` - complete current manuscript;
+- `strengthened/references.tex` and `strengthened/references.bib` - self-contained and machine-readable bibliographies;
+- `strengthened/SOURCE_SHA256SUMS` - committed source integrity manifest.
+
+The workflow `.github/workflows/hgcdte-fitted-intercepts-package.yml` regenerates the deterministic figures, compiles the current LaTeX manuscript, creates `PACKAGE_SHA256SUMS`, and uploads a complete checksummed ZIP artifact. The older `irpt/` source is retained for provenance only and is not the controlling strengthened manuscript.
+
 The revision incorporates:
 
 - `strengthened_revision_scope.md`;
