@@ -8,7 +8,7 @@ on:
       - 'data/validation/scott1969_temperature_coefficient_test.json'
       - 'docs/derivations/021_scott_fixed_alpha_temperature_coefficients.md'
       - 'research/decision_records/2026-07-23-scott-temperature-coefficient-test.md'
-      - 'research/programs/empirical_bandgap/state.md'
+      - 'research/programs/empirical_bandgap/state_updates/2026-07-23-scott-temperature-coefficient.md'
       - 'src/mct_research/scott_temperature_coefficients.py'
       - 'tests/test_scott_temperature_coefficients.py'
       - 'tests/test_scott_temperature_coefficient_reference.py'
@@ -81,10 +81,6 @@ jobs:
               data/validation/scott1969_temperature_coefficient_test.json
           python -m pytest -vv \
             tests/test_scott_temperature_coefficient_reference.py
-      - name: Record branch-head tree
-        run: |
-          git rev-parse 'HEAD^{tree}' > /tmp/base-tree-sha.txt
-          git rev-parse HEAD > /tmp/checked-out-commit-sha.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -92,7 +88,5 @@ jobs:
           path: |
             /tmp/scott-temperature-coefficient-tests.log
             /tmp/scott-temperature-coefficient-a.json
-            /tmp/base-tree-sha.txt
-            /tmp/checked-out-commit-sha.txt
           if-no-files-found: error
           retention-days: 30
