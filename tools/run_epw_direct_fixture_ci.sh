@@ -190,23 +190,24 @@ cd "$WORK/qe"
 make -j2 pw ph epw \
   2>&1 | tee "$EVIDENCE/build/make.txt"
 test "$build_count" -eq 1
-for executable in bin/pw.x bin/ph.x bin/epw.x bin/pw2wannier90.x; do
+for executable in bin/pw.x bin/ph.x bin/epw.x; do
   test -x "$executable"
   sha256sum "$executable" >> "$EVIDENCE/build/executable-sha256.txt"
 done
 ldd bin/epw.x > "$EVIDENCE/build/epw-ldd.txt" || true
 
 stage="prepare_fixtures_and_manifests"
-mkdir -p "$WORK/fixtures"
-cp -a "$WORK/qe/test-suite/epw_base" "$WORK/fixtures/disabled"
-cp -a "$WORK/qe/test-suite/epw_base" "$WORK/fixtures/enabled"
+DISABLED_FIXTURE="$WORK/qe/test-suite/r02_direct_disabled"
+ENABLED_FIXTURE="$WORK/qe/test-suite/r02_direct_enabled"
+cp -a "$WORK/qe/test-suite/epw_base" "$DISABLED_FIXTURE"
+cp -a "$WORK/qe/test-suite/epw_base" "$ENABLED_FIXTURE"
 PW_X="$WORK/qe/bin/pw.x"
 PH_X="$WORK/qe/bin/ph.x"
 EPW_X="$WORK/qe/bin/epw.x"
 EPW_BIN="$WORK/qe/EPW/bin"
 PYTHON_X="$(command -v python3)"
 export PYTHONPATH="$ROOT"
-python - "$DESIGN_CONTRACT" "$WORK/fixtures/disabled" "$EVIDENCE/disabled" \
+python - "$DESIGN_CONTRACT" "$DISABLED_FIXTURE" "$EVIDENCE/disabled" \
   "$PW_X" "$PH_X" "$EPW_X" "$PYTHON_X" "$EPW_BIN" <<'PY'
 from pathlib import Path
 import sys
@@ -228,7 +229,7 @@ manifest = build_manifest(
 )
 write_manifest(manifest, Path(sys.argv[3]) / "command-manifest.json")
 PY
-python - "$DESIGN_CONTRACT" "$WORK/fixtures/enabled" "$EVIDENCE/enabled" \
+python - "$DESIGN_CONTRACT" "$ENABLED_FIXTURE" "$EVIDENCE/enabled" \
   "$PW_X" "$PH_X" "$EPW_X" "$PYTHON_X" "$EPW_BIN" <<'PY'
 from pathlib import Path
 import sys
@@ -264,29 +265,55 @@ run_command() {
   shift 6
   local stdout="$EVIDENCE/$sequence/commands/$number-$identifier.stdout.txt"
   local stderr="$EVIDENCE/$sequence/commands/$number-$identifier.stderr.txt"
-  printf '# R02 direct fixture command=%s sequence=%s\n' "$identifier" "$sequence" > "$stdout"
-  printf '# R02 direct fixture command=%s sequence=%s\n' "$identifier" "$sequence" > "$stderr"
+  local exit_code_path="$EVIDENCE/$sequence/commands/$number-$identifier.exit-code.txt"
+  local process_code=0
+
+  printf '# R02 direct fixture command=%s sequence=%s\n' \
+    "$identifier" "$sequence" > "$stdout"
+  printf '# R02 direct fixture command=%s sequence=%s\n' \
+    "$identifier" "$sequence" > "$stderr"
+
   if [[ "$stdin_name" == "-" ]]; then
-    (cd "$fixture" && "$executable" "$@") >> "$stdout" 2>> "$stderr"
+    if (cd "$fixture" && "$executable" "$@") >> "$stdout" 2>> "$stderr"; then
+      process_code=0
+    else
+      process_code=$?
+    fi
   else
-    (cd "$fixture" && "$executable" "$@" < "$stdin_name") >> "$stdout" 2>> "$stderr"
+    if (cd "$fixture" && "$executable" "$@" < "$stdin_name") \
+      >> "$stdout" 2>> "$stderr"; then
+      process_code=0
+    else
+      process_code=$?
+    fi
   fi
+
   command_count=$((command_count + 1))
+  printf '%s\n' "$process_code" > "$exit_code_path"
   test -s "$stdout"
   test -s "$stderr"
-  printf '%s\n' "$?" > "$EVIDENCE/$sequence/commands/$number-$identifier.exit-code.txt"
+  test -s "$exit_code_path"
+  if (( process_code != 0 )); then
+    return "$process_code"
+  fi
 }
 
 run_sequence() {
   local sequence="$1"
-  local fixture="$WORK/fixtures/$sequence"
-  if [[ "$sequence" == "enabled" ]]; then
+  local fixture
+  if [[ "$sequence" == "disabled" ]]; then
+    fixture="$DISABLED_FIXTURE"
+    unset R02_EXPORT_RAW_VERTEX R02_EXPORT_IK_GLOBAL R02_RAW_VERTEX_PATH || true
+  elif [[ "$sequence" == "enabled" ]]; then
+    fixture="$ENABLED_FIXTURE"
     export R02_EXPORT_RAW_VERTEX=1
     export R02_EXPORT_IK_GLOBAL=1
     export R02_RAW_VERTEX_PATH="$EVIDENCE/raw/epw-raw-vertex.txt"
   else
-    unset R02_EXPORT_RAW_VERTEX R02_EXPORT_IK_GLOBAL R02_RAW_VERTEX_PATH || true
+    echo "unauthorized sequence: $sequence" >&2
+    return 2
   fi
+
   run_command "$sequence" "$fixture" 01 pw-scf "$PW_X" - -input scf.in
   run_command "$sequence" "$fixture" 02 ph "$PH_X" - -input ph.in
   run_command "$sequence" "$fixture" 03 pp "$PYTHON_X" pp.in "$EPW_BIN/pp.py"
@@ -319,6 +346,11 @@ EXIT_COUNT=$(find "$EVIDENCE/disabled/commands" "$EVIDENCE/enabled/commands" \
   -type f -name '*.exit-code.txt' | wc -l)
 test "$EXIT_COUNT" -eq 12
 printf '%s\n' "$EXIT_COUNT" > "$EVIDENCE/runtime/exit-code-file-count.txt"
+if find "$EVIDENCE/disabled/commands" "$EVIDENCE/enabled/commands" \
+  -type f -name '*.exit-code.txt' -exec grep -L '^0$' {} + | grep -q .; then
+  echo "one or more direct commands returned nonzero" >&2
+  exit 1
+fi
 
 stage="analyze"
 cd "$ROOT"
