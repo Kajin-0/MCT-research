@@ -1,0 +1,62 @@
+name: r02-epw-same-state-execution
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r02-epw-same-state-execution.yml'
+      - 'first_principles/b0/r02_epw_same_state_execution_contract.json'
+      - 'first_principles/b0/r02_epw_same_state_attribution_contract.json'
+      - 'first_principles/b0/r02_epw_same_state_replay.in'
+      - 'patches/qe76-epw61-r02-raw-vertex-export.patch'
+      - 'tools/run_epw_same_state_attribution_ci.sh'
+      - 'tools/analyze_epw_same_state_attribution.py'
+      - 'tools/analyze_epw_raw_vertex_fixture.py'
+      - 'tools/design_epw_same_state_attribution.py'
+      - 'tools/matrix_fan.py'
+      - 'tests/test_r02_epw_same_state_execution.py'
+      - 'tests/test_r02_epw_same_state_driver.py'
+      - 'tests/test_r02_epw_raw_vertex_analyzer.py'
+      - 'tests/test_r02_epw_same_state_attribution_design.py'
+      - 'tests/test_r02_epw_same_state_source_identities.py'
+  workflow_dispatch:
+
+concurrency:
+  group: r02-epw-same-state-execution-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  one-preparation-three-replays:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install compiler and numerical dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential gfortran git make perl python3-pip \
+            libblas-dev liblapack-dev libfftw3-dev
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Execute one preparation and three immutable-state replays
+        run: bash tools/run_epw_same_state_attribution_ci.sh
+
+      - name: Upload complete same-state evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r02-epw-same-state-evidence
+          path: r02-epw-same-state-evidence
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
