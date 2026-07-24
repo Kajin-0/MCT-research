@@ -62,8 +62,8 @@ def main() -> None:
             "composition_group_count": len(groups),
             "composition_row_counts": dict(sorted(composition_counts.items())),
             "distinct_gap_values_by_x": dict(sorted(distinct_gaps.items())),
-            "carrier_density_min_cm3": min(row["carrier_density_cm3"] for row in table),
-            "carrier_density_max_cm3": max(row["carrier_density_cm3"] for row in table),
+            "carrier_density_min_cm3": int(min(d(row["carrier_density_cm3"]) for row in table)),
+            "carrier_density_max_cm3": int(max(d(row["carrier_density_cm3"]) for row in table)),
             "gap_provenance_values": sorted({row["gap_provenance"] for row in table}),
         },
         "relations": {
