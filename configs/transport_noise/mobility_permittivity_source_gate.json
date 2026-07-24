@@ -1,0 +1,64 @@
+{
+  "program": "R06",
+  "phase": "1C",
+  "gate": "mobility_permittivity_source_audit",
+  "date": "2026-07-24",
+  "status": "benchmark_use_authorized_predictive_closure_blocked",
+  "electron_mobility": {
+    "accepted_primary_anchor": "WILEY_DEXTER1969",
+    "anchor_type": "specimen_conditioned_measurement",
+    "composition_range": [0.135, 0.203],
+    "primary_temperature_K": 77.0,
+    "additional_temperature_K": 1.3,
+    "carrier_density_m3_approx": [8.0e20, 2.0e22],
+    "repository_mobility_range_m2_per_Vs_approx": [18.0, 64.0],
+    "global_composition_only_law_authorized": false,
+    "global_temperature_power_law_authorized": false,
+    "scott_1972_status": "abstract_and_model_form_verified_primary_tables_pending"
+  },
+  "hole_mobility": {
+    "status": "unresolved_no_universal_relation",
+    "primary_method_source": "ELLIOTT_ET_AL1972",
+    "primary_table_transcribed": false,
+    "tier_b_model_benchmark_cm2_per_Vs": 500.0,
+    "benchmark_source": "SMITH1984_MOBILITY_BENCHMARK",
+    "benchmark_is_universal_material_constant": false,
+    "preferred_interim_control": "dimensionless_mobility_ratio_sensitivity"
+  },
+  "static_permittivity": {
+    "primary_phonon_source": "BAARS_SORGER1972",
+    "primary_source_scope": {
+      "composition_range": [0.0, 0.54],
+      "temperatures_K": [77.0, 300.0],
+      "spectral_range_cm_inverse": [25.0, 1000.0]
+    },
+    "nominal_benchmark": "20.5 - 15.6*x + 5.7*x^2",
+    "upper_provenance_benchmark": "20.5 - 15.5*x + 5.7*x^2",
+    "bracket_interpretation": "coefficient_lineage_sensitivity_only",
+    "physical_uncertainty_claim_authorized": false,
+    "predictive_material_closure_authorized": false,
+    "required_electrostatic_quantity": "static_permittivity_epsilon_s"
+  },
+  "authorized_uses": [
+    "dimensionless_transport_sensitivity",
+    "specimen_conditioned_electron_mobility_anchors",
+    "tier_b_hole_mobility_model_benchmark",
+    "mobility_ratio_sensitivity",
+    "static_permittivity_provenance_bracket",
+    "poisson_and_screening_architecture_tests"
+  ],
+  "unauthorized_uses": [
+    "universal_hgcdte_electron_mobility_law",
+    "universal_hgcdte_hole_mobility_law",
+    "predictive_detector_performance",
+    "physical_uncertainty_from_two_permittivity_polynomials",
+    "composition_only_interpolation_of_wiley_dexter_measurements"
+  ],
+  "remaining_actions": [
+    "transcribe_scott_1972_tables_and_equations",
+    "transcribe_elliott_1972_table_i_with_population_labels",
+    "recover_brice_capper_permittivity_pages_and_primary_lineage",
+    "recover_baars_sorger_oscillator_data",
+    "construct_material_uncertainty_only_from_source_scatter_or_covariance"
+  ]
+}
