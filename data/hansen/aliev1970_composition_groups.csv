@@ -1,0 +1,6 @@
+group_id,source_id,composition_x,table1_row_count,specimen_count_status,carrier_type,material_form,preparation,composition_method,carrier_density_min_cm3,carrier_density_max_cm3,temperature_k,source_location,notes
+AL70_X005,ALIEV1970_HSC_R12,0.05,1,limited,n-type,polycrystalline,"melting of initial components",not_reported,2.0e17,2.0e17,300,"K41-K42; Table 1","No source-native specimen identifier or composition uncertainty"
+AL70_X010,ALIEV1970_HSC_R12,0.10,7,multiple,n-type,polycrystalline,"melting of initial components",not_reported,6.0e16,6.4e17,300,"K41-K42; Table 1","Seven carrier-density states; physical specimen linkage is not stated"
+AL70_X014,ALIEV1970_HSC_R12,0.14,1,not_stated,n-type,polycrystalline,"melting of initial components",not_reported,1.0e17,1.0e17,300,"K42; Table 1","No source-native specimen identifier or composition uncertainty"
+AL70_X015,ALIEV1970_HSC_R12,0.15,1,limited,n-type,polycrystalline,"melting of initial components",not_reported,1.0e17,1.0e17,300,"K41-K42; Table 1","No source-native specimen identifier or composition uncertainty"
+AL70_X020,ALIEV1970_HSC_R12,0.20,1,limited,n-type,polycrystalline,"melting of initial components",not_reported,1.0e17,1.0e17,300,"K41-K42; Table 1","No source-native specimen identifier or composition uncertainty"
