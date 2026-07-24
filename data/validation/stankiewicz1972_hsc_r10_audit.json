@@ -1,0 +1,198 @@
+{
+  "decision": {
+    "controlling_decision": "primary_source_recovered_table1_and_equation4_reconstructed_hansen_marker_mapping_unresolved",
+    "direct_hansen_validation_authorized": false,
+    "equation4_reconstructed": true,
+    "hansen_exact_ingestion_mapping_resolved": false,
+    "measurement_class_corrected": true,
+    "primary_source_recovered": true,
+    "table1_parameters_reconstructed": true
+  },
+  "hansen_descriptive_comparison": {
+    "independent_validation": false,
+    "same_x_temperature_comparisons": [
+      {
+        "composition_x": 0.07,
+        "hansen_gap_280k_ev": -0.041755624,
+        "hansen_gap_77k_ev": -0.135155924,
+        "hansen_minus_source_280k_ev": -0.006755624,
+        "hansen_minus_source_77k_ev": -0.013155924,
+        "source_eq4_gap_280k_ev": -0.04288,
+        "source_eq4_gap_77k_ev": -0.1345345,
+        "source_table_gap_280k_ev": -0.035,
+        "source_table_gap_77k_ev": -0.122
+      },
+      {
+        "composition_x": 0.095,
+        "hansen_gap_280k_ev": -0.003908914,
+        "hansen_gap_77k_ev": -0.091878964,
+        "hansen_minus_source_280k_ev": 0.004091086,
+        "hansen_minus_source_77k_ev": 0.004121036,
+        "source_eq4_gap_280k_ev": -0.00248,
+        "source_eq4_gap_77k_ev": -0.08880575,
+        "source_table_gap_280k_ev": -0.008,
+        "source_table_gap_77k_ev": -0.096
+      },
+      {
+        "composition_x": 0.13,
+        "hansen_gap_280k_ev": 0.047890904,
+        "hansen_gap_77k_ev": -0.032476796,
+        "hansen_minus_source_280k_ev": -0.001109096,
+        "hansen_minus_source_77k_ev": 0.002523204,
+        "source_eq4_gap_280k_ev": 0.05408,
+        "source_eq4_gap_77k_ev": -0.0247855,
+        "source_table_gap_280k_ev": 0.049,
+        "source_table_gap_77k_ev": -0.035
+      },
+      {
+        "composition_x": 0.18,
+        "hansen_gap_280k_ev": 0.119880224,
+        "hansen_gap_77k_ev": 0.050373024,
+        "hansen_minus_source_280k_ev": 0.002880224,
+        "hansen_minus_source_77k_ev": 0.008373024,
+        "source_eq4_gap_280k_ev": 0.13488,
+        "source_eq4_gap_77k_ev": 0.066672,
+        "source_table_gap_280k_ev": 0.117,
+        "source_table_gap_77k_ev": 0.042
+      }
+    ]
+  },
+  "hansen_ingestion": {
+    "candidate_count": 9,
+    "equation_family_candidate_present": true,
+    "exact_ingestion_mapping_resolved": false,
+    "per_marker_source_labels_available": false,
+    "reason": "Stankiewicz and Giriat provide eight exact Table 1 gap values and Equation 4, but Hansen does not expose source-labeled HSC_R10 markers or identify whether table values, relation-generated values, figure markers, or another transcription were ingested.",
+    "tabulated_gap_candidate_count": 8
+  },
+  "measurement_identity": {
+    "direct_observations": [
+      "hall_coefficient_vs_temperature",
+      "hall_coefficient_vs_hydrostatic_pressure_at_fixed_temperature"
+    ],
+    "direct_optical_edge": false,
+    "gap_values_are_model_conditioned": true,
+    "magnetic_field_oe": 300.0,
+    "pressure_max_atm": 10000.0,
+    "primary_gap_observable": "signed zero-pressure gap E0 inferred by fitting Hall-coefficient data with a simplified Kane/Groves-Paul carrier model",
+    "primary_measurement_class": "hydrostatic_pressure_hall_transport_with_kane_model_inversion",
+    "temperature_range_k": [
+      77.0,
+      295.0
+    ]
+  },
+  "sample_provenance": {
+    "composition_half_width_x": 0.005,
+    "composition_method": "density_measurements",
+    "compositions_x": [
+      0.07,
+      0.095,
+      0.13,
+      0.18
+    ],
+    "homogeneity_checks": "Hall coefficient measured along sample; electron microprobe analysis",
+    "intrinsic_assumption": true,
+    "preparation_method": "modified_vertical_melted_zone",
+    "source_native_specimen_identifiers_reported": false,
+    "source_reports_hole_influence": true
+  },
+  "schema_version": "1.0",
+  "source_equation4": {
+    "domain_x": [
+      0.0,
+      0.2
+    ],
+    "intercept_ev": -0.303,
+    "linear_x_coefficient_ev": 1.91,
+    "relation": "E0(x,T)=-0.303+1.91x+5.25e-4(1-2x)T eV",
+    "source_caveat": "Source states x=0.18 disagrees with the relation and notes model/sample inadequacies",
+    "temperature_prefactor_ev_per_k": 0.000525
+  },
+  "source_id": "STANKIEWICZ1972_HSC_R10",
+  "source_model_assumptions": {
+    "fixed_quantities_pressure_independent": true,
+    "fixed_quantities_temperature_independent": true,
+    "hole_effective_mass_ratio": 0.55,
+    "hole_statistics": "Boltzmann",
+    "inverted_band_extension": "Eg_to_abs_E0",
+    "kane_matrix_element_ep_ev": 18.0,
+    "model_error_beyond_measurement_error_acknowledged": true,
+    "overlap_energy_ev": 0.0
+  },
+  "source_pdf_sha256": "d48d5312fbd3de5e90a95eab695c7cf1e0b86a9e528f7c1035978abc4993245e",
+  "source_scope": {
+    "article_pages": [
+      387,
+      393
+    ],
+    "composition_defined_specimen_records": 4,
+    "copyrighted_source_committed": false,
+    "figure_digitization_performed": false,
+    "physical_specimen_count": 4,
+    "pointwise_covariance_reported": false,
+    "table1_gap_value_count": 8,
+    "table1_specimen_rows": 4
+  },
+  "table1": [
+    {
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.07,
+      "endpoint_implied_slope_ev_per_k": 0.000428571429,
+      "endpoint_minus_fitted_slope_ev_per_k": -1.1428571e-05,
+      "gap_280k_ev": -0.035,
+      "gap_280k_half_width_ev": 0.006,
+      "gap_77k_ev": -0.122,
+      "gap_77k_half_width_ev": 0.006,
+      "pressure_coefficient_ev_per_atm": 9.5e-06,
+      "pressure_coefficient_half_width_ev_per_atm": 5e-07,
+      "record_id": "SG72_T1_X007",
+      "temperature_coefficient_ev_per_k": 0.00044,
+      "temperature_coefficient_half_width_ev_per_k": 5e-05
+    },
+    {
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.095,
+      "endpoint_implied_slope_ev_per_k": 0.000433497537,
+      "endpoint_minus_fitted_slope_ev_per_k": 3.497537e-06,
+      "gap_280k_ev": -0.008,
+      "gap_280k_half_width_ev": 0.006,
+      "gap_77k_ev": -0.096,
+      "gap_77k_half_width_ev": 0.006,
+      "pressure_coefficient_ev_per_atm": 1.05e-05,
+      "pressure_coefficient_half_width_ev_per_atm": 5e-07,
+      "record_id": "SG72_T1_X0095",
+      "temperature_coefficient_ev_per_k": 0.00043,
+      "temperature_coefficient_half_width_ev_per_k": 5e-05
+    },
+    {
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.13,
+      "endpoint_implied_slope_ev_per_k": 0.000413793103,
+      "endpoint_minus_fitted_slope_ev_per_k": 1.3793103e-05,
+      "gap_280k_ev": 0.049,
+      "gap_280k_half_width_ev": 0.006,
+      "gap_77k_ev": -0.035,
+      "gap_77k_half_width_ev": 0.006,
+      "pressure_coefficient_ev_per_atm": 9.6e-06,
+      "pressure_coefficient_half_width_ev_per_atm": 5e-07,
+      "record_id": "SG72_T1_X013",
+      "temperature_coefficient_ev_per_k": 0.0004,
+      "temperature_coefficient_half_width_ev_per_k": 5e-05
+    },
+    {
+      "composition_half_width_x": 0.005,
+      "composition_x": 0.18,
+      "endpoint_implied_slope_ev_per_k": 0.000369458128,
+      "endpoint_minus_fitted_slope_ev_per_k": -1.0541872e-05,
+      "gap_280k_ev": 0.117,
+      "gap_280k_half_width_ev": 0.006,
+      "gap_77k_ev": 0.042,
+      "gap_77k_half_width_ev": 0.006,
+      "pressure_coefficient_ev_per_atm": 8.5e-06,
+      "pressure_coefficient_half_width_ev_per_atm": 5e-07,
+      "record_id": "SG72_T1_X018",
+      "temperature_coefficient_ev_per_k": 0.00038,
+      "temperature_coefficient_half_width_ev_per_k": 5e-05
+    }
+  ]
+}
