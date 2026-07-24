@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "program": "R06",
+  "phase": "1C",
+  "purpose": "Dimensionless structural uncertainty ensemble for constant-kappa trap-reduction error",
+  "material_validity_claim": false,
+  "reference_state": "Each scenario uses its own declared equilibrium electron and hole densities",
+  "relative_error_definition": "abs(kappa_reference / kappa_effective - 1)",
+  "scenarios": [
+    {
+      "name": "balanced",
+      "trap_density": 0.12,
+      "electron_capture_coefficient": 0.45,
+      "hole_capture_coefficient": 0.45,
+      "equilibrium_electron_density": 1.0,
+      "equilibrium_hole_density": 1.0,
+      "equilibrium_occupancy": 0.5
+    },
+    {
+      "name": "electron_fast",
+      "trap_density": 0.12,
+      "electron_capture_coefficient": 0.9,
+      "hole_capture_coefficient": 0.25,
+      "equilibrium_electron_density": 1.0,
+      "equilibrium_hole_density": 1.0,
+      "equilibrium_occupancy": 0.35
+    },
+    {
+      "name": "hole_fast",
+      "trap_density": 0.12,
+      "electron_capture_coefficient": 0.25,
+      "hole_capture_coefficient": 0.9,
+      "equilibrium_electron_density": 1.0,
+      "equilibrium_hole_density": 1.0,
+      "equilibrium_occupancy": 0.65
+    },
+    {
+      "name": "shifted_equilibrium",
+      "trap_density": 0.12,
+      "electron_capture_coefficient": 0.65,
+      "hole_capture_coefficient": 0.35,
+      "equilibrium_electron_density": 1.3,
+      "equilibrium_hole_density": 0.75,
+      "equilibrium_occupancy": 0.42
+    }
+  ],
+  "reference_results": [
+    {
+      "tolerance": 0.05,
+      "conservative_log_radius": 0.09531017980432493,
+      "minimum_density_factor": 0.9090909090909091,
+      "maximum_density_factor": 1.1,
+      "controlling_scenario": "balanced"
+    },
+    {
+      "tolerance": 0.1,
+      "conservative_log_radius": 0.1823215567939546,
+      "minimum_density_factor": 0.8333333333333334,
+      "maximum_density_factor": 1.2,
+      "controlling_scenario": "balanced"
+    },
+    {
+      "tolerance": 0.2,
+      "conservative_log_radius": 0.336472236621213,
+      "minimum_density_factor": 0.7142857142857142,
+      "maximum_density_factor": 1.4000000000000001,
+      "controlling_scenario": "balanced"
+    }
+  ]
+}
