@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "phase": "Phase 1C",
+  "controlling_issue": 346,
+  "audit_date": "2026-07-24",
+  "decision": "STATIC_PERMITTIVITY_BENCHMARK_BRACKET_ACCEPTED_PRIMARY_ALLOY_FIT_LINEAGE_UNRESOLVED",
+  "source_exact_static_permittivity_relation_authorized": false,
+  "benchmark_static_permittivity_bracket_authorized": true,
+  "predictive_material_permittivity_closure_authorized": false,
+  "definitions": {
+    "epsilon_s": "low-frequency relative permittivity including lattice polarization; intended for Poisson and electrostatic screening",
+    "epsilon_infinity": "high-frequency relative permittivity above optical-phonon response and below electronic absorption; not interchangeable with epsilon_s",
+    "oxide_permittivity": "permittivity of a passivation or native oxide; excluded from the bulk HgCdTe electrostatic parameter"
+  },
+  "source_lineage": [
+    {
+      "source_id": "BAARS_SORGER1972",
+      "title": "Reststrahlen spectra of HgTe and CdxHg1-xTe",
+      "authors": ["J. Baars", "F. Sorger"],
+      "venue": "Solid State Communications 10, 875-878",
+      "year": 1972,
+      "doi": "10.1016/0038-1098(72)90211-6",
+      "source_role": "primary 77 K and 300 K reststrahlen spectra and phonon-mode evidence",
+      "composition_range": [0.0, 0.54],
+      "temperatures_K": [77.0, 300.0],
+      "direct_alloy_polynomial_reported": false,
+      "accepted_use": "primary endpoint and alloy phonon evidence; Lyddane-Sachs-Teller consistency checks",
+      "prohibited_use": "claiming that the later composition polynomial was printed by this paper"
+    },
+    {
+      "source_id": "BRICE_CAPPER1987",
+      "title": "Properties of Mercury Cadmium Telluride",
+      "editors": ["J. Brice", "P. Capper"],
+      "venue": "EMIS Datareviews Series No. 3, INSPEC, London",
+      "year": 1987,
+      "source_role": "authoritative compiled-data lineage cited by Tong and Ravindra for composition-dependent low- and high-frequency dielectric data",
+      "equation_quality_copy_recovered": false,
+      "accepted_use": "lineage source for the common benchmark polynomial family",
+      "prohibited_use": "source-exact coefficient claim until the relevant data-review page is inspected"
+    },
+    {
+      "source_id": "TONG_RAVINDRA1993",
+      "title": "Optical properties of Hg1-xCdxTe",
+      "authors": ["Fei-Ming Tong", "N. M. Ravindra"],
+      "venue": "Infrared Physics 34, 207-212",
+      "year": 1993,
+      "doi": "10.1016/0020-0891(93)90010-5",
+      "source_role": "secondary review connecting Fig. 2 dielectric composition data to Brice-Capper and checking HgTe/CdTe LST ratios against Baars-Sorger",
+      "reported_temperature_treatment": "composition curves described as average values for 77 K and 300 K",
+      "accepted_use": "traceability and separation of epsilon_s from epsilon_infinity",
+      "prohibited_use": "treating review curves as independent primary measurements"
+    }
+  ],
+  "static_candidate_family": {
+    "variant_15_5": "epsilon_s=20.5-15.5*x+5.7*x^2",
+    "variant_15_6": "epsilon_s=20.5-15.6*x+5.7*x^2",
+    "nominal_midpoint": "epsilon_s_nominal=20.5-15.55*x+5.7*x^2",
+    "bracket_half_width": "delta_epsilon_s=0.05*x",
+    "coefficient_difference_interpretation": "transcription-and-lineage bracket only; not a physical uncertainty estimate",
+    "benchmark_domain": {
+      "composition": [0.0, 0.54],
+      "temperature_K": [77.0, 300.0],
+      "domain_reason": "limited to the primary Baars-Sorger alloy and temperature coverage"
+    },
+    "reference_values": [
+      {"x":0.17,"lower":18.01273,"nominal":18.02123,"upper":18.02973},
+      {"x":0.20,"lower":17.608,"nominal":17.618,"upper":17.628},
+      {"x":0.21,"lower":17.47537,"nominal":17.48587,"upper":17.49637},
+      {"x":0.30,"lower":16.333,"nominal":16.348,"upper":16.363},
+      {"x":0.54,"lower":13.73812,"nominal":13.76512,"upper":13.79212}
+    ]
+  },
+  "high_frequency_lineage_warning": {
+    "commonly_reported_relation": "epsilon_infinity=15.2-15.6*x+8.2*x^2",
+    "known_secondary_typographical_variant": "epsilon_infinity=15.2-5.6*x+8.2*x^2",
+    "decision": "do not use the 5.6 coefficient; retain epsilon_infinity outside the electrostatic closure until its source page is inspected"
+  },
+  "temperature_decision": {
+    "temperature_independence_authorized": false,
+    "reason": "later sources state that temperature dependence was not resolved, but no primary uncertainty bound or equation-quality source has been recovered",
+    "benchmark_treatment": "one bracket may be used at 77 K and 300 K only, with no extrapolated temperature law"
+  },
+  "required_before_material_closure": [
+    "inspect the relevant Brice-Capper 1987 data-review pages and references",
+    "recover primary static-permittivity or reststrahlen-derived values with composition and temperature metadata",
+    "resolve the 15.5 versus 15.6 static coefficient at the source page",
+    "establish physical uncertainty beyond the transcription bracket",
+    "verify temperature dependence or justify a bounded temperature-independent approximation",
+    "connect the accepted epsilon_s uncertainty to screening and Poisson sensitivity"
+  ]
+}
