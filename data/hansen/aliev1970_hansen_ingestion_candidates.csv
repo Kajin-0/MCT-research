@@ -1,0 +1,7 @@
+candidate_id,source_id,candidate_basis,composition_x,temperature_k,gap_eV,gap_sign,candidate_status,independent_gap_observation,reason
+AL70_EQ3_X005,ALIEV1970_HSC_R12,Table_1_gap_from_Equation_3,0.05,300,-0.07,negative,equation_generated_candidate_not_hansen_assignment,false,"Rounded evaluation of adopted Wiley-Dexter relation; not an independent Aliev gap measurement"
+AL70_EQ3_X010,ALIEV1970_HSC_R12,Table_1_gap_from_Equation_3,0.10,300,0.01,positive,equation_generated_candidate_not_hansen_assignment,false,"Repeated across seven carrier-density rows but represents one adopted composition-temperature gap input"
+AL70_EQ3_X014,ALIEV1970_HSC_R12,Table_1_gap_from_Equation_3,0.14,300,0.07,positive,equation_generated_candidate_not_hansen_assignment,false,"Rounded evaluation of adopted Wiley-Dexter relation"
+AL70_EQ3_X015,ALIEV1970_HSC_R12,Table_1_gap_from_Equation_3,0.15,300,0.09,positive,equation_generated_candidate_not_hansen_assignment,false,"Rounded evaluation of adopted Wiley-Dexter relation"
+AL70_EQ3_X020,ALIEV1970_HSC_R12,Table_1_gap_from_Equation_3,0.20,300,0.17,positive,equation_generated_candidate_not_hansen_assignment,false,"Rounded evaluation of adopted Wiley-Dexter relation"
+AL70_FIG1_X010,ALIEV1970_HSC_R12,Figure_1_intercept_qualitative_statement,0.10,300,,near_zero,qualitative_model_assisted_candidate_not_numeric_assignment,false,"Text states epsilon_g and band-edge mass are nearly zero; no independent numerical fit result or uncertainty is printed"
