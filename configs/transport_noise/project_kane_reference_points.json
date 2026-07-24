@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "model_identity": "project_defined_isotropic_simplified_kane",
+  "scope": "dimensionless numerical regression only",
+  "dispersion": "E*(1+alpha*E)=hbar^2*k^2/(2*m_star)",
+  "normalization": {
+    "density": "I_n=(2/sqrt(pi))*integral_0^inf sqrt(epsilon*(1+beta*epsilon))*(1+2*beta*epsilon)*f(epsilon;eta) d epsilon",
+    "compressibility": "I_chi=dI_n/deta",
+    "beta": "alpha*k_B*T"
+  },
+  "generation_method": "independent high-precision adaptive quadrature of the dimensionless energy integrals",
+  "reference_points": [
+    {
+      "eta": -2.0,
+      "beta": 0.05,
+      "normalized_density": 0.15515440888419198,
+      "normalized_compressibility": 0.14895647412701695,
+      "generalized_einstein_factor": 1.0416090323935164
+    },
+    {
+      "eta": 0.0,
+      "beta": 0.2,
+      "normalized_density": 1.5233967244410159,
+      "normalized_compressibility": 1.2792418538723877,
+      "generalized_einstein_factor": 1.1908590387576423
+    },
+    {
+      "eta": 3.0,
+      "beta": 0.5,
+      "normalized_density": 25.979415767843828,
+      "normalized_compressibility": 14.960757653745672,
+      "generalized_einstein_factor": 1.7365040173175623
+    }
+  ],
+  "scientific_boundary": {
+    "hgcdte_parameters": false,
+    "historic_madarasz_lowney_reproduction": false,
+    "material_validation": false,
+    "predictive_use": false
+  }
+}
