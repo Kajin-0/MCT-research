@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "scope": "dimensionless bipolar finite-contact verification",
+  "controls": {
+    "electron_left_biot": [0.0, 0.01, 0.1, 1.0, 10.0, 1000.0],
+    "electron_right_biot": [0.0, 0.01, 0.1, 1.0, 10.0, 1000.0],
+    "hole_left_biot": [0.0, 0.01, 0.1, 1.0, 10.0, 1000.0],
+    "hole_right_biot": [0.0, 0.01, 0.1, 1.0, 10.0, 1000.0]
+  },
+  "reference_case": {
+    "length": 1.0,
+    "intervals": 12,
+    "screening_strength": 0.0,
+    "fixed_charge_density": 0.0,
+    "electron_diffusion_ratio": 1.3,
+    "hole_diffusion_ratio": 0.7,
+    "electron_left_equilibrium_density": 1.0,
+    "electron_right_equilibrium_density": 1.4,
+    "hole_left_equilibrium_density": 1.5,
+    "hole_right_equilibrium_density": 0.8,
+    "electron_left_biot": 0.8,
+    "electron_right_biot": 5.0,
+    "hole_left_biot": 2.0,
+    "hole_right_biot": 0.6
+  },
+  "selective_contact_cases": [
+    "electron_blocking_hole_finite",
+    "hole_blocking_electron_finite",
+    "electron_fast_hole_contact_limited",
+    "hole_fast_electron_contact_limited",
+    "both_carriers_fast",
+    "both_carriers_blocking"
+  ],
+  "interpretation": {
+    "material_parameter_range": false,
+    "physical_uncertainty_distribution": false,
+    "predictive_contact_model": false,
+    "notes": "The Biot controls organize structural reduction tests only."
+  }
+}
