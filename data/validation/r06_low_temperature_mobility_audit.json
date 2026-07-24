@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "phase": "Phase 1C",
+  "controlling_issue": 346,
+  "audit_date": "2026-07-24",
+  "decision": "SPECIMEN_CONDITIONED_ELECTRON_ANCHORS_ACCEPTED_UNIVERSAL_MOBILITY_CLOSURE_BLOCKED",
+  "universal_electron_mobility_relation_authorized": false,
+  "universal_hole_mobility_relation_authorized": false,
+  "predictive_material_mobility_closure_authorized": false,
+  "provenance_tiers": {
+    "A": "direct mobility measurement with composition, temperature, density and method retained",
+    "B": "model-paper benchmark input with explicit device context",
+    "C": "theoretical mobility calculation requiring its own scattering and compensation inputs"
+  },
+  "direct_electron_measurements": {
+    "source_id": "WILEY_DEXTER1969",
+    "title": "Helicons and nonresonant cyclotron absorption in semiconductors. II. Hg1-xCdxTe",
+    "temperature_K": 77.0,
+    "method": ["helicon transmission", "nonresonant cyclotron absorption"],
+    "samples": [
+      {"sample":"A","x":0.135,"density_m3":1.7e22,"mu_K_m2_Vs":38.0,"mu_K_uncertainty":2.0,"mu_V_m2_Vs":36.0,"mu_V_uncertainty":3.0},
+      {"sample":"E","x":0.144,"density_m3":7.9e21,"mu_K_m2_Vs":56.0,"mu_K_uncertainty":3.0,"mu_V_m2_Vs":61.0,"mu_V_uncertainty":4.0},
+      {"sample":"I","x":0.149,"density_m3":6.8e21,"mu_K_m2_Vs":64.0,"mu_K_uncertainty":4.0,"mu_V_m2_Vs":58.0,"mu_V_uncertainty":5.0},
+      {"sample":"B","x":0.150,"density_m3":2.3e22,"mu_K_m2_Vs":38.0,"mu_K_uncertainty":3.0,"mu_V_m2_Vs":31.0,"mu_V_uncertainty":3.0},
+      {"sample":"7","x":0.188,"density_m3":1.4e21,"mu_K_m2_Vs":24.0,"mu_K_uncertainty":1.0,"mu_V_m2_Vs":23.0,"mu_V_uncertainty":1.0},
+      {"sample":"J4","x":0.193,"density_m3":3.4e21,"mu_K_m2_Vs":28.0,"mu_K_uncertainty":2.0,"mu_V_m2_Vs":26.0,"mu_V_uncertainty":2.0},
+      {"sample":"X","x":0.203,"density_m3":9.0e20,"mu_K_m2_Vs":19.0,"mu_K_uncertainty":1.0,"mu_V_m2_Vs":18.0,"mu_V_uncertainty":2.0}
+    ],
+    "accepted_use": "measured 77 K electron-mobility anchors retaining specimen density and method",
+    "prohibited_use": "interpolating a universal composition-only mobility law"
+  },
+  "p_type_variable_field_source": {
+    "source_id": "ELLIOTT_ET_AL1972",
+    "composition_range": [0.138, 0.149],
+    "temperatures_K": [4.2, 77.0],
+    "pressure_range_kbar": [0.0, 9.0],
+    "method": ["variable-field Hall", "magnetoresistance"],
+    "finding": "electron and hole extraction is strongly regime dependent; high electron-to-hole mobility ratio, impurity-band conduction and multiple hole populations complicate interpretation",
+    "numeric_table_transcribed": false,
+    "accepted_use": "methodological and uncertainty evidence",
+    "prohibited_use": "a detector-grade hole-mobility constant"
+  },
+  "model_conditioned_benchmark": {
+    "source_ids": ["SMITH1984", "IVERSON_SMITH1985"],
+    "composition": 0.20,
+    "temperature_K": 77.0,
+    "electron_mobility_cm2_Vs": 200000.0,
+    "hole_mobility_cm2_Vs": 500.0,
+    "mobility_ratio": 400.0,
+    "status": "cross-checked model input, not direct universal material measurement",
+    "accepted_use": "dimensionless detector benchmark and sensitivity center",
+    "prohibited_use": "predictive material closure without specimen evidence"
+  },
+  "theoretical_source_correction": {
+    "source_id": "YOO_KWACK1997",
+    "title": "Theoretical calculation of electron mobility in HgCdTe",
+    "authors": ["Sang-Dong Yoo", "Kae Dal Kwack"],
+    "year": 1997,
+    "venue": "Journal of Applied Physics 81, 719-725",
+    "doi": "10.1063/1.364212",
+    "mechanisms": ["ionized impurity", "electron-hole", "alloy", "polar optical phonon"],
+    "band_effects": ["nonparabolicity", "wave-function admixture", "velocity degradation", "degeneracy"],
+    "accepted_use": "future theory comparison after equation-level audit",
+    "not_a_measurement_relation": true
+  },
+  "required_before_material_closure": [
+    "source-exact Scott relation and specimen domain",
+    "equation-level Yoo-Kwack implementation audit",
+    "primary 77 K hole-mobility measurements for detector-relevant compositions",
+    "explicit dependence on carrier density, compensation and processing",
+    "uncertainty ensemble preserving source correlations",
+    "comparison against project Hall data when available"
+  ]
+}
