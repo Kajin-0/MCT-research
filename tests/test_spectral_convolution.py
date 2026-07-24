@@ -31,10 +31,8 @@ def test_public_spectral_operator_exports() -> None:
     assert callable(fit_exponential_absorption_tail)
 
 
-def test_herrmann_source_scale_conversion() -> None:
-    assert herrmann_gap_sigma_ev(0.008) == pytest.approx(
-        math.sqrt(2.0) * 0.008
-    )
+def test_herrmann_source_scale_is_standard_deviation() -> None:
+    assert herrmann_gap_sigma_ev(0.008) == pytest.approx(0.008)
     assert herrmann_gap_sigma_ev(0.0) == 0.0
     with pytest.raises(ValueError, match="non-negative"):
         herrmann_gap_sigma_ev(-0.001)
@@ -138,7 +136,7 @@ def test_normalization_at_mean_gap() -> None:
     assert absorption[0] < absorption[1] < absorption[2]
 
 
-def test_herrmann_square_root_reproduction_gives_half_s_tail() -> None:
+def test_controlled_square_root_does_not_reproduce_source_half_s_mapping() -> None:
     source_s = 0.008
     sigma_gap = herrmann_gap_sigma_ev(source_s)
     mean_gap = 0.100
@@ -158,7 +156,10 @@ def test_herrmann_square_root_reproduction_gives_half_s_tail() -> None:
         maximum_energy_ev=mean_gap,
     )
 
-    assert fit.tail_energy_ev / source_s == pytest.approx(0.50504, rel=2.0e-4)
+    ratio = fit.tail_energy_ev / source_s
+    assert ratio == pytest.approx(0.3571183113580042, rel=2.0e-4)
+    assert ratio < 0.38
+    assert abs(ratio - 0.5) > 0.1
     assert fit.r_squared > 0.995
     assert fit.point_count > 100
 

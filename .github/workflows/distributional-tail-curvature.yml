@@ -1,0 +1,66 @@
+name: distributional-tail-curvature
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package
+        run: python -m pip install -e '.[test]'
+      - name: Run focused tests
+        run: |
+          python -m pytest -q \
+            tests/test_spectral_convolution.py \
+            tests/test_tail_curvature.py
+      - name: Validate immutable analytical record
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/validation/gaussian_tail_curvature.json')
+          record = json.loads(path.read_text(encoding='utf-8'))
+          assert record['schema_version'] == '1.1'
+          assert record['portfolio_contribution'] == 'R03'
+          assert record['issue'] == 225
+          assert record['status'].endswith('not_material_validation')
+          reference = record['gaussian_square_root_reference']
+          assert reference['exponent'] == 0.5
+          assert len(reference['points']) == 5
+          energies = [item['local_tail_energy'] for item in reference['points']]
+          assert energies == sorted(energies)
+          curvatures = [item['log_curvature'] for item in reference['points']]
+          assert max(curvatures) < 0.0
+          assert abs(reference['deep_tail_curvature_at_z_minus_8'] + 1.0) < 0.025
+          assert reference['true_exponential_curvature'] == 0.0
+          fit_reference = record['prior_fit_window_reference']
+          assert fit_reference['source_convention'] == 'Herrmann 1992 Eq. 8 prints sigma_G=s'
+          assert not fit_reference['source_reported_half_s_mapping_reproduced_by_controlled_power_edge']
+          assert abs(fit_reference['relative_increase'] - 0.6012644844884394) < 1e-12
+          boundaries = record['claim_boundaries']
+          assert any('established mathematics' in item for item in boundaries)
+          assert any('not evidence' in item for item in boundaries)
+          prior_art = record['prior_art_boundary']
+          assert any('Herrmann 1992' in item for item in prior_art)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: distributional-tail-curvature
+          path: |
+            data/validation/gaussian_tail_curvature.json
+            docs/derivations/016_finite_window_gaussian_tail.md
+            literature/notes/hgcdte_absorption_tail_prior_art_matrix_1992_2007.md
+          if-no-files-found: error
+          retention-days: 30

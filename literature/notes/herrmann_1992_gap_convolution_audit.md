@@ -2,31 +2,33 @@
 
 ## Source
 
-K. H. Herrmann, K.-P. Moellmann, and J. W. Tomm, “Broadening mechanisms near the E0 transition in narrow-gap Hg1-xCdxTe (0.2 < x < 0.6),” *Journal of Crystal Growth* **117**, 758-762 (1992).
+K. H. Herrmann, K.-P. Moellmann, and J. W. Tomm, “Broadening mechanisms near the E0 transition in narrow-gap Hg1-xCdxTe (0.2 < x < 0.6),” *Journal of Crystal Growth* **117**, 758-762 (1992), DOI `10.1016/0022-0248(92)90851-9`.
 
-## Scope of this audit
+## Scope
 
-This note isolates the claim used by the distributional band-edge program:
+This note isolates the source claims relevant to the distributional band-edge program:
 
-> A Gaussian-like distribution of local energy gaps, convolved with an intrinsic near-edge absorption model, can produce a nearly exponential apparent tail over experimentally relevant absorption coefficients.
+1. a Gaussian-like distribution of local energy gaps can produce a nearly exponential apparent absorption tail over a finite absorption window;
+2. the authors report an approximate relation between the apparent Urbach broadening and their Gaussian width parameter;
+3. the paper does not derive the logarithmic curvature or the deep-tail asymptotic of that convolution.
 
-It does not treat the paper as establishing a unique microscopic origin for every HgCdTe Urbach tail.
+The paper does not establish a unique microscopic origin for every HgCdTe Urbach tail.
 
 ## Source-defined absorption regions
 
 ### Exponential tail
 
-Herrmann et al. write the below-edge empirical law as their Eq. (1):
+Herrmann et al. describe the empirical below-edge law by their Eq. (1),
 
 $$
 \alpha(E)=\alpha_0\exp\left(\frac{E-E_{00}}{E_0}\right).
 $$
 
-The paper reports that photocurrent spectroscopy can verify this behavior over more than three decades and discusses absorption coefficients as low as approximately `0.1 cm^-1` in high-quality specimens.
+They report that photocurrent spectroscopy verifies exponential behavior over more than three decades and reaches absorption coefficients as low as approximately `0.1 cm^-1` for high-quality specimens.
 
 ### Intrinsic region
 
-Above the gap the paper uses the Anderson narrow-gap interband expressions reproduced as Eqs. (2)-(6), including light-hole and heavy-hole contributions and nonequilibrium band-filling factors.
+Above the gap, the paper uses the Anderson narrow-gap interband expressions reproduced as Eqs. (2)-(6), with light-hole and heavy-hole contributions and nonequilibrium band-filling factors.
 
 The complete source-native intrinsic branch depends on:
 
@@ -36,44 +38,57 @@ The complete source-native intrinsic branch depends on:
 - band-filling factors;
 - temperature;
 - high-frequency dielectric response;
-- Anderson 1977/1980 conventions external to the 1992 paper.
+- Anderson 1977/1980 conventions external to this paper.
 
-The full branch is therefore not yet a self-contained implementation target from this source alone.
+The source-native convolution is therefore more specific than the repository's controlled power-edge sensitivity family.
 
-## Source Gaussian convention
+## Correct source Gaussian convention
 
-Herrmann et al. introduce the Gaussian-like gap distribution in Eq. (8):
+The printed Eq. (8) is
 
 $$
 P(G)=
+\frac{1}{\sqrt{2\pi}\,s}
+\exp\left[-\frac{(G-\bar G)^2}{2s^2}\right].
+$$
+
+Therefore
+
+$$
+\boxed{\sigma_G=s}.
+$$
+
+The source parameter `s` is already the ordinary Gaussian standard deviation.
+
+### Correction to the previous repository transcription
+
+An earlier repository transcription used
+
+$$
 \frac{1}{2s\sqrt{\pi}}
-\exp\left[-\frac{(G-\bar G)^2}{4s^2}\right].
+\exp\left[-\frac{(G-\bar G)^2}{4s^2}\right],
 $$
 
-In ordinary Gaussian notation,
+which is a different Gaussian convention and implies `sigma_G=sqrt(2)*s`. That transcription is not what appears in the source PDF. It artificially stretched the energy axis and made the simplified square-root operator appear to reproduce the source's approximate `s/2` relation.
 
-$$
-G\sim\mathcal N(\bar G,\sigma_G^2),
-\qquad
-\boxed{\sigma_G=\sqrt{2}\,s}.
-$$
-
-This convention conversion is implemented by
-`mct_research.spectral_convolution.herrmann_gap_sigma_ev`.
+The corrected conversion is implemented by
+`mct_research.spectral_convolution.herrmann_gap_sigma_ev`, which now returns `s` unchanged.
 
 ## Source claim
 
-The paper states that convolving Eqs. (2)-(6) with Eq. (8) gives a nearly exponential tail over the relevant `1-100 cm^-1` absorption range. Interpreting the resulting spectrum through Eq. (1) gives approximately
+Herrmann et al. state that convolving Eqs. (2)-(6) with Eq. (8) produces a nearly exponential tail over the experimentally relevant `1-100 cm^-1` absorption range. Interpreting the resulting spectrum through Eq. (1) gives approximately
 
 $$
 E_0\approx\frac{s}{2},
 $$
 
-with no temperature dependence for this inhomogeneous contribution. The authors propose that this could account for the permanent, low-temperature part of the measured broadening.
+with no temperature dependence for this inhomogeneous contribution. They propose that this contribution could be identified with permanent low-temperature broadening.
 
-## Controlled reproduction used in this repository
+This source statement already establishes the qualitative finite-window point: a Gaussian-distributed gap model can look exponential over a declared absorption interval.
 
-The complete Anderson/Herrmann branch remains blocked by external definitions. The first reproducible operator therefore uses a declared family
+## Controlled operator used in the repository
+
+The repository uses the declared family
 
 $$
 \alpha(E\mid G)=A(E-G)_+^p,
@@ -83,134 +98,132 @@ where
 
 $$
 (y)_+=\max(y,0),
-$$
-
-and
-
-$$
+\qquad
 p\in\{0.5,1,2\}.
 $$
 
-The `p=0.5` member is the source-aligned square-root null model. The interval `0.5 <= p <= 2` is also consistent with the later Chang nonparabolic analysis as a sensitivity family, but no one exponent is declared universally correct.
+The `p=0.5` member is a square-root null model. The wider family is a sensitivity basis, not the complete Anderson/Herrmann absorption branch.
 
 The distributed spectrum is
 
 $$
-\bar\alpha(E)=
-\int P(G)\alpha(E\mid G)\,dG.
+\bar\alpha(E)=\int P(G)\alpha(E\mid G)\,dG.
 $$
 
-To isolate lineshape rather than an unknown matrix-element amplitude, the controlled reproduction declares
+To isolate lineshape from an unknown matrix-element prefactor, the controlled calculation declares
 
 $$
 \bar\alpha(\bar G)=1000\ \mathrm{cm^{-1}}.
 $$
 
-This is a normalization convention for the sensitivity calculation, not a universal HgCdTe constant.
+This normalization is not a source-measured universal constant.
 
-### Numerical integration
+## Corrected numerical result
 
-For each photon energy, the implementation integrates only over the smooth interval `G <= E` instead of evaluating the thresholded integrand on one fixed global grid. This energy-dependent split removes the moving cusp at `G=E`.
-
-For the square-root spectrum in the tested tail region, increasing the Gauss-Legendre order from `256` to `512` changes the absorption by at most `5.78e-7` relatively. Linear and quadratic branches agree with their closed Gaussian moments to approximately `1e-10` and `1e-9` relative tolerance, respectively.
-
-## Reproduction result
-
-For the square-root branch and the source-stated `1-100 cm^-1` fit range:
+For the square-root branch and the source-stated `1-100 cm^-1` fit range,
 
 $$
-\frac{W_{\mathrm{fit}}}{s}=0.50504,
+\frac{W_{\mathrm{fit}}}{s}=0.35712,
 \qquad
 R^2=0.99570.
 $$
 
-Thus the controlled calculation independently reproduces the source statement
+For `s=8 meV`,
 
 $$
-W_{\mathrm{fit}}\approx\frac{s}{2}.
+W_{\mathrm{fit}}=2.857\ \mathrm{meV}.
 $$
 
-The result is scale invariant: choosing `s=8 meV` gives
+The source target is approximately `W/s=0.5`. The simplified power-edge operator therefore falls short by approximately `28.6%` and **does not reproduce the source's quantitative mapping**.
 
-$$
-W_{\mathrm{fit}}=4.040\ \mathrm{meV}.
-$$
+This is scientifically useful: it shows that the source's full intrinsic branch, transition convention, or normalization materially affects the numerical mapping. The mismatch must not be repaired by redefining the source parameter.
 
-## Critical limitation discovered by the reproduction
+## Fit-window dependence that survives the correction
 
-The convolved spectrum is not exactly exponential. For the same square-root spectrum:
+For the same corrected square-root spectrum:
 
 | absorption fit window | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---|---:|---:|
-| `0.1-100 cm^-1` | 0.46096 | 0.99307 |
-| `1-100 cm^-1` | 0.50504 | 0.99570 |
-| `10-100 cm^-1` | 0.56806 | 0.99836 |
-| `10-500 cm^-1` | 0.66828 | 0.99190 |
-| `100-500 cm^-1` | 0.80871 | 0.99738 |
+| `0.1-100 cm^-1` | 0.32595 | 0.99307 |
+| `1-100 cm^-1` | 0.35712 | 0.99570 |
+| `10-100 cm^-1` | 0.40168 | 0.99836 |
+| `10-500 cm^-1` | 0.47254 | 0.99190 |
+| `100-500 cm^-1` | 0.57184 | 0.99738 |
 
-Moving from the source window to `100-500 cm^-1` increases the inferred tail energy by approximately `60.1%`, although both fits appear strongly log-linear.
+Moving from `1-100` to `100-500 cm^-1` increases the fitted tail energy by approximately `60.1%`, although both fits remain strongly log-linear.
+
+The dimensionless fit-window result is unchanged because the previous error only mislabeled the Gaussian scale.
 
 ## Intrinsic-edge sensitivity
 
-Over the source window:
+Over `1-100 cm^-1`:
 
 | intrinsic exponent $p$ | $W_{\mathrm{fit}}/s$ | $R^2$ |
 |---:|---:|---:|
-| 0.5 | 0.50504 | 0.99570 |
-| 1.0 | 0.50000 | 0.99620 |
-| 2.0 | 0.48375 | 0.99712 |
+| 0.5 | 0.35712 | 0.99570 |
+| 1.0 | 0.35355 | 0.99620 |
+| 2.0 | 0.34206 | 0.99712 |
 
-The fitted slopes differ by only about `4.2%` across substantially different intrinsic-edge exponents. Therefore a high-quality exponential-looking tail does not identify the intrinsic branch.
+The fitted slopes differ by only about `4.2%` across the tested exponents. A high-quality exponential-looking tail does not identify the intrinsic branch.
 
-## Identifiability consequence
+## Corrected inverse-problem consequence
 
-Across the declared exponent and fit-window family, an observed
+For a reported
 
 $$
-W_{\mathrm{fit}}=4\ \mathrm{meV}
+W_{\mathrm{fit}}=4\ \mathrm{meV},
 $$
 
-is compatible with
+the declared exponent and fit-window family permits
 
 $$
 6.995\ \mathrm{meV}
-\le \sigma_G \le
-12.661\ \mathrm{meV},
+\le \sigma_G=s \le
+12.272\ \mathrm{meV}.
 $$
 
-or equivalently
+The range spans a factor of `1.75` before including carrier filling, phonons, shallow levels, excitons, optical inversion, or instrumental response.
 
-$$
-4.946\ \mathrm{meV}
-\le s \le
-8.952\ \mathrm{meV}.
-$$
+## Prior-art boundary after full-text inspection
 
-The inversion range spans a factor of `1.81` before including carrier filling, phonons, shallow levels, excitons, composition correlation length, or instrumental response.
+### Explicitly present in Herrmann 1992
 
-## What the source and reproduction support
+- Gaussian local-gap convolution as an inhomogeneous-broadening mechanism;
+- an approximately exponential tail over the finite `1-100 cm^-1` window;
+- an approximate source-native relation `E0 approximately s/2`;
+- possible association of the temperature-independent contribution with permanent broadening.
 
-- A distribution of local gaps can generate an apparently exponential below-gap tail.
-- The Herrmann `W approximately s/2` scale is reproducible under the source-aligned square-root model and source absorption window.
-- The fitted tail parameter is an observation-operator result, not the Gaussian standard deviation itself.
-- Fit-window provenance is required for any attempted inversion.
+### Not found in Herrmann 1992
+
+- a proof of log-concavity for the convolved spectrum;
+- exact first- and second-derivative identities for the Gaussian-power operator;
+- the local apparent tail energy as an energy-dependent diagnostic;
+- the asymptotic result `sigma_G^2 d2(log alpha)/dE2 -> -1`;
+- a finite-dynamic-range hypothesis test against a true exponential;
+- a unique inversion from observed tail energy to composition variance.
+
+The finite-window appearance itself is prior art. The remaining candidate contribution is the explicit differential and asymptotic structure of the declared observation operator, together with a falsifiable curvature diagnostic.
+
+## What the source and corrected calculation support
+
+- Gaussian-distributed local gaps can generate an apparently exponential finite-window tail.
+- Fit-window provenance is required for inversion.
+- The controlled power-edge operator does not reproduce the source's approximate `s/2` coefficient under the source's printed convention.
+- A fitted tail parameter is an observation-operator result, not automatically a microscopic disorder width.
 
 ## What they do not support
 
 - `W`, `s`, `sigma_G`, `sigma_x`, PL FWHM, and quasiparticle linewidth are not interchangeable.
 - An exponential tail does not prove alloy disorder as the unique mechanism.
 - The controlled power-law operator is not the complete source-native Anderson/Herrmann model.
-- A universal conversion from Urbach energy to composition variance is not identified.
-- The result does not establish a spatial correlation length or microscopic disorder model.
+- No universal conversion from Urbach energy to composition variance is identified.
+- No spatial correlation length is inferred.
 
 ## Next evidence requirement
 
-The next stronger comparison should use a published calibrated spectrum with:
+The next source-bounded step is not another free power-law sweep. It is either:
 
-- declared absorption coefficient scale;
-- explicit fit range;
-- independently measured composition;
-- carrier density and conductivity type;
-- specimen temperature;
-- thickness and optical inversion method;
-- enough above-gap data to constrain the intrinsic branch independently of the tail.
+1. implement the source-native Anderson/Herrmann branch sufficiently to test the reported `s/2` relation without altering the source convention; or
+2. treat the source coefficient as unresolved and proceed with the scale-free curvature theorem and published-spectrum detectability analysis.
+
+The second route is currently lower cost and better aligned with the paper-only evidence program.

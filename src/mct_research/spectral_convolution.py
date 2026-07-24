@@ -43,21 +43,24 @@ def _finite_scalar(name: str, value: float) -> float:
 
 
 def herrmann_gap_sigma_ev(source_scale_s_ev: float) -> float:
-    """Convert Herrmann et al. (1992) Eq. (8) ``s`` to standard deviation.
+    """Return the standard deviation in Herrmann et al. (1992) Eq. (8).
 
-    The source writes the Gaussian-like gap distribution as
+    The printed source writes the Gaussian-like gap distribution as
 
-    ``P(G) = exp(-(G-Gbar)**2/(4*s**2)) / (2*s*sqrt(pi))``.
+    ``P(G) = exp(-(G-Gbar)**2/(2*s**2)) / (sqrt(2*pi)*s)``.
 
-    Therefore its ordinary standard deviation is ``sqrt(2)*s``. This function
-    performs only that convention conversion; it does not infer ``s`` from an
-    observed Urbach energy.
+    Thus the source parameter ``s`` is already the ordinary Gaussian standard
+    deviation. This source-specific identity is retained as an explicit
+    convention boundary because an earlier repository transcription used the
+    inequivalent ``4*s**2`` form and incorrectly introduced a ``sqrt(2)``
+    conversion. The function does not infer ``s`` from an observed Urbach
+    energy.
     """
 
     source_scale = _finite_scalar("source_scale_s_ev", source_scale_s_ev)
     if source_scale < 0.0:
         raise ValueError("source_scale_s_ev must be non-negative")
-    return sqrt(2.0) * source_scale
+    return source_scale
 
 
 def _standard_normal_rule(
@@ -98,14 +101,13 @@ def gaussian_gap_convolved_power_absorption(
     """Average a sharp power-law edge over a Gaussian local-gap distribution.
 
     For a local gap ``G``, the controlled intrinsic edge is
-
     ``alpha(E | G) = A * max(E-G, 0)**p``.
 
     The returned spectrum is its expectation for
     ``G ~ Normal(mean_gap_ev, gap_sigma_ev**2)``. ``p=0.5`` is the simple
-    square-root edge used for the principal Herrmann reproduction. Values from
-    ``0.5`` to ``2`` provide a controlled nonparabolic sensitivity family; they
-    are not a replacement for the complete Kane absorption model.
+    square-root edge used for the principal Herrmann sensitivity calculation.
+    Values from ``0.5`` to ``2`` provide a controlled nonparabolic sensitivity
+    family; they are not a replacement for the complete Kane absorption model.
 
     Numerically, the integral is split at the moving local threshold ``G=E``.
     For every photon energy, Gauss-Legendre quadrature is mapped only onto the
