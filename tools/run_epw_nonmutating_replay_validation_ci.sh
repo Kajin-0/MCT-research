@@ -407,19 +407,21 @@ python -m tools.analyze_epw_nonmutating_replay_validation \
   --output "$EVIDENCE/validated/result.json"
 analyzer_exit_code=$?
 set -e
-classification=$(python - <<'PY'
+classification=$(python - "$EVIDENCE/validated/result.json" <<'PY'
 import json
 from pathlib import Path
-print(json.loads(Path('r02-epw-nonmutating-replay-validation-evidence/validated/result.json').read_text())['classification'])
+import sys
+print(json.loads(Path(sys.argv[1]).read_text())['classification'])
 PY
 )
 
 stage="evidence_volume"
 EVIDENCE_BYTES=$(du -sb "$EVIDENCE" | cut -f1)
-MAX_BYTES=$(python - <<'PY'
+MAX_BYTES=$(python - "$CONTRACT" <<'PY'
 import json
 from pathlib import Path
-print(json.loads(Path('first_principles/b0/r02_epw_nonmutating_replay_validation_contract.json').read_text())['resource_limits']['maximum_evidence_bytes'])
+import sys
+print(json.loads(Path(sys.argv[1]).read_text())['resource_limits']['maximum_evidence_bytes'])
 PY
 )
 if (( EVIDENCE_BYTES > MAX_BYTES )); then
