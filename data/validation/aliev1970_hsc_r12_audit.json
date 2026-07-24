@@ -1,0 +1,76 @@
+{
+  "assumptions": {
+    "count": 6,
+    "ids": [
+      "AL70_A1",
+      "AL70_A2",
+      "AL70_A3",
+      "AL70_A4",
+      "AL70_A5",
+      "AL70_A6"
+    ]
+  },
+  "controlling_decision": "primary_source_recovered_thermomagnetic_effective_mass_table_reconstructed_gap_values_are_adopted_wiley_dexter_equation_inputs_hansen_marker_mapping_unresolved",
+  "deterministic_checks": {
+    "all_table_rows_at_300_k": true,
+    "figure_digitization_performed": false,
+    "max_abs_table_gap_minus_equation3_eV": "0.00540",
+    "max_abs_theoretical_band_edge_mass_residual_m0": "0.000331983805668016194331983805",
+    "source_binary_committed": false,
+    "x_010_row_count": 7
+  },
+  "hansen_candidates": {
+    "count": 6,
+    "ids": [
+      "AL70_EQ3_X005",
+      "AL70_EQ3_X010",
+      "AL70_EQ3_X014",
+      "AL70_EQ3_X015",
+      "AL70_EQ3_X020",
+      "AL70_FIG1_X010"
+    ],
+    "independent_gap_observation_count": 0,
+    "numeric_count": 5
+  },
+  "hansen_graph_id": "HSC_R12",
+  "measurement_class": "strong_field_thermomagnetic_transport",
+  "relations": {
+    "count": 4,
+    "equation3_status": "adopted_input_not_independent_result",
+    "equation4_status": "adopted_input_not_independent_result",
+    "ids": [
+      "AL70_EQ1",
+      "AL70_EQ2",
+      "AL70_EQ3",
+      "AL70_EQ4"
+    ]
+  },
+  "schema_version": 1,
+  "source_id": "ALIEV1970_HSC_R12",
+  "source_pdf_page_count": 4,
+  "source_pdf_sha256": "be08dc3f926a42f7549b1a7734337fd72701cbcec3d3759373eed772006e44bf",
+  "table1": {
+    "carrier_density_max_cm3": 640000000000000000,
+    "carrier_density_min_cm3": 60000000000000000,
+    "composition_group_count": 5,
+    "composition_row_counts": {
+      "0.05": 1,
+      "0.10": 7,
+      "0.14": 1,
+      "0.15": 1,
+      "0.20": 1
+    },
+    "distinct_gap_values_by_x": {
+      "0.05": "-0.07",
+      "0.10": "+0.01",
+      "0.14": "+0.07",
+      "0.15": "+0.09",
+      "0.20": "+0.17"
+    },
+    "gap_provenance_values": [
+      "Equation_3_empirical_input_not_independent_measurement"
+    ],
+    "row_count": 11
+  },
+  "temperature_k": 300
+}
