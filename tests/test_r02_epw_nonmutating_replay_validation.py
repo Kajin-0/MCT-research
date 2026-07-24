@@ -279,7 +279,7 @@ def test_terminal_evidence_is_written_on_every_driver_exit() -> None:
     text = DRIVER.read_text(encoding="utf-8")
     assert "trap finish EXIT" in text
     assert 'EVIDENCE/validated/result.json' in text
-    assert 'EVIDENCE/runtime/status.json' in text
+    assert 'evidence / "runtime" / "status.json"' in text
     assert "evidence_sha256.txt" in text
     for classification in _contract()["failure_classifications"]:
         assert classification in text or classification in ANALYZER.read_text(
