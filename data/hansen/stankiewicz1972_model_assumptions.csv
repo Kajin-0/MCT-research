@@ -1,0 +1,7 @@
+parameter_id,source_id,parameter,value,unit,status,notes
+SG72_EP,STANKIEWICZ1972_HSC_R10,Kane_matrix_element_Ep,18,eV,fixed,"Adopted from prior HgTe and x=0.15 work; assumed pressure- and temperature-independent"
+SG72_MH,STANKIEWICZ1972_HSC_R10,hole_effective_mass_ratio,0.55,m0,fixed,"Adopted from prior work; assumed pressure- and temperature-independent"
+SG72_DELTA_E,STANKIEWICZ1972_HSC_R10,overlap_energy_Delta_epsilon,0,eV,fixed,"Set to zero in the calculation"
+SG72_INTRINSIC,STANKIEWICZ1972_HSC_R10,intrinsic_sample_assumption,1,boolean,assumed,"Source later states samples were not perfectly intrinsic and showed hole influence"
+SG72_INVERTED_EXTENSION,STANKIEWICZ1972_HSC_R10,inverted_band_extension,Eg_to_abs_E0,text,assumed,"Simplified Kane model extended to negative gap by substituting Eg with |E0|"
+SG72_HOLE_STATISTICS,STANKIEWICZ1972_HSC_R10,hole_statistics,Boltzmann,text,assumed,"Standard valence-band hole expression with Boltzmann statistics"
