@@ -1,0 +1,6 @@
+assumption_id,source_id,assumption,role,status,notes
+GR71_A1,GROVES1971_HSC_R11,"Diagonalize the magnetic-field effective-mass Hamiltonian for coupled Gamma8, Gamma6, and Gamma7 bands",transition_energy_model,source_stated,"Pidgeon-Brown method"
+GR71_A2,GROVES1971_HSC_R11,"Treat the momentum matrix element between Gamma6 and Gamma8 as temperature independent over the two states",temperature_interpretation,source_stated,"Used with the transition curvature to infer the sign change"
+GR71_A3,GROVES1971_HSC_R11,"Average the two closely spaced theoretical transitions for each polarization for Gamma8-to-Gamma8 transitions into n >= 2 because they are unresolved experimentally",theoretical_overlay,source_stated,"The average theoretical energy is plotted"
+GR71_A4,GROVES1971_HSC_R11,"Use k3=0 for the displayed level scheme while invoking k3 nonzero wave-function mixing for weak transitions (3) and (4)",weak_transition_assignment,source_stated,"Transition (2) remains unidentified"
+GR71_A5,GROVES1971_HSC_R11,"Use the temperature coefficient of the transitions because small positive and negative gaps cannot be distinguished reliably by zero-field extrapolation at the available fields",gap_sign_inference,source_stated,"The signed gap is model-conditioned and temperature-assisted"

@@ -1,0 +1,7 @@
+parameter_id,source_id,state_id,parameter_name,value,half_width,unit,evidence_class,sign_convention,source_location,notes
+GR71_GAP_LOW,GROVES1971_HSC_R11,GR71_LOW_BODY,gamma6_minus_gamma8_gap,-0.01,,eV,approximate_model_conditioned,E_Gamma6_minus_E_Gamma8,"pages 452 and 454","Approximate; not a direct zero-field extrapolation and no covariance is reported"
+GR71_GAP_HIGH,GROVES1971_HSC_R11,GR71_HIGH_BODY,gamma6_minus_gamma8_gap,0.01,,eV,approximate_temperature_behavior_inference,E_Gamma6_minus_E_Gamma8,page_452,"Approximate; inferred using the temperature shift and expected coefficient"
+GR71_EP,GROVES1971_HSC_R11,GR71_LOW_BODY,Kane_momentum_parameter_Ep,18.5,,eV,model_parameter,positive,page_454,"Proportional to the squared momentum matrix element between s-like and p-like basis functions"
+GR71_MV_SIGNED,GROVES1971_HSC_R11,GR71_LOW_BODY,Gamma8_valence_band_effective_mass,-0.28,0.1,m0,fit_sensitivity_interval_not_statistical_uncertainty,signed_valence_curvature,page_454,"Values outside (-0.28 +/- 0.1)m0 would give a noticeably poorer fit"
+GR71_MV_ABSTRACT,GROVES1971_HSC_R11,,valence_band_effective_mass_magnitude,0.3,,m0,rounded_abstract_summary,positive_magnitude,page_451,"Rounded summary appropriate to the (100) plane"
+GR71_SPIN_ORBIT,GROVES1971_HSC_R11,GR71_LOW_BODY,Gamma7_minus_Gamma8_spin_orbit_splitting,1,,eV,approximate_fixed_model_input,positive_magnitude,page_452,"Printed as about 1 eV; no uncertainty reported"
