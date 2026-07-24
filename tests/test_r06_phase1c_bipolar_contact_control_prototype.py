@@ -205,12 +205,12 @@ def test_two_species_blocking_exposes_two_population_null_modes():
     assert np.linalg.matrix_rank(jacobian) == jacobian.shape[0] - 2
 
 
-def test_electron_hole_symmetry():
+def test_electron_hole_symmetry_with_reflected_contacts():
     mesh, boundaries, parameters = make_case(
         electron_left_biot=2.0,
         electron_right_biot=3.0,
-        hole_left_biot=2.0,
-        hole_right_biot=3.0,
+        hole_left_biot=3.0,
+        hole_right_biot=2.0,
         electron_left_density=1.0,
         electron_right_density=1.4,
         hole_left_density=1.4,
