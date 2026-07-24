@@ -1,0 +1,149 @@
+{
+  "decision": {
+    "body_abstract_temperature_distinction_preserved": true,
+    "controlling_decision": "primary_source_recovered_interband_magnetoreflection_parameters_reconstructed_temperature_labels_and_hansen_marker_mapping_unresolved",
+    "direct_hansen_validation_authorized": false,
+    "hansen_exact_ingestion_mapping_resolved": false,
+    "measurement_class_resolved": true,
+    "model_parameters_reconstructed": true,
+    "primary_source_recovered": true,
+    "single_specimen_provenance_resolved": true
+  },
+  "hansen_ingestion": {
+    "candidate_count": 4,
+    "candidate_ids": [
+      "GR71_BODY_LOW",
+      "GR71_BODY_HIGH",
+      "GR71_ABSTRACT_4K",
+      "GR71_ABSTRACT_77K"
+    ],
+    "exact_ingestion_mapping_resolved": false,
+    "numeric_body_candidate_count": 2,
+    "per_marker_source_labels_available": false,
+    "qualitative_abstract_candidate_count": 2,
+    "reason": "Groves prints approximate body-state gaps over 20-30 K and 90-100 K while the abstract uses qualitative 4 K and 77 K labels; Hansen does not expose source-labeled HSC_R11 markers or state which representation was ingested."
+  },
+  "measurement_identity": {
+    "direct_observations": [
+      "circularly_polarized_reflectivity_vs_magnetic_field",
+      "magnetoreflection_resonance_peak_fields",
+      "transition_peak_energies_vs_magnetic_field"
+    ],
+    "direct_optical_absorption_edge": false,
+    "gap_is_direct_zero_field_extrapolation": false,
+    "gap_is_model_conditioned": true,
+    "primary_gap_observable": "signed Gamma6-Gamma8 separation inferred from a Pidgeon-Brown coupled-band Landau-level fit",
+    "primary_measurement_class": "interband_magnetoreflection_circular_polarization"
+  },
+  "model_assumptions": [
+    "Diagonalize the magnetic-field effective-mass Hamiltonian for coupled Gamma8, Gamma6, and Gamma7 bands",
+    "Treat the momentum matrix element between Gamma6 and Gamma8 as temperature independent over the two states",
+    "Average the two closely spaced theoretical transitions for each polarization for Gamma8-to-Gamma8 transitions into n >= 2 because they are unresolved experimentally",
+    "Use k3=0 for the displayed level scheme while invoking k3 nonzero wave-function mixing for weak transitions (3) and (4)",
+    "Use the temperature coefficient of the transitions because small positive and negative gaps cannot be distinguished reliably by zero-field extrapolation at the available fields"
+  ],
+  "sample": {
+    "carrier_concentration_4k_cm3": 940000000000000.0,
+    "carrier_type": "n_type",
+    "composition_half_width": 0.003,
+    "composition_method": "electron_microprobe",
+    "composition_x": 0.161,
+    "dimensions_mm": "12x4x0.32",
+    "hall_mobility_4k_cm2_v_s": 2600000.0,
+    "homogeneity_statement": "homogeneous to better than the electron-microprobe error; linewidth argument implies still better local homogeneity",
+    "magnetic_field_orientation": "H perpendicular to (100)",
+    "reflecting_surface": "(100)",
+    "sample_id": "GR71_SAMPLE_1"
+  },
+  "schema_version": "1.0",
+  "source_id": "GROVES1971_HSC_R11",
+  "source_pdf_sha256": "ccbad551b170c97d2550cd31533b80ec6715772793dc4b18b8d56466fd83083f",
+  "source_reported_parameters": {
+    "Gamma8_valence_mass_fit_sensitivity_half_width_m0": 0.1,
+    "Gamma8_valence_mass_signed_m0": -0.28,
+    "Kane_Ep_ev": 18.5,
+    "abstract_valence_mass_magnitude_m0": 0.3,
+    "gap_covariance_reported": false,
+    "high_state_gap_ev": 0.01,
+    "low_state_gap_ev": -0.01,
+    "mass_interval_is_statistical_uncertainty": false,
+    "spin_orbit_splitting_approx_ev": 1.0
+  },
+  "source_scope": {
+    "article_pages": [
+      451,
+      455
+    ],
+    "copyrighted_source_committed": false,
+    "figure_digitization_performed": false,
+    "pdf_page_count": 5,
+    "physical_specimen_count": 1,
+    "pointwise_covariance_reported": false
+  },
+  "temperature_provenance": {
+    "abstract_summary_states": [
+      {
+        "numeric_gap_reported": false,
+        "sign_statement": "slightly_negative",
+        "state_id": "GR71_ABSTRACT_4K",
+        "temperature_label_k": 4.0
+      },
+      {
+        "numeric_gap_reported": false,
+        "sign_statement": "slightly_positive",
+        "state_id": "GR71_ABSTRACT_77K",
+        "temperature_label_k": 77.0
+      }
+    ],
+    "body_and_abstract_temperature_labels_identical": false,
+    "body_measurement_states": [
+      {
+        "data_visibility": "Figure_2_points_and_curves_shown",
+        "gamma6_minus_gamma8_gap_ev": -0.01,
+        "gap_value_status": "approximate_model_conditioned",
+        "representative_temperature_basis": "Figure 3 schematic labels approximately 25 K",
+        "representative_temperature_k": 25.0,
+        "state_id": "GR71_LOW_BODY",
+        "temperature_range_k": [
+          20.0,
+          30.0
+        ]
+      },
+      {
+        "data_visibility": "data_not_shown",
+        "gamma6_minus_gamma8_gap_ev": 0.01,
+        "gap_value_status": "approximate_temperature_behavior_inference",
+        "representative_temperature_basis": "Figure 3 schematic labels approximately 90 K",
+        "representative_temperature_k": 90.0,
+        "state_id": "GR71_HIGH_BODY",
+        "temperature_range_k": [
+          90.0,
+          100.0
+        ]
+      }
+    ],
+    "exact_4k_and_77k_numeric_gaps_reported": false
+  },
+  "transition_evidence": {
+    "high_state_data_shown": false,
+    "low_state": {
+      "experimental_peak_method": "peak positions from up/down sweeps and averaged",
+      "field_range_kOe": [
+        0.0,
+        100.0
+      ],
+      "photon_energy_observed_max_ev": 0.3,
+      "photon_energy_plotted_max_ev": 0.2,
+      "polarizations": [
+        "sigma_plus",
+        "sigma_minus"
+      ],
+      "reflectivity_change_max_fraction": 0.4,
+      "transition_count_status": "about_20"
+    },
+    "theoretical_curves_digitized_as_data": false,
+    "unresolved_weak_transition_ids": [
+      "2"
+    ]
+  }
+}
