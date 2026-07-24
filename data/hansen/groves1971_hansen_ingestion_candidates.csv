@@ -1,0 +1,5 @@
+candidate_id,source_id,candidate_basis,composition_x,temperature_min_k,temperature_max_k,temperature_label_k,gap_eV,gap_sign,candidate_status,reason
+GR71_BODY_LOW,GROVES1971_HSC_R11,body_approximate_model_conditioned_gap,0.161,20,30,25,-0.01,negative,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R11 markers"
+GR71_BODY_HIGH,GROVES1971_HSC_R11,body_approximate_temperature_behavior_gap,0.161,90,100,90,0.01,positive,source_native_candidate_not_hansen_assignment,"The high-temperature resonance data are not shown and Hansen does not state its transcription"
+GR71_ABSTRACT_4K,GROVES1971_HSC_R11,abstract_qualitative_sign,0.161,4,4,4,,negative,qualitative_candidate_not_numeric_assignment,"The abstract supplies only the sign, not a numerical gap"
+GR71_ABSTRACT_77K,GROVES1971_HSC_R11,abstract_qualitative_sign,0.161,77,77,77,,positive,qualitative_candidate_not_numeric_assignment,"The abstract supplies only the sign, not a numerical gap"
