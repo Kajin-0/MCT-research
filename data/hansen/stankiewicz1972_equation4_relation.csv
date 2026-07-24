@@ -1,0 +1,2 @@
+relation_id,source_id,domain_x_min,domain_x_max,intercept_eV,linear_x_coefficient_eV,temperature_prefactor_eV_per_K,temperature_composition_factor,relation_text,evidence_class,source_caveat
+SG72_EQ4,STANKIEWICZ1972_HSC_R10,0,0.2,-0.303,1.91,5.25e-4,1-2x,"E0(x,T)=-0.303+1.91x+5.25e-4(1-2x)T eV",source_empirical_relation,"Source states x=0.18 disagrees with the relation and notes model/sample inadequacies"
