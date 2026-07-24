@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "phase": "Phase 1C",
+  "controlling_issue": 346,
+  "decision": "ARCHITECTURE_RECOVERED_IMPLEMENTATION_BLOCKED_ON_SYMBOL_EXACT_TRANSCRIPTION",
+  "source_exact_statistics_implementation_authorized": false,
+  "audit_date": "2026-07-24",
+  "sources": [
+    {
+      "source_id": "MADARASZ_SZMULOWICZ1985",
+      "title": "Intrinsic carrier concentrations in Hg1-xCdxTe with the use of Fermi-Dirac statistics",
+      "authors": [
+        "F. L. Madarasz",
+        "F. Szmulowicz"
+      ],
+      "venue": "Journal of Applied Physics",
+      "volume": 58,
+      "pages": "2770-2772",
+      "year": 1985,
+      "doi": "10.1063/1.335868",
+      "source_role": "reference Fermi-Dirac Kane architecture",
+      "equation_quality_full_text_recovered": false,
+      "abstract_and_bibliographic_identity_verified": true,
+      "exact_equation_set_verified": false
+    },
+    {
+      "source_id": "SEILER_LOWNEY_LITTLER_YOON1991",
+      "title": "Intrinsic Carrier Concentrations in Long Wavelength HgCdTe Based on the New, Nonlinear Temperature Dependence of Eg(x,T)",
+      "authors": [
+        "D. G. Seiler",
+        "J. R. Lowney",
+        "C. L. Littler",
+        "I. T. Yoon"
+      ],
+      "venue": "Materials Research Society Symposium Proceedings",
+      "volume": 216,
+      "pages": "59-63",
+      "year": 1991,
+      "doi": "10.1557/PROC-216-59",
+      "nist_publication_id": 22086,
+      "source_role": "open primary precursor reproducing the Lowney calculation architecture and citing Madarasz equations",
+      "official_open_pdf_recovered": true,
+      "exact_equation_set_verified": false,
+      "reason_exact_equations_not_verified": "The official PDF is available, but machine text extraction corrupts the typography of printed Eqs. (2)-(4); no symbol-level transcription is accepted without visual equation review."
+    },
+    {
+      "source_id": "LOWNEY_SEILER_LITTLER_YOON1992",
+      "title": "Intrinsic Carrier Concentration of Narrow-Gap Mercury Cadmium Telluride Based on the Nonlinear Temperature Dependence of the Bandgap",
+      "authors": [
+        "J. R. Lowney",
+        "D. G. Seiler",
+        "C. L. Littler",
+        "I. T. Yoon"
+      ],
+      "venue": "Journal of Applied Physics",
+      "volume": 71,
+      "issue": 3,
+      "pages": "1253-1258",
+      "year": 1992,
+      "doi": "10.1063/1.351371",
+      "source_role": "final journal intrinsic-density relation and fit",
+      "official_nist_metadata_verified": true,
+      "equation_quality_full_text_recovered": false,
+      "fit_coefficients_verified": false,
+      "exact_equation_set_verified": false
+    }
+  ],
+  "recovered_model_architecture": {
+    "composition_range": [
+      0.17,
+      0.3
+    ],
+    "temperature_range_K": [
+      4.0,
+      300.0
+    ],
+    "conduction_band_model": "Kane three-band k.p",
+    "conduction_band_statistics": "full Fermi-Dirac",
+    "valence_band_statistics": "nondegenerate",
+    "valence_nondegenerate_condition_reported": "valence-band edge more than 4 k_B T below the Fermi energy",
+    "included_conduction_band_interactions": [
+      "light-hole band",
+      "split-off valence band"
+    ],
+    "heavy_hole_treatment": "separate parabolic heavy-hole density",
+    "split_off_energy_eV": 1.0,
+    "momentum_matrix_element_eV_cm": 8.49e-08,
+    "momentum_matrix_element_dependence": "constant in the Seiler-Lowney calculation; Madarasz varied it by a few percent with composition",
+    "heavy_hole_mass_over_m0": 0.55,
+    "neutrality_solver": "Newton iteration for reduced Fermi energy eta",
+    "electron_integral_acceleration": "integration by parts removes the derivative from the integrand",
+    "kane_inversion": "invert the cubic secular equation to obtain gamma=k^2 as a function of energy",
+    "energy_zero": "top of the valence band",
+    "electron_integral_lower_limit": "reduced band gap"
+  },
+  "verified_gap_relation": {
+    "source_equation": "Seiler et al. (1991), Eq. (1)",
+    "units": {
+      "Eg": "eV",
+      "T": "K"
+    },
+    "validity_reported": {
+      "composition": [
+        0.2,
+        0.3
+      ]
+    },
+    "expression_ascii": "Eg=-0.302+1.93*x-0.810*x^2+0.832*x^3+5.35e-4*(1-2*x)*((-1822+T^3)/(255.2+T^2))"
+  },
+  "equation_transcription_gate": {
+    "equation_1_gap_relation_symbol_level_verified": true,
+    "equation_2_charge_neutrality_symbol_level_verified": false,
+    "equation_3_integration_by_parts_symbol_level_verified": false,
+    "equation_4_intrinsic_density_symbol_level_verified": false,
+    "madarasz_equations_symbol_level_verified": false,
+    "lowney_1992_fit_coefficients_verified": false,
+    "required_before_implementation": [
+      "visual symbol-by-symbol transcription of Eqs. (2)-(4) from an equation-quality primary copy",
+      "unit and normalization contract from Ry/atomic units to repository units",
+      "independent numerical reference points for neutrality and intrinsic density",
+      "verified Lowney 1992 fitted relation if that fit is to be implemented"
+    ]
+  },
+  "claim_boundary": {
+    "supported": [
+      "model architecture",
+      "reported parameter values",
+      "reported composition and temperature ranges",
+      "exact nonlinear gap relation",
+      "statistics and neutrality algorithm choices"
+    ],
+    "not_supported": [
+      "source-exact Madarasz implementation",
+      "source-exact Lowney 1992 fit",
+      "numerical intrinsic-density comparison",
+      "material-accurate HgCdTe transport closure",
+      "predictive detector claims"
+    ]
+  }
+}
