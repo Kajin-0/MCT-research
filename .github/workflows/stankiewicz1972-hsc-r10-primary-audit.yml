@@ -1,0 +1,60 @@
+name: Stankiewicz 1972 HSC_R10 primary-source audit
+
+on:
+  pull_request:
+    paths:
+      - "data/hansen/stankiewicz1972_hsc_r10_source_metadata.csv"
+      - "data/hansen/stankiewicz1972_sample_records.csv"
+      - "data/hansen/stankiewicz1972_table1_parameters.csv"
+      - "data/hansen/stankiewicz1972_model_assumptions.csv"
+      - "data/hansen/stankiewicz1972_equation4_relation.csv"
+      - "data/hansen/stankiewicz1972_hansen_ingestion_candidates.csv"
+      - "data/hansen/stankiewicz1972_hsc_r10_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/stankiewicz1972_hsc_r10_audit.json"
+      - "tools/audit_stankiewicz1972_hsc_r10.py"
+      - "tests/test_stankiewicz1972_hsc_r10_primary_audit.py"
+      - ".github/workflows/stankiewicz1972-hsc-r10-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-23-stankiewicz1972-hsc-r10-primary-audit.md"
+  push:
+    branches: [main]
+    paths:
+      - "data/hansen/stankiewicz1972_hsc_r10_source_metadata.csv"
+      - "data/hansen/stankiewicz1972_sample_records.csv"
+      - "data/hansen/stankiewicz1972_table1_parameters.csv"
+      - "data/hansen/stankiewicz1972_model_assumptions.csv"
+      - "data/hansen/stankiewicz1972_equation4_relation.csv"
+      - "data/hansen/stankiewicz1972_hansen_ingestion_candidates.csv"
+      - "data/hansen/stankiewicz1972_hsc_r10_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/stankiewicz1972_hsc_r10_audit.json"
+      - "tools/audit_stankiewicz1972_hsc_r10.py"
+      - "tests/test_stankiewicz1972_hsc_r10_primary_audit.py"
+      - ".github/workflows/stankiewicz1972-hsc-r10-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-23-stankiewicz1972-hsc-r10-primary-audit.md"
+
+permissions:
+  contents: read
+
+jobs:
+  primary-source-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install focused test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Verify Stankiewicz primary-source reconstruction
+        run: python -m pytest -q tests/test_stankiewicz1972_hsc_r10_primary_audit.py
+      - name: Regenerate immutable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/audit_stankiewicz1972_hsc_r10.py > /tmp/stankiewicz-audit.json
+          cmp /tmp/stankiewicz-audit.json data/validation/stankiewicz1972_hsc_r10_audit.json
