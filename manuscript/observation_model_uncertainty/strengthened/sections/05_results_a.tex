@@ -1,0 +1,177 @@
+\section{5. Results}\label{results}
+
+\subsection{5.1 Nominal fitted-model
+dependence}\label{nominal-fitted-model-dependence}
+
+The nominal fitted-model results are summarized below.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Specimen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Boundary-excluded span (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Full completeness span (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Maximum coherent calibration-corner shift (meV)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MZ226 & 5.09 & 6.41 & 0.89 \\
+MZ310 & 6.68 & 6.83 & 0.68 \\
+\end{longtable}
+
+The primary result is the boundary-excluded span. The larger
+completeness span includes fits pinned at an edge-search bound and is
+not interpreted as an identified physical range.
+
+\begin{figure}
+\centering
+\includegraphics{figures/figure2_spectrum_operator_overlays.pdf}
+\caption{Reconstructed MZ226 spectrum and fitted extraction models.
+Fitted curves are shown only over the declared nominal fit population.}
+\end{figure}
+
+\subsection{5.2 Local irregularity and contiguous-window
+leverage}\label{local-irregularity-and-contiguous-window-leverage}
+
+Omitting the two MZ226 coordinates associated with the visible plateau
+changes a non-boundary fitted intercept by at most approximately 0.12
+meV. Combining the omission with the calibration-corner cases produces a
+maximum change of approximately 0.96 meV. The remaining non-boundary
+model span is approximately 5.12 meV. The local pair therefore does not
+account for the primary model-form dependence.
+
+The broader leverage test is more consequential.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Specimen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Leave-one-out max (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Three-point max (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Five-point max (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Minimum non-boundary span across tested omissions (meV)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MZ226 & 0.90 & 2.33 & 3.60 & 4.98 \\
+MZ310 & 1.03 & 3.01 & 4.51 & 3.39 \\
+\end{longtable}
+
+The largest shifts occur in the free-exponent model when the earliest
+admitted points are removed. This is evidence of practical
+lower-boundary conditioning, not evidence that the corresponding
+coordinates are incorrect.
+
+\subsection{5.3 Reconstruction, fit-domain, weighting, and residual
+compatibility}\label{reconstruction-fit-domain-weighting-and-residual-compatibility}
+
+The committed unweighted isotonic reconstruction is reproducible from
+the stored source-pixel centers to within 0.0085 and 0.0032 in
+\(\log_{10}\alpha\) for MZ226 and MZ310, respectively. With nominal fit
+membership held fixed, the raw centerline, independently recomputed
+isotonic curve, inverse-width-weighted isotonic curve, and lower/upper
+line-envelope reconstructions move any fitted intercept by at most 0.69
+meV for MZ226 and 0.81 meV for MZ310. When each reconstruction is
+allowed to determine its own fit membership, the largest admissible
+shifts are 1.25 and 1.96 meV.
+
+One upper-line-envelope membership scenario for each specimen is
+excluded rather than repaired: its lowest admitted photon energy falls
+below the predeclared upper edge-search bound. Changing the search bound
+to retain those scenarios would introduce an unplanned analyst choice.
+
+The fit-domain and weighting grid is substantially more influential.
+Twenty-seven admissible combinations are evaluated for MZ226 and 24 for
+MZ310. Across them, the largest displacement of an individual fitted
+intercept is 5.71 meV for MZ226 and 5.44 meV for MZ310, both in the
+free-exponent model. The non-boundary complete-model span ranges from
+2.59 to 11.00 meV for MZ226 and from 1.84 to 11.09 meV for MZ310. Thus
+no single nominal model-span value should be treated as invariant to the
+declared fit convention.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Specimen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Reconstruction, fixed membership (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Reconstruction + membership (meV)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Endpoint/weighting max (meV)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MZ226 & 0.69 & 1.25 & 5.71 \\
+MZ310 & 0.81 & 1.96 & 5.44 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4286}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5714}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Specimen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Non-boundary fitted-model span across endpoint/weighting grid (meV)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MZ226 & 2.59-11.00 \\
+MZ310 & 1.84-11.09 \\
+\end{longtable}
+
+The heatmaps below report the largest absolute free-exponent
+displacement across the three weighting rules at each endpoint pair.
+Bracketed values give the signed range across those weighting rules. The
+response varies systematically with the lower and upper endpoints rather
+than being caused by a single anomalous grid cell.
+
+\begin{figure}
+\centering
+\includegraphics{figures/figure8_fit_grid_mz226.pdf}
+\caption{MZ226 free-exponent fit-domain and weighting sensitivity.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{figures/figure9_fit_grid_mz310.pdf}
+\caption{MZ310 free-exponent fit-domain and weighting sensitivity.}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}
+\centering
+\includegraphics{figures/figure4_robustness_scales.pdf}
+\caption{Maximum fitted-intercept displacement under distinct
+deterministic robustness analyses.}
+\end{figure}

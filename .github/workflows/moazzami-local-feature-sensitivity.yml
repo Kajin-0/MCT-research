@@ -1,0 +1,192 @@
+name: moazzami-local-feature-sensitivity
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/moazzami-local-feature-sensitivity.yml'
+      - 'data/manuscript/moazzami2005_figure6*_irse_digitized.csv'
+      - 'data/manuscript/moazzami2005_figure6*_irse_calibration.json'
+      - 'data/validation/moazzami2005_local_feature_sensitivity_reference.json'
+      - 'data/validation/moazzami2005_local_feature_sensitivity_summary.csv'
+      - 'data/validation/moazzami2005_model_robustness_reference.json'
+      - 'data/validation/moazzami2005_model_robustness_summary.csv'
+      - 'src/mct_research/absorption_edge_uncertainty.py'
+      - 'tools/analyze_moazzami2005_real_spectra.py'
+      - 'tools/audit_moazzami2005_local_feature_sensitivity.py'
+      - 'tools/audit_moazzami2005_pixel_reversal_core.py'
+      - 'tools/audit_moazzami2005_model_robustness.py'
+      - 'tools/run_moazzami2005_model_robustness.py'
+      - 'tools/build_moazzami_local_feature_reference.py'
+      - 'tools/build_moazzami_model_robustness_reference.py'
+      - 'tools/build_observation_model_manuscript_assets.py'
+      - 'tools/build_observation_model_robustness_figures.py'
+      - 'tools/observation_manuscript_figure_spectrum.py'
+      - 'tests/test_moazzami2005_local_feature_sensitivity.py'
+      - 'tests/test_moazzami2005_pixel_reversal_core.py'
+      - 'tests/test_moazzami2005_local_feature_reference.py'
+      - 'tests/test_moazzami2005_model_robustness.py'
+      - 'tests/test_moazzami2005_model_robustness_reference.py'
+      - 'tests/test_observation_model_robustness_figures.py'
+      - 'tests/test_observation_manuscript_assets.py'
+      - 'manuscript/observation_model_uncertainty/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: python -m pip install -e '.[test]'
+      - name: Build deterministic sensitivity records
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m tools.audit_moazzami2005_local_feature_sensitivity \
+            --repository-root . \
+            --output-json /tmp/moazzami-local-feature-sensitivity.json
+          python -m tools.audit_moazzami2005_pixel_reversal_core \
+            --repository-root . \
+            --output-json /tmp/moazzami-pixel-reversal-core.json
+          python -m tools.run_moazzami2005_model_robustness \
+            --repository-root . \
+            --output-json /tmp/moazzami-model-robustness.json \
+            2>&1 | tee /tmp/moazzami-model-robustness.log
+          python -m tools.build_moazzami_local_feature_reference \
+            --repository-root . \
+            --output-json /tmp/moazzami-local-feature-reference.json \
+            --output-csv /tmp/moazzami-local-feature-summary.csv
+          python -m tools.build_moazzami_model_robustness_reference \
+            --repository-root . \
+            --output-json /tmp/moazzami-model-robustness-reference.json \
+            --output-csv /tmp/moazzami-model-robustness-summary.csv
+      - name: Build revised manuscript assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m tools.build_observation_model_manuscript_assets \
+            --repository-root . \
+            --output-dir /tmp/observation-manuscript-assets
+          python -m tools.build_observation_model_robustness_figures \
+            --reference-json data/validation/moazzami2005_model_robustness_reference.json \
+            --output-dir /tmp/observation-robustness-figures
+          target=manuscript/observation_model_uncertainty
+          cp /tmp/observation-manuscript-assets/figure1_spectrum_models.svg \
+            "$target/figure1_spectrum_models.svg"
+          cp /tmp/observation-robustness-figures/*.svg "$target/"
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          target = Path('manuscript/observation_model_uncertainty')
+          names = (
+              'figure1_spectrum_models.svg',
+              'figure6_relative_fitted_intercepts.svg',
+              'figure7_robustness_scales.svg',
+              'figure8_model_residual_compatibility.svg',
+          )
+          manifest = target / 'SHA256SUMS'
+          records = {}
+          for line in manifest.read_text(encoding='utf-8').splitlines():
+              digest, name = line.split(maxsplit=1)
+              records[name] = digest
+          for name in names:
+              records[name] = sha256((target / name).read_bytes()).hexdigest()
+          manifest.write_text(
+              ''.join(f'{records[name]}  {name}\n' for name in sorted(records)),
+              encoding='utf-8',
+          )
+          PY
+      - name: Verify immutable compact outputs
+        run: |
+          cmp /tmp/moazzami-local-feature-reference.json \
+            data/validation/moazzami2005_local_feature_sensitivity_reference.json
+          cmp /tmp/moazzami-local-feature-summary.csv \
+            data/validation/moazzami2005_local_feature_sensitivity_summary.csv
+          cmp /tmp/moazzami-model-robustness-reference.json \
+            data/validation/moazzami2005_model_robustness_reference.json
+          cmp /tmp/moazzami-model-robustness-summary.csv \
+            data/validation/moazzami2005_model_robustness_summary.csv
+      - name: Run focused tests
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q \
+            tests/test_moazzami2005_local_feature_sensitivity.py \
+            tests/test_moazzami2005_pixel_reversal_core.py \
+            tests/test_moazzami2005_local_feature_reference.py \
+            tests/test_moazzami2005_model_robustness.py \
+            tests/test_moazzami2005_model_robustness_reference.py \
+            tests/test_observation_model_robustness_figures.py \
+            tests/test_observation_manuscript_assets.py \
+            2>&1 | tee /tmp/moazzami-focused-pytest.log
+      - name: Publish clean-built frozen manuscript assets
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target=manuscript/observation_model_uncertainty
+          if git diff --quiet -- "$target"; then
+            echo 'Frozen manuscript assets are already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$target/figure1_spectrum_models.svg" \
+            "$target/figure6_relative_fitted_intercepts.svg" \
+            "$target/figure7_robustness_scales.svg" \
+            "$target/figure8_model_residual_compatibility.svg" \
+            "$target/SHA256SUMS"
+          git commit -m 'Refresh strict observation-model manuscript figures'
+          git push origin "HEAD:$HEAD_BRANCH"
+      - name: Record compact decision summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          for filename in (
+              'moazzami-local-feature-sensitivity.json',
+              'moazzami-pixel-reversal-core.json',
+              'moazzami-local-feature-reference.json',
+              'moazzami-model-robustness.json',
+              'moazzami-model-robustness-reference.json',
+          ):
+              result = json.loads(Path('/tmp', filename).read_text())
+              print(filename)
+              if 'decision' in result:
+                  print(json.dumps(result['decision'], indent=2, sort_keys=True))
+              for specimen in result.get('specimens', []):
+                  print(specimen['specimen_id'])
+                  if 'decision' in specimen:
+                      print(json.dumps(specimen['decision'], indent=2, sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: moazzami-local-feature-sensitivity
+          path: |
+            /tmp/moazzami-local-feature-sensitivity.json
+            /tmp/moazzami-pixel-reversal-core.json
+            /tmp/moazzami-local-feature-reference.json
+            /tmp/moazzami-local-feature-summary.csv
+            /tmp/moazzami-model-robustness.json
+            /tmp/moazzami-model-robustness-reference.json
+            /tmp/moazzami-model-robustness-summary.csv
+            /tmp/moazzami-model-robustness.log
+            /tmp/moazzami-focused-pytest.log
+            /tmp/observation-manuscript-assets
+            /tmp/observation-robustness-figures
+          if-no-files-found: warn
+          retention-days: 30

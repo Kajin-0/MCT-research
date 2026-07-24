@@ -1,0 +1,177 @@
+\section{4. Numerical methods}\label{numerical-methods}
+
+\subsection{4.1 Nominal fitting}\label{nominal-fitting}
+
+The nominal fitted population satisfies
+
+\[
+600\leq\alpha\leq5000\ \mathrm{cm}^{-1}.
+\]
+
+Each intercept is selected by deterministic search over 4,001 uniformly
+spaced edge candidates. Amplitudes and, where applicable, the fractional
+exponent are solved analytically at each candidate. Residuals are
+evaluated in logarithmic absorption coordinates. A candidate terminating
+at a declared edge-search bound is retained for completeness but labeled
+boundary-limited.
+
+The \textbf{primary headline span} excludes boundary-limited candidates.
+The full span is reported only as a completeness record.
+
+\subsection{4.2 Coherent calibration-corner
+sensitivity}\label{coherent-calibration-corner-sensitivity}
+
+Four coherent perturbation cases are evaluated:
+
+\[
+(E_i',\log_{10}\alpha_i')=
+(E_i\pm\delta E,\log_{10}\alpha_i\pm\delta_i).
+\]
+
+The nominal fit membership is held fixed to isolate coordinate
+displacement from fit-window membership. This test samples global
+calibration corners; it is not a complete model of local digitization
+error.
+
+\subsection{4.3 Two-point reconstruction
+diagnostic}\label{two-point-reconstruction-diagnostic}
+
+The two adjacent MZ226 coordinates associated with the visible plateau
+are omitted without interpolation or replacement, and every fitted model
+is recomputed. The omission is also combined with the four
+calibration-corner cases. This check answers only whether that local
+reconstruction irregularity controls the fitted result.
+
+\subsection{4.4 Contiguous-window
+leverage}\label{contiguous-window-leverage}
+
+Every possible contiguous one-, three-, and five-point window is omitted
+from the nominal fitted population. This is an adversarial leverage
+diagnostic. It is not a missing-data probability model and does not
+imply that any omitted coordinate is erroneous.
+
+\subsection{4.5 Reconstruction-method
+sensitivity}\label{reconstruction-method-sensitivity}
+
+The fitted-model ensemble is recomputed for:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  the committed isotonic reconstruction;
+\item
+  the raw source-pixel centerline;
+\item
+  independently recomputed unweighted isotonic regression;
+\item
+  inverse-vertical-width-weighted isotonic regression;
+\item
+  isotonic reconstructions of the lower and upper source-line envelopes.
+\end{enumerate}
+
+Two membership conventions are reported separately: fixed membership
+inherited from the committed nominal spectrum and
+reconstruction-specific membership. This prevents preprocessing effects
+from being silently conflated with changes in which points enter the
+fit.
+
+\subsection{4.6 Fit-domain and weighting
+grid}\label{fit-domain-and-weighting-grid}
+
+The lower fit boundary is varied over
+
+\[
+\alpha_{\min}\in\{400,600,800,1000\}\ \mathrm{cm}^{-1},
+\]
+
+and the upper boundary over
+
+\[
+\alpha_{\max}\in\{3000,4000,5000\}\ \mathrm{cm}^{-1}.
+\]
+
+Each admissible domain is evaluated with:
+
+\begin{itemize}
+\tightlist
+\item
+  equal weight per reconstructed point;
+\item
+  quadrature weight by photon-energy interval;
+\item
+  quadrature weight by log-absorption interval.
+\end{itemize}
+
+The nominal \(600\)-\(5000\) cm\(^{-1}\) interval follows the
+above-bandgap modeling interval declared in the source record. The
+surrounding endpoint grid brackets nearby analyst choices without
+entering the deep low-absorption tail or extending substantially beyond
+the source-study fitting regime. Every retained domain must contain at
+least 20 reconstructed coordinates and must preserve the predeclared
+edge-search bounds. The latter two weighting rules test whether
+nonuniform sampling density materially determines the fitted intercept.
+Excluded endpoint combinations are reported rather than repaired by
+changing the search bounds.
+
+\subsection{4.7 Model-adequacy
+diagnostics}\label{model-adequacy-diagnostics}
+
+For each nominal fitted model, the following descriptive diagnostics are
+reported:
+
+\begin{itemize}
+\tightlist
+\item
+  RMS residual in \(\log_{10}\alpha\);
+\item
+  maximum absolute residual in \(\log_{10}\alpha\);
+\item
+  RMS residual normalized by the reconstructed source-line half-width;
+\item
+  fraction of fitted coordinates within one and two vertical
+  half-widths.
+\end{itemize}
+
+These are compatibility diagnostics, not chi-square tests. AIC, BIC,
+likelihood ratios, and formal confidence levels are not used because the
+bitmap-derived coordinate errors are neither independent nor assigned a
+stochastic model.
+
+For a secondary descriptive screen, a fitted form is labeled
+\textbf{line-envelope compatible} only when it is not boundary-limited,
+its RMS residual normalized by the local reconstructed line half-width
+is no greater than 1, and at least 95\% of fitted coordinates lie within
+two local half-widths. This deterministic rule is used only to show
+whether the complete model envelope is being enlarged by visibly poor
+fits. It is not a physical model-selection criterion, and conclusions
+are reported both with and without the screen.
+
+The screen itself is subjected to a predeclared threshold grid:
+normalized-RMS limits of 0.75, 1.0, 1.25, and 1.5 are crossed with
+minimum two-half-width coverage fractions of 0.90, 0.95, and 0.975. This
+analysis tests whether the retained candidate set or its span is an
+artifact of the nominal screen. Because the stricter combinations can
+retain fewer than two candidates, the screen is not used as the primary
+model-dependence result.
+
+\subsection{4.8 Empirical-equation scale and composition
+resolution}\label{empirical-equation-scale-and-composition-resolution}
+
+Hansen and Seiler predictions are evaluated only to provide a numerical
+comparison scale. No equation is labeled the winner.
+
+For the Hansen relation,
+
+\[
+\frac{\partial E_g}{\partial x}
+=1.93-1.62x+2.496x^2-2(5.35\times10^{-4})T.
+\]
+
+At 300 K, the derivative is approximately 1.370 eV per composition
+fraction at \(x=0.226\) and 1.347 eV per composition fraction at
+\(x=0.310\). Half of the last reported composition digit,
+\(\Delta x=0.0005\), corresponds to approximately 0.685 and 0.673 meV,
+respectively. Both values exceed the 0.255 and 0.177 meV Hansen-Seiler
+separations. Since the actual specimen composition uncertainty is
+unreported, a sub-meV material-law ranking is not identified.
