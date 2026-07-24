@@ -1,0 +1,2 @@
+relation_id,source_id,composition_x,temperature_min_k,temperature_max_k,relation,Eg0_eV,alpha_per_K,derived_exact_slope_eV_per_K,source_reported_rounded_slope_eV_per_K,mass_relation,measurement_class,observation_status,pointwise_covariance
+KAH73_EG_LINEAR,KAHLERT1973_HSC_R09,0.212,50,130,"Eg(T)=Eg0*(1+alpha*T)",0.09,0.0085,0.000765,0.00076,"mstar(T)=mstar0*(1+alpha*T)",magnetophonon_resonance_model_fit,source_reported_model_relation,not_reported
