@@ -7,13 +7,13 @@
   "decision_date": "2026-07-24",
   "reason": "The Madarasz 1985 equation sets and Lowney 1992 fit coefficients were not recovered at symbol-exact implementation quality after repository, File Library, DOI, exact-title, and official NIST searches.",
   "source_status": {
-    "madarasz_szulowicz_mcbath_1985": {
+    "madarasz_szmulowicz_mcbath_1985": {
       "doi": "10.1063/1.335685",
       "metadata_verified": true,
       "full_equations_available": false,
       "implementation_authorized": false
     },
-    "madarasz_szulowicz_1985": {
+    "madarasz_szmulowicz_1985": {
       "doi": "10.1063/1.335868",
       "metadata_verified": true,
       "full_equations_available": false,
