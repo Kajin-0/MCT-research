@@ -1,0 +1,80 @@
+{
+  "assumptions": {
+    "count": 7,
+    "ids": [
+      "DN77_A1",
+      "DN77_A2",
+      "DN77_A3",
+      "DN77_A4",
+      "DN77_A5",
+      "DN77_A6",
+      "DN77_A7"
+    ]
+  },
+  "band_parameters": {
+    "gap_values_eV_by_x": {
+      "0.165": "0.014",
+      "0.170": "0.0245",
+      "0.185": "0.047",
+      "0.200": "0.070",
+      "0.216": "0.096"
+    },
+    "independent_gap_observation_count": 0,
+    "unique_composition_count": 5
+  },
+  "controlling_decision": "primary_source_recovered_extreme_quantum_limit_magnetotransport_table_reconstructed_gap_parameters_not_direct_observations_hansen_marker_mapping_unresolved",
+  "deterministic_checks": {
+    "all_candidates_nonindependent": true,
+    "figure_digitization_performed": false,
+    "max_hall_mobility_relative_residual": "0.052594250993",
+    "source_binary_committed": false,
+    "x_020_sample_count": 5
+  },
+  "hansen_candidates": {
+    "count": 5,
+    "ids": [
+      "DN77_TABLE1_X0165",
+      "DN77_TABLE1_X0170",
+      "DN77_TABLE1_X0185",
+      "DN77_TABLE1_X0200",
+      "DN77_TABLE1_X0216"
+    ],
+    "independent_gap_observation_count": 0
+  },
+  "hansen_graph_id": "HSC_R13",
+  "measurement_class": "extreme_quantum_limit_transverse_magnetotransport",
+  "power_law_ranges": {
+    "alpha_max_4p2k": "2.0",
+    "alpha_max_all": "2.3",
+    "alpha_min_4p2k": "1.0",
+    "alpha_min_all": "1.0",
+    "low_temperature_samples": [
+      "DN77_S5",
+      "DN77_S8"
+    ],
+    "record_count": 13
+  },
+  "schema_version": 1,
+  "source_id": "DORNHAUS1977_HSC_R13",
+  "source_pdf_page_count": 5,
+  "source_pdf_sha256": "245d79984caf798916820e36d8afc0f0f9d54d8961a9da443d1491c3885c3200",
+  "table1": {
+    "carrier_density_max_1e20_m_minus3": "200",
+    "carrier_density_min_1e20_m_minus3": "3.3",
+    "composition_group_count": 5,
+    "composition_sample_counts": {
+      "0.165": 1,
+      "0.170": 1,
+      "0.185": 1,
+      "0.200": 5,
+      "0.216": 1
+    },
+    "printed_composition_uncertainty_samples": [
+      "DN77_S1",
+      "DN77_S4",
+      "DN77_S7",
+      "DN77_S8"
+    ],
+    "sample_count": 9
+  }
+}
