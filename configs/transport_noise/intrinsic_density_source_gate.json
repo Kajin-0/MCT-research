@@ -1,0 +1,63 @@
+{
+  "program": "R06",
+  "controlling_issue": 346,
+  "gate": "intrinsic_density_source_exactness",
+  "status": "blocked_on_symbol_exact_primary_equations",
+  "audited_on": "2026-07-24",
+  "sources": [
+    {
+      "source_id": "MADARASZ_SZMULOWICZ_MCBATH1985",
+      "doi": "10.1063/1.335685",
+      "role": "earlier Kane calculation",
+      "metadata_verified": true,
+      "equations_verified": false,
+      "implementation_authorized": false
+    },
+    {
+      "source_id": "MADARASZ_SZMULOWICZ1985",
+      "doi": "10.1063/1.335868",
+      "role": "Fermi-Dirac Kane extension",
+      "metadata_verified": true,
+      "equations_verified": false,
+      "implementation_authorized": false
+    },
+    {
+      "source_id": "SEILER_LOWNEY_LITTLER_YOON1991",
+      "doi": "10.1557/PROC-216-59",
+      "official_distribution": "NIST publication 22086",
+      "role": "open primary precursor and equation-lineage source",
+      "metadata_verified": true,
+      "architecture_verified": true,
+      "nonlinear_gap_verified": true,
+      "equations_2_to_4_symbol_exact": false,
+      "implementation_authorized": false
+    },
+    {
+      "source_id": "LOWNEY_SEILER_LITTLER_YOON1992",
+      "doi": "10.1063/1.351371",
+      "role": "nonlinear-gap Kane calculation and fitted result",
+      "metadata_verified": true,
+      "architecture_verified_via_precursor": true,
+      "fit_coefficients_verified": false,
+      "implementation_authorized": false
+    }
+  ],
+  "verified_model_facts": {
+    "conduction_statistics": "full Fermi-Dirac",
+    "valence_statistics": "nondegenerate heavy-hole",
+    "split_off_energy_eV": 1.0,
+    "momentum_matrix_element_eV_cm": 8.49e-8,
+    "heavy_hole_mass_m0": 0.55,
+    "neutrality_solver": "Newton iteration",
+    "conduction_model": "Kane three-band k.p"
+  },
+  "required_closure_evidence": [
+    "visual symbol-level transcription of inherited neutrality and density equations",
+    "atomic-unit and Rydberg dimensional audit",
+    "degeneracy-factor audit",
+    "independent secular-equation inversion",
+    "at least three primary numerical reference points",
+    "verified 1992 fit coefficients if fit is used"
+  ],
+  "next_parallel_gate": "low_temperature_mobility_and_static_permittivity_provenance"
+}
