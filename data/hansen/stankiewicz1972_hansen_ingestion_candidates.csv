@@ -1,0 +1,10 @@
+candidate_id,source_id,candidate_basis,composition_x,temperature_k,gap_eV,candidate_status,reason
+SG72_T1_X007_77K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.07,77,-0.122,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X007_280K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.07,280,-0.035,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X0095_77K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.095,77,-0.096,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X0095_280K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.095,280,-0.008,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X013_77K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.13,77,-0.035,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X013_280K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.13,280,0.049,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X018_77K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.18,77,0.042,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_T1_X018_280K,STANKIEWICZ1972_HSC_R10,Table_1_model_fit_output,0.18,280,0.117,source_native_candidate_not_hansen_assignment,"Hansen does not expose source-labeled HSC_R10 markers"
+SG72_EQ4_80K_FAMILY,STANKIEWICZ1972_HSC_R10,Equation_4_scalar_relation,,80,,source_relation_candidate_not_hansen_assignment,"The source prints a full x-T relation, but Hansen does not state whether it ingested the relation or individual Table 1 points"

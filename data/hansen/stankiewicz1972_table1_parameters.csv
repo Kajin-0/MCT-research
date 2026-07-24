@@ -1,0 +1,5 @@
+record_id,source_id,composition_x,composition_half_width_x,gap_77k_eV,gap_77k_half_width_eV,gap_280k_eV,gap_280k_half_width_eV,pressure_coefficient_meV_per_katm,pressure_coefficient_half_width_meV_per_katm,pressure_coefficient_eV_per_atm,pressure_coefficient_half_width_eV_per_atm,temperature_coefficient_eV_per_K,temperature_coefficient_half_width_eV_per_K,evidence_class,source_location
+SG72_T1_X007,STANKIEWICZ1972_HSC_R10,0.07,0.005,-0.122,0.006,-0.035,0.006,9.5,0.5,9.5e-6,0.5e-6,4.4e-4,0.5e-4,source_model_fit_output,Table_1_page_391
+SG72_T1_X0095,STANKIEWICZ1972_HSC_R10,0.095,0.005,-0.096,0.006,-0.008,0.006,10.5,0.5,10.5e-6,0.5e-6,4.3e-4,0.5e-4,source_model_fit_output,Table_1_page_391
+SG72_T1_X013,STANKIEWICZ1972_HSC_R10,0.13,0.005,-0.035,0.006,0.049,0.006,9.6,0.5,9.6e-6,0.5e-6,4.0e-4,0.5e-4,source_model_fit_output,Table_1_page_391
+SG72_T1_X018,STANKIEWICZ1972_HSC_R10,0.18,0.005,0.042,0.006,0.117,0.006,8.5,0.5,8.5e-6,0.5e-6,3.8e-4,0.5e-4,source_model_fit_output,Table_1_page_391
