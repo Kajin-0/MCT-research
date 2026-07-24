@@ -1,0 +1,7 @@
+assumption_id,source_id,assumption,role,status,notes
+AL70_A1,ALIEV1970_HSC_R12,"Use strong-field thermoelectric power and Hall coefficient to infer conduction-band effective mass",measurement_inversion,source_stated,"Transverse Nernst-Ettingshausen measurements are used as a consistency check"
+AL70_A2,ALIEV1970_HSC_R12,"Use a spherical isoenergetic surface and a degenerate electron gas with K^2=(3*pi^2*n)^(2/3)",Kane_mass_calculation,source_stated,"Applied to Equation 2"
+AL70_A3,ALIEV1970_HSC_R12,"Use Equation 3 as the signed energy-gap input",gap_parameterization,source_stated,"Equation 3 is attributed to Wiley and Dexter; it is not fitted from Table 1"
+AL70_A4,ALIEV1970_HSC_R12,"Use Ep=(18+3x) eV and neglect temperature dependence of Ep",matrix_element_parameterization,source_stated,"Equation 4"
+AL70_A5,ALIEV1970_HSC_R12,"Interpret linearity of the transformed mass versus n^(2/3) plot for x=0.1 as confirmation of Kane dispersion",model_check,source_stated,"The intercept gives a near-zero band-edge mass and near-zero gap qualitatively"
+AL70_A6,ALIEV1970_HSC_R12,"Treat source columns labelled exp. as model-conditioned derived values rather than direct raw observables",repository_interpretation,audit_decision,"The paper reports no covariance or independent error model"
