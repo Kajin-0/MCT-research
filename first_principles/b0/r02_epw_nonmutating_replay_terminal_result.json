@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0",
+  "stage": "B0_epw_nonmutating_replay_terminal_result",
+  "program": "R02",
+  "issue": 371,
+  "closed_executable_pr": 372,
+  "status": "pass",
+  "classification": "PASS_NONMUTATING_SERIAL_REPLAY",
+  "preflight_attempt": {
+    "workflow_run_id": 30107570717,
+    "job_id": 89528681224,
+    "head_sha": "fff6a4c441085a99db771fd1b16e38c0935b2ffe",
+    "artifact_id": 8602243538,
+    "artifact_digest": "sha256:279fb9bb168c167a3b416b905f966d01c4b72e031b3b62612cca858545e2766b",
+    "classification": "STOP_HARNESS",
+    "last_stage": "focused_tests",
+    "build_count": 0,
+    "preparation_count": 0,
+    "replay_count": 0,
+    "focused_tests_passed": 53,
+    "focused_tests_total": 54,
+    "authorization_consumed": false,
+    "correction": "One structural test assertion was changed from a nonexistent shell literal to the actual Python status-path expression. No contract, source, patch, input, threshold, driver behavior, or scientific setting changed."
+  },
+  "workflow": {
+    "run_id": 30107733166,
+    "job_id": 89529197616,
+    "head_sha": "a50739354b767545acb44c9be98f0d48acf2acf8",
+    "artifact_id": 8602492899,
+    "artifact_digest": "sha256:c3aeb035173b582f33a65ca1688048257ea8c10c092fa6f6d987d0c328f0d032",
+    "artifact_archive_size_bytes": 305174,
+    "evidence_tree_size_bytes": 3605225
+  },
+  "source": {
+    "qe_release": "7.6",
+    "epw_release": "6.1",
+    "commit_sha": "9f93ddec427d2b9a45bb72d828c6d324f62fcabd",
+    "source_tree_archive_sha256": "34ab80c2ed8a0e30d1aef01ac847c68106c8c8c2b7f7eaf8e05ecafbbcbac849",
+    "io_f90_git_blob_sha": "73fb24ecbf4b690c460006ec354d0b9a7772a044",
+    "allocation_patch_sha256": "ce24ab3ce90f8fa0d0d098f8e8761511204a99bf96589b9ff37eaff79a330e70",
+    "applied_patch_sha256": "0605191df17b9abb8dec794c1beb9e663b396ab12049c1189ab4ca0e6b57ae43",
+    "patched_source_allocation_count": 1,
+    "patched_allocation_before_mpi_split": true,
+    "executables_sha256": {
+      "pw.x": "34210babb972f8f18398214462832bee893a53b552fc714bc5f1f91efeb537d0",
+      "ph.x": "159fece8541dc1de9cb5ea1326476465ef3602c10f4d1c015525d2c1c9acff07",
+      "epw.x": "3ef0ccfa9bfb7a85268449e18d476301bae38522fd5b3750056929557a533071"
+    }
+  },
+  "contracts": {
+    "execution_contract_sha256": "2648c279ef3a80c866ee8804dcc16f56aa14f959b392432c71ee2cb15e5e8a0e",
+    "boundary_contract_sha256": "bfabc1d203e67c3bada9f1a4b628324c06bd8c18975dd0a3d7bad424c1219af1",
+    "boundary_contract_git_blob_sha": "daf45bab4df80d0762a115460757d11098dcc1ae",
+    "replay_input_sha256": "e56d76aad9dd4fd6f8a5e2969bcc66ebff0fa468836cb2a313adffb11b5d8dda",
+    "replay_input_git_blob_sha": "480ad888c3c24f84d516b3daeb6a2558cd8044e1"
+  },
+  "fixture": {
+    "material": "diamond",
+    "material_role": "upstream_nonpolar_software_fixture_only",
+    "soc_enabled": false,
+    "long_range_included": false,
+    "thermal_expansion_included": false,
+    "exporter_enabled": false,
+    "epbwrite": false,
+    "epbread": false,
+    "epwwrite": false,
+    "epwread": true,
+    "wannierize": false,
+    "electron_self_energy_enabled": true
+  },
+  "execution": {
+    "build_count": 1,
+    "preparation_count": 1,
+    "preparation_command_count": 6,
+    "preparation_commands_with_zero_exit_code": 6,
+    "serial_replay_count": 1,
+    "replay_exit_code": 0,
+    "analyzer_exit_code": 0,
+    "material_calculation_count": 0
+  },
+  "state_manifests": {
+    "preparation": {
+      "file_count": 168,
+      "manifest_sha256": "4ec6c1c1ef89e12f5cdc5a14caf71c9a2c9992f089f206ba647b7b638590548b"
+    },
+    "projected_seed": {
+      "file_count": 162,
+      "manifest_sha256": "9c1cc2151461b25a4f41468268cdce9444efbda11bbb3075de9a64d0e450d1ca"
+    },
+    "replay_pre": {
+      "file_count": 162,
+      "manifest_sha256": "9c1cc2151461b25a4f41468268cdce9444efbda11bbb3075de9a64d0e450d1ca"
+    },
+    "replay_post": {
+      "file_count": 165,
+      "manifest_sha256": "465dc74ae6e05e6017bbf7a875303437694fdd4338166e31298e1b1e0bada6fe"
+    },
+    "seed_and_replay_pre_identical": true
+  },
+  "seed_projection": {
+    "removed_forbidden_paths": [
+      "diam.epb1"
+    ],
+    "removed_declared_outputs": [
+      "EPW.bib",
+      "diam.kgmap",
+      "diam_0.kmap",
+      "linewidth.elself.300.000K",
+      "selecq.fmt"
+    ],
+    "removed_transient_paths": []
+  },
+  "filesystem_integrity": {
+    "passed": true,
+    "deleted_immutable_paths": [],
+    "mutated_immutable_paths": [],
+    "forbidden_created_paths": [],
+    "forbidden_existing_paths": [],
+    "unknown_created_paths": [],
+    "declared_outputs_present_in_seed": [],
+    "created_declared_outputs": [
+      "EPW.bib",
+      "linewidth.elself.300.000K",
+      "selecq.fmt"
+    ],
+    "created_transient_files": []
+  },
+  "completion_evidence": {
+    "passed": true,
+    "classification": "EPW_COMPLETION_EVIDENCE_PASS",
+    "exit_code_zero": true,
+    "fatal_or_signal_markers_present": false,
+    "total_program_execution_present": true,
+    "selfen_timer_match_count": 1,
+    "selfen_timer_calls": [
+      216
+    ],
+    "selfen_timer_positive_call_count": true,
+    "linewidth_output": {
+      "path": "linewidth.elself.300.000K",
+      "size_bytes": 414841,
+      "numeric_row_count": 5184
+    }
+  },
+  "evidence_sha256": {
+    "replay_stdout": "d17e496d5c61861049e1e86e4692d54e34e393ac43912feebb5462d124f99044",
+    "replay_stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runtime_status": "9893db1d2219fd894104af2b717f54ece873076d410482d16a0b29012556ac65",
+    "terminal_result": "604cd2494fa1681a164879deeb0b6578ed22103b74ca644b666f958e9a18e82d",
+    "seed_manifest": "e0b84e55272d335988018e577e655b7468e4761e11f272fd7d7520d3c50d3bc1",
+    "replay_post_manifest": "3f3905397e4f5f1d3d5cbaa0a93a97f1ebc8d84581ddd9f2a0f5bae0fb8844b4",
+    "seed_projection": "8aed82fad8f335ba55c903d0fe139225e8d5bc2a56a571e565c2e28e6f14c427",
+    "focused_tests": "f420d0eb9c96cb1142d0806f970456848c36e9b851c6f5184d2d1489a1247237"
+  },
+  "decision": {
+    "serial_epwread_allocation_patch": "runtime_supported_for_pinned_serial_fixture",
+    "nonmutating_replay_boundary": "validated_for_pinned_serial_fixture",
+    "serial_restart_harness": "validated",
+    "exporter_noninterference": "not_evaluated",
+    "matrix_export_normalization": "not_evaluated_in_this_run",
+    "soc_spinor_fixture": "not_authorized",
+    "material_self_energy": "not_authorized",
+    "next_gate": "separately_reviewed_same_state_exporter_attribution",
+    "next_gate_execution_authorized": false,
+    "automatic_successor_authorized": false
+  },
+  "authorization": {
+    "additional_issue_371_build": false,
+    "additional_issue_371_preparation": false,
+    "additional_issue_371_replay": false,
+    "automatic_retry": false,
+    "exporter_enabled_execution": false,
+    "soc_fixture": false,
+    "cdte_hgte_or_alloy_calculation": false,
+    "a1_a2_a3": false,
+    "separate_design_followup": true
+  },
+  "claim_boundary": "This pass validates one patched, exporter-disabled, non-mutating serial epwread replay of the pinned upstream non-SOC diamond fixture. It does not validate exporter noninterference, matrix normalization, SOC, CdTe, HgTe, HgCdTe, or A1 readiness."
+}
