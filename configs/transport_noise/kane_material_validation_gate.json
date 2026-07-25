@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "controlling_issue": 346,
+  "gate": "project_defined_simplified_kane_material_validation",
+  "model_identity": "project_defined_isotropic_simplified_kane",
+  "status": "blocked_no_accepted_hgcdte_reference_set",
+  "decision": "validation_design_accepted_material_closure_not_accepted",
+  "parameters_under_test": [
+    "parabolic_density_scale_cm3",
+    "nonparabolicity_ev_inverse"
+  ],
+  "structural_identifiability": {
+    "method": "weighted_log_sensitivity_svd",
+    "parameter_coordinates": [
+      "log_parabolic_density_scale_cm3",
+      "log_nonparabolicity_ev_inverse"
+    ],
+    "absolute_scale_observables": [
+      "density_cm3",
+      "compressibility_cm3_per_ev"
+    ],
+    "scale_free_shape_observables": [
+      "generalized_einstein_factor"
+    ],
+    "matched_shape_alternative": [
+      "density_cm3",
+      "compressibility_cm3_per_ev"
+    ]
+  },
+  "minimum_external_evidence": {
+    "point_count": 3,
+    "provenance_group_count": 2,
+    "temperature_count": 2,
+    "requires_hgcdte_specific_points": true,
+    "requires_primary_or_independent_points": true,
+    "requires_positive_standard_uncertainty": true,
+    "requires_absolute_scale_observable": true,
+    "requires_scale_free_or_matched_shape_observable": true,
+    "requires_known_eta_or_validated_neutrality": true
+  },
+  "model_adequacy_tests_after_parameter_identification": [
+    "hold_out_prediction_error_with_uncertainty",
+    "composition_temperature_domain_stability",
+    "residual_structure_against_temperature_and_composition",
+    "comparison_with_hansen_schmit_inside_published_domain",
+    "comparison_with_any_recovered_primary_kane_reference_points",
+    "decision_on_simplified_dispersion_versus_full_three_band_model"
+  ],
+  "accepted_material_evidence": [],
+  "material_parameter_values_authorized": false,
+  "equilibrium_density_authorized": false,
+  "chemical_compressibility_authorized": false,
+  "screening_authorized": false,
+  "detector_coupling_authorized": false,
+  "predictive_noise_claims_authorized": false
+}
