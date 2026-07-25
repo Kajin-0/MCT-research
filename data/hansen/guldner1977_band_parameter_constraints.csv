@@ -1,0 +1,8 @@
+parameter_id,source_id,parameter,value,uncertainty,unit,composition_scope,status,role,source_location,notes
+G77_P_DELTA,GULDNER1977_HSC_R14,spin_orbit_splitting_Delta,1,,eV,all_investigated_compositions,assumed_fixed_input,Pidgeon_Brown_model,page 626,"Assumed independent of composition; attributed to reference 37"
+G77_P_EP_HGTE,GULDNER1977_HSC_R14,Kane_energy_Ep,18,,eV,HgTe_endpoint,printed_starting_value,fit_parameter_trend,page 626,"Ep rises rapidly for -300<epsilon0<-200 meV and varies slowly for epsilon0>-200 meV; individual alloy values are not printed"
+G77_P_GAMMA1,GULDNER1977_HSC_R14,modified_Luttinger_gamma1,4.5,1.5,dimensionless,semimetallic_alloys,source_reported_range,fit_constraint,page 626,"Obtained from fitted transition energies"
+G77_P_KAPPA,GULDNER1977_HSC_R14,modified_Luttinger_kappa,-1,0.5,dimensionless,semimetallic_alloys,source_reported_range,fit_constraint,page 626,"Obtained from fitted transition energies"
+G77_P_GAMMA_COMB,GULDNER1977_HSC_R14,gamma1_minus_2gamma,2.5,0.5,dimensionless,semimetallic_alloys,source_reported_correlation,heavy_hole_mass_constraint,page 626,"gamma and gamma1 are correlated"
+G77_P_MHH,GULDNER1977_HSC_R14,heavy_hole_mass_ratio,0.4,0.1,m0,all_investigated_compositions,derived_from_reported_correlation,band_parameter_constraint,page 626,"Major uncertainty arises from neglected valence-band warping"
+G77_P_EP_TREND,GULDNER1977_HSC_R14,Kane_energy_Ep_composition_trend,,,qualitative,"-300<epsilon0_meV and beyond",source_reported_qualitative_trend,cross_reference_to_part_II,page 626,"Part II Figure 12 is cited for the full Ep-versus-epsilon0 dependence"
