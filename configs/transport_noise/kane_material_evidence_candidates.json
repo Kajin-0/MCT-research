@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "controlling_issue": 346,
+  "gate": "project_defined_simplified_kane_material_evidence_recovery",
+  "recovered_on": "2026-07-25",
+  "status": "blocked_no_accepted_hgcdte_reference_set",
+  "accepted_material_evidence": [],
+  "summary": {
+    "candidate_source_count": 6,
+    "direct_intrinsic_density_source_count": 1,
+    "direct_high_temperature_carrier_source_count": 1,
+    "direct_compressibility_source_count": 0,
+    "direct_generalized_einstein_source_count": 0,
+    "indirect_band_structure_source_count": 2,
+    "countable_pr385_point_count": 0
+  },
+  "candidates": [
+    {
+      "source_id": "NEMIROVSKY_FINKMAN_1979",
+      "citation": "Y. Nemirovsky and E. Finkman, Journal of Applied Physics 50, 8107-8111 (1979)",
+      "doi": "10.1063/1.325950",
+      "provenance_group": "TECHNION_HALL_INTRINSIC_1979",
+      "source_class": "primary_experimental_intrinsic_density",
+      "hgcdte_specific": true,
+      "independent_or_primary": true,
+      "recovered_domain": {
+        "composition": "0.205 <= x <= 0.22 and x = 0.29",
+        "temperature_k": "approximately 150 to 320"
+      },
+      "recovered_method": [
+        "Hall measurements on uncompensated, characterized samples",
+        "photoconductive response used in sample characterization",
+        "infrared transmittance used to verify composition and uniformity"
+      ],
+      "pr385_observable_mapping": [
+        "density_cm3_with_intrinsic_neutrality_dependency"
+      ],
+      "point_level_values_recovered": false,
+      "positive_standard_uncertainties_recovered": false,
+      "eta_known": false,
+      "validated_neutrality_model_recovered": false,
+      "countable_as_accepted_material_evidence": false,
+      "disposition": "priority_1_primary_data_recovery",
+      "blocking_reasons": [
+        "primary point table or figure transcription not recovered",
+        "point-level standard uncertainties not recovered",
+        "sample-by-sample composition uncertainty not recovered",
+        "intrinsic neutrality and chemical-potential mapping not independently validated for the R06 closure"
+      ]
+    },
+    {
+      "source_id": "FINKMAN_1983",
+      "citation": "E. Finkman, Journal of Applied Physics 54, 1883-1886 (1983)",
+      "doi": "10.1063/1.332241",
+      "provenance_group": "TECHNION_HIGH_T_HALL_1983",
+      "source_class": "primary_experimental_hall_parameter_inversion",
+      "hgcdte_specific": true,
+      "independent_or_primary": true,
+      "recovered_domain": {
+        "composition": "near-intrinsic HgCdTe; exact sample grid not recovered",
+        "temperature_k": "elevated temperature; exact point grid not recovered"
+      },
+      "recovered_method": [
+        "observed Hall coefficient in the near-intrinsic region",
+        "Kane-model fit to temperature-dependent carrier concentration"
+      ],
+      "reported_outputs": [
+        "band-gap relation",
+        "Kane interband-coupling matrix element",
+        "heavy-hole effective-mass ratio",
+        "modified intrinsic carrier concentration"
+      ],
+      "pr385_observable_mapping": [
+        "density_cm3_candidate",
+        "indirect_nonparabolic_band_parameter_candidate"
+      ],
+      "point_level_values_recovered": false,
+      "positive_standard_uncertainties_recovered": false,
+      "eta_known": false,
+      "validated_neutrality_model_recovered": false,
+      "countable_as_accepted_material_evidence": false,
+      "disposition": "priority_1_primary_data_and_equation_recovery",
+      "blocking_reasons": [
+        "full primary equations and sample-level data not recovered",
+        "point-level standard uncertainties not recovered",
+        "Hall inversion and compensation assumptions not transcribed",
+        "reported fitted parameters cannot be mapped silently onto the project-defined simplified-Kane alpha"
+      ]
+    },
+    {
+      "source_id": "HANSEN_SCHMIT_1983",
+      "citation": "G. L. Hansen and J. L. Schmit, Journal of Applied Physics 54, 1639-1640 (1983)",
+      "doi": "10.1063/1.332153",
+      "provenance_group": "HANSEN_SCHMIT_CALCULATION_1983",
+      "source_class": "primary_calculated_intrinsic_density_fit",
+      "hgcdte_specific": true,
+      "independent_or_primary": true,
+      "recovered_domain": {
+        "composition": "x < 0.7",
+        "temperature_k": "50 < T < 300",
+        "additional_constraint": "Eg > 0"
+      },
+      "recovered_method": [
+        "Kane nonparabolic calculation using measured heavy-hole mass and energy gap",
+        "analytic fit reported within 1 percent of the calculation",
+        "reported within 15 percent of experimental Hall-derived intrinsic density"
+      ],
+      "pr385_observable_mapping": [
+        "density_cm3_model_benchmark"
+      ],
+      "point_level_values_recovered": true,
+      "positive_standard_uncertainties_recovered": false,
+      "eta_known": false,
+      "validated_neutrality_model_recovered": false,
+      "countable_as_accepted_material_evidence": false,
+      "disposition": "retain_as_bounded_model_benchmark",
+      "blocking_reasons": [
+        "calculated fit is not an independent experimental point set",
+        "no point-level standard uncertainty",
+        "does not provide chemical compressibility or generalized Einstein factor",
+        "historic Kane closure is not identical to the project-defined simplified dispersion"
+      ]
+    },
+    {
+      "source_id": "SEILER_LOWNEY_LITTLER_YOON_1991",
+      "citation": "D. G. Seiler, J. R. Lowney, C. L. Littler, and I. T. Yoon, MRS Symposium Proceedings 216, 59-63 (1991)",
+      "doi": "10.1557/PROC-216-59",
+      "provenance_group": "NIST_KANE_CALCULATION_1991",
+      "source_class": "primary_open_model_calculation_with_bandgap_experiment",
+      "hgcdte_specific": true,
+      "independent_or_primary": true,
+      "recovered_domain": {
+        "composition": "0.17 <= x <= 0.30",
+        "temperature_k": "4 to 300"
+      },
+      "recovered_method": [
+        "three-band Kane conduction model",
+        "full Fermi-Dirac conduction statistics",
+        "nondegenerate heavy-hole statistics",
+        "Newton solution of intrinsic neutrality",
+        "experimental magneto-absorption band-gap checks at x approximately 0.201 and 0.229"
+      ],
+      "recovered_parameters": {
+        "split_off_energy_ev": 1.0,
+        "momentum_matrix_element_ev_cm": 8.49e-08,
+        "heavy_hole_mass_m0": 0.55
+      },
+      "pr385_observable_mapping": [
+        "density_cm3_model_curve",
+        "indirect_bandgap_constraint"
+      ],
+      "point_level_values_recovered": false,
+      "positive_standard_uncertainties_recovered": false,
+      "eta_known": false,
+      "validated_neutrality_model_recovered": false,
+      "countable_as_accepted_material_evidence": false,
+      "disposition": "priority_2_visual_curve_and_equation_recovery",
+      "blocking_reasons": [
+        "intrinsic-density results are model outputs rather than independent density measurements",
+        "figures are not tabulated and point uncertainty is not reported",
+        "Fermi energy is not tabulated",
+        "symbol-exact equations 2 through 4 remain visually unresolved",
+        "single NIST model lineage cannot by itself satisfy provenance independence"
+      ]
+    },
+    {
+      "source_id": "LOWNEY_SEILER_LITTLER_YOON_1992",
+      "citation": "J. R. Lowney, D. G. Seiler, C. L. Littler, and I. T. Yoon, Journal of Applied Physics 71, 1253-1258 (1992)",
+      "doi": "10.1063/1.351371",
+      "provenance_group": "NIST_KANE_CALCULATION_1992",
+      "source_class": "primary_journal_model_calculation",
+      "hgcdte_specific": true,
+      "independent_or_primary": true,
+      "recovered_domain": {
+        "composition": "narrow-gap HgCdTe; exact fit domain not recovered",
+        "temperature_k": "not recovered at point level"
+      },
+      "pr385_observable_mapping": [
+        "density_cm3_model_fit_candidate"
+      ],
+      "point_level_values_recovered": false,
+      "positive_standard_uncertainties_recovered": false,
+      "eta_known": false,
+      "validated_neutrality_model_recovered": false,
+      "countable_as_accepted_material_evidence": false,
+      "disposition": "blocked_pending_primary_fit_recovery",
+      "blocking_reasons": [
+        "published fit coefficients not recovered",
+        "point-level numerical references not recovered",
+        "journal result shares the NIST model lineage with the 1991 precursor",
+        "no compressibility or generalized Einstein observations"
+      ]
+    },
+    {
+      "source_id": "TEPPE_ET_AL_2016",
+      "citation": "F. Teppe et al., Nature Communications 7, 12576 (2016)",
+      "doi": "10.1038/ncomms12576",
+      "provenance_group": "MAGNETO_OPTICAL_KANE_FERMION_2016",
+      "source_class": "primary_experimental_band_structure",
+      "hgcdte_specific": true,
+      "independent_or_primary": true,
+      "recovered_domain": {
+        "composition": "x = 0.155 and x = 0.175",
+        "temperature_k": "approximately 2 to 120"
+      },
+      "recovered_method": [
+        "far-infrared magneto-spectroscopy",
+        "simplified Kane-model extraction of bandgap, rest mass, and velocity"
+      ],
+      "recovered_values": [
+        "Kane velocity (1.07 +/- 0.05) x 10^6 m/s across the studied range",
+        "sample-A bandgap approximately 5 +/- 2 meV at 2 K"
+      ],
+      "pr385_observable_mapping": [
+        "indirect_nonparabolic_model_adequacy_constraint"
+      ],
+      "point_level_values_recovered": true,
+      "positive_standard_uncertainties_recovered": true,
+      "eta_known": false,
+      "validated_neutrality_model_recovered": false,
+      "countable_as_accepted_material_evidence": false,
+      "disposition": "retain_for_simplified_versus_three_band_adequacy",
+      "blocking_reasons": [
+        "does not measure density, chemical compressibility, or generalized Einstein factor",
+        "cannot be converted directly into project N_* or alpha without an additional derivation",
+        "samples lie near the topological transition rather than the intended detector domain",
+        "band-structure evidence does not close intrinsic neutrality"
+      ]
+    }
+  ],
+  "contract_failures": [
+    "no recovered direct chemical-compressibility measurements",
+    "no recovered direct generalized-Einstein-factor measurements",
+    "no three countable positive uncertainty-bearing density or compressibility points",
+    "no accepted point has independently known eta",
+    "no separately validated heavy-hole and split-off-band neutrality model",
+    "no admissible two-provenance observation set satisfying the scale-and-shape requirement"
+  ],
+  "next_recovery_actions": [
+    "obtain primary full text for Nemirovsky-Finkman 1979 and transcribe sample-level Hall-derived intrinsic-density points",
+    "obtain primary full text for Finkman 1983 and transcribe Hall data, fitted parameters, assumptions, and uncertainties",
+    "perform visual symbol-level transcription of Seiler et al. 1991 equations 2 through 4 and digitize model curves only as model benchmarks",
+    "search specifically for HgCdTe chemical-compressibility, quantum-capacitance, thermodynamic-density-of-states, or generalized-Einstein measurements",
+    "define a source-grounded mapping from magneto-optical Kane velocity and gap to any future project-defined nonparabolic parameterization",
+    "keep fitting, screening, detector coupling, and predictive noise blocked"
+  ]
+}
