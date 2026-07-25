@@ -1,0 +1,60 @@
+name: Dornhaus 1977 HSC_R13 primary-source audit
+
+on:
+  pull_request:
+    paths:
+      - "data/hansen/dornhaus1977_hsc_r13_source_metadata.csv"
+      - "data/hansen/dornhaus1977_table1_samples.csv"
+      - "data/hansen/dornhaus1977_powerlaw_ranges.csv"
+      - "data/hansen/dornhaus1977_band_parameters.csv"
+      - "data/hansen/dornhaus1977_model_assumptions.csv"
+      - "data/hansen/dornhaus1977_hansen_ingestion_candidates.csv"
+      - "data/hansen/dornhaus1977_hsc_r13_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/dornhaus1977_hsc_r13_audit.json"
+      - "tools/audit_dornhaus1977_hsc_r13.py"
+      - "tests/test_dornhaus1977_hsc_r13_primary_audit.py"
+      - ".github/workflows/dornhaus1977-hsc-r13-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-24-dornhaus1977-hsc-r13-primary-audit.md"
+  push:
+    branches: [main]
+    paths:
+      - "data/hansen/dornhaus1977_hsc_r13_source_metadata.csv"
+      - "data/hansen/dornhaus1977_table1_samples.csv"
+      - "data/hansen/dornhaus1977_powerlaw_ranges.csv"
+      - "data/hansen/dornhaus1977_band_parameters.csv"
+      - "data/hansen/dornhaus1977_model_assumptions.csv"
+      - "data/hansen/dornhaus1977_hansen_ingestion_candidates.csv"
+      - "data/hansen/dornhaus1977_hsc_r13_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/dornhaus1977_hsc_r13_audit.json"
+      - "tools/audit_dornhaus1977_hsc_r13.py"
+      - "tests/test_dornhaus1977_hsc_r13_primary_audit.py"
+      - ".github/workflows/dornhaus1977-hsc-r13-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-24-dornhaus1977-hsc-r13-primary-audit.md"
+
+permissions:
+  contents: read
+
+jobs:
+  primary-source-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install focused test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Verify Dornhaus primary-source reconstruction
+        run: python -m pytest -q tests/test_dornhaus1977_hsc_r13_primary_audit.py
+      - name: Regenerate immutable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/audit_dornhaus1977_hsc_r13.py > /tmp/dornhaus-audit.json
+          cmp /tmp/dornhaus-audit.json data/validation/dornhaus1977_hsc_r13_audit.json
