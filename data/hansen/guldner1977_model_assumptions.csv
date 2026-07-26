@@ -1,0 +1,9 @@
+assumption_id,source_id,assumption,role,status,notes
+G77_A1,GULDNER1977_HSC_R14,Use the virtual crystal approximation for Hg1-xCdxTe alloy band parameters,alloy_model,source_stated,Applied throughout the magnetooptical interpretation
+G77_A2,GULDNER1977_HSC_R14,Use the Pidgeon-Brown 8x8 Gamma6-Gamma8-Gamma7 Landau-level Hamiltonian at kH=0,transition_energy_model,source_stated,Transition probabilities and energies are calculated numerically
+G77_A3,GULDNER1977_HSC_R14,Neglect inversion asymmetry and Gamma8 anisotropy in the principal Hamiltonian,model_reduction,source_stated,An observed Delta_n=-3 transition is instead noted as possibly induced by inversion asymmetry
+G77_A4,GULDNER1977_HSC_R14,Neglect Kane F and G matrix elements,model_reduction,source_stated,Printed directly after determinant equations
+G77_A5,GULDNER1977_HSC_R14,Fix spin-orbit splitting Delta at 1 eV independent of composition,fit_constraint,source_stated,Reduces the free parameter set
+G77_A6,GULDNER1977_HSC_R14,Infer epsilon0 from the zero-field convergence region of interband transition energies and fit remaining band parameters to transition series,gap_and_parameter_inversion,source_stated,Epsilon0 is called directly obtained while Ep and Luttinger parameters are fitted
+G77_A7,GULDNER1977_HSC_R14,Neglect valence-band warping when quoting gamma and heavy-hole mass,uncertainty_limitation,source_stated,Authors identify this as the major source of uncertainty in gamma and m_h
+G77_A8,GULDNER1977_HSC_R14,Treat resonant-acceptor transitions as a separate evidence class from intrinsic interband transitions,evidence_separation,source_stated,Impurity lines are identified by field dependence and broader linewidth

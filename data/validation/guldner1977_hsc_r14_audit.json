@@ -1,0 +1,89 @@
+{
+  "acceptor_states": {
+    "count": 3,
+    "intrinsic_gap_evidence_count": 0,
+    "labels": [
+      "A0",
+      "A1"
+    ]
+  },
+  "band_parameter_constraints": {
+    "count": 7,
+    "ids": [
+      "G77_P_DELTA",
+      "G77_P_EP_HGTE",
+      "G77_P_GAMMA1",
+      "G77_P_KAPPA",
+      "G77_P_GAMMA_COMB",
+      "G77_P_MHH",
+      "G77_P_EP_TREND"
+    ]
+  },
+  "controlling_decision": "primary_source_recovered_semimetallic_magnetotransmission_gap_candidates_reconstructed_part_ii_relation_and_hansen_marker_mapping_unresolved",
+  "cross_source_links": {
+    "all_cross_reference_only": true,
+    "count": 2,
+    "target_graph_ids": [
+      "HSC_R15"
+    ]
+  },
+  "deterministic_checks": {
+    "acceptors_separated_from_intrinsic_gap": true,
+    "figure_digitization_performed": false,
+    "part_ii_relation_reconstructed": false,
+    "pointwise_covariance": "not_reported",
+    "source_binary_committed": false
+  },
+  "hansen_candidates": {
+    "all_source_native": true,
+    "count": 5,
+    "resolved_assignment_count": 0
+  },
+  "hansen_graph_id": "HSC_R14",
+  "interaction_gap_candidates": {
+    "all_negative": true,
+    "count": 5,
+    "maximum_meV": "-90",
+    "minimum_meV": "-285",
+    "raw_observable_count": 0,
+    "reported_pointwise_uncertainty_count": 0,
+    "source_native_gap_determination_count": 5,
+    "values_meV_by_x": {
+      "0.010": "-285",
+      "0.025": "-261",
+      "0.050": "-207",
+      "0.105": "-110",
+      "0.115": "-90"
+    }
+  },
+  "measurement_class": "interband_and_intraband_magnetotransmission",
+  "model_assumptions": {
+    "count": 8,
+    "ids": [
+      "G77_A1",
+      "G77_A2",
+      "G77_A3",
+      "G77_A4",
+      "G77_A5",
+      "G77_A6",
+      "G77_A7",
+      "G77_A8"
+    ]
+  },
+  "schema_version": 1,
+  "source_id": "GULDNER1977_HSC_R14",
+  "source_pdf_page_count": 13,
+  "source_pdf_sha256": "e460fcc11e7627b1a3ec7346483bf88494b18e4fb69272b2af7e6ab61da3ef5b",
+  "specimen_groups": {
+    "composition_method": "not_reported",
+    "composition_values": [
+      "0.010",
+      "0.025",
+      "0.050",
+      "0.105",
+      "0.115"
+    ],
+    "count": 5,
+    "physical_specimen_count_resolved": false
+  }
+}

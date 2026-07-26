@@ -1,0 +1,64 @@
+name: Guldner 1977 HSC_R14 primary-source audit
+
+on:
+  pull_request:
+    paths:
+      - "data/hansen/guldner1977_hsc_r14_source_metadata.csv"
+      - "data/hansen/guldner1977_specimen_groups.csv"
+      - "data/hansen/guldner1977_interaction_gap_candidates.csv"
+      - "data/hansen/guldner1977_acceptor_states.csv"
+      - "data/hansen/guldner1977_band_parameter_constraints.csv"
+      - "data/hansen/guldner1977_model_assumptions.csv"
+      - "data/hansen/guldner1977_hsc_r14_cross_source_links.csv"
+      - "data/hansen/guldner1977_hansen_ingestion_candidates.csv"
+      - "data/hansen/guldner1977_hsc_r14_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/guldner1977_hsc_r14_audit.json"
+      - "tools/audit_guldner1977_hsc_r14.py"
+      - "tests/test_guldner1977_hsc_r14_primary_audit.py"
+      - ".github/workflows/guldner1977-hsc-r14-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-25-guldner1977-hsc-r14-primary-audit.md"
+  push:
+    branches: [main]
+    paths:
+      - "data/hansen/guldner1977_hsc_r14_source_metadata.csv"
+      - "data/hansen/guldner1977_specimen_groups.csv"
+      - "data/hansen/guldner1977_interaction_gap_candidates.csv"
+      - "data/hansen/guldner1977_acceptor_states.csv"
+      - "data/hansen/guldner1977_band_parameter_constraints.csv"
+      - "data/hansen/guldner1977_model_assumptions.csv"
+      - "data/hansen/guldner1977_hsc_r14_cross_source_links.csv"
+      - "data/hansen/guldner1977_hansen_ingestion_candidates.csv"
+      - "data/hansen/guldner1977_hsc_r14_README.md"
+      - "data/hansen/hansen_1982_source_graph.csv"
+      - "data/validation/guldner1977_hsc_r14_audit.json"
+      - "tools/audit_guldner1977_hsc_r14.py"
+      - "tests/test_guldner1977_hsc_r14_primary_audit.py"
+      - ".github/workflows/guldner1977-hsc-r14-primary-audit.yml"
+      - "research/programs/empirical_bandgap/state_updates/2026-07-25-guldner1977-hsc-r14-primary-audit.md"
+
+permissions:
+  contents: read
+
+jobs:
+  primary-source-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install focused test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Verify Guldner primary-source reconstruction
+        run: python -m pytest -q tests/test_guldner1977_hsc_r14_primary_audit.py
+      - name: Regenerate immutable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/audit_guldner1977_hsc_r14.py > /tmp/guldner-audit.json
+          cmp /tmp/guldner-audit.json data/validation/guldner1977_hsc_r14_audit.json
