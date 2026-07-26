@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "program": "R06",
+  "controlling_issue": 346,
+  "source_id": "FINKMAN_1983",
+  "citation": "E. Finkman, Journal of Applied Physics 54, 1883-1886 (1983)",
+  "doi": "10.1063/1.332241",
+  "gate": "primary_full_text_transcription",
+  "transcribed_on": "2026-07-25",
+  "primary_full_text_recovered": true,
+  "status": "partial_symbol_exact_transcription_material_use_blocked",
+  "experimental_domain": {
+    "composition": "0.205 < x < 0.310",
+    "majority_sample_type": "n_type",
+    "n_type_net_donor_range_cm3": {
+      "lower_exclusive": 4.0e14,
+      "upper_exclusive": 6.0e15
+    },
+    "near_intrinsic_onset": [
+      {
+        "composition_regime": "x approximately 0.2",
+        "net_impurity_cm3": "approximately 1e15",
+        "temperature_k": "160 and higher"
+      },
+      {
+        "composition_regime": "x approximately 0.3",
+        "net_impurity_cm3": "approximately 1e15",
+        "temperature_k": "approximately 200 and higher"
+      }
+    ],
+    "maximum_temperature_k": 345
+  },
+  "sample_and_error_metadata": {
+    "composition_method": "microprobe analysis",
+    "composition_calibration_standard_x": 0.215,
+    "sample_homogeneity_x": "+/- 0.002",
+    "maximum_thickness_error_relative": 0.03,
+    "stored_sample_repeatability_relative": 0.01,
+    "storage_condition": "vacuum for more than one year"
+  },
+  "hall_and_neutrality_method": {
+    "high_temperature_carrier_relation": "n = -1/(q R_H) under the one-carrier approximation",
+    "one_carrier_justification": "high electron-to-hole mobility ratio in HgCdTe",
+    "n_type_impurity_source": "low-temperature Hall constant",
+    "p_type_impurity_treatment": "adjustable separately for each case",
+    "intrinsic_density_equation_1_status": "structure recovered but subscript typography requires visual confirmation",
+    "electron_concentration_equation_2_status": "not symbol-exact in extracted text",
+    "dispersion_equation_3_status": "partially readable; requires visual confirmation before implementation",
+    "gap_equation_4_status": "Eg(x,T)=Eg0(x)+[dEg(x)/dT]T",
+    "effective_mass_equation_5_status": "requires visual confirmation before implementation",
+    "heavy_hole_equation_6_status": "requires visual confirmation before implementation"
+  },
+  "fit_assumptions": [
+    "Kane nonparabolic model assumed applicable at elevated temperature although strictly derived at 0 K",
+    "band gap assumed linear in temperature for each composition",
+    "momentum matrix element assumed independent of temperature and composition",
+    "heavy-hole mass assumed independent of temperature and composition",
+    "holes treated as nondegenerate in the experimental regime",
+    "Eg0 and dEg/dT assumed linear in composition before adding the CdTe endpoint correction"
+  ],
+  "reported_fit_results": {
+    "momentum_matrix_element_ev_cm": {
+      "value": 8.0e-8,
+      "reported_plus_minus": 0.4e-8
+    },
+    "heavy_hole_mass_ratio_m0": {
+      "value": 0.63,
+      "reported_plus_minus": 0.06
+    },
+    "band_gap_ev": "-0.287 + 1.717*x + 5.805e-4*T*(1 - 2.01*x) + 0.2415*x^4",
+    "reported_composition_fit_domain": "0.2 < x < 0.3",
+    "gap_standard_deviation_extracted_text": "4 MeV",
+    "gap_standard_deviation_interpretation": "unit is almost certainly OCR-corrupted; visual primary-page confirmation is required before recording meV"
+  },
+  "figure_level_recovered_examples": [
+    {
+      "figure": 1,
+      "composition_x": 0.225,
+      "n_type_net_donor_cm3": 3.4e15,
+      "p_type_net_acceptor_cm3": 4.9e14,
+      "status": "caption and plotted labels recovered; point coordinates not digitized"
+    },
+    {
+      "figure": 2,
+      "composition_x": 0.29,
+      "n_type_net_donor_cm3": 1.4e15,
+      "p_type_net_acceptor_cm3": 6.1e14,
+      "status": "caption and plotted labels recovered; point coordinates not digitized"
+    }
+  ],
+  "pr385_acceptance": {
+    "countable_material_points": 0,
+    "positive_point_uncertainties_recovered": false,
+    "eta_known": false,
+    "validated_neutrality_model_recovered": false,
+    "project_N_star_authorized": false,
+    "project_alpha_authorized": false,
+    "screening_authorized": false,
+    "detector_coupling_authorized": false
+  },
+  "remaining_primary_actions": [
+    "visually confirm equations 1 through 6 from the primary PDF",
+    "visually confirm the unit of the reported band-gap standard deviation",
+    "digitize figure 1 and figure 2 only with declared graphical uncertainty",
+    "recover any sample table or point-level Hall values and uncertainties not represented in the extracted text",
+    "derive explicitly whether the historic P and heavy-hole mass can constrain a project-defined closure without claiming equivalence"
+  ]
+}
