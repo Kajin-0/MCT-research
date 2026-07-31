@@ -76,8 +76,9 @@ def test_sts_surface_systematics_remain_explicit() -> None:
         for candidate in record["candidate_records"]
         if candidate["id"] == "wang_2012_hgcdte_sts"
     )
-    assert "tip-induced band bending" in sts["useful_evidence"]
-    assert "surface or pit states" in sts["useful_evidence"]
+    evidence = [str(item) for item in sts["useful_evidence"]]
+    assert any("tip-induced band bending" in item for item in evidence)
+    assert any("surface or pit states" in item for item in evidence)
     assert sts["gate_status"]["robustness_gate"] == "FAIL_SURFACE_SYSTEMATICS_UNCONTROLLED"
 
 
