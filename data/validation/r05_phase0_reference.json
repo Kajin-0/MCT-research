@@ -1,0 +1,148 @@
+{
+  "analytical_validation": {
+    "hermiticity_residual": 0.0,
+    "homogeneous_maximum_absolute_eigenvalue_error": 3.907985046680551e-14,
+    "paired_spectrum_residual": 4.3753146030332495e-15,
+    "zero_mean_scalar_maximum_absolute_error": 4.440892098500626e-16
+  },
+  "claim_boundary": "Synthetic one-dimensional mechanism benchmark; selected samples are retained here while the deterministic generator reproduces the complete DOS arrays.",
+  "controlling_issue": 390,
+  "covariance_validation": {
+    "ensemble_point_variance": 1.008373117761704,
+    "maximum_absolute_correlation_error_first_16_lags": 0.024490810087624798,
+    "realizations": 512,
+    "rms_correlation_error_first_16_lags": 0.013817523528400995
+  },
+  "decision_width": 0.25,
+  "domain_wall_validation": [
+    {
+      "a_over_wall_width": 0.25,
+      "grid_points": 80,
+      "length": 20.0,
+      "minimum_absolute_eigenvalue": 0.00019176978024845677
+    },
+    {
+      "a_over_wall_width": 0.25,
+      "grid_points": 160,
+      "length": 40.0,
+      "minimum_absolute_eigenvalue": 8.33550836999736e-09
+    },
+    {
+      "a_over_wall_width": 0.25,
+      "grid_points": 240,
+      "length": 60.0,
+      "minimum_absolute_eigenvalue": 3.6523046078103777e-13
+    }
+  ],
+  "energy_grid": {
+    "effect_window": [-1.0, 1.0],
+    "maximum": 4.0,
+    "minimum": -4.0,
+    "points": 401,
+    "spacing": 0.02
+  },
+  "experimental_widths": [0.1, 0.25, 0.5, 1.0],
+  "finite_box_scalar_validation": {
+    "L_over_xi": 64.0,
+    "boundary_average": ["periodic", "antiperiodic"],
+    "grid_points": 128,
+    "integrated_relative_difference": 0.003487529417190436,
+    "quadrature_order": 192
+  },
+  "generation_command": "python tools/run_r05_phase0_oracle.py",
+  "generator": "tools/run_r05_phase0_oracle.py",
+  "generator_version": 1,
+  "normalization": {
+    "dos": "states per dimensionless length per dimensionless energy per two-component species",
+    "epsilon": "E xi/(hbar v_K)",
+    "g": "sigma_M xi/(hbar v_K)",
+    "hbar_velocity": 1.0,
+    "m": "Mbar xi/(hbar v_K)",
+    "xi": 1.0
+  },
+  "numerical_broadening": 0.08,
+  "primary_case": {
+    "L_over_xi": 32.0,
+    "a_over_xi": 0.125,
+    "batch_delta_1_at_decision_width": [
+      0.140858465644509,
+      0.12721686474360494,
+      0.15060176750603593,
+      0.14606552109868928
+    ],
+    "batch_standard_error_at_decision_width": 0.00506384588668342,
+    "covariance_family": "gaussian",
+    "experimental_width_0.10": {
+      "delta_1": 0.2368737400531812,
+      "delta_infinity": 1.4851076600478508,
+      "integrated_reference": 0.6042745221337864,
+      "maximum_reference": 0.3648257690846758
+    },
+    "experimental_width_0.25": {
+      "delta_1": 0.14093007618226627,
+      "delta_infinity": 0.4195859922648733,
+      "integrated_reference": 0.6015848049555146,
+      "maximum_reference": 0.34790190835611995
+    },
+    "experimental_width_0.50": {
+      "delta_1": 0.03977128402457537,
+      "delta_infinity": 0.08144542103860157,
+      "integrated_reference": 0.6011419511281817,
+      "maximum_reference": 0.3288239957769315
+    },
+    "experimental_width_1.00": {
+      "delta_1": 0.004844874607361518,
+      "delta_infinity": 0.008390324108916844,
+      "integrated_reference": 0.6165594167455035,
+      "maximum_reference": 0.3136915318846036
+    },
+    "full_generated_record_sha256": "5eadbe2922383e31c9eac677fe33ed50c5f38a967c47818e196555dfd8884279",
+    "g": 0.3,
+    "grid_points": 256,
+    "m": 0.0,
+    "normalize_sample_variance": false,
+    "numerical_broadening": 0.08,
+    "realizations": 32,
+    "realized_mass_mean_maximum_absolute_error": 2.7755575615628914e-17,
+    "realized_sigma_mean": 0.29953562309450277,
+    "realized_sigma_standard_deviation": 0.05164285011958862,
+    "remove_sample_mean": true,
+    "seed_antiperiodic": 139008,
+    "seed_periodic": 39005,
+    "selected_dos_samples": [
+      {
+        "correlated_dos": 0.3324213090455032,
+        "correlated_standard_error": 0.005192803667355884,
+        "epsilon": -1.0,
+        "scalar_dos_numerically_broadened": 0.33833477882050633
+      },
+      {
+        "correlated_dos": 0.25740694345745346,
+        "correlated_standard_error": 0.011031928990021112,
+        "epsilon": -0.5,
+        "scalar_dos_numerically_broadened": 0.36786793676388896
+      },
+      {
+        "correlated_dos": 0.38354998731824,
+        "correlated_standard_error": 0.009415706593676682,
+        "epsilon": 0.0,
+        "scalar_dos_numerically_broadened": 0.08157303007746662
+      },
+      {
+        "correlated_dos": 0.2574069434574537,
+        "correlated_standard_error": 0.011031928990021063,
+        "epsilon": 0.5,
+        "scalar_dos_numerically_broadened": 0.3678679367638889
+      },
+      {
+        "correlated_dos": 0.33242130904550243,
+        "correlated_standard_error": 0.005192803667356139,
+        "epsilon": 1.0,
+        "scalar_dos_numerically_broadened": 0.33833477882050633
+      }
+    ]
+  },
+  "program": "R05_correlated_random_mass_kane",
+  "record_scope": "compact_immutable_summary",
+  "schema_version": "r05_phase0_reference_v1"
+}
