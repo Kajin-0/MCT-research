@@ -1,0 +1,212 @@
+{
+  "schema_version": "r04_r05_matched_evidence_v1",
+  "record_id": "replace-with-persistent-record-id",
+  "record_state": "template",
+  "specimen": {
+    "specimen_id": "unresolved",
+    "material": "Hg1-xCdxTe",
+    "growth_method": null,
+    "substrate": null,
+    "orientation": null,
+    "layer_structure": null,
+    "thickness_nm": null,
+    "nominal_composition_x": null,
+    "composition_method": null,
+    "measurement_temperature_K": null,
+    "thermal_history": null,
+    "conductivity_type": "unresolved",
+    "carrier_density_cm3": null,
+    "mobility_cm2_Vs": null,
+    "surface_state": null,
+    "region_relationship": "unlinked",
+    "exchangeability_evidence": null,
+    "evidence_class": "unresolved"
+  },
+  "spatial_measurement": {
+    "modality": null,
+    "latent_quantity": "unresolved",
+    "raw_data_uri": null,
+    "coordinate_units": "unresolved",
+    "map_dimensions_pixels": null,
+    "physical_dimensions_nm": null,
+    "pixel_integration_nm": null,
+    "point_spread_function": {
+      "kind": null,
+      "parameters": {},
+      "calibration_uri": null,
+      "evidence_class": "unresolved"
+    },
+    "depth_kernel": {
+      "kind": null,
+      "parameters": {},
+      "evidence_class": "unresolved"
+    },
+    "noise_model": null,
+    "calibration_covariance_uri": null,
+    "missing_data_mask_uri": null,
+    "preprocessing_history": [],
+    "independent_regions": null,
+    "local_variance": {
+      "value": null,
+      "units": null,
+      "interval": null,
+      "evidence_class": "unresolved",
+      "method": null
+    },
+    "correlation_length": {
+      "value": null,
+      "units": "nm",
+      "interval": null,
+      "evidence_class": "unresolved",
+      "method": null
+    },
+    "covariance_families": [
+      "gaussian",
+      "matern_1p5"
+    ],
+    "identifiable_band_nm": null,
+    "wafer_tolerance_used_as_local_sigma": false,
+    "evidence_class": "unresolved"
+  },
+  "spectroscopy_measurement": {
+    "modality": null,
+    "raw_data_uri": null,
+    "observable": null,
+    "energy_units": "unresolved",
+    "energy_axis_uri": null,
+    "sample_temperature_K": null,
+    "effective_electronic_temperature_K": null,
+    "lockin_modulation": {
+      "amplitude": null,
+      "units": "unresolved",
+      "waveform": null,
+      "frequency_Hz": null,
+      "evidence_class": "unresolved"
+    },
+    "energy_resolution_kernel": {
+      "kind": null,
+      "parameters": {},
+      "calibration_uri": null,
+      "fwhm_meV": null,
+      "evidence_class": "unresolved",
+      "universal_requirement_claimed": false
+    },
+    "surface_preparation": null,
+    "tip_or_contact_state": null,
+    "background_model": null,
+    "spatial_coordinates_uri": null,
+    "repeat_count": null,
+    "band_bending_assessment": null,
+    "surface_state_assessment": null,
+    "calibration_covariance_uri": null,
+    "evidence_class": "unresolved"
+  },
+  "joint_inference": {
+    "mass_distribution": null,
+    "composition_to_gap_model": null,
+    "gap_to_mass_convention": "M=Eg/2",
+    "hbar_vK_eV_nm": 0.7042868,
+    "m_max": null,
+    "m_max_frozen_before_final_comparison": false,
+    "g_threshold_lower": 0.25,
+    "g_threshold_upper": 0.3,
+    "correlated_model": "R05 matched correlated random-mass benchmark",
+    "scalar_null_model": "matched scalar local-gap mixture",
+    "shared_one_point_distribution": true,
+    "shared_measurement_kernel": true,
+    "nuisance_parameters": [
+      "spatial_psf",
+      "pixel_integration",
+      "depth_kernel",
+      "finite_map_window",
+      "energy_resolution_kernel",
+      "spectroscopy_background",
+      "surface_states",
+      "tip_induced_band_bending",
+      "specimen_exchangeability"
+    ],
+    "posterior_predictive_checks": [
+      "scalar_null_false_positive_calibration",
+      "correlated_model_recovery",
+      "held_out_spatial_regions",
+      "held_out_spectra"
+    ],
+    "sensitivity_variants": [
+      "gaussian_covariance",
+      "matern_covariance",
+      "exact_composition_to_mass_transform",
+      "alternative_spectroscopy_background",
+      "energy_kernel_calibration_bounds"
+    ],
+    "evidence_class": "unresolved"
+  },
+  "gates": {
+    "local_variance_gate": {
+      "status": "UNRESOLVED",
+      "reason": "No local mass or convertible composition variance has been supplied."
+    },
+    "correlation_length_gate": {
+      "status": "UNRESOLVED",
+      "reason": "No transfer-function-corrected correlation-length inference has been supplied."
+    },
+    "same_population_gate": {
+      "status": "UNRESOLVED",
+      "reason": "Spatial and spectroscopy specimen regions are not linked."
+    },
+    "near_critical_gate": {
+      "status": "UNRESOLVED",
+      "reason": "Mean signed mass and frozen m_max are unresolved."
+    },
+    "resolution_gate": {
+      "status": "UNRESOLVED",
+      "reason": "No measured spectroscopy resolution kernel has been supplied."
+    },
+    "matched_null_gate": {
+      "status": "UNRESOLVED",
+      "reason": "No measured-data model comparison has been performed."
+    },
+    "robustness_gate": {
+      "status": "UNRESOLVED",
+      "reason": "No systematic sensitivity analysis has been performed."
+    },
+    "decision_changing_gate": {
+      "status": "UNRESOLVED",
+      "reason": "The evidence does not yet determine whether a higher-dimensional or full-Kane calculation is warranted."
+    }
+  },
+  "decision": "UNRESOLVED",
+  "claim_boundary": [
+    "This template is not a material measurement.",
+    "The R05 g-threshold bracket is not universal.",
+    "Synthetic recovery is not HgCdTe validation.",
+    "No topology, domain-wall transport, percolation, or mobility-edge claim is authorized."
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "identifier": "research/programs/correlated_random_mass_kane/activation_decision.md",
+        "source_type": "internal_record",
+        "supports": [
+          "R05 threshold bracket",
+          "reopening conditions",
+          "claim boundaries"
+        ]
+      },
+      {
+        "identifier": "research/programs/spatial_disorder/state.md",
+        "source_type": "internal_record",
+        "supports": [
+          "measurement-kernel requirements",
+          "finite-map covariance requirements",
+          "cross-scale covariance requirements"
+        ]
+      }
+    ],
+    "created_utc": null,
+    "software_commit": null,
+    "notes": [
+      "Replace unresolved fields only with source-qualified or measured values.",
+      "Do not encode wafer tolerance as local sigma_x."
+    ]
+  }
+}
