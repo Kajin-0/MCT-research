@@ -1,39 +1,60 @@
 # Program state: correlated random-mass Kane regime
 
 **Portfolio contribution:** R05  
-**State:** Phase 0 minimal numerical oracle passed; physical screening authorized; HgCdTe physics activation blocked  
+**State:** Phase 0 complete; material-physics activation denied; method benchmark retained  
+**Final decision:** `REFRAME_AS_METHOD_BENCHMARK`  
 **Controlling issue:** #390
 
 ## Objective
 
 Determine whether finite-correlation-length signed mass near the HgCdTe normal/inverted transition produces an experimentally distinguishable observable beyond scalar distributional and finite-measurement-kernel models.
 
-## Current gate sequence
+## Final Phase 0 sequence
 
 ```text
 PR 1: GO_MINIMAL_ORACLE_RESTRICTED
 PR 2: GO_PHYSICAL_SCREENING
-Final Phase 0 decision: pending PR 3
+PR 3: REFRAME_AS_METHOD_BENCHMARK
 ```
 
 Governing records:
 
 ```text
 research/programs/correlated_random_mass_kane/phase0_specification.md
+research/programs/correlated_random_mass_kane/prior_art_matrix.md
+research/programs/correlated_random_mass_kane/parameter_envelope.md
+research/programs/correlated_random_mass_kane/model_conventions.md
+research/programs/correlated_random_mass_kane/analytical_limits.md
+research/programs/correlated_random_mass_kane/numerical_validation.md
+research/programs/correlated_random_mass_kane/physical_screening.md
+research/programs/correlated_random_mass_kane/experimental_observability.md
+research/programs/correlated_random_mass_kane/full_kane_necessity.md
+research/programs/correlated_random_mass_kane/activation_decision.md
+```
+
+Decision records:
+
+```text
 research/decision_records/2026-07-31-r05-phase0-pr1-gate.md
 research/decision_records/2026-07-31-r05-phase0-pr2-gate.md
-research/programs/correlated_random_mass_kane/numerical_validation.md
+research/decision_records/2026-07-31-r05-phase0-final-decision.md
 ```
 
 ## Scientific boundary
 
-The broad claim that correlated random mass changes Dirac density of states is established prior art. The only potentially distinct R05 question is whether a finite-range HgCdTe/Kane mass field produces a measurable prediction that cannot be reproduced by a matched scalar local-gap mixture.
+The broad claim that correlation changes random-mass Dirac density of states is established prior art. R05 tested the narrower matched-null question:
 
-No novelty, topology, material validation, or experimental detection claim is currently authorized.
+\[
+\rho_{\rm corr}(E)
+\stackrel{?}{=}
+\int dM\,P(M)\rho_{\rm hom}(E;M),
+\]
+
+with the same one-point mass distribution.
+
+The numerical answer is no in the declared one-dimensional model. The HgCdTe material and experimental answers remain unestablished.
 
 ## Conventions
-
-The minimal symmetric mapping is
 
 ```text
 Eg = 2 M
@@ -43,29 +64,15 @@ g = sigma_M xi/(hbar v_K)
 kappa = g
 ```
 
-The fixed-integrated-disorder short-correlation limit also uses
+The fixed-integrated-disorder short-correlation limit additionally uses
 
 ```text
-w = W/(hbar v_K)^2
-W = integral dr <delta M(0) delta M(r)>.
+w = W/(hbar v_K)^2.
 ```
 
-## Repository dependencies
+## Repository implementation
 
-R05 reuses, without modifying:
-
-```text
-src/mct_research/kane8.py
-src/mct_research/gap_models.py
-src/mct_research/distributional_gap.py
-src/mct_research/distributional_quadrature.py
-src/mct_research/spectral_convolution.py
-src/mct_research/spatial_disorder.py
-src/mct_research/spatial_disorder_covariance_families.py
-src/mct_research/spatial_disorder_instrument.py
-```
-
-The R05-specific numerical implementation is:
+R05-specific code:
 
 ```text
 src/mct_research/random_mass_covariance.py
@@ -73,53 +80,23 @@ src/mct_research/random_mass_dirac.py
 src/mct_research/random_mass_scalar_null.py
 src/mct_research/random_mass_dos.py
 tools/run_r05_phase0_oracle.py
+tools/run_r05_phase0_physical_screening.py
 ```
 
-## PR 1 evidence gate
-
-Source-bounded near-transition velocity:
+Immutable records:
 
 ```text
-v_K = (1.07 +/- 0.05)e6 m/s
-hbar v_K = 0.7043 eV nm nominal
+data/validation/r05_parameter_envelope.json
+data/validation/r05_phase0_reference.json
+data/validation/r05_convergence_summary.json
+data/validation/r05_activation_decision.json
 ```
 
-At `77 K`, the repository Hansen model gives:
+Shared R02, R03, and R04 scientific modules were reused but not modified.
 
-```text
-critical composition x_c = 0.1494464216
-dEg/dx at x_c = 1.661253 eV per Cd fraction
-```
+## Numerical result
 
-Exploratory mapping at `sigma_x=0.002`:
-
-```text
-sigma_M = 1.661 meV
-xi required for g=1 = 424 nm
-xi required for g=0.3 = 127 nm
-```
-
-The composition-width and correlation-length values are not accepted material measurements. No qualifying near-critical HgCdTe continuum mass-correlation length has been identified.
-
-```text
-velocity gate: PASS
-mean-mass tunability gate: PASS
-mass-variance gate: UNRESOLVED
-correlation-length gate: FAIL_NO_QUALIFYING_SOURCE
-nontrivial g regime: EXPLORATORY_ONLY
-```
-
-## PR 2 minimal numerical oracle
-
-The model is
-
-\[
-H=-i\hbar v_K\sigma_x\partial_x+M(x)\sigma_z
-\]
-
-in one dimension with Fourier-pseudospectral regularization and a scalar null using the identical one-point Gaussian mass distribution.
-
-Primary point:
+Primary converged point:
 
 ```text
 m = 0
@@ -127,113 +104,152 @@ g = 0.3
 L/xi = 32
 a/xi = 0.125
 eta_num = 0.08
-32 boundary-averaged realizations
-```
-
-At the frozen experimental convolution width `delta_epsilon_exp=0.25`:
-
-```text
-Delta_1 = 0.140930
-Delta_infinity = 0.419586
+Delta_1 = 0.140930 at delta_epsilon_exp = 0.25
 batch standard error = 0.005064
+minimum accepted converged Delta_1 = 0.124598
+minimum covariance-family Delta_1 = 0.117198
 ```
 
-Selected zero-energy result before experimental convolution but after common numerical broadening:
+The matched scalar null and correlated DOS differ most strongly near zero energy.
+
+The dimensionless threshold screen gave:
 
 ```text
-correlated DOS = 0.383550 +/- 0.009416
-matched scalar DOS = 0.081573
+m = 0, g = 0.25 -> Delta_1 = 0.098739
+m = 0, g = 0.30 -> Delta_1 = 0.137232
 ```
 
-The feature is resolution sensitive:
+Thus the declared 10% threshold is bracketed by
 
 ```text
-delta_epsilon_exp    Delta_1
-0.10                 0.23687
-0.25                 0.14093
-0.50                 0.03977
-1.00                 0.004845
+0.25 < g_threshold < 0.30
 ```
 
-## Numerical validation status
+for this finite-box one-dimensional screen. This is not a universal critical coupling.
+
+Mean-mass detuning suppresses the feature and requires stronger disorder.
+
+## Numerical quality
 
 ```text
 Hermiticity residual                         0.0
-homogeneous eigenvalue error                 3.91e-14
+homogeneous maximum eigenvalue error         3.91e-14
 paired-spectrum residual                     4.38e-15
-exact scalar-null error                      4.44e-16
+exact Gaussian scalar-null error             4.44e-16
 finite-box scalar-null discrepancy           0.003488
-minimum accepted converged Delta_1            0.124598
 finite-size drift                            0.019715
 discretization drift                         0.010908
 numerical-broadening drift                   0.022034
-minimum covariance-family Delta_1            0.117198
 field-conditioning drift                     0.008424
 ```
 
-All predeclared PR 2 numerical gates pass.
+All predeclared numerical and covariance-family gates pass.
 
-Immutable records:
+## HgCdTe parameter screen
 
-```text
-data/validation/r05_phase0_reference.json
-data/validation/r05_convergence_summary.json
-```
-
-## Interpretation
-
-The synthetic oracle supports only:
-
-1. a finite-range correlated signed mass can differ from a matched scalar mixture;
-2. the declared 1D effect survives the declared numerical and covariance-family checks at `g=0.3`;
-3. coherent sign-changing-wall physics is a consistent mechanism for the low-energy excess.
-
-It does not establish:
-
-- a bulk three-dimensional HgCdTe DOS feature;
-- that a real specimen reaches `g=0.3`;
-- a measured mass correlation length;
-- an optical, tunneling, transport, or magneto-optical signal;
-- topology, a mobility edge, percolation, or a domain-wall transport network.
-
-## Experimental addressability
-
-Tunneling DOS remains the cleanest conceptual scalar-null discriminator, but no qualifying near-critical HgCdTe dataset or specimen protocol has been identified.
-
-Magneto-optics is experimentally established for massless Kane HgCdTe, but a prediction requires multiband Landau levels, optical matrix elements, heavy-hole physics, filling, and a magnetic disorder calculation. The 1D DOS oracle is insufficient.
-
-The addressability gate remains:
+Source-ranked nominal value:
 
 ```text
-FAIL_NOT_YET_QUANTIFIED
+hbar v_K = 0.7042868 eV nm.
 ```
 
-## Full-Kane gate
+At `77 K`, the repository Hansen law gives:
 
 ```text
-minimal 1D random-mass oracle: COMPLETE
-full 8-band spatial disorder: NOT AUTHORIZED
-quantitative optical or magneto-optical prediction: REQUIRES FULL KANE OR A VALIDATED REDUCTION
+x_c = 0.1494464216
+dEg/dx = 1.661253 eV per Cd fraction.
 ```
 
-Full Kane is not justified merely because the synthetic effect passes. It may be reconsidered only if source-supported HgCdTe parameters overlap the effect regime and a concrete experiment can change the final decision.
+An illustrative, nonvalidated `sigma_x=0.002` linearization gives
 
-## Authorized PR 3 work
+```text
+sigma_M = 1.661 meV
+g = 0.25 -> xi = 106 nm
+g = 0.30 -> xi = 127 nm
+```
 
-PR 3 is limited to:
+The corresponding decision-resolution scales are
 
-1. mapping the observed `g=0.3` threshold to the source-ranked HgCdTe parameter envelope;
-2. calculating the associated physical energy-resolution and temperature requirements;
-3. determining whether any existing or realistically specifiable experiment can distinguish the models;
-4. reassessing whether full Kane has a decision-changing purpose;
-5. returning exactly one final Phase 0 decision.
+```text
+g = 0.25 -> delta_E = 1.661 meV
+g = 0.30 -> delta_E = 1.384 meV.
+```
 
-No additional production solver, large parameter sweep, full-Kane model, or manuscript is authorized.
+No source establishes that `sigma_x=0.002` is a local standard deviation in the required specimen regime. No qualifying near-critical continuum electronic-mass correlation length was identified.
 
-## Final stop rule
+```text
+velocity gate: PASS
+mean-mass tunability gate: PASS
+mass-variance gate: UNRESOLVED
+correlation-length gate: FAIL_NO_QUALIFYING_SOURCE
+material-overlap gate: FAIL
+```
 
-Return `ACTIVATE_R05` only if a source-supported HgCdTe parameter regime, experimental-resolution path, and decision-changing next calculation all exist.
+## Experimental gate
 
-Return `TERMINATE_R05_PHYSICS_CLAIM` if the numerical distinction cannot map to a credible material regime or experiment and the method has no independent value.
+Tunneling DOS remains the cleanest conceptual discriminator, but no identified specimen or public dataset combines:
 
-Return `REFRAME_AS_METHOD_BENCHMARK` if the matched-null framework and numerical threshold are useful but no HgCdTe physical claim is supported.
+```text
+independently measured local mass distribution
+source-qualified xi
+matched low-energy spectroscopy
+sufficient energy resolution
+controlled surface/contact electrostatics
+```
+
+Magneto-optics is an established HgCdTe platform, but a prediction requires full-Kane Landau levels, heavy-hole physics, optical matrix elements, filling, and magnetic disorder treatment.
+
+```text
+source-grounded experimental convolution: FAIL
+discriminating experiment: FAIL
+```
+
+## Full-Kane decision
+
+```text
+DEFER_NOT_DECISION_CHANGING_WITHOUT_MATERIAL_OVERLAP
+```
+
+Full Kane is necessary for a later quantitative optical or magneto-optical prediction, but it cannot supply missing specimen covariance evidence. It is therefore not authorized now.
+
+## Final activation gates
+
+```text
+claim-level distinction from prior work: PASS, narrowly framed
+source-supported HgCdTe parameter regime: FAIL
+matched correlated model differs: PASS in 1D
+predeclared numerical effect threshold: PASS
+numerical convergence: PASS
+covariance variation: PASS
+source-grounded measurement convolution: FAIL
+discriminating experiment: FAIL
+next full-Kane calculation decision changing: FAIL
+full-Kane status explicit: PASS
+```
+
+## Final decision
+
+```text
+REFRAME_AS_METHOD_BENCHMARK
+```
+
+The R05 HgCdTe material-physics claim is not activated. The validated solver, scalar null, convergence suite, threshold screen, and physical mapping are retained to evaluate future source-qualified spatial and spectroscopic data.
+
+## Unsupported claims
+
+This program does not support:
+
+- a measured HgCdTe mass correlation length;
+- a specimen-specific random-mass field;
+- an experimentally observed correlated-mass DOS signature;
+- a topological Anderson phase;
+- topology inferred from local mass sign;
+- domain-wall transport or percolation;
+- a mobility edge;
+- a universal threshold or covariance law;
+- a production full-Kane disorder calculation;
+- manuscript novelty language.
+
+## Reopening condition
+
+R05 may be reconsidered only when new evidence provides a source-qualified near-critical spatial mass/gap covariance and a matched spectroscopic observable. Reopening must begin with the new evidence, not with a larger simulation.
