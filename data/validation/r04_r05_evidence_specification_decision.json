@@ -1,0 +1,73 @@
+{
+  "schema_version": "r04_r05_evidence_specification_decision_v1",
+  "issue": 395,
+  "decision": "GO_PUBLIC_DATA_AUDIT",
+  "specification_gate": "PASS",
+  "public_data_existence": "UNRESOLVED",
+  "partner_experiment_feasibility": "PLAUSIBLE_NOT_CONFIRMED",
+  "r05_material_activation": "BLOCKED",
+  "authorized_next_stage": "PR2_PUBLIC_DATA_FEASIBILITY_AUDIT",
+  "unauthorized_work": [
+    "larger random-mass simulation",
+    "two-dimensional or three-dimensional R05 production solver",
+    "full 8-band spatial disorder",
+    "HgCdTe material claim",
+    "manuscript drafting"
+  ],
+  "required_evidence_gates": [
+    "local_variance_gate",
+    "correlation_length_gate",
+    "same_population_gate",
+    "near_critical_gate",
+    "resolution_gate",
+    "matched_null_gate",
+    "robustness_gate",
+    "decision_changing_gate"
+  ],
+  "preferred_measurement_path": {
+    "spatial": [
+      "registered multiscale gap or composition mapping with measured transfer function",
+      "STEM-EDX or APT as destructive local-composition support with an exchangeability model"
+    ],
+    "spectroscopy": [
+      "cryogenic UHV STM/STS with spatially indexed spectra and a measured energy-resolution kernel"
+    ],
+    "auxiliary": [
+      "magneto-optics for mean Kane parameters",
+      "infrared mapping for wafer-scale region selection",
+      "SIMS for depthwise growth oscillations"
+    ]
+  },
+  "principal_identifiability_risks": [
+    "material correlation length confounded with spatial PSF or pixel integration",
+    "local variance confounded with filtering and finite-map bias",
+    "spatial and spectroscopy measurements taken from nonexchangeable specimens",
+    "tip-induced band bending and HgCdTe surface states mimicking low-energy DOS",
+    "spectroscopy resolution or background absorbing the correlated-versus-scalar difference",
+    "wafer tolerance incorrectly treated as local sigma_x"
+  ],
+  "preliminary_public_data_result": {
+    "qualifying_complete_record_found": false,
+    "interpretation": "Source leads and facility capabilities exist, but PR1 found no open record already combining near-critical HgCdTe local covariance, measured spatial transfer information, matched low-energy local spectroscopy, same-population metadata, and raw calibration data. This is a preliminary specification-stage result, not the PR2 exhaustive audit."
+  },
+  "frozen_conventions": {
+    "mass_gap": "M=Eg/2",
+    "g": "sigma_M*xi/(hbar*v_K)",
+    "m": "Mbar*xi/(hbar*v_K)",
+    "g_threshold_bracket": [
+      0.25,
+      0.3
+    ],
+    "g_threshold_interpretation": "method-benchmark bracket; not a universal critical coupling",
+    "wafer_tolerance_as_local_sigma": false,
+    "shared_one_point_distribution": true,
+    "shared_measurement_kernel": true
+  },
+  "claim_boundary": [
+    "No measured random-mass field is claimed.",
+    "No specimen-specific correlation length is claimed.",
+    "The g threshold is not universal.",
+    "Synthetic recovery is not material validation.",
+    "No topology, domain-wall transport, percolation, or mobility-edge claim is authorized."
+  ]
+}

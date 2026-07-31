@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kajin-0/MCT-research/data/schemas/r04_r05_matched_evidence_v1.json",
+  "title": "R04/R05 matched spatial-covariance and spectroscopy evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "record_state",
+    "specimen",
+    "spatial_measurement",
+    "spectroscopy_measurement",
+    "joint_inference",
+    "gates",
+    "decision",
+    "claim_boundary",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "r04_r05_matched_evidence_v1"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_state": {
+      "enum": [
+        "template",
+        "candidate",
+        "complete"
+      ]
+    },
+    "specimen": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "specimen_id",
+        "material",
+        "growth_method",
+        "substrate",
+        "orientation",
+        "layer_structure",
+        "thickness_nm",
+        "nominal_composition_x",
+        "composition_method",
+        "measurement_temperature_K",
+        "thermal_history",
+        "conductivity_type",
+        "carrier_density_cm3",
+        "mobility_cm2_Vs",
+        "surface_state",
+        "region_relationship",
+        "exchangeability_evidence",
+        "evidence_class"
+      ],
+      "properties": {
+        "specimen_id": {"type": "string", "minLength": 1},
+        "material": {"const": "Hg1-xCdxTe"},
+        "growth_method": {"type": ["string", "null"]},
+        "substrate": {"type": ["string", "null"]},
+        "orientation": {"type": ["string", "null"]},
+        "layer_structure": {"type": ["string", "null"]},
+        "thickness_nm": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "nominal_composition_x": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "composition_method": {"type": ["string", "null"]},
+        "measurement_temperature_K": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "thermal_history": {"type": ["string", "null"]},
+        "conductivity_type": {"enum": ["n", "p", "intrinsic", "mixed", "unresolved"]},
+        "carrier_density_cm3": {"type": ["number", "null"], "minimum": 0},
+        "mobility_cm2_Vs": {"type": ["number", "null"], "minimum": 0},
+        "surface_state": {"type": ["string", "null"]},
+        "region_relationship": {
+          "enum": [
+            "same_region",
+            "same_specimen_different_region",
+            "adjacent_lamella",
+            "same_growth_run",
+            "unlinked"
+          ]
+        },
+        "exchangeability_evidence": {"type": ["string", "null"]},
+        "evidence_class": {"$ref": "#/$defs/evidence_class"}
+      }
+    },
+    "spatial_measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "modality",
+        "latent_quantity",
+        "raw_data_uri",
+        "coordinate_units",
+        "map_dimensions_pixels",
+        "physical_dimensions_nm",
+        "pixel_integration_nm",
+        "point_spread_function",
+        "depth_kernel",
+        "noise_model",
+        "calibration_covariance_uri",
+        "missing_data_mask_uri",
+        "preprocessing_history",
+        "independent_regions",
+        "local_variance",
+        "correlation_length",
+        "covariance_families",
+        "identifiable_band_nm",
+        "wafer_tolerance_used_as_local_sigma",
+        "evidence_class"
+      ],
+      "properties": {
+        "modality": {"type": ["string", "null"]},
+        "latent_quantity": {"enum": ["M", "Eg", "composition_x", "calibrated_proxy", "unresolved"]},
+        "raw_data_uri": {"type": ["string", "null"]},
+        "coordinate_units": {"enum": ["nm", "um", "unresolved"]},
+        "map_dimensions_pixels": {
+          "type": ["array", "null"],
+          "prefixItems": [
+            {"type": "integer", "minimum": 2},
+            {"type": "integer", "minimum": 2}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "physical_dimensions_nm": {
+          "type": ["array", "null"],
+          "prefixItems": [
+            {"type": "number", "exclusiveMinimum": 0},
+            {"type": "number", "exclusiveMinimum": 0}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "pixel_integration_nm": {
+          "type": ["array", "null"],
+          "prefixItems": [
+            {"type": "number", "exclusiveMinimum": 0},
+            {"type": "number", "exclusiveMinimum": 0}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "point_spread_function": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "parameters", "calibration_uri", "evidence_class"],
+          "properties": {
+            "kind": {"type": ["string", "null"]},
+            "parameters": {"type": "object"},
+            "calibration_uri": {"type": ["string", "null"]},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"}
+          }
+        },
+        "depth_kernel": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "parameters", "evidence_class"],
+          "properties": {
+            "kind": {"type": ["string", "null"]},
+            "parameters": {"type": "object"},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"}
+          }
+        },
+        "noise_model": {"type": ["string", "null"]},
+        "calibration_covariance_uri": {"type": ["string", "null"]},
+        "missing_data_mask_uri": {"type": ["string", "null"]},
+        "preprocessing_history": {"type": "array", "items": {"type": "string"}},
+        "independent_regions": {"type": ["integer", "null"], "minimum": 1},
+        "local_variance": {"$ref": "#/$defs/estimate"},
+        "correlation_length": {"$ref": "#/$defs/estimate"},
+        "covariance_families": {
+          "type": "array",
+          "items": {"enum": ["gaussian", "matern_0p5", "matern_1p5", "matern_2p5", "other"]},
+          "uniqueItems": true
+        },
+        "identifiable_band_nm": {
+          "type": ["array", "null"],
+          "prefixItems": [
+            {"type": "number", "exclusiveMinimum": 0},
+            {"type": "number", "exclusiveMinimum": 0}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "wafer_tolerance_used_as_local_sigma": {"const": false},
+        "evidence_class": {"$ref": "#/$defs/evidence_class"}
+      }
+    },
+    "spectroscopy_measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "modality",
+        "raw_data_uri",
+        "observable",
+        "energy_units",
+        "energy_axis_uri",
+        "sample_temperature_K",
+        "effective_electronic_temperature_K",
+        "lockin_modulation",
+        "energy_resolution_kernel",
+        "surface_preparation",
+        "tip_or_contact_state",
+        "background_model",
+        "spatial_coordinates_uri",
+        "repeat_count",
+        "band_bending_assessment",
+        "surface_state_assessment",
+        "calibration_covariance_uri",
+        "evidence_class"
+      ],
+      "properties": {
+        "modality": {"type": ["string", "null"]},
+        "raw_data_uri": {"type": ["string", "null"]},
+        "observable": {"type": ["string", "null"]},
+        "energy_units": {"enum": ["eV", "meV", "unresolved"]},
+        "energy_axis_uri": {"type": ["string", "null"]},
+        "sample_temperature_K": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "effective_electronic_temperature_K": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "lockin_modulation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["amplitude", "units", "waveform", "frequency_Hz", "evidence_class"],
+          "properties": {
+            "amplitude": {"type": ["number", "null"], "minimum": 0},
+            "units": {"enum": ["V_rms", "V_peak", "mV_rms", "mV_peak", "not_used", "unresolved"]},
+            "waveform": {"type": ["string", "null"]},
+            "frequency_Hz": {"type": ["number", "null"], "exclusiveMinimum": 0},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"}
+          }
+        },
+        "energy_resolution_kernel": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "parameters", "calibration_uri", "fwhm_meV", "evidence_class", "universal_requirement_claimed"],
+          "properties": {
+            "kind": {"type": ["string", "null"]},
+            "parameters": {"type": "object"},
+            "calibration_uri": {"type": ["string", "null"]},
+            "fwhm_meV": {"type": ["number", "null"], "exclusiveMinimum": 0},
+            "evidence_class": {"$ref": "#/$defs/evidence_class"},
+            "universal_requirement_claimed": {"const": false}
+          }
+        },
+        "surface_preparation": {"type": ["string", "null"]},
+        "tip_or_contact_state": {"type": ["string", "null"]},
+        "background_model": {"type": ["string", "null"]},
+        "spatial_coordinates_uri": {"type": ["string", "null"]},
+        "repeat_count": {"type": ["integer", "null"], "minimum": 1},
+        "band_bending_assessment": {"type": ["string", "null"]},
+        "surface_state_assessment": {"type": ["string", "null"]},
+        "calibration_covariance_uri": {"type": ["string", "null"]},
+        "evidence_class": {"$ref": "#/$defs/evidence_class"}
+      }
+    },
+    "joint_inference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_distribution",
+        "composition_to_gap_model",
+        "gap_to_mass_convention",
+        "hbar_vK_eV_nm",
+        "m_max",
+        "m_max_frozen_before_final_comparison",
+        "g_threshold_lower",
+        "g_threshold_upper",
+        "correlated_model",
+        "scalar_null_model",
+        "shared_one_point_distribution",
+        "shared_measurement_kernel",
+        "nuisance_parameters",
+        "posterior_predictive_checks",
+        "sensitivity_variants",
+        "evidence_class"
+      ],
+      "properties": {
+        "mass_distribution": {"type": ["string", "null"]},
+        "composition_to_gap_model": {"type": ["string", "null"]},
+        "gap_to_mass_convention": {"const": "M=Eg/2"},
+        "hbar_vK_eV_nm": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "m_max": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "m_max_frozen_before_final_comparison": {"type": "boolean"},
+        "g_threshold_lower": {"const": 0.25},
+        "g_threshold_upper": {"const": 0.3},
+        "correlated_model": {"type": ["string", "null"]},
+        "scalar_null_model": {"type": ["string", "null"]},
+        "shared_one_point_distribution": {"type": "boolean"},
+        "shared_measurement_kernel": {"type": "boolean"},
+        "nuisance_parameters": {"type": "array", "items": {"type": "string"}},
+        "posterior_predictive_checks": {"type": "array", "items": {"type": "string"}},
+        "sensitivity_variants": {"type": "array", "items": {"type": "string"}},
+        "evidence_class": {"$ref": "#/$defs/evidence_class"}
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_variance_gate",
+        "correlation_length_gate",
+        "same_population_gate",
+        "near_critical_gate",
+        "resolution_gate",
+        "matched_null_gate",
+        "robustness_gate",
+        "decision_changing_gate"
+      ],
+      "properties": {
+        "local_variance_gate": {"$ref": "#/$defs/gate"},
+        "correlation_length_gate": {"$ref": "#/$defs/gate"},
+        "same_population_gate": {"$ref": "#/$defs/gate"},
+        "near_critical_gate": {"$ref": "#/$defs/gate"},
+        "resolution_gate": {"$ref": "#/$defs/gate"},
+        "matched_null_gate": {"$ref": "#/$defs/gate"},
+        "robustness_gate": {"$ref": "#/$defs/gate"},
+        "decision_changing_gate": {"$ref": "#/$defs/gate"}
+      }
+    },
+    "decision": {
+      "enum": [
+        "UNRESOLVED",
+        "PUBLIC_DATA_FEASIBLE",
+        "PARTNER_DATA_REQUIRED",
+        "EXTERNAL_DATA_BLOCKED",
+        "EVIDENCE_GATE_FAILED",
+        "R05_REACTIVATION_RECOMMENDED",
+        "R05_REACTIVATION_NOT_RECOMMENDED"
+      ]
+    },
+    "claim_boundary": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sources", "created_utc", "software_commit", "notes"],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["identifier", "source_type", "supports"],
+            "properties": {
+              "identifier": {"type": "string", "minLength": 1},
+              "source_type": {"enum": ["primary_paper", "official_facility", "dataset", "internal_record", "other"]},
+              "supports": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+            }
+          }
+        },
+        "created_utc": {"type": ["string", "null"]},
+        "software_commit": {"type": ["string", "null"]},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  },
+  "$defs": {
+    "evidence_class": {
+      "enum": [
+        "measured_raw",
+        "measured_derived",
+        "source_established",
+        "empirical_model",
+        "exploratory_assumption",
+        "unresolved"
+      ]
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason"],
+      "properties": {
+        "status": {"enum": ["PASS", "FAIL", "UNRESOLVED", "NOT_APPLICABLE"]},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "estimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "units", "interval", "evidence_class", "method"],
+      "properties": {
+        "value": {"type": ["number", "null"]},
+        "units": {"type": ["string", "null"]},
+        "interval": {
+          "type": ["array", "null"],
+          "prefixItems": [
+            {"type": "number"},
+            {"type": "number"}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "evidence_class": {"$ref": "#/$defs/evidence_class"},
+        "method": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
