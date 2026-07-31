@@ -40,7 +40,10 @@ WINDOW = (-1.0, 1.0)
 
 
 def integrate(y, x):
-    return float(getattr(np, "trapezoid", np.trapz)(y, x))
+    implementation = getattr(np, "trapezoid", None)
+    if implementation is None:
+        implementation = np.trapz
+    return float(implementation(y, x))
 
 
 def scalar_curve(m, g, eta=ETA):
