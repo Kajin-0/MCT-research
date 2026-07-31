@@ -1,7 +1,7 @@
 # Program state: correlated random-mass Kane regime
 
 **Portfolio contribution:** R05  
-**State:** gated Phase 0 specification and novelty audit; numerical oracle not yet authorized  
+**State:** Phase 0 PR 1 gate passed for a restricted minimal oracle; HgCdTe physics activation blocked  
 **Controlling issue:** #390
 
 ## Objective
@@ -12,21 +12,27 @@ Investigate whether finite-correlation-length composition disorder near the HgCd
 
 This program is recognized as a distinct potential work, not as an automatic second stage of the spatial-disorder program.
 
-Issue #390 now controls a bounded Phase 0 activation study. The governing protocol is:
+Issue #390 controls a bounded Phase 0 activation study. The governing protocol is:
 
 ```text
 research/programs/correlated_random_mass_kane/phase0_specification.md
 ```
 
-The specification authorizes only:
+PR 1 completed the repository dependency audit, claim-level prior-art boundary, model conventions, source-quality-ranked parameter envelope, analytical limits, experimental-addressability screen, and full-Kane necessity gate.
 
-- repository dependency and convention audit;
-- claim-level prior-art review;
-- uncertainty-bounded HgCdTe parameter screening;
-- controlled analytical limits;
-- predeclared minimal-oracle, convergence, effect-size, experimental-resolution, and stop criteria.
+The controlling PR 1 decision is:
 
-No production random-mass solver, manuscript, full 8-band spatial calculation, or expensive parameter sweep is currently authorized.
+```text
+GO_MINIMAL_ORACLE_RESTRICTED
+```
+
+recorded in:
+
+```text
+research/decision_records/2026-07-31-r05-phase0-pr1-gate.md
+```
+
+This authorizes only a low-cost one-dimensional two-component random-mass Dirac mechanism and threshold benchmark. It does not authorize a quantitative bulk HgCdTe prediction, full 8-band spatial disorder, production SCBA, manuscript drafting, or a large parameter sweep.
 
 ## Available foundations
 
@@ -34,27 +40,66 @@ No production random-mass solver, manuscript, full 8-band spatial calculation, o
 - symmetry and matrix-projection infrastructure;
 - distributional signed-gap diagnostics;
 - spatial covariance and measurement-kernel models;
-- preliminary dimensionless comparison between correlation length and a Kane mass length.
+- exact scalar-null and homogeneous analytical references defined for PR 2.
 
 These foundations do not establish that a random-mass regime occurs in a real specimen.
 
-## Activation gates
+## PR 1 gate results
 
-Before numerical implementation, require:
+### Prior art
 
-1. an independently supported correlation-length range near the relevant composition and temperature;
-2. a clearly defined observable not already explained by scalar distributional or finite-kernel theory;
-3. a claim-level prior-art audit of HgCdTe disorder, SCBA, and correlated random-mass Dirac/Kane literature;
-4. a dimensionless regime showing finite correlation length can materially change the observable;
-5. controlled analytical limits and a minimal numerical benchmark with a falsification criterion;
-6. a predeclared matched scalar-null comparison and effect-size threshold;
-7. a decision memo explaining why full Kane structure is necessary or explicitly unnecessary.
+```text
+correlation-dependent random-mass Dirac DOS: ESTABLISHED
+HgCdTe disorder-renormalized Kane DOS under uncorrelated SCBA: ESTABLISHED
+finite-range HgCdTe matched scalar-null comparison: POTENTIALLY_DISTINCT
+broad novelty claim: NOT SUPPORTED
+```
 
-The minimal numerical oracle may proceed only after PR 1 records a `GO_MINIMAL_ORACLE` decision.
+### Parameter envelope
+
+```text
+v_K = (1.07 +/- 0.05)e6 m/s
+hbar v_K = 0.7043 eV nm nominal
+```
+
+At `77 K`, the repository Hansen model gives:
+
+```text
+critical composition x_c = 0.1494464216
+dEg/dx at x_c = 1.661253 eV per Cd fraction
+```
+
+Under the exploratory mapping `sigma_x = 0.002`:
+
+```text
+sigma_M = 1.661 meV
+xi required for g = 1: 424 nm
+```
+
+No qualifying near-critical HgCdTe continuum mass-correlation length was identified.
+
+```text
+velocity gate: PASS
+mean-mass tunability gate: PASS
+mass-variance gate: UNRESOLVED
+correlation-length gate: FAIL_NO_QUALIFYING_SOURCE
+nontrivial g regime: EXPLORATORY_ONLY
+HgCdTe physics activation: BLOCKED
+```
+
+### Experimental addressability
+
+Tunneling DOS is potentially discriminating because the smooth scalar null vanishes linearly at zero energy. Magneto-optics is the most established HgCdTe platform but requires magnetic full-Kane response. No public near-critical dataset was identified with both a calibrated spatial covariance length and a low-energy spectral observable.
+
+The experimental-addressability gate remains:
+
+```text
+FAIL_NOT_YET_QUANTIFIED
+```
 
 ## Candidate control parameters
 
-The Phase 0 convention uses the symmetric Dirac mapping
+The Phase 0 convention uses
 
 ```text
 Eg = 2 M,
@@ -81,7 +126,56 @@ Under the declared factor-of-two convention,
 kappa = g.
 ```
 
-This is a regime diagnostic, not a material measurement or proof of topology. The effective `v_K` must be derived from an explicit low-energy Kane block, including basis coefficients, rather than assumed silently from `P/hbar`.
+The fixed-integrated-disorder short-correlation limit also requires
+
+```text
+w = W / (hbar v_K)^2,
+W = integral dr <delta M(0) delta M(r)>.
+```
+
+This is a regime diagnostic, not a material measurement or proof of topology. The effective `v_K` for a later multiband reduction must be derived from an explicit low-energy Kane block, including basis coefficients, rather than assumed silently from `P/hbar`.
+
+## Restricted PR 2 authorization
+
+The authorized oracle is:
+
+```text
+one spatial dimension
+two-component symmetric Dirac Hamiltonian
+Fourier pseudospectral regularization
+Gaussian primary marginal and covariance
+matched analytic and finite-box scalar nulls
+periodic and antiperiodic boundaries
+explicit convergence and experimental convolution
+```
+
+Frozen primary parameter grid:
+
+```text
+m = [0.0, 0.5, 1.0, 2.0, 3.0]
+g = [0.1, 0.3, 0.6, 1.0, 1.5, 2.0]
+L/xi = [32, 64, 128]
+a/xi = [1/8, 1/12, 1/16]
+```
+
+Frozen primary energy window:
+
+```text
+|epsilon| <= 1
+epsilon = E xi / (hbar v_K)
+```
+
+The numerical effect passes only if the minimum converged integrated effect across accepted variants exceeds `0.10` after dimensionless experimental Gaussian convolution width `0.25`.
+
+## Full-Kane gate
+
+```text
+minimal random-mass Dirac oracle: AUTHORIZED
+full 8-band spatial disorder: NOT AUTHORIZED
+quantitative optical or magneto-optical prediction: REQUIRES FULL KANE OR A VALIDATED REDUCTION
+```
+
+Full Kane may be reconsidered only if the minimal effect, material-overlap, and experimental-addressability gates pass.
 
 ## Unsupported claims
 
@@ -117,14 +211,11 @@ Shared modules must not be modified merely to simplify R05. Any shared-foundatio
 
 ## Authorized next work
 
-Under issue #390 and the Phase 0 specification, the next authorized tasks are:
-
-1. complete the claim-level primary-source prior-art matrix;
-2. audit the exact R02 low-energy velocity, basis, sign, and degeneracy mapping;
-3. construct the source-quality-ranked HgCdTe parameter envelope, especially the correlation-length evidence boundary;
-4. derive homogeneous, short-correlation, long-correlation, massless, large-mass, and isolated-wall limits;
-5. freeze the matched scalar-null implementation, energy window, effect-size statistic, uncertainty budget, and experimental-resolution kernel;
-6. issue a PR 1 decision before implementing the numerical oracle.
+1. implement the restricted minimal oracle and matched scalar null;
+2. validate homogeneous, exact scalar-null, domain-wall, short-correlation, and LDA limits;
+3. run the predeclared convergence and covariance-family tests;
+4. produce immutable synthetic references and a PR 2 decision;
+5. proceed to physical screening only if the convolved numerical effect exceeds the frozen threshold.
 
 ## Stop rule
 
