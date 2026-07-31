@@ -11,7 +11,9 @@ from mct_research.random_mass_dos import (
 
 
 def _integrate(values: np.ndarray, coordinates: np.ndarray) -> float:
-    implementation = getattr(np, "trapezoid", np.trapz)
+    implementation = getattr(np, "trapezoid", None)
+    if implementation is None:
+        implementation = np.trapz
     return float(implementation(values, coordinates))
 
 
