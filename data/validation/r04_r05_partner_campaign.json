@@ -1,0 +1,241 @@
+{
+  "schema_version": "r04_r05_partner_campaign_v1",
+  "issue": 398,
+  "predecessor_issue": 395,
+  "predecessor_decision": "PARTNER_DATA_REQUIRED",
+  "record_date": "2026-07-31",
+  "campaign_status": "CONTACT_READY_NOT_SENT",
+  "sender_identity": "UNSET",
+  "outbound_contact_authorized": false,
+  "r05_material_activation": "BLOCKED",
+  "data_ingestion_authorized": false,
+  "follow_up_protocol": {
+    "first_follow_up_days": 7,
+    "closure_request_days": 14,
+    "repeat_after_explicit_decline": false
+  },
+  "required_partner_package": [
+    "near-critical HgCdTe specimen state",
+    "local mass or convertible composition covariance",
+    "measured spatial transfer function",
+    "local low-energy spectroscopy",
+    "measured energy-resolution kernel",
+    "same-specimen or quantitatively justified same-population linkage",
+    "raw data and calibration metadata"
+  ],
+  "allowed_outcomes": [
+    "DATA_ARCHIVE_EXISTS",
+    "NEW_MEASUREMENT_POSSIBLE",
+    "PARTIAL_DATA_ONLY",
+    "DATA_NOT_RETAINED",
+    "MATERIAL_NOT_ACCEPTED",
+    "SAME_POPULATION_INFEASIBLE",
+    "NO_RESPONSE_AFTER_DEFINED_FOLLOWUP"
+  ],
+  "contact_routes": [
+    {
+      "id": "wuerzburg_near_critical_hgcdte",
+      "priority": 1,
+      "route_type": "AUTHOR_AND_SPECIMEN_GROUP",
+      "organization": "University of Wuerzburg, Experimental Physics III and Institute for Topological Insulators",
+      "primary_contact": "Tobias Kiessling",
+      "public_email": "tobias.kiessling@uni-wuerzburg.de",
+      "contact_method": "DIRECT_PUBLIC_EMAIL",
+      "scientific_basis": "Corresponding author and group lead for the 2025 near-critical Hg1-xCdxTe quantum-well phase-diagram study.",
+      "requested_inventory": [
+        "sample identifiers and composition/thickness calibration",
+        "raw structural and magneto-optical records",
+        "retained wafers or sister chips",
+        "local composition maps or spectrum images if available",
+        "conditions for external cryogenic STM/STS",
+        "quantitative basis for sister-specimen exchangeability"
+      ],
+      "official_sources": [
+        "https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.9.054602",
+        "https://www.physik.uni-wuerzburg.de/en/research-groups/kiessling-group/team/dr-tobias-kiessling/"
+      ],
+      "source_verified_date": "2026-07-31",
+      "message_status": "NOT_SENT",
+      "sent_at": null,
+      "outcome": null,
+      "evidence_commitment": null
+    },
+    {
+      "id": "ornl_cnms_stm",
+      "priority": 2,
+      "route_type": "USER_FACILITY_STM",
+      "organization": "Oak Ridge National Laboratory, Center for Nanophase Materials Sciences",
+      "primary_contacts": [
+        {
+          "name": "An-Ping Li",
+          "public_email": "APLI@ORNL.GOV",
+          "role": "STM group leader"
+        },
+        {
+          "name": "Saban Hus",
+          "public_email": "HUSSM@ORNL.GOV",
+          "role": "STM/STS and four-probe STM staff"
+        }
+      ],
+      "contact_method": "DIRECT_PUBLIC_EMAIL_AND_CNMS_PROPOSAL_SYSTEM",
+      "scientific_basis": "CNMS publicly lists cryogenic UHV STM/STS, atomic-resolution DOS mapping, in-situ preparation, vacuum suitcase transfer, and multi-modal user access.",
+      "proposal_route": {
+        "regular_calls": "May and October",
+        "next_exact_deadline": "UNPOSTED_ON_AUDITED_PAGE_AS_OF_2026-07-31",
+        "rapid_access": "OFF_CYCLE_POSSIBLE_FOR_LIMITED_PROOF_OF_CONCEPT"
+      },
+      "requested_feasibility_answers": [
+        "Hg-containing sample acceptance and contamination controls",
+        "HgCdTe surface preparation or vacuum-transfer route",
+        "measured effective energy kernel near the exploratory 1-2 meV scale",
+        "raw topography and spectroscopy export",
+        "registered sister-region workflow with electron microscopy or microanalysis",
+        "rapid-access suitability for a bounded feasibility experiment"
+      ],
+      "official_sources": [
+        "https://www.ornl.gov/group/scanning-tunneling-microscopy",
+        "https://www.ornl.gov/group/scanning-tunneling-microscopy/staff",
+        "https://www.ornl.gov/content/4-probe-scanning-tunneling-microscopy",
+        "https://www.ornl.gov/facility/cnms/for-users/proposal-types",
+        "https://www.ornl.gov/facility/cnms/for-users/write-and-submit-proposal"
+      ],
+      "source_verified_date": "2026-07-31",
+      "message_status": "NOT_SENT",
+      "sent_at": null,
+      "outcome": null,
+      "evidence_commitment": null
+    },
+    {
+      "id": "argonne_cnm_stm",
+      "priority": 3,
+      "route_type": "USER_FACILITY_STM",
+      "organization": "Argonne National Laboratory, Center for Nanoscale Materials",
+      "primary_contacts": [
+        {
+          "name": "Nathan Guisinger",
+          "role": "UHV STM, STS and cryo-STM scientific contact",
+          "public_email": null
+        },
+        {
+          "name": "Jeffrey Guest",
+          "role": "Quantum and Energy Materials group leader and STM scientific contact",
+          "public_email": null
+        }
+      ],
+      "contact_method": "OFFICIAL_SCIENTIFIC_CONTACT_PAGE_AND_USER_PORTAL",
+      "scientific_basis": "CNM publicly lists UHV STM, STS, cryo-STM, Createc LT-STM and related surface preparation capabilities.",
+      "proposal_route": {
+        "next_call_opens": "2026-10-02",
+        "next_deadline": "2026-10-30T23:59:00-05:00",
+        "timezone": "America/Chicago"
+      },
+      "requested_feasibility_answers": [
+        "Hg-containing sample acceptance",
+        "compatible HgCdTe preparation and transfer workflow",
+        "measured energy-resolution and spatial-response kernels",
+        "raw data export and calibration records",
+        "registered specimen plan with complementary microscopy",
+        "staff recommendation before proposal submission"
+      ],
+      "official_sources": [
+        "https://cnm.anl.gov/pages/scientific-contacts",
+        "https://cnm.anl.gov/group/Quantum-and-Energy-Materials",
+        "https://cnm.anl.gov/pages/user-information",
+        "https://cnm.anl.gov/pages/user-quick-start-guide"
+      ],
+      "source_verified_date": "2026-07-31",
+      "message_status": "NOT_SENT",
+      "sent_at": null,
+      "outcome": null,
+      "evidence_commitment": null
+    },
+    {
+      "id": "wuerzburg_hgcdte_mbe",
+      "priority": 4,
+      "route_type": "SPECIMEN_GROWTH_AND_LOCAL_METROLOGY",
+      "organization": "University of Wuerzburg, Experimental Physics III molecular-beam epitaxy group",
+      "primary_contacts": [
+        {
+          "name": "Karl Brunner",
+          "public_email": "brunner@uni-wuerzburg.de",
+          "role": "MBE group leader"
+        },
+        {
+          "name": "Grzegorz Karczewski",
+          "public_email": "karcz@physik.uni-wuerzburg.de",
+          "role": "scientific staff and Hg-based heterostructure expertise"
+        }
+      ],
+      "contact_method": "DIRECT_PUBLIC_EMAIL_AFTER_PRIMARY_GROUP_RESPONSE_OR_ROUTING",
+      "scientific_basis": "The official group page lists the MBE team associated with Hg-based quantum-well growth and retained material expertise.",
+      "requested_inventory": [
+        "retained parent wafers or sister chips",
+        "growth logs and specimen identifiers",
+        "composition and thickness calibration",
+        "local chemical mapping availability",
+        "sample preparation constraints for external STM/STS"
+      ],
+      "official_sources": [
+        "https://www.physik.uni-wuerzburg.de/en/ep3/research/molecular-beam-epitaxy/group-members/"
+      ],
+      "source_verified_date": "2026-07-31",
+      "message_status": "NOT_SENT",
+      "sent_at": null,
+      "outcome": null,
+      "evidence_commitment": null
+    },
+    {
+      "id": "hgcdte_2012_sts_archive",
+      "priority": 5,
+      "route_type": "ARCHIVED_STS_AUTHOR_ROUTING",
+      "organization": "Authors and institutional route for the 2012 p-type HgCdTe STM/STS study",
+      "primary_contact": "UNRESOLVED_CURRENT_AUTHOR_ROUTE",
+      "public_email": null,
+      "contact_method": "JOURNAL_OR_INSTITUTIONAL_ROUTING_REQUIRED",
+      "scientific_basis": "The article demonstrates HgCdTe STM/STS and explicitly records tip-induced band bending and pit-associated gap-state systematics.",
+      "requested_inventory": [
+        "spatially indexed raw I(V) or dI/dV curves",
+        "registered topography and pit masks",
+        "temperature, setpoint, modulation and tip metadata",
+        "specimen composition and electrical properties",
+        "etch chemistry and vacuum-transfer timing",
+        "repeat spectra and retained material status"
+      ],
+      "official_sources": [
+        "https://journal.sitp.ac.cn/hwyhmb/hwyhmben/article/issue/2012_31_3",
+        "https://doi.org/10.3724/SP.J.1010.2012.00222"
+      ],
+      "source_verified_date": "2026-07-31",
+      "message_status": "ROUTE_UNRESOLVED_NOT_SENT",
+      "sent_at": null,
+      "outcome": null,
+      "evidence_commitment": null
+    }
+  ],
+  "gate_logic": {
+    "contact_ready_requires": [
+      "sender identity reviewed before sending",
+      "recipient and route verified from official sources",
+      "tailored request packet present",
+      "message status remains NOT_SENT",
+      "no evidence access or physical validation inferred from readiness"
+    ],
+    "go_partner_data_ingestion_requires": [
+      "identifiable specimen or exchangeable population",
+      "credible route to local covariance and low-energy spectroscopy",
+      "measured or measurable spatial and energy kernels",
+      "raw-data access or written commitment",
+      "sufficient provenance to instantiate r04_r05_matched_evidence_v1"
+    ]
+  },
+  "unauthorized_work": [
+    "sending outreach before sender and recipient review",
+    "recording a prepared message as sent",
+    "recording facility capability as a measurement commitment",
+    "data ingestion without a concrete archive or written commitment",
+    "R05 reactivation",
+    "larger random-mass simulation",
+    "full 8-band spatial disorder",
+    "manuscript drafting"
+  ]
+}
