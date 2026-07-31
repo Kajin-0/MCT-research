@@ -1,0 +1,205 @@
+{
+  "schema_version": "r05_parameter_envelope_v1",
+  "program": "R05_correlated_random_mass_kane",
+  "controlling_issue": 390,
+  "evidence_date": "2026-07-31",
+  "status": "source_bounded_velocity_and_gap_exploratory_disorder_length",
+  "mass_convention": {
+    "signed_gap_definition": "Eg = E_Gamma6 - E_Gamma8",
+    "minimal_dirac_mapping": "M = Eg / 2",
+    "gap_standard_deviation_mapping": "sigma_E = 2 sigma_M",
+    "dimensionless_parameters": {
+      "m": "Mbar * xi / (hbar * v_K)",
+      "g": "sigma_M * xi / (hbar * v_K)",
+      "kappa_relation": "kappa = g under sigma_E = 2 sigma_M"
+    }
+  },
+  "constants": {
+    "hbar_eV_s": 6.582119569e-16,
+    "boltzmann_eV_per_K": 8.617333262e-5
+  },
+  "parameters": [
+    {
+      "symbol": "v_K",
+      "physical_definition": "simplified Kane velocity near the normal-to-inverted transition",
+      "lower_bound": 1020000.0,
+      "nominal_value": 1070000.0,
+      "upper_bound": 1120000.0,
+      "units": "m/s",
+      "temperature": "investigated composition-temperature range in Teppe et al. 2016",
+      "composition": "near-critical HgCdTe specimens",
+      "source": "F. Teppe et al., Nature Communications 7, 12576 (2016), DOI 10.1038/ncomms12576",
+      "source_quality": "direct_experimental_model_fit",
+      "conversion_assumptions": "reported velocity interpreted as the low-energy Kane velocity; exact repository two-band basis coefficient remains to be audited",
+      "uncertainty_type": "reported_fit_interval",
+      "evidence_class": "experimentally_inferred"
+    },
+    {
+      "symbol": "hbar_v_K",
+      "physical_definition": "Dirac energy-length scale",
+      "lower_bound": 0.671376196038,
+      "nominal_value": 0.704286793883,
+      "upper_bound": 0.737197391728,
+      "units": "eV nm",
+      "temperature": "inherited from v_K",
+      "composition": "inherited from v_K",
+      "source": "derived from v_K and hbar",
+      "source_quality": "exact_unit_conversion_given_input",
+      "conversion_assumptions": "hbar v_K converted from eV s times m/s to eV nm",
+      "uncertainty_type": "propagated_source_interval",
+      "evidence_class": "mathematical_consequence"
+    },
+    {
+      "symbol": "P",
+      "physical_definition": "historical HgCdTe Kane momentum coupling in repository units",
+      "lower_bound": 7.6,
+      "nominal_value": 8.0,
+      "upper_bound": 8.4,
+      "units": "eV angstrom",
+      "temperature": "elevated-temperature Hall fitting up to 345 K",
+      "composition": "0.205 < x < 0.310",
+      "source": "E. Finkman, Journal of Applied Physics 54, 1883-1886 (1983), DOI 10.1063/1.332241; repository primary transcription",
+      "source_quality": "historical_experimental_fit",
+      "conversion_assumptions": "1e-8 eV cm equals 1 eV angstrom; P is not silently converted to v_K without a basis-factor derivation",
+      "uncertainty_type": "reported_fit_interval",
+      "evidence_class": "experimentally_inferred"
+    },
+    {
+      "symbol": "Mbar",
+      "physical_definition": "mean symmetric Dirac mass Eg(x,T)/2",
+      "lower_bound": -0.0219256192,
+      "nominal_value": 0.0,
+      "upper_bound": 0.0298719424,
+      "units": "eV",
+      "temperature": "4 <= T <= 150 K exploratory near-transition box",
+      "composition": "0.14 <= x <= 0.17 exploratory near-transition box",
+      "source": "repository Hansen signed-gap model",
+      "source_quality": "empirical_model_output",
+      "conversion_assumptions": "Mbar = Eg/2",
+      "uncertainty_type": "model_and_sweep_range_not_statistical",
+      "evidence_class": "model_conditioned_inference"
+    },
+    {
+      "symbol": "sigma_x_macro",
+      "physical_definition": "reported macroscopic sample composition homogeneity statement",
+      "lower_bound": null,
+      "nominal_value": null,
+      "upper_bound": 0.002,
+      "units": "Cd mole fraction",
+      "temperature": "not specified as a covariance measurement",
+      "composition": "Finkman 1983 samples, 0.205 < x < 0.310",
+      "source": "Finkman 1983 repository primary transcription",
+      "source_quality": "source_statement_not_standard_uncertainty",
+      "conversion_assumptions": "not accepted as a local standard deviation and not paired with xi as material evidence",
+      "uncertainty_type": "reported_bound_without_probability_model",
+      "evidence_class": "source_established_but_not_r05_parameter"
+    },
+    {
+      "symbol": "sigma_x_exploratory",
+      "physical_definition": "local composition standard deviation used only for regime screening",
+      "lower_bound": 0.0005,
+      "nominal_value": 0.002,
+      "upper_bound": 0.01,
+      "units": "Cd mole fraction",
+      "temperature": "near-transition exploratory sweep",
+      "composition": "near critical composition",
+      "source": "declared exploratory range",
+      "source_quality": "synthetic_only",
+      "conversion_assumptions": "not a specimen measurement",
+      "uncertainty_type": "exploratory_range",
+      "evidence_class": "speculative_exploration"
+    },
+    {
+      "symbol": "sigma_M_exploratory",
+      "physical_definition": "linearized local mass standard deviation",
+      "lower_bound": 0.000415313260596,
+      "nominal_value": 0.001661253042383,
+      "upper_bound": 0.008306265211916,
+      "units": "eV",
+      "temperature": "77 K",
+      "composition": 0.1494464216178869,
+      "source": "derived from repository Hansen model and exploratory sigma_x",
+      "source_quality": "model_conditioned_exploratory",
+      "conversion_assumptions": "sigma_M = 0.5 * abs(dEg/dx) * sigma_x with dEg/dx = 1.6612530423832637 eV",
+      "uncertainty_type": "exploratory_range",
+      "evidence_class": "mathematical_consequence_of_speculative_input"
+    },
+    {
+      "symbol": "xi",
+      "physical_definition": "continuum correlation length of the signed mass field",
+      "lower_bound": null,
+      "nominal_value": null,
+      "upper_bound": null,
+      "units": "nm",
+      "temperature": "near-transition HgCdTe",
+      "composition": "near-transition HgCdTe",
+      "source": "no qualifying direct source identified in bounded audit",
+      "source_quality": "unresolved",
+      "conversion_assumptions": "a qualifying source must specify field, specimen, spatial kernel, covariance convention, and uncertainty",
+      "uncertainty_type": "not_available",
+      "evidence_class": "not_supported"
+    },
+    {
+      "symbol": "xi_exploratory",
+      "physical_definition": "synthetic correlation length used for numerical threshold screening",
+      "lower_bound": 0.65,
+      "nominal_value": 100.0,
+      "upper_bound": 2000.0,
+      "units": "nm",
+      "temperature": "not a material claim",
+      "composition": "not a material claim",
+      "source": "declared exploratory sweep",
+      "source_quality": "synthetic_only",
+      "conversion_assumptions": "lower value is lattice-scale order of magnitude; upper values probe mesoscale structure",
+      "uncertainty_type": "exploratory_range",
+      "evidence_class": "speculative_exploration"
+    }
+  ],
+  "derived_reference": {
+    "temperature_K": 77.0,
+    "hansen_critical_composition": 0.1494464216178869,
+    "dEg_dx_eV_per_fraction": 1.6612530423832637,
+    "sigma_M_eV_per_sigma_x": 0.8306265211916319,
+    "xi_nm_required_for_g_equal_1": [
+      {
+        "sigma_x": 0.0005,
+        "sigma_M_eV": 0.000415313260596,
+        "xi_nm": 1695.994919
+      },
+      {
+        "sigma_x": 0.001,
+        "sigma_M_eV": 0.000830626521192,
+        "xi_nm": 847.997459
+      },
+      {
+        "sigma_x": 0.002,
+        "sigma_M_eV": 0.001661253042383,
+        "xi_nm": 423.998730
+      },
+      {
+        "sigma_x": 0.005,
+        "sigma_M_eV": 0.004153132605958,
+        "xi_nm": 169.599492
+      },
+      {
+        "sigma_x": 0.01,
+        "sigma_M_eV": 0.008306265211916,
+        "xi_nm": 84.799746
+      }
+    ]
+  },
+  "gate_status": {
+    "velocity": "PASS",
+    "mean_mass_tunability": "PASS",
+    "mass_variance": "UNRESOLVED",
+    "correlation_length": "FAIL_NO_QUALIFYING_SOURCE",
+    "nontrivial_g_regime": "EXPLORATORY_ONLY",
+    "hgcdte_physics_activation": "BLOCKED"
+  },
+  "prohibited_interpretations": [
+    "sigma_x_macro is not a local Gaussian standard deviation",
+    "xi_exploratory is not a measured HgCdTe correlation length",
+    "g approximately 1 is not established for a real specimen",
+    "local mass sign probability is not a topological invariant"
+  ]
+}
