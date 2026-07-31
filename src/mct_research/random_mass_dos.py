@@ -87,7 +87,9 @@ def _uniform_energies(values: ArrayLike) -> tuple[FloatArray, float]:
 
 
 def _trapezoid(values: NDArray[np.float64], coordinates: NDArray[np.float64]) -> float:
-    implementation = getattr(np, "trapezoid", np.trapz)
+    implementation = getattr(np, "trapezoid", None)
+    if implementation is None:
+        implementation = np.trapz
     return float(implementation(values, coordinates))
 
 
