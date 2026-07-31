@@ -1,0 +1,363 @@
+{
+  "schema_version": "r04_r05_public_data_audit_v1",
+  "issue": 395,
+  "audit_date": "2026-07-31",
+  "decision": "PARTNER_DATA_REQUIRED",
+  "qualifying_complete_record_found": false,
+  "r05_material_activation": "BLOCKED",
+  "authorized_next_stage": "PARTNER_ACQUISITION_AND_AUTHOR_CONTACT",
+  "search_scope": {
+    "repositories": [
+      "Zenodo",
+      "RODARE",
+      "RepOD",
+      "Figshare",
+      "Mendeley Data",
+      "Dryad",
+      "OSF",
+      "institutional repositories",
+      "publisher supplementary-material pages"
+    ],
+    "query_families": [
+      "HgCdTe STM STS raw data",
+      "HgCdTe STEM EDX spectrum image data",
+      "HgCdTe composition mapping raw data",
+      "HgCdTe SIMS raw data",
+      "near-critical HgCdTe magneto-optical data",
+      "HgTe HgCdTe transport and THz repositories",
+      "exact-title and author-name repository searches"
+    ],
+    "minimum_qualification": [
+      "near-critical HgCdTe specimen or quantitatively justified exchangeable population",
+      "local signed-gap or convertible composition variance",
+      "identifiable correlation length after measured spatial transfer correction",
+      "matched low-energy spectroscopy with measured energy-resolution kernel",
+      "same-specimen or quantitatively justified same-population linkage",
+      "raw or minimally processed data with calibration metadata"
+    ]
+  },
+  "required_evidence_gates": [
+    "local_variance_gate",
+    "correlation_length_gate",
+    "same_population_gate",
+    "near_critical_gate",
+    "resolution_gate",
+    "matched_null_gate",
+    "robustness_gate",
+    "decision_changing_gate"
+  ],
+  "candidate_records": [
+    {
+      "id": "bovkun_2025_phase_diagram",
+      "title": "Topological phase diagram of mercury cadmium telluride quantum wells",
+      "persistent_identifier": "10.1103/PhysRevMaterials.9.054602",
+      "material_system": "approximately 10 nm Hg1-xCdxTe quantum wells on CdTe",
+      "access_status": "OPEN_ARTICLE_NO_LINKED_RAW_DATASET_IDENTIFIED",
+      "raw_data_status": "NOT_IDENTIFIED",
+      "useful_evidence": [
+        "near-critical composition series",
+        "structural characterization",
+        "magneto-optical spectra",
+        "mean band-parameter and transition calibration"
+      ],
+      "decisive_missing_fields": [
+        "local two-dimensional or three-dimensional composition or mass covariance",
+        "measured spatial transfer function for a local map",
+        "local DOS spectroscopy",
+        "same-region covariance-spectroscopy linkage"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "PASS",
+        "resolution_gate": "FAIL_WRONG_OBSERVABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "UNRESOLVED",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_PARTNER_LEAD"
+    },
+    {
+      "id": "wang_2012_hgcdte_sts",
+      "title": "Scanning tunneling spectra for the etched surface of p-type HgCdTe",
+      "persistent_identifier": "10.3724/SP.J.1010.2012.00222",
+      "material_system": "LPE p-type HgCdTe etched with bromine-methanol",
+      "access_status": "ARTICLE_AND_FIGURES_OPEN_NO_RAW_REPOSITORY_IDENTIFIED",
+      "raw_data_status": "NOT_IDENTIFIED",
+      "useful_evidence": [
+        "HgCdTe STM and STS technical feasibility",
+        "surface pit topography",
+        "direct evidence of tip-induced band bending",
+        "direct evidence of in-gap surface or pit states"
+      ],
+      "decisive_missing_fields": [
+        "near-critical signed-gap calibration",
+        "spatially indexed raw spectra",
+        "measured energy-resolution kernel",
+        "local composition or mass covariance",
+        "same-region composition-spectroscopy linkage"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "UNRESOLVED",
+        "resolution_gate": "FAIL",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "FAIL_SURFACE_SYSTEMATICS_UNCONTROLLED",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_AUTHOR_CONTACT_LEAD"
+    },
+    {
+      "id": "biquard_2021_laue_edx",
+      "title": "Submicronic Laue diffraction to determine in-depth strain in very closely matched complex HgCdTe/CdZnTe heterostructures",
+      "persistent_identifier": "10.1107/S1600577520013211",
+      "material_system": "HgCdTe/CdZnTe detector heterostructures including dual-band architecture",
+      "access_status": "OPEN_ARTICLE_FIGURE_LEVEL_DATA",
+      "raw_data_status": "NOT_IDENTIFIED",
+      "useful_evidence": [
+        "submicronic strain profiling",
+        "STEM-EDX Hg Cd Zn concentration profiles",
+        "layer and interface composition information"
+      ],
+      "decisive_missing_fields": [
+        "stationary lateral two-dimensional covariance map",
+        "raw EDX spectrum image and detector response metadata",
+        "near-critical specimen",
+        "matched low-energy spectroscopy"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL_LINE_PROFILE_NOT_VARIANCE_FIELD",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "FAIL",
+        "resolution_gate": "NOT_APPLICABLE_NO_LOW_ENERGY_SPECTROSCOPY",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "UNRESOLVED",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_COMPOSITION_METHOD_LEAD"
+    },
+    {
+      "id": "sobieski_2024_sims",
+      "title": "Impact of Residual Compositional Inhomogeneities on the MCT Material Properties for IR Detectors",
+      "persistent_identifier": "10.3390/s24092837",
+      "material_system": "IMP-MOCVD HgCdTe detector layers before and after annealing",
+      "access_status": "OPEN_ARTICLE_DATA_INCLUDED_IN_ARTICLE_AUTHOR_REQUEST_FOR_ADDITIONAL_DATA",
+      "raw_data_status": "NO_STANDALONE_RAW_FILES_IDENTIFIED",
+      "useful_evidence": [
+        "high-resolution SIMS depth oscillations",
+        "annealing dependence",
+        "electrical and photoelectric consequences"
+      ],
+      "decisive_missing_fields": [
+        "lateral covariance",
+        "spatial PSF and finite-window-corrected xi",
+        "near-critical mean mass",
+        "matched local low-energy spectroscopy"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL_DEPTH_PROFILE_ONLY",
+        "correlation_length_gate": "FAIL_LATERAL_XI_NOT_IDENTIFIED",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "FAIL",
+        "resolution_gate": "NOT_APPLICABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "UNRESOLVED",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_GROWTH_PROCESS_LEAD"
+    },
+    {
+      "id": "chang_2005_ir_mapping",
+      "title": "Composition and thickness distribution of HgCdTe molecular beam epitaxy wafers by infrared microscope mapping",
+      "persistent_identifier": "10.1016/j.jcrysgro.2005.01.051",
+      "material_system": "MBE HgCdTe wafers on CdZnTe and alternative substrates",
+      "access_status": "ARTICLE_AVAILABLE_NO_RAW_MAP_REPOSITORY_IDENTIFIED",
+      "raw_data_status": "NOT_IDENTIFIED",
+      "useful_evidence": [
+        "wafer-scale composition map",
+        "thickness map",
+        "region-selection and exchangeability support"
+      ],
+      "decisive_missing_fields": [
+        "nanoscale transfer band covering the R05 xi regime",
+        "measured local-map PSF",
+        "local low-energy spectroscopy",
+        "raw map arrays and calibration covariance"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL_SCALE_MISMATCH",
+        "correlation_length_gate": "FAIL_TRANSFER_BAND_TOO_COARSE_OR_UNSPECIFIED",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "FAIL",
+        "resolution_gate": "NOT_APPLICABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "UNRESOLVED",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_SCREENING_METHOD"
+    },
+    {
+      "id": "uaman_2023_rodare_thz",
+      "title": "Giant THz nonlinearity in topological and trivial HgTe-based heterostructures: Data",
+      "persistent_identifier": "10.14278/rodare.2453",
+      "material_system": "topological and trivial HgTe-based heterostructures",
+      "access_status": "OPEN_DATA_AND_CODE",
+      "raw_data_status": "AVAILABLE",
+      "useful_evidence": [
+        "raw transport and THz pump-probe data",
+        "sample presentation metadata",
+        "band-structure calculations",
+        "reproducible spectroscopy processing"
+      ],
+      "decisive_missing_fields": [
+        "near-critical HgCdTe local mass covariance",
+        "local DOS observable",
+        "same-region spatial map",
+        "matched scalar-null comparison"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "UNRESOLVED_OR_WRONG_SPECIMEN_CLASS",
+        "resolution_gate": "FAIL_WRONG_OBSERVABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "PARTIAL_REPRODUCIBILITY_ONLY",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_OPEN_SPECTROSCOPY_REFERENCE"
+    },
+    {
+      "id": "uaman_2025_rodare_upconversion",
+      "title": "Highly efficient broadband THz upconversion with Dirac materials: Data",
+      "persistent_identifier": "10.14278/rodare.3885",
+      "material_system": "HgTe Dirac heterostructures and other Dirac materials",
+      "access_status": "OPEN_DATA_AND_CODE",
+      "raw_data_status": "AVAILABLE",
+      "useful_evidence": [
+        "raw THz data",
+        "processing and simulation code",
+        "open reproducibility reference"
+      ],
+      "decisive_missing_fields": [
+        "local covariance",
+        "near-critical HgCdTe signed mass",
+        "local DOS spectroscopy",
+        "same-population linkage"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "FAIL_OR_UNRESOLVED",
+        "resolution_gate": "FAIL_WRONG_OBSERVABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "PARTIAL_REPRODUCIBILITY_ONLY",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_OPEN_SPECTROSCOPY_REFERENCE"
+    },
+    {
+      "id": "hofer_2025_zenodo_transport",
+      "title": "Analysis of mK-Transport Data on HgTe/HgCdTe Thin Films",
+      "persistent_identifier": "10.5281/zenodo.15753791",
+      "material_system": "HgTe/HgCdTe thin films with multiple thicknesses",
+      "access_status": "PUBLIC_METADATA_RESTRICTED_FILES",
+      "raw_data_status": "RESTRICTED",
+      "useful_evidence": [
+        "mK transport metadata",
+        "band-structure analysis description",
+        "identified author group with relevant specimen capability"
+      ],
+      "decisive_missing_fields": [
+        "open file access",
+        "local mass covariance",
+        "local DOS spectroscopy",
+        "near-critical composition and same-region map linkage"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "UNRESOLVED",
+        "resolution_gate": "FAIL_WRONG_OBSERVABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "UNRESOLVED_RESTRICTED",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_RESTRICTED_PARTNER_LEAD"
+    },
+    {
+      "id": "rehman_2025_hgcdte_noise",
+      "title": "Temperature and electron concentration dependences of 1/f noise in Hg1-xCdxTe",
+      "persistent_identifier": "ARTICLE_REPORTS_REPOD_RAW_DATA_WITHOUT_RECORD_IDENTIFIER_IN_DATA_AVAILABILITY_LINK",
+      "material_system": "HgCdTe or HgTe-based quantum-well devices under electrical and low-frequency-noise measurement",
+      "access_status": "OPEN_ARTICLE_REPOSITORY_HOME_LINK_ONLY",
+      "raw_data_status": "REPORTED_AVAILABLE_BUT_RECORD_NOT_RESOLVED_IN_AUDIT",
+      "useful_evidence": [
+        "raw electrical and noise data reportedly deposited",
+        "temperature and carrier-density dependence",
+        "device and measurement metadata"
+      ],
+      "decisive_missing_fields": [
+        "resolvable persistent dataset record",
+        "local covariance",
+        "local DOS spectroscopy",
+        "same-region linkage"
+      ],
+      "gate_status": {
+        "local_variance_gate": "FAIL",
+        "correlation_length_gate": "FAIL",
+        "same_population_gate": "FAIL",
+        "near_critical_gate": "UNRESOLVED",
+        "resolution_gate": "FAIL_WRONG_OBSERVABLE",
+        "matched_null_gate": "FAIL",
+        "robustness_gate": "UNRESOLVED_DATASET_LINK",
+        "decision_changing_gate": "FAIL"
+      },
+      "qualification": "NONQUALIFYING_REPOSITORY_LINK_DEFECT"
+    }
+  ],
+  "aggregate_gate_result": {
+    "local_variance_gate": "NO_PUBLIC_RECORD_PASSES",
+    "correlation_length_gate": "NO_PUBLIC_RECORD_PASSES",
+    "same_population_gate": "NO_PUBLIC_RECORD_PASSES",
+    "near_critical_gate": "ONE_PARTIAL_RECORD_PASSES_BUT_WITHOUT_LOCAL_COVARIANCE",
+    "resolution_gate": "NO_MATCHED_LOCAL_DOS_RECORD_PASSES",
+    "matched_null_gate": "NO_PUBLIC_RECORD_PASSES",
+    "robustness_gate": "NO_COMPLETE_RECORD_PASSES",
+    "decision_changing_gate": "NO_PUBLIC_RECORD_PASSES"
+  },
+  "decision_logic": {
+    "why_not_public_data_feasible": "No audited public record supplies the minimum joint evidence package. Combining unrelated specimens or figure-level values would violate the same-population and transfer-function gates.",
+    "why_not_external_data_blocked": "HgCdTe STM/STS, local composition metrology, near-critical growth and magneto-optics, and open HgTe spectroscopy are all technically demonstrated. Identifiable author groups and user-facility capabilities provide a plausible acquisition path, although acceptance and data retention are unconfirmed.",
+    "why_partner_data_required": "The decisive missing information is specimen-linked raw data and calibration metadata that must be obtained from authors, growers, or a coordinated facility experiment."
+  },
+  "minimum_partner_requests": [
+    "spatially indexed raw HgCdTe STS curves plus topography, setpoints, temperature, modulation, tip state and surface-preparation history",
+    "raw or minimally processed Hg Cd Te composition map or spectrum image with pixel coordinates, dwell, detector response, thickness and quantification uncertainty",
+    "specimen identifiers linking spectroscopy and composition measurements or a predeclared exchangeability design",
+    "near-critical mean composition or signed-gap calibration with uncertainty",
+    "measured spatial and energy transfer functions",
+    "permission to preserve immutable raw and derived records in the repository"
+  ],
+  "unauthorized_work": [
+    "R05 reactivation",
+    "larger random-mass simulation",
+    "two-dimensional or three-dimensional R05 production solver",
+    "full 8-band spatial disorder",
+    "manuscript drafting",
+    "claiming public-data validation from digitized figures"
+  ],
+  "claim_boundary": [
+    "Absence of a qualifying public record is not evidence that the physical effect is absent.",
+    "Figure digitization cannot manufacture missing transfer functions, covariance, or same-specimen metadata.",
+    "Open HgTe transport or THz data do not validate a local random-mass DOS signature.",
+    "The R05 threshold bracket remains a method benchmark and is not universal.",
+    "No measured random-mass field, correlation length, topology, domain-wall transport, percolation, or mobility edge is claimed."
+  ]
+}
