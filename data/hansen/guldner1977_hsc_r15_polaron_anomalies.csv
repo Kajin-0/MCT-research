@@ -1,0 +1,4 @@
+record_id,composition_x,interaction_gap_meV,temperature_k,geometry,polarization,transition,phonon_energy_meV,critical_field_kG,observed_feature,intrinsic_gap_evidence,quantitative_model_complete,source_location,notes
+G77II_POL_195_SIGMA_MINUS,0.280,208,4.2,Faraday,sigma_minus,a_l(0)_to_a_c(1),19.5,29.5,doublet_and_level_pinning_over_27_to_40_kG,false,false,"Figure 7a and Section 2.1, page 153",Perturbed branch is pinned to the lower level plus the 19.5 meV LO phonon energy
+G77II_POL_195_VOIGT,0.280,208,4.2,Voigt,E_parallel_H,b_h(2)_to_a_c(1),19.5,,pinned_L2_branch,false,false,"Figure 7b and Section 2.1, pages 153-154",Source states that a more detailed theoretical analysis is required
+G77II_POL_17_VOIGT,0.280,208,4.2,Voigt,E_parallel_H,b_h(2)_to_a_c(1),17,,pinned_L3_branch,false,false,"Figure 7b and Section 2.1, pages 153-154",Lower LO mode is observed in the Voigt-polarized spectrum

@@ -1,0 +1,117 @@
+{
+  "band_parameter_constraints": {
+    "count": 17,
+    "global_count": 5,
+    "ids": [
+      "G77II_P_DELTA",
+      "G77II_P_GAMMA1",
+      "G77II_P_KAPPA",
+      "G77II_P_GAMMA_COMBINATION",
+      "G77II_P_MHH",
+      "G77II_X0250_EP",
+      "G77II_X0250_GAMMA1",
+      "G77II_X0250_GAMMA",
+      "G77II_X0250_KAPPA",
+      "G77II_X0215_EP",
+      "G77II_X0215_GAMMA1",
+      "G77II_X0215_GAMMA",
+      "G77II_X0215_KAPPA",
+      "G77II_X0280_EP",
+      "G77II_X0280_GAMMA1",
+      "G77II_X0280_GAMMA",
+      "G77II_X0280_KAPPA"
+    ],
+    "representative_fit_count": 12
+  },
+  "completion_status": "PRIMARY_SOURCE_AUDIT_PROVENANCE_COMPLETE",
+  "controlling_decision": "primary_source_recovered_semiconducting_transition_interaction_gap_candidates_and_x0_reconstructed_hansen_marker_mapping_unresolved",
+  "critical_composition": {
+    "figure_coordinates_digitized": false,
+    "reported_relation": "epsilon0_of_x_is_linear",
+    "temperature_k": "4.2",
+    "uncertainty": "0.005",
+    "value": "0.165"
+  },
+  "deterministic_checks": {
+    "figure_digitization_performed": false,
+    "part_i_double_counting_prohibited": true,
+    "pointwise_covariance": "not_reported",
+    "polaron_anomalies_separated_from_intrinsic_gap": true,
+    "source_binary_committed": false,
+    "source_hash_matches_expected": true,
+    "source_hash_materialized": true,
+    "source_hash_status_is_materialized": true
+  },
+  "figure_evidence": {
+    "count": 4,
+    "digitized_count": 0,
+    "ids": [
+      "G77II_FIG11",
+      "G77II_FIG12",
+      "G77II_FIG13",
+      "G77II_FIG14"
+    ]
+  },
+  "hansen_candidates": {
+    "all_source_native": true,
+    "count": 5,
+    "independent_validation_count": 0,
+    "resolved_assignment_count": 0
+  },
+  "hansen_graph_id": "HSC_R15",
+  "interaction_gap_candidates": {
+    "count": 5,
+    "maximum_meV": "208",
+    "minimum_meV": "-30",
+    "negative_count": 1,
+    "positive_count": 4,
+    "raw_observable_count": 0,
+    "reported_pointwise_uncertainty_count": 0,
+    "signed_transition_bracket_present": true,
+    "source_native_gap_determination_count": 5,
+    "values_meV_by_x": {
+      "0.150": "-30",
+      "0.185": "35",
+      "0.215": "86",
+      "0.250": "161",
+      "0.280": "208"
+    }
+  },
+  "measurement_class": "interband_magnetoabsorption",
+  "part_i_links": {
+    "count": 3,
+    "double_counting_authorized_count": 0,
+    "same_specimen_established_count": 0,
+    "target_graph_ids": [
+      "HSC_R14"
+    ]
+  },
+  "polaron_anomalies": {
+    "count": 3,
+    "intrinsic_gap_evidence_count": 0,
+    "phonon_energies_meV": [
+      "17",
+      "19.5"
+    ],
+    "quantitatively_complete_count": 0
+  },
+  "schema_version": 1,
+  "source_file_library_id": "file_000000006f0881fda163c0e4ae6a72c3",
+  "source_id": "GULDNER1977_HSC_R15",
+  "source_pdf_page_count": 10,
+  "source_pdf_sha256": "85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704",
+  "source_pdf_sha256_status": "materialized_conversation_attachment",
+  "specimen_groups": {
+    "composition_method": "density_measurements_and_electron_microprobe",
+    "composition_values": [
+      "0.250",
+      "0.215",
+      "0.280",
+      "0.150",
+      "0.185"
+    ],
+    "count": 5,
+    "part_i_linkage_resolved": false,
+    "physical_specimen_count_resolved": false
+  }
+}
