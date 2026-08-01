@@ -23,7 +23,7 @@
     ],
     "representative_fit_count": 12
   },
-  "completion_status": "PRIMARY_TRANSCRIPTION_COMPLETE_SOURCE_HASH_PENDING",
+  "completion_status": "PRIMARY_SOURCE_AUDIT_PROVENANCE_COMPLETE",
   "controlling_decision": "primary_source_recovered_semiconducting_transition_interaction_gap_candidates_and_x0_reconstructed_hansen_marker_mapping_unresolved",
   "critical_composition": {
     "figure_coordinates_digitized": false,
@@ -38,8 +38,9 @@
     "pointwise_covariance": "not_reported",
     "polaron_anomalies_separated_from_intrinsic_gap": true,
     "source_binary_committed": false,
-    "source_hash_materialized": false,
-    "source_hash_status_is_explicit": true
+    "source_hash_matches_expected": true,
+    "source_hash_materialized": true,
+    "source_hash_status_is_materialized": true
   },
   "figure_evidence": {
     "count": 4,
@@ -95,11 +96,11 @@
     "quantitatively_complete_count": 0
   },
   "schema_version": 1,
-  "source_file_library_id": "file_000000000f5481fd91088875f4b813da",
+  "source_file_library_id": "file_000000006f0881fda163c0e4ae6a72c3",
   "source_id": "GULDNER1977_HSC_R15",
   "source_pdf_page_count": 10,
-  "source_pdf_sha256": null,
-  "source_pdf_sha256_status": "not_materialized_file_library_binary",
+  "source_pdf_sha256": "85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704",
+  "source_pdf_sha256_status": "materialized_conversation_attachment",
   "specimen_groups": {
     "composition_method": "density_measurements_and_electron_microprobe",
     "composition_values": [
