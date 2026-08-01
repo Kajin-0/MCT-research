@@ -1,0 +1,4 @@
+link_id,part_ii_record,part_i_record,target_graph_id,link_type,same_specimen_established,double_counting_allowed,status,notes
+G77II_LINK_METHODS,experimental_method,experimental_techniques_and_sample_preparation,HSC_R14,method_reference,false,false,cross_source_reference,Part II explicitly refers to techniques described in Part I; Part II does not reprint full preparation and thickness metadata
+G77II_LINK_FIG11,Figure_11_epsilon0_of_x,five_printed_semimetallic_gap_candidates,HSC_R14,combined_relation,false,false,combined_evidence_layer_no_point_duplication,Figure 11 spans 0<=x<=0.3 and incorporates the semimetallic region; Part I scalar records must not be counted again as independent Part II observations
+G77II_LINK_MODEL,Pidgeon_Brown_parameter_analysis,model_definition_and_global_parameter_constraints,HSC_R14,shared_model_lineage,false,false,shared_model_not_independent_validation,Part II applies the coupled-band framework developed in Part I
