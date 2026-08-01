@@ -15,13 +15,13 @@ def read_csv(name: str) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
-def test_source_identity_and_hash_block_are_explicit() -> None:
+def test_source_identity_and_binary_provenance_are_complete() -> None:
     row = read_csv("guldner1977_hsc_r15_source_metadata.csv")[0]
     assert row["doi"] == "10.1002/pssb.2220820115"
     assert row["source_pdf_page_count"] == "10"
-    assert row["source_pdf_sha256"] == ""
-    assert row["source_pdf_sha256_status"] == "not_materialized_file_library_binary"
-    assert row["source_file_library_id"] == "file_000000000f5481fd91088875f4b813da"
+    assert row["source_pdf_sha256"] == "85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704"
+    assert row["source_pdf_sha256_status"] == "materialized_conversation_attachment"
+    assert row["source_file_library_id"] == "file_000000006f0881fda163c0e4ae6a72c3"
     assert row["source_binary_committed"] == "false"
     assert "A. Mycielski" in row["authors"]
 
@@ -117,13 +117,13 @@ def test_source_graph_is_updated_without_overclaim() -> None:
     assert row["measurement_group"] == "interband_magnetoabsorption"
     assert row["composition_method_stated_by_hansen"] == "density measurements and electron microprobe"
     assert row["acquisition_priority"] == "complete_primary_source_audit"
-    assert "source binary SHA256" in row["notes"]
+    assert "SHA256 85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704" in row["notes"]
     assert "Hansen marker mapping remain unresolved" in row["notes"]
 
 
 def test_readme_enforces_core_boundaries() -> None:
     text = (DATA / "guldner1977_hsc_r15_README.md").read_text(encoding="utf-8")
-    assert "not_materialized_file_library_binary" in text
+    assert "85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704" in text
     assert "Figure 11 is not digitized" in text
     assert "polaron energies or splittings as intrinsic gaps" in text
     assert "assign Hansen markers by plot proximity" in text
@@ -137,11 +137,13 @@ def test_canonical_audit_regenerates_byte_identically() -> None:
     )
     assert actual == expected
     report = json.loads(actual)
-    assert report["completion_status"] == "PRIMARY_TRANSCRIPTION_COMPLETE_SOURCE_HASH_PENDING"
+    assert report["completion_status"] == "PRIMARY_SOURCE_AUDIT_PROVENANCE_COMPLETE"
     assert report["interaction_gap_candidates"]["count"] == 5
     assert report["interaction_gap_candidates"]["signed_transition_bracket_present"] is True
     assert report["critical_composition"]["value"] == "0.165"
     assert report["polaron_anomalies"]["intrinsic_gap_evidence_count"] == 0
     assert report["part_i_links"]["double_counting_authorized_count"] == 0
     assert report["hansen_candidates"]["resolved_assignment_count"] == 0
-    assert report["deterministic_checks"]["source_hash_materialized"] is False
+    assert report["deterministic_checks"]["source_hash_materialized"] is True
+    assert report["deterministic_checks"]["source_hash_matches_expected"] is True
+    assert report["deterministic_checks"]["source_hash_status_is_materialized"] is True
