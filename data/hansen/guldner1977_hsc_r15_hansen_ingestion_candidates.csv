@@ -1,0 +1,6 @@
+candidate_id,source_record_id,composition_x,interaction_gap_meV,temperature_k,source_native_gap_determination,source_location,hansen_assignment_resolved,independent_validation,notes
+HSC_R15_0250,G77II_GAP_X0250,0.250,161,4.2,true,"Figures 1-4 and captions, pages 150-152",false,false,Candidate fitted-lineage point; Hansen marker identity cannot be assigned from plot proximity
+HSC_R15_0215,G77II_GAP_X0215,0.215,86,4.2,true,"Figure 6 and text, pages 152-153",false,false,Candidate fitted-lineage point; Hansen marker identity cannot be assigned from plot proximity
+HSC_R15_0280,G77II_GAP_X0280,0.280,208,4.2,true,"Figure 7 and text, pages 153-154",false,false,Candidate fitted-lineage point; Hansen marker identity cannot be assigned from plot proximity
+HSC_R15_0150,G77II_GAP_X0150,0.150,-30,4.2,true,"Figures 8-9 and text, pages 154-155",false,false,Candidate fitted-lineage point; Hansen marker identity cannot be assigned from plot proximity
+HSC_R15_0185,G77II_GAP_X0185,0.185,35,4.2,true,"Figure 10 and text, pages 154-156",false,false,Candidate fitted-lineage point; Hansen marker identity cannot be assigned from plot proximity
