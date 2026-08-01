@@ -121,7 +121,7 @@ def validate_literature_batch(record: Mapping[str, Any]) -> None:
         "do not combine",
         "100 um aperture",
         "stm topography",
-        "energy-resolution",
+        "spectroscopy kernel",
         "reactivate r05",
     ):
         _require(phrase in stop_rules, f"missing stop-rule safeguard: {phrase}")
