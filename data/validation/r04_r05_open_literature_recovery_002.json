@@ -1,0 +1,221 @@
+{
+  "schema_version": "r04_r05_open_literature_recovery_v1",
+  "issue": 400,
+  "predecessor_pr": 401,
+  "record_date": "2026-07-31",
+  "source_mode": "PUBLIC_OPEN_ACCESS_AND_AUTHOR_POSTED_LITERATURE",
+  "outreach_authorized": false,
+  "cross_paper_specimen_synthesis": false,
+  "overall_decision": "PARTIAL_REANALYSIS_FEASIBLE",
+  "r05_material_activation": "BLOCKED",
+  "data_ingestion_authorized": false,
+  "evidence_gates": [
+    "local_variance",
+    "correlation_length",
+    "same_population",
+    "near_critical",
+    "resolution",
+    "matched_null",
+    "robustness",
+    "decision_changing"
+  ],
+  "sources": [
+    {
+      "source_id": "bovkun_2025_phase_diagram",
+      "citation": "L. S. Bovkun et al., Physical Review Materials 9, 054602 (2025)",
+      "title": "Topological phase diagram of mercury cadmium telluride quantum wells",
+      "doi": "10.1103/PhysRevMaterials.9.054602",
+      "access_status": "FULL_TEXT_RECOVERED",
+      "access_route": "APS_OPEN_ACCESS_AND_PUBLIC_AUTHOR_POSTED_FULL_TEXT",
+      "license": "CC_BY_4_0",
+      "copyrighted_pdf_committed": false,
+      "source_class": "NEAR_CRITICAL_SPECIMEN_SERIES_AND_KP_PHASE_DIAGRAM",
+      "official_sources": [
+        "https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.9.054602",
+        "https://doi.org/10.1103/PhysRevMaterials.9.054602"
+      ],
+      "specimen_series": {
+        "material": "Hg1-xCdxTe quantum wells in Hg0.3Cd0.7Te barriers on CdTe",
+        "growth_method": "molecular beam epitaxy",
+        "substrate_temperature_c": 157,
+        "pseudomorphic_to": "CdTe",
+        "samples": [
+          {"x": 0.040, "qw_thickness_nm": 10.2, "carrier_density_1e10_cm-2": 8},
+          {"x": 0.047, "qw_thickness_nm": 9.9, "carrier_density_1e10_cm-2": 6},
+          {"x": 0.049, "qw_thickness_nm": 9.7, "carrier_density_1e10_cm-2": null},
+          {"x": 0.052, "qw_thickness_nm": 10.3, "carrier_density_1e10_cm-2": 6},
+          {"x": 0.054, "qw_thickness_nm": 10.2, "carrier_density_1e10_cm-2": 10},
+          {"x": 0.061, "qw_thickness_nm": 10.0, "carrier_density_1e10_cm-2": 2}
+        ],
+        "carrier_density_uncertainty_1e10_cm-2": 2,
+        "x_calibration": "Cd/Te flux ratio calibrated against 75 nm Hg1-xCdxTe layers by XRD under Vegard-law modeling",
+        "thin_qw_xrd_limitation": "direct XRD composition extraction was not feasible for the approximately 10 nm wells because of weak signal",
+        "thickness_method": "X-ray reflectivity model fit",
+        "thickness_precision": "plus or minus one atomic layer"
+      },
+      "near_critical_constraints": {
+        "series_spans_topological_transition": true,
+        "paper_statement": "for x greater than 0.054, the beta transition exceeds alpha at all fields, anticrossings disappear, and a direct trivial gap opens",
+        "candidate_boundary_samples": [
+          {"x": 0.052, "qw_thickness_nm": 10.3},
+          {"x": 0.054, "qw_thickness_nm": 10.2}
+        ],
+        "bulk_reference_critical_x_approx": 0.17,
+        "do_not_equate_bulk_and_qw_criticality": true
+      },
+      "model_and_resolution": {
+        "model": "k.p Landau-level calculation using KDOTPY",
+        "occupation_broadening": "Gaussian sigma(B)=2 meV*sqrt(B[T])",
+        "broadening_is_measured_instrument_kernel": false,
+        "local_spatial_map_reported": false,
+        "local_composition_variance_reported": false,
+        "local_correlation_length_reported": false,
+        "local_dos_reported": false
+      },
+      "usable_constraints": [
+        "near-critical QW composition-thickness specimen grid",
+        "sample-specific thicknesses with monolayer-scale XRR precision",
+        "composition calibration chain and its thin-well limitation",
+        "experimentally supported topological-to-trivial transition neighborhood",
+        "model broadening convention that must not be treated as a measured STS kernel"
+      ],
+      "gate_status": {
+        "local_variance": "FAIL",
+        "correlation_length": "FAIL",
+        "same_population": "FAIL",
+        "near_critical": "PASS",
+        "resolution": "PARTIAL",
+        "matched_null": "FAIL",
+        "robustness": "PARTIAL",
+        "decision_changing": "PARTIAL"
+      },
+      "source_decision": "LITERATURE_CONSTRAINTS_ONLY"
+    },
+    {
+      "source_id": "biquard_2021_micro_laue",
+      "citation": "X. Biquard et al., Journal of Synchrotron Radiation 28, 181-187 (2021)",
+      "title": "Submicronic Laue diffraction to determine in-depth strain in very closely matched complex HgCdTe/CdZnTe heterostructures with a 10^-5 resolution",
+      "doi": "10.1107/S1600577520013211",
+      "access_status": "FULL_TEXT_RECOVERED",
+      "access_route": "OFFICIAL_IUCR_OPEN_PDF",
+      "license": "OPEN_ACCESS",
+      "copyrighted_pdf_committed": false,
+      "source_class": "CROSS_SECTIONAL_STRAIN_AND_COMPOSITION_KERNEL_METHOD",
+      "official_sources": [
+        "https://journals.iucr.org/s/issues/2021/01/00/ig5092/",
+        "https://journals.iucr.org/s/issues/2021/01/00/ig5092/ig5092.pdf",
+        "https://doi.org/10.1107/S1600577520013211"
+      ],
+      "specimens": {
+        "substrate": "4 cm x 4 cm (211)B CdZnTe with approximately 4% Zn",
+        "growth_method": "molecular beam epitaxy near 180 C",
+        "configurations": [
+          "4.5 um as-grown single HgCdTe layer",
+          "same-wafer material after 5 h thermal annealing under Hg pressure",
+          "11 um dual-band detector stack"
+        ],
+        "composition_methods": [
+          "SIMS depth profiling for as-grown and annealed samples",
+          "STEM-EDX on a less-than-100-nm lamella for the dual-band stack"
+        ]
+      },
+      "measured_kernel": {
+        "xray_nominal_diameter_nm": 500,
+        "beam_profile_model": "pseudo-Voigt with 20% Lorentzian fraction",
+        "measured_fwhm_nm": 580,
+        "beam_fwhm_inferred_from": "Hg fluorescence transition at the abrupt layer/substrate interface",
+        "strain_sensitivity": "plus or minus 1.3e-5 in the annealed-sample substrate region",
+        "orientation_resolution_arcsec": 1,
+        "sims_depth_precision_nm": 10,
+        "stem_edx_depth_precision_nm": 15,
+        "composition_profiles_convolved_with_measured_beam": true
+      },
+      "quantitative_findings": [
+        "as-grown strain transition from zero substrate strain to approximately -2e-4 in the layer occurs over about 600 nm, matching the beam FWHM",
+        "annealed-interface composition-derived strain agrees with micro-Laue after SIMS data are convolved with the 580 nm pseudo-Voigt kernel",
+        "dual-band STEM-EDX profiles are convolved with the same measured 580 nm kernel before comparison with strain",
+        "the paper resolves depth-dependent strain and composition gradients, not stationary lateral alloy covariance"
+      ],
+      "limitations_for_r04_r05": {
+        "geometry": "cross-sectional depth profiles rather than two-dimensional lateral maps",
+        "spatial_band": "580 nm FWHM is slightly coarser than the preferred 10-500 nm design range",
+        "near_critical_material": false,
+        "local_dos": false,
+        "same_specimen_spatial_and_sts": false,
+        "raw_numeric_profiles_available": false
+      },
+      "usable_constraints": [
+        "directly measured spatial kernel rather than nominal beam size",
+        "explicit convolution of higher-resolution chemical profiles before modality comparison",
+        "same-wafer as-grown versus annealed provenance",
+        "methodological warning that depth composition gradients and lateral covariance are different observables"
+      ],
+      "gate_status": {
+        "local_variance": "FAIL",
+        "correlation_length": "FAIL",
+        "same_population": "PARTIAL",
+        "near_critical": "FAIL",
+        "resolution": "PARTIAL",
+        "matched_null": "FAIL",
+        "robustness": "PARTIAL",
+        "decision_changing": "PARTIAL"
+      },
+      "source_decision": "PARTIAL_REANALYSIS_FEASIBLE"
+    },
+    {
+      "source_id": "wang_zha_2012_etched_sts",
+      "citation": "Q.-Y. Wang et al., Journal of Infrared and Millimeter Waves 31, 222-225 (2012)",
+      "title": "Scanning tunneling spectra for the etched surface of p-type HgCdTe",
+      "doi": "10.3724/SP.J.1010.2012.00222",
+      "access_status": "AUTHOR_POSTED_COPY_IDENTIFIED_BUT_NOT_RELIABLY_RETRIEVED",
+      "access_route": "RESEARCHGATE_AUTHOR_UPLOAD_LISTING",
+      "copyrighted_pdf_committed": false,
+      "source_class": "ABSTRACT_LEVEL_STS_SYSTEMATICS",
+      "official_sources": [
+        "https://doi.org/10.3724/SP.J.1010.2012.00222",
+        "https://journal.sitp.ac.cn/hwyhmb/hwyhmben/article/issue/2012_31_3"
+      ],
+      "author_posted_listing": "https://www.researchgate.net/publication/269482994_Scanning_tunneling_spectra_for_the_etched_surface_of_p-type_HgCdTe",
+      "abstract_level_constraints": [
+        "LPE p-type HgCdTe was etched in 3% bromine-methanol for 2.5 minutes",
+        "submicrometer pits had apparent depths from tens to hundreds of nanometers",
+        "flat-region spectra showed apparent gaps larger than the bulk gap because of tip-induced band bending",
+        "pit spectra had finite slope through zero from dense in-gap states"
+      ],
+      "incremental_value_after_pr401": "LOW_AND_NON_DECISIVE",
+      "reason_non_blocking": "the independently ingested 2012 APL companion paper already establishes the same tip-induced band-bending, pit-state, and non-geometric-topography safeguards with more quantitative detail",
+      "gate_status": {
+        "local_variance": "FAIL",
+        "correlation_length": "FAIL",
+        "same_population": "FAIL",
+        "near_critical": "FAIL",
+        "resolution": "FAIL",
+        "matched_null": "FAIL",
+        "robustness": "PARTIAL",
+        "decision_changing": "FAIL"
+      },
+      "source_decision": "LITERATURE_CONSTRAINTS_ONLY"
+    }
+  ],
+  "aggregate_findings": {
+    "qualifying_single_source_found": false,
+    "qualifying_cross_source_combination_allowed": false,
+    "near_critical_specimen_prior_improved": true,
+    "measured_spatial_kernel_method_found": true,
+    "matched_lateral_covariance_and_local_dos_found": false,
+    "remaining_decisive_gaps": [
+      "two-dimensional lateral composition or signed-gap covariance on a near-critical specimen",
+      "measured local low-energy spectroscopy from the same specimen population",
+      "measured spectroscopy energy-resolution kernel",
+      "same-population linkage between covariance and local spectroscopy"
+    ]
+  },
+  "stop_rules": [
+    "Do not combine the Bovkun near-critical QW series, Biquard cross-sectional detector profiles, and Zha STM specimen into one synthetic specimen.",
+    "Do not treat the Bovkun k.p Gaussian broadening convention as a measured energy-resolution kernel.",
+    "Do not treat the Biquard 580 nm depth kernel as evidence of 10-500 nm lateral covariance.",
+    "Do not treat SIMS or STEM-EDX depth gradients as a lateral correlation length.",
+    "Do not reactivate R05 from improved priors or instrument-method constraints alone."
+  ],
+  "next_state": "LITERATURE_RECOVERY_EXHAUSTED_UNLESS_NEW_USER_PAPERS_APPEAR"
+}
