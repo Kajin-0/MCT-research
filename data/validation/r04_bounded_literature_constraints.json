@@ -1,0 +1,295 @@
+{
+  "schema_version": "r04_bounded_literature_constraints_v1",
+  "issue": 403,
+  "predecessor_issues": [400],
+  "predecessor_prs": [401, 402],
+  "record_date": "2026-07-31",
+  "decision": "BOUNDED_CONSTRAINT_PACKAGE_READY",
+  "source_mode": "PUBLISHED_PRIMARY_LITERATURE_ONLY",
+  "outreach_authorized": false,
+  "cross_paper_specimen_synthesis": false,
+  "default_probability_distributions_assigned": false,
+  "data_ingestion_authorized": false,
+  "new_simulation_authorized": false,
+  "r05_material_activation": "BLOCKED",
+  "semantic_roles": [
+    "DESIGN_TARGET",
+    "DRIFT_STRESS_CASE",
+    "KERNEL_METHOD_BENCHMARK",
+    "STM_ARTIFACT_ENVELOPE"
+  ],
+  "constraints": [
+    {
+      "id": "bovkun_qw_boundary_composition",
+      "semantic_role": "DESIGN_TARGET",
+      "source_doi": "10.1103/PhysRevMaterials.9.054602",
+      "quantity": "Hg1-xCdxTe quantum-well Cd fraction bracketing the observed transition neighborhood",
+      "value": [0.052, 0.054],
+      "unit": "dimensionless_x",
+      "geometry": "approximately 10 nm quantum wells",
+      "distribution": null,
+      "is_probability_interval": false,
+      "is_measured_local_variance": false,
+      "allowed_use": [
+        "select or simulate discrete near-critical design points",
+        "stratify future specimens by composition and thickness"
+      ],
+      "prohibited_use": [
+        "interpret as a confidence interval for the critical composition",
+        "interpret as a local composition distribution",
+        "transfer directly to bulk HgCdTe criticality"
+      ]
+    },
+    {
+      "id": "bovkun_qw_boundary_thickness",
+      "semantic_role": "DESIGN_TARGET",
+      "source_doi": "10.1103/PhysRevMaterials.9.054602",
+      "quantity": "thicknesses of the two boundary-candidate quantum wells",
+      "value": [10.2, 10.3],
+      "unit": "nm",
+      "distribution": null,
+      "is_probability_interval": false,
+      "measurement_note": "XRR precision reported as approximately plus or minus one atomic layer",
+      "allowed_use": [
+        "define specimen-selection and sensitivity-analysis design points"
+      ],
+      "prohibited_use": [
+        "treat as a measured thickness-fluctuation distribution",
+        "infer lateral thickness covariance"
+      ]
+    },
+    {
+      "id": "bovkun_kp_broadening_convention",
+      "semantic_role": "DESIGN_TARGET",
+      "source_doi": "10.1103/PhysRevMaterials.9.054602",
+      "quantity": "k.p Landau-level Gaussian occupation broadening coefficient",
+      "value": 2.0,
+      "unit": "meV_per_sqrt_tesla",
+      "formula": "sigma(B)=2 meV*sqrt(B[T])",
+      "distribution": null,
+      "is_measured_energy_kernel": false,
+      "allowed_use": [
+        "reproduce the paper's model convention"
+      ],
+      "prohibited_use": [
+        "use as an STS or optical instrument response",
+        "use as an experimentally measured linewidth"
+      ]
+    },
+    {
+      "id": "chang_cdznte_whole_map_sigma_x",
+      "semantic_role": "DRIFT_STRESS_CASE",
+      "source_doi": "10.1016/j.jcrysgro.2005.01.051",
+      "quantity": "reported whole-map Cd-fraction standard deviation for the CdZnTe-substrate specimen",
+      "value": 0.0006,
+      "unit": "dimensionless_x",
+      "map_extent_mm": [16.0, 18.0],
+      "integration_aperture_um": 100.0,
+      "distribution": null,
+      "stationary_local_variance": false,
+      "measured_spatial_psf": false,
+      "allowed_use": [
+        "deterministic large-scale drift stress case",
+        "test detrending and region-of-interest sensitivity"
+      ],
+      "prohibited_use": [
+        "set nanoscale random-mass variance",
+        "infer a correlation length",
+        "treat the 100 um aperture as a measured PSF"
+      ]
+    },
+    {
+      "id": "chang_cdte_si_center_sigma_x",
+      "semantic_role": "DRIFT_STRESS_CASE",
+      "source_doi": "10.1016/j.jcrysgro.2005.01.051",
+      "quantity": "reported Cd-fraction standard deviation in the central 20 x 20 mm region of the CdTe/Si specimen",
+      "value": 0.0008,
+      "unit": "dimensionless_x",
+      "map_extent_mm": [20.0, 20.0],
+      "integration_aperture_um": 100.0,
+      "distribution": null,
+      "stationary_local_variance": false,
+      "allowed_use": [
+        "central-region drift stress case",
+        "compare region-dependent nonuniformity"
+      ],
+      "prohibited_use": [
+        "set a local alloy-disorder prior",
+        "infer nanoscale covariance"
+      ]
+    },
+    {
+      "id": "chang_cdte_si_full_sigma_x",
+      "semantic_role": "DRIFT_STRESS_CASE",
+      "source_doi": "10.1016/j.jcrysgro.2005.01.051",
+      "quantity": "reported Cd-fraction standard deviation over the full CdTe/Si scan",
+      "value": 0.0042,
+      "unit": "dimensionless_x",
+      "map_extent_mm": [66.0, 20.0],
+      "integration_aperture_um": 100.0,
+      "distribution": null,
+      "stationary_local_variance": false,
+      "allowed_use": [
+        "severe nonstationary edge-to-center drift stress case"
+      ],
+      "prohibited_use": [
+        "set local random-mass amplitude",
+        "pool with the central-region sigma as independent samples"
+      ]
+    },
+    {
+      "id": "chang_full_to_center_sigma_ratio",
+      "semantic_role": "DRIFT_STRESS_CASE",
+      "source_doi": "10.1016/j.jcrysgro.2005.01.051",
+      "quantity": "derived full-map to central-region reported sigma ratio for the CdTe/Si specimen",
+      "value": 5.25,
+      "unit": "ratio",
+      "derived_from_constraint_ids": [
+        "chang_cdte_si_full_sigma_x",
+        "chang_cdte_si_center_sigma_x"
+      ],
+      "distribution": null,
+      "allowed_use": [
+        "demonstrate region dependence and nonstationarity"
+      ],
+      "prohibited_use": [
+        "interpret as scale-dependent stochastic variance without raw coordinates and a measured PSF"
+      ]
+    },
+    {
+      "id": "biquard_micro_laue_depth_kernel",
+      "semantic_role": "KERNEL_METHOD_BENCHMARK",
+      "source_doi": "10.1107/S1600577520013211",
+      "quantity": "measured micro-Laue depth-response kernel FWHM",
+      "value": 580.0,
+      "unit": "nm_fwhm",
+      "kernel_family": "pseudo-Voigt",
+      "lorentzian_fraction": 0.20,
+      "nominal_beam_diameter_nm": 500.0,
+      "geometry": "cross-sectional depth profiling",
+      "distribution": null,
+      "is_target_material_correlation_length": false,
+      "allowed_use": [
+        "benchmark kernel-aware cross-modality comparison",
+        "require higher-resolution composition profiles to be convolved before comparison"
+      ],
+      "prohibited_use": [
+        "infer lateral composition covariance",
+        "assign a 580 nm disorder correlation length",
+        "reuse as a universal instrument PSF"
+      ]
+    },
+    {
+      "id": "biquard_measured_to_nominal_width_ratio",
+      "semantic_role": "KERNEL_METHOD_BENCHMARK",
+      "source_doi": "10.1107/S1600577520013211",
+      "quantity": "derived measured-FWHM to nominal-beam-diameter ratio",
+      "value": 1.16,
+      "unit": "ratio",
+      "derived_from_constraint_ids": [
+        "biquard_micro_laue_depth_kernel"
+      ],
+      "distribution": null,
+      "allowed_use": [
+        "demonstrate why nominal spot size must not replace measured response"
+      ],
+      "prohibited_use": [
+        "apply as a correction factor to unrelated instruments"
+      ]
+    },
+    {
+      "id": "zha_flat_region_apparent_gap_excess",
+      "semantic_role": "STM_ARTIFACT_ENVELOPE",
+      "source_doi": "10.1063/1.4756938",
+      "quantity": "flat-region zero-current plateau excess above the reported bulk gap",
+      "value": 0.13,
+      "unit": "eV",
+      "observed_plateau_eV": 0.40,
+      "reported_bulk_gap_eV": 0.27,
+      "distribution": null,
+      "is_measured_energy_kernel": false,
+      "is_direct_local_dos": false,
+      "allowed_use": [
+        "TIBB nuisance stress case",
+        "require electrostatic and transport checks before gap inference"
+      ],
+      "prohibited_use": [
+        "subtract universally from HgCdTe spectra",
+        "treat the plateau as the bulk gap",
+        "interpret as an energy-resolution width"
+      ]
+    },
+    {
+      "id": "zha_flat_region_apparent_to_bulk_gap_ratio",
+      "semantic_role": "STM_ARTIFACT_ENVELOPE",
+      "source_doi": "10.1063/1.4756938",
+      "quantity": "derived apparent plateau to reported bulk-gap ratio",
+      "value": 1.4814814815,
+      "unit": "ratio",
+      "derived_from_constraint_ids": [
+        "zha_flat_region_apparent_gap_excess"
+      ],
+      "distribution": null,
+      "allowed_use": [
+        "bounded artifact stress test"
+      ],
+      "prohibited_use": [
+        "use as a universal HgCdTe TIBB correction"
+      ]
+    },
+    {
+      "id": "zha_bias_dependent_apparent_pit_depth",
+      "semantic_role": "STM_ARTIFACT_ENVELOPE",
+      "source_doi": "10.1063/1.4756938",
+      "quantity": "bias-polarity-dependent apparent pit-depth change",
+      "value": [20.0, 30.0],
+      "unit": "nm",
+      "biases_V": [0.4, -0.4],
+      "setpoint_current_nA": 0.8,
+      "distribution": null,
+      "is_geometric_depth_change": false,
+      "allowed_use": [
+        "require bias-polarity controls before interpreting STM topography",
+        "stress-test geometry-versus-electronic contrast classification"
+      ],
+      "prohibited_use": [
+        "treat single-bias topography as surface geometry",
+        "convert pit contrast directly into composition"
+      ]
+    }
+  ],
+  "workflow_requirements": {
+    "specimen_selection": [
+      "retain composition and thickness jointly",
+      "do not collapse QW criticality into the bulk critical composition"
+    ],
+    "spatial_analysis": [
+      "measure or independently calibrate the spatial response",
+      "detrend large-scale drift before estimating stationary covariance",
+      "report sensitivity to region-of-interest selection"
+    ],
+    "spectroscopy": [
+      "record measurement temperature and modulation settings",
+      "measure or bound the effective energy-resolution kernel",
+      "repeat topography and spectroscopy under bias-polarity controls",
+      "separate flat regions, pits, and protrusions",
+      "model or bound tip-induced band bending and transport limitation"
+    ]
+  },
+  "unsupported_quantities": [
+    "local random-mass variance",
+    "lateral correlation length",
+    "measured STS energy-resolution kernel",
+    "same-specimen covariance-to-DOS linkage",
+    "probability distribution for local composition or mass",
+    "validated matched-null effect size"
+  ],
+  "stop_rules": [
+    "Do not combine constraints from different papers into one specimen record.",
+    "Do not assign a probability distribution where the source only supplies a design point or stress case.",
+    "Do not treat Chang wafer-scale sigma values as local random-mass variance.",
+    "Do not treat the Biquard depth-response kernel as a lateral correlation length.",
+    "Do not treat Zha apparent gaps or topography as calibrated local DOS or geometry.",
+    "Do not reactivate R05 or authorize a larger random-mass simulation from this package."
+  ]
+}
