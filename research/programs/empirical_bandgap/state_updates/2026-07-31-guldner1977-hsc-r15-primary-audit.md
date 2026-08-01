@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-31  
 **Issue:** #388  
-**Decision:** primary transcription complete; source binary hash pending; semiconducting and near-transition interaction-gap candidates reconstructed; Hansen marker mapping unresolved
+**Decision:** primary-source audit and binary provenance complete; semiconducting and near-transition interaction-gap candidates reconstructed; Hansen marker mapping unresolved
 
 ## Result
 
@@ -18,7 +18,14 @@
 
 ## Provenance status
 
-The exact ten-page paper is available in the owner's ChatGPT File Library and was audited through parsed text and page images. The active runtime cannot access the binary bytes, so the SHA256 remains explicitly unmaterialized. Issue #388 must remain open, and the PR must remain draft, until the exact PDF is attached or otherwise exposed byte-for-byte and the source hash is committed.
+The exact ten-page paper was attached in the active conversation and verified as Part II, volume 82, pages 149-158. Its immutable binary provenance is:
+
+```text
+SHA256 85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704
+attachment ID file_000000006f0881fda163c0e4ae6a72c3
+```
+
+The copyrighted PDF is not committed. The audit is provenance-complete and PR #407 may proceed through CI and review.
 
 ## Scientific boundary
 
