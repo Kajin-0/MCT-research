@@ -36,7 +36,7 @@ def main() -> None:
         "schema_version": 1,
         "source_id": source["source_id"],
         "hansen_graph_id": source["hansen_graph_id"],
-        "source_pdf_sha256": source["source_pdf_sha256"] or None,
+        "source_pdf_sha256": source["source_pdf_sha256"],
         "source_pdf_sha256_status": source["source_pdf_sha256_status"],
         "source_file_library_id": source["source_file_library_id"],
         "source_pdf_page_count": int(source["source_pdf_page_count"]),
@@ -128,8 +128,10 @@ def main() -> None:
         "deterministic_checks": {
             "source_binary_committed": source["source_binary_committed"] == "true",
             "source_hash_materialized": bool(source["source_pdf_sha256"]),
-            "source_hash_status_is_explicit": source["source_pdf_sha256_status"]
-            == "not_materialized_file_library_binary",
+            "source_hash_matches_expected": source["source_pdf_sha256"]
+            == "85bdf09852eb02747158a80f7854d202a69a48d98c9c571a396f8a4cd51c8704",
+            "source_hash_status_is_materialized": source["source_pdf_sha256_status"]
+            == "materialized_conversation_attachment",
             "figure_digitization_performed": source["figure_digitization_performed"] == "true",
             "pointwise_covariance": source["pointwise_covariance"],
             "polaron_anomalies_separated_from_intrinsic_gap": all(
@@ -139,7 +141,7 @@ def main() -> None:
                 row["double_counting_allowed"] == "false" for row in links
             ),
         },
-        "completion_status": "PRIMARY_TRANSCRIPTION_COMPLETE_SOURCE_HASH_PENDING",
+        "completion_status": "PRIMARY_SOURCE_AUDIT_PROVENANCE_COMPLETE",
         "controlling_decision": "primary_source_recovered_semiconducting_transition_interaction_gap_candidates_and_x0_reconstructed_hansen_marker_mapping_unresolved",
     }
     print(json.dumps(report, indent=2, sort_keys=True))
