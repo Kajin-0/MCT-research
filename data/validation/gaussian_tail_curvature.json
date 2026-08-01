@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.1",
+  "portfolio_contribution": "R03",
+  "issue": 225,
+  "status": "analytical_observation_model_result_not_material_validation",
+  "model": {
+    "absorption": "alpha_p(E)=A*gap_sigma^p*F_p(z)",
+    "standardized_energy": "z=(E-mean_gap)/gap_sigma",
+    "dimensionless_moment": "F_p(z)=integral_0^infinity t^p phi(z-t) dt"
+  },
+  "exact_results": {
+    "first_derivative": "F_p'=F_(p+1)-z*F_p",
+    "second_derivative": "F_p''=F_(p+2)-2*z*F_(p+1)+(z^2-1)*F_p",
+    "log_concavity": "d2(log(alpha))/dE2<=0",
+    "local_tail_energy": "W_local/gap_sigma=F_p/F_p'",
+    "deep_tail_absorption": "Gamma(p+1)*phi(z)*(-z)^(-(p+1))",
+    "deep_tail_log_slope": "-z-(p+1)/z+O((-z)^-3)",
+    "deep_tail_log_curvature": "-1+(p+1)/z^2+O((-z)^-4)",
+    "conclusion": "the deep tail is asymptotically Gaussian, not exponential"
+  },
+  "gaussian_square_root_reference": {
+    "exponent": 0.5,
+    "quadrature_order": 512,
+    "standard_deviation_limit": 10.0,
+    "points": [
+      {"z": -8.0, "absorption": 1.9240743949941556e-16, "log_slope": 8.180783464793377, "local_tail_energy": 0.12223768106118148, "log_curvature": -0.9789503233125316},
+      {"z": -6.0, "absorption": 3.4909638431795664e-10, "log_slope": 6.234994716596865, "local_tail_energy": 0.16038505972396588, "log_curvature": -0.9651909761693815},
+      {"z": -4.0, "absorption": 1.3406671428961558e-05, "log_slope": 4.3311154436829185, "local_tail_energy": 0.2308874037191815, "log_curvature": -0.9340993801117037},
+      {"z": -2.0, "absorption": 0.012480041230868539, "log_slope": 2.5327047804233573, "local_tail_energy": 0.3948348057497818, "log_curvature": -0.849184056247136},
+      {"z": 0.0, "absorption": 0.41108948898016157, "log_slope": 1.0460495954999116, "local_tail_energy": 0.955977617411243, "log_curvature": -0.594219791452951}
+    ],
+    "local_tail_energy_ratio_z_minus_6_to_0": 5.960513504603687,
+    "deep_tail_curvature_at_z_minus_8": -0.9789503233125316,
+    "true_exponential_curvature": 0.0
+  },
+  "prior_fit_window_reference": {
+    "source_convention": "Herrmann 1992 Eq. 8 prints sigma_G=s",
+    "W_fit_over_source_s_1_to_100_cm_inverse": 0.3571183113580045,
+    "W_fit_over_source_s_100_to_500_cm_inverse": 0.5718408687380571,
+    "relative_increase": 0.6012644844884394,
+    "source_reported_half_s_mapping_reproduced_by_controlled_power_edge": false
+  },
+  "prior_art_boundary": [
+    "Herrmann 1992 already states that Gaussian gap convolution can produce a nearly exponential tail over the finite 1-100 cm^-1 range",
+    "the candidate contribution is not the generic finite-window appearance",
+    "the candidate contribution is the explicit derivative structure, log-concavity consequence, deep-tail curvature limit, and falsifiable observation diagnostic"
+  ],
+  "claim_boundaries": [
+    "general convolution log-concavity is established mathematics",
+    "not evidence that a measured HgCdTe tail is caused by composition disorder",
+    "not an identification of Urbach energy with composition variance",
+    "not a complete excitonic, phonon, defect, carrier, or instrument model",
+    "not specimen validation or manuscript authorization"
+  ]
+}
