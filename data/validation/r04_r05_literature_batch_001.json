@@ -1,0 +1,234 @@
+{
+  "schema_version": "r04_r05_literature_batch_v1",
+  "issue": 400,
+  "batch_id": "r04_r05_literature_batch_001",
+  "record_date": "2026-07-31",
+  "source_mode": "USER_SUPPLIED_PUBLISHED_PAPERS_ONLY",
+  "outreach_authorized": false,
+  "overall_decision": "PARTIAL_REANALYSIS_FEASIBLE",
+  "r05_material_activation": "BLOCKED",
+  "data_ingestion_authorized": false,
+  "cross_paper_specimen_synthesis": false,
+  "allowed_decisions": [
+    "LITERATURE_CONSTRAINTS_ONLY",
+    "PARTIAL_REANALYSIS_FEASIBLE",
+    "QUALIFYING_PUBLISHED_DATA_FOUND"
+  ],
+  "evidence_gates": [
+    "local_variance",
+    "correlation_length",
+    "same_population",
+    "near_critical",
+    "resolution",
+    "matched_null",
+    "robustness",
+    "decision_changing"
+  ],
+  "sources": [
+    {
+      "source_id": "chang_2005_ir_mapping",
+      "citation": "Y. Chang et al., Journal of Crystal Growth 277, 78-84 (2005)",
+      "title": "Composition and thickness distribution of HgCdTe molecular beam epitaxy wafers by infrared microscope mapping",
+      "doi": "10.1016/j.jcrysgro.2005.01.051",
+      "supplied_filename": "chang2005 (1).pdf",
+      "sha256": "833b96670698fca193835ee296b45bf535e02c21e64cb00b7bdbd1fda9d85da2",
+      "page_count": 7,
+      "copyrighted_pdf_committed": false,
+      "source_class": "PRIMARY_PAPER_FIGURE_LEVEL_DATA",
+      "specimens": [
+        {
+          "specimen_id": "chang_cdznte_211b",
+          "growth": "MBE in a Riber 32P chamber",
+          "substrate": "(211)B CdZnTe",
+          "map_extent_mm": [16.0, 18.0],
+          "mean_composition_x": 0.2182,
+          "composition_sd": 0.0006,
+          "relative_composition_sd_percent": 0.27,
+          "reported_cutoff_um_77K": 11.03,
+          "reported_cutoff_sd_um_77K": 0.09,
+          "mean_hgcdte_thickness_um": 7.84,
+          "thickness_sd_um": 0.03,
+          "relative_thickness_sd_percent": 0.38,
+          "reported_structure": "higher Cd composition and lower thickness in small corner regions"
+        },
+        {
+          "specimen_id": "chang_cdte_si_211b",
+          "growth": "MBE in the same chamber",
+          "substrate": "(211)B CdTe/Si, 3-inch wafer",
+          "map_extent_mm": [66.0, 20.0],
+          "mean_composition_x": 0.2340,
+          "composition_sd": 0.0042,
+          "relative_composition_sd_percent": 1.8,
+          "reported_cutoff_um_77K": 9.0,
+          "reported_cutoff_sd_um_77K": 0.46,
+          "central_region_extent_mm": [20.0, 20.0],
+          "central_mean_composition_x": 0.2299,
+          "central_composition_sd": 0.0008,
+          "central_relative_composition_sd_percent": 0.35,
+          "central_reported_cutoff_um_77K": 9.45,
+          "central_reported_cutoff_sd_um_77K": 0.09,
+          "mean_hgcdte_thickness_um": 7.15,
+          "thickness_sd_um": 0.07,
+          "relative_thickness_sd_percent": 0.56,
+          "reported_structure": "large edge-to-center composition and thickness gradients"
+        }
+      ],
+      "measurement": {
+        "instrument": "Thermo Nicolet Centaurus infrared microscope coupled to a Thermo Nicolet 870 FTIR",
+        "xy_stage_position_precision_um": 1.0,
+        "minimum_adjustable_aperture_um_at_10um": 25.0,
+        "aperture_used_um": 100.0,
+        "raw_point_coordinates_available": false,
+        "explicit_sampling_pitch_reported": false,
+        "measured_spatial_psf_reported": false,
+        "spatial_kernel_statement": "The 100 um aperture is a stated integration footprint, not a measured optical PSF.",
+        "band_edge_definition_absorption_cm_minus_1": 1000.0,
+        "composition_model": "Hansen et al. Eg(x,T)",
+        "fit_method": "interference-matrix transmission model with Levenberg-Marquardt and simulated annealing",
+        "fit_stop_delta_x": 0.0001,
+        "fit_stop_delta_thickness_um": 0.01,
+        "measurement_uncertainty_propagated": false
+      },
+      "scientific_constraints": [
+        "Reported wafer-map standard deviations combine deterministic edge or corner drift with any stochastic local variation.",
+        "The figures demonstrate nonstationarity and anticorrelation between Cd composition and HgCdTe thickness at wafer scale.",
+        "Stage positioning precision is not equivalent to spatial resolution.",
+        "The numerical fitting convergence thresholds are not measurement uncertainties.",
+        "The map cannot identify 10-500 nm covariance because the stated aperture is 100 um and the sampling pitch is not explicitly reported."
+      ],
+      "figure_reanalysis": {
+        "status": "FIGURE_DERIVED_ONLY",
+        "feasible_outputs": [
+          "coarse digitization of wafer-scale composition and thickness trends",
+          "bounded comparison of center versus edge nonuniformity",
+          "qualitative or coarse composition-thickness cross-correlation"
+        ],
+        "prohibited_outputs": [
+          "raw local covariance",
+          "nanoscale correlation length",
+          "stationary random-field variance",
+          "measured spatial transfer function"
+        ]
+      },
+      "gate_status": {
+        "local_variance": "PARTIAL",
+        "correlation_length": "FAIL",
+        "same_population": "FAIL",
+        "near_critical": "FAIL",
+        "resolution": "PARTIAL",
+        "matched_null": "FAIL",
+        "robustness": "FAIL",
+        "decision_changing": "PARTIAL"
+      },
+      "source_decision": "PARTIAL_REANALYSIS_FEASIBLE"
+    },
+    {
+      "source_id": "zha_2012_nanopit_stm",
+      "citation": "F. X. Zha et al., Applied Physics Letters 101, 141604 (2012)",
+      "title": "Implication of exotic topography depths of surface nanopits in scanning tunneling microscopy of HgCdTe",
+      "doi": "10.1063/1.4756938",
+      "supplied_filename": "zha2012.pdf",
+      "sha256": "dc4f841d2adc2eb56b0c265f500894ece8b1a2725d889085156a9c661108044b",
+      "page_count": 5,
+      "copyrighted_pdf_committed": false,
+      "source_class": "PRIMARY_PAPER_FIGURE_LEVEL_DATA",
+      "specimen": {
+        "material": "vacancy-doped p-type Hg0.73Cd0.27Te",
+        "growth": "liquid phase epitaxy",
+        "substrate": "CdZnTe",
+        "composition_x": 0.27,
+        "reported_bandgap_eV_300K": 0.27,
+        "hole_concentration_cm_minus_3_77K": 3.0e16,
+        "stm_measurement_temperature": "NOT_REPORTED"
+      },
+      "surface_and_instrument": {
+        "surface_preparation": "Br2/methanol etch followed by pure methanol rinse",
+        "instrument": "Omicron UHV STM",
+        "base_pressure_mbar": 1.0e-10,
+        "calibration_checks": [
+          "atom-resolved graphite",
+          "Au(111) terrace height",
+          "single-wall carbon nanotube height on gold"
+        ],
+        "imaging_bias_V": [0.4, -0.4],
+        "setpoint_current_nA": 0.8,
+        "raw_topography_available": false,
+        "raw_spectra_available": false,
+        "lockin_modulation_reported": false,
+        "measured_energy_kernel_reported": false
+      },
+      "quantitative_observations": {
+        "pit_apparent_depth_change_nm": [20.0, 30.0],
+        "flat_region_bias_inversion_step_nm": 30.0,
+        "protrusion_heights_nm": [34.0, 13.0],
+        "flat_region_zero_current_plateau_eV": 0.40,
+        "bulk_reported_gap_eV": 0.27,
+        "apparent_plateau_excess_eV": 0.13,
+        "currents_at_plus_minus_0_4V_nA": [2.5, 0.8],
+        "reported_current_ratio": "approximately 3:1",
+        "simulated_fixed_distance_nm": 0.9,
+        "simulated_current_reduction_percent": 60.0,
+        "simulated_gap_change_nm": [0.9, 0.2]
+      },
+      "scientific_constraints": [
+        "Flat-region spectra show a roughly 0.40 eV zero-current plateau, larger than the reported 0.27 eV bulk gap, and are interpreted as tip-induced band bending.",
+        "Pit spectra A-C have finite in-gap slopes attributed to high densities of gap states; pit D shows a plateau approximately equal to the reported gap.",
+        "Bias-polarity changes can alter apparent pit depth by 20-30 nm without a geometric change.",
+        "STM topography over HgCdTe cannot be treated as a geometric or composition field without bias-polarity and transport controls.",
+        "No measurement temperature, modulation amplitude, energy calibration uncertainty, or measured energy-resolution kernel is reported."
+      ],
+      "figure_reanalysis": {
+        "status": "FIGURE_DERIVED_ONLY",
+        "feasible_outputs": [
+          "digitization of apparent pit-depth and bias-polarity line profiles",
+          "digitization of flat-region and pit I-V curves for nuisance-model bounds",
+          "lower-bound demonstration of TIBB and defect-state contamination"
+        ],
+        "prohibited_outputs": [
+          "quantitative local DOS",
+          "deconvolved energy-resolved spectrum",
+          "mass or composition covariance",
+          "measured energy-resolution kernel",
+          "geometric pit-depth field from a single bias"
+        ]
+      },
+      "gate_status": {
+        "local_variance": "FAIL",
+        "correlation_length": "FAIL",
+        "same_population": "PARTIAL",
+        "near_critical": "FAIL",
+        "resolution": "FAIL",
+        "matched_null": "FAIL",
+        "robustness": "PARTIAL",
+        "decision_changing": "PARTIAL"
+      },
+      "source_decision": "PARTIAL_REANALYSIS_FEASIBLE"
+    }
+  ],
+  "aggregate_findings": {
+    "qualifying_single_source_found": false,
+    "qualifying_cross_source_combination_allowed": false,
+    "local_covariance_10_to_500_nm_identified": false,
+    "measured_spatial_transfer_function_identified": false,
+    "measured_energy_resolution_kernel_identified": false,
+    "near_critical_matched_specimen_identified": false,
+    "useful_prior_constraints": [
+      "coarse MBE wafer nonuniformity and deterministic spatial drift",
+      "100 um infrared-map integration footprint",
+      "HgCdTe-specific TIBB, transport-limited tunneling, pit gap states, and non-geometric topography artifacts"
+    ]
+  },
+  "next_priority_dois": [
+    "10.1103/PhysRevMaterials.9.054602",
+    "10.3724/SP.J.1010.2012.00222",
+    "10.1107/S1600577520013211"
+  ],
+  "stop_rules": [
+    "Do not combine the two papers into one specimen or exchangeable population.",
+    "Do not treat Chang wafer-map standard deviation as nanoscale random-mass variance.",
+    "Do not treat the 100 um aperture as a measured PSF.",
+    "Do not treat Zha STM topography as a geometric or composition map.",
+    "Do not infer a spectroscopy kernel from nominal bias or the reported bulk gap.",
+    "Do not reactivate R05 from figure-derived literature constraints."
+  ]
+}
