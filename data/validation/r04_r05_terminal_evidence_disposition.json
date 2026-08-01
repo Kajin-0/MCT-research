@@ -1,0 +1,116 @@
+{
+  "schema_version": "r04_r05_terminal_evidence_disposition_v1",
+  "issue": 405,
+  "record_date": "2026-07-31",
+  "predecessor_prs": [396, 397, 399, 401, 402, 404],
+  "terminal_state": "TERMINAL_EVIDENCE_DISPOSITION_READY",
+  "evidence_decision": "EVIDENCE_GATE_FAILED",
+  "r05_recommendation": "R05_REACTIVATION_NOT_RECOMMENDED",
+  "interpretation": "The available evidence does not satisfy the matched specimen-level gates. This does not establish that correlated random-mass physics is false or that qualifying private data do not exist.",
+  "program_status": {
+    "r04_method_framework": "RETAINED",
+    "r04_external_validation_branch": "PAUSED_UNTIL_NEW_MATCHED_DATA",
+    "r04_specimen_level_claim": "NOT_SUPPORTED",
+    "r04_manuscript_authorization": "DENIED",
+    "r05_method_benchmark": "RETAINED",
+    "r05_material_activation": "BLOCKED",
+    "r05_full_kane": "NOT_AUTHORIZED"
+  },
+  "authorization": {
+    "outreach_authorized": false,
+    "new_literature_search_required": false,
+    "matched_data_ingestion_authorized": false,
+    "new_random_mass_simulation_authorized": false,
+    "full_kane_authorized": false,
+    "manuscript_authorized": false,
+    "cross_paper_specimen_synthesis_authorized": false
+  },
+  "matched_evidence_gates": {
+    "local_variance": {
+      "status": "FAIL",
+      "reason": "No source-qualified local signed-gap, mass, or convertible composition variance is available for a near-critical matched specimen."
+    },
+    "correlation_length": {
+      "status": "FAIL",
+      "reason": "No lateral material correlation length is identifiable after measured transfer-function, pixel, and finite-window correction."
+    },
+    "same_population": {
+      "status": "FAIL",
+      "reason": "Spatial and spectroscopic records do not refer to one specimen or a quantitatively justified exchangeable population."
+    },
+    "near_critical": {
+      "status": "FAIL",
+      "reason": "A near-critical design envelope exists, but no matched specimen-level spatial and spectroscopic evidence exists within it."
+    },
+    "resolution": {
+      "status": "FAIL",
+      "reason": "No matched spectroscopy record includes a measured effective energy-resolution kernel."
+    },
+    "matched_null": {
+      "status": "FAIL",
+      "reason": "No real matched dataset supports correlated-versus-scalar-null likelihood comparison."
+    },
+    "robustness": {
+      "status": "FAIL",
+      "reason": "Specimen-level covariance-family, calibration, background, and prior sensitivity cannot be evaluated without the matched data."
+    },
+    "decision_changing": {
+      "status": "FAIL",
+      "reason": "The current evidence cannot determine whether a higher-dimensional or full-Kane calculation is warranted."
+    }
+  },
+  "retained_assets": [
+    "R04 analytical filtering, covariance-family, calibration, finite-map, and same-raster inference framework",
+    "R05 one-dimensional correlated random-mass versus matched scalar-null method benchmark",
+    "matched-data and instrument metadata specification",
+    "public-data feasibility audit",
+    "bounded primary-literature extractions",
+    "near-critical specimen-selection envelope",
+    "large-scale nonstationary drift stress cases",
+    "measured spatial-kernel method benchmark",
+    "HgCdTe STM/STS artifact envelope"
+  ],
+  "non_evidence_constraints": [
+    {
+      "source": "Bovkun et al.",
+      "role": "DESIGN_TARGET",
+      "not_equivalent_to": "measured probability distribution or matched near-critical specimen evidence"
+    },
+    {
+      "source": "Chang et al.",
+      "role": "DRIFT_STRESS_CASE",
+      "not_equivalent_to": "nanoscale local random-mass variance"
+    },
+    {
+      "source": "Biquard et al.",
+      "role": "KERNEL_METHOD_BENCHMARK",
+      "not_equivalent_to": "lateral material correlation length"
+    },
+    {
+      "source": "Zha et al.",
+      "role": "STM_ARTIFACT_ENVELOPE",
+      "not_equivalent_to": "calibrated local DOS, geometry, or measured energy kernel"
+    }
+  ],
+  "reopening_trigger": {
+    "mode": "NEW_MATCHED_DATA_ONLY",
+    "required": [
+      "source-qualified local signed-gap or mass variance, or composition with uncertainty-propagated conversion",
+      "identifiable lateral correlation length after measured transfer-function correction",
+      "matched low-energy spectroscopy from the same specimen or justified exchangeable population",
+      "measured spectroscopy energy-resolution kernel",
+      "near-critical specimen metadata and same-population linkage"
+    ],
+    "first_action": "INGEST_AND_VALIDATE_NEW_EVIDENCE",
+    "prohibited_first_actions": [
+      "larger random-mass simulation",
+      "full-Kane disorder calculation",
+      "manuscript drafting",
+      "cross-paper specimen synthesis"
+    ]
+  },
+  "issues_after_merge": {
+    "close_as_completed": [395, 405],
+    "already_closed": [398, 400, 403]
+  }
+}
