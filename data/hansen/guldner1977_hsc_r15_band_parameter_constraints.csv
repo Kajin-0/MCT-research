@@ -1,0 +1,18 @@
+parameter_id,scope,composition_x,interaction_gap_meV,parameter,value,uncertainty,unit,status,source_location,interpretation,notes
+G77II_P_DELTA,global,,,Delta,1,,eV,fixed_assumption,"Section 4, page 156",spin_orbit_splitting_fixed_composition_independent,Adopted rather than independently estimated for each alloy
+G77II_P_GAMMA1,global,,,gamma1,4.5,1.5,dimensionless,reported_limit,"Section 4, page 156",modified_luttinger_parameter,Source-level range; not pointwise statistical covariance
+G77II_P_KAPPA,global,,,kappa,-1,0.5,dimensionless,reported_limit,"Section 4, page 156",modified_luttinger_parameter,Source-level range; not pointwise statistical covariance
+G77II_P_GAMMA_COMBINATION,global,,,gamma1_minus_2gamma,2.5,0.5,dimensionless,reported_correlation_constraint,"Section 4, page 156",correlated_modified_luttinger_parameters,Does not provide a covariance matrix
+G77II_P_MHH,global,,,m_h_over_m0,0.4,0.1,dimensionless,derived_reported_constraint,"Section 4, pages 156-157",heavy_hole_effective_mass,Major uncertainty attributed to neglected valence-band warping
+G77II_X0250_EP,representative_fit,0.250,161,Ep,19,,eV,best_fit_value,"Section 2, page 152",Kane_energy,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0250_GAMMA1,representative_fit,0.250,161,gamma1,5,,dimensionless,best_fit_value,"Section 2, page 152",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0250_GAMMA,representative_fit,0.250,161,gamma,1.5,,dimensionless,best_fit_value,"Section 2, page 152",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0250_KAPPA,representative_fit,0.250,161,kappa,-0.5,,dimensionless,best_fit_value,"Section 2, page 152",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0215_EP,representative_fit,0.215,86,Ep,19,,eV,best_fit_value,"Section 2, page 153",Kane_energy,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0215_GAMMA1,representative_fit,0.215,86,gamma1,3,,dimensionless,best_fit_value,"Section 2, page 153",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0215_GAMMA,representative_fit,0.215,86,gamma,0.25,,dimensionless,best_fit_value,"Section 2, page 153",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0215_KAPPA,representative_fit,0.215,86,kappa,-1.25,,dimensionless,best_fit_value,"Section 2, page 153",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0280_EP,representative_fit,0.280,208,Ep,19,,eV,best_fit_value,"Section 2.1, page 153",Kane_energy,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0280_GAMMA1,representative_fit,0.280,208,gamma1,5,,dimensionless,best_fit_value,"Section 2.1, page 153",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0280_GAMMA,representative_fit,0.280,208,gamma,1.5,,dimensionless,best_fit_value,"Section 2.1, page 153",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
+G77II_X0280_KAPPA,representative_fit,0.280,208,kappa,-0.5,,dimensionless,best_fit_value,"Section 2.1, page 153",modified_luttinger_parameter,Representative alloy fit; no pointwise uncertainty printed
