@@ -1,0 +1,115 @@
+name: hgcdte-fitted-intercepts-package
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hgcdte-fitted-intercepts-package.yml'
+      - 'manuscript/observation_model_uncertainty/strengthened/**'
+      - 'manuscript/observation_model_uncertainty/figure1_spectrum_models.svg'
+      - 'manuscript/observation_model_uncertainty/figure6_relative_fitted_intercepts.svg'
+      - 'manuscript/observation_model_uncertainty/figure7_robustness_scales.svg'
+      - 'manuscript/observation_model_uncertainty/figure8_model_residual_compatibility.svg'
+      - 'tools/build_strengthened_review_figures.py'
+      - 'tools/run_moazzami2005_model_robustness.py'
+      - 'tools/audit_moazzami2005_model_robustness.py'
+      - 'data/manuscript/moazzami2005_figure6*_irse_digitized.csv'
+      - 'data/manuscript/moazzami2005_figure6*_irse_calibration.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install analysis and figure dependencies
+        run: |
+          python -m pip install -e .
+          python -m pip install 'matplotlib==3.10.3'
+
+      - name: Verify committed source checksums
+        working-directory: manuscript/observation_model_uncertainty/strengthened
+        run: sha256sum -c SOURCE_SHA256SUMS
+
+      - name: Build deterministic robustness record
+        run: |
+          python -m tools.run_moazzami2005_model_robustness \
+            --repository-root . \
+            --output-json /tmp/moazzami-model-robustness.json
+
+      - name: Prepare vector figures
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_dir=manuscript/observation_model_uncertainty
+          target="$source_dir/strengthened/figures"
+          mkdir -p "$target"
+          cp "$source_dir/figure1_spectrum_models.svg" \
+            "$target/figure2_spectrum_operator_overlays.svg"
+          cp "$source_dir/figure6_relative_fitted_intercepts.svg" \
+            "$target/figure3_relative_fitted_intercepts.svg"
+          cp "$source_dir/figure7_robustness_scales.svg" \
+            "$target/figure4_robustness_scales.svg"
+          cp "$source_dir/figure8_model_residual_compatibility.svg" \
+            "$target/figure5_model_residual_compatibility.svg"
+          python -m tools.build_strengthened_review_figures \
+            --input-json /tmp/moazzami-model-robustness.json \
+            --output-dir "$target"
+
+      - name: Compile LaTeX manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript.tex
+          working_directory: manuscript/observation_model_uncertainty/strengthened
+          work_in_root_file_dir: true
+          texlive_version: 2026
+          os: debian
+          extra_system_packages: librsvg2-bin
+          pre_compile: |
+            for file in figures/*.svg; do
+              rsvg-convert -f pdf -o "${file%.svg}.pdf" "$file"
+            done
+
+      - name: Build checksummed source package
+        shell: bash
+        run: |
+          set -euo pipefail
+          src=manuscript/observation_model_uncertainty/strengthened
+          dist=/tmp/MCT_fitted_HgCdTe_intercepts_complete_latex_package
+          rm -rf "$dist"
+          mkdir -p "$dist/figures"
+          cp "$src/manuscript.tex" "$src/frontmatter.tex" "$src/references.tex" \
+             "$src/references.bib" "$src/BUILD.md" "$src/README.md" \
+             "$src/SOURCE_SHA256SUMS" "$dist/"
+          cp -R "$src/sections" "$dist/"
+          cp "$src/figures"/*.svg "$src/figures"/*.pdf "$dist/figures/"
+          cp "$src/manuscript.pdf" "$dist/"
+          (
+            cd "$dist"
+            find . -type f ! -name PACKAGE_SHA256SUMS -print0 \
+              | sort -z | xargs -0 sha256sum \
+              | sed 's#  \./#  #' > PACKAGE_SHA256SUMS
+            sha256sum -c PACKAGE_SHA256SUMS
+          )
+          cd /tmp
+          zip -qr MCT_fitted_HgCdTe_intercepts_complete_latex_package.zip \
+            MCT_fitted_HgCdTe_intercepts_complete_latex_package
+          sha256sum MCT_fitted_HgCdTe_intercepts_complete_latex_package.zip \
+            > MCT_fitted_HgCdTe_intercepts_complete_latex_package.zip.sha256
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hgcdte-fitted-intercepts-complete-latex-package
+          path: |
+            /tmp/MCT_fitted_HgCdTe_intercepts_complete_latex_package.zip
+            /tmp/MCT_fitted_HgCdTe_intercepts_complete_latex_package.zip.sha256
+          if-no-files-found: error
+          retention-days: 30

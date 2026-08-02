@@ -1,0 +1,93 @@
+\section{3. Estimands and extraction
+models}\label{estimands-and-extraction-models}
+
+\subsection{3.1 Primary class: fitted gap-intercept
+models}\label{primary-class-fitted-gap-intercept-models}
+
+The primary analysis includes only models that return an intercept
+parameter conventionally denoted \(E_g\).
+
+The fractional-power family is
+
+\[
+\alpha(E)=\frac{A(E-E_g)^p}{E}, \qquad E>E_g,
+\]
+
+with either a fitted exponent or fixed \(p=0.5\), \(0.7\), the
+source-panel exponent, or \(1.0\).
+
+The historical Chu Kane-region model \citep{Chu1994} is
+
+\[
+\alpha(E)=\alpha_g\exp\left[\sqrt{\beta(x,T)(E-E_g)}\right],
+\]
+
+where \(\beta(x,T)\) is fixed by the published source relation and the
+candidate is used only inside its declared composition and temperature
+domain.
+
+These models do not necessarily estimate an identical microscopic
+quantity. Their intercept spread is therefore described as
+\textbf{fitted-model dependence}, not as repeated-measurement noise.
+
+\textbf{Table 2. Provenance and interpretation of fitted-intercept
+candidates.}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Candidate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Fitted and fixed quantities
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Provenance or rationale
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Interpretation and restriction
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Free exponent & \(A\), \(E_0\), and \(p\) fitted; \(0.2\leq p\leq1.5\) &
+Fractional-power family used in the source analysis, with the exponent
+released & Flexible fitted intercept; practical fit-window conditioning
+must be reported \\
+\(p=0.5\) & \(A\) and \(E_0\) fitted & Predeclared fixed-exponent
+sensitivity candidate & Not asserted as the correct microscopic
+transition law \\
+\(p=0.7\) & \(A\) and \(E_0\) fitted & Predeclared exponent within the
+source-reported range & Sensitivity candidate only \\
+Source-panel \(p\) & \(A\) and \(E_0\) fitted; \(p=0.872\) or \(0.849\)
+fixed & Exponent recorded from the corresponding source-panel analysis &
+Provenance-bound fitted intercept \\
+\(p=1\) & \(A\) and \(E_0\) fitted & Predeclared fixed-exponent
+sensitivity candidate & Not asserted as the correct microscopic
+transition law \\
+Chu Kane-region & \(\alpha_g\) and \(E_0\) fitted; \(\beta(x,T)\) fixed
+& Chu \emph{et al.} (1994), used within \(0.170\leq x\leq0.443\) and
+\(77\leq T\leq300\) K & Historical observation model; boundary hits are
+not treated as identified \\
+\end{longtable}
+
+The ensemble was fixed before the robustness analyses. No candidate was
+added or removed because of its fitted intercept.
+
+\subsection{3.2 Secondary class: fixed-absorption operational
+coordinates}\label{secondary-class-fixed-absorption-operational-coordinates}
+
+The first interpolated crossings at selected values of \(\alpha\) are
+retained as operational coordinates. A coordinate such as
+
+\[
+E_{\alpha=1000}
+\]
+
+can be useful for process control or detector modeling when the
+definition is held fixed. It is not automatically an estimator of the
+latent zone-center gap. Fixed-\(\alpha\) coordinates are therefore
+analyzed and tabulated separately and are excluded from the primary
+fitted-model span and from empirical-equation ranking.
