@@ -1,6 +1,6 @@
 # MCT research portfolio state
 
-**Last updated:** 2026-07-31  
+**Last updated:** 2026-10-10
 **Repository-wide coordination issue:** #213  
 **Scope:** repository governance and cross-program navigation
 
@@ -30,6 +30,7 @@ A decision in one program does not automatically:
 | Measurement-kernel-aware spatial disorder | Active research program | Determine how spatial covariance and finite probes control apparent disorder widths and cutoffs | `research/programs/spatial_disorder/state.md` | #196 |
 | Correlated random-mass Kane regime | Method benchmark complete; HgCdTe activation blocked | Retain the matched correlated-versus-scalar DOS oracle and reopen material physics only with source-qualified covariance and matched spectroscopy | `research/programs/correlated_random_mass_kane/state.md` | #390 |
 | Stochastic transport and finite-size noise | Gated active research program; Phase 1 only | Define and test a finite-device drift-diffusion-Poisson-Langevin theory for terminal noise in HgCdTe photoconductors | `research/programs/stochastic_transport_noise/state.md` | #339 |
+| Microscopic zero-temperature bandgap | Active diagnostic; physical impurity input unresolved | Derive a no-alloy-gap-fit signed-gap equation from correctly referenced endpoint impurity scattering and local environment response | `research/programs/microscopic_bandgap/state.md` | User continuation 2026-10-10; related endpoint issue #4 |
 
 ## Repository-wide publication state
 

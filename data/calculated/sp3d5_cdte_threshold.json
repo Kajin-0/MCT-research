@@ -1,0 +1,114 @@
+{
+  "claim_status": "CALCULATED threshold convergence diagnostic, not physical composition law",
+  "empirical_alloy_gap_inputs": [],
+  "rows": [
+    {
+      "mesh": 6,
+      "gap_side_detuning_eV": 0.0,
+      "T8_eV": 1.2763512554095062,
+      "negative_T8_prime": 13.583606948618623
+    },
+    {
+      "mesh": 6,
+      "gap_side_detuning_eV": 0.001,
+      "T8_eV": 1.2633294810216549,
+      "negative_T8_prime": 12.4859500815196
+    },
+    {
+      "mesh": 6,
+      "gap_side_detuning_eV": 0.01,
+      "T8_eV": 1.1802433678060766,
+      "negative_T8_prime": 6.923728495021205
+    },
+    {
+      "mesh": 10,
+      "gap_side_detuning_eV": 0.0,
+      "T8_eV": 1.287206187631627,
+      "negative_T8_prime": 21.780423220588048
+    },
+    {
+      "mesh": 10,
+      "gap_side_detuning_eV": 0.001,
+      "T8_eV": 1.2673384507617245,
+      "negative_T8_prime": 18.150681305667373
+    },
+    {
+      "mesh": 10,
+      "gap_side_detuning_eV": 0.01,
+      "T8_eV": 1.1697863800147044,
+      "negative_T8_prime": 6.927583810300286
+    },
+    {
+      "mesh": 14,
+      "gap_side_detuning_eV": 0.0,
+      "T8_eV": 1.2937766068850198,
+      "negative_T8_prime": 30.011570914324885
+    },
+    {
+      "mesh": 14,
+      "gap_side_detuning_eV": 0.001,
+      "T8_eV": 1.2680836678193241,
+      "negative_T8_prime": 22.113535750748902
+    },
+    {
+      "mesh": 14,
+      "gap_side_detuning_eV": 0.01,
+      "T8_eV": 1.1666911781359768,
+      "negative_T8_prime": 6.663693740304053
+    },
+    {
+      "mesh": 18,
+      "gap_side_detuning_eV": 0.0,
+      "T8_eV": 1.298039742126063,
+      "negative_T8_prime": 38.25399885427757
+    },
+    {
+      "mesh": 18,
+      "gap_side_detuning_eV": 0.001,
+      "T8_eV": 1.2675943158171024,
+      "negative_T8_prime": 24.553956272049945
+    },
+    {
+      "mesh": 18,
+      "gap_side_detuning_eV": 0.01,
+      "T8_eV": 1.1658653315322698,
+      "negative_T8_prime": 6.522872724054832
+    },
+    {
+      "mesh": 22,
+      "gap_side_detuning_eV": 0.0,
+      "T8_eV": 1.3010146352176557,
+      "negative_T8_prime": 46.50485055162705
+    },
+    {
+      "mesh": 22,
+      "gap_side_detuning_eV": 0.001,
+      "T8_eV": 1.2667964697604663,
+      "negative_T8_prime": 25.85565430935926
+    },
+    {
+      "mesh": 22,
+      "gap_side_detuning_eV": 0.01,
+      "T8_eV": 1.1656710304642277,
+      "negative_T8_prime": 6.467737720257843
+    },
+    {
+      "mesh": 30,
+      "gap_side_detuning_eV": 0.0,
+      "T8_eV": 1.3048788734374788,
+      "negative_T8_prime": 63.02249434094203
+    },
+    {
+      "mesh": 30,
+      "gap_side_detuning_eV": 0.001,
+      "T8_eV": 1.2654243096523343,
+      "negative_T8_prime": 26.539303851703238
+    },
+    {
+      "mesh": 30,
+      "gap_side_detuning_eV": 0.01,
+      "T8_eV": 1.165648812265935,
+      "negative_T8_prime": 6.443375805326559
+    }
+  ]
+}

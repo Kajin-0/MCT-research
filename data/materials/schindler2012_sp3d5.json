@@ -1,0 +1,33 @@
+{
+  "source": {
+    "author": "Christoph Schindler",
+    "title": "Quantum spin transport in semiconductor nanostructures",
+    "year": 2012,
+    "url": "https://www.osti.gov/etdeweb/servlets/purl/21595032",
+    "pdf_sha256": "851cc42594bb800288b26d02d2e3ff5d551a0a2690260cfbde5ac4feaa631fbe",
+    "parameters": "Table 2.2, printed page 29 (PDF page 29)",
+    "soc_convention": "Eq. (1.15): H_SO = Delta_SO L.sigma on p orbitals; no d SOC",
+    "offset": "Section 4.2: valence-band offset 0.4 eV; HgTe valence higher than CdTe",
+    "fit_inputs": "Binary band energies in Table 2.1; alloys subsequently checked using VCA",
+    "status": "Published semiempirical binary Hamiltonian, not a first-principles impurity potential"
+  },
+  "units": "eV",
+  "orbital_order": ["s", "px", "py", "pz", "dxy", "dyz", "dzx", "dx2-y2", "d3z2-r2"],
+  "omissions": ["d-d hopping absent from Table 2.2, set to zero", "d spin-orbit coupling neglected as in source"],
+  "CdTe": {
+    "c_s": 1.88, "a_s": -8.86, "ss": -0.80,
+    "c_p": 10.05, "a_p": 0.56, "sp": 2.42, "ps": 1.39,
+    "pp_sigma": 1.96, "pp_pi": -0.33, "c_soc": 0.08, "a_soc": 0.34,
+    "c_dt": -6.97, "c_de": -7.42, "a_dt": 15.83, "a_de": 14.63,
+    "sd": -2.11, "ds": -0.26, "pd_sigma": -2.42, "dp_sigma": -1.52,
+    "pd_pi": 1.90, "dp_pi": 0.27
+  },
+  "HgTe": {
+    "c_s": 0.33, "a_s": -8.36, "ss": -0.74,
+    "c_p": 7.96, "a_p": 1.76, "sp": 1.81, "ps": 0.68,
+    "pp_sigma": 2.90, "pp_pi": -0.55, "c_soc": 0.27, "a_soc": 0.38,
+    "c_dt": -5.77, "c_de": -6.07, "a_dt": 13.97, "a_de": 12.80,
+    "sd": -1.79, "ds": -0.52, "pd_sigma": -1.73, "dp_sigma": -1.29,
+    "pd_pi": 1.82, "dp_pi": 0.31
+  }
+}

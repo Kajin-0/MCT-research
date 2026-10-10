@@ -1,0 +1,665 @@
+{
+  "claim_status": "CALCULATED: binary-derived finite-q diagnostic, not physical self-consistent impurity",
+  "empirical_alloy_gap_inputs": [],
+  "parameter_file_sha256": "841222a0db79f4f75e0bcc49032877ede3a10350d3d0dee2648975d817004e58",
+  "source": {
+    "author": "Christoph Schindler",
+    "title": "Quantum spin transport in semiconductor nanostructures",
+    "year": 2012,
+    "url": "https://www.osti.gov/etdeweb/servlets/purl/21595032",
+    "pdf_sha256": "851cc42594bb800288b26d02d2e3ff5d551a0a2690260cfbde5ac4feaa631fbe",
+    "parameters": "Table 2.2, printed page 29 (PDF page 29)",
+    "soc_convention": "Eq. (1.15): H_SO = Delta_SO L.sigma on p orbitals; no d SOC",
+    "offset": "Section 4.2: valence-band offset 0.4 eV; HgTe valence higher than CdTe",
+    "fit_inputs": "Binary band energies in Table 2.1; alloys subsequently checked using VCA",
+    "status": "Published semiempirical binary Hamiltonian, not a first-principles impurity potential"
+  },
+  "offset_eV": 0.4,
+  "te_share": 0.25,
+  "quadrature": "even midpoint primitive reciprocal parallelepiped grid; no Gamma point",
+  "binary": {
+    "HgTe": {
+      "E6_eV": -0.3015708788235847,
+      "E8_eV": 7.967428155868274e-17,
+      "gap_eV": -0.30157087882358474
+    },
+    "CdTe": {
+      "E6_eV": 1.198134522803467,
+      "E8_eV": -0.4000000000000044,
+      "gap_eV": 1.5981345228034713
+    }
+  },
+  "rows": [
+    {
+      "energy_eV": -0.3015708788235847,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.3062034674186876,
+      "causality_min_eigenvalue": 1.3010279441781554e-05,
+      "optical_theorem_relative_residual": 4.0584639755947324e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.4882214603347457,
+            "imag": -8.330367579202844e-17
+          },
+          "second": {
+            "real": -0.9916507664945564,
+            "imag": -0.03062120930447288
+          },
+          "born_total": {
+            "real": 0.4965706938401895,
+            "imag": -0.030621209304472815
+          },
+          "exact": {
+            "real": 0.7914816735803236,
+            "imag": -0.011781518221780404
+          },
+          "born_negative_derivative": {
+            "real": 0.533893430601057,
+            "imag": -0.06309773490871591
+          },
+          "exact_negative_derivative": {
+            "real": 0.21161842884560217,
+            "imag": -0.021400411643661056
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.14884160512878844,
+            "imag": 0.004463012339242274
+          },
+          "local_external_norm_squared": 1.2603270914092082,
+          "scattering_strength_eV_squared": 1.820829549554389,
+          "full_host_cloud_norm": 0.23563036443560792,
+          "effective_detuning_eV": 2.779835001474422,
+          "local_scattering_overlap": {
+            "real": 0.5224738769649203,
+            "imag": -0.0077772306135926806
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.11231474734959676,
+            "imag": 1.265128410019023e-17
+          },
+          "second": {
+            "real": 0.2948669663124651,
+            "imag": -0.050609958687474435
+          },
+          "born_total": {
+            "real": 0.18255221896286825,
+            "imag": -0.05060995868747456
+          },
+          "exact": {
+            "real": 0.19203547580487612,
+            "imag": -0.10029621441321582
+          },
+          "born_negative_derivative": {
+            "real": 0.41738908891029614,
+            "imag": -0.4210351402852172
+          },
+          "exact_negative_derivative": {
+            "real": 0.46731685512807786,
+            "imag": -1.0190533893788434
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.4419485785885606,
+            "imag": -0.29244193417779046
+          },
+          "local_external_norm_squared": 3.225422800375874,
+          "scattering_strength_eV_squared": 5.002005013592866,
+          "full_host_cloud_norm": 2.0059242882643136,
+          "effective_detuning_eV": 1.5791187595068477,
+          "local_scattering_overlap": {
+            "real": 0.0478097066138528,
+            "imag": -0.024970035174376702
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 10,
+      "reference": "Gamma6_pole",
+      "completeness_error": 4.223489013314475e-15
+    },
+    {
+      "energy_eV": 7.967428155868274e-17,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.4793093585390888,
+      "causality_min_eigenvalue": 1.135445453376853e-05,
+      "optical_theorem_relative_residual": 1.8799305603546848e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.4882214603347457,
+            "imag": -8.330367579202844e-17
+          },
+          "second": {
+            "real": -1.1636139455702228,
+            "imag": -0.0316600191408158
+          },
+          "born_total": {
+            "real": 0.3246075147645232,
+            "imag": -0.0316600191408158
+          },
+          "exact": {
+            "real": 0.7257024570902018,
+            "imag": -0.011566128612500195
+          },
+          "born_negative_derivative": {
+            "real": 0.6304469298984929,
+            "imag": 0.028200657065271324
+          },
+          "exact_negative_derivative": {
+            "real": 0.230686680728046,
+            "imag": 0.00593408929387201
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.1767996144791476,
+            "imag": 0.0052797912749536205
+          },
+          "local_external_norm_squared": 1.2603270914092082,
+          "scattering_strength_eV_squared": 1.6346277852428053,
+          "full_host_cloud_norm": 0.23132257225000424,
+          "effective_detuning_eV": 2.6582782133862564,
+          "local_scattering_overlap": {
+            "real": 0.5056005285434578,
+            "imag": -0.008058179605908164
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.11231474734959676,
+            "imag": 1.265128410019023e-17
+          },
+          "second": {
+            "real": 0.1687071210221457,
+            "imag": -0.018329873476188627
+          },
+          "born_total": {
+            "real": 0.05639237367254883,
+            "imag": -0.018329873476188543
+          },
+          "exact": {
+            "real": 0.015341938770504486,
+            "imag": -0.022023080653951223
+          },
+          "born_negative_derivative": {
+            "real": 0.3477859505647841,
+            "imag": -0.039340533083723206
+          },
+          "exact_negative_derivative": {
+            "real": 0.42041498371035296,
+            "imag": -0.06555057619045596
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.1932276361709665,
+            "imag": -0.027563731604105468
+          },
+          "local_external_norm_squared": 3.225422800375874,
+          "scattering_strength_eV_squared": 3.236254160761171,
+          "full_host_cloud_norm": 0.4404616130790246,
+          "effective_detuning_eV": 2.710611511854488,
+          "local_scattering_overlap": {
+            "real": 0.004748600221496033,
+            "imag": -0.006816531289541767
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 10,
+      "reference": "Gamma8_pole",
+      "completeness_error": 4.223489013314475e-15
+    },
+    {
+      "energy_eV": -0.15078543941179232,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.40231843700167835,
+      "causality_min_eigenvalue": 1.1967938758637305e-05,
+      "optical_theorem_relative_residual": 2.7409769092159196e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.4882214603347457,
+            "imag": -8.330367579202844e-17
+          },
+          "second": {
+            "real": -1.0745881481883526,
+            "imag": -0.029500672297812912
+          },
+          "born_total": {
+            "real": 0.41363331214639326,
+            "imag": -0.02950067229781293
+          },
+          "exact": {
+            "real": 0.7591589236366239,
+            "imag": -0.011200357427373929
+          },
+          "born_negative_derivative": {
+            "real": 0.5502140992062241,
+            "imag": 0.009180453944019923
+          },
+          "exact_negative_derivative": {
+            "real": 0.21267746935182605,
+            "imag": 0.0010593002498302858
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.16199869510353043,
+            "imag": 0.004727821716544482
+          },
+          "local_external_norm_squared": 1.2603270914092082,
+          "scattering_strength_eV_squared": 1.726578273629029,
+          "full_host_cloud_norm": 0.22400714854747933,
+          "effective_detuning_eV": 2.7762731754528014,
+          "local_scattering_overlap": {
+            "real": 0.5146333536773002,
+            "imag": -0.007592715208591707
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.11231474734959676,
+            "imag": 1.265128410019023e-17
+          },
+          "second": {
+            "real": 0.223720618286811,
+            "imag": -0.03038790021045154
+          },
+          "born_total": {
+            "real": 0.11140587093721416,
+            "imag": -0.03038790021045164
+          },
+          "exact": {
+            "real": 0.08638329315328665,
+            "imag": -0.04395577493308894
+          },
+          "born_negative_derivative": {
+            "real": 0.3292119344449842,
+            "imag": -0.08192154622248433
+          },
+          "exact_negative_derivative": {
+            "real": 0.4499839371360544,
+            "imag": -0.18224158505544813
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.28326927075865704,
+            "imag": -0.08604028170668362
+          },
+          "local_external_norm_squared": 3.225422800375874,
+          "scattering_strength_eV_squared": 3.8501505081930105,
+          "full_host_cloud_norm": 0.8791154986617801,
+          "effective_detuning_eV": 2.0927429386450176,
+          "local_scattering_overlap": {
+            "real": 0.024513062758278584,
+            "imag": -0.012473368752121744
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 10,
+      "reference": "common_mode",
+      "completeness_error": 4.223489013314475e-15
+    },
+    {
+      "energy_eV": 1.198134522803467,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.33592127307627456,
+      "causality_min_eigenvalue": 8.452012006621181e-06,
+      "optical_theorem_relative_residual": 2.0030245731225958e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.5093637939263884,
+            "imag": 1.5413463390916763e-16
+          },
+          "second": {
+            "real": -1.2535775539079412,
+            "imag": -0.030908640753353936
+          },
+          "born_total": {
+            "real": -2.7629413478343303,
+            "imag": -0.030908640753353984
+          },
+          "exact": {
+            "real": -4.925920765416276,
+            "imag": -0.2554854492523556
+          },
+          "born_negative_derivative": {
+            "real": 0.6105020949180864,
+            "imag": 0.059918644042433813
+          },
+          "exact_negative_derivative": {
+            "real": 4.950689853954926,
+            "imag": 1.0544863470624728
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 3.6449331028567116,
+            "imag": 0.5461713080086248
+          },
+          "local_external_norm_squared": 1.2114374859578994,
+          "scattering_strength_eV_squared": 32.060809230293515,
+          "full_host_cloud_norm": 5.10970898504711,
+          "effective_detuning_eV": 2.5048928714611787,
+          "local_scattering_overlap": {
+            "real": -0.7904049980669977,
+            "imag": -0.040994767402717056
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.6474599159544825,
+            "imag": -2.2551405187698492e-17
+          },
+          "second": {
+            "real": -0.06361841395782951,
+            "imag": -0.0044575178365432195
+          },
+          "born_total": {
+            "real": 0.583841501996653,
+            "imag": -0.00445751783654325
+          },
+          "exact": {
+            "real": 0.6076550832134942,
+            "imag": -0.005346500403898068
+          },
+          "born_negative_derivative": {
+            "real": 0.08898405768546405,
+            "imag": 0.0002911844289336112
+          },
+          "exact_negative_derivative": {
+            "real": 0.10676382911332391,
+            "imag": 0.0001364218924419429
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.04588984680594099,
+            "imag": -0.0005252372188597763
+          },
+          "local_external_norm_squared": 3.5823261968877045,
+          "scattering_strength_eV_squared": 1.5816514932918073,
+          "full_host_cloud_norm": 0.10693000807796131,
+          "effective_detuning_eV": 3.8459673945222264,
+          "local_scattering_overlap": {
+            "real": 0.2552813999873947,
+            "imag": -0.002246113207713821
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 10,
+      "reference": "Gamma6_pole",
+      "completeness_error": 3.61592324818764e-15
+    },
+    {
+      "energy_eV": -0.4000000000000044,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.5077768401458881,
+      "causality_min_eigenvalue": 9.970917601653668e-06,
+      "optical_theorem_relative_residual": 2.466937791132105e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.5093637939263884,
+            "imag": 1.5413463390916763e-16
+          },
+          "second": {
+            "real": -0.7399778599113458,
+            "imag": -0.010372243261431303
+          },
+          "born_total": {
+            "real": -2.2493416538377344,
+            "imag": -0.010372243261431272
+          },
+          "exact": {
+            "real": -2.61796884794966,
+            "imag": -0.02815653596837999
+          },
+          "born_negative_derivative": {
+            "real": 0.20602784878779798,
+            "imag": -0.0020601344970714716
+          },
+          "exact_negative_derivative": {
+            "real": 0.5581359701551731,
+            "imag": -0.005072464256955888
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.4206688082869725,
+            "imag": 0.014678655638251097
+          },
+          "local_external_norm_squared": 1.2114374859578994,
+          "scattering_strength_eV_squared": 9.868001520289912,
+          "full_host_cloud_norm": 0.5631307193675987,
+          "effective_detuning_eV": 4.186103811729611,
+          "local_scattering_overlap": {
+            "real": -0.7571804052907881,
+            "imag": -0.008143556533462831
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.6474599159544825,
+            "imag": -2.2551405187698492e-17
+          },
+          "second": {
+            "real": 0.24468314593980245,
+            "imag": -0.06473528547708733
+          },
+          "born_total": {
+            "real": 0.8921430618942848,
+            "imag": -0.06473528547708732
+          },
+          "exact": {
+            "real": 1.058993663964896,
+            "imag": -0.1619917268427203
+          },
+          "born_negative_derivative": {
+            "real": 0.6137273581166078,
+            "imag": -0.6918444987651684
+          },
+          "exact_negative_derivative": {
+            "real": 0.8061118254813949,
+            "imag": -2.1379546496385293
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.5800581508673257,
+            "imag": -0.5727384186424439
+          },
+          "local_external_norm_squared": 3.5823261968877045,
+          "scattering_strength_eV_squared": 1.6028119176674973,
+          "full_host_cloud_norm": 3.2398345368544073,
+          "effective_detuning_eV": 0.7033635625513384,
+          "local_scattering_overlap": {
+            "real": 0.441946313651239,
+            "imag": -0.0676034701209618
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 10,
+      "reference": "Gamma8_pole",
+      "completeness_error": 3.61592324818764e-15
+    },
+    {
+      "energy_eV": 0.3990672614017313,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.5166794324608991,
+      "causality_min_eigenvalue": 8.224209459264311e-06,
+      "optical_theorem_relative_residual": 1.8973305561102096e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.5093637939263884,
+            "imag": 1.5413463390916763e-16
+          },
+          "second": {
+            "real": -0.9290533294764464,
+            "imag": -0.014500095679442397
+          },
+          "born_total": {
+            "real": -2.438417123402835,
+            "imag": -0.014500095679442392
+          },
+          "exact": {
+            "real": -3.194833039081339,
+            "imag": -0.05176543928118224
+          },
+          "born_negative_derivative": {
+            "real": 0.2898057934535414,
+            "imag": 0.009303589559343909
+          },
+          "exact_negative_derivative": {
+            "real": 1.033159611895349,
+            "imag": 0.06253766300572661
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.8950800973258299,
+            "imag": 0.05405876549302069
+          },
+          "local_external_norm_squared": 1.2114374859578994,
+          "scattering_strength_eV_squared": 14.225872851419537,
+          "full_host_cloud_norm": 1.035308785623644,
+          "effective_detuning_eV": 3.7068457259409278,
+          "local_scattering_overlap": {
+            "real": -0.7695878482613557,
+            "imag": -0.012469525807259138
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.6474599159544825,
+            "imag": -2.2551405187698492e-17
+          },
+          "second": {
+            "real": 0.01676780180996397,
+            "imag": -0.006395107651698105
+          },
+          "born_total": {
+            "real": 0.6642277177644463,
+            "imag": -0.006395107651698057
+          },
+          "exact": {
+            "real": 0.705473386371984,
+            "imag": -0.007970583227553023
+          },
+          "born_negative_derivative": {
+            "real": 0.1276327701565408,
+            "imag": -0.006166235704726552
+          },
+          "exact_negative_derivative": {
+            "real": 0.1589920916376707,
+            "imag": -0.008653480178324083
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.07546938377714642,
+            "imag": -0.004235068073823172
+          },
+          "local_external_norm_squared": 3.5823261968877045,
+          "scattering_strength_eV_squared": 1.3832085145319457,
+          "full_host_cloud_norm": 0.15941166455105946,
+          "effective_detuning_eV": 2.9456678754969725,
+          "local_scattering_overlap": {
+            "real": 0.3169233540947958,
+            "imag": -0.00358066515245676
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 10,
+      "reference": "common_mode",
+      "completeness_error": 3.61592324818764e-15
+    },
+    {
+      "energy_eV": 0.3990672614017313,
+      "eta_eV": 0,
+      "denominator_min_singular": 0.5165049738707136,
+      "causality_min_eigenvalue": -3.1190908977268543e-16,
+      "optical_theorem_relative_residual": 1.586402235458252e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.5093637939263884,
+            "imag": 1.5413463390916763e-16
+          },
+          "second": {
+            "real": -0.9292860128944895,
+            "imag": -1.5220660251483626e-17
+          },
+          "born_total": {
+            "real": -2.4386498068208784,
+            "imag": 6.375129410685875e-17
+          },
+          "exact": {
+            "real": -3.1963982543842984,
+            "imag": 1.3333686288858974e-16
+          },
+          "born_negative_derivative": {
+            "real": 0.2901000375219378,
+            "imag": 1.3294305273904718e-17
+          },
+          "exact_negative_derivative": {
+            "real": 1.0363846964443288,
+            "imag": -3.149561829561381e-17
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.897619864006148,
+            "imag": -2.460310448497789e-17
+          },
+          "local_external_norm_squared": 1.2114374859578994,
+          "scattering_strength_eV_squared": 14.235336380709187,
+          "full_host_cloud_norm": 1.0363846964443282,
+          "effective_detuning_eV": 3.7061532309553002,
+          "local_scattering_overlap": {
+            "real": -0.7697089098213873,
+            "imag": 3.21081927861174e-17
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.6474599159544825,
+            "imag": -2.2551405187698492e-17
+          },
+          "second": {
+            "real": 0.01692221819579236,
+            "imag": 7.860465750519907e-18
+          },
+          "born_total": {
+            "real": 0.6643821341502748,
+            "imag": 3.469446951953614e-18
+          },
+          "exact": {
+            "real": 0.7056901932282529,
+            "imag": 3.122502256758253e-17
+          },
+          "born_negative_derivative": {
+            "real": 0.1280370773525198,
+            "imag": -8.673617379884035e-19
+          },
+          "exact_negative_derivative": {
+            "real": 0.159621921268206,
+            "imag": 4.336808689942018e-19
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.07574810631640402,
+            "imag": 1.0842021724855044e-18
+          },
+          "local_external_norm_squared": 3.5823261968877045,
+          "scattering_strength_eV_squared": 1.3832409996082944,
+          "full_host_cloud_norm": 0.159621921268206,
+          "effective_detuning_eV": 2.9437617611940685,
+          "local_scattering_overlap": {
+            "real": 0.3170170287289736,
+            "imag": 1.402720906618637e-17
+          }
+        }
+      },
+      "off_continuum_min_negative_Tprime_eigenvalue": 0.00016450091721840134,
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 10,
+      "reference": "common_mode_gap_real",
+      "completeness_error": 3.61592324818764e-15
+    }
+  ]
+}

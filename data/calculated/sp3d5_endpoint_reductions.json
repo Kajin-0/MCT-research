@@ -1,0 +1,960 @@
+{
+  "claim_status": "CALCULATED diagnostic endpoint interpolants; real parts at finite eta, not physical x_c predictions",
+  "empirical_alloy_gap_inputs": [],
+  "mass_convention": "Full host-referenced T: mu'(0)=full_t_H, mu'(1)=-full_t_C",
+  "common_mode_prescription": "Hermitian/real-part endpoint projection at (E6+E8)/2, finite retarded eta; not a solved interior common-mode trajectory",
+  "datasets": [
+    {
+      "input": "data/calculated/sp3d5_impurity_diagnostic.json",
+      "input_sha256": "3672134805fa85ebcc191b26b07eaecba4cdc60b05d908e50048827025f64daf",
+      "offset_eV": 0.4,
+      "te_share": 0.25,
+      "binary_gap_H_eV": -0.30157087882358474,
+      "binary_gap_C_eV": 1.5981345228034713,
+      "chord_root": 0.1587461290394268,
+      "max_optical_theorem_relative_residual": 5.540773030351395e-16,
+      "min_causality_eigenvalue": -4.473042318641547e-16,
+      "endpoint_reductions": [
+        {
+          "mesh": 6,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.33471432557482206,
+          "full_common_mass_C_eV": -1.9503368337827447,
+          "full_common_mass_H_imag_eV": 0.00494057809684578,
+          "full_common_mass_C_imag_eV": -0.008741983279717466,
+          "chord_residual_H_eV": -0.615138375238706,
+          "chord_residual_C_eV": -1.0004841329692167,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33471432557482206,
+            0.22979261750819502,
+            0.38534575773051083
+          ],
+          "mass_cubic_roots": [
+            0.3323742379415322
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16481919281481966
+          ],
+          "gap_slope_H_eV": 0.7753799389097605,
+          "gap_slope_C_eV": 6.0480939245625756,
+          "reciprocal_A_from_slopes": 1.5918589575142443,
+          "reciprocal_C_eV": -1.6043837674980614,
+          "reciprocal_rho": 0.8445434571718025,
+          "reciprocal_roots": [
+            0.3511767380132149
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.46032989667801827,
+            "CdTe": 0.5964376493940371
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.4646886045760152,
+            "CdTe": 0.5966403656264034
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.299869673262433,
+            "CdTe": -0.9458903716842235
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9311075565346982,
+            "CdTe": -1.7438499576846187
+          }
+        },
+        {
+          "mesh": 6,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.33605960376651356,
+          "full_common_mass_C_eV": -1.949593870749,
+          "full_common_mass_H_imag_eV": 0.011863632144332698,
+          "full_common_mass_C_imag_eV": -0.021837197190529997,
+          "chord_residual_H_eV": -0.6137930970470145,
+          "chord_residual_C_eV": -0.9997411699354719,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33605960376651356,
+            0.227845024158557,
+            0.38594807288845745
+          ],
+          "mass_cubic_roots": [
+            0.33196119212964986
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1645372715862578
+          ],
+          "gap_slope_H_eV": 0.7756585931567982,
+          "gap_slope_C_eV": 5.925690472919321,
+          "reciprocal_A_from_slopes": 1.5275727806724984,
+          "reciprocal_C_eV": -1.5847182744046502,
+          "reciprocal_rho": 0.8341915925739716,
+          "reciprocal_roots": [
+            0.3480279525929877
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.43293569672486365,
+            "CdTe": 0.5948447111264066
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.4545424988547861,
+            "CdTe": 0.5961088349807222
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2987773426505376,
+            "CdTe": -0.9455669021026561
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9284170001513152,
+            "CdTe": -1.7423640316171292
+          }
+        },
+        {
+          "mesh": 10,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.33353617547911046,
+          "full_common_mass_C_eV": -1.950901511063813,
+          "full_common_mass_H_imag_eV": 0.012875954949157921,
+          "full_common_mass_C_imag_eV": -0.008766241557062144,
+          "chord_residual_H_eV": -0.6163165253344176,
+          "chord_residual_C_eV": -1.001048810250285,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33353617547911046,
+            0.2315842404185502,
+            0.3847322849158674
+          ],
+          "mass_cubic_roots": [
+            0.3327256446171468
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1650637576499712
+          ],
+          "gap_slope_H_eV": 0.7753119096068308,
+          "gap_slope_C_eV": 6.08771951200674,
+          "reciprocal_A_from_slopes": 1.612681953599508,
+          "reciprocal_C_eV": -1.6107314060301645,
+          "reciprocal_rho": 0.8478848376440938,
+          "reciprocal_roots": [
+            0.35219390124122146
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.3745309404473069,
+            "CdTe": 0.5976943124627511
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.8827730954376899,
+            "CdTe": 0.5979002947020714
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.3009572638768196,
+            "CdTe": -0.9461462474520002
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9334638567261214,
+            "CdTe": -1.7449793122467554
+          }
+        },
+        {
+          "mesh": 10,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.3363878152416686,
+          "full_common_mass_C_eV": -1.9501532127266614,
+          "full_common_mass_H_imag_eV": 0.016377708752857507,
+          "full_common_mass_C_imag_eV": -0.02189742802681461,
+          "chord_residual_H_eV": -0.6134648855718594,
+          "chord_residual_C_eV": -1.0003005119131334,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3363878152416686,
+            0.2266292592305854,
+            0.386835626341274
+          ],
+          "mass_cubic_roots": [
+            0.3319490788611647
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16449614169830168
+          ],
+          "gap_slope_H_eV": 0.7761397348098191,
+          "gap_slope_C_eV": 5.984914429381172,
+          "reciprocal_A_from_slopes": 1.5590013895840358,
+          "reciprocal_C_eV": -1.5937150859612845,
+          "reciprocal_rho": 0.8389274908605843,
+          "reciprocal_roots": [
+            0.3494680039415833
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.3313307032439402,
+            "CdTe": 0.5960758517665099
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5515613236046287,
+            "CdTe": 0.5973602250873525
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2983087664751636,
+            "CdTe": -0.9458211312864103
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9277605772010051,
+            "CdTe": -1.7434827155724522
+          }
+        },
+        {
+          "mesh": 14,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.32995084429828875,
+          "full_common_mass_C_eV": -1.950933967682023,
+          "full_common_mass_H_imag_eV": 0.008791383107180837,
+          "full_common_mass_C_imag_eV": -0.00876765286938697,
+          "chord_residual_H_eV": -0.6199018565152392,
+          "chord_residual_C_eV": -1.001081266868495,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.32995084429828875,
+            0.23872244616198346,
+            0.38117941035325575
+          ],
+          "mass_cubic_roots": [
+            0.3335918884029842
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1657488025761907
+          ],
+          "gap_slope_H_eV": 0.7751642966801151,
+          "gap_slope_C_eV": 6.116622258341773,
+          "reciprocal_A_from_slopes": 1.6278185813017243,
+          "reciprocal_C_eV": -1.6154437850754628,
+          "reciprocal_rho": 0.8503654217605902,
+          "reciprocal_roots": [
+            0.3529492473507423
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.5381295083698383,
+            "CdTe": 0.5977673074664157
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.6685002828857289,
+            "CdTe": 0.5979735990381951
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.30460687853517,
+            "CdTe": -0.9461606403468007
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9406345190877649,
+            "CdTe": -1.7450442254831753
+          }
+        },
+        {
+          "mesh": 14,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.33493907474513107,
+          "full_common_mass_C_eV": -1.9501852233213217,
+          "full_common_mass_H_imag_eV": 0.015391021593337377,
+          "full_common_mass_C_imag_eV": -0.021900917341418687,
+          "chord_residual_H_eV": -0.614913626068397,
+          "chord_residual_C_eV": -1.0003325225077937,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33493907474513107,
+            0.2294947296290002,
+            0.38541889643939675
+          ],
+          "mass_cubic_roots": [
+            0.33230193798067104
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16477099178822757
+          ],
+          "gap_slope_H_eV": 0.7760880773624245,
+          "gap_slope_C_eV": 5.998404673362184,
+          "reciprocal_A_from_slopes": 1.5660754267069008,
+          "reciprocal_C_eV": -1.595900067000652,
+          "reciprocal_rho": 0.8400776592169494,
+          "reciprocal_roots": [
+            0.349817866845619
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.38657902585059767,
+            "CdTe": 0.59614643993581
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5309556587178462,
+            "CdTe": 0.5974327224961954
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2995194746319483,
+            "CdTe": -0.9458353691845017
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9306580581940802,
+            "CdTe": -1.7435467367617727
+          }
+        }
+      ]
+    },
+    {
+      "input": "data/calculated/sp3d5_impurity_refinement.json",
+      "input_sha256": "9c621e0027a58326ec5cbbc577992ffc86274ab7febe061a78ceb09cfe837664",
+      "offset_eV": 0.4,
+      "te_share": 0.25,
+      "binary_gap_H_eV": -0.30157087882358474,
+      "binary_gap_C_eV": 1.5981345228034713,
+      "chord_root": 0.1587461290394268,
+      "max_optical_theorem_relative_residual": 3.6189995640929575e-16,
+      "min_causality_eigenvalue": -4.179410426061543e-16,
+      "endpoint_reductions": [
+        {
+          "mesh": 18,
+          "eta_eV": 0.01,
+          "full_common_mass_H_eV": 0.3335704061140717,
+          "full_common_mass_C_eV": -1.9510429864159362,
+          "full_common_mass_H_imag_eV": 0.008082225427096534,
+          "full_common_mass_C_imag_eV": -0.004384389781964371,
+          "chord_residual_H_eV": -0.6162822946994564,
+          "chord_residual_C_eV": -1.0011902856024082,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3335704061140717,
+            0.2313743037965046,
+            0.3849079909029518
+          ],
+          "mass_cubic_roots": [
+            0.3327343868752928
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16506256836768604
+          ],
+          "gap_slope_H_eV": 0.7746819071143545,
+          "gap_slope_C_eV": 6.182414889737432,
+          "reciprocal_A_from_slopes": 1.6621977233381477,
+          "reciprocal_C_eV": -1.6262939227183486,
+          "reciprocal_rho": 0.8560769060957891,
+          "reciprocal_roots": [
+            0.3546890615490023
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.2793851230503051,
+            "CdTe": 0.5980037760152221
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 1.0567842495967064,
+            "CdTe": 0.5980553727345095
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2998573260772264,
+            "CdTe": -0.9462079978870448
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.933395395456199,
+            "CdTe": -1.7452622629510017
+          }
+        },
+        {
+          "mesh": 18,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.3337017034527868,
+          "full_common_mass_C_eV": -1.9509358880322794,
+          "full_common_mass_H_imag_eV": 0.00952071651320922,
+          "full_common_mass_C_imag_eV": -0.008767737530692623,
+          "chord_residual_H_eV": -0.6161509973607412,
+          "chord_residual_C_eV": -1.0010831872187513,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3337017034527868,
+            0.23121880750273127,
+            0.38493218985801003
+          ],
+          "mass_cubic_roots": [
+            0.33268992223242383
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16503361498997884
+          ],
+          "gap_slope_H_eV": 0.7749447039424766,
+          "gap_slope_C_eV": 6.128883934765731,
+          "reciprocal_A_from_slopes": 1.634157502945051,
+          "reciprocal_C_eV": -1.6175750119838732,
+          "reciprocal_rho": 0.8514872940817327,
+          "reciprocal_roots": [
+            0.35329091956525005
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.4001588769973191,
+            "CdTe": 0.5977716735758698
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.7077052331019561,
+            "CdTe": 0.5979779907300532
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.300059037807951,
+            "CdTe": -0.9461614877372658
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9331328007787687,
+            "CdTe": -1.745048066183688
+          }
+        },
+        {
+          "mesh": 18,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.3357096096871908,
+          "full_common_mass_C_eV": -1.9501871091724254,
+          "full_common_mass_H_imag_eV": 0.015093393355485915,
+          "full_common_mass_C_imag_eV": -0.021901125778416106,
+          "chord_residual_H_eV": -0.6141430911263372,
+          "chord_residual_C_eV": -1.0003344083588974,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3357096096871908,
+            0.22795177389377708,
+            0.38619131723256017
+          ],
+          "mass_cubic_roots": [
+            0.3321165588821667
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1646253964704677
+          ],
+          "gap_slope_H_eV": 0.776071097900112,
+          "gap_slope_C_eV": 5.9985487969953954,
+          "reciprocal_A_from_slopes": 1.566142355068946,
+          "reciprocal_C_eV": -1.5959372301079249,
+          "reciprocal_rho": 0.8400972217803032,
+          "reciprocal_roots": [
+            0.34982381788648553
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.38944694224289006,
+            "CdTe": 0.5961506078253619
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5248941364044718,
+            "CdTe": 0.5974370475982645
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.298444249224184,
+            "CdTe": -0.9458362038826201
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9291169883099607,
+            "CdTe": -1.7435505084639802
+          }
+        },
+        {
+          "mesh": 22,
+          "eta_eV": 0.01,
+          "full_common_mass_H_eV": 0.33215082578840593,
+          "full_common_mass_C_eV": -1.951043104515733,
+          "full_common_mass_H_imag_eV": 0.011860776196003113,
+          "full_common_mass_C_imag_eV": -0.0043843924221321166,
+          "chord_residual_H_eV": -0.6177018750251221,
+          "chord_residual_C_eV": -1.001190403702205,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33215082578840593,
+            0.23421334634803892,
+            0.38348852867708305
+          ],
+          "mass_cubic_roots": [
+            0.3330760348623582
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16533264568877165
+          ],
+          "gap_slope_H_eV": 0.7750120295844677,
+          "gap_slope_C_eV": 6.192024063739081,
+          "reciprocal_A_from_slopes": 1.6674297432414702,
+          "reciprocal_C_eV": -1.6275416250885029,
+          "reciprocal_rho": 0.856733693389801,
+          "reciprocal_roots": [
+            0.354889183228366
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.048625654811019985,
+            "CdTe": 0.5980040490595425
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 1.4551651326558885,
+            "CdTe": 0.5980556462846994
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.3018279934135215,
+            "CdTe": -0.9462080498787583
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9362345561075305,
+            "CdTe": -1.7452624991505954
+          }
+        },
+        {
+          "mesh": 22,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.3328389214698326,
+          "full_common_mass_C_eV": -1.9509360057556604,
+          "full_common_mass_H_imag_eV": 0.011569566930523507,
+          "full_common_mass_C_imag_eV": -0.008767742796376873,
+          "chord_residual_H_eV": -0.6170137793436954,
+          "chord_residual_C_eV": -1.0010833049421324,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3328389214698326,
+            0.2329442537452584,
+            0.384069525598437
+          ],
+          "mass_cubic_roots": [
+            0.3328976060566473
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16519759309965942
+          ],
+          "gap_slope_H_eV": 0.775028516392441,
+          "gap_slope_C_eV": 6.133634553649777,
+          "reciprocal_A_from_slopes": 1.636702335070006,
+          "reciprocal_C_eV": -1.6182586467942899,
+          "reciprocal_rho": 0.8518471576741777,
+          "reciprocal_roots": [
+            0.35340052537666033
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.2653049481091329,
+            "CdTe": 0.5977719443509639
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.8162411529271872,
+            "CdTe": 0.5979782635225741
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.3012343139654252,
+            "CdTe": -0.946161539586033
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9348583647446771,
+            "CdTe": -1.74504830163045
+          }
+        },
+        {
+          "mesh": 22,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.33567517558527604,
+          "full_common_mass_C_eV": -1.950187224295854,
+          "full_common_mass_H_imag_eV": 0.015413351800121732,
+          "full_common_mass_C_imag_eV": -0.02190113868929589,
+          "chord_residual_H_eV": -0.614177525228252,
+          "chord_residual_C_eV": -1.000334523482326,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33567517558527604,
+            0.22802052697417796,
+            0.386156998254074
+          ],
+          "mass_cubic_roots": [
+            0.33212486854531087
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1646319047961516
+          ],
+          "gap_slope_H_eV": 0.7760631929545685,
+          "gap_slope_C_eV": 5.9952149526952425,
+          "reciprocal_A_from_slopes": 1.564383266926735,
+          "reciprocal_C_eV": -1.5954146452964935,
+          "reciprocal_rho": 0.839822134489935,
+          "reciprocal_roots": [
+            0.3497401360823153
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.36843318152356747,
+            "CdTe": 0.5961508630316956
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5317971398954672,
+            "CdTe": 0.597437315150481
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2984942346708777,
+            "CdTe": -0.9458362547425955
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9291858565137903,
+            "CdTe": -1.7435507387108373
+          }
+        }
+      ]
+    },
+    {
+      "input": "data/calculated/sp3d5_impurity_mesh30.json",
+      "input_sha256": "6377512b1d20dbe300f6b0e369fbccc231739a449cc426934d674557c8e1257b",
+      "offset_eV": 0.4,
+      "te_share": 0.25,
+      "binary_gap_H_eV": -0.30157087882358474,
+      "binary_gap_C_eV": 1.5981345228034713,
+      "chord_root": 0.1587461290394268,
+      "max_optical_theorem_relative_residual": 3.600198286105348e-16,
+      "min_causality_eigenvalue": -3.752468543823862e-16,
+      "endpoint_reductions": [
+        {
+          "mesh": 30,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.33318459938125367,
+          "full_common_mass_C_eV": -1.950936013702207,
+          "full_common_mass_H_imag_eV": 0.009987582530601398,
+          "full_common_mass_C_imag_eV": -0.008767743157363674,
+          "chord_residual_H_eV": -0.6166681014322744,
+          "chord_residual_C_eV": -1.001083312888679,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33318459938125367,
+            0.2322528899758698,
+            0.38441521145640456
+          ],
+          "mass_cubic_roots": [
+            0.33281441339982337
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16513185703653122
+          ],
+          "gap_slope_H_eV": 0.7749695967095799,
+          "gap_slope_C_eV": 6.134066111954285,
+          "reciprocal_A_from_slopes": 1.636898491074683,
+          "reciprocal_C_eV": -1.618376721415868,
+          "reciprocal_rho": 0.8519093118489656,
+          "reciprocal_roots": [
+            0.35341945640655203
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.41000681061004707,
+            "CdTe": 0.5977719628579844
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.7328292758224771,
+            "CdTe": 0.5979782821984256
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.3006680477361052,
+            "CdTe": -0.9461615430824681
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.934167008921835,
+            "CdTe": -1.7450483175235432
+          }
+        },
+        {
+          "mesh": 30,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.33562971381892337,
+          "full_common_mass_C_eV": -1.9501872320327678,
+          "full_common_mass_H_imag_eV": 0.01529295148050224,
+          "full_common_mass_C_imag_eV": -0.02190113957058652,
+          "chord_residual_H_eV": -0.6142229869946046,
+          "chord_residual_C_eV": -1.0003345312192398,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.33562971381892337,
+            0.2281114427699693,
+            0.38611154422463523
+          ],
+          "mass_cubic_roots": [
+            0.3321358219238917
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1646404928658784
+          ],
+          "gap_slope_H_eV": 0.776029884221603,
+          "gap_slope_C_eV": 5.991669745992929,
+          "reciprocal_A_from_slopes": 1.562499545675948,
+          "reciprocal_C_eV": -1.5948798785564007,
+          "reciprocal_rho": 0.8395406346638911,
+          "reciprocal_roots": [
+            0.349654506451012
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.3796409504441839,
+            "CdTe": 0.5961508802414515
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.529261160425821,
+            "CdTe": 0.597437333388777
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.298504661604663,
+            "CdTe": -0.9458362581574546
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9292767800464956,
+            "CdTe": -1.7435507541846649
+          }
+        }
+      ]
+    },
+    {
+      "input": "data/calculated/sp3d5_impurity_offset035.json",
+      "input_sha256": "20738b263b110f723c123fd41bac8069339a57a420d3c2b4a04d1cab03032d92",
+      "offset_eV": 0.35,
+      "te_share": 0.25,
+      "binary_gap_H_eV": -0.30157087882358474,
+      "binary_gap_C_eV": 1.59813452280347,
+      "chord_root": 0.15874612903942692,
+      "max_optical_theorem_relative_residual": 3.635400379152235e-16,
+      "min_causality_eigenvalue": -3.454796130226837e-16,
+      "endpoint_reductions": [
+        {
+          "mesh": 14,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.3108102708882512,
+          "full_common_mass_C_eV": -1.9881581041551362,
+          "full_common_mass_H_imag_eV": 0.010469336366856152,
+          "full_common_mass_C_imag_eV": -0.009568450278958912,
+          "chord_residual_H_eV": -0.6390424299252762,
+          "chord_residual_C_eV": -1.0383054033416088,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3108102708882512,
+            0.23977945650894372,
+            0.39926297341633266
+          ],
+          "mass_cubic_roots": [
+            0.3427662620635529
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.17105139683365947
+          ],
+          "gap_slope_H_eV": 0.7455467847267665,
+          "gap_slope_C_eV": 6.301362407839,
+          "reciprocal_A_from_slopes": 1.7094747356775677,
+          "reciprocal_C_eV": -1.6696864152652873,
+          "reciprocal_rho": 0.8789186017133176,
+          "reciprocal_roots": [
+            0.3616534915305312
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.5962925917879686,
+            "CdTe": 0.630212584280921
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.7608080845973901,
+            "CdTe": 0.6304328987692406
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.3432517878196548,
+            "CdTe": -0.9752029786257002
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9789156659078402,
+            "CdTe": -1.8194924984294016
+          }
+        },
+        {
+          "mesh": 14,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.3168842027743201,
+          "full_common_mass_C_eV": -1.987361215509225,
+          "full_common_mass_H_imag_eV": 0.01789530623237548,
+          "full_common_mass_C_imag_eV": -0.0239001481840964,
+          "chord_residual_H_eV": -0.6329684980392072,
+          "chord_residual_C_eV": -1.0375085146956977,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3168842027743201,
+            0.22842848138271687,
+            0.40454001665649053
+          ],
+          "mass_cubic_roots": [
+            0.34120407346644926
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16977426524463438
+          ],
+          "gap_slope_H_eV": 0.746739927724695,
+          "gap_slope_C_eV": 6.193319121732518,
+          "reciprocal_A_from_slopes": 1.6532290972659287,
+          "reciprocal_C_eV": -1.6515312256615673,
+          "reciprocal_rho": 0.8693617569582464,
+          "reciprocal_roots": [
+            0.3587386569435705
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.4107279169692566,
+            "CdTe": 0.6284815090721398
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5890463091447257,
+            "CdTe": 0.6298552507506535
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.338300507123822,
+            "CdTe": -0.9748774906328753
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9667678021357023,
+            "CdTe": -1.8178987211375794
+          }
+        }
+      ]
+    },
+    {
+      "input": "data/calculated/sp3d5_impurity_offset050.json",
+      "input_sha256": "237c72711c23bc2a6a677d467faa79117a578ce6a626495d2685bc107765a08f",
+      "offset_eV": 0.5,
+      "te_share": 0.25,
+      "binary_gap_H_eV": -0.30157087882358474,
+      "binary_gap_C_eV": 1.598134522803469,
+      "chord_root": 0.158746129039427,
+      "max_optical_theorem_relative_residual": 3.460045347596753e-16,
+      "min_causality_eigenvalue": -3.200484732605915e-16,
+      "endpoint_reductions": [
+        {
+          "mesh": 14,
+          "eta_eV": 0.02,
+          "full_common_mass_H_eV": 0.3642476283507284,
+          "full_common_mass_C_eV": -1.8814466347321677,
+          "full_common_mass_H_imag_eV": 0.006765181595707297,
+          "full_common_mass_C_imag_eV": -0.007262550834880118,
+          "chord_residual_H_eV": -0.5856050724627984,
+          "chord_residual_C_eV": -0.9315939339186409,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3642476283507284,
+            0.23961621100695618,
+            0.3459888614558424
+          ],
+          "mass_cubic_roots": [
+            0.317352310405595
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.1571719463356565
+          ],
+          "gap_slope_H_eV": 0.8294303987065815,
+          "gap_slope_C_eV": 5.813967670881619,
+          "reciprocal_A_from_slopes": 1.4970675263113344,
+          "reciprocal_C_eV": -1.5217469724884312,
+          "reciprocal_rho": 0.8010436624463405,
+          "reciprocal_roots": [
+            0.3379790055635789
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.45795797811755157,
+            "CdTe": 0.5402914005920967
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5510505213338275,
+            "CdTe": 0.5404753247140004
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2317779082490892,
+            "CdTe": -0.891254841708049
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.872040950982886,
+            "CdTe": -1.6060695595834646
+          }
+        },
+        {
+          "mesh": 14,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.3679013301406138,
+          "full_common_mass_C_eV": -1.8807790305107663,
+          "full_common_mass_H_imag_eV": 0.012157450383787663,
+          "full_common_mass_C_imag_eV": -0.018143244364129556,
+          "chord_residual_H_eV": -0.5819513706729129,
+          "chord_residual_C_eV": -0.9309263296972395,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3679013301406138,
+            0.23297641164858662,
+            0.3489749590243265
+          ],
+          "mass_cubic_roots": [
+            0.31640779450896
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.15653559265577294
+          ],
+          "gap_slope_H_eV": 0.830200169228533,
+          "gap_slope_C_eV": 5.665824755037203,
+          "reciprocal_A_from_slopes": 1.4194906845566908,
+          "reciprocal_C_eV": -1.4975822856221737,
+          "reciprocal_rho": 0.7883234339069254,
+          "reciprocal_roots": [
+            0.3341407756195918
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.343829269318015,
+            "CdTe": 0.5388463898316226
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.45090782643432203,
+            "CdTe": 0.539993112930963
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2257464939128284,
+            "CdTe": -0.8909264734292526
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.8647335474031151,
+            "CdTe": -1.604734351140662
+          }
+        }
+      ]
+    },
+    {
+      "input": "data/calculated/sp3d5_scattering_geometry.json",
+      "input_sha256": "a4dcb34240bf59412032a72da1e716ed7f041157613b3afecfcd143a88d0082d",
+      "offset_eV": 0.4,
+      "te_share": 0.25,
+      "binary_gap_H_eV": -0.30157087882358474,
+      "binary_gap_C_eV": 1.5981345228034713,
+      "chord_root": 0.1587461290394268,
+      "max_optical_theorem_relative_residual": 4.0584639755947324e-16,
+      "min_causality_eigenvalue": -3.1190908977268543e-16,
+      "endpoint_reductions": [
+        {
+          "mesh": 10,
+          "eta_eV": 0.05,
+          "full_common_mass_H_eV": 0.3363878152416686,
+          "full_common_mass_C_eV": -1.9501532127266614,
+          "full_common_mass_H_imag_eV": 0.016377708752857507,
+          "full_common_mass_C_imag_eV": -0.02189742802681461,
+          "chord_residual_H_eV": -0.6134648855718594,
+          "chord_residual_C_eV": -1.0003005119131334,
+          "mass_cubic_coefficients_ascending_eV": [
+            -0.15078543941179237,
+            0.3363878152416686,
+            0.2266292592305854,
+            0.386835626341274
+          ],
+          "mass_cubic_roots": [
+            0.3319490788611647
+          ],
+          "incorrect_double_counted_mass_roots": [
+            0.16449614169830168
+          ],
+          "gap_slope_H_eV": 0.7761397348098191,
+          "gap_slope_C_eV": 5.984914429381172,
+          "reciprocal_A_from_slopes": 1.5590013895840358,
+          "reciprocal_C_eV": -1.5937150859612845,
+          "reciprocal_rho": 0.8389274908605843,
+          "reciprocal_roots": [
+            0.3494680039415833
+          ],
+          "common_symmetric_negative_derivative": {
+            "HgTe": 0.3313307032439402,
+            "CdTe": 0.5960758517665099
+          },
+          "common_positive_cloud_norm": {
+            "HgTe": 0.5515613236046287,
+            "CdTe": 0.5973602250873525
+          },
+          "Born2_common_gap_eV": {
+            "HgTe": -1.2983087664751636,
+            "CdTe": -0.9458211312864103
+          },
+          "exact_minus_first_common_gap_eV": {
+            "HgTe": -0.9277605772010051,
+            "CdTe": -1.7434827155724522
+          }
+        }
+      ]
+    }
+  ]
+}

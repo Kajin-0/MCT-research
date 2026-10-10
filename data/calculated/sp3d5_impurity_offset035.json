@@ -1,0 +1,997 @@
+{
+  "claim_status": "CALCULATED: binary-derived finite-q diagnostic, not physical self-consistent impurity",
+  "empirical_alloy_gap_inputs": [],
+  "parameter_file_sha256": "841222a0db79f4f75e0bcc49032877ede3a10350d3d0dee2648975d817004e58",
+  "source": {
+    "author": "Christoph Schindler",
+    "title": "Quantum spin transport in semiconductor nanostructures",
+    "year": 2012,
+    "url": "https://www.osti.gov/etdeweb/servlets/purl/21595032",
+    "pdf_sha256": "851cc42594bb800288b26d02d2e3ff5d551a0a2690260cfbde5ac4feaa631fbe",
+    "parameters": "Table 2.2, printed page 29 (PDF page 29)",
+    "soc_convention": "Eq. (1.15): H_SO = Delta_SO L.sigma on p orbitals; no d SOC",
+    "offset": "Section 4.2: valence-band offset 0.4 eV; HgTe valence higher than CdTe",
+    "fit_inputs": "Binary band energies in Table 2.1; alloys subsequently checked using VCA",
+    "status": "Published semiempirical binary Hamiltonian, not a first-principles impurity potential"
+  },
+  "offset_eV": 0.35,
+  "te_share": 0.25,
+  "quadrature": "even midpoint primitive reciprocal parallelepiped grid; no Gamma point",
+  "binary": {
+    "HgTe": {
+      "E6_eV": -0.3015708788235847,
+      "E8_eV": 7.967428155868274e-17,
+      "gap_eV": -0.30157087882358474
+    },
+    "CdTe": {
+      "E6_eV": 1.2481345228034662,
+      "E8_eV": -0.35000000000000386,
+      "gap_eV": 1.59813452280347
+    }
+  },
+  "rows": [
+    {
+      "energy_eV": -0.3015708788235847,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.3005917489560308,
+      "causality_min_eigenvalue": 1.0791469785599577e-05,
+      "optical_theorem_relative_residual": 3.635400379152235e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.5382214603347455,
+            "imag": -4.6212622465409336e-17
+          },
+          "second": {
+            "real": -1.0187856552591978,
+            "imag": -0.03224116614956703
+          },
+          "born_total": {
+            "real": 0.5194358050755482,
+            "imag": -0.03224116614956699
+          },
+          "exact": {
+            "real": 0.8220568184814792,
+            "imag": -0.01230149495912391
+          },
+          "born_negative_derivative": {
+            "real": 0.5723261530281805,
+            "imag": -0.05622533702162304
+          },
+          "exact_negative_derivative": {
+            "real": 0.22358509986877595,
+            "imag": -0.019173550291674356
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.15297576841431965,
+            "imag": 0.004490260245608789
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.062314747349597105,
+            "imag": -4.363913744254155e-18
+          },
+          "second": {
+            "real": 0.300812395617196,
+            "imag": -0.048879332591616045
+          },
+          "born_total": {
+            "real": 0.238497648267599,
+            "imag": -0.04887933259161603
+          },
+          "exact": {
+            "real": 0.25695325589797957,
+            "imag": -0.10652592943357704
+          },
+          "born_negative_derivative": {
+            "real": 0.49063137072024454,
+            "imag": -0.31007418884925575
+          },
+          "exact_negative_derivative": {
+            "real": 0.6755219755172,
+            "imag": -0.9205524273950328
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.46869431617372825,
+            "imag": -0.31559967193356353
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "reference": "Gamma6_pole",
+      "completeness_error": 6.283974690853954e-15
+    },
+    {
+      "energy_eV": 7.967428155868274e-17,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.47172858675398116,
+      "causality_min_eigenvalue": 9.386882775917298e-06,
+      "optical_theorem_relative_residual": 2.0791595068257215e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.5382214603347455,
+            "imag": -4.6212622465409336e-17
+          },
+          "second": {
+            "real": -1.1983215933798852,
+            "imag": -0.03318621798882532
+          },
+          "born_total": {
+            "real": 0.3398998669548601,
+            "imag": -0.03318621798882537
+          },
+          "exact": {
+            "real": 0.7539948044468963,
+            "imag": -0.01199256836823658
+          },
+          "born_negative_derivative": {
+            "real": 0.6594488915231029,
+            "imag": 0.030757896006865196
+          },
+          "exact_negative_derivative": {
+            "real": 0.23883186165736053,
+            "imag": 0.006369069519300047
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.18124505806833607,
+            "imag": 0.005362043168242972
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.062314747349597105,
+            "imag": -4.363913744254155e-18
+          },
+          "second": {
+            "real": 0.17472258650568434,
+            "imag": -0.018596188954577743
+          },
+          "born_total": {
+            "real": 0.11240783915608742,
+            "imag": -0.018596188954577646
+          },
+          "exact": {
+            "real": 0.07531689075678417,
+            "imag": -0.023841643778959365
+          },
+          "born_negative_derivative": {
+            "real": 0.35975162160318264,
+            "imag": -0.03825381952211718
+          },
+          "exact_negative_derivative": {
+            "real": 0.4539185757613916,
+            "imag": -0.07879262003625256
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.21395768633664003,
+            "imag": -0.03336321769517128
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "reference": "Gamma8_pole",
+      "completeness_error": 6.283974690853954e-15
+    },
+    {
+      "energy_eV": -0.15078543941179232,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.3902734945316564,
+      "causality_min_eigenvalue": 9.873304093643197e-06,
+      "optical_theorem_relative_residual": 2.7241599096231064e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.5382214603347455,
+            "imag": -4.6212622465409336e-17
+          },
+          "second": {
+            "real": -1.1048276257575413,
+            "imag": -0.030649696570311153
+          },
+          "born_total": {
+            "real": 0.4333938345772046,
+            "imag": -0.030649696570311222
+          },
+          "exact": {
+            "real": 0.7887592685585874,
+            "imag": -0.011557009224860805
+          },
+          "born_negative_derivative": {
+            "real": 0.5880834345639472,
+            "imag": -0.002982977106595071
+          },
+          "exact_negative_derivative": {
+            "real": 0.22395968595839028,
+            "imag": -0.0025901188600867637
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.166205893511656,
+            "imag": 0.0047720607872858535
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.062314747349597105,
+            "imag": -4.363913744254155e-18
+          },
+          "second": {
+            "real": 0.2334728813662807,
+            "imag": -0.029045183749505328
+          },
+          "born_total": {
+            "real": 0.17115813401668362,
+            "imag": -0.029045183749505394
+          },
+          "exact": {
+            "real": 0.15499086300994713,
+            "imag": -0.04734762168961176
+          },
+          "born_negative_derivative": {
+            "real": 0.42032342339868733,
+            "imag": -0.14247481551610822
+          },
+          "exact_negative_derivative": {
+            "real": 0.5974961479801228,
+            "imag": -0.3308848296305953
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.3254289362915322,
+            "imag": -0.1043626523587678
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "reference": "common_mode",
+      "completeness_error": 6.283974690853954e-15
+    },
+    {
+      "energy_eV": -0.3015708788235847,
+      "eta_eV": 0.02,
+      "denominator_min_singular": 0.2781797467511624,
+      "causality_min_eigenvalue": 4.422973881898446e-06,
+      "optical_theorem_relative_residual": 3.021779341595922e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.5382214603347455,
+            "imag": -4.6212622465409336e-17
+          },
+          "second": {
+            "real": -1.0166616951924805,
+            "imag": -0.014296727157786845
+          },
+          "born_total": {
+            "real": 0.5215597651422652,
+            "imag": -0.01429672715778688
+          },
+          "exact": {
+            "real": 0.8227437523878057,
+            "imag": -0.005337450450625872
+          },
+          "born_negative_derivative": {
+            "real": 0.6392084223461494,
+            "imag": -0.09186868803074653
+          },
+          "exact_negative_derivative": {
+            "real": 0.24531343664529598,
+            "imag": -0.027935989738999384
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.15287803594797778,
+            "imag": 0.0018889003006328396
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.062314747349597105,
+            "imag": -4.363913744254155e-18
+          },
+          "second": {
+            "real": 0.314531481701395,
+            "imag": -0.03061811264117163
+          },
+          "born_total": {
+            "real": 0.2522167343517978,
+            "imag": -0.030618112641171584
+          },
+          "exact": {
+            "real": 0.2992107772187341,
+            "imag": -0.07860421207170504
+          },
+          "born_negative_derivative": {
+            "real": 0.8671719711140147,
+            "imag": -0.6938566115121776
+          },
+          "exact_negative_derivative": {
+            "real": 1.5680893336231383,
+            "imag": -2.277765364191501
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.6422487492058584,
+            "imag": -0.3034324163969814
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "reference": "Gamma6_pole",
+      "completeness_error": 6.283974690853954e-15
+    },
+    {
+      "energy_eV": 7.967428155868274e-17,
+      "eta_eV": 0.02,
+      "denominator_min_singular": 0.47038844125077134,
+      "causality_min_eigenvalue": 3.761304688154235e-06,
+      "optical_theorem_relative_residual": 2.001644751019372e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.5382214603347455,
+            "imag": -4.6212622465409336e-17
+          },
+          "second": {
+            "real": -1.198962719485221,
+            "imag": -0.013313895203998602
+          },
+          "born_total": {
+            "real": 0.33925874084952495,
+            "imag": -0.013313895203998633
+          },
+          "exact": {
+            "real": 0.7538627648039111,
+            "imag": -0.004806522697836152
+          },
+          "born_negative_derivative": {
+            "real": 0.6648572936783561,
+            "imag": 0.012054648028402474
+          },
+          "exact_negative_derivative": {
+            "real": 0.2401220271860452,
+            "imag": 0.0024642303058826304
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.18135289951728195,
+            "imag": 0.0021482814330491926
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.062314747349597105,
+            "imag": -4.363913744254155e-18
+          },
+          "second": {
+            "real": 0.17565584020898262,
+            "imag": -0.007648327069354283
+          },
+          "born_total": {
+            "real": 0.11334109285938565,
+            "imag": -0.007648327069354212
+          },
+          "exact": {
+            "real": 0.07719696766103926,
+            "imag": -0.009905181083809458
+          },
+          "born_negative_derivative": {
+            "real": 0.36980270896602885,
+            "imag": -0.024731557359320613
+          },
+          "exact_negative_derivative": {
+            "real": 0.47427116759371,
+            "imag": -0.04734996443183321
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.2196236953268803,
+            "imag": -0.015080497123508903
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "reference": "Gamma8_pole",
+      "completeness_error": 6.283974690853954e-15
+    },
+    {
+      "energy_eV": -0.15078543941179232,
+      "eta_eV": 0.02,
+      "denominator_min_singular": 0.37787880665736795,
+      "causality_min_eigenvalue": 4.018227746265927e-06,
+      "optical_theorem_relative_residual": 2.0563102806446263e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": 1.5382214603347455,
+            "imag": -4.6212622465409336e-17
+          },
+          "second": {
+            "real": -1.1044054600381945,
+            "imag": -0.01269775338292873
+          },
+          "born_total": {
+            "real": 0.4338160002965513,
+            "imag": -0.012697753382928707
+          },
+          "exact": {
+            "real": 0.7889167334835173,
+            "imag": -0.00474682532509165
+          },
+          "born_negative_derivative": {
+            "real": 0.6155857109792731,
+            "imag": -0.02447155372523422
+          },
+          "exact_negative_derivative": {
+            "real": 0.2319872490194258,
+            "imag": -0.007593841936000944
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.16622212470804,
+            "imag": 0.001944124072003628
+          }
+        },
+        "8": {
+          "first": {
+            "real": -0.062314747349597105,
+            "imag": -4.363913744254155e-18
+          },
+          "second": {
+            "real": 0.23884632778146037,
+            "imag": -0.014655505919667761
+          },
+          "born_total": {
+            "real": 0.17653158043186318,
+            "imag": -0.014655505919667713
+          },
+          "exact": {
+            "real": 0.16729619170701499,
+            "imag": -0.025685498058803956
+          },
+          "born_negative_derivative": {
+            "real": 0.5910685869728961,
+            "imag": -0.2172760546392467
+          },
+          "exact_negative_derivative": {
+            "real": 0.9605979345565113,
+            "imag": -0.4984821690093814
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.3683731850863578,
+            "imag": -0.06790172708420997
+          }
+        }
+      },
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "reference": "common_mode",
+      "completeness_error": 6.283974690853954e-15
+    },
+    {
+      "energy_eV": 1.2481345228034662,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.3240718550249899,
+      "causality_min_eigenvalue": 7.094468049036905e-06,
+      "optical_theorem_relative_residual": 1.9104659566703222e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -1.3043138263084366,
+            "imag": -0.034041618613263144
+          },
+          "born_total": {
+            "real": -2.863677620234824,
+            "imag": -0.034041618613263144
+          },
+          "exact": {
+            "real": -5.223450446985159,
+            "imag": -0.30391859223662215
+          },
+          "born_negative_derivative": {
+            "real": 0.655416912538115,
+            "imag": 0.09747905548963862
+          },
+          "exact_negative_derivative": {
+            "real": 5.647619534482078,
+            "imag": 1.6493918869412694
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 4.047362879644799,
+            "imag": 0.6699361784145098
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": -0.06724492547645501,
+            "imag": -0.004343723857999684
+          },
+          "born_total": {
+            "real": 0.5302149904780276,
+            "imag": -0.0043437238579996824
+          },
+          "exact": {
+            "real": 0.5541880029007793,
+            "imag": -0.005227502690869171
+          },
+          "born_negative_derivative": {
+            "real": 0.0866454902764848,
+            "imag": 0.00036745720022764
+          },
+          "exact_negative_derivative": {
+            "real": 0.10433852261068635,
+            "imag": 0.0002718492919878459
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.046639420967859016,
+            "imag": -0.00046332662109404736
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "Gamma6_pole",
+      "completeness_error": 7.244963739426022e-15
+    },
+    {
+      "energy_eV": -0.35000000000000386,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.5186125418004461,
+      "causality_min_eigenvalue": 8.182544861321328e-06,
+      "optical_theorem_relative_residual": 2.3102363787100655e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -0.7665779795063954,
+            "imag": -0.010906831843192796
+          },
+          "born_total": {
+            "real": -2.3259417734327834,
+            "imag": -0.010906831843192584
+          },
+          "exact": {
+            "real": -2.7115749468669135,
+            "imag": -0.03001219452586433
+          },
+          "born_negative_derivative": {
+            "real": 0.21595988735072907,
+            "imag": -0.003304635992910952
+          },
+          "exact_negative_derivative": {
+            "real": 0.5925604914841867,
+            "imag": -0.008666863526232658
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.4447233201515802,
+            "imag": 0.015755255749561395
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": 0.22474190591065082,
+            "imag": -0.05798888110972537
+          },
+          "born_total": {
+            "real": 0.8222018218651332,
+            "imag": -0.05798888110972537
+          },
+          "exact": {
+            "real": 0.969868674747359,
+            "imag": -0.1390465981329861
+          },
+          "born_negative_derivative": {
+            "real": 0.5678722348532523,
+            "imag": -0.6180702928519068
+          },
+          "exact_negative_derivative": {
+            "real": 0.7284901471617558,
+            "imag": -1.8436670498110004
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.5170501050557015,
+            "imag": -0.4762822995708632
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "Gamma8_pole",
+      "completeness_error": 7.244963739426022e-15
+    },
+    {
+      "energy_eV": 0.44906726140173114,
+      "eta_eV": 0.05,
+      "denominator_min_singular": 0.5087787300058532,
+      "causality_min_eigenvalue": 6.7277609186526474e-06,
+      "optical_theorem_relative_residual": 1.9492592391603287e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -0.9640983883414159,
+            "imag": -0.015129908989877715
+          },
+          "born_total": {
+            "real": -2.523462182267804,
+            "imag": -0.015129908989877554
+          },
+          "exact": {
+            "real": -3.3259827150163646,
+            "imag": -0.05539291072162908
+          },
+          "born_negative_derivative": {
+            "real": 0.3023918440912642,
+            "imag": 0.009698248152214727
+          },
+          "exact_negative_derivative": {
+            "real": 1.1054864672371902,
+            "imag": 0.0679781541690642
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.9553557537671684,
+            "imag": 0.0586221742205182
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": 0.010779102291459371,
+            "imag": -0.006168349947326196
+          },
+          "born_total": {
+            "real": 0.608239018245942,
+            "imag": -0.0061683499473261915
+          },
+          "exact": {
+            "real": 0.6487397160020858,
+            "imag": -0.007592614353436278
+          },
+          "born_negative_derivative": {
+            "real": 0.12311667428690751,
+            "imag": -0.005789845591557596
+          },
+          "exact_negative_derivative": {
+            "real": 0.15147655090708934,
+            "imag": -0.007835217718405074
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.07385164660576636,
+            "imag": -0.0038821766004178485
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "common_mode",
+      "completeness_error": 7.244963739426022e-15
+    },
+    {
+      "energy_eV": 1.2481345228034662,
+      "eta_eV": 0.02,
+      "denominator_min_singular": 0.32223264521891165,
+      "causality_min_eigenvalue": 2.853471946779761e-06,
+      "optical_theorem_relative_residual": 2.3065124843942283e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -1.306520356183893,
+            "imag": -0.01385453713470974
+          },
+          "born_total": {
+            "real": -2.8658841501102814,
+            "imag": -0.013854537134709782
+          },
+          "exact": {
+            "real": -5.260715935291989,
+            "imag": -0.12559319690123563
+          },
+          "born_negative_derivative": {
+            "real": 0.6876738051078822,
+            "imag": 0.04543490511136762
+          },
+          "exact_negative_derivative": {
+            "real": 6.194210258993174,
+            "imag": 0.7661881089019653
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 4.151223568498813,
+            "imag": 0.2793113592627937
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": -0.06725359616859675,
+            "imag": -0.0017395563298991672
+          },
+          "born_total": {
+            "real": 0.5302063197858857,
+            "imag": -0.001739556329899185
+          },
+          "exact": {
+            "real": 0.5541815485202286,
+            "imag": -0.002092890793906147
+          },
+          "born_negative_derivative": {
+            "real": 0.08693538799209459,
+            "imag": 0.0001854739028161668
+          },
+          "exact_negative_derivative": {
+            "real": 0.104606133016592,
+            "imag": 0.0001388335619429468
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.04668154589529948,
+            "imag": -0.0001856446315113103
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "Gamma6_pole",
+      "completeness_error": 7.244963739426022e-15
+    },
+    {
+      "energy_eV": -0.35000000000000386,
+      "eta_eV": 0.02,
+      "denominator_min_singular": 0.4801467901976922,
+      "causality_min_eigenvalue": 3.287463977478282e-06,
+      "optical_theorem_relative_residual": 2.2864992154015363e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -0.7664927559688532,
+            "imag": -0.0043855724844868325
+          },
+          "born_total": {
+            "real": -2.3258565498952413,
+            "imag": -0.0043855724844867085
+          },
+          "exact": {
+            "real": -2.7113391070906836,
+            "imag": -0.012084961553439622
+          },
+          "born_negative_derivative": {
+            "real": 0.21867473471872273,
+            "imag": -0.0020746063536978467
+          },
+          "exact_negative_derivative": {
+            "real": 0.6021441863517336,
+            "imag": -0.006030309288343876
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.4452463025136289,
+            "imag": 0.0063274918014354035
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": 0.2466676415472332,
+            "imag": -0.03668568141232978
+          },
+          "born_total": {
+            "real": 0.8441275575017158,
+            "imag": -0.036685681412329744
+          },
+          "exact": {
+            "real": 1.0406464725470113,
+            "imag": -0.1041927940697588
+          },
+          "born_negative_derivative": {
+            "real": 0.9074495499853595,
+            "imag": -0.8857781667507771
+          },
+          "exact_negative_derivative": {
+            "real": 1.8268881141424815,
+            "imag": -3.053804527920375
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.8460802819676427,
+            "imag": -0.4593840651011176
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "Gamma8_pole",
+      "completeness_error": 7.244963739426022e-15
+    },
+    {
+      "energy_eV": 0.44906726140173114,
+      "eta_eV": 0.02,
+      "denominator_min_singular": 0.5086278734085958,
+      "causality_min_eigenvalue": 2.6913391852090944e-06,
+      "optical_theorem_relative_residual": 1.5231113163436298e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -0.9643021216720884,
+            "imag": -0.006053697795993023
+          },
+          "born_total": {
+            "real": -2.5236659155984764,
+            "imag": -0.0060536977959931085
+          },
+          "exact": {
+            "real": -3.32741166172114,
+            "imag": -0.022177108254343724
+          },
+          "born_negative_derivative": {
+            "real": 0.30265183872670043,
+            "imag": 0.0038819715223165803
+          },
+          "exact_negative_derivative": {
+            "real": 1.1084751216277662,
+            "imag": 0.027244834499296683
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.957706518480896,
+            "imag": 0.023489305219013427
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": 0.01090085695361177,
+            "imag": -0.0024694456706155134
+          },
+          "born_total": {
+            "real": 0.6083607729080942,
+            "imag": -0.0024694456706154705
+          },
+          "exact": {
+            "real": 0.6489045465891325,
+            "imag": -0.0030402076964258984
+          },
+          "born_negative_derivative": {
+            "real": 0.12343211854763228,
+            "imag": -0.0023223399385535505
+          },
+          "exact_negative_derivative": {
+            "real": 0.15195004693407568,
+            "imag": -0.0031451849810711493
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.07406211664279774,
+            "imag": -0.0015575416354358593
+          }
+        }
+      },
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "common_mode",
+      "completeness_error": 7.244963739426022e-15
+    },
+    {
+      "energy_eV": 0.44906726140173114,
+      "eta_eV": 0,
+      "denominator_min_singular": 0.5085991204171403,
+      "causality_min_eigenvalue": -3.454796130226837e-16,
+      "optical_theorem_relative_residual": 1.622386570331004e-16,
+      "branches": {
+        "6": {
+          "first": {
+            "real": -1.559363793926388,
+            "imag": -1.0751050719526588e-16
+          },
+          "second": {
+            "real": -0.9643409439356867,
+            "imag": -2.023524782625055e-17
+          },
+          "born_total": {
+            "real": -2.523704737862075,
+            "imag": -1.3736565692999615e-16
+          },
+          "exact": {
+            "real": -3.3276841611885324,
+            "imag": 2.5372354995643645e-16
+          },
+          "born_negative_derivative": {
+            "real": 0.3027014171187877,
+            "imag": -3.901864279168437e-19
+          },
+          "exact_negative_derivative": {
+            "real": 1.109045596990247,
+            "imag": -4.727683636447273e-17
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.9581550942557704,
+            "imag": 2.8020528869415355e-17
+          }
+        },
+        "8": {
+          "first": {
+            "real": 0.5974599159544827,
+            "imag": 7.806255641895632e-18
+          },
+          "second": {
+            "real": 0.010924086467051449,
+            "imag": -1.2495430037895439e-17
+          },
+          "born_total": {
+            "real": 0.6083840024215339,
+            "imag": 4.163336342344337e-17
+          },
+          "exact": {
+            "real": 0.6489360090458209,
+            "imag": 8.673617379884035e-19
+          },
+          "born_negative_derivative": {
+            "real": 0.12349237142163583,
+            "imag": 3.2526065174565133e-18
+          },
+          "exact_negative_derivative": {
+            "real": 0.15204056428505064,
+            "imag": 5.421010862427522e-18
+          },
+          "incorrect_g_squared_negative_derivative": {
+            "real": 0.07410233496764275,
+            "imag": -5.366800753803247e-18
+          }
+        }
+      },
+      "off_continuum_min_negative_Tprime_eigenvalue": 0.00013456919791011052,
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "reference": "common_mode_gap_real",
+      "completeness_error": 7.244963739426022e-15
+    }
+  ]
+}
