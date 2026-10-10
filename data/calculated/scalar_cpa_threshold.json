@@ -1,0 +1,1190 @@
+{
+  "claim_status": "CALCULATED numerical check of conditional PROVEN scalar CPA asymptotics",
+  "material": null,
+  "empirical_alloy_gap_inputs": [],
+  "potential_eV": -0.1,
+  "bandwidth_eV": 1.0,
+  "density_of_states": "3 sqrt(epsilon)/(2 bandwidth**1.5), 0<epsilon<bandwidth",
+  "constants": {
+    "g0": -3.0,
+    "d0": 0.7,
+    "t0": -0.14285714285714288,
+    "a": 0.09617120368132023,
+    "b": 0.08746355685131198,
+    "cpa_edge_x2": 0.08977578195569047,
+    "gamma_peak_x2": 0.09054652365714998,
+    "ata_pole_x_three_halves": 0.03634929831807326
+  },
+  "rows": [
+    {
+      "concentration": 0.03,
+      "ata_pole_eV": -0.00411524234208329,
+      "ata_x_three_halves_coefficient": 0.03280734084821133,
+      "cpa_edge": {
+        "w": -1.7053948335293206e-06,
+        "sigma": -0.00420634619734836,
+        "energy": -0.004208051592181889,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -0.0042074787853199095,
+        "x2_coefficient": 0.08692833377152939,
+        "scaled_peak_height": 342.76839738079894,
+        "external_eta": 8.324010375762584e-12
+      },
+      "cpa_edge_x2_coefficient": 0.08629188170266373,
+      "edge_pair_indicator": 1.095398196620974,
+      "peak_pair_indicator": 0.9481076133033957
+    },
+    {
+      "concentration": 0.01,
+      "ata_pole_eV": -0.0013943531303048698,
+      "ata_x_three_halves_coefficient": 0.03421829826655894,
+      "cpa_edge": {
+        "w": -2.161713497989231e-07,
+        "sigma": -0.00141949795960267,
+        "energy": -0.0014197141309524688,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -0.0014196412137793069,
+        "x2_coefficient": 0.08930214792121993,
+        "scaled_peak_height": 300.4530358912361,
+        "external_eta": 9.248900417513983e-13
+      },
+      "cpa_edge_x2_coefficient": 0.08857297618959994,
+      "edge_pair_indicator": 1.0311355836274116,
+      "peak_pair_indicator": 0.8917942228158223
+    },
+    {
+      "concentration": 0.003,
+      "ata_pole_eV": -0.0004227955638847901,
+      "ata_x_three_halves_coefficient": 0.03515079308854937,
+      "cpa_edge": {
+        "w": -2.039183449860224e-08,
+        "sigma": -0.0004277463437588866,
+        "energy": -0.0004277667355933852,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -0.00042775993565679265,
+        "x2_coefficient": 0.09016587940400089,
+        "scaled_peak_height": 286.6652362364404,
+        "external_eta": 8.324010375762583e-14
+      },
+      "cpa_edge_x2_coefficient": 0.08941033089371846,
+      "edge_pair_indicator": 1.009273368805536,
+      "peak_pair_indicator": 0.8740519767929715
+    },
+    {
+      "concentration": 0.001,
+      "ata_pole_eV": -0.00014172986426595877,
+      "ata_x_three_halves_coefficient": 0.035647679056875714,
+      "cpa_edge": {
+        "w": -2.2966075283182367e-09,
+        "sigma": -0.00014276519273219028,
+        "energy": -0.0001427674893397186,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -0.00014276672365119662,
+        "x2_coefficient": 0.09041920594625377,
+        "scaled_peak_height": 282.8133091986078,
+        "external_eta": 9.248900417513981e-15
+      },
+      "cpa_edge_x2_coefficient": 0.08965351742427713,
+      "edge_pair_indicator": 1.0030847877850984,
+      "peak_pair_indicator": 0.8686846045591896
+    },
+    {
+      "concentration": 0.0003,
+      "ata_pole_eV": -4.267028061269463e-05,
+      "ata_x_three_halves_coefficient": 0.035961655711186945,
+      "cpa_edge": {
+        "w": -2.076773539480796e-10,
+        "sigma": -4.284885866480896e-05,
+        "energy": -4.2849066342162906e-05,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -4.284899711262114e-05,
+        "x2_coefficient": 0.09050827246348514,
+        "scaled_peak_height": 281.4765594743265,
+        "external_eta": 8.324010375762582e-16
+      },
+      "cpa_edge_x2_coefficient": 0.08973905533278136,
+      "edge_pair_indicator": 1.0009247734967817,
+      "peak_pair_indicator": 0.8668222188859399
+    },
+    {
+      "concentration": 0.0001,
+      "ata_pole_eV": -1.4249589797040253e-05,
+      "ata_x_three_halves_coefficient": 0.03612448867403605,
+      "cpa_edge": {
+        "w": -2.3106574811756994e-11,
+        "sigma": -1.4284793543787095e-05,
+        "energy": -1.4284816650361907e-05,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -1.4284808947947864e-05,
+        "x2_coefficient": 0.09053377664251056,
+        "scaled_peak_height": 281.0917965981867,
+        "external_eta": 9.248900417513982e-17
+      },
+      "cpa_edge_x2_coefficient": 0.08976353523820763,
+      "edge_pair_indicator": 1.0003081947793406,
+      "peak_pair_indicator": 0.8662788237627954
+    },
+    {
+      "concentration": 3e-05,
+      "ata_pole_eV": -4.279761775660282e-06,
+      "ata_x_three_halves_coefficient": 0.036225822559495836,
+      "cpa_edge": {
+        "w": -2.080579212069725e-12,
+        "sigma": -4.285631410238354e-06,
+        "energy": -4.285633490817566e-06,
+        "fold_residual": 1.1102230246251565e-16
+      },
+      "cpa_gamma_peak": {
+        "energy": -4.285632797277357e-06,
+        "x2_coefficient": 0.09054270769889294,
+        "scaled_peak_height": 280.96141601494315,
+        "external_eta": 8.324010375762583e-18
+      },
+      "cpa_edge_x2_coefficient": 0.08977210746726838,
+      "edge_pair_indicator": 1.0000924518155943,
+      "peak_pair_indicator": 0.866100631046085
+    },
+    {
+      "concentration": 1e-05,
+      "ata_pole_eV": -1.4274242203943687e-06,
+      "ata_x_three_halves_coefficient": 0.03627790789879911,
+      "cpa_edge": {
+        "w": -2.3120682831939135e-13,
+        "sigma": -1.4285622199088924e-06,
+        "energy": -1.4285624511157208e-06,
+        "fold_residual": 0.0
+      },
+      "cpa_gamma_peak": {
+        "energy": -1.4285623740454372e-06,
+        "x2_coefficient": 0.09054525991620924,
+        "scaled_peak_height": 280.9235702995082,
+        "external_eta": 9.248900417513983e-19
+      },
+      "cpa_edge_x2_coefficient": 0.08977455708019907,
+      "edge_pair_indicator": 1.0000308166416336,
+      "peak_pair_indicator": 0.8660480013974025
+    }
+  ],
+  "pair_indicator_is_rigorous_error_bound": false,
+  "inner_shape": {
+    "concentration": 0.0001,
+    "rows": [
+      {
+        "scaled_p_over_a2": 0.003,
+        "analytic_normalized_density": 0.8556961638287837,
+        "numerical_normalized_density": 1.0177202208088618
+      },
+      {
+        "scaled_p_over_a2": 0.012030150753768846,
+        "analytic_normalized_density": 1.597471068250467,
+        "numerical_normalized_density": 1.667741759171557
+      },
+      {
+        "scaled_p_over_a2": 0.02106030150753769,
+        "analytic_normalized_density": 1.9751517053600403,
+        "numerical_normalized_density": 2.0187671478516758
+      },
+      {
+        "scaled_p_over_a2": 0.030090452261306532,
+        "analytic_normalized_density": 2.211147671919025,
+        "numerical_normalized_density": 2.2401151026029953
+      },
+      {
+        "scaled_p_over_a2": 0.03912060301507538,
+        "analytic_normalized_density": 2.366163159360739,
+        "numerical_normalized_density": 2.3859748376961067
+      },
+      {
+        "scaled_p_over_a2": 0.04815075376884423,
+        "analytic_normalized_density": 2.468480619086964,
+        "numerical_normalized_density": 2.4820523612882655
+      },
+      {
+        "scaled_p_over_a2": 0.05718090452261307,
+        "analytic_normalized_density": 2.5341777922387263,
+        "numerical_normalized_density": 2.5432813445316937
+      },
+      {
+        "scaled_p_over_a2": 0.06621105527638192,
+        "analytic_normalized_density": 2.573422867580433,
+        "numerical_normalized_density": 2.5792253449970506
+      },
+      {
+        "scaled_p_over_a2": 0.07524120603015076,
+        "analytic_normalized_density": 2.593084973251274,
+        "numerical_normalized_density": 2.59639715449027
+      },
+      {
+        "scaled_p_over_a2": 0.0842713567839196,
+        "analytic_normalized_density": 2.598015063524189,
+        "numerical_normalized_density": 2.599421574979861
+      },
+      {
+        "scaled_p_over_a2": 0.09330150753768846,
+        "analytic_normalized_density": 2.591748819613589,
+        "numerical_normalized_density": 2.591682918115389
+      },
+      {
+        "scaled_p_over_a2": 0.1023316582914573,
+        "analytic_normalized_density": 2.5769243554644716,
+        "numerical_normalized_density": 2.57571387413379
+      },
+      {
+        "scaled_p_over_a2": 0.11136180904522613,
+        "analytic_normalized_density": 2.5555456030207715,
+        "numerical_normalized_density": 2.553442665408593
+      },
+      {
+        "scaled_p_over_a2": 0.12039195979899499,
+        "analytic_normalized_density": 2.5291561329081587,
+        "numerical_normalized_density": 2.526357156704313
+      },
+      {
+        "scaled_p_over_a2": 0.12942211055276384,
+        "analytic_normalized_density": 2.498958062851583,
+        "numerical_normalized_density": 2.4956176667981262
+      },
+      {
+        "scaled_p_over_a2": 0.13845226130653268,
+        "analytic_normalized_density": 2.4658957878274745,
+        "numerical_normalized_density": 2.4621367171404054
+      },
+      {
+        "scaled_p_over_a2": 0.14748241206030152,
+        "analytic_normalized_density": 2.4307163526087834,
+        "numerical_normalized_density": 2.4266367180306894
+      },
+      {
+        "scaled_p_over_a2": 0.15651256281407036,
+        "analytic_normalized_density": 2.394013848896397,
+        "numerical_normalized_density": 2.3896925029932605
+      },
+      {
+        "scaled_p_over_a2": 0.1655427135678392,
+        "analytic_normalized_density": 2.356262611150262,
+        "numerical_normalized_density": 2.3517632051772197
+      },
+      {
+        "scaled_p_over_a2": 0.17457286432160807,
+        "analytic_normalized_density": 2.3178423912010038,
+        "numerical_normalized_density": 2.313216476200044
+      },
+      {
+        "scaled_p_over_a2": 0.1836030150753769,
+        "analytic_normalized_density": 2.279057684153185,
+        "numerical_normalized_density": 2.274347109543633
+      },
+      {
+        "scaled_p_over_a2": 0.19263316582914575,
+        "analytic_normalized_density": 2.240152722483554,
+        "numerical_normalized_density": 2.235391509582935
+      },
+      {
+        "scaled_p_over_a2": 0.2016633165829146,
+        "analytic_normalized_density": 2.201323217758524,
+        "numerical_normalized_density": 2.196539037738322
+      },
+      {
+        "scaled_p_over_a2": 0.21069346733668343,
+        "analytic_normalized_density": 2.1627256309598177,
+        "numerical_normalized_density": 2.157940977379572
+      },
+      {
+        "scaled_p_over_a2": 0.21972361809045227,
+        "analytic_normalized_density": 2.1244845448285696,
+        "numerical_normalized_density": 2.1197176738894647
+      },
+      {
+        "scaled_p_over_a2": 0.22875376884422113,
+        "analytic_normalized_density": 2.086698564747666,
+        "numerical_normalized_density": 2.081964251472827
+      },
+      {
+        "scaled_p_over_a2": 0.23778391959798997,
+        "analytic_normalized_density": 2.049445069129473,
+        "numerical_normalized_density": 2.044755219004053
+      },
+      {
+        "scaled_p_over_a2": 0.2468140703517588,
+        "analytic_normalized_density": 2.012784053378574,
+        "numerical_normalized_density": 2.0081482021531905
+      },
+      {
+        "scaled_p_over_a2": 0.2558442211055277,
+        "analytic_normalized_density": 1.9767612547803004,
+        "numerical_normalized_density": 1.9721869754588404
+      },
+      {
+        "scaled_p_over_a2": 0.2648743718592965,
+        "analytic_normalized_density": 1.9414107033602461,
+        "numerical_normalized_density": 1.9369039407993598
+      },
+      {
+        "scaled_p_over_a2": 0.27390452261306536,
+        "analytic_normalized_density": 1.9067568118829998,
+        "numerical_normalized_density": 1.902322159519748
+      },
+      {
+        "scaled_p_over_a2": 0.2829346733668342,
+        "analytic_normalized_density": 1.8728160939159884,
+        "numerical_normalized_density": 1.8684570217810113
+      },
+      {
+        "scaled_p_over_a2": 0.29196482412060304,
+        "analytic_normalized_density": 1.8395985802913548,
+        "numerical_normalized_density": 1.8353176243897844
+      },
+      {
+        "scaled_p_over_a2": 0.3009949748743719,
+        "analytic_normalized_density": 1.807108989927409,
+        "numerical_normalized_density": 1.8029079102120191
+      },
+      {
+        "scaled_p_over_a2": 0.3100251256281407,
+        "analytic_normalized_density": 1.775347699782996,
+        "numerical_normalized_density": 1.7712276113168675
+      },
+      {
+        "scaled_p_over_a2": 0.31905527638190956,
+        "analytic_normalized_density": 1.7443115499502857,
+        "numerical_normalized_density": 1.7402730330453782
+      },
+      {
+        "scaled_p_over_a2": 0.3280854271356784,
+        "analytic_normalized_density": 1.7139945129781173,
+        "numerical_normalized_density": 1.7100377052859554
+      },
+      {
+        "scaled_p_over_a2": 0.33711557788944724,
+        "analytic_normalized_density": 1.6843882510357808,
+        "numerical_normalized_density": 1.6805129249407074
+      },
+      {
+        "scaled_p_over_a2": 0.34614572864321613,
+        "analytic_normalized_density": 1.6554825801565505,
+        "numerical_normalized_density": 1.6516882072955443
+      },
+      {
+        "scaled_p_over_a2": 0.355175879396985,
+        "analytic_normalized_density": 1.6272658572987497,
+        "numerical_normalized_density": 1.6235516638430603
+      },
+      {
+        "scaled_p_over_a2": 0.3642060301507538,
+        "analytic_normalized_density": 1.5997253031437721,
+        "numerical_normalized_density": 1.5960903153312995
+      },
+      {
+        "scaled_p_over_a2": 0.37323618090452265,
+        "analytic_normalized_density": 1.5728472712721127,
+        "numerical_normalized_density": 1.5692903542401144
+      },
+      {
+        "scaled_p_over_a2": 0.3822663316582915,
+        "analytic_normalized_density": 1.546617472509188,
+        "numerical_normalized_density": 1.543137363294878
+      },
+      {
+        "scaled_p_over_a2": 0.39129648241206033,
+        "analytic_normalized_density": 1.5210211617258702,
+        "numerical_normalized_density": 1.5176164963826617
+      },
+      {
+        "scaled_p_over_a2": 0.40032663316582917,
+        "analytic_normalized_density": 1.4960432931464673,
+        "numerical_normalized_density": 1.4927126302809623
+      },
+      {
+        "scaled_p_over_a2": 0.409356783919598,
+        "analytic_normalized_density": 1.471668649205835,
+        "numerical_normalized_density": 1.468410489378139
+      },
+      {
+        "scaled_p_over_a2": 0.41838693467336685,
+        "analytic_normalized_density": 1.4478819471650346,
+        "numerical_normalized_density": 1.4446947494933373
+      },
+      {
+        "scaled_p_over_a2": 0.4274170854271357,
+        "analytic_normalized_density": 1.4246679270078102,
+        "numerical_normalized_density": 1.4215501227563512
+      },
+      {
+        "scaled_p_over_a2": 0.43644723618090453,
+        "analytic_normalized_density": 1.4020114235711665,
+        "numerical_normalized_density": 1.3989614279893405
+      },
+      {
+        "scaled_p_over_a2": 0.4454773869346734,
+        "analytic_normalized_density": 1.3798974253909662,
+        "numerical_normalized_density": 1.3769136474083643
+      },
+      {
+        "scaled_p_over_a2": 0.45450753768844226,
+        "analytic_normalized_density": 1.3583111223502577,
+        "numerical_normalized_density": 1.355391972402072
+      },
+      {
+        "scaled_p_over_a2": 0.4635376884422111,
+        "analytic_normalized_density": 1.3372379438899658,
+        "numerical_normalized_density": 1.3343818410350472
+      },
+      {
+        "scaled_p_over_a2": 0.47256783919597994,
+        "analytic_normalized_density": 1.31666358926724,
+        "numerical_normalized_density": 1.3138689664349954
+      },
+      {
+        "scaled_p_over_a2": 0.4815979899497488,
+        "analytic_normalized_density": 1.2965740511168105,
+        "numerical_normalized_density": 1.2938393597977946
+      },
+      {
+        "scaled_p_over_a2": 0.4906281407035176,
+        "analytic_normalized_density": 1.2769556333776189,
+        "numerical_normalized_density": 1.2742793472966996
+      },
+      {
+        "scaled_p_over_a2": 0.49965829145728646,
+        "analytic_normalized_density": 1.257794964484551,
+        "numerical_normalized_density": 1.2551755825972317
+      },
+      {
+        "scaled_p_over_a2": 0.5086884422110554,
+        "analytic_normalized_density": 1.2390790065881423,
+        "numerical_normalized_density": 1.236515055539102
+      },
+      {
+        "scaled_p_over_a2": 0.5177185929648241,
+        "analytic_normalized_density": 1.2207950614495384,
+        "numerical_normalized_density": 1.218285097318745
+      },
+      {
+        "scaled_p_over_a2": 0.526748743718593,
+        "analytic_normalized_density": 1.2029307735602084,
+        "numerical_normalized_density": 1.2004733835011485
+      },
+      {
+        "scaled_p_over_a2": 0.5357788944723618,
+        "analytic_normalized_density": 1.18547413095314,
+        "numerical_normalized_density": 1.1830679339071268
+      },
+      {
+        "scaled_p_over_a2": 0.5448090452261307,
+        "analytic_normalized_density": 1.1684134641019943,
+        "numerical_normalized_density": 1.1660571116749063
+      },
+      {
+        "scaled_p_over_a2": 0.5538391959798995,
+        "analytic_normalized_density": 1.1517374432451224,
+        "numerical_normalized_density": 1.1494296203658572
+      },
+      {
+        "scaled_p_over_a2": 0.5628693467336684,
+        "analytic_normalized_density": 1.1354350744206134,
+        "numerical_normalized_density": 1.1331744992286972
+      },
+      {
+        "scaled_p_over_a2": 0.5718994974874372,
+        "analytic_normalized_density": 1.1194956944554593,
+        "numerical_normalized_density": 1.117281118450451
+      },
+      {
+        "scaled_p_over_a2": 0.5809296482412061,
+        "analytic_normalized_density": 1.1039089651151366,
+        "numerical_normalized_density": 1.10173917329127
+      },
+      {
+        "scaled_p_over_a2": 0.589959798994975,
+        "analytic_normalized_density": 1.0886648665886076,
+        "numerical_normalized_density": 1.086538676860088
+      },
+      {
+        "scaled_p_over_a2": 0.5989899497487438,
+        "analytic_normalized_density": 1.073753690457007,
+        "numerical_normalized_density": 1.07166995342586
+      },
+      {
+        "scaled_p_over_a2": 0.6080201005025127,
+        "analytic_normalized_density": 1.0591660322714536,
+        "numerical_normalized_density": 1.0571236307748495
+      },
+      {
+        "scaled_p_over_a2": 0.6170502512562814,
+        "analytic_normalized_density": 1.0448927838459476,
+        "numerical_normalized_density": 1.0428906323731055
+      },
+      {
+        "scaled_p_over_a2": 0.6260804020100503,
+        "analytic_normalized_density": 1.0309251253546496,
+        "numerical_normalized_density": 1.0289621696066475
+      },
+      {
+        "scaled_p_over_a2": 0.6351105527638191,
+        "analytic_normalized_density": 1.0172545173085914,
+        "numerical_normalized_density": 1.0153297334774798
+      },
+      {
+        "scaled_p_over_a2": 0.644140703517588,
+        "analytic_normalized_density": 1.003872692474708,
+        "numerical_normalized_density": 1.0019850864688538
+      },
+      {
+        "scaled_p_over_a2": 0.6531708542713568,
+        "analytic_normalized_density": 0.9907716477896625,
+        "numerical_normalized_density": 0.9889202547317382
+      },
+      {
+        "scaled_p_over_a2": 0.6622010050251257,
+        "analytic_normalized_density": 0.9779436363120405,
+        "numerical_normalized_density": 0.9761275197409269
+      },
+      {
+        "scaled_p_over_a2": 0.6712311557788945,
+        "analytic_normalized_density": 0.965381159248883,
+        "numerical_normalized_density": 0.9635994102918446
+      },
+      {
+        "scaled_p_over_a2": 0.6802613065326634,
+        "analytic_normalized_density": 0.9530769580860383,
+        "numerical_normalized_density": 0.9513286949540374
+      },
+      {
+        "scaled_p_over_a2": 0.6892914572864323,
+        "analytic_normalized_density": 0.9410240068462623,
+        "numerical_normalized_density": 0.9393083738929328
+      },
+      {
+        "scaled_p_over_a2": 0.698321608040201,
+        "analytic_normalized_density": 0.929215504494268,
+        "numerical_normalized_density": 0.9275316715326718
+      },
+      {
+        "scaled_p_over_a2": 0.7073517587939699,
+        "analytic_normalized_density": 0.9176448675038982,
+        "numerical_normalized_density": 0.9159920290761518
+      },
+      {
+        "scaled_p_over_a2": 0.7163819095477387,
+        "analytic_normalized_density": 0.9063057225991668,
+        "numerical_normalized_density": 0.904683097480183
+      },
+      {
+        "scaled_p_over_a2": 0.7254120603015076,
+        "analytic_normalized_density": 0.8951918996780038,
+        "numerical_normalized_density": 0.8935987296311815
+      },
+      {
+        "scaled_p_over_a2": 0.7344422110552764,
+        "analytic_normalized_density": 0.8842974249250689,
+        "numerical_normalized_density": 0.8827329745029202
+      },
+      {
+        "scaled_p_over_a2": 0.7434723618090453,
+        "analytic_normalized_density": 0.8736165141179177,
+        "numerical_normalized_density": 0.8720800698275939
+      },
+      {
+        "scaled_p_over_a2": 0.7525025125628141,
+        "analytic_normalized_density": 0.8631435661290449,
+        "numerical_normalized_density": 0.8616344355621892
+      },
+      {
+        "scaled_p_over_a2": 0.761532663316583,
+        "analytic_normalized_density": 0.85287315662485,
+        "numerical_normalized_density": 0.8513906680323781
+      },
+      {
+        "scaled_p_over_a2": 0.7705628140703518,
+        "analytic_normalized_density": 0.8428000319613409,
+        "numerical_normalized_density": 0.8413435335387449
+      },
+      {
+        "scaled_p_over_a2": 0.7795929648241207,
+        "analytic_normalized_density": 0.8329191032753669,
+        "numerical_normalized_density": 0.8314879624307068
+      },
+      {
+        "scaled_p_over_a2": 0.7886231155778896,
+        "analytic_normalized_density": 0.8232254407693117,
+        "numerical_normalized_density": 0.8218190436308749
+      },
+      {
+        "scaled_p_over_a2": 0.7976532663316583,
+        "analytic_normalized_density": 0.8137142681865003,
+        "numerical_normalized_density": 0.8123320190014747
+      },
+      {
+        "scaled_p_over_a2": 0.8066834170854272,
+        "analytic_normalized_density": 0.8043809574739961,
+        "numerical_normalized_density": 0.8030222779306113
+      },
+      {
+        "scaled_p_over_a2": 0.815713567839196,
+        "analytic_normalized_density": 0.7952210236290136,
+        "numerical_normalized_density": 0.793885352369672
+      },
+      {
+        "scaled_p_over_a2": 0.8247437185929649,
+        "analytic_normalized_density": 0.7862301197248277,
+        "numerical_normalized_density": 0.7849169118149198
+      },
+      {
+        "scaled_p_over_a2": 0.8337738693467337,
+        "analytic_normalized_density": 0.7774040321117678,
+        "numerical_normalized_density": 0.7761127583643072
+      },
+      {
+        "scaled_p_over_a2": 0.8428040201005026,
+        "analytic_normalized_density": 0.7687386757886929,
+        "numerical_normalized_density": 0.7674688224659733
+      },
+      {
+        "scaled_p_over_a2": 0.8518341708542714,
+        "analytic_normalized_density": 0.7602300899402024,
+        "numerical_normalized_density": 0.7589811580599242
+      },
+      {
+        "scaled_p_over_a2": 0.8608643216080403,
+        "analytic_normalized_density": 0.7518744336347182,
+        "numerical_normalized_density": 0.7506459386445126
+      },
+      {
+        "scaled_p_over_a2": 0.8698944723618091,
+        "analytic_normalized_density": 0.7436679816785532,
+        "numerical_normalized_density": 0.7424594529183557
+      },
+      {
+        "scaled_p_over_a2": 0.878924623115578,
+        "analytic_normalized_density": 0.7356071206210357,
+        "numerical_normalized_density": 0.7344181008230327
+      },
+      {
+        "scaled_p_over_a2": 0.8879547738693468,
+        "analytic_normalized_density": 0.7276883449057839,
+        "numerical_normalized_density": 0.7265183898406425
+      },
+      {
+        "scaled_p_over_a2": 0.8969849246231156,
+        "analytic_normalized_density": 0.7199082531632657,
+        "numerical_normalized_density": 0.7187569311533168
+      },
+      {
+        "scaled_p_over_a2": 0.9060150753768845,
+        "analytic_normalized_density": 0.7122635446398184,
+        "numerical_normalized_density": 0.711130436199321
+      },
+      {
+        "scaled_p_over_a2": 0.9150452261306533,
+        "analytic_normalized_density": 0.704751015758403,
+        "numerical_normalized_density": 0.70363571321338
+      },
+      {
+        "scaled_p_over_a2": 0.9240753768844222,
+        "analytic_normalized_density": 0.6973675568064281,
+        "numerical_normalized_density": 0.6962696638377647
+      },
+      {
+        "scaled_p_over_a2": 0.933105527638191,
+        "analytic_normalized_density": 0.6901101487460963,
+        "numerical_normalized_density": 0.68902928005402
+      },
+      {
+        "scaled_p_over_a2": 0.9421356783919599,
+        "analytic_normalized_density": 0.6829758601428269,
+        "numerical_normalized_density": 0.6819116411929227
+      },
+      {
+        "scaled_p_over_a2": 0.9511658291457287,
+        "analytic_normalized_density": 0.6759618442074178,
+        "numerical_normalized_density": 0.6749139106988775
+      },
+      {
+        "scaled_p_over_a2": 0.9601959798994976,
+        "analytic_normalized_density": 0.6690653359477349,
+        "numerical_normalized_density": 0.6680333336550567
+      },
+      {
+        "scaled_p_over_a2": 0.9692261306532665,
+        "analytic_normalized_density": 0.6622836494258356,
+        "numerical_normalized_density": 0.6612672337519737
+      },
+      {
+        "scaled_p_over_a2": 0.9782562814070352,
+        "analytic_normalized_density": 0.6556141751165546,
+        "numerical_normalized_density": 0.6546130108683027
+      },
+      {
+        "scaled_p_over_a2": 0.9872864321608041,
+        "analytic_normalized_density": 0.6490543773637136,
+        "numerical_normalized_density": 0.6480681384124888
+      },
+      {
+        "scaled_p_over_a2": 0.9963165829145729,
+        "analytic_normalized_density": 0.6426017919302293,
+        "numerical_normalized_density": 0.6416301609901323
+      },
+      {
+        "scaled_p_over_a2": 1.0053467336683417,
+        "analytic_normalized_density": 0.6362540236385307,
+        "numerical_normalized_density": 0.6352966918324487
+      },
+      {
+        "scaled_p_over_a2": 1.0143768844221106,
+        "analytic_normalized_density": 0.630008744097815,
+        "numerical_normalized_density": 0.6290654108967422
+      },
+      {
+        "scaled_p_over_a2": 1.0234070351758793,
+        "analytic_normalized_density": 0.6238636895147917,
+        "numerical_normalized_density": 0.6229340623368971
+      },
+      {
+        "scaled_p_over_a2": 1.0324371859296482,
+        "analytic_normalized_density": 0.6178166585846883,
+        "numerical_normalized_density": 0.6169004525602113
+      },
+      {
+        "scaled_p_over_a2": 1.041467336683417,
+        "analytic_normalized_density": 0.6118655104594098,
+        "numerical_normalized_density": 0.6109624482389622
+      },
+      {
+        "scaled_p_over_a2": 1.050497487437186,
+        "analytic_normalized_density": 0.6060081627898534,
+        "numerical_normalized_density": 0.6051179742749004
+      },
+      {
+        "scaled_p_over_a2": 1.0595276381909546,
+        "analytic_normalized_density": 0.6002425898394977,
+        "numerical_normalized_density": 0.5993650119816057
+      },
+      {
+        "scaled_p_over_a2": 1.0685577889447235,
+        "analytic_normalized_density": 0.5945668206664936,
+        "numerical_normalized_density": 0.5937015972041141
+      },
+      {
+        "scaled_p_over_a2": 1.0775879396984924,
+        "analytic_normalized_density": 0.5889789373715908,
+        "numerical_normalized_density": 0.5881258187462209
+      },
+      {
+        "scaled_p_over_a2": 1.0866180904522613,
+        "analytic_normalized_density": 0.5834770734093336,
+        "numerical_normalized_density": 0.5826358163588212
+      },
+      {
+        "scaled_p_over_a2": 1.0956482412060302,
+        "analytic_normalized_density": 0.5780594119600654,
+        "numerical_normalized_density": 0.5772297795043297
+      },
+      {
+        "scaled_p_over_a2": 1.1046783919597989,
+        "analytic_normalized_density": 0.5727241843603731,
+        "numerical_normalized_density": 0.5719059455123194
+      },
+      {
+        "scaled_p_over_a2": 1.1137085427135678,
+        "analytic_normalized_density": 0.5674696685896979,
+        "numerical_normalized_density": 0.5666625982278436
+      },
+      {
+        "scaled_p_over_a2": 1.1227386934673367,
+        "analytic_normalized_density": 0.5622941878109322,
+        "numerical_normalized_density": 0.5614980664814134
+      },
+      {
+        "scaled_p_over_a2": 1.1317688442211056,
+        "analytic_normalized_density": 0.5571961089629007,
+        "numerical_normalized_density": 0.5564107227300414
+      },
+      {
+        "scaled_p_over_a2": 1.1407989949748742,
+        "analytic_normalized_density": 0.5521738414027191,
+        "numerical_normalized_density": 0.551398981572671
+      },
+      {
+        "scaled_p_over_a2": 1.1498291457286431,
+        "analytic_normalized_density": 0.5472258355960948,
+        "numerical_normalized_density": 0.5464612987525508
+      },
+      {
+        "scaled_p_over_a2": 1.158859296482412,
+        "analytic_normalized_density": 0.5423505818537194,
+        "numerical_normalized_density": 0.5415961695517726
+      },
+      {
+        "scaled_p_over_a2": 1.167889447236181,
+        "analytic_normalized_density": 0.53754660911197,
+        "numerical_normalized_density": 0.5368021278005279
+      },
+      {
+        "scaled_p_over_a2": 1.1769195979899498,
+        "analytic_normalized_density": 0.5328124837562155,
+        "numerical_normalized_density": 0.5320777445956857
+      },
+      {
+        "scaled_p_over_a2": 1.1859497487437185,
+        "analytic_normalized_density": 0.5281468084850884,
+        "numerical_normalized_density": 0.5274216272289152
+      },
+      {
+        "scaled_p_over_a2": 1.1949798994974874,
+        "analytic_normalized_density": 0.5235482212141515,
+        "numerical_normalized_density": 0.5228324181212913
+      },
+      {
+        "scaled_p_over_a2": 1.2040100502512563,
+        "analytic_normalized_density": 0.5190153940174499,
+        "numerical_normalized_density": 0.518308793620236
+      },
+      {
+        "scaled_p_over_a2": 1.2130402010050252,
+        "analytic_normalized_density": 0.5145470321055047,
+        "numerical_normalized_density": 0.5138494631506897
+      },
+      {
+        "scaled_p_over_a2": 1.2220703517587939,
+        "analytic_normalized_density": 0.5101418728383569,
+        "numerical_normalized_density": 0.5094531681834292
+      },
+      {
+        "scaled_p_over_a2": 1.2311005025125628,
+        "analytic_normalized_density": 0.5057986847723325,
+        "numerical_normalized_density": 0.5051186812147466
+      },
+      {
+        "scaled_p_over_a2": 1.2401306532663317,
+        "analytic_normalized_density": 0.5015162667392505,
+        "numerical_normalized_density": 0.500844804930702
+      },
+      {
+        "scaled_p_over_a2": 1.2491608040201005,
+        "analytic_normalized_density": 0.4972934469568486,
+        "numerical_normalized_density": 0.49663037131088933
+      },
+      {
+        "scaled_p_over_a2": 1.2581909547738694,
+        "analytic_normalized_density": 0.4931290821692469,
+        "numerical_normalized_density": 0.4924742407210614
+      },
+      {
+        "scaled_p_over_a2": 1.2672211055276381,
+        "analytic_normalized_density": 0.4890220568163288,
+        "numerical_normalized_density": 0.48837530115434774
+      },
+      {
+        "scaled_p_over_a2": 1.276251256281407,
+        "analytic_normalized_density": 0.4849712822309463,
+        "numerical_normalized_density": 0.48433246737245705
+      },
+      {
+        "scaled_p_over_a2": 1.285281407035176,
+        "analytic_normalized_density": 0.48097569586292016,
+        "numerical_normalized_density": 0.48034468015064263
+      },
+      {
+        "scaled_p_over_a2": 1.2943115577889448,
+        "analytic_normalized_density": 0.47703426052882986,
+        "numerical_normalized_density": 0.47641090560242355
+      },
+      {
+        "scaled_p_over_a2": 1.3033417085427135,
+        "analytic_normalized_density": 0.47314596368664186,
+        "numerical_normalized_density": 0.4725301342964972
+      },
+      {
+        "scaled_p_over_a2": 1.3123718592964824,
+        "analytic_normalized_density": 0.46930981673425387,
+        "numerical_normalized_density": 0.46870138069568384
+      },
+      {
+        "scaled_p_over_a2": 1.3214020100502513,
+        "analytic_normalized_density": 0.4655248543310752,
+        "numerical_normalized_density": 0.4649236824938129
+      },
+      {
+        "scaled_p_over_a2": 1.3304321608040202,
+        "analytic_normalized_density": 0.4617901337417965,
+        "numerical_normalized_density": 0.4611960998384351
+      },
+      {
+        "scaled_p_over_a2": 1.3394623115577888,
+        "analytic_normalized_density": 0.4581047342015359,
+        "numerical_normalized_density": 0.4575177147772156
+      },
+      {
+        "scaled_p_over_a2": 1.3484924623115577,
+        "analytic_normalized_density": 0.45446775630158065,
+        "numerical_normalized_density": 0.4538876306895153
+      },
+      {
+        "scaled_p_over_a2": 1.3575226130653266,
+        "analytic_normalized_density": 0.4508783213949768,
+        "numerical_normalized_density": 0.4503049715393741
+      },
+      {
+        "scaled_p_over_a2": 1.3665527638190955,
+        "analytic_normalized_density": 0.4473355710212457,
+        "numerical_normalized_density": 0.44676888153722655
+      },
+      {
+        "scaled_p_over_a2": 1.3755829145728644,
+        "analytic_normalized_density": 0.44383866634953784,
+        "numerical_normalized_density": 0.443278524365816
+      },
+      {
+        "scaled_p_over_a2": 1.384613065326633,
+        "analytic_normalized_density": 0.4403867876395577,
+        "numerical_normalized_density": 0.4398330827599521
+      },
+      {
+        "scaled_p_over_a2": 1.393643216080402,
+        "analytic_normalized_density": 0.43697913371962627,
+        "numerical_normalized_density": 0.43643175792312117
+      },
+      {
+        "scaled_p_over_a2": 1.4026733668341709,
+        "analytic_normalized_density": 0.4336149214812643,
+        "numerical_normalized_density": 0.43307376912779616
+      },
+      {
+        "scaled_p_over_a2": 1.4117035175879398,
+        "analytic_normalized_density": 0.43029338538971124,
+        "numerical_normalized_density": 0.42975835308320937
+      },
+      {
+        "scaled_p_over_a2": 1.4207336683417084,
+        "analytic_normalized_density": 0.4270137770098115,
+        "numerical_normalized_density": 0.42648476358000253
+      },
+      {
+        "scaled_p_over_a2": 1.4297638190954773,
+        "analytic_normalized_density": 0.4237753645467274,
+        "numerical_normalized_density": 0.42325227099109464
+      },
+      {
+        "scaled_p_over_a2": 1.4387939698492462,
+        "analytic_normalized_density": 0.4205774324009533,
+        "numerical_normalized_density": 0.42006016182845324
+      },
+      {
+        "scaled_p_over_a2": 1.4478241206030151,
+        "analytic_normalized_density": 0.41741928073713264,
+        "numerical_normalized_density": 0.41690773828183714
+      },
+      {
+        "scaled_p_over_a2": 1.456854271356784,
+        "analytic_normalized_density": 0.41430022506619096,
+        "numerical_normalized_density": 0.41379431789867405
+      },
+      {
+        "scaled_p_over_a2": 1.4658844221105527,
+        "analytic_normalized_density": 0.4112195958403239,
+        "numerical_normalized_density": 0.41071923303413344
+      },
+      {
+        "scaled_p_over_a2": 1.4749145728643216,
+        "analytic_normalized_density": 0.4081767380603924,
+        "numerical_normalized_density": 0.40768183061812796
+      },
+      {
+        "scaled_p_over_a2": 1.4839447236180905,
+        "analytic_normalized_density": 0.4051710108952968,
+        "numerical_normalized_density": 0.40468147167481294
+      },
+      {
+        "scaled_p_over_a2": 1.4929748743718594,
+        "analytic_normalized_density": 0.40220178731291556,
+        "numerical_normalized_density": 0.4017175309445224
+      },
+      {
+        "scaled_p_over_a2": 1.502005025125628,
+        "analytic_normalized_density": 0.3992684537222133,
+        "numerical_normalized_density": 0.39878939662978236
+      },
+      {
+        "scaled_p_over_a2": 1.511035175879397,
+        "analytic_normalized_density": 0.39637040962613423,
+        "numerical_normalized_density": 0.3958964698997553
+      },
+      {
+        "scaled_p_over_a2": 1.5200653266331658,
+        "analytic_normalized_density": 0.39350706728491514,
+        "numerical_normalized_density": 0.39303816473267533
+      },
+      {
+        "scaled_p_over_a2": 1.5290954773869347,
+        "analytic_normalized_density": 0.39067785138946237,
+        "numerical_normalized_density": 0.39021390740836065
+      },
+      {
+        "scaled_p_over_a2": 1.5381256281407034,
+        "analytic_normalized_density": 0.3878821987444544,
+        "numerical_normalized_density": 0.38742313636647263
+      },
+      {
+        "scaled_p_over_a2": 1.5471557788944723,
+        "analytic_normalized_density": 0.3851195579608389,
+        "numerical_normalized_density": 0.38466530171161667
+      },
+      {
+        "scaled_p_over_a2": 1.5561859296482412,
+        "analytic_normalized_density": 0.38238938915741405,
+        "numerical_normalized_density": 0.38193986513633493
+      },
+      {
+        "scaled_p_over_a2": 1.56521608040201,
+        "analytic_normalized_density": 0.37969116367118433,
+        "numerical_normalized_density": 0.37924629941386967
+      },
+      {
+        "scaled_p_over_a2": 1.574246231155779,
+        "analytic_normalized_density": 0.37702436377620274,
+        "numerical_normalized_density": 0.37658408826343553
+      },
+      {
+        "scaled_p_over_a2": 1.5832763819095477,
+        "analytic_normalized_density": 0.3743884824106155,
+        "numerical_normalized_density": 0.37395272602796525
+      },
+      {
+        "scaled_p_over_a2": 1.5923065326633166,
+        "analytic_normalized_density": 0.37178302291163906,
+        "numerical_normalized_density": 0.3713517174208771
+      },
+      {
+        "scaled_p_over_a2": 1.6013366834170855,
+        "analytic_normalized_density": 0.3692074987582071,
+        "numerical_normalized_density": 0.3687805772641888
+      },
+      {
+        "scaled_p_over_a2": 1.6103668341708544,
+        "analytic_normalized_density": 0.36666143332103585,
+        "numerical_normalized_density": 0.36623883019850484
+      },
+      {
+        "scaled_p_over_a2": 1.619396984924623,
+        "analytic_normalized_density": 0.36414435961986685,
+        "numerical_normalized_density": 0.3637260105853928
+      },
+      {
+        "scaled_p_over_a2": 1.628427135678392,
+        "analytic_normalized_density": 0.3616558200876493,
+        "numerical_normalized_density": 0.36124166204616376
+      },
+      {
+        "scaled_p_over_a2": 1.6374572864321608,
+        "analytic_normalized_density": 0.359195366341442,
+        "numerical_normalized_density": 0.35878533743371843
+      },
+      {
+        "scaled_p_over_a2": 1.6464874371859297,
+        "analytic_normalized_density": 0.3567625589598126,
+        "numerical_normalized_density": 0.3563565985085147
+      },
+      {
+        "scaled_p_over_a2": 1.6555175879396986,
+        "analytic_normalized_density": 0.3543569672665285,
+        "numerical_normalized_density": 0.35395501575351146
+      },
+      {
+        "scaled_p_over_a2": 1.6645477386934673,
+        "analytic_normalized_density": 0.35197816912033486,
+        "numerical_normalized_density": 0.3515801681596404
+      },
+      {
+        "scaled_p_over_a2": 1.6735778894472362,
+        "analytic_normalized_density": 0.34962575071062685,
+        "numerical_normalized_density": 0.3492316430364263
+      },
+      {
+        "scaled_p_over_a2": 1.682608040201005,
+        "analytic_normalized_density": 0.3472993063588279,
+        "numerical_normalized_density": 0.34690903576175836
+      },
+      {
+        "scaled_p_over_a2": 1.691638190954774,
+        "analytic_normalized_density": 0.3449984383252915,
+        "numerical_normalized_density": 0.3446119496657072
+      },
+      {
+        "scaled_p_over_a2": 1.7006683417085426,
+        "analytic_normalized_density": 0.34272275662155405,
+        "numerical_normalized_density": 0.34233999579096597
+      },
+      {
+        "scaled_p_over_a2": 1.7096984924623115,
+        "analytic_normalized_density": 0.34047187882776847,
+        "numerical_normalized_density": 0.3400927927298398
+      },
+      {
+        "scaled_p_over_a2": 1.7187286432160804,
+        "analytic_normalized_density": 0.3382454299151571,
+        "numerical_normalized_density": 0.3378699664201778
+      },
+      {
+        "scaled_p_over_a2": 1.7277587939698493,
+        "analytic_normalized_density": 0.3360430420733258,
+        "numerical_normalized_density": 0.335671150036617
+      },
+      {
+        "scaled_p_over_a2": 1.736788944723618,
+        "analytic_normalized_density": 0.33386435454228885,
+        "numerical_normalized_density": 0.33349598373326034
+      },
+      {
+        "scaled_p_over_a2": 1.745819095477387,
+        "analytic_normalized_density": 0.3317090134490576,
+        "numerical_normalized_density": 0.33134411457028445
+      },
+      {
+        "scaled_p_over_a2": 1.7548492462311558,
+        "analytic_normalized_density": 0.32957667164865273,
+        "numerical_normalized_density": 0.32921519631902485
+      },
+      {
+        "scaled_p_over_a2": 1.7638793969849247,
+        "analytic_normalized_density": 0.32746698856940215,
+        "numerical_normalized_density": 0.3271088892693624
+      },
+      {
+        "scaled_p_over_a2": 1.7729095477386936,
+        "analytic_normalized_density": 0.3253796300623954,
+        "numerical_normalized_density": 0.3250248601235667
+      },
+      {
+        "scaled_p_over_a2": 1.7819396984924623,
+        "analytic_normalized_density": 0.32331426825496484,
+        "numerical_normalized_density": 0.3229627818623052
+      },
+      {
+        "scaled_p_over_a2": 1.7909698492462311,
+        "analytic_normalized_density": 0.32127058140807246,
+        "numerical_normalized_density": 0.3209223335725967
+      },
+      {
+        "scaled_p_over_a2": 1.8,
+        "analytic_normalized_density": 0.3192482537774834,
+        "numerical_normalized_density": 0.3189032003017661
+      }
+    ]
+  },
+  "source_sha256": {
+    "src/mct_research/scalar_cpa_threshold.py": "26f6aae51f0df472bdd6bf2e179114baad8102459719f52b3535eb0dfcb1b0ae",
+    "src/mct_research/threshold_impurity.py": "3e20b08499be76a8ff7e39ae7562fc83b91ef7c62512e44856e4f7fda57a2bb8"
+  }
+}

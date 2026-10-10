@@ -1,0 +1,317 @@
+{
+  "claim_status": "CALCULATED finite-cell Gamma spectral-peak diagnostic, not a topological transition",
+  "empirical_alloy_gap_inputs": [],
+  "inputs": [
+    {
+      "file": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "sha256": "7e00f97538a6dc9478bf9cd8418947a57b84f8200ecc1d74c84f852ec800afef"
+    },
+    {
+      "file": "data/calculated/sp3d5_random_alloy_side12.json",
+      "sha256": "f2e9aba4366cada005484948ebd2ca96bb92591f537feca115ddaaeb2ee85b54"
+    },
+    {
+      "file": "data/calculated/sp3d5_random_alloy_side8.json",
+      "sha256": "65b981699dfa5116451a7d0a37884b90925a57ec363df12092ce5826b7d36afa"
+    }
+  ],
+  "rows": [
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.17997685185185186,
+      "eta_eV": 0.05,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": -0.0028942309283815186,
+      "peak_energies_eV": {
+        "6": -0.14800000000000002,
+        "8": -0.010000000000000009
+      },
+      "peak_gap_eV": -0.138,
+      "seed_peak_gaps_eV": [
+        -0.138,
+        -0.138
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.010160468029365715
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.17997685185185186,
+      "eta_eV": 0.02,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": -0.0028942309283815186,
+      "peak_energies_eV": {
+        "6": -0.14800000000000002,
+        "8": -0.010000000000000009
+      },
+      "peak_gap_eV": -0.138,
+      "seed_peak_gaps_eV": [
+        -0.138,
+        -0.138
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.004538457041680741
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.17997685185185186,
+      "eta_eV": 0.01,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": -0.0028942309283815186,
+      "peak_energies_eV": {
+        "6": -0.14800000000000002,
+        "8": -0.010000000000000009
+      },
+      "peak_gap_eV": -0.138,
+      "seed_peak_gaps_eV": [
+        -0.138,
+        -0.138
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.0022992964449293244
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.17997685185185186,
+      "eta_eV": 0.005,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": -0.0028942309283815186,
+      "peak_energies_eV": {
+        "6": -0.14800000000000002,
+        "8": -0.010000000000000009
+      },
+      "peak_gap_eV": -0.138,
+      "seed_peak_gaps_eV": [
+        -0.138,
+        -0.138
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.0011539500572800337
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.29976851851851855,
+      "eta_eV": 0.05,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": 0.20738964353063388,
+      "peak_energies_eV": {
+        "6": -0.03200000000000003,
+        "8": -0.03200000000000003
+      },
+      "peak_gap_eV": 0.0,
+      "seed_peak_gaps_eV": [
+        0.0,
+        0.0
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.01028970614774931
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.29976851851851855,
+      "eta_eV": 0.02,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": 0.20738964353063388,
+      "peak_energies_eV": {
+        "6": -0.03200000000000003,
+        "8": -0.03200000000000003
+      },
+      "peak_gap_eV": 0.0,
+      "seed_peak_gaps_eV": [
+        0.0,
+        0.0
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.004559405318348073
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.29976851851851855,
+      "eta_eV": 0.01,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": 0.20738964353063388,
+      "peak_energies_eV": {
+        "6": -0.03200000000000003,
+        "8": -0.03200000000000003
+      },
+      "peak_gap_eV": 0.0,
+      "seed_peak_gaps_eV": [
+        0.0,
+        0.0
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.002308304201294885
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_refinement.json",
+      "side": 12,
+      "composition": 0.29976851851851855,
+      "eta_eV": 0.005,
+      "steps": 1000,
+      "configurations": 2,
+      "vca_gap_eV": 0.20738964353063388,
+      "peak_energies_eV": {
+        "6": -0.03200000000000003,
+        "8": -0.03200000000000003
+      },
+      "peak_gap_eV": 0.0,
+      "seed_peak_gaps_eV": [
+        0.0,
+        0.0
+      ],
+      "half_steps_peak_shifts_eV": {
+        "6": 0.0,
+        "8": 0.0
+      },
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.0011586423573102585
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_side12.json",
+      "side": 12,
+      "composition": 0.17997685185185186,
+      "eta_eV": 0.02,
+      "steps": 800,
+      "configurations": 2,
+      "vca_gap_eV": -0.0028942309283815186,
+      "peak_energies_eV": {
+        "6": -0.14800000000000002,
+        "8": -0.010000000000000009
+      },
+      "peak_gap_eV": -0.138,
+      "seed_peak_gaps_eV": [
+        -0.138,
+        -0.138
+      ],
+      "half_steps_peak_shifts_eV": null,
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.00453515028361084
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_side12.json",
+      "side": 12,
+      "composition": 0.2899305555555556,
+      "eta_eV": 0.02,
+      "steps": 800,
+      "configurations": 2,
+      "vca_gap_eV": 0.18978362742219865,
+      "peak_energies_eV": {
+        "6": -0.04200000000000004,
+        "8": -0.030000000000000027
+      },
+      "peak_gap_eV": -0.01200000000000001,
+      "seed_peak_gaps_eV": [
+        -0.01200000000000001,
+        -0.01200000000000001
+      ],
+      "half_steps_peak_shifts_eV": null,
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.004577922474127011
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_side12.json",
+      "side": 12,
+      "composition": 0.3298611111111111,
+      "eta_eV": 0.02,
+      "steps": 800,
+      "configurations": 2,
+      "vca_gap_eV": 0.2616105502277791,
+      "peak_energies_eV": {
+        "6": -0.0020000000000000018,
+        "8": -0.040000000000000036
+      },
+      "peak_gap_eV": 0.038000000000000034,
+      "seed_peak_gaps_eV": [
+        0.038000000000000034,
+        0.038000000000000034
+      ],
+      "half_steps_peak_shifts_eV": null,
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.004461926893809523
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_side8.json",
+      "side": 8,
+      "composition": 0.1796875,
+      "eta_eV": 0.02,
+      "steps": 800,
+      "configurations": 2,
+      "vca_gap_eV": -0.003391231635723472,
+      "peak_energies_eV": {
+        "6": -0.14800000000000002,
+        "8": -0.010000000000000009
+      },
+      "peak_gap_eV": -0.138,
+      "seed_peak_gaps_eV": [
+        -0.136,
+        -0.138
+      ],
+      "half_steps_peak_shifts_eV": null,
+      "original_max_config_half_steps_peak_shift_eV": 0.0020000000000000018,
+      "min_density": 0.0038547139377907236
+    },
+    {
+      "input": "data/calculated/sp3d5_random_alloy_side8.json",
+      "side": 8,
+      "composition": 0.330078125,
+      "eta_eV": 0.02,
+      "steps": 800,
+      "configurations": 2,
+      "vca_gap_eV": 0.2620035666110464,
+      "peak_energies_eV": {
+        "6": -0.0020000000000000018,
+        "8": -0.040000000000000036
+      },
+      "peak_gap_eV": 0.038000000000000034,
+      "seed_peak_gaps_eV": [
+        0.038000000000000034,
+        0.03600000000000003
+      ],
+      "half_steps_peak_shifts_eV": null,
+      "original_max_config_half_steps_peak_shift_eV": 0.0,
+      "min_density": 0.0038423972726428805
+    }
+  ]
+}

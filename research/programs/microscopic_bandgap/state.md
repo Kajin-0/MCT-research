@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** diagnostic reconstruction and reference audit complete; physical impurity input unresolved
+**State:** reference and direct-alloy audits complete; physical impurity input unresolved
 
 **Updated:** 2026-10-10
 
@@ -47,6 +47,22 @@ while T8 remains finite (1.276 to 1.305 eV). Finite-gap detuning regularizes
 the trend. This disfavors extracting a constant dynamic A from the unqualified
 endpoint derivative of the full lattice T.
 
+**CALCULATED:** explicit n=8 and n=12 random supercells of the same frozen
+linear-substitution Hamiltonian give Gamma spectral-peak separation -138 meV
+at x approximately 0.18, and a peak crossing near x=0.30. The latter is not
+a topological-invariant determination. Iteration, two seeds, box size and
+eta=5–50 meV controls support the large discrepancy beyond the endpoint
+interpolation. No empirical gap coefficient was used.
+
+**PROVEN:** every configuration of this linear model has the VCA Gamma
+spectral centroid exactly; its spectral maximum need not coincide with it.
+
+**PROVEN within scalar CPA:** self-consistency changes the declared
+independent-host x^(3/2) threshold correction to x^2. CPA DOS edge, Gamma
+spectral peak and real-denominator root have different x^2 coefficients.
+The conventional omitted-cluster indicator remains order one in the same
+layer. This is not a controlled asymptotic statement about exact HgCdTe.
+
 **HYPOTHESIS:** a physical, self-consistent substitution potential may still
 reduce the static discrepancy through environmental response and charge transfer.
 The current test supplies no evidence that resummation alone is sufficient.
@@ -58,17 +74,24 @@ optical-theorem, threshold and interpolation mathematics is established.
 ## Artifacts
 
 - [Calculation and interpretation](result_2026-10-10.md)
+- [Direct-alloy and self-consistency result](result_2026-10-10_self_consistency.md)
 - [Reference and threshold derivation](../../../docs/derivations/impurity_reference_and_threshold.md)
+- [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
 - [Figure](figures/impurity_reference_and_threshold.pdf)
+- [Direct-alloy and threshold figure](figures/self_consistent_threshold_and_alloy.pdf)
 
 ## Validation
 
-Final full repository suite: **1764 passed**, including 16 new tests.
+Latest full repository suite: **1773 passed**, including 25 new tests across
+the reconstruction and self-consistency tranches.
 Independent checks include a full finite-Hamiltonian inverse, numerical T
 derivatives, positive off-spectrum norms, the causal optical theorem, direct
 threshold quadrature and a bracketed concentration-pole solve.
+New checks include random-cell dense inversion versus Lanczos, exact folded
+binary spectra, spectral-centroid closure, the full scalar CPA equation,
+implicit derivatives, threshold coefficients and the pair indicator limits.
 
 ## Next decision-changing work
 
@@ -77,7 +100,8 @@ threshold quadrature and a bracketed concentration-pole solve.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
 2. Use the corrected full/residual conventions and define the HgTe common-mode
    continuation explicitly. Freeze branch values and mass roots before validation.
-3. Determine the threshold channel selection and self-consistent linewidth
+3. Determine the threshold channel selection, the intended spectral observable,
+   and self-consistent linewidth
    before treating T' as a finite constant-A input or invoking endpoint pair
    curvatures. CdTe mid-gap mass evaluation is a cleaner control than its band edge.
 4. Test local-background dependence and irreducible environment clusters only
