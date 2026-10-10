@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** reference and direct-alloy audits complete; physical impurity input unresolved
+**State:** reference/direct-alloy audits complete; hybrid host gate running; physical impurity input unresolved
 
 **Updated:** 2026-10-10
 
@@ -75,6 +75,8 @@ optical-theorem, threshold and interpolation mathematics is established.
 
 - [Calculation and interpretation](result_2026-10-10.md)
 - [Direct-alloy and self-consistency result](result_2026-10-10_self_consistency.md)
+- [Hybrid host capability and core-approximation gate](result_2026-10-10_hybrid_gate.md)
+- [Portable hybrid host record](../../../data/calculated/static_hse_binary_gate_20261010.json)
 - [Reference and threshold derivation](../../../docs/derivations/impurity_reference_and_threshold.md)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
@@ -95,16 +97,23 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
 
 ## Next decision-changing work
 
-1. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
+1. Finish the live CdTe HSE+SOC SG15 no-NLCC comparison in the companion
+   DFT repository before launching another MPI family. The PseudoDojo
+   CdTe HSE job converged with assigned signed gap 1.7048135 eV on k4/q2/90 Ry;
+   Gamma symmetry/projection and full 64-point spinor expansion pass, but
+   grid and core approximations are not materially validated. DFT commit
+   12bde47 contains this completed gate. Check the live run's terminal state,
+   continue a time-limited checkpoint if needed, and then classify sectors.
+2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
-2. Use the corrected full/residual conventions and define the HgTe common-mode
+3. Use the corrected full/residual conventions and define the HgTe common-mode
    continuation explicitly. Freeze branch values and mass roots before validation.
-3. Determine the threshold channel selection, the intended spectral observable,
+4. Determine the threshold channel selection, the intended spectral observable,
    and self-consistent linewidth
    before treating T' as a finite constant-A input or invoking endpoint pair
    curvatures. CdTe mid-gap mass evaluation is a cleaner control than its band edge.
-4. Test local-background dependence and irreducible environment clusters only
+5. Test local-background dependence and irreducible environment clusters only
    after the physical one-impurity problem; add no empirical bowing coefficients.
 
 The existing binary-derived vertex is terminated as a candidate physical

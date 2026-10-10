@@ -1,0 +1,84 @@
+{
+  "claim_status": "CALCULATED capability and coarse-grid binary diagnostic; physical impurity prediction pending",
+  "DFT_repository_commit": "12bde47",
+  "DFT_branch": "research/hgcdte-analytical-gap-20261010",
+  "completed_signed_gap": {
+    "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
+    "SCF": {
+      "args": {
+        "dry_run": false,
+        "ecut": 90,
+        "family": "dojo",
+        "functional": "HSE",
+        "material": "cdte",
+        "mesh": 4,
+        "qmesh": 2,
+        "ranks": 6,
+        "restart_from": "calculations/r07/cdte_hse_dojo_k4_q2_e90",
+        "seconds": 900
+      },
+      "git_commit": "13d435bad6166a3859cf388e0b019d0fa22e3c58",
+      "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
+      "pp_sha256": {
+        "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+        "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
+      },
+      "input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
+      "lattice_A": 6.48
+    },
+    "E_Gamma6_minus_Gamma8_eV": 1.7048135208265158,
+    "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9442885160117154,
+    "Gamma6_bands_1based": [
+      37,
+      38
+    ],
+    "Gamma8_bands_1based": [
+      33,
+      36
+    ],
+    "Gamma7_bands_1based": [
+      31,
+      32
+    ],
+    "Gamma6_s_weight": 0.9924157520524904,
+    "Gamma8_Te_p_j_three_halves_weight": 0.9466092997452922,
+    "Gamma7_Te_p_j_half_weight": 0.9367161111552769,
+    "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
+    "known_limitations": [
+      "cutoff/k/q convergence not established",
+      "PBE potentials used with HSE; core approximation needs validation",
+      "static lattice, without electron-phonon or GW correction"
+    ],
+    "source_sha256": {
+      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/result.json": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/bands.out": "2013d2ad5dcc695d4957bd1a02518ebfeb1f767015a78b9761e904b007fd58f8",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/orbital_character.json": "24b3a01235b6ece843e68a820f8b1592cf66da6df0f139b76aec2e7e848e8b35"
+    },
+    "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f"
+  },
+  "completed_grid_expansion": {
+    "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
+    "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
+    "k_points": 64,
+    "parent_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
+    "written_utc": "2026-10-10T20:37:09.904845+00:00",
+    "original_irreducible_k_points": 8,
+    "matched_original_k_points": 8,
+    "max_original_eigenvalue_error_eV": 0.0,
+    "expanded_k_weight_sum": 1.0
+  },
+  "input_files_sha256": {
+    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/signed_gap.json": "e4a13e65bade0aed259aff7e39eac40884ea3cfee5b7aeb4ff946ed657a188f7",
+    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/grid_expansion.json": "37e2a609345fa3390661ed78704502fe29048feba94eb2e5b72620280b6e9da8",
+    "pseudopotentials/r07_manifest.json": "8fc7df33901138af4a001235912d2e8b70f0d58457391ec77fd81e4c5376976a",
+    "pseudopotentials/r07_sg15_manifest.json": "b22176c079c2b6fe887de840f7032293ec756013dfe7b751e24d56082f83e179"
+  },
+  "queued_comparison": {
+    "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90",
+    "status": "running at capture; not an accepted result",
+    "source_commit": "83b20795f8f7f0cb1bc3d9c08c944cb60580232f",
+    "core_correction": false
+  },
+  "experimental_alloy_coefficients_used": [],
+  "temperature_work": "deferred"
+}
