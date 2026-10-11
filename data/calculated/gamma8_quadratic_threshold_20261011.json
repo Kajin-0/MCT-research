@@ -1,0 +1,216 @@
+{
+  "claim_status": "CALCULATED conditional quadratic-threshold diagnostic, not physical total A",
+  "git_commit": "d864a5518a8bf6551f5af687d5a0e7bc0825b03c",
+  "source": {
+    "author": "Christoph Schindler",
+    "title": "Quantum spin transport in semiconductor nanostructures",
+    "year": 2012,
+    "url": "https://www.osti.gov/etdeweb/servlets/purl/21595032",
+    "pdf_sha256": "851cc42594bb800288b26d02d2e3ff5d551a0a2690260cfbde5ac4feaa631fbe",
+    "parameters": "Table 2.2, printed page 29 (PDF page 29)",
+    "soc_convention": "Eq. (1.15): H_SO = Delta_SO L.sigma on p orbitals; no d SOC",
+    "offset": "Section 4.2: valence-band offset 0.4 eV; HgTe valence higher than CdTe",
+    "fit_inputs": "Binary band energies in Table 2.1; alloys subsequently checked using VCA",
+    "status": "Published semiempirical binary Hamiltonian, not a first-principles impurity potential"
+  },
+  "source_omissions": [
+    "d-d hopping absent from Table 2.2, set to zero",
+    "d spin-orbit coupling neglected as in source"
+  ],
+  "source_hashes": {
+    "data/materials/schindler2012_sp3d5.json": "841222a0db79f4f75e0bcc49032877ede3a10350d3d0dee2648975d817004e58",
+    "/home/User/repos/MCT-research/tools/run_gamma8_threshold_kernel.py": "ee7dce4d91c99b7bf773c3afd643496949bad684f3c707b2ee5035e3d56eb087",
+    "/home/User/repos/MCT-research/src/mct_research/gamma8_threshold.py": "afa88fecbbfbaddd91572b117e5a1f40b50f0aa6cfcfadf389111c4b9eec3466",
+    "/home/User/repos/MCT-research/src/mct_research/sp3d5.py": "8d9541557e04cae1f880457ea8ffee1d53f959c1f07f4e0fa20904f1f6d46473"
+  },
+  "Gamma8_linear_term_norm_eV_a": 1.4126115160897695e-15,
+  "dimensionless_fcc_cell_volume": 0.25,
+  "momentum_units": "a^-1",
+  "numpy_version": "2.5.3",
+  "rows": [
+    {
+      "n_theta": 16,
+      "n_phi": 32,
+      "scalar_kernel_eV_minus_three_halves": 0.5119895499116778,
+      "kernel_real": [
+        [
+          0.5119895524505496,
+          -2.8918686052186026e-11,
+          6.838815740343854e-10,
+          -2.561043262964025e-10
+        ],
+        [
+          -2.8918686952977732e-11,
+          0.511989546735717,
+          -1.4119914833886506e-09,
+          -5.8104450887646e-10
+        ],
+        [
+          6.838815730017705e-10,
+          -1.4119914805654377e-09,
+          0.5119895524738811,
+          1.2005905074752031e-09
+        ],
+        [
+          -2.5610432674954465e-10,
+          -5.810445074538682e-10,
+          1.2005905074971737e-09,
+          0.5119895479865636
+        ]
+      ],
+      "kernel_imag": [
+        [
+          0.0,
+          2.744834152695022e-10,
+          -5.108656972221109e-10,
+          2.7400615658831464e-09
+        ],
+        [
+          -2.744834182616137e-10,
+          -6.071485574293749e-20,
+          -1.526422509422827e-09,
+          6.789578403360128e-12
+        ],
+        [
+          5.108656982547258e-10,
+          1.5264225065337025e-09,
+          3.167914439921345e-19,
+          -1.3287526304485636e-09
+        ],
+        [
+          -2.740061588106337e-09,
+          -6.7895768873935934e-12,
+          1.3287526313273847e-09,
+          -2.968330109796448e-19
+        ]
+      ],
+      "cubic_irrep_scalar_defect_norm": 3.850227924277412e-09,
+      "min_valence_curvature_eV_a_squared": 0.03698077177689399,
+      "max_valence_curvature_eV_a_squared": 0.8743624980417884
+    },
+    {
+      "n_theta": 24,
+      "n_phi": 48,
+      "scalar_kernel_eV_minus_three_halves": 0.5119895494464334,
+      "kernel_real": [
+        [
+          0.5119895494465431,
+          -8.38709858341886e-16,
+          2.956313115411395e-14,
+          -1.0890169854093914e-14
+        ],
+        [
+          -8.360184684800022e-16,
+          0.5119895494462983,
+          -6.10541076126114e-14,
+          -2.5070448983995166e-14
+        ],
+        [
+          2.956069105218305e-14,
+          -6.104422087434326e-14,
+          0.5119895494465427,
+          5.1326740819033416e-14
+        ],
+        [
+          -1.0891449809081162e-14,
+          -2.5075601073159344e-14,
+          5.1333463801055756e-14,
+          0.5119895494463497
+        ]
+      ],
+      "kernel_imag": [
+        [
+          0.0,
+          1.13032998285183e-14,
+          -2.1338672161522252e-14,
+          1.1717216777010145e-13
+        ],
+        [
+          -1.1304038930861748e-14,
+          8.023847250385847e-19,
+          -6.606613190500724e-14,
+          1.1830821166975113e-16
+        ],
+        [
+          2.133409130612468e-14,
+          6.606874365169975e-14,
+          -9.803363374341473e-19,
+          -5.681453418110566e-14
+        ],
+        [
+          -1.171700256434767e-13,
+          -1.1849873735512684e-16,
+          5.681945557971025e-14,
+          -2.812062184473738e-19
+        ]
+      ],
+      "cubic_irrep_scalar_defect_norm": 1.6564974764322838e-13,
+      "min_valence_curvature_eV_a_squared": 0.03692114224475062,
+      "max_valence_curvature_eV_a_squared": 0.8744221275739318
+    },
+    {
+      "n_theta": 32,
+      "n_phi": 64,
+      "scalar_kernel_eV_minus_three_halves": 0.5119895494463842,
+      "kernel_real": [
+        [
+          0.5119895494463829,
+          2.6478229884944786e-16,
+          2.4453611263971366e-16,
+          3.540909134909731e-17
+        ],
+        [
+          2.653792793302917e-16,
+          0.5119895494463861,
+          -3.9051380316886403e-16,
+          -1.0811766217357533e-16
+        ],
+        [
+          2.4661782030839516e-16,
+          -3.8477674865715473e-16,
+          0.5119895494463824,
+          -1.9672000153230807e-16
+        ],
+        [
+          3.4575348375221834e-17,
+          -1.0821515639816397e-16,
+          -2.0235544234515033e-16,
+          0.5119895494463855
+        ]
+      ],
+      "kernel_imag": [
+        [
+          0.0,
+          -4.358776255672943e-16,
+          6.048404377670257e-16,
+          -6.043172645336697e-16
+        ],
+        [
+          4.3754824403194446e-16,
+          -1.8996105694998773e-19,
+          -4.445887688632421e-16,
+          -1.76138850570312e-16
+        ],
+        [
+          -6.051919662387819e-16,
+          4.505990818354181e-16,
+          -2.867502813104844e-19,
+          2.9235977611662963e-16
+        ],
+        [
+          6.043172645336697e-16,
+          1.7596591847300027e-16,
+          -2.8536490879191757e-16,
+          -3.2481464824680025e-19
+        ]
+      ],
+      "cubic_irrep_scalar_defect_norm": 2.3919085744967404e-15,
+      "min_valence_curvature_eV_a_squared": 0.03685712688309916,
+      "max_valence_curvature_eV_a_squared": 0.8744861429355834
+    }
+  ],
+  "last_quadrature_scalar_change": 4.9182879990894435e-14,
+  "leading_single_impurity_derivative": "-T8_prime(E8+delta) ~ tau8(E8)^2 K8/sqrt(delta), if the quadratic threshold and finite nonzero forward amplitude assumptions hold",
+  "applicability": "normal CdTe quadratic Gamma8 approximation; check physical linear BIA before taking delta to zero; no inverted-HgTe PSD claim",
+  "empirical_alloy_gap_inputs": []
+}
