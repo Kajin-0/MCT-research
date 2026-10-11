@@ -2,9 +2,40 @@
 
 **Portfolio contribution:** R07
 
-**State:** bounded synthetic centroid study completed at registered robust-sign NO-GO; numerical and mass-floor gates pass, but endpoint/coherent-equivalent alternatives disagree; continuum certificates and prior rejections preserved; physical spectral input and sharp inversion remain unqualified
+**State:** continuous existing-input qualification completed through three decision-driven phases; conditional reference-window control passes, binary-to-impurity and one-cell-to-isolated transfer fail; one unexecuted matched acquisition design retained; STOP_ACQUISITION_BOUNDARY; physical ordering/inversion and all prior NO-GO findings remain unqualified/preserved
 
 **Updated:** 2026-10-11
+
+## Continuous minimum-cost physical-input qualification
+
+The [new qualification package](physical_input_qualification_2026-10-11/README.md)
+and [persistent handoff](physical_input_qualification_2026-10-11/handoff_ledger.md)
+complete three phases from `b19fc65`; P1/P2 checkpoints `904748f`/`29d3460`
+were pushed before the next phase. **CALCULATED:** a read-only native audit
+reproduces the accepted numerical HgTe Gamma reference comparison. Conditional
+positive-measure bounds give mass floor >0.29017 and cutoff-induced windowed
+ordering error <0.059 meV across the declared reference envelope. Exact native
+eigenpair/metric residual and physical/model errors remain uncertified.
+
+**FALSIFIED:** perfect binary projected spectra/sorted bands determine the
+substitution response, including with the correct Gamma irrep multiplicities.
+An exact periodization ambiguity also prevents one finite-cell packet from
+identifying isolated impurity T without independent locality/image control.
+Total leakage in a noncommuting primitive host frame is not substitution evidence.
+These strengthen, and do not replace, the prior host, full/residual T, threshold,
+continuum, SOC covariance, exchange-quadrature and physical-input negatives.
+
+**Decision: STOP_ACQUISITION_BOUNDARY.** The smallest currently prepared
+numerical chemistry test needs matched pure/substituted native spectra and
+physical-host overlaps with tail/residual errors. One design (currently two
+SCFs, no launch) is retained with a provisional 2-meV finite-cell observable
+budget; it does not certify material accuracy or physical x_c. Further material
+ordering needs independent interior contractions/state-law/errors, and dilute
+prediction needs image/localization controls. No extra binary refinement or
+synthetic repetition supplies them. No DFT/MPI/HSE, deck, queue, paid action,
+outreach, session fork or supervisor operation occurred. Historical blocked goal
+and other programs are unchanged. The earlier finite tasks below remain dated
+records with their original rejections intact.
 
 ## Separate bounded centroid model-feasibility study
 

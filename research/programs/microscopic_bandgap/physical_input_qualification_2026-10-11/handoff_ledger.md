@@ -21,7 +21,7 @@ material NO-GO findings remain valid. Physical x_c remains OPEN.
 |---|---|---|---|
 | P1 | Which existing numerical references and interior inputs actually qualify? | Source hashes, accepted terminal/input metadata, Gamma assignments and native fixed-frame overlaps; inspect existing x=.20 SQS record | Complete; advance P2 |
 | P2 | Can saved projector overlaps certify an operational reference window more broadly than one inverse-kernel point? | Positive measure/parity/Lipschitz bounds, explicit error/floor budgets; independent small-matrix failures of sorted-band and endpoint inference | Complete; advance P3 |
-| P3 | Can one missing physical response be acquired without redundant data or hidden reference assumptions? | Reduction to retained spectral contractions, operator-folding falsification, one unexecuted acquisition design with resource/acceptance gates | In progress |
+| P3 | Can one missing physical response be acquired without redundant data or hidden reference assumptions? | Reduction to retained spectral contractions, periodic aliasing and host-frame falsification, one unexecuted acquisition design with resource/acceptance gates | Complete; STOP_ACQUISITION_BOUNDARY |
 
 Continue from each checkpoint into the next justified cheap phase. Stop if a
 minimum physical acquisition is indispensable, a scientific boundary is proven,
@@ -65,5 +65,31 @@ ordering error is <=0.058814 meV. Native residual/model/material errors are
 An exact 4x4 counterexample has identical binary P Green functions and all
 sorted eigenvalues but opposite substituted real reaction kernels: the Q/V
 orientation is missing. Do not promote the small binary cutoff difference
-to a physical impurity error. Commit/push P2, then continue P3's minimum
-first-principles acquisition design and image/localization falsification.
+to a physical impurity error. Checkpoint **29d3460** is pushed. P3 followed;
+its image/localization and minimum-acquisition analysis is now complete.
+
+## P3 retained result / terminal handoff
+
+An exact zero-periodization profile difference hides different isolated T
+responses (independent infinite-chain 2x2 check and 4/12-site rings). One cell
+cannot identify a dilute slope without bounded locality/images. The binary
+orientation falsifier survives correct Gamma6 doublet/Gamma8 quartet symmetry.
+A noncommuting primitive host frame can have leakage at V=0; the proposed
+discriminator needs an aligned spectral pure-supercell P or a host-mixing bound.
+
+[One unexecuted design](minimum_acquisition.md) retains the prepared f120
+matched host/substitution pair (two SCFs unless folding equivalence is separately
+certified). It asks for native spectra, fixed-host overlaps and unresolved
+probability, not an arbitrary full Wannier vertex. At W=.5 eV, eta=.025 eV,
+p=.05, a .5-meV sector tail budget admits sigma<=3.887e-5. The overall pilot
+numerical ordering budget is 2 meV; all material errors remain unknown.
+Full-SCF runtime/peak RAM are unmeasured; a finite planning cap is not permission.
+
+**STOP_ACQUISITION_BOUNDARY.** The missing independently self-consistent packet
+is concrete and absent. Ultimate material interior moments/law/errors and
+isolated-image controls remain additional inputs. No fourth phase, repeat source
+search, numerical launch, outreach, approval question or old-goal mutation
+follows. Further work requires a new independent packet or explicit acquisition
+authorization and a separate ownership/resource review. Do not silently resume
+after compaction. The [decision](decision.md) and [verification](verification.md)
+record the terminal scope; commit/push this validated checkpoint only.

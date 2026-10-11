@@ -1,0 +1,64 @@
+{
+  "DFT_launched": false,
+  "aliasing_witness": [
+    {
+      "potential_difference_norm_eV": 0.0,
+      "projected_resolvent_difference_eV_inverse": 0.0,
+      "ring_size": 4,
+      "scaled_reaction_kernel_difference_eV": 0.0,
+      "spectral_data_scope": "exact synthetic finite ring only"
+    },
+    {
+      "potential_difference_norm_eV": 0.03,
+      "projected_resolvent_difference_eV_inverse": 1.216775250347794e-05,
+      "ring_size": 12,
+      "scaled_reaction_kernel_difference_eV": 0.003638864789688047,
+      "spectral_data_scope": "exact synthetic finite ring only"
+    }
+  ],
+  "all_material_error_bounds": null,
+  "claim_status": "CALCULATED conditional design arithmetic; no physical error certified",
+  "driver_sha256": "5a8a3d139554b5d919baa3c2d6783fdce530eaf0a123019a7dab32762fa4d3d1",
+  "eta_eV": "0.025",
+  "mass_floor": "0.05",
+  "max_omitted_weight_for_tail_allocation": {
+    "hi": "0.000038873698309516976671947203424670",
+    "lo": "0.000038873698309516976671947203424667",
+    "mid": "0.000038873698309516976671947203424668",
+    "radius": "2E-36"
+  },
+  "operator_precision_requirement_accepted": false,
+  "per_sector_budget_eV": {
+    "hi": "0.001",
+    "lo": "0.001",
+    "mid": "0.001",
+    "radius": "0.000"
+  },
+  "per_sector_tail_allocation_eV": {
+    "hi": "0.0005",
+    "lo": "0.0005",
+    "mid": "0.0005",
+    "radius": "0.0000"
+  },
+  "physical_xc": null,
+  "prior_evaluator_sha256": "f8ae004efb60ab95c5c42dc16d3c376e9d01e7606b6329c64964015193b7f20a",
+  "total_numerical_ordering_budget_eV": {
+    "hi": "0.002",
+    "lo": "0.002",
+    "mid": "0.002",
+    "radius": "0.000"
+  },
+  "unstructured_operator_error_for_half_sector_budget_eV": {
+    "hi": "1.4024967203525862671708229389664E-7",
+    "lo": "1.4024967203525862671708229389617E-7",
+    "mid": "1.4024967203525862671708229389640E-7",
+    "radius": "2.4E-37"
+  },
+  "unstructured_operator_norm_sensitivity_dimensionless": {
+    "hi": "3565.0707252584555212229962995503",
+    "lo": "3565.0707252584555212229962995384",
+    "mid": "3565.0707252584555212229962995444",
+    "radius": "6.0E-27"
+  },
+  "window_half_width_eV": "0.5"
+}
