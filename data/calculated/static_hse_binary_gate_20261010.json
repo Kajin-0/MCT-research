@@ -1,6 +1,6 @@
 {
   "claim_status": "CALCULATED two coarse-grid binary hosts; both projected finite-q matrix gates failed; physical impurity prediction pending",
-  "DFT_repository_commit": "400a2da0f74823ee579fe9053abe50843ffca4e1",
+  "DFT_repository_commit": "f4f77d45c2f266f220fb65f313ca682e3c82bf9a",
   "DFT_branch": "research/hgcdte-analytical-gap-20261010",
   "completed_signed_gap": {
     "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
@@ -85,7 +85,12 @@
     "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/projection_report.json": "7ea0174f4f919134b3b824539e96ab829e3411f48e80fe0051c047997c6c3580",
     "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/wavefunction_TR_audit.json": "428c515f936cbc9c67209304419bb0980af5b3af58881a855f6eac3b7e8d85ed",
     "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/host_control_comparison.json": "7ed8c32ab09ecb34b847cf491969d2bfd1d15a0a9166c127fec3a8138c0298f9",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/provenance.json": "c15e09ac60d54d97687e4a913d66a4c0ffba6ea89fd68e01c29a7e668f063390"
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/provenance.json": "c15e09ac60d54d97687e4a913d66a4c0ffba6ea89fd68e01c29a7e668f063390",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/result.json": "9cc01b46ee8dc84a85c8fb15fd185a47d4c6131483ee03cc886553767653048d",
+    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/preparation.json": "4cb4f91a239e6119c8ba093d36b8aa7dc681d9e66f61bf133e9a0d5dde76dc0e",
+    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/pw_dry_result.json": "f67eabf1bf3507a18ee0b8316ddfe8f1a47eb7e4eed65666b71a2f85f97bb2c4",
+    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/pw_dry_result.json": "88d46b0969411186106e67cc48517d3d33b00a85c85946e73b9c62166577a066",
+    "calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/provenance.json": "82b43d7bb748d76d8bc943ff89b564d950792d9e42c5824a3162f50bfe27f4fa"
   },
   "experimental_alloy_coefficients_used": [],
   "temperature_work": "deferred",
@@ -570,9 +575,11 @@
   "potential_set_gap_difference_meV": 129.4479414198264,
   "potential_set_interpretation": "Sets differ in generator choices in addition to NLCC; no isolated NLCC attribution",
   "empty_state_accuracy_control": {
-    "status": "accurate-empty control completed; residual 2.95137 meV fails original 1 meV gate; stricter SCF refinement running at capture",
+    "status": "stricter seeded refinement rejected: hard wall stop during exchange, no EXX convergence and no outer checkpoint",
     "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2",
-    "provenance": {
+    "result": {
+      "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:37:10",
+      "accepted_scf": false,
       "args": {
         "accurate_empty": true,
         "dry_run": false,
@@ -588,6 +595,7 @@
         "seconds": 900,
         "seed_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97"
       },
+      "band_irrep_assignment": "not assigned; raw eigenvalues are not a signed gap",
       "claim_status": "CALCULATED capability diagnostic only",
       "command": [
         "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
@@ -599,6 +607,56 @@
       ],
       "driver_sha256": "d15b43ba25199e74dbc606dbb21102551125079635c6736ce327e1f9f2b3180a",
       "empirical_alloy_gap_inputs": [],
+      "exit_requested": true,
+      "exx_converged": false,
+      "gamma_eigenvalues_eV": [
+        [
+          -99.10649328181164,
+          -99.10649326495299,
+          -62.61707299674483,
+          -62.61707298121254,
+          -56.74932848997626,
+          -56.74932848852785,
+          -56.749328463229645,
+          -56.74932846173209,
+          -29.039838204662075,
+          -29.039838201019776,
+          -29.039838196780433,
+          -29.03983819136011,
+          -27.543347747292493,
+          -27.543347736662803,
+          -27.5338661140593,
+          -27.533866110643974,
+          -27.533866108660483,
+          -27.533866104975406,
+          -4.228569205032167,
+          -4.228569185111092,
+          -1.6502262245503778,
+          -1.6502262127095462,
+          -1.650226207585062,
+          -1.6502261978476767,
+          -1.0974350368300583,
+          -1.097435031771021,
+          -0.8606213185622242,
+          -0.8606213132204814,
+          -0.8606213131369254,
+          -0.8606213079618835,
+          7.139477290967606,
+          7.139477300852282,
+          8.096004974754049,
+          8.096004976364432,
+          8.096004981016193,
+          8.096004988703704,
+          9.671369666388172,
+          9.671369675989665,
+          13.411556511301725,
+          13.411556517018585,
+          13.770490224801401,
+          13.770490230688937,
+          13.770490231771621,
+          13.770490240384955
+        ]
+      ],
       "git_commit": "2cd616fa2c7c9933be19bcbc9cde98d780515532",
       "hardware": {
         "cpu_logical_count": 8,
@@ -609,7 +667,9 @@
         "processor": ""
       },
       "initialization_mode": "new outer SCF from accepted density and spinors",
+      "inner_scf_converged": true,
       "input_sha256": "cffa449ae7599433ed73e2b7b2cbbb1539b3fea4011d0fb3d4ee54181756d81c",
+      "job_done": false,
       "lattice_A": 6.48,
       "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
       "mpi_ranks": 6,
@@ -664,15 +724,18 @@
         "parent_stdout_sha256": "9f8a342b7688db8d4ff6a1292237d21f0ca650e104b1208616fe5603120c8d05"
       },
       "restart_physics_unchanged": true,
+      "returncode": 1,
       "seed_initialization": true,
       "seed_numerical_threshold_Ry": 1e-08,
-      "written_utc": "2026-10-11T01:37:09.065840+00:00"
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a2c93014620eb70264ead8ebfdc571890c1fe289703be41474aa5784976cb992",
+      "wall_seconds": 1020.7845119386911,
+      "written_utc": "2026-10-11T01:54:09.853497+00:00"
     },
-    "changed_numerical_setting": "conv_thr=1e-10 Ry, with accurate empty states retained",
-    "changed_physical_settings": [],
-    "required_next_gate": "terminal EXX convergence, then projected matrix and native wavefunction checks"
+    "accepted_scattering_host": false,
+    "required_next_gate": "new longer-budget CdTe refinement after the active MPI family; do not resume the interrupted run as an outer checkpoint"
   },
-  "updated_utc": "2026-10-11T01:40:19.851178+00:00",
+  "updated_utc": "2026-10-11T02:00:36.560926+00:00",
   "completed_controls": {
     "sg15_accurate_empty": {
       "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97",
@@ -1125,5 +1188,230 @@
         "written_utc": "2026-10-11T01:39:16.621035+00:00"
       }
     }
+  },
+  "fixed_ion_impurity_pair": {
+    "preparation": {
+      "Te_environment_substitute_counts": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "cation_sites": 8,
+      "claim_status": "PREPARED inputs only; no electronic result or endpoint slope",
+      "driver_sha256": "b13e351ceef3dba558ad2e2679f1e7a8fbb52e3eb8989f20f33134c6672cd7b3",
+      "electron_count": 288.0,
+      "empirical_alloy_gap_inputs": [],
+      "geometry_checks": {
+        "formula": "CdHg7Te8",
+        "implied_a_conventional_ang": 6.459999999999997,
+        "n_atoms": 16,
+        "nn_coordination": [
+          4
+        ],
+        "nn_distance_ang": 2.7972620542237356,
+        "volume_ang3": 539.1722719999998,
+        "volume_per_atom_ang3": 33.69826699999999
+      },
+      "git_commit": "400a2da0f74823ee579fe9053abe50843ffca4e1",
+      "host": "Hg",
+      "inputs_sha256": {
+        "host": {
+          "pw.in": "0bb59d1611596f240cb39dd4b5f830bae3583daaac8eb3775b62fd98df01a901",
+          "pw_dry.in": "eae886071af306bf4f6b189aae80713bb3244d7a88506b72beee9c9ad1156d43"
+        },
+        "impurity": {
+          "pw.in": "994df9d80ec137a75677d6edaacbbebe55fa2c46e76195d8355e65f9dbf6a4e5",
+          "pw_dry.in": "64bfbb33875faf67fea947e158fa387db50cd990936e8dc82c7c19250bcd4b67"
+        }
+      },
+      "lattice_A": 6.46,
+      "n_atoms": 16,
+      "periodic_substitute_fraction": 0.125,
+      "planned_MPI_ranks": 6,
+      "planned_QE_version": "7.5",
+      "pp_sha256": {
+        "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+        "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+      },
+      "spinor_bands": 352,
+      "substitute": "Cd",
+      "unresolved_requirements": [
+        "dry-run and measured memory/time",
+        "matching host/impurity physical basis",
+        "full nonlocal HSE operator difference",
+        "electrostatic alignment",
+        "larger-cell and k/q convergence before dilute interpretation"
+      ],
+      "written_utc": "2026-10-11T01:43:58.035159+00:00"
+    },
+    "host_native_dry": {
+      "QE_version": "planned QE 7.5; see actual native line below",
+      "accepted_native_dry_run": true,
+      "accepted_scf": false,
+      "actual_QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:55:46",
+      "claim_status": "CALCULATED native dry capability only; no SCF or impurity coefficient",
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+        "-np",
+        "6",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+        "-in",
+        "pw_dry.in"
+      ],
+      "driver_sha256": "0e3ad19b7a8de5daca930f381e33d507b4918b534b4e31f14779a89f0440c3a9",
+      "empirical_alloy_gap_inputs": [],
+      "estimated_RAM_lines": [
+        "Dynamical RAM for                 wfc:      93.92 MB",
+        "Dynamical RAM for     wfc (w. buffer):      93.92 MB",
+        "Dynamical RAM for                 EXX:    1656.48 MB",
+        "Dynamical RAM for           str. fact:       2.14 MB",
+        "Dynamical RAM for           local pot:       0.00 MB",
+        "Dynamical RAM for          nlocal pot:     102.46 MB",
+        "Dynamical RAM for                qrad:      21.32 MB",
+        "Dynamical RAM for          rho,v,vnew:      32.03 MB",
+        "Dynamical RAM for               rhoin:      10.68 MB",
+        "Dynamical RAM for            rho*nmix:      68.33 MB",
+        "Dynamical RAM for           G-vectors:       4.54 MB",
+        "Dynamical RAM for          h,s,v(r/c):       5.67 MB",
+        "Dynamical RAM for          <psi|beta>:       8.25 MB",
+        "Dynamical RAM for                 psi:     187.84 MB",
+        "Dynamical RAM for                hpsi:     187.84 MB",
+        "Dynamical RAM for      wfcinit/wfcrot:     143.72 MB",
+        "Estimated static dynamical RAM per process >       1.89 GB",
+        "Estimated max dynamical RAM per process >       2.34 GB",
+        "Estimated total dynamical RAM >      14.05 GB"
+      ],
+      "git_commit": "713ebfd2a68caf73dbd60a35eb9ef9eff17e9d00",
+      "input_sha256": "eae886071af306bf4f6b189aae80713bb3244d7a88506b72beee9c9ad1156d43",
+      "mpi_ranks": 6,
+      "pp_sha256": {
+        "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+        "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+      },
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d5de5b69664ca0966e18b0f1e13ced60446b44f1b958b3eb72e44e503490b3f2",
+      "written_utc": "2026-10-11T01:55:46.839899+00:00"
+    },
+    "impurity_native_dry": {
+      "QE_version": "planned QE 7.5; see actual native line below",
+      "accepted_native_dry_run": true,
+      "accepted_scf": false,
+      "actual_QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:55:48",
+      "claim_status": "CALCULATED native dry capability only; no SCF or impurity coefficient",
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+        "-np",
+        "6",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+        "-in",
+        "pw_dry.in"
+      ],
+      "driver_sha256": "0e3ad19b7a8de5daca930f381e33d507b4918b534b4e31f14779a89f0440c3a9",
+      "empirical_alloy_gap_inputs": [],
+      "estimated_RAM_lines": [
+        "Dynamical RAM for                 wfc:      93.92 MB",
+        "Dynamical RAM for     wfc (w. buffer):      93.92 MB",
+        "Dynamical RAM for                 EXX:    1656.48 MB",
+        "Dynamical RAM for           str. fact:       3.20 MB",
+        "Dynamical RAM for           local pot:       0.00 MB",
+        "Dynamical RAM for          nlocal pot:      98.72 MB",
+        "Dynamical RAM for                qrad:      31.98 MB",
+        "Dynamical RAM for          rho,v,vnew:      32.03 MB",
+        "Dynamical RAM for               rhoin:      10.68 MB",
+        "Dynamical RAM for            rho*nmix:      68.33 MB",
+        "Dynamical RAM for           G-vectors:       4.54 MB",
+        "Dynamical RAM for          h,s,v(r/c):       5.67 MB",
+        "Dynamical RAM for          <psi|beta>:       7.95 MB",
+        "Dynamical RAM for                 psi:     187.84 MB",
+        "Dynamical RAM for                hpsi:     187.84 MB",
+        "Dynamical RAM for      wfcinit/wfcrot:     143.72 MB",
+        "Estimated static dynamical RAM per process >       1.90 GB",
+        "Estimated max dynamical RAM per process >       2.35 GB",
+        "Estimated total dynamical RAM >      14.10 GB"
+      ],
+      "git_commit": "713ebfd2a68caf73dbd60a35eb9ef9eff17e9d00",
+      "input_sha256": "64bfbb33875faf67fea947e158fa387db50cd990936e8dc82c7c19250bcd4b67",
+      "mpi_ranks": 6,
+      "pp_sha256": {
+        "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+        "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+      },
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a04486adef2cf1ba02502b566246542516703c4ac261cc6621e679cef73f7b78",
+      "written_utc": "2026-10-11T01:55:48.749724+00:00"
+    },
+    "status": "native capability dry runs passed; full SCF, common-basis extraction and dilute convergence pending"
+  },
+  "active_binary_reference": {
+    "directory": "calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800",
+    "provenance": {
+      "args": {
+        "accurate_empty": true,
+        "dry_run": false,
+        "ecut": 90,
+        "family": "sg15",
+        "functional": "HSE",
+        "material": "hgte",
+        "mesh": 4,
+        "qmesh": 2,
+        "ranks": 6,
+        "restart_from": null,
+        "scf_threshold": 1e-10,
+        "seconds": 1800,
+        "seed_from": null
+      },
+      "claim_status": "CALCULATED capability diagnostic only",
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+        "-np",
+        "6",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+        "-in",
+        "pw.in"
+      ],
+      "driver_sha256": "1a56bd2452e13b478081b19f21b42edbff8126e7ca69ac74d32c01daab1877c5",
+      "empirical_alloy_gap_inputs": [],
+      "git_commit": "ce75ed3241dc7263a7a9d799623e0859a686277a",
+      "hardware": {
+        "cpu_logical_count": 8,
+        "machine": "x86_64",
+        "mem_available_kb": 27125800,
+        "mem_total_kb": 32863192,
+        "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+        "processor": ""
+      },
+      "input_sha256": "1094371721fec79d62394c32bfa6e459710fb5779fa18ec8bdb506c0e1578c0b",
+      "lattice_A": 6.46,
+      "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
+      "mpi_ranks": 6,
+      "packages": {
+        "ase": "3.29.0",
+        "icet": "4.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pytest": "9.1.1",
+        "pyyaml": "6.0.3",
+        "scipy": "1.18.1",
+        "seekpath": "2.2.1",
+        "spglib": "2.7.0"
+      },
+      "pp_sha256": {
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+        "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+      },
+      "program": "R07 static microscopic bandgap; no AHC or phonon execution",
+      "written_utc": "2026-10-11T01:57:15.183881+00:00"
+    },
+    "status": "running at capture; no accepted HgTe result or assigned signed gap"
   }
 }

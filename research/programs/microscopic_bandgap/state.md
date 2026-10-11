@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** reference/direct-alloy audits complete; two hybrid CdTe hosts converged; projected empty-state gate failed; numerical control running
+**State:** reference/direct-alloy audits complete; CdTe empty-state defect largely repaired, matrix gate unresolved; impurity dry runs pass; tighter HgTe binary running
 
 **Updated:** 2026-10-11
 
@@ -19,9 +19,23 @@ Temperature and empirical coefficient tuning are outside this tranche.
 **CALCULATED:** the SG15 CdTe accurate-empty control reduces the projected
 time-reversal defect from 6.37827 eV to 2.95137 meV, while the signed Gamma
 gap changes by only 0.8884 micro-eV. The unchanged 1-meV gate still fails;
-a 1e-10-Ry seeded SCF refinement is running. At X the two same-material
+a 1e-10-Ry seeded SCF refinement was interrupted at its wall limit without
+an outer checkpoint and is rejected. A longer-budget tight HgTe binary is
+running. At X the two same-material
 physical frames have minimum overlap singular value 0.109056 and a
 same-label matrix difference of 6.30703 eV, invalid as an impurity operator.
+
+**CALCULATED:** the matched fixed-ion 16-atom HgTe/Cd-in-HgTe inputs pass
+native QE dry runs with estimated dynamical memory about 14.1 GB. No
+self-consistent impurity result or dilute coefficient exists yet.
+
+**PROVEN under an isolated quadratic Gamma8 threshold and nonzero finite
+forward amplitude:** the gap-side contribution to -T8' scales as
+tau8^2 k8/sqrt(delta). **CALCULATED:** k8=0.5119895494464 eV^(-3/2) for
+the published CdTe binary model, whose projected linear term vanishes.
+Physical linear BIA and the inverted-HgTe continuum require separate checks;
+this is not the physical total A. A finite A_slope cannot be equated to a
+divergent unregularized endpoint derivative under those assumptions.
 
 **PROVEN:** a composition-dependent volume path adds homogeneous-strain
 terms to fixed-volume impurity endpoint slopes. These must be accounted
@@ -92,6 +106,8 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Portable hybrid host record](../../../data/calculated/static_hse_binary_gate_20261010.json)
 - [Reference and threshold derivation](../../../docs/derivations/impurity_reference_and_threshold.md)
 - [Endpoint volume-path correction](../../../docs/derivations/endpoint_volume_path.md)
+- [Conditional Gamma8 threshold kernel](../../../docs/derivations/gamma8_threshold_kernel.md)
+- [Frozen Gamma8 kernel](../../../data/calculated/gamma8_quadratic_threshold_20261011.json)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
@@ -100,8 +116,8 @@ optical-theorem, threshold and interpolation mathematics is established.
 
 ## Validation
 
-Latest full repository suite: **1773 passed**, including 25 new tests across
-the reconstruction and self-consistency tranches.
+Latest full repository suite: **1776 passed**, including three new independent
+binary-curvature, spin-three-halves angular and radial threshold checks.
 Independent checks include a full finite-Hamiltonian inverse, numerical T
 derivatives, positive off-spectrum norms, the causal optical theorem, direct
 threshold quadrature and a bracketed concentration-pole solve.
@@ -111,18 +127,22 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
 
 ## Next decision-changing work
 
-1. Finish the live SG15 CdTe 1e-10-Ry numerical refinement in the companion
-   DFT repository before another MPI family. Both coarse HSE hosts
+1. Finish the live SG15 HgTe binary
+   `hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800` in the companion DFT
+   repository before another MPI family. Both coarse CdTe HSE hosts
    converged: signed gaps 1.7048135 eV (PseudoDojo) and 1.5753656 eV (SG15),
    with independently assigned Gamma sectors and verified grid expansion.
    Their 129.4479-meV difference is not attributable to NLCC alone.
    Accurate empty states reduce the 26-spinor matrix defect by over 2000
    times, to 2.95137 meV, still above the unchanged 1-meV gate. DFT commit
-   400a2da contains the completed control and physical-frame overlaps.
-   The live run is `cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2`;
-   rerun the projection and native-wavefunction checks after convergence.
-   No scattering host is accepted yet. A time-limited continuation must
-   retain both `--accurate-empty` and `--scf-threshold 1e-10`.
+   f4f77d4 contains the completed controls, physical-frame overlaps and
+   passed impurity capability dry runs. The stricter CdTe refinement was
+   killed at its wall limit without a checkpoint and is rejected. It
+   needs a new longer-budget calculation. Rerun the Gamma assignments,
+   projection and native-wavefunction checks after HgTe converges. In
+   smeared HgTe, a fixed lowest-36-band slice is not an occupied projector.
+   No scattering host is accepted yet. A clean time-limited continuation
+   must retain `--accurate-empty` and `--scf-threshold 1e-10`.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
