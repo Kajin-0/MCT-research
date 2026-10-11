@@ -2,29 +2,10 @@
   "DFT_branch": "research/hgcdte-analytical-gap-20261010",
   "DFT_fast_tests": {
     "deselected": 1,
-    "passed": 83
+    "passed": 84
   },
-  "DFT_repository_commit": "bae7985e0b7eef96d9e9e01f6a7b2a4a633400d2",
+  "DFT_repository_commit": "82628b7cb36ebe93585151aaf0f208aa92b1c406",
   "active_binary_reference": {
-    "detached_supervision": {
-      "claim_status": "RUNNING external native supervision; original wrapper exit 143, MPI exit unavailable",
-      "empirical_alloy_gap_inputs": [],
-      "family_RSS_limit_bytes": 26921526886.4,
-      "initial_stdout_prefix_sha256": "6d8f3d0c3a9f2ad80fc5d147cb3944ee2fb1083c10173dd3928334d68d44f782",
-      "launcher_pid": 1755855,
-      "launcher_start_ticks": 623716124,
-      "monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
-      "native_exit_status_can_be_recovered": false,
-      "native_exit_status_unavailable": true,
-      "original_checkpoint_grace": 1800,
-      "original_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
-      "original_seconds": 3600,
-      "original_start_epoch": 1791712439.649711,
-      "recovery_driver_sha256": "dad40ec7237e5e110b8f235ee4eed22dcb23fe1bc6d9f8d668be17d6e5fcba7e",
-      "recovery_git_commit": "456847b69bddcd672407af0a8458bf346e560134",
-      "wrapper_exit_status": 143,
-      "written_utc": "2026-10-11T10:32:08.826864+00:00"
-    },
     "detached_supervisor_launch": {
       "detached_supervisor_pid": 1757546,
       "detached_supervisor_process_group": 1757546,
@@ -37,8 +18,66 @@
       "log": "work/r07_reference_recovery_20261011.log",
       "startup_acknowledged": true
     },
-    "directory": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
+    "directory": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000",
+    "future_native_supervision": "Binary runner now recursively monitors independent MPI rank groups with time/RSS guards; forced, erroneous or incomplete family termination rejects acceptance; unchanged physics/thresholds",
     "instantaneous_family_RSS_snapshot": {
+      "RSS_bytes": 15432269824,
+      "claim_status": "CALCULATED instantaneous current native family; not full-run peak",
+      "input_sha256": "c7129bc049125aec6c66a1af933ad9af9ac4a6cb613101fdb021864692ac7918",
+      "launch_git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
+      "measured_RSS_GiB": 14.372421264648438,
+      "monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+      "mpi_ranks": 6,
+      "pp_sha256": {
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+        "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+      },
+      "processes": {
+        "1761773": {
+          "command": "prterun",
+          "pgid": 1761773,
+          "ppid": 1761769,
+          "rss_bytes": 12894208
+        },
+        "1761777": {
+          "command": "pw.x",
+          "pgid": 1761777,
+          "ppid": 1761773,
+          "rss_bytes": 2571771904
+        },
+        "1761778": {
+          "command": "pw.x",
+          "pgid": 1761778,
+          "ppid": 1761773,
+          "rss_bytes": 2569355264
+        },
+        "1761779": {
+          "command": "pw.x",
+          "pgid": 1761779,
+          "ppid": 1761773,
+          "rss_bytes": 2569748480
+        },
+        "1761780": {
+          "command": "pw.x",
+          "pgid": 1761780,
+          "ppid": 1761773,
+          "rss_bytes": 2569531392
+        },
+        "1761781": {
+          "command": "pw.x",
+          "pgid": 1761781,
+          "ppid": 1761773,
+          "rss_bytes": 2568916992
+        },
+        "1761782": {
+          "command": "pw.x",
+          "pgid": 1761782,
+          "ppid": 1761773,
+          "rss_bytes": 2570051584
+        }
+      }
+    },
+    "preceding_reference_RSS_snapshot": {
       "RSS_bytes": 15374221312,
       "claim_status": "CALCULATED instantaneous MPI-family RSS; not a full-run peak",
       "input_sha256": "3fd111cd0451eff3d3bd251618f48fbefe2a966c1404d48faa1508bb828a0e41",
@@ -97,7 +136,7 @@
       },
       "written_utc": "2026-10-11T10:00:02.213175+00:00"
     },
-    "latest_raw_interim_snapshot": {
+    "preceding_reference_interim_snapshot": {
       "claim_status": "CALCULATED raw interim spectrum only; no accepted binary or final sector assignment",
       "empirical_alloy_gap_inputs": [],
       "input_sha256": "3fd111cd0451eff3d3bd251618f48fbefe2a966c1404d48faa1508bb828a0e41",
@@ -181,23 +220,53 @@
       },
       "written_utc": "2026-10-11T10:43:45.119281+00:00"
     },
-    "process": {
+    "preceding_reference_supervision": {
+      "all_rank_processes_terminated": true,
+      "claim_status": "CALCULATED observed native terminal record; missing MPI OS exit status retained",
+      "empirical_alloy_gap_inputs": [],
+      "family_RSS_limit_bytes": 26921526886.4,
+      "forced_termination": false,
+      "initial_stdout_prefix_sha256": "6d8f3d0c3a9f2ad80fc5d147cb3944ee2fb1083c10173dd3928334d68d44f782",
       "launcher_pid": 1755855,
-      "started_utc_epoch": 1791712439.649711
+      "launcher_start_ticks": 623716124,
+      "measured_peak_family_count": 7,
+      "measured_peak_sampled_family_RSS_bytes": 15551602688,
+      "monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+      "native_error_detected": false,
+      "native_exit_status_can_be_recovered": false,
+      "native_exit_status_unavailable": true,
+      "original_checkpoint_grace": 1800,
+      "original_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
+      "original_seconds": 3600,
+      "original_start_epoch": 1791712439.649711,
+      "outer_checkpoint_file_count": 6,
+      "outer_checkpoint_files_written_after_launch": true,
+      "recovery_driver_sha256": "dad40ec7237e5e110b8f235ee4eed22dcb23fe1bc6d9f8d668be17d6e5fcba7e",
+      "recovery_git_commit": "456847b69bddcd672407af0a8458bf346e560134",
+      "termination_reason": null,
+      "wrapper_exit_status": 143,
+      "written_utc": "2026-10-11T10:56:42.343549+00:00"
+    },
+    "process": {
+      "launcher_pid": 1761773,
+      "started_utc_epoch": 1791716209.211154
     },
     "provenance": {
+      "RSS_measurement_scope": "launcher plus recursive descendants including independent MPI process groups",
+      "RSS_monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
       "args": {
         "accurate_empty": true,
         "checkpoint_grace": 1800,
         "dry_run": false,
         "ecut": 90,
+        "ecut_fock": null,
         "family": "sg15",
         "functional": "HSE",
         "material": "hgte",
         "mesh": 4,
         "qmesh": 4,
         "ranks": 6,
-        "restart_from": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800",
+        "restart_from": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
         "scf_threshold": 1e-10,
         "seconds": 3600,
         "seed_from": null
@@ -211,18 +280,18 @@
         "-in",
         "pw.in"
       ],
-      "driver_sha256": "ae1a37c507e0d1fb538cce0bd8c2fa3d31572763ce2eb05d595580ece3966129",
+      "driver_sha256": "f1fdbe69480f773377ae7bfe1cfae7525cd136b446869cc8e010c6c64737df20",
       "empirical_alloy_gap_inputs": [],
-      "git_commit": "09723876f834c7b95746537cf6f2b8f5fe9d186a",
+      "git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
       "hardware": {
         "cpu_logical_count": 8,
         "machine": "x86_64",
-        "mem_available_kb": 27688344,
+        "mem_available_kb": 27531556,
         "mem_total_kb": 32863192,
         "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
         "processor": ""
       },
-      "input_sha256": "3fd111cd0451eff3d3bd251618f48fbefe2a966c1404d48faa1508bb828a0e41",
+      "input_sha256": "c7129bc049125aec6c66a1af933ad9af9ac4a6cb613101fdb021864692ac7918",
       "lattice_A": 6.46,
       "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
       "mpi_ranks": 6,
@@ -241,65 +310,117 @@
         "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
         "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
       },
+      "process_family_RSS_limit_bytes": 23963466342.399998,
       "program": "R07 static microscopic bandgap; no AHC or phonon execution",
       "restart_checkpoint": {
         "files": {
-          "r07.restart_e": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
-          "r07.restart_e2": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
-          "r07.restart_e3": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
-          "r07.restart_e4": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
-          "r07.restart_e5": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
-          "r07.restart_e6": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+          "r07.restart_e": "8398db656ded75588b605aee1fcbd1daa73e1e0f42a269288f5ec2b0c719c827",
+          "r07.restart_e2": "8398db656ded75588b605aee1fcbd1daa73e1e0f42a269288f5ec2b0c719c827",
+          "r07.restart_e3": "8398db656ded75588b605aee1fcbd1daa73e1e0f42a269288f5ec2b0c719c827",
+          "r07.restart_e4": "8398db656ded75588b605aee1fcbd1daa73e1e0f42a269288f5ec2b0c719c827",
+          "r07.restart_e5": "8398db656ded75588b605aee1fcbd1daa73e1e0f42a269288f5ec2b0c719c827",
+          "r07.restart_e6": "8398db656ded75588b605aee1fcbd1daa73e1e0f42a269288f5ec2b0c719c827",
           "r07.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
           "r07.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
-          "r07.save/ace1.hdf5": "ebcd1039a7b62b6fc44c3c2362d42cfe17d21c7792fcbbcfe629984c674c9148",
-          "r07.save/ace2.hdf5": "eb999e9fe5d38bf0a4b5de72ab82ac10af9b95ce70ac68df1e424a3426c3ddf0",
-          "r07.save/ace3.hdf5": "0095efe000977d863982481407a91ec1d3935f56d301d084190be7f05045276d",
-          "r07.save/ace4.hdf5": "746e59a089de71ea228abba684f4633ec5c0cc07b3e17b8a8508f52ce18a2d2f",
-          "r07.save/ace5.hdf5": "a60b740248c44aa3935a5153c4f4184d46eabc9ae7d8c68cf4f38df277e1b70b",
-          "r07.save/ace6.hdf5": "37bb23988f03b71ae92b173cd741dccb455530dee76a327c3a2ab77ef187cc0b",
-          "r07.save/ace7.hdf5": "5a041717752e028a75a4519db895c4bbd9f1adbc6bfc57912333300f159f19b6",
-          "r07.save/ace8.hdf5": "cc7e4fe9bcaf420c5b113bbb52f24540ed295ca46ef122563daeb8f099b7fbd3",
+          "r07.save/ace1.hdf5": "4cafdbdb408ea481a8ec5c0e3edda680e1dcc16cff63736b62b300ce7ef16870",
+          "r07.save/ace2.hdf5": "ea8bb9eabac8c86a820c630a73587957b565567148186dbd3f72e8eab43495ce",
+          "r07.save/ace3.hdf5": "23c8be1c6e4cc2ed38e7569c7b2f85390de998f84c4f9128a4f37107e08e964f",
+          "r07.save/ace4.hdf5": "d99b1eed4d8d9bb1656ac5e326b5023a2babbfdfd4392f6a10ee59b7998fe461",
+          "r07.save/ace5.hdf5": "cc7809805717b5a23535d017ee0385a94ce54fa5417e8e354ad5d87f66feccd6",
+          "r07.save/ace6.hdf5": "c3cc72ad6b80fda194bd164cec035c711f7ea5915dbbf7ead927727a25fe9ace",
+          "r07.save/ace7.hdf5": "6db23c9c59098ad17b780083a6747c06d69394d9a79a73485e96b9acb2f6d025",
+          "r07.save/ace8.hdf5": "796bf0f8c64e58b35eed687542b305dd9cd594897f3ba6f5bed0155defe6b61d",
           "r07.save/atomic_proj.xml": "99a90db7ad6cad5caf9a803e8e01bf68245190ef93708402534d972bfb09b01b",
-          "r07.save/charge-density.hdf5": "069b1781c970bf5c096ec7eddab518c45489a4e1d1c5dacce8b892d7eb0f785e",
-          "r07.save/data-file-schema.xml": "44f736f4f50ee3c5455cd3d6b81e00889e38969ab2ba402744d065de439285ad",
-          "r07.save/wfc1.hdf5": "96afe15c9b52f1daa6f6638cdcaaea50bf53f819a81103cc1b29a101395a235f",
-          "r07.save/wfc2.hdf5": "32eae29f35323daae16f254bfcf3dc83743130012ab0d4d8723416ac9f827aa3",
-          "r07.save/wfc3.hdf5": "c36621c9323083ad6f6d4f377c01a2e794b5c9363eb18848308b59c7f240cf74",
-          "r07.save/wfc4.hdf5": "83dee6886e07714d2e70000af1962618cf2de9ec0a32e2b7784c14c23299bb35",
-          "r07.save/wfc5.hdf5": "3f867dc6e940de80102f8d6cd2b65921c84cc18951b53a964bf21885e8472c06",
-          "r07.save/wfc6.hdf5": "936e355baae596dab75bf1122e9dde8029986bfc0982ad19c5bd1045d655c501",
-          "r07.save/wfc7.hdf5": "0cf17c94c083180fc90a5298f53cf649ffb295ea27f14aa09126785afb6cca50",
-          "r07.save/wfc8.hdf5": "89cca395604062711a9191b73bc16fec67dcb2d8a5caf7682ce5aa423048ddc4",
-          "r07.xml": "44f736f4f50ee3c5455cd3d6b81e00889e38969ab2ba402744d065de439285ad"
+          "r07.save/charge-density.hdf5": "55e20c820b538e54de6b7cbcb1114ea94beeff25aba81e5fc96069674e17e19f",
+          "r07.save/data-file-schema.xml": "44cd014e9f24134b9570d3905a804a89756787bc8a77bb70d47d1890b8c7bf02",
+          "r07.save/wfc1.hdf5": "497a245efe9d535123ef00e5b71160cf492091f1fb37c0444127a44d6c508945",
+          "r07.save/wfc2.hdf5": "728637e76416c9bbabf4f81fd87feabe49be68a80637fb4df09ed7291e397ef1",
+          "r07.save/wfc3.hdf5": "5dadde526d71fad23b8a49a1209d48e2381ce5876e1d69c54486e84d2bf9c112",
+          "r07.save/wfc4.hdf5": "1ad79f5008dbd5087d618fcde4cba04c5faf26b693fef62fd9e2365f641f6953",
+          "r07.save/wfc5.hdf5": "a97e7e3c3dc7de3cf37e34e18a7428a71d35919c33fcc6f3901d908e6286e35d",
+          "r07.save/wfc6.hdf5": "6356b00f1e1fb09a83809d214cbc0c6abca586780792c031f44d1aecfcf9039c",
+          "r07.save/wfc7.hdf5": "9eada31681466a895954ab30ee6be35124456af31d369ff404869bf6ed208eeb",
+          "r07.save/wfc8.hdf5": "b2925b3924b7260226365f202329845c5ed679dc50c9250e8beeea05e6599b6d",
+          "r07.wfc1": "746c2491ebaccca610793f3c9c43f103ba4341ad46b9e88bbdce3322107743ce",
+          "r07.wfc2": "7a0227daf92c6ae06053f4a98a53f76db7a947e4c3ef7be50c9c6e44e1a3ad49",
+          "r07.wfc3": "bd9eeebe4edd173f86e79de56c8342e14a02d82a510500da2d180ff01df5c9b7",
+          "r07.wfc4": "9ac9dd456b690f06dbf33ae6cb6c8f765c27520fe61a7c2df0642050413c1023",
+          "r07.wfc5": "3af88f203cfaca7fa2937d8080b1c6de3b1d97258ec7eb692e6ac30e8e006059",
+          "r07.wfc6": "fb023f270739d90709830bfaf70e6746c5c4fcb42d8f66779d381d436c1a9da7",
+          "r07.xml": "44cd014e9f24134b9570d3905a804a89756787bc8a77bb70d47d1890b8c7bf02"
         },
-        "parent": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800",
-        "parent_result_sha256": "bfecdeb91b3c22c24b890b3d70d0b655116d42663c99663b0938bb70aaaab019",
-        "parent_stdout_sha256": "6d313339773965cb618371e819696a5d790eff8bd48174b526e5848b36c136df"
+        "parent": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
+        "parent_result_sha256": "cee660006735eda7e3bd84809f8d8c76c6dc77ec4efecc0f6da8fde5f7cf3fdb",
+        "parent_stdout_sha256": "72e90aee65092a95b117791e941e14267dc4c4af5e932c35e7478f75869f23b0"
       },
       "restart_physics_unchanged": true,
       "seed_initialization": false,
-      "written_utc": "2026-10-11T09:53:59.647808+00:00"
+      "written_utc": "2026-10-11T10:56:49.209418+00:00"
     },
-    "serial_queue_directory": "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4",
+    "serial_queue_directory": "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4_recovered",
     "serial_queue_limits": "At first valid observed stop: matched f120 dry resource probes, then at most two unchanged q4 3600-second chunks with 1800-second grace; distinct f120 primitive only after accepted default reference; no full impurity SCF",
     "serial_queue_snapshot": {
-      "claim_status": "INCOMPLETE operational queue, replaced by detached recovered supervision",
-      "driver_sha256": "f0854a43ef41368a93e79bafc3418ab09dc5e30748029ef28229609451bbd052",
+      "claim_status": "RUNNING bounded serial numerical-reference work; no physical impurity or inversion",
+      "driver_sha256": "4459e62027213db09de4fbe78f0caec5e6ca2f2e6fb43609d5d98c473cb0c8e4",
       "empirical_alloy_gap_inputs": [],
       "initial_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
       "initial_reference": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
-      "launch_git_commit": "520ce81fa72e5f2b0e533fe8d6451e7eb46da25c",
+      "latest_reference": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
+      "latest_reference_result_sha256": "cee660006735eda7e3bd84809f8d8c76c6dc77ec4efecc0f6da8fde5f7cf3fdb",
+      "launch_git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
       "max_additional_continuations": 2,
       "preparation_sha256": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
       "prepared_pair": "calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare",
-      "reason": "Original native execution wrapper exited 143 while its MPI ranks continued; preserve missing native exit status",
-      "stage": "RETIRED waiting queue before recovery; no child MPI stage launched",
-      "stages": [],
-      "written_utc": "2026-10-11T10:30:04.200257+00:00"
+      "stage": "RUN r07_binary_probe.py",
+      "stages": [
+        {
+          "command": [
+            "/home/User/opencode_workspace/DFT/.venv/bin/python",
+            "/home/User/opencode_workspace/DFT/scripts/r07_dry_impurity_pair.py",
+            "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare",
+            "host"
+          ],
+          "driver_sha256": "72438f7e9a37eecd520293fc7fb2fe6a7461379f0a0baa4be4350544d1dabcf4",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/home/User/opencode_workspace/DFT/.venv/bin/python",
+            "/home/User/opencode_workspace/DFT/scripts/r07_dry_impurity_pair.py",
+            "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare",
+            "impurity"
+          ],
+          "driver_sha256": "72438f7e9a37eecd520293fc7fb2fe6a7461379f0a0baa4be4350544d1dabcf4",
+          "returncode": 0
+        },
+        {
+          "command": [
+            "/home/User/opencode_workspace/DFT/.venv/bin/python",
+            "/home/User/opencode_workspace/DFT/scripts/r07_binary_probe.py",
+            "hgte",
+            "--family",
+            "sg15",
+            "--accurate-empty",
+            "--scf-threshold",
+            "1e-10",
+            "--mesh",
+            "4",
+            "--qmesh",
+            "4",
+            "--seconds",
+            "3600",
+            "--checkpoint-grace",
+            "1800",
+            "--restart-from",
+            "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9"
+          ],
+          "driver_sha256": "f1fdbe69480f773377ae7bfe1cfae7525cd136b446869cc8e010c6c64737df20"
+        }
+      ],
+      "written_utc": "2026-10-11T10:56:48.053872+00:00"
     },
-    "serial_queue_status": "Initial waiting queue retired without child native launch; detached recovery will launch a new recovered queue only at a valid observed terminal",
-    "status": "LIVE orphaned native MPI launch under detached supervision; native OS exit unavailable, this run cannot be accepted; no physical impurity coefficient"
+    "serial_queue_status": "Recovered serial queue has finished both f120 dry probes and is running unchanged q4 additional chunk 1",
+    "status": "LIVE fresh unchanged q4 native continuation, captured OS status and recursive MPI-family supervision; no accepted HgTe gap or physical impurity coefficient"
   },
   "claim_status": "CALCULATED two coarse-grid binary hosts; both projected finite-q matrix gates failed; physical impurity prediction pending",
   "completed_controls": {
@@ -1939,6 +2060,264 @@
       ],
       "written_utc": "2026-10-11T09:56:40.441837+00:00"
     },
+    "hgte_recovered_q4_terminal": {
+      "raw_gamma": {
+        "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  9:54: 1",
+        "accepted_scf": false,
+        "claim_status": "CALCULATED terminal raw quartet history; observed restartability, no accepted native OS status or binary gap",
+        "empirical_alloy_gap_inputs": [],
+        "exchange_error_history_Ry": [
+          "0.00000030",
+          "0.00000004",
+          "2.8E-09"
+        ],
+        "git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
+        "input_sha256": "3fd111cd0451eff3d3bd251618f48fbefe2a966c1404d48faa1508bb828a0e41",
+        "mpi_ranks": 6,
+        "native_returncode": null,
+        "pp_sha256": {
+          "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "raw_printed_Gamma_history": [
+          {
+            "printed_step": 0,
+            "quartet_energies_eV": [
+              8.9586,
+              8.9586,
+              8.9586,
+              8.9586
+            ],
+            "quartet_occupations": [
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quartet_spread_eV": 0.0
+          },
+          {
+            "printed_step": 1,
+            "quartet_energies_eV": [
+              8.955,
+              8.955,
+              8.955,
+              8.955
+            ],
+            "quartet_occupations": [
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quartet_spread_eV": 0.0
+          },
+          {
+            "printed_step": 2,
+            "quartet_energies_eV": [
+              8.9548,
+              8.9548,
+              8.9548,
+              8.9548
+            ],
+            "quartet_occupations": [
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quartet_spread_eV": 0.0
+          }
+        ],
+        "source_scf_result_sha256": "cee660006735eda7e3bd84809f8d8c76c6dc77ec4efecc0f6da8fde5f7cf3fdb",
+        "source_stdout_sha256": "72e90aee65092a95b117791e941e14267dc4c4af5e932c35e7478f75869f23b0",
+        "written_utc": "2026-10-11T11:07:04.216085+00:00"
+      },
+      "result": {
+        "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  9:54: 1",
+        "accepted_scf": false,
+        "args": {
+          "accurate_empty": true,
+          "checkpoint_grace": 1800,
+          "dry_run": false,
+          "ecut": 90,
+          "family": "sg15",
+          "functional": "HSE",
+          "material": "hgte",
+          "mesh": 4,
+          "qmesh": 4,
+          "ranks": 6,
+          "restart_from": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800",
+          "scf_threshold": 1e-10,
+          "seconds": 3600,
+          "seed_from": null
+        },
+        "band_irrep_assignment": "unaccepted recovered native run; fresh supervised continuation required",
+        "claim_status": "CALCULATED capability diagnostic only",
+        "command": [
+          "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+          "-np",
+          "6",
+          "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+          "-in",
+          "pw.in"
+        ],
+        "driver_sha256": "ae1a37c507e0d1fb538cce0bd8c2fa3d31572763ce2eb05d595580ece3966129",
+        "empirical_alloy_gap_inputs": [],
+        "exit_requested": true,
+        "exx_converged": false,
+        "forced_termination": false,
+        "gamma_eigenvalues_eV": [
+          [
+            -110.99128739670336,
+            -110.99128739670323,
+            -71.49864442794656,
+            -71.49864442794656,
+            -52.99870686709998,
+            -52.99870686709985,
+            -52.998706856851065,
+            -52.998706856851065,
+            -29.08856025789241,
+            -29.08856025788566,
+            -29.088560154275616,
+            -29.088560154272947,
+            -27.58897353665129,
+            -27.58897353664291,
+            -27.578141399401268,
+            -27.57814139939863,
+            -27.578141362269996,
+            -27.578141362264418,
+            -4.357014098479175,
+            -4.357014098474182,
+            -0.462030869751328,
+            -0.4620308697476555,
+            -0.4620308106650279,
+            -0.46203081066179624,
+            0.9782137141464726,
+            0.9782137141486759,
+            1.4905881020589877,
+            1.490588102066773,
+            1.490588129727947,
+            1.4905881297316192,
+            8.010206832077042,
+            8.010206832087619,
+            8.665027756923322,
+            8.665027757027907,
+            8.954793848397777,
+            8.95479384917836,
+            8.954794037490858,
+            8.95479404046145,
+            12.976784908151508,
+            12.976784908163554,
+            14.259434396916483,
+            14.259434396977877,
+            14.259434455227487,
+            14.259434455288446
+          ]
+        ],
+        "git_commit": "09723876f834c7b95746537cf6f2b8f5fe9d186a",
+        "hardware": {
+          "cpu_logical_count": 8,
+          "machine": "x86_64",
+          "mem_available_kb": 27688344,
+          "mem_total_kb": 32863192,
+          "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+          "processor": ""
+        },
+        "inner_scf_converged": true,
+        "input_sha256": "3fd111cd0451eff3d3bd251618f48fbefe2a966c1404d48faa1508bb828a0e41",
+        "job_done": true,
+        "lattice_A": 6.46,
+        "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
+        "mpi_ranks": 6,
+        "native_time_limit": true,
+        "packages": {
+          "ase": "3.29.0",
+          "icet": "4.0",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pytest": "9.1.1",
+          "pyyaml": "6.0.3",
+          "scipy": "1.18.1",
+          "seekpath": "2.2.1",
+          "spglib": "2.7.0"
+        },
+        "pp_sha256": {
+          "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "program": "R07 static microscopic bandgap; no AHC or phonon execution",
+        "restart_checkpoint": {
+          "files": {
+            "r07.restart_e": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+            "r07.restart_e2": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+            "r07.restart_e3": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+            "r07.restart_e4": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+            "r07.restart_e5": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+            "r07.restart_e6": "a761865cdba2452519a242eec479e2d40cad1f96283355a68f3e521ee6f9734e",
+            "r07.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+            "r07.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+            "r07.save/ace1.hdf5": "ebcd1039a7b62b6fc44c3c2362d42cfe17d21c7792fcbbcfe629984c674c9148",
+            "r07.save/ace2.hdf5": "eb999e9fe5d38bf0a4b5de72ab82ac10af9b95ce70ac68df1e424a3426c3ddf0",
+            "r07.save/ace3.hdf5": "0095efe000977d863982481407a91ec1d3935f56d301d084190be7f05045276d",
+            "r07.save/ace4.hdf5": "746e59a089de71ea228abba684f4633ec5c0cc07b3e17b8a8508f52ce18a2d2f",
+            "r07.save/ace5.hdf5": "a60b740248c44aa3935a5153c4f4184d46eabc9ae7d8c68cf4f38df277e1b70b",
+            "r07.save/ace6.hdf5": "37bb23988f03b71ae92b173cd741dccb455530dee76a327c3a2ab77ef187cc0b",
+            "r07.save/ace7.hdf5": "5a041717752e028a75a4519db895c4bbd9f1adbc6bfc57912333300f159f19b6",
+            "r07.save/ace8.hdf5": "cc7e4fe9bcaf420c5b113bbb52f24540ed295ca46ef122563daeb8f099b7fbd3",
+            "r07.save/atomic_proj.xml": "99a90db7ad6cad5caf9a803e8e01bf68245190ef93708402534d972bfb09b01b",
+            "r07.save/charge-density.hdf5": "069b1781c970bf5c096ec7eddab518c45489a4e1d1c5dacce8b892d7eb0f785e",
+            "r07.save/data-file-schema.xml": "44f736f4f50ee3c5455cd3d6b81e00889e38969ab2ba402744d065de439285ad",
+            "r07.save/wfc1.hdf5": "96afe15c9b52f1daa6f6638cdcaaea50bf53f819a81103cc1b29a101395a235f",
+            "r07.save/wfc2.hdf5": "32eae29f35323daae16f254bfcf3dc83743130012ab0d4d8723416ac9f827aa3",
+            "r07.save/wfc3.hdf5": "c36621c9323083ad6f6d4f377c01a2e794b5c9363eb18848308b59c7f240cf74",
+            "r07.save/wfc4.hdf5": "83dee6886e07714d2e70000af1962618cf2de9ec0a32e2b7784c14c23299bb35",
+            "r07.save/wfc5.hdf5": "3f867dc6e940de80102f8d6cd2b65921c84cc18951b53a964bf21885e8472c06",
+            "r07.save/wfc6.hdf5": "936e355baae596dab75bf1122e9dde8029986bfc0982ad19c5bd1045d655c501",
+            "r07.save/wfc7.hdf5": "0cf17c94c083180fc90a5298f53cf649ffb295ea27f14aa09126785afb6cca50",
+            "r07.save/wfc8.hdf5": "89cca395604062711a9191b73bc16fec67dcb2d8a5caf7682ce5aa423048ddc4",
+            "r07.xml": "44f736f4f50ee3c5455cd3d6b81e00889e38969ab2ba402744d065de439285ad"
+          },
+          "parent": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800",
+          "parent_result_sha256": "bfecdeb91b3c22c24b890b3d70d0b655116d42663c99663b0938bb70aaaab019",
+          "parent_stdout_sha256": "6d313339773965cb618371e819696a5d790eff8bd48174b526e5848b36c136df"
+        },
+        "restart_physics_unchanged": true,
+        "returncode": null,
+        "seed_initialization": false,
+        "stderr_sha256": "cf600e3fc9072701191eb01bfbf10f091cd0e4d96293530831d8ffb86fae4829",
+        "stdout_sha256": "72e90aee65092a95b117791e941e14267dc4c4af5e932c35e7478f75869f23b0",
+        "supervision_recovery": {
+          "all_rank_processes_terminated": true,
+          "claim_status": "CALCULATED observed native terminal record; missing MPI OS exit status retained",
+          "empirical_alloy_gap_inputs": [],
+          "family_RSS_limit_bytes": 26921526886.4,
+          "forced_termination": false,
+          "initial_stdout_prefix_sha256": "6d8f3d0c3a9f2ad80fc5d147cb3944ee2fb1083c10173dd3928334d68d44f782",
+          "launcher_pid": 1755855,
+          "launcher_start_ticks": 623716124,
+          "measured_peak_family_count": 7,
+          "measured_peak_sampled_family_RSS_bytes": 15551602688,
+          "monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+          "native_error_detected": false,
+          "native_exit_status_can_be_recovered": false,
+          "native_exit_status_unavailable": true,
+          "original_checkpoint_grace": 1800,
+          "original_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
+          "original_seconds": 3600,
+          "original_start_epoch": 1791712439.649711,
+          "outer_checkpoint_file_count": 6,
+          "outer_checkpoint_files_written_after_launch": true,
+          "recovery_driver_sha256": "dad40ec7237e5e110b8f235ee4eed22dcb23fe1bc6d9f8d668be17d6e5fcba7e",
+          "recovery_git_commit": "456847b69bddcd672407af0a8458bf346e560134",
+          "termination_reason": null,
+          "wrapper_exit_status": 143
+        },
+        "termination_reason": null,
+        "wall_seconds": 3762.6941306591034,
+        "written_utc": "2026-10-11T10:56:42.345956+00:00"
+      }
+    },
     "sg15_accurate_empty": {
       "SCF": {
         "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
@@ -3218,6 +3597,160 @@
       },
       "written_utc": "2026-10-11T02:44:46.218785+00:00"
     },
+    "explicit_lower_Fock_cutoff_native_resource_gate": {
+      "host": {
+        "RSS_measurement_scope": "launcher plus recursive descendants, including independent MPI process groups",
+        "RSS_monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+        "accepted_native_dry_run": true,
+        "accepted_scf": false,
+        "actual_QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at 10:56:45",
+        "checkpoint_grace_seconds": 60,
+        "claim_status": "CALCULATED native dry capability only; no SCF or impurity coefficient",
+        "command": [
+          "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+          "-np",
+          "6",
+          "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+          "-in",
+          "pw_dry.in"
+        ],
+        "driver_sha256": "72438f7e9a37eecd520293fc7fb2fe6a7461379f0a0baa4be4350544d1dabcf4",
+        "empirical_alloy_gap_inputs": [],
+        "estimated_RAM_exceeds_physical_memory": false,
+        "estimated_RAM_lines": [
+          "Dynamical RAM for                 wfc:      93.92 MB",
+          "Dynamical RAM for     wfc (w. buffer):     375.68 MB",
+          "Dynamical RAM for                 EXX:    2606.95 MB",
+          "Dynamical RAM for           str. fact:       2.14 MB",
+          "Dynamical RAM for           local pot:       0.00 MB",
+          "Dynamical RAM for          nlocal pot:     102.46 MB",
+          "Dynamical RAM for                qrad:      21.80 MB",
+          "Dynamical RAM for          rho,v,vnew:      32.03 MB",
+          "Dynamical RAM for               rhoin:      10.68 MB",
+          "Dynamical RAM for            rho*nmix:      68.33 MB",
+          "Dynamical RAM for           G-vectors:       4.54 MB",
+          "Dynamical RAM for          h,s,v(r/c):       5.67 MB",
+          "Dynamical RAM for          <psi|beta>:       8.25 MB",
+          "Dynamical RAM for                 psi:     187.84 MB",
+          "Dynamical RAM for                hpsi:     187.84 MB",
+          "Dynamical RAM for      wfcinit/wfcrot:     143.72 MB",
+          "Estimated static dynamical RAM per process >       3.10 GB",
+          "Estimated max dynamical RAM per process >       3.55 GB",
+          "Estimated total dynamical RAM >      21.27 GB"
+        ],
+        "estimated_total_dynamical_RAM_QE_GB": 21.27,
+        "exit_requested": false,
+        "forced_termination": false,
+        "full_SCF_peak_memory_measured": false,
+        "git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
+        "hardware": {
+          "cpu_logical_count": 8,
+          "machine": "x86_64",
+          "mem_available_kb": 27570916,
+          "mem_total_kb": 32863192,
+          "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+          "processor": ""
+        },
+        "input_sha256": "d048dd9b294aeaa2bc35173aa61223e8a87f9c32fde91fa3fa321b08056f9758",
+        "measured_peak_process_family_RSS_bytes": 176979968,
+        "measured_peak_process_family_count": 7,
+        "memory_report_source_sha256": "4ae04cebad5c4eb285a068dc6abf8f032ce75c4d483ad420d32051f264dd0051",
+        "memory_report_source_url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PW/src/memory_report.f90",
+        "mpi_ranks": 6,
+        "native_memory_GB_unit": "GiB, verified in QE 7.5 source; rough estimates, not certified bounds",
+        "physical_memory_bytes": 33651908608,
+        "pp_sha256": {
+          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+          "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "preparation_sha256": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
+        "process_group_RSS_limit_bytes": 28604122316.8,
+        "requested_seconds": 180,
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4ce49b624033d11699c356060bffe1286b804a89aed1781067176d680d108e24",
+        "termination_reason": null,
+        "wall_seconds": 2.0379533851519227,
+        "written_utc": "2026-10-11T10:56:45.333988+00:00"
+      },
+      "impurity": {
+        "RSS_measurement_scope": "launcher plus recursive descendants, including independent MPI process groups",
+        "RSS_monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+        "accepted_native_dry_run": true,
+        "accepted_scf": false,
+        "actual_QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at 10:56:47",
+        "checkpoint_grace_seconds": 60,
+        "claim_status": "CALCULATED native dry capability only; no SCF or impurity coefficient",
+        "command": [
+          "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+          "-np",
+          "6",
+          "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+          "-in",
+          "pw_dry.in"
+        ],
+        "driver_sha256": "72438f7e9a37eecd520293fc7fb2fe6a7461379f0a0baa4be4350544d1dabcf4",
+        "empirical_alloy_gap_inputs": [],
+        "estimated_RAM_exceeds_physical_memory": false,
+        "estimated_RAM_lines": [
+          "Dynamical RAM for                 wfc:      93.92 MB",
+          "Dynamical RAM for     wfc (w. buffer):     375.68 MB",
+          "Dynamical RAM for                 EXX:    2606.95 MB",
+          "Dynamical RAM for           str. fact:       3.20 MB",
+          "Dynamical RAM for           local pot:       0.00 MB",
+          "Dynamical RAM for          nlocal pot:      98.72 MB",
+          "Dynamical RAM for                qrad:      32.70 MB",
+          "Dynamical RAM for          rho,v,vnew:      32.03 MB",
+          "Dynamical RAM for               rhoin:      10.68 MB",
+          "Dynamical RAM for            rho*nmix:      68.33 MB",
+          "Dynamical RAM for           G-vectors:       4.54 MB",
+          "Dynamical RAM for          h,s,v(r/c):       5.67 MB",
+          "Dynamical RAM for          <psi|beta>:       7.95 MB",
+          "Dynamical RAM for                 psi:     187.84 MB",
+          "Dynamical RAM for                hpsi:     187.84 MB",
+          "Dynamical RAM for      wfcinit/wfcrot:     143.72 MB",
+          "Estimated static dynamical RAM per process >       3.11 GB",
+          "Estimated max dynamical RAM per process >       3.55 GB",
+          "Estimated total dynamical RAM >      21.32 GB"
+        ],
+        "estimated_total_dynamical_RAM_QE_GB": 21.32,
+        "exit_requested": false,
+        "forced_termination": false,
+        "full_SCF_peak_memory_measured": false,
+        "git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
+        "hardware": {
+          "cpu_logical_count": 8,
+          "machine": "x86_64",
+          "mem_available_kb": 27527708,
+          "mem_total_kb": 32863192,
+          "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+          "processor": ""
+        },
+        "input_sha256": "32739dbc423e5dc6b8169234ed49a8574e1b612b3b61732aa62f790f21c89021",
+        "measured_peak_process_family_RSS_bytes": 177553408,
+        "measured_peak_process_family_count": 7,
+        "memory_report_source_sha256": "4ae04cebad5c4eb285a068dc6abf8f032ce75c4d483ad420d32051f264dd0051",
+        "memory_report_source_url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PW/src/memory_report.f90",
+        "mpi_ranks": 6,
+        "native_memory_GB_unit": "GiB, verified in QE 7.5 source; rough estimates, not certified bounds",
+        "physical_memory_bytes": 33651908608,
+        "pp_sha256": {
+          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+          "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "preparation_sha256": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
+        "process_group_RSS_limit_bytes": 28604122316.8,
+        "requested_seconds": 180,
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "74b27ca9008b8ebabfafea80588e0d1e753eddff728c68901f33f5998d3d1edc",
+        "termination_reason": null,
+        "wall_seconds": 2.039314321242273,
+        "written_utc": "2026-10-11T10:56:47.925173+00:00"
+      }
+    },
     "explicit_lower_Fock_cutoff_preparation": {
       "Te_environment_substitute_counts": [
         1,
@@ -3287,6 +3820,7 @@
       ],
       "written_utc": "2026-10-11T09:56:40.509739+00:00"
     },
+    "explicit_lower_Fock_cutoff_status": "Both native dry probes pass; full-SCF/resource peaks, numerical Fock-operator accuracy, physical impurity and dilute limits remain unvalidated",
     "fine_grid_preparation": {
       "Te_environment_substitute_counts": [
         1,
@@ -4782,6 +5316,762 @@
     "pseudopotentials/r07_manifest.json": "8fc7df33901138af4a001235912d2e8b70f0d58457391ec77fd81e4c5376976a",
     "pseudopotentials/r07_sg15_manifest.json": "b22176c079c2b6fe887de840f7032293ec756013dfe7b751e24d56082f83e179"
   },
+  "native_Fock_operator_comparison_control": {
+    "Gamma_reaction_kernel_matrix": [
+      [
+        {
+          "imag": 3.469446951953614e-18,
+          "real": -1.1102230246251565e-16
+        },
+        {
+          "imag": 7.633348043993665e-17,
+          "real": 6.051201794959183e-16
+        },
+        {
+          "imag": 1.4606074339117894e-17,
+          "real": 1.0330103705227902e-17
+        },
+        {
+          "imag": 3.201367826077038e-18,
+          "real": 6.980496930181258e-18
+        },
+        {
+          "imag": 7.863677998948711e-18,
+          "real": 1.272018614512103e-18
+        },
+        {
+          "imag": 8.624688565634557e-18,
+          "real": -1.5445577296844397e-17
+        }
+      ],
+      [
+        {
+          "imag": -1.1455262716493649e-16,
+          "real": 5.99061705902537e-16
+        },
+        {
+          "imag": 1.0408340855860843e-17,
+          "real": -3.3306690738754696e-16
+        },
+        {
+          "imag": 1.420569322727492e-17,
+          "real": -4.346997078875787e-18
+        },
+        {
+          "imag": 1.2697626452473579e-18,
+          "real": 2.22595154774159e-18
+        },
+        {
+          "imag": -5.563643616840901e-18,
+          "real": -2.3768966454649184e-18
+        },
+        {
+          "imag": 4.482205522032287e-18,
+          "real": 9.149701708306057e-18
+        }
+      ],
+      [
+        {
+          "imag": 1.460607857705897e-17,
+          "real": -1.0330097713060637e-17
+        },
+        {
+          "imag": 1.4205693113418397e-17,
+          "real": 4.34699745095047e-18
+        },
+        {
+          "imag": -1.0408340855860843e-17,
+          "real": -2.220446049250313e-16
+        },
+        {
+          "imag": -1.2384383319525611e-17,
+          "real": -6.53710700666817e-17
+        },
+        {
+          "imag": 1.7835011579107806e-16,
+          "real": 6.848489531871695e-17
+        },
+        {
+          "imag": -1.2040404602089848e-16,
+          "real": -5.412041807517452e-16
+        }
+      ],
+      [
+        {
+          "imag": 3.2013702401865843e-18,
+          "real": -6.980495823031423e-18
+        },
+        {
+          "imag": 1.2697625601639907e-18,
+          "real": -2.2259515962761453e-18
+        },
+        {
+          "imag": 8.214050340268221e-18,
+          "real": -6.602483721203326e-17
+        },
+        {
+          "imag": -2.0816681711721685e-17,
+          "real": -7.771561172376096e-16
+        },
+        {
+          "imag": -8.895710912255995e-17,
+          "real": -2.1393369009579558e-16
+        },
+        {
+          "imag": 1.0216897472923677e-16,
+          "real": -1.2742860172217027e-16
+        }
+      ],
+      [
+        {
+          "imag": -6.604474088232781e-18,
+          "real": 4.6545243531170536e-18
+        },
+        {
+          "imag": -5.857117702109167e-18,
+          "real": -1.315672752169885e-18
+        },
+        {
+          "imag": -1.736482916132053e-16,
+          "real": 7.965686104904726e-17
+        },
+        {
+          "imag": 7.521178761615832e-17,
+          "real": -2.1914419460673975e-16
+        },
+        {
+          "imag": -3.469446951953614e-18,
+          "real": -3.3306690738754696e-16
+        },
+        {
+          "imag": 6.669963012065652e-17,
+          "real": -1.5249023064842357e-16
+        }
+      ],
+      [
+        {
+          "imag": -1.8215330074494406e-17,
+          "real": -4.534106245889033e-19
+        },
+        {
+          "imag": -2.9123911331111193e-17,
+          "real": -1.5364135308927862e-17
+        },
+        {
+          "imag": 8.584206952097664e-17,
+          "real": -5.477501607750459e-16
+        },
+        {
+          "imag": -1.1004403520759212e-16,
+          "real": -1.2069324029775853e-16
+        },
+        {
+          "imag": -7.62353235897355e-17,
+          "real": -1.4795366348158576e-16
+        },
+        {
+          "imag": 4.5102810375396984e-17,
+          "real": 1.6653345369377348e-15
+        }
+      ]
+    ],
+    "Gamma_reaction_kernel_norm_eV": 1.8431788189342528e-15,
+    "claim_status": "CALCULATED native numerical-operator control; no physical impurity or inversion",
+    "driver_sha256": "a2152ee65c49783060d9d622cfcfdecf2771ccb7fc9cd5b88958aab1985dbf1c",
+    "empirical_alloy_gap_inputs": [],
+    "full_grid_sorted_spectral_comparison": [
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          0.1767766952966369,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          -0.3535533905932738,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          -0.1767766952966369,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          -0.1767766952966369,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          -0.5303300858899107,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          -0.3535533905932738,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          0.3535533905932738,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          0.5303300858899107,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          -0.5303300858899107,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          0.1767766952966369,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.3535533905932738,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          0.5303300858899107,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          0.1767766952966369,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          -0.1767766952966369,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          0.0,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.0,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          0.1767766952966369,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          0.5303300858899107,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          0.5303300858899107,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          0.0,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          -0.5303300858899107,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.7071067811865476,
+          0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          -0.1767766952966369,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.7071067811865476,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          -0.5303300858899107,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          -0.3535533905932738,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          -0.1767766952966369,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          0.1767766952966369,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          -0.5303300858899107,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.3535533905932738,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          -0.1767766952966369,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          0.0,
+          0.7071067811865476
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.0,
+          -0.7071067811865476
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          -0.5303300858899107,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          0.3535533905932738,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          0.5303300858899107,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          0.5303300858899107,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          0.0,
+          -0.7071067811865476
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          0.1767766952966369,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          -0.3535533905932738,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          -0.1767766952966369,
+          -0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          0.0,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          0.1767766952966369,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          -0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.3535533905932738,
+          -0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          0.5303300858899107,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          -0.7071067811865476,
+          0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          0.1767766952966369,
+          -0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.5303300858899107,
+          -0.5303300858899107,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.7071067811865476,
+          -0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.1767766952966369,
+          0.5303300858899107,
+          0.5303300858899107
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          0.0,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          0.0,
+          0.0,
+          -0.3535533905932738
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.5303300858899107,
+          -0.5303300858899107,
+          0.1767766952966369
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.3535533905932738,
+          -0.3535533905932738,
+          0.0
+        ]
+      },
+      {
+        "maximum_sorted_spectral_difference_eV": 0.0,
+        "native_k_point": [
+          -0.1767766952966369,
+          -0.1767766952966369,
+          -0.1767766952966369
+        ]
+      }
+    ],
+    "gap_difference_eV": 0.0,
+    "git_commit": "387cb73ae872d9cd5d4d1f66062de8ae407d0ecf",
+    "inverse_certificate": {
+      "certificate_sufficient": true,
+      "inverse_error_bound_eV": 1.9837732806965359e-16,
+      "inverse_norm_eV": 0.7880789846142132,
+      "inverse_times_error": 2.5172264702219513e-16
+    },
+    "limits": [
+      "Gamma inverse error certificate assumes exact native eigenpairs; SCF/grid errors are separate",
+      "Sorted spectral agreement is not a physical matrix/operator-norm bound at finite q",
+      "Passing this control alone does not certify full impurity vertex, isolated-cell or material accuracy",
+      "No alloy coefficient, dilute slope, static mass susceptibility or inversion is calculated"
+    ],
+    "maximum_full_grid_sorted_spectral_difference_eV": 0.0,
+    "native_Fock_cutoffs_Ry": [
+      360,
+      360
+    ],
+    "native_QE_version_lines": [
+      "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
+      "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54"
+    ],
+    "native_mpi_ranks": [
+      6,
+      6
+    ],
+    "native_potential_alignment": "Native identical-UPF QE convention; no fitted or imposed energy shift",
+    "omitted_window_bounds": {
+      "derivative_error_bound_eV_inverse_squared": 6.536150388801182e-17,
+      "omitted_distance_lower_bound_eV": 4.886866862006847,
+      "omitted_weight_norm": 1.5609286456884744e-15,
+      "resolvent_error_bound_eV_inverse": 3.1941296740125666e-16
+    },
+    "physical_projector": "Reference native Gamma6 doublet and Gamma8 quartet, same NC physical frame",
+    "pp_sha256": {
+      "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+    },
+    "same_operator_negative_control": true,
+    "sector_overlap_singular_values": {
+      "Gamma6": [
+        1.0000000000000007,
+        0.9999999999999998
+      ],
+      "Gamma8": [
+        1.000000000000001,
+        0.9999999999999999,
+        0.9999999999999998,
+        0.9999999999999991
+      ]
+    },
+    "signed_Gamma_gaps_eV": [
+      1.575364690979324,
+      1.575364690979324
+    ],
+    "source_Gamma_spinor_sha256": [
+      "0cea95d207a3422269c0643b82b639ee0cd8462d2d376aa77ad746c77f38524d",
+      "0cea95d207a3422269c0643b82b639ee0cd8462d2d376aa77ad746c77f38524d"
+    ],
+    "source_input_sha256": [
+      "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
+      "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88"
+    ],
+    "source_scf_result_sha256": [
+      "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+      "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09"
+    ],
+    "source_schema_sha256": [
+      "404f8d799fb6c26a0d8e518e66e9fe425b420ccda7a205c8b472fc172ce81bc2",
+      "404f8d799fb6c26a0d8e518e66e9fe425b420ccda7a205c8b472fc172ce81bc2"
+    ],
+    "unresolved_host_projector_norm": 2.8539593743726328e-15,
+    "written_utc": "2026-10-11T11:05:15.654671+00:00",
+    "z_eV": {
+      "imag": 0.025,
+      "real": 8.883687325699256
+    }
+  },
   "native_atomic_prefix_certificate": {
     "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
     "band_prefix_1based": [
@@ -5734,5 +7024,5 @@
   "potential_set_interpretation": "Sets differ in generator choices in addition to NLCC; no isolated NLCC attribution",
   "radial_metadata_correction": "The historical inverse_A label is inaccurate for the pinned QE 7.5 standalone interface. Native coefficient reconstruction verifies alpha=1 bohr^-1 for the unchanged numeric input 1.0.",
   "temperature_work": "deferred",
-  "updated_utc": "2026-10-11T10:45:31.183927+00:00"
+  "updated_utc": "2026-10-11T11:08:31.293451+00:00"
 }

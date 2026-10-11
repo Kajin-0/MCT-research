@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** native host-projector and supercell transport controls pass; oriented Te covariance qualified; finer-grid HgTe quartet restored but EXX unfinished; detached supervision active; finer impurity-cell memory exceeds RAM
+**State:** oriented Te/SOC covariance qualified; finer-grid HgTe quartet restored with supervised EXX continuation; f120 impurity resource gate passes, physical operator accuracy pending
 
 **Updated:** 2026-10-11
 
@@ -42,16 +42,19 @@ description was inaccurate. The 26-band window captures only 0.0162204 of
 the least-captured fixed physical trial direction at X. All 44 supplied
 bands raise this to 0.469856. These are trial-norm fractions, not gap errors.
 Identical ordered 208-spinor trial blocks are prepared for the paired cells.
-A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 83 pass.
+A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 84 pass.
 
 **CALCULATED:** the prepared Gamma-only n2/q1 supercell preserves the
 primitive q2 exchange-feedback spacing. Matched n2/k2/q2 input decks are
 prepared to match the finer k4/q4 reference-host spacings; their native
 dry checks estimate 78.44/78.49 GiB, exceeding 31.34078 GiB physical RAM.
 No full SCF is launched for those decks. Explicit matched Fock-cutoff
-120-Ry inputs are prepared for a separate resource/convergence control.
-They require a matching primitive reference and cannot modify an existing
-restart. The full 64-point, 44-band fixed-hydrogenic-trial
+120-Ry native dry checks now estimate 21.27/21.32 GiB, within the sampled
+total/available-memory budgets. Their seven-process dry peaks are about
+169 MiB; these are not full-SCF peaks. The f120 approximation still
+requires a matching accepted primitive reference and physical operator
+comparison. It cannot modify an existing restart. The full 64-point,
+44-band fixed-hydrogenic-trial
 resolvent fails the sufficient inverse certificate (product 58.86078).
 A different reference-UPF atomic s/p projector has a pointwise Gamma
 omitted-window inverse bound 2.355045 meV, but a worst finite-q bound
@@ -121,6 +124,15 @@ q=0 and maximal at scalar form-factor zeros; pair/triplet configurational
 channels remain white. Exact stabilizer ranks and exhaustive covariance,
 tomography and Fourier audits pass to 3.55e-15. No physical coefficient,
 linewidth or susceptibility is inferred.
+
+**PROVEN for the local time-reversal-even spinful p sector:** the oriented
+closure has 14 endpoint-invisible coefficients, six coherent and eight
+directional. For a chemical quadrupole a(T tensor I) plus a directional
+SOC quadrupole alpha Q(T), the angular j=3/2 intra-sector amplitude is
+a-2alpha while j=3/2-to-j=1/2 amplitude is a+alpha. Vanishing intra-sector
+anisotropy does not imply vanishing inter-sector coupling. The spinful
+proper/improper rotation and angular audit passes to 1.48e-15. These
+are local angular projectors, not the complete Bloch branch T-matrix.
 
 **PROVEN:** for an embedded lattice Green function, g'=-P G^2 P*, generally
 not -g^2. At complex energy the positive scattering-cloud norm is
@@ -194,6 +206,8 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [General oriented tetrahedral response](../../../docs/derivations/oriented_tetrahedral_response.md)
 - [Oriented Te p-tensor tomography](../../../docs/derivations/te_p_tensor_tomography.md)
 - [Frozen directional identity audit](../../../data/calculated/te_p_tensor_tomography_audit.json)
+- [Relativistic onsite tensor closure](../../../docs/derivations/te_p_soc_tensor_tomography.md)
+- [Frozen spinful audit](../../../data/calculated/te_p_soc_tensor_audit.json)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
@@ -214,7 +228,7 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
 ## Next decision-changing work
 
 1. Finish the live SG15 HgTe finer-exchange control
-   `hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9` in the companion DFT
+   `hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000` in the companion DFT
    repository before another MPI family. Both coarse CdTe HSE hosts
    converged: signed gaps 1.7048135 eV (PseudoDojo) and 1.5753656 eV (SG15),
    with independently assigned Gamma sectors and verified grid expansion.
@@ -228,8 +242,8 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    The stricter CdTe refinement was
    killed at its wall limit without a checkpoint and is rejected. It
    needs a new longer-budget calculation. The completed finer-pair native
-   memory estimates exceed RAM; after the live family ends, dry check the
-   distinct f120 pair and compare matched primitive Fock-cutoff controls
+   default-cutoff memory estimates exceed RAM; f120 pair dry checks now
+   fit. Compare matched primitive Fock-cutoff controls
    before any physical extraction. The first q4 terminal control restores
    native Gamma8 identity with a 1.05-micro-eV spread. Exchange convergence
    remains required before accepting that edge. Restoration supports a
@@ -239,13 +253,15 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    smeared HgTe, a fixed lowest-36-band slice is not an occupied projector.
    No scattering host is accepted yet. A clean time-limited continuation
    must retain `--accurate-empty` and `--scf-threshold 1e-10`.
-   The original wrapper exited 143 while its ranks survived. Detached
-   supervision preserves the missing native OS status; this run itself
-   cannot be accepted. At a clean checkpoint the serial sequence will
-   dry check the f120 pair first and then start a fresh unchanged SCF,
-   capturing its native exit status. An interim exchange error of 4e-8
-   Ry still exceeds the 1e-10-Ry criterion. DFT commit bae7985 preserves
-   the detached launch, raw prefix snapshots and retired waiting queue.
+   The preceding wrapper exited 143 while its ranks survived. Detached
+   supervision preserved the missing native OS status and observed a
+   clean stop with six freshly written checkpoints; that run remains
+   unaccepted. Its terminal exchange error 2.8e-9 Ry exceeds the unchanged
+   1e-10-Ry criterion. The dry probes completed and a fresh unchanged SCF
+   now captures its native exit status with full MPI-family supervision.
+   DFT commit 82628b7 preserves the terminal and resource records and the
+   physical-frame Fock comparison. Its native same-operator CdTe control
+   gives a 1.84e-15-eV residual, not an f120 accuracy result.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    First test the host-invariant edge-spinor resolvent/reaction-kernel route,

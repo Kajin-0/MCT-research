@@ -173,3 +173,9 @@ That paper is a strain/SiGe model and supplies no HgCdTe coefficient.
 self-consistent Cd-in-HgTe potential. The next physical extraction must
 retain them before averaging. **NOVELTY CANDIDATE:** no historical
 priority is established for this classification or its application.
+
+The [spinful onsite extension](te_p_soc_tensor_tomography.md) includes
+all time-reversal-even p-sector SOC tensors: six coherent and eight
+directional coefficients after endpoint subtraction. It also derives
+the distinct chemical/SOC combinations seen within j=3/2 and between
+j=3/2 and j=1/2, without assigning any physical amplitude.

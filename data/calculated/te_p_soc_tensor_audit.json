@@ -1,0 +1,136 @@
+{
+  "claim_status": "CALCULATED spinful algebra/symmetry audit; no HgCdTe amplitude",
+  "git_commit": "689b47b447a779f671c2abb52518d89437f15a19",
+  "driver_sha256": "07b740320e6715fd72ea8232dc676b67cd7ab064a3310916c1cf0d65b1e26b8a",
+  "exact_rank_helper_sha256": "112297a72d7d25ebc07080c7094c9eb167215c59934215afe4649de2431f3665",
+  "empirical_alloy_gap_inputs": [],
+  "assumptions": [
+    "fixed four-bond Td-covariant local p-onsite response",
+    "Hermitian and time-reversal invariant; common Cartesian/spin frame"
+  ],
+  "time_reversal_even_Hermitian_dimension": 15,
+  "endpoint_stabilizer_B_dimensions": [
+    {
+      "N": 0,
+      "stabilizer_order": 24,
+      "exact_B_dimension": 1
+    },
+    {
+      "N": 1,
+      "stabilizer_order": 6,
+      "exact_B_dimension": 2
+    },
+    {
+      "N": 2,
+      "stabilizer_order": 4,
+      "exact_B_dimension": 3
+    },
+    {
+      "N": 3,
+      "stabilizer_order": 6,
+      "exact_B_dimension": 2
+    },
+    {
+      "N": 4,
+      "stabilizer_order": 24,
+      "exact_B_dimension": 1
+    }
+  ],
+  "full_configuration_parameter_dimension": 18,
+  "endpoint_invisible_parameter_dimension": 14,
+  "coherent_parameter_dimension": 6,
+  "directional_parameter_dimension": 8,
+  "TR_basis_max_error": 0.0,
+  "proper_improper_rotation_max_error": 1.4711665442746758e-15,
+  "angular_projection_controls": [
+    {
+      "anticommutator_error": 3.8459253727671276e-16,
+      "j_half_block_norm": 5.036073909298216e-18,
+      "orbital_intra_norm_error": 0.0,
+      "orbital_inter_norm_error": 0.0,
+      "SOC_intra_projection_error": 1.1102230246251565e-16,
+      "SOC_inter_projection_error": 5.1925927263190304e-17,
+      "cancellation_intra_norm": 1.0347339694829493e-16,
+      "cancellation_inter_norm": 1.0,
+      "full_SOC_norm_error": 0.0
+    },
+    {
+      "anticommutator_error": 0.0,
+      "j_half_block_norm": 1.5108221727894648e-17,
+      "orbital_intra_norm_error": 2.220446049250313e-16,
+      "orbital_inter_norm_error": 2.220446049250313e-16,
+      "SOC_intra_projection_error": 1.5700924586837752e-16,
+      "SOC_inter_projection_error": 2.6168207644729584e-17,
+      "cancellation_intra_norm": 0.0,
+      "cancellation_inter_norm": 1.7320508075688772,
+      "full_SOC_norm_error": 0.0
+    },
+    {
+      "anticommutator_error": 0.0,
+      "j_half_block_norm": 2.6168207644729584e-17,
+      "orbital_intra_norm_error": 2.220446049250313e-16,
+      "orbital_inter_norm_error": 2.220446049250313e-16,
+      "SOC_intra_projection_error": 6.290054296670751e-17,
+      "SOC_inter_projection_error": 4.5324665183683945e-17,
+      "cancellation_intra_norm": 0.0,
+      "cancellation_inter_norm": 1.7320508075688772,
+      "full_SOC_norm_error": 0.0
+    },
+    {
+      "anticommutator_error": 3.8459253727671276e-16,
+      "j_half_block_norm": 2.2032823353179694e-17,
+      "orbital_intra_norm_error": 0.0,
+      "orbital_inter_norm_error": 0.0,
+      "SOC_intra_projection_error": 8.777083671441753e-17,
+      "SOC_inter_projection_error": 2.7755575615628914e-17,
+      "cancellation_intra_norm": 1.1329592413519351e-16,
+      "cancellation_inter_norm": 1.0,
+      "full_SOC_norm_error": 0.0
+    },
+    {
+      "anticommutator_error": 0.0,
+      "j_half_block_norm": 1.5108221727894648e-17,
+      "orbital_intra_norm_error": 2.220446049250313e-16,
+      "orbital_inter_norm_error": 2.220446049250313e-16,
+      "SOC_intra_projection_error": 2.2812914531392954e-16,
+      "SOC_inter_projection_error": 2.6168207644729584e-17,
+      "cancellation_intra_norm": 0.0,
+      "cancellation_inter_norm": 1.7320508075688772,
+      "full_SOC_norm_error": 0.0
+    },
+    {
+      "anticommutator_error": 3.8459253727671276e-16,
+      "j_half_block_norm": 2.713469616451665e-17,
+      "orbital_intra_norm_error": 0.0,
+      "orbital_inter_norm_error": 0.0,
+      "SOC_intra_projection_error": 1.0385185452638061e-16,
+      "SOC_inter_projection_error": 0.0,
+      "cancellation_intra_norm": 1.1234755987383303e-16,
+      "cancellation_inter_norm": 0.9999999999999999,
+      "full_SOC_norm_error": 0.0
+    }
+  ],
+  "representative_extraction_controls": [
+    {
+      "parameters": 4,
+      "orthogonality_error": 0.0,
+      "extraction_error": 8.881784197001252e-16
+    },
+    {
+      "parameters": 6,
+      "orthogonality_error": 1.5700924586837752e-16,
+      "extraction_error": 4.440892098500626e-16
+    },
+    {
+      "parameters": 4,
+      "orthogonality_error": 0.0,
+      "extraction_error": 3.3306690738754696e-16
+    }
+  ],
+  "maximum_audit_error": 1.4711665442746758e-15,
+  "limits": [
+    "No chemical/SOC coefficient, actual Bloch branch response, gap, susceptibility or inversion is inferred",
+    "Other orbitals, hopping matrices and background dependence require their full microscopic operators",
+    "The conditional a=2alpha cancellation is not a proposed calibrated HgCdTe mechanism"
+  ]
+}
