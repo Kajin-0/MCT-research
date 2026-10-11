@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** oriented Te/SOC covariance qualified; finer-grid HgTe quartet restored with supervised EXX continuation; f120 impurity resource gate passes, physical operator accuracy pending
+**State:** analytical-first identifiability and symmetry reduction established; three conditional closures documented; physical gap prediction unresolved; existing bounded numerical supervision left untouched
 
 **Updated:** 2026-10-11
 
@@ -14,7 +14,45 @@ research continuation on 2026-10-10. Related endpoint infrastructure is tracked
 in issue #4; this work does not alter R02's thermal or first-principles gates.
 Temperature and empirical coefficient tuning are outside this tranche.
 
-## Current evidence
+## Analytical-first directive and current decision
+
+The user's 2026-10-11 directive supersedes the computational priority list below.
+No additional DFT/MPI/HSE calculations or queues are launched. Existing detached
+supervisors retain their established stopping rules and are not modified.
+The previous numerical evidence is preserved as a dated snapshot, not upgraded
+or reinterpreted by this analytical tranche.
+
+The [analytical package](analytical_first_2026-10-11/README.md) establishes:
+
+- **PROVEN UNDER ASSUMPTIONS:** finitely many endpoint derivatives, and even
+  full endpoint impurity operators through any fixed cluster order, fail to
+  identify unrestricted fixed local mixed interactions. An exact atomic
+  Bernoulli model has unchanged binary/single-impurity data and changed Γ spectra.
+- **PROVEN UNDER ASSUMPTIONS:** ensemble Td reduces the retained Γ6/Γ8 problem
+  to two scalar causal functions, representable by positive augmented-space
+  Feshbach measures. This is a functional reduction, not a two-constant theory.
+- **PROVEN UNDER ASSUMPTIONS:** coherent-invisible directional Te/SOC response
+  can enter the Γ8 mass self-energy. Gap-relevant covariance contracts to two
+  functions at second order; full covariance reconstruction need not be required.
+- **PROVEN:** equal static/dynamic moments and total spectral weight do not fix
+  the full self-energy or an inversion root. An exact universal two-susceptibility
+  prediction from these inputs is **FALSIFIED**; its conditional rational
+  identities are preserved.
+- **PROVEN UNDER ASSUMPTIONS:** spectral separation gives the nonperturbative
+  linearization bound A h²/(d-|h|). A real mass root has conditional error
+  [ε_m+(L_m/u)ε_s]/m. Thresholds can invalidate the needed separation/regularity.
+- **PROVEN UNDER ASSUMPTIONS:** full-support, finite-range fixed-interaction
+  Bernoulli spectral support is x-independent inside (0,1); this established
+  phenomenon further separates support edges from measured Γ peaks.
+
+**Decision:** continue threshold-aware analytical development and a quantified
+common/mass uncertainty budget. The [ranked input plan](analytical_first_2026-10-11/inputs_and_decision.md)
+specifies physical forward contractions as missing information; it creates no
+calculation queue. Spectral-moment, weak-covariance and CPA closures each retain
+explicit gates and falsification conditions. No physical E_g(x), x_c, material
+validation, priority claim or manuscript promotion is established.
+
+## Preserved numerical and analytical evidence from preceding tranches
 
 **CALCULATED:** the SG15 CdTe accurate-empty control reduces the projected
 time-reversal defect from 6.37827 eV to 2.95137 meV, while the signed Gamma
@@ -216,7 +254,12 @@ optical-theorem, threshold and interpolation mathematics is established.
 
 ## Validation
 
-Latest full repository suite: **1776 passed**, including three new independent
+Latest full repository suite: **1787 passed**, including eleven independent
+analytical-first spectral-bound, hidden-interaction, causal finite-bath,
+reference/unit-invariance, root-certificate and atomic-CPA checks. The frozen
+[synthetic audit and verification](analytical_first_2026-10-11/verification.md)
+establish mathematical behavior only. The preceding **1776 passed** included
+three independent
 binary-curvature, spin-three-halves angular and radial threshold checks.
 Independent checks include a full finite-Hamiltonian inverse, numerical T
 derivatives, positive off-spectrum norms, the causal optical theorem, direct
@@ -225,7 +268,11 @@ New checks include random-cell dense inversion versus Lanczos, exact folded
 binary spectra, spectral-centroid closure, the full scalar CPA equation,
 implicit derivatives, threshold coefficients and the pair indicator limits.
 
-## Next decision-changing work
+## Historical computational agenda — superseded as current priorities
+
+The following list is preserved to document the earlier numerical route and
+its unresolved gates. It is not authorization to launch, restart or take over
+any calculation under the current analytical-first directive.
 
 1. Finish the live SG15 HgTe finer-exchange control
    `hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000` in the companion DFT

@@ -1,0 +1,120 @@
+{
+  "scope": "mathematical checks and counterexamples only; no material validation",
+  "directional_gap_channel": {
+    "assumptions": "isotropic atomic p propagator; synthetic e8/e7; spectator Gamma6",
+    "composition": 0.23,
+    "records": [
+      {
+        "strength_eV": 0.02,
+        "exact_sigma8_eV": [
+          0.0003042859060676806,
+          -3.683856362023119e-05
+        ],
+        "born_sigma8_eV": [
+          0.00030365894001164827,
+          -3.630704717530577e-05
+        ],
+        "absolute_error_eV": 8.21946571647367e-07,
+        "coherent_response_norm_eV": 1.2274112951923881e-17
+      },
+      {
+        "strength_eV": 0.01,
+        "exact_sigma8_eV": [
+          7.595389010328635e-05,
+          -9.10987801414076e-06
+        ],
+        "born_sigma8_eV": [
+          7.591473500291207e-05,
+          -9.076761793826443e-06
+        ],
+        "absolute_error_eV": 5.1281633488280124e-08,
+        "coherent_response_norm_eV": 6.1370564759619406e-18
+      },
+      {
+        "strength_eV": 0.005,
+        "exact_sigma8_eV": [
+          1.8981130470052676e-05,
+          -2.2712585985434908e-06
+        ],
+        "born_sigma8_eV": [
+          1.8978683750728017e-05,
+          -2.2691904484566108e-06
+        ],
+        "absolute_error_eV": 3.203697900165122e-09,
+        "coherent_response_norm_eV": 3.0685282379809703e-18
+      }
+    ],
+    "fourth_order_error_ratios": [
+      16.02808872761852,
+      16.0070128602441
+    ],
+    "two_invariant_trace_error_eV": 7.757919228897728e-18
+  },
+  "same_moments_different_crossing": {
+    "material_prediction": false,
+    "records": [
+      {
+        "weights_eV2": [
+          0.016,
+          0.027999999999999997,
+          0.012,
+          0.024
+        ],
+        "total_weight_eV2": 0.07999999999999999,
+        "C_eV": 0.0,
+        "A": 0.2,
+        "support_distance_eV": 0.5,
+        "kernel_at_point1_eV": -0.0202020202020202,
+        "synthetic_root": 0.2322513975490602,
+        "linear_bound_eV": 0.026666666666666675,
+        "sampled_error_eV": 0.008809523809523809
+      },
+      {
+        "weights_eV2": [
+          0.024,
+          0.012,
+          0.027999999999999997,
+          0.016
+        ],
+        "total_weight_eV2": 0.08,
+        "C_eV": 0.0,
+        "A": 0.2,
+        "support_distance_eV": 0.5,
+        "kernel_at_point1_eV": -0.02121212121212121,
+        "synthetic_root": 0.2323647721471307,
+        "linear_bound_eV": 0.026666666666666675,
+        "sampled_error_eV": 0.008809523809523809
+      }
+    ]
+  },
+  "exact_hidden_endpoint_events": [
+    {
+      "endpoint_jet_order": 1,
+      "neighbors": 4,
+      "midpoint_event_probability": 0.375
+    },
+    {
+      "endpoint_jet_order": 2,
+      "neighbors": 6,
+      "midpoint_event_probability": 0.3125
+    },
+    {
+      "endpoint_jet_order": 3,
+      "neighbors": 8,
+      "midpoint_event_probability": 0.2734375
+    },
+    {
+      "endpoint_jet_order": 4,
+      "neighbors": 10,
+      "midpoint_event_probability": 0.24609375
+    }
+  ],
+  "illustrative_root_budget": 0.0028,
+  "illustrative_covariance_resolvent_bound": 0.0012121212121212123,
+  "source_hashes": {
+    "/home/User/repos/MCT-research/tools/check_r07_analytical_first.py": "8e425bb340a288a3fc83396737e26bab0f745f5e76e9d16948897445295cf49e",
+    "src/mct_research/analytical_gap_closure.py": "e5975654ce4df1e018e1a3ac77e52cc996ecaeb1cef1c3685d138ccfaf63d00c"
+  },
+  "parent_commit": "2e19297e6eab5fc8f31785e9b1716061e3c5990c",
+  "numpy_version": "2.5.3"
+}
