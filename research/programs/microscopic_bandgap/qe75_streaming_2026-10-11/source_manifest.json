@@ -1,0 +1,37 @@
+{
+  "upstream_git_commit": "770a0b2d12928a67048e2f3da8d10d057e52179e",
+  "tag": "qe-7.5",
+  "files": {
+    "exx.f90": {
+      "url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PW/src/exx.f90",
+      "sha256": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+      "bytes": 184022
+    },
+    "exx_band.f90": {
+      "url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PW/src/exx_band.f90",
+      "sha256": "fa062cee00528042f93fae0afc33283f41898ebd7f52a9034fc94bfa62bd0928",
+      "bytes": 48818
+    },
+    "buffers.f90": {
+      "url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PW/src/buffers.f90",
+      "sha256": "393efaaca321ac2c6db8ae0a1306bdb71c8b643214992681bd198efa24d0a672",
+      "bytes": 22400
+    },
+    "memory_report.f90": {
+      "url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PW/src/memory_report.f90",
+      "sha256": "4ae04cebad5c4eb285a068dc6abf8f032ce75c4d483ad420d32051f264dd0051",
+      "bytes": 20372
+    },
+    "License": {
+      "url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/License",
+      "sha256": "204d8eff92f95aac4df6c8122bc1505f468f3a901e5a4cc08940e0ede1938994",
+      "bytes": 18009
+    }
+  },
+  "new_helper_sha256": "13ac89bbe7b1146fd4e413c01f61a9f773f8aaebf6e44ce769dd75bd3f552d2c",
+  "patch_sha256": "e151b553e0f81b5be5d7d5405dd5e75ed827b26d8032cd7a1d655e6adb3d7dda",
+  "stock_QE_artifact_sha256": {
+    ".local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+    ".local/qe-env/lib/libqe_pw.a": "65349164becf7adab64d8c4cc1ad02be16d4ac3c86b1635fe840bcaf5116f0a2"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "task": "Separate finite unchanged-physics QE 7.5 q-plane storage engineering; blocked historical goal unchanged",
+  "qe_commit": "770a0b2d12928a67048e2f3da8d10d057e52179e",
+  "inputs_unchanged": [
+    "HSE fraction/screening",
+    "noncollinear SOC",
+    "16-atom geometry/PP",
+    "k2/q2 grids",
+    "352 source and ACE bands",
+    "ecutwfc90/ecutrho360/ecutfock120 Ry",
+    "conv_thr1e-10 and accurate-empty Davidson"
+  ],
+  "candidate_scope": [
+    "CPU",
+    "NC PP",
+    "noncollinear npol=2",
+    "non-Gamma-only",
+    "SCF fresh start only",
+    "ACE enabled",
+    "npool=1",
+    "negrp=1",
+    "forces/stress disabled",
+    "no localization"
+  ],
+  "validation_allowed": [
+    "source inspection",
+    "isolated source-object compilation",
+    "tiny deterministic single-process I/O/kernel tests"
+  ],
+  "not_authorized": [
+    "SCF/HSE/MPI run",
+    "restart trial",
+    "production binary deployment",
+    "supervisor operation",
+    "historical goal modification"
+  ],
+  "known_limit": "First candidate explicitly rejects EXX checkpoint import/export. No misleading partial stock checkpoint is allowed. Production qualification remains pending."
+}

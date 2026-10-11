@@ -1,0 +1,330 @@
+diff --git a/PW/CMakeLists.txt b/PW/CMakeLists.txt
+index 8625c47..7b009be 100644
+--- a/PW/CMakeLists.txt
++++ b/PW/CMakeLists.txt
+@@ -69,6 +69,7 @@ set(src_pw
+    src/extfield.f90 
+    src/exx_base.f90 
+    src/exx_band.f90 
++   src/exx_qstream.f90
+    src/exx.f90 
+    src/fcp_capacitance.f90 
+    src/fcp_dyn_calcavg.f90 
+diff --git a/PW/src/Makefile b/PW/src/Makefile
+index 419b31d..5de8138 100644
+--- a/PW/src/Makefile
++++ b/PW/src/Makefile
+@@ -80,6 +80,7 @@ ewald_dipole.o \
+ extfield.o \
+ exx_base.o \
+ exx_band.o \
++exx_qstream.o \
+ exx.o \
+ fcp_capacitance.o \
+ fcp_dyn_calcavg.o \
+@@ -317,3 +318,6 @@ clean :
+ include make.depend
+ 
+ # DO NOT DELETE
++
++# Experimental private q-stream store: explicit module ordering.
++exx.o: exx_qstream.o
+diff --git a/PW/src/electrons.f90 b/PW/src/electrons.f90
+index 0b82369..fe4eba0 100644
+--- a/PW/src/electrons.f90
++++ b/PW/src/electrons.f90
+@@ -102,6 +102,10 @@ SUBROUTINE electrons()
+   !%%%%%%%%%%%%%%%%%%%%  Iterate hybrid functional  %%%%%%%%%%%%%%%%%%%%%
+   !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   !
++#if defined(__EXX_QSTREAM)
++  IF (restart .AND. xclib_dft_is('hybrid')) &
++    CALL errore('electrons','qstream EXX restart import is not implemented',1)
++#endif
+   IF ( restart ) THEN
+      CALL seqopn (iunres, 'restart_e', 'formatted', exst)
+      IF ( exst ) THEN
+@@ -188,6 +192,10 @@ SUBROUTINE electrons()
+      IF ( stopped_by_user .OR. .NOT. conv_elec ) THEN
+         conv_elec=.FALSE.
+         IF ( .NOT. first) THEN
++#if defined(__EXX_QSTREAM)
++           ! Never mislabel a single cached q plane as a full stock checkpoint.
++           CALL errore('electrons','qstream EXX checkpoint export is not implemented; run unaccepted',1)
++#endif
+            WRITE(stdout,'(5x,"Calculation (EXX) stopped during iteration #", &
+                         & i6)') iter
+            CALL seqopn (iunres, 'restart_e', 'formatted', exst)
+diff --git a/PW/src/exx.f90 b/PW/src/exx.f90
+index 6a77e3a..6fe4f86 100644
+--- a/PW/src/exx.f90
++++ b/PW/src/exx.f90
+@@ -17,6 +17,9 @@ MODULE exx
+   !! Computer Physics Communications 2017, doi.org/10.1016/j.cpc.2017.01.008.
+   !
+   USE kinds,                ONLY : DP
++#if defined(__EXX_QSTREAM)
++  USE exx_qstream, ONLY : exx_qstore, qs_begin, qs_put, qs_seal, qs_load, qs_close
++#endif
+   USE noncollin_module,     ONLY : noncolin, npol
+   USE io_global,            ONLY : stdout
+   !
+@@ -26,6 +29,9 @@ MODULE exx
+   IMPLICIT NONE
+   !
+   SAVE
++#if defined(__EXX_QSTREAM)
++  TYPE(exx_qstore), PRIVATE :: qstore
++#endif
+   !
+   ! ... general purpose vars
+   !
+@@ -308,6 +314,9 @@ MODULE exx
+     IF ( ALLOCATED(x_occupation) ) DEALLOCATE( x_occupation )
+     IF ( ALLOCATED(x_occupation_d) ) DEALLOCATE( x_occupation_d )
+     IF ( ALLOCATED(xkq_collect ) ) DEALLOCATE( xkq_collect  )
++#if defined(__EXX_QSTREAM)
++    CALL qs_close(qstore)
++#endif
+     IF ( ALLOCATED(exxbuff) )      DEALLOCATE( exxbuff )
+     IF ( ALLOCATED(exxbuff_d) )    DEALLOCATE( exxbuff_d )
+     IF ( ALLOCATED(locbuff) )      DEALLOCATE( locbuff )
+@@ -342,6 +351,10 @@ MODULE exx
+     !
+     USE wavefunctions,        ONLY : evc
+     USE io_files,             ONLY : nwordwfc, iunwfc_exx
++#if defined(__EXX_QSTREAM)
++    USE io_files,             ONLY : tmp_dir, prefix
++    USE control_flags,        ONLY : lscf, restart, tstress, tprnfor
++#endif
+     USE buffers,              ONLY : get_buffer
+     USE wvfct,                ONLY : nbnd, npwx, wg, current_k
+     USE klist,                ONLY : ngk, nks, nkstot, xk, wk, igk_k
+@@ -407,8 +420,21 @@ MODULE exx
+     INTEGER :: npw, current_ik
+     INTEGER, EXTERNAL :: global_kpoint_index
+     INTEGER :: ibnd_start_new, ibnd_end_new, max_buff_bands_per_egrp
+-    INTEGER :: ibnd_exx, evc_offset
++    INTEGER :: ibnd_exx, evc_offset, iqbuf
++#if defined(__EXX_QSTREAM)
++    CHARACTER(1024) :: qstream_path
++    CHARACTER(32) :: qstream_rank
++#endif
+     !
++#if defined(__EXX_QSTREAM)
++    ! Fail before transform/allocation; unsupported readers retain stock layout.
++    IF (.NOT.lscf .OR. PRESENT(nbndproj_) .OR. restart) &
++      CALL errore('exxinit','qstream requires fresh SCF; restart/non-SCF unsupported',1)
++    IF (gamma_only .OR. .NOT.noncolin .OR. npol /= 2 .OR. use_gpu .OR. DoLoc .OR. .NOT.use_ace) &
++      CALL errore('exxinit','qstream requires CPU nonlocalized spinor k-point ACE',1)
++    IF (npool /= 1 .OR. negrp /= 1 .OR. okvan .OR. okpaw .OR. tstress .OR. tprnfor) &
++      CALL errore('exxinit','qstream requires one pool/group, NC PP, no forces/stress',1)
++#endif
+     CALL start_clock ('exxinit')
+     IF ( Doloc ) THEN
+         WRITE(stdout,'(/,5X,"Using localization algorithm with threshold: ",&
+@@ -543,6 +569,18 @@ MODULE exx
+       !
+     ELSE
+       !
++#if defined(__EXX_QSTREAM)
++      WRITE(qstream_rank,'(I0)') me_pool
++      qstream_path=TRIM(tmp_dir)//'/'//TRIM(prefix)//'.exx_qstream.'//TRIM(qstream_rank)
++      CALL qs_begin(qstore,TRIM(qstream_path),nrxxs*npol,ibnd_buff_start, &
++                    ibnd_buff_start+max_buff_bands_per_egrp-1,nkqs)
++      IF (ALLOCATED(exxbuff)) THEN
++        IF (SIZE(exxbuff,1) /= nrxxs*npol .OR. SIZE(exxbuff,2) /= max_buff_bands_per_egrp .OR. &
++            LBOUND(exxbuff,2) /= ibnd_buff_start .OR. SIZE(exxbuff,3) /= 1) DEALLOCATE(exxbuff)
++      ENDIF
++      IF (.NOT.ALLOCATED(exxbuff)) ALLOCATE(exxbuff(nrxxs*npol, &
++           ibnd_buff_start:ibnd_buff_start+max_buff_bands_per_egrp-1,1))
++#else
+       IF (.NOT. ALLOCATED(exxbuff)) THEN
+          IF (gamma_only) THEN
+             ALLOCATE( exxbuff(nrxxs*npol,ibnd_buff_start:ibnd_buff_start + &
+@@ -552,6 +590,7 @@ MODULE exx
+                                           max_buff_bands_per_egrp-1,nkqs) )
+          ENDIF
+       ENDIF
++#endif
+       IF (.not. allocated(exxbuff_d) .and. use_gpu) THEN
+          IF (gamma_only) THEN
+             ALLOCATE( exxbuff_d(nrxxs*npol, ibnd_buff_start:ibnd_buff_start+max_buff_bands_per_egrp-1, nks))
+@@ -705,6 +744,10 @@ MODULE exx
+                 !
+                 IF (index_xk(ikq) /= current_ik) CYCLE
+                 isym = ABS(index_sym(ikq) )
++                iqbuf=ikq
++#if defined(__EXX_QSTREAM)
++                iqbuf=1
++#endif
+                 !
+                 IF (noncolin) THEN ! noncolinear
+ #if defined(__MPI)
+@@ -763,8 +806,8 @@ MODULE exx
+                          ! sym. op. without time reversal: normal case
+ !$omp parallel do default(shared) private(ir) firstprivate(ibnd,isym,ikq)
+                       DO ir = 1, nrxxs
+-                         exxbuff(ir,ibnd,ikq) = psic_nc(ir,1)
+-                         exxbuff(ir+nrxxs,ibnd,ikq) = psic_nc(ir,2)
++                         exxbuff(ir,ibnd,iqbuf) = psic_nc(ir,1)
++                         exxbuff(ir+nrxxs,ibnd,iqbuf) = psic_nc(ir,2)
+                       ENDDO
+ !$omp end parallel do
+                       END IF
+@@ -782,8 +825,8 @@ MODULE exx
+                       ELSE
+ !$omp parallel do default(shared) private(ir) firstprivate(ibnd,isym,ikq)
+                       DO ir = 1, nrxxs
+-                         exxbuff(ir,ibnd,ikq) = CONJG(psic_nc(ir,2))
+-                         exxbuff(ir+nrxxs,ibnd,ikq) = -CONJG(psic_nc(ir,1))
++                         exxbuff(ir,ibnd,iqbuf) = CONJG(psic_nc(ir,2))
++                         exxbuff(ir+nrxxs,ibnd,iqbuf) = -CONJG(psic_nc(ir,1))
+                       ENDDO
+ !$omp end parallel do
+                       ENDIF
+@@ -820,6 +863,9 @@ MODULE exx
+ !$omp end parallel do
+                    !
+                 ENDIF ! noncolinear
++#if defined(__EXX_QSTREAM)
++                CALL qs_put(qstore,ikq,ibnd,exxbuff(:,ibnd,1))
++#endif
+                 !
+              ENDDO
+              !
+@@ -850,12 +896,17 @@ MODULE exx
+     ! Note that in Gamma-only LSDA can be parallelized over two pools, and there
+     ! is no need to communicate anything: each pools deals with its own spin
+     !
++#if defined(__EXX_QSTREAM)
++    ! npool=1 => intra_orthopool_comm is singleton; seal instead of no-op bcasts.
++    CALL qs_seal(qstore)
++#else
+     IF ( .NOT. gamma_only ) THEN
+        DO ikq = 1, nkqs
+          CALL mp_bcast( exxbuff(:,:,ikq), working_pool(ikq), intra_orthopool_comm ) 
+        ENDDO
+     ENDIF
+     !
++#endif
+     ! For US/PAW only: compute <beta_I|psi_j,k+q> for the entire 
+     ! de-symmetrized k+q grid by rotating the ones from the irreducible wedge
+     !
+@@ -1780,7 +1831,7 @@ MODULE exx
+ !DIR$ memory(bandwidth) rhoc, vc
+ #endif
+     REAL(DP),   ALLOCATABLE :: fac(:), facb(:)
+-    INTEGER :: ibnd, ik, im , ikq, iq, ipol
++    INTEGER :: ibnd, ik, im , ikq, iq, ipol, iqbuf
+     INTEGER :: ir, ig, ir_start, ir_end
+     INTEGER :: irt, nrt, nblock
+     INTEGER :: current_ik
+@@ -1889,6 +1940,11 @@ MODULE exx
+     DO iq = 1, nqs
+        !
+        ikq = index_xkq(current_ik,iq)
++       iqbuf=ikq
++#if defined(__EXX_QSTREAM)
++       CALL qs_load(qstore,ikq,exxbuff(:,:,1))
++       iqbuf=1
++#endif
+        ik  = index_xk(ikq)
+        xkq = xkq_collect(:,ikq)
+        !
+@@ -1957,15 +2013,15 @@ MODULE exx
+                       IF (noncolin) THEN
+                          DO ir = ir_start, ir_end
+                             rhoc(ir,jbnd-jstart+1) = ( CONJG(exxbuff(ir,jbnd-all_start(wegrp)+ &
+-                                                       iexx_start,ikq))*temppsic_nc(ir,1,ii) + &
++                                                       iexx_start,iqbuf))*temppsic_nc(ir,1,ii) + &
+                                                        CONJG(exxbuff(nrxxs+ir,jbnd-all_start(wegrp)+ &
+-                                                       iexx_start,ikq))*temppsic_nc(ir,2,ii) )/omega
++                                                       iexx_start,iqbuf))*temppsic_nc(ir,2,ii) )/omega
+                          ENDDO
+                       ELSE
+ !DIR$ vector nontemporal (rhoc)
+                          DO ir = ir_start, ir_end
+                             rhoc(ir,jbnd-jstart+1) = CONJG(exxbuff(ir,jbnd-all_start(wegrp)+ &
+-                                                     iexx_start,ikq))*temppsic(ir,ii)*omega_inv
++                                                     iexx_start,iqbuf))*temppsic(ir,ii)*omega_inv
+                          ENDDO
+                       ENDIF
+                    ENDDO
+@@ -2058,15 +2114,15 @@ MODULE exx
+                       IF (noncolin) THEN
+                          DO ir = ir_start, ir_end
+                             result_nc(ir,1,ii) = result_nc(ir,1,ii) + vc(ir,jbnd-jstart+1) * &
+-                                                 exxbuff(ir,jbnd-all_start(wegrp)+iexx_start,ikq)
++                                                 exxbuff(ir,jbnd-all_start(wegrp)+iexx_start,iqbuf)
+                             result_nc(ir,2,ii) = result_nc(ir,2,ii) + vc(ir,jbnd-jstart+1) * &
+-                                                 exxbuff(ir+nrxxs,jbnd-all_start(wegrp)+iexx_start,ikq)
++                                                 exxbuff(ir+nrxxs,jbnd-all_start(wegrp)+iexx_start,iqbuf)
+                          ENDDO
+                       ELSE
+ !!dir$ vector nontemporal (result)
+                          DO ir = ir_start, ir_end
+                             result(ir,ii) = result(ir,ii) + vc(ir,jbnd-jstart+1)* &
+-                                            exxbuff(ir,jbnd-all_start(wegrp)+iexx_start,ikq)
++                                            exxbuff(ir,jbnd-all_start(wegrp)+iexx_start,iqbuf)
+                          ENDDO
+                       ENDIF
+                    ENDDO
+@@ -2082,7 +2138,7 @@ MODULE exx
+           ENDDO !IJT
+           !
+           ! get the next nbnd/negrp data
+-          IF (negrp > 1) CALL mp_circular_shift_left( exxbuff(:,:,ikq), me_egrp, inter_egrp_comm )
++          IF (negrp > 1) CALL mp_circular_shift_left( exxbuff(:,:,iqbuf), me_egrp, inter_egrp_comm )
+           !
+        ENDDO !iegrp
+        !
+@@ -3145,7 +3201,7 @@ end associate
+ #endif
+     REAL(DP),    ALLOCATABLE :: fac(:)
+     INTEGER  :: npw, jbnd, ibnd, ibnd_inner_start, ibnd_inner_end, ibnd_inner_count, &
+-                ik, ikk, ig, ikq, iq, ir
++                ik, ikk, ig, ikq, iq, ir, iqbuf
+     INTEGER  :: h_ibnd, nrxxs, current_ik, ibnd_loop_start, nblock, nrt, irt, &
+                 ir_start, ir_end
+     REAL(DP) :: x1, x2
+@@ -3247,6 +3303,11 @@ end associate
+        DO iq = 1,nqs
+           !
+           ikq  = index_xkq(current_ik,iq)
++          iqbuf=ikq
++#if defined(__EXX_QSTREAM)
++          CALL qs_load(qstore,ikq,exxbuff(:,:,1))
++          iqbuf=1
++#endif
+           ik   = index_xk(ikq)
+           !
+           xkq = xkq_collect(:,ikq)
+@@ -3311,15 +3372,15 @@ end associate
+                          IF (noncolin) THEN
+                             DO ir = ir_start, ir_end
+                                rhoc(ir,ibnd-ibnd_inner_start+1) = &
+-                                 ( CONJG(exxbuff(ir,ibnd-all_start(wegrp)+iexx_start,ikq)) * &
++                                 ( CONJG(exxbuff(ir,ibnd-all_start(wegrp)+iexx_start,iqbuf)) * &
+                                  temppsic_nc(ir,1,ii) + &
+-                                 CONJG(exxbuff(nrxxs+ir,ibnd-all_start(wegrp)+iexx_start,ikq)) * &
++                                 CONJG(exxbuff(nrxxs+ir,ibnd-all_start(wegrp)+iexx_start,iqbuf)) * &
+                                  temppsic_nc(ir,2,ii) ) * omega_inv
+                             ENDDO
+                          ELSE
+                             DO ir = ir_start, ir_end
+                                rhoc(ir,ibnd-ibnd_inner_start+1) = omega_inv * &
+-                                 CONJG(exxbuff(ir,ibnd-all_start(wegrp)+iexx_start,ikq)) * &
++                                 CONJG(exxbuff(ir,ibnd-all_start(wegrp)+iexx_start,iqbuf)) * &
+                                  temppsic(ir,ii)
+                             ENDDO
+                          ENDIF
+@@ -3380,7 +3441,7 @@ end associate
+              ENDDO&
+              IJT_LOOP
+              ! get the next nbnd/negrp data
+-             IF (negrp > 1) call mp_circular_shift_left( exxbuff(:,:,ikq), me_egrp, inter_egrp_comm )
++             IF (negrp > 1) call mp_circular_shift_left( exxbuff(:,:,iqbuf), me_egrp, inter_egrp_comm )
+              !
+           END DO !iegrp
+           !

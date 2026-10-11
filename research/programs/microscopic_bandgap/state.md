@@ -6,6 +6,26 @@
 
 **Updated:** 2026-10-11
 
+## Separate finite QE low-RAM engineering task
+
+The [q-plane streaming package](qe75_streaming_2026-10-11/README.md) traces the
+actual QE 7.5 producer/readers, ACE and EXX checkpoints. **PROVEN UNDER ASSUMPTIONS:**
+lossless one-q-plane storage preserves the scoped CPU/NC/SOC exchange action and
+unchanged 352-band ACE operations; nominal resident `exxbuff` capacity falls
+22 to 2.75 GiB (87.5%). **CALCULATED:** 24 tiny Fortran storage/kernel/failure
+cases, source-operation audits and actual exchange/SCF object compilation pass;
+a private mixed-object PW candidate links but is **unexecuted / UNVALIDATED**.
+Stock QE, dirty DFT files and all 17 source/supervisor pins remain unchanged.
+
+**Decision:** retain the software candidate; native paired SCF **NOT QUALIFIED**.
+The first candidate deliberately rejects EXX restart import/export, whose old
+buffer semantics and disk duplication cannot be hidden. Full MPI/FFT equivalence,
+peak memory, actual padding, disk admission and I/O wall time remain unverified.
+No SCF/HSE/MPI run, queue, supervisor operation, physics reduction or hardware
+purchase occurs. This independent engineering task does not resume or modify
+the historical BLOCKED goal, admit Cd, or provide a physical gap/t_H/x_c. Stop
+at the explicit software/runtime boundary; see the [decision](qe75_streaming_2026-10-11/decision.md).
+
 ## Current goal boundary audit
 
 The goal service now returns **blocked**, after the same indispensable physical
