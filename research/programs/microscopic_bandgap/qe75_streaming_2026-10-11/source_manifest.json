@@ -29,9 +29,10 @@
     }
   },
   "new_helper_sha256": "13ac89bbe7b1146fd4e413c01f61a9f773f8aaebf6e44ce769dd75bd3f552d2c",
-  "patch_sha256": "e151b553e0f81b5be5d7d5405dd5e75ed827b26d8032cd7a1d655e6adb3d7dda",
+  "patch_sha256": "0dbbc0413b884f8872cbb77c0633d81c3c72cc0ba59a72f051d5ef188006ae73",
   "stock_QE_artifact_sha256": {
     ".local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
     ".local/qe-env/lib/libqe_pw.a": "65349164becf7adab64d8c4cc1ad02be16d4ac3c86b1635fe840bcaf5116f0a2"
-  }
+  },
+  "patch_format": "zero-context unified diff; use git apply --unidiff-zero when applying artifact directly"
 }

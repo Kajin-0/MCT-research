@@ -35,4 +35,6 @@ a launch command or runtime authorization. Existing numerical data and all
 
 The helper and tests are GPL-2.0-or-later. The QE-derived patch is distributed
 with [QE's original GPL license](QE_GPL_LICENSE.txt); original upstream authorship
-is retained. The patch alone requires the accompanying new helper file.
+is retained. The patch alone requires the accompanying new helper file. It uses
+zero context to avoid carrying upstream trailing whitespace: direct application
+requires `git apply --unidiff-zero`; the guarded application script is unchanged.
