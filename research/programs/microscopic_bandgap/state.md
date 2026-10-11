@@ -29,6 +29,20 @@ same-label matrix difference of 6.30703 eV, invalid as an impurity operator.
 native QE dry runs with estimated dynamical memory about 14.1 GB. No
 self-consistent impurity result or dilute coefficient exists yet.
 
+**CALCULATED:** native radial coefficient reconstruction matches Gamma and
+X amplitudes to about 7e-13. The pinned QE 7.5 standalone interface uses
+the numeric zona=1 as 1 inverse bohr; the earlier inverse-Angstrom metadata
+description was inaccurate. The 26-band window captures only 0.0162204 of
+the least-captured fixed physical trial direction at X. All 44 supplied
+bands raise this to 0.469856. These are trial-norm fractions, not gap errors.
+Identical ordered 208-spinor trial blocks are prepared for the paired cells.
+A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 59 pass.
+
+**PROVEN:** fixed-physical-trial projected resolvents admit an omitted-band
+error certificate from the unresolved spectral norm and distance to the
+omitted spectrum. A separate energy-dependent effective inverse difference
+must not be confused with the ambient physical impurity T-matrix.
+
 **PROVEN under an isolated quadratic Gamma8 threshold and nonzero finite
 forward amplitude:** the gap-side contribution to -T8' scales as
 tau8^2 k8/sqrt(delta). **CALCULATED:** k8=0.5119895494464 eV^(-3/2) for
@@ -108,6 +122,7 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Endpoint volume-path correction](../../../docs/derivations/endpoint_volume_path.md)
 - [Conditional Gamma8 threshold kernel](../../../docs/derivations/gamma8_threshold_kernel.md)
 - [Frozen Gamma8 kernel](../../../data/calculated/gamma8_quadratic_threshold_20261011.json)
+- [Fixed-trial resolvent and spectral-window certificate](../../../docs/derivations/fixed_trial_resolvent.md)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
@@ -135,8 +150,9 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    Their 129.4479-meV difference is not attributable to NLCC alone.
    Accurate empty states reduce the 26-spinor matrix defect by over 2000
    times, to 2.95137 meV, still above the unchanged 1-meV gate. DFT commit
-   f4f77d4 contains the completed controls, physical-frame overlaps and
-   passed impurity capability dry runs. The stricter CdTe refinement was
+   6e06fd7 contains the completed controls, physical-frame overlaps,
+   native trial-unit/capture audit, prepared pair and bounded SCF runner.
+   The stricter CdTe refinement was
    killed at its wall limit without a checkpoint and is rejected. It
    needs a new longer-budget calculation. Rerun the Gamma assignments,
    projection and native-wavefunction checks after HgTe converges. In

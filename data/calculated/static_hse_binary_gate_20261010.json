@@ -1,601 +1,28 @@
 {
-  "claim_status": "CALCULATED two coarse-grid binary hosts; both projected finite-q matrix gates failed; physical impurity prediction pending",
-  "DFT_repository_commit": "f4f77d45c2f266f220fb65f313ca682e3c82bf9a",
   "DFT_branch": "research/hgcdte-analytical-gap-20261010",
-  "completed_signed_gap": {
-    "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
-    "SCF": {
-      "args": {
-        "dry_run": false,
-        "ecut": 90,
-        "family": "dojo",
-        "functional": "HSE",
-        "material": "cdte",
-        "mesh": 4,
-        "qmesh": 2,
-        "ranks": 6,
-        "restart_from": "calculations/r07/cdte_hse_dojo_k4_q2_e90",
-        "seconds": 900
-      },
-      "git_commit": "13d435bad6166a3859cf388e0b019d0fa22e3c58",
-      "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
-      "pp_sha256": {
-        "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
-        "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
-      },
-      "input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
-      "lattice_A": 6.48
-    },
-    "E_Gamma6_minus_Gamma8_eV": 1.7048135208265158,
-    "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9442885160117154,
-    "Gamma6_bands_1based": [
-      37,
-      38
-    ],
-    "Gamma8_bands_1based": [
-      33,
-      36
-    ],
-    "Gamma7_bands_1based": [
-      31,
-      32
-    ],
-    "Gamma6_s_weight": 0.9924157520524904,
-    "Gamma8_Te_p_j_three_halves_weight": 0.9466092997452922,
-    "Gamma7_Te_p_j_half_weight": 0.9367161111552769,
-    "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
-    "known_limitations": [
-      "cutoff/k/q convergence not established",
-      "PBE potentials used with HSE; core approximation needs validation",
-      "static lattice, without electron-phonon or GW correction"
-    ],
-    "source_sha256": {
-      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/result.json": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
-      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/bands.out": "2013d2ad5dcc695d4957bd1a02518ebfeb1f767015a78b9761e904b007fd58f8",
-      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/orbital_character.json": "24b3a01235b6ece843e68a820f8b1592cf66da6df0f139b76aec2e7e848e8b35"
-    },
-    "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f"
+  "DFT_fast_tests": {
+    "deselected": 1,
+    "passed": 59
   },
-  "completed_grid_expansion": {
-    "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
-    "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
-    "k_points": 64,
-    "parent_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
-    "written_utc": "2026-10-10T20:37:09.904845+00:00",
-    "original_irreducible_k_points": 8,
-    "matched_original_k_points": 8,
-    "max_original_eigenvalue_error_eV": 0.0,
-    "expanded_k_weight_sum": 1.0
-  },
-  "input_files_sha256": {
-    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/signed_gap.json": "e4a13e65bade0aed259aff7e39eac40884ea3cfee5b7aeb4ff946ed657a188f7",
-    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/grid_expansion.json": "37e2a609345fa3390661ed78704502fe29048feba94eb2e5b72620280b6e9da8",
-    "pseudopotentials/r07_manifest.json": "8fc7df33901138af4a001235912d2e8b70f0d58457391ec77fd81e4c5376976a",
-    "pseudopotentials/r07_sg15_manifest.json": "b22176c079c2b6fe887de840f7032293ec756013dfe7b751e24d56082f83e179",
-    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/projection_report.json": "a59cb56c2b02dabf9bd095cc94f24e5f21969b4eb0e861a119c3fa58576e07ac",
-    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/wavefunction_TR_audit.json": "60107a83a1a9870e7d766c82d5f3e9045d6054a29fc120e9ae34fc4621a5cd20",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/signed_gap.json": "09ad8f98ff50b3d28041eccb1375f18e692bebc48033d34907bc7cf816a31425",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/grid_expansion.json": "b5c3529df6ef397107c3421747716dff5071737913e2c08e76bc297e0a7802fe",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/projection_report.json": "b6f689d5c0fb2f32350b2843dcc21a3e9368b51d18a42819d841369092031327",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/wavefunction_TR_audit.json": "78278553849dcd25dc7c40f98fd9935414ad613a24261b2f77aeea391ea6e9b9",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc/result.json": "4b7c5f97cff6f77fcb7785c4d7c0cb97de7594c84d67f6e1b19d871c5ebce98f",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/result.json": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/signed_gap.json": "f6ed896b0f49e211b3323b0c80520ddbbe027e7b91367db1015bc2cf50216be0",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/grid_expansion.json": "1eccda42b7dcaa027dfea0c5f4572bd6ce1de73e0bfaf6a5653cefc8feb8e8ae",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/projection_report.json": "7ea0174f4f919134b3b824539e96ab829e3411f48e80fe0051c047997c6c3580",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/wavefunction_TR_audit.json": "428c515f936cbc9c67209304419bb0980af5b3af58881a855f6eac3b7e8d85ed",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/host_control_comparison.json": "7ed8c32ab09ecb34b847cf491969d2bfd1d15a0a9166c127fec3a8138c0298f9",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/provenance.json": "c15e09ac60d54d97687e4a913d66a4c0ffba6ea89fd68e01c29a7e668f063390",
-    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/result.json": "9cc01b46ee8dc84a85c8fb15fd185a47d4c6131483ee03cc886553767653048d",
-    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/preparation.json": "4cb4f91a239e6119c8ba093d36b8aa7dc681d9e66f61bf133e9a0d5dde76dc0e",
-    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/pw_dry_result.json": "f67eabf1bf3507a18ee0b8316ddfe8f1a47eb7e4eed65666b71a2f85f97bb2c4",
-    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/pw_dry_result.json": "88d46b0969411186106e67cc48517d3d33b00a85c85946e73b9c62166577a066",
-    "calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/provenance.json": "82b43d7bb748d76d8bc943ff89b564d950792d9e42c5824a3162f50bfe27f4fa"
-  },
-  "experimental_alloy_coefficients_used": [],
-  "temperature_work": "deferred",
-  "completed_hosts": {
-    "dojo": {
-      "directory": "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6",
-      "signed_gap": {
-        "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
-        "SCF": {
-          "args": {
-            "dry_run": false,
-            "ecut": 90,
-            "family": "dojo",
-            "functional": "HSE",
-            "material": "cdte",
-            "mesh": 4,
-            "qmesh": 2,
-            "ranks": 6,
-            "restart_from": "calculations/r07/cdte_hse_dojo_k4_q2_e90",
-            "seconds": 900
-          },
-          "git_commit": "13d435bad6166a3859cf388e0b019d0fa22e3c58",
-          "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
-          "pp_sha256": {
-            "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
-            "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
-          },
-          "input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
-          "lattice_A": 6.48
-        },
-        "E_Gamma6_minus_Gamma8_eV": 1.7048135208265158,
-        "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9442885160117154,
-        "Gamma6_bands_1based": [
-          37,
-          38
-        ],
-        "Gamma8_bands_1based": [
-          33,
-          36
-        ],
-        "Gamma7_bands_1based": [
-          31,
-          32
-        ],
-        "Gamma6_s_weight": 0.9924157520524904,
-        "Gamma8_Te_p_j_three_halves_weight": 0.9466092997452922,
-        "Gamma7_Te_p_j_half_weight": 0.9367161111552769,
-        "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
-        "known_limitations": [
-          "cutoff/k/q convergence not established",
-          "PBE potentials used with HSE; core approximation needs validation",
-          "static lattice, without electron-phonon or GW correction"
-        ],
-        "source_sha256": {
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/result.json": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/bands.out": "2013d2ad5dcc695d4957bd1a02518ebfeb1f767015a78b9761e904b007fd58f8",
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/orbital_character.json": "24b3a01235b6ece843e68a820f8b1592cf66da6df0f139b76aec2e7e848e8b35"
-        },
-        "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f"
-      },
-      "grid_expansion": {
-        "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
-        "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
-        "k_points": 64,
-        "parent_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
-        "written_utc": "2026-10-10T20:37:09.904845+00:00",
-        "original_irreducible_k_points": 8,
-        "matched_original_k_points": 8,
-        "max_original_eigenvalue_error_eV": 0.0,
-        "expanded_k_weight_sum": 1.0
-      },
-      "projection26": {
-        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
-        "accepted_frame": true,
-        "accepted_scattering_host": false,
-        "amn_sha256": "bbb0e714a2692a8f8ccc8d786bb1973445efa1173311e09273b766827c382669",
-        "bands_used_one_based": [
-          19,
-          44
-        ],
-        "claim_status": "CALCULATED trial-frame capability diagnostic",
-        "common_physical_basis_established": false,
-        "driver_sha256": "7b233216a22da1bc1f9751ed6fd4989624003622448abecc29960ee055ce44ba",
-        "eig_sha256": "d7f19bc7a26c9d7a4d30eaaba5dfc332ce7071b43dd82f540f98cfa36a49da7e",
-        "empirical_alloy_gap_inputs": [],
-        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
-        "host_frame_sha256": "405ba582404820a50fb8e99bc548335d756f2d849dc45ae106b4684aeae3e305",
-        "hydrogenic_radial_r": 1,
-        "hydrogenic_zona_inverse_A": 1.0,
-        "independent_interpolation_validation": false,
-        "interface_input_sha256": "eb090b3c77aa546b6860deeb331a284c870275f69719284f25f3888e69a9f861",
-        "k_points": 64,
-        "max_interface_energy_error_eV": 5.115907697472721e-13,
-        "max_polar_isospectral_error_eV": 4.085620730620576e-14,
-        "max_time_reversal_matrix_error_eV": 0.07822556986927706,
-        "minimum_singular_value": 0.11418212192528715,
-        "mpi_ranks": 6,
-        "nnkp_sha256": "53214b3cc3b05ed1b2208d6a7f53551067c662a0f7c32bee7596afc3e3ea9710",
-        "num_bands": 26,
-        "num_orbitals": 26,
-        "pp_sha256": {
-          "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
-          "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
-        },
-        "projection_module_sha256": "229099945ec7bdf52c311574a282c14bdf6789de3d70b8cc4391379eb6ab15b5",
-        "rank_deficient_k_indices_one_based": [],
-        "relative_rank_tolerance": 1e-08,
-        "scf_input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
-        "scf_result_sha256": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
-        "schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
-        "time_reversal_gate_passed": false,
-        "time_reversal_representation": "adjacent up/down pairs; real spatial trials",
-        "time_reversal_tolerance_eV": 0.001,
-        "win_sha256": "92ad3495bed900e9ce990d583f48a6b08b4150a453b2bc2b90f3f0d5e748206f",
-        "worst_condition_number": 9.077907619523577,
-        "written_utc": "2026-10-10T21:06:28.817202+00:00"
-      },
-      "native_wavefunction_TR": {
-        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
-        "claim_status": "CALCULATED native wavefunction diagnostic; no correction applied",
-        "driver_sha256": "f8569a1d4116cb2728b998621d23f462bc6228fe8702636ba6075aeeabe0d3ba",
-        "empirical_alloy_gap_inputs": [],
-        "euclidean_metric_scope": "norm-conserving pseudopotentials only",
-        "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
-        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
-        "h5py_version": "3.16.0",
-        "mpi_ranks": 6,
-        "original_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
-        "pp_sha256": {
-          "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
-          "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
-        },
-        "results": {
-          "Gamma": {
-            "expanded_k_index_one_based": 1,
-            "fractional_k": [
-              0.0,
-              0.0,
-              0.0
-            ],
-            "max_original_expanded_coefficient_difference": 2.237726045655905e-16,
-            "original_k_index_one_based": 1,
-            "subspaces": {
-              "all44": {
-                "TR_subspace_sine_max": 4.795498353739433e-05,
-                "bands_used_one_based": [
-                  1,
-                  44
-                ],
-                "max_Gram_error": 3.229622326821086e-15,
-                "min_TR_overlap_singular_value": 0.9999999988501598
-              },
-              "bands31to38": {
-                "TR_subspace_sine_max": 7.169348037434158e-06,
-                "bands_used_one_based": [
-                  31,
-                  38
-                ],
-                "max_Gram_error": 1.4475952558525868e-15,
-                "min_TR_overlap_singular_value": 0.9999999999743002
-              },
-              "occupied36": {
-                "TR_subspace_sine_max": 3.909815958080864e-06,
-                "bands_used_one_based": [
-                  1,
-                  36
-                ],
-                "max_Gram_error": 2.9684089508552028e-15,
-                "min_TR_overlap_singular_value": 0.9999999999923567
-              },
-              "projected26": {
-                "TR_subspace_sine_max": 4.795490713784981e-05,
-                "bands_used_one_based": [
-                  19,
-                  44
-                ],
-                "max_Gram_error": 2.9618995710636215e-15,
-                "min_TR_overlap_singular_value": 0.9999999988501634
-              }
-            }
-          },
-          "X": {
-            "expanded_k_index_one_based": 11,
-            "fractional_k": [
-              -1.9651167240051506e-16,
-              -0.5000000000000001,
-              -0.5000000000000001
-            ],
-            "max_original_expanded_coefficient_difference": 1.2412670766236366e-16,
-            "original_k_index_one_based": 7,
-            "subspaces": {
-              "all44": {
-                "TR_subspace_sine_max": 0.016255698360441224,
-                "bands_used_one_based": [
-                  1,
-                  44
-                ],
-                "max_Gram_error": 3.744076738224132e-15,
-                "min_TR_overlap_singular_value": 0.999867867405896
-              },
-              "bands31to38": {
-                "TR_subspace_sine_max": 4.3546078193791083e-07,
-                "bands_used_one_based": [
-                  31,
-                  38
-                ],
-                "max_Gram_error": 2.66895106882783e-15,
-                "min_TR_overlap_singular_value": 0.9999999999999052
-              },
-              "occupied36": {
-                "TR_subspace_sine_max": 1.9314112360500873e-07,
-                "bands_used_one_based": [
-                  1,
-                  36
-                ],
-                "max_Gram_error": 3.4697371752352675e-15,
-                "min_TR_overlap_singular_value": 0.9999999999999813
-              },
-              "projected26": {
-                "TR_subspace_sine_max": 0.016255698360448056,
-                "bands_used_one_based": [
-                  19,
-                  44
-                ],
-                "max_Gram_error": 3.636220789770626e-15,
-                "min_TR_overlap_singular_value": 0.9998678674058958
-              }
-            }
-          }
-        },
-        "scf_input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
-        "scf_result_sha256": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
-        "source_wfc_sha256": {
-          "out/r07.save/wfc1.hdf5": "75a77ace442db879f31d336765e5a1aab939d98f81bd84b3c6340c1e9fdefb6e",
-          "out/r07.save/wfc7.hdf5": "3df2da1918e8daaf1f6d8c175fe00658ce421882d2f91d253c5d12094ca4f593",
-          "out/r07_open.save/wfc1.hdf5": "4e3450d6727322d360b76dc1a26b51314b15585f1bfb490d92df20c2ad4b1d89",
-          "out/r07_open.save/wfc11.hdf5": "10cc27e56b361fb89f12b64dcc1200774341676cc94367d90dea050fce11fb41"
-        },
-        "wavefunction_module_sha256": "2dd6469f9395a6b8013d2b0f280195ed17ca673b8993fa1dfedd71e7ea558100",
-        "written_utc": "2026-10-10T21:06:30.448829+00:00"
-      }
-    },
-    "sg15": {
-      "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5",
-      "signed_gap": {
-        "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
-        "SCF": {
-          "args": {
-            "dry_run": false,
-            "ecut": 90,
-            "family": "sg15",
-            "functional": "HSE",
-            "material": "cdte",
-            "mesh": 4,
-            "qmesh": 2,
-            "ranks": 6,
-            "restart_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90",
-            "seconds": 900
-          },
-          "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
-          "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
-          "pp_sha256": {
-            "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-            "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
-          },
-          "input_sha256": "e641f85bbddb283a530b2ebc8b98dd6aa147d981b63dbb79576edba30c420f73",
-          "lattice_A": 6.48
-        },
-        "E_Gamma6_minus_Gamma8_eV": 1.5753655794066894,
-        "Delta_SO_Gamma8_minus_Gamma7_eV": 0.956530000184463,
-        "Gamma6_bands_1based": [
-          37,
-          38
-        ],
-        "Gamma8_bands_1based": [
-          33,
-          36
-        ],
-        "Gamma7_bands_1based": [
-          31,
-          32
-        ],
-        "Gamma6_s_weight": 0.9952517205765601,
-        "Gamma8_Te_p_j_three_halves_weight": 0.9400176163439398,
-        "Gamma7_Te_p_j_half_weight": 0.9283906288553092,
-        "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
-        "known_limitations": [
-          "cutoff/k/q convergence not established",
-          "PBE potentials used with HSE; core approximation needs validation",
-          "static lattice, without electron-phonon or GW correction"
-        ],
-        "source_sha256": {
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/result.json": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665",
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/bands.out": "b2e1dd467513184d918533575280016e8be3e8030fbe63c17053141ab3de82fd",
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/orbital_character.json": "8d1fa1da4afd276310538b04c4af9b79c5c1d754b178d6f255380ad86dc1ace0"
-        },
-        "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f"
-      },
-      "grid_expansion": {
-        "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
-        "expanded_k_weight_sum": 1.0,
-        "expanded_schema_sha256": "8719e92a6816b0912d69d18a388037478ba17136e1e6501bfde2201da9f10fa5",
-        "k_points": 64,
-        "matched_original_k_points": 8,
-        "max_original_eigenvalue_error_eV": 0.0,
-        "original_irreducible_k_points": 8,
-        "parent_schema_sha256": "9b1f7b4069edaa07d5c173e70979164a9cc62dea530c0a9df8ba3ed7713082c8",
-        "written_utc": "2026-10-10T20:59:51.765865+00:00"
-      },
-      "projection26": {
-        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
-        "accepted_frame": true,
-        "accepted_scattering_host": false,
-        "amn_sha256": "68a51a0118bc98dd52e0a5c9a1cd587213c301b3a36f74e9ceacc4821fce5262",
-        "bands_used_one_based": [
-          19,
-          44
-        ],
-        "claim_status": "CALCULATED trial-frame capability diagnostic",
-        "common_physical_basis_established": false,
-        "driver_sha256": "7b233216a22da1bc1f9751ed6fd4989624003622448abecc29960ee055ce44ba",
-        "eig_sha256": "d466aeb130b4c2d54d2c1ae94ff243f6c902770ee8ca0959842ddf231ec8485b",
-        "empirical_alloy_gap_inputs": [],
-        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
-        "host_frame_sha256": "14a1178514e726e1cbeb2099219a0abe3501b8a169ca4a7acfed5dec241ea386",
-        "hydrogenic_radial_r": 1,
-        "hydrogenic_zona_inverse_A": 1.0,
-        "independent_interpolation_validation": false,
-        "interface_input_sha256": "d85c721971c31045a39e3de5d531f102d82c72e614c11818faab699f30877208",
-        "k_points": 64,
-        "max_interface_energy_error_eV": 4.887479310156095e-13,
-        "max_polar_isospectral_error_eV": 4.263256414560601e-14,
-        "max_time_reversal_matrix_error_eV": 6.378273765140013,
-        "minimum_singular_value": 0.012484343994902123,
-        "mpi_ranks": 6,
-        "nnkp_sha256": "19396bef9f182e55addab6e787b7d55b03b259ebd2b077e02cfe9111e5dd918b",
-        "num_bands": 26,
-        "num_orbitals": 26,
-        "pp_sha256": {
-          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
-        },
-        "projection_module_sha256": "229099945ec7bdf52c311574a282c14bdf6789de3d70b8cc4391379eb6ab15b5",
-        "rank_deficient_k_indices_one_based": [],
-        "relative_rank_tolerance": 1e-08,
-        "scf_input_sha256": "e641f85bbddb283a530b2ebc8b98dd6aa147d981b63dbb79576edba30c420f73",
-        "scf_result_sha256": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665",
-        "schema_sha256": "8719e92a6816b0912d69d18a388037478ba17136e1e6501bfde2201da9f10fa5",
-        "time_reversal_gate_passed": false,
-        "time_reversal_representation": "adjacent up/down pairs; real spatial trials",
-        "time_reversal_tolerance_eV": 0.001,
-        "win_sha256": "92ad3495bed900e9ce990d583f48a6b08b4150a453b2bc2b90f3f0d5e748206f",
-        "worst_condition_number": 82.4385612383408,
-        "written_utc": "2026-10-10T21:06:29.486076+00:00"
-      },
-      "native_wavefunction_TR": {
-        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
-        "claim_status": "CALCULATED native wavefunction diagnostic; no correction applied",
-        "driver_sha256": "f8569a1d4116cb2728b998621d23f462bc6228fe8702636ba6075aeeabe0d3ba",
-        "empirical_alloy_gap_inputs": [],
-        "euclidean_metric_scope": "norm-conserving pseudopotentials only",
-        "expanded_schema_sha256": "8719e92a6816b0912d69d18a388037478ba17136e1e6501bfde2201da9f10fa5",
-        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
-        "h5py_version": "3.16.0",
-        "mpi_ranks": 6,
-        "original_schema_sha256": "9b1f7b4069edaa07d5c173e70979164a9cc62dea530c0a9df8ba3ed7713082c8",
-        "pp_sha256": {
-          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
-        },
-        "results": {
-          "Gamma": {
-            "expanded_k_index_one_based": 1,
-            "fractional_k": [
-              0.0,
-              0.0,
-              0.0
-            ],
-            "max_original_expanded_coefficient_difference": 2.2887833992611187e-16,
-            "original_k_index_one_based": 1,
-            "subspaces": {
-              "all44": {
-                "TR_subspace_sine_max": 2.647462936296472e-06,
-                "bands_used_one_based": [
-                  1,
-                  44
-                ],
-                "max_Gram_error": 2.9891596051830985e-15,
-                "min_TR_overlap_singular_value": 0.9999999999964955
-              },
-              "bands31to38": {
-                "TR_subspace_sine_max": 8.678567277527473e-07,
-                "bands_used_one_based": [
-                  31,
-                  38
-                ],
-                "max_Gram_error": 1.461293973321263e-15,
-                "min_TR_overlap_singular_value": 0.9999999999996234
-              },
-              "occupied36": {
-                "TR_subspace_sine_max": 2.176487905197412e-06,
-                "bands_used_one_based": [
-                  1,
-                  36
-                ],
-                "max_Gram_error": 2.840524493785254e-15,
-                "min_TR_overlap_singular_value": 0.9999999999976315
-              },
-              "projected26": {
-                "TR_subspace_sine_max": 2.647253251209433e-06,
-                "bands_used_one_based": [
-                  19,
-                  44
-                ],
-                "max_Gram_error": 2.8600042342970365e-15,
-                "min_TR_overlap_singular_value": 0.999999999996496
-              }
-            }
-          },
-          "X": {
-            "expanded_k_index_one_based": 11,
-            "fractional_k": [
-              -1.9651167240051506e-16,
-              -0.5000000000000001,
-              -0.5000000000000001
-            ],
-            "max_original_expanded_coefficient_difference": 1.5700924586837752e-16,
-            "original_k_index_one_based": 7,
-            "subspaces": {
-              "all44": {
-                "TR_subspace_sine_max": 0.995508062916455,
-                "bands_used_one_based": [
-                  1,
-                  44
-                ],
-                "max_Gram_error": 3.644729808293926e-15,
-                "min_TR_overlap_singular_value": 0.09467680110949811
-              },
-              "bands31to38": {
-                "TR_subspace_sine_max": 6.332064307990148e-06,
-                "bands_used_one_based": [
-                  31,
-                  38
-                ],
-                "max_Gram_error": 1.8340426360137388e-15,
-                "min_TR_overlap_singular_value": 0.9999999999799525
-              },
-              "occupied36": {
-                "TR_subspace_sine_max": 5.305190086384032e-06,
-                "bands_used_one_based": [
-                  1,
-                  36
-                ],
-                "max_Gram_error": 3.562900904558038e-15,
-                "min_TR_overlap_singular_value": 0.9999999999859275
-              },
-              "projected26": {
-                "TR_subspace_sine_max": 0.995508062916455,
-                "bands_used_one_based": [
-                  19,
-                  44
-                ],
-                "max_Gram_error": 3.574879395124778e-15,
-                "min_TR_overlap_singular_value": 0.09467680110949811
-              }
-            }
-          }
-        },
-        "scf_input_sha256": "e641f85bbddb283a530b2ebc8b98dd6aa147d981b63dbb79576edba30c420f73",
-        "scf_result_sha256": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665",
-        "source_wfc_sha256": {
-          "out/r07.save/wfc1.hdf5": "e997f55e50a7066cc9c760450f4b5821d0b71a4074f76afd21ae7b41101fc554",
-          "out/r07.save/wfc7.hdf5": "4f553d33e5349d7e60771a286aaacd0d322bbd629e122da6298dc1e01ef06505",
-          "out/r07_open.save/wfc1.hdf5": "1c80ff8d5fd0a228f51a68867b287d9323df9271f39ac2401388fef2adb4a684",
-          "out/r07_open.save/wfc11.hdf5": "52c9f521be462e0d8cf8ccc40615ebd37d81f38143f68e675462ae4df83618f9"
-        },
-        "wavefunction_module_sha256": "2dd6469f9395a6b8013d2b0f280195ed17ca673b8993fa1dfedd71e7ea558100",
-        "written_utc": "2026-10-10T21:06:31.350250+00:00"
-      }
-    }
-  },
-  "potential_set_gap_difference_meV": 129.4479414198264,
-  "potential_set_interpretation": "Sets differ in generator choices in addition to NLCC; no isolated NLCC attribution",
-  "empty_state_accuracy_control": {
-    "status": "stricter seeded refinement rejected: hard wall stop during exchange, no EXX convergence and no outer checkpoint",
-    "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2",
-    "result": {
-      "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:37:10",
-      "accepted_scf": false,
+  "DFT_repository_commit": "6e06fd7314161d2efe74d0549f2cdbf6e4b08ebd",
+  "active_binary_reference": {
+    "directory": "calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800",
+    "provenance": {
       "args": {
         "accurate_empty": true,
         "dry_run": false,
         "ecut": 90,
         "family": "sg15",
         "functional": "HSE",
-        "material": "cdte",
+        "material": "hgte",
         "mesh": 4,
         "qmesh": 2,
         "ranks": 6,
         "restart_from": null,
         "scf_threshold": 1e-10,
-        "seconds": 900,
-        "seed_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97"
+        "seconds": 1800,
+        "seed_from": null
       },
-      "band_irrep_assignment": "not assigned; raw eigenvalues are not a signed gap",
       "claim_status": "CALCULATED capability diagnostic only",
       "command": [
         "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
@@ -605,72 +32,19 @@
         "-in",
         "pw.in"
       ],
-      "driver_sha256": "d15b43ba25199e74dbc606dbb21102551125079635c6736ce327e1f9f2b3180a",
+      "driver_sha256": "1a56bd2452e13b478081b19f21b42edbff8126e7ca69ac74d32c01daab1877c5",
       "empirical_alloy_gap_inputs": [],
-      "exit_requested": true,
-      "exx_converged": false,
-      "gamma_eigenvalues_eV": [
-        [
-          -99.10649328181164,
-          -99.10649326495299,
-          -62.61707299674483,
-          -62.61707298121254,
-          -56.74932848997626,
-          -56.74932848852785,
-          -56.749328463229645,
-          -56.74932846173209,
-          -29.039838204662075,
-          -29.039838201019776,
-          -29.039838196780433,
-          -29.03983819136011,
-          -27.543347747292493,
-          -27.543347736662803,
-          -27.5338661140593,
-          -27.533866110643974,
-          -27.533866108660483,
-          -27.533866104975406,
-          -4.228569205032167,
-          -4.228569185111092,
-          -1.6502262245503778,
-          -1.6502262127095462,
-          -1.650226207585062,
-          -1.6502261978476767,
-          -1.0974350368300583,
-          -1.097435031771021,
-          -0.8606213185622242,
-          -0.8606213132204814,
-          -0.8606213131369254,
-          -0.8606213079618835,
-          7.139477290967606,
-          7.139477300852282,
-          8.096004974754049,
-          8.096004976364432,
-          8.096004981016193,
-          8.096004988703704,
-          9.671369666388172,
-          9.671369675989665,
-          13.411556511301725,
-          13.411556517018585,
-          13.770490224801401,
-          13.770490230688937,
-          13.770490231771621,
-          13.770490240384955
-        ]
-      ],
-      "git_commit": "2cd616fa2c7c9933be19bcbc9cde98d780515532",
+      "git_commit": "ce75ed3241dc7263a7a9d799623e0859a686277a",
       "hardware": {
         "cpu_logical_count": 8,
         "machine": "x86_64",
-        "mem_available_kb": 27166244,
+        "mem_available_kb": 27125800,
         "mem_total_kb": 32863192,
         "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
         "processor": ""
       },
-      "initialization_mode": "new outer SCF from accepted density and spinors",
-      "inner_scf_converged": true,
-      "input_sha256": "cffa449ae7599433ed73e2b7b2cbbb1539b3fea4011d0fb3d4ee54181756d81c",
-      "job_done": false,
-      "lattice_A": 6.48,
+      "input_sha256": "1094371721fec79d62394c32bfa6e459710fb5779fa18ec8bdb506c0e1578c0b",
+      "lattice_A": 6.46,
       "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
       "mpi_ranks": 6,
       "packages": {
@@ -685,60 +59,17 @@
         "spglib": "2.7.0"
       },
       "pp_sha256": {
-        "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
         "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
       },
       "program": "R07 static microscopic bandgap; no AHC or phonon execution",
-      "restart_checkpoint": {
-        "files": {
-          "r07.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-          "r07.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
-          "r07.save/ace1.hdf5": "e506269258c9332e3cb7e98d1cf1f5b23b38e7bbdb28513432c4d86560efefeb",
-          "r07.save/ace2.hdf5": "2dff63b09e8f6de64c3cf03e99c0c470030ab8f086e24c25b5990184dc397106",
-          "r07.save/ace3.hdf5": "35ddc0da4374812d35cdb15809129562500b34dd279edf297871ad0671f4ffc3",
-          "r07.save/ace4.hdf5": "eecc7473fa7b57a5184b3edc928603b95b4f13876c8bef5d4006bffd7ce4101c",
-          "r07.save/ace5.hdf5": "6c018ae453b1294ea492cb63de68177f0551c8b357b4b7865d6ca63a4138d997",
-          "r07.save/ace6.hdf5": "f28fc2e134d3cd0d7559a031116188601e39eebeae39ac1829553f889fcbfaa9",
-          "r07.save/ace7.hdf5": "9a2399e6efb2db0b97d766e3f2c4e491c347ab2649627c153d193b62aa25326b",
-          "r07.save/ace8.hdf5": "2888eba4eab978ddbea9076f75e9ff26dfa7072b21b5bf1e720456b33859dd3d",
-          "r07.save/atomic_proj.xml": "70c4d52c35845118cdfb55a4dde2f309c96b494703f809235e6508ae4d2f1f38",
-          "r07.save/charge-density.hdf5": "225d27a4b906d46b4e090597ad7917b37681e3299270395a2b652b4792da7e3c",
-          "r07.save/data-file-schema.xml": "d8a1a2e75ed5cc270b862a1e8e7d691d254bf3700bf869765075229b08348d5b",
-          "r07.save/wfc1.hdf5": "79b05688035291effa7b15f8409553cb31a5b9c2906633cc3b973eaf29b466ab",
-          "r07.save/wfc2.hdf5": "e347330e383f8b841d7890d234aab2e9cecd515c5f5ad9be01006c999aca5d95",
-          "r07.save/wfc3.hdf5": "a8e34b8ee31a772260dc8a5b1c961901abab6c7e5b6f9d0e6973dfd19b3e42c1",
-          "r07.save/wfc4.hdf5": "5bdfec53f0d6753da8f6e97a934a0c3e1ad0670f9397ac36e868eb94059568e1",
-          "r07.save/wfc5.hdf5": "856f0b9984719462c1e2cd51c1540d89d5e8f3efbedd00147e40c8478539b764",
-          "r07.save/wfc6.hdf5": "948a88caaaa8001426ba8fbd94b5e0297c8ee0427fdbc410db944589d54d8140",
-          "r07.save/wfc7.hdf5": "d696066449dcec708f9d1cd1939f17e23689d738621a6e32d553873b4ddd0b9d",
-          "r07.save/wfc8.hdf5": "c89b343219fb979dc9a166f14cb3f31d05067c50f9817b17a06f2d5804145a24",
-          "r07.wfc1": "4035b68555b8e9e5f7e337b817e218c257a96189e8c5c81df6803755ecdb6564",
-          "r07.wfc2": "84ecfb9546515da724aa04332501dde3bb6edcc522402cb55ba43e633643e6d0",
-          "r07.wfc3": "adc6e88b12f08232e106d7cfb9a531267719d8be39b8681bde40a303b398737f",
-          "r07.wfc4": "0a2c9c551f433d41804d00918d5905cc9e2e97e09503e038b710734a6646e023",
-          "r07.wfc5": "62c07638232b74988d3f90c093583b7820c617e26602f9ab8af2c30331819a43",
-          "r07.wfc6": "09c6a7a5fec7f0d99c68c58f814945f4cd372c710180086ac77127e16b866148"
-        },
-        "parent": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97",
-        "parent_result_sha256": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
-        "parent_stdout_sha256": "9f8a342b7688db8d4ff6a1292237d21f0ca650e104b1208616fe5603120c8d05"
-      },
-      "restart_physics_unchanged": true,
-      "returncode": 1,
-      "seed_initialization": true,
-      "seed_numerical_threshold_Ry": 1e-08,
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "a2c93014620eb70264ead8ebfdc571890c1fe289703be41474aa5784976cb992",
-      "wall_seconds": 1020.7845119386911,
-      "written_utc": "2026-10-11T01:54:09.853497+00:00"
+      "written_utc": "2026-10-11T01:57:15.183881+00:00"
     },
-    "accepted_scattering_host": false,
-    "required_next_gate": "new longer-budget CdTe refinement after the active MPI family; do not resume the interrupted run as an outer checkpoint"
+    "status": "running at capture; no accepted HgTe result or assigned signed gap"
   },
-  "updated_utc": "2026-10-11T02:00:36.560926+00:00",
+  "claim_status": "CALCULATED two coarse-grid binary hosts; both projected finite-q matrix gates failed; physical impurity prediction pending",
   "completed_controls": {
     "sg15_accurate_empty": {
-      "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97",
       "SCF": {
         "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
         "accepted_scf": true,
@@ -895,61 +226,7 @@
         "wall_seconds": 243.0848775440827,
         "written_utc": "2026-10-11T01:32:55.602778+00:00"
       },
-      "signed_gap": {
-        "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
-        "SCF": {
-          "args": {
-            "accurate_empty": true,
-            "dry_run": false,
-            "ecut": 90,
-            "family": "sg15",
-            "functional": "HSE",
-            "material": "cdte",
-            "mesh": 4,
-            "qmesh": 2,
-            "ranks": 6,
-            "restart_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc",
-            "seconds": 900
-          },
-          "git_commit": "a0c91cc6f6eafcbd807b92ba33c201e95de9860d",
-          "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
-          "pp_sha256": {
-            "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-            "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
-          },
-          "input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
-          "lattice_A": 6.48
-        },
-        "E_Gamma6_minus_Gamma8_eV": 1.575364690979324,
-        "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9565276842996502,
-        "Gamma6_bands_1based": [
-          37,
-          38
-        ],
-        "Gamma8_bands_1based": [
-          33,
-          36
-        ],
-        "Gamma7_bands_1based": [
-          31,
-          32
-        ],
-        "Gamma6_s_weight": 0.9952517860347129,
-        "Gamma8_Te_p_j_three_halves_weight": 0.9400177833967054,
-        "Gamma7_Te_p_j_half_weight": 0.9283908194285126,
-        "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
-        "known_limitations": [
-          "cutoff/k/q convergence not established",
-          "PBE potentials used with HSE; core approximation needs validation",
-          "static lattice, without electron-phonon or GW correction"
-        ],
-        "source_sha256": {
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/result.json": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/bands.out": "c2a9ef7c193e5b72b4f40eba7629c723121d36892d97ef5f4430701d193029a8",
-          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/orbital_character.json": "8287d8a25d81f5698698d673a9557d7504fd60793102ff5c40eac0857cf2d363"
-        },
-        "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f"
-      },
+      "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97",
       "grid_expansion": {
         "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
         "expanded_k_weight_sum": 1.0,
@@ -960,52 +237,6 @@
         "original_irreducible_k_points": 8,
         "parent_schema_sha256": "d8a1a2e75ed5cc270b862a1e8e7d691d254bf3700bf869765075229b08348d5b",
         "written_utc": "2026-10-11T01:33:59.411709+00:00"
-      },
-      "projection26": {
-        "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
-        "accepted_frame": true,
-        "accepted_scattering_host": false,
-        "amn_sha256": "c1ebf07fe4068649257166b7fc36be71c17eb7bdf3c14779662592dabccd7751",
-        "bands_used_one_based": [
-          19,
-          44
-        ],
-        "claim_status": "CALCULATED trial-frame capability diagnostic",
-        "common_physical_basis_established": false,
-        "driver_sha256": "7b233216a22da1bc1f9751ed6fd4989624003622448abecc29960ee055ce44ba",
-        "eig_sha256": "b8ff5b28f6d2adcec825b5a1f6f0f3aeb287c901b6e1a2587c36812389e6b7e7",
-        "empirical_alloy_gap_inputs": [],
-        "git_commit": "a0c91cc6f6eafcbd807b92ba33c201e95de9860d",
-        "host_frame_sha256": "6186077561cbefed424b399bc632e808a12740f74959642a4df517ec8535490d",
-        "hydrogenic_radial_r": 1,
-        "hydrogenic_zona_inverse_A": 1.0,
-        "independent_interpolation_validation": false,
-        "interface_input_sha256": "36201cdbca6f4e706f09f257c6ccc10a7f82a9399eeb334e08434dc85b9d9546",
-        "k_points": 64,
-        "max_interface_energy_error_eV": 5.044853423896711e-13,
-        "max_polar_isospectral_error_eV": 4.440892098500626e-14,
-        "max_time_reversal_matrix_error_eV": 0.0029513688586369838,
-        "minimum_singular_value": 0.10677087620680949,
-        "mpi_ranks": 6,
-        "nnkp_sha256": "24934c42351d4b400f2cd93bfec87dba7ee6c765e3ba3b6587546a4b4d650c7f",
-        "num_bands": 26,
-        "num_orbitals": 26,
-        "pp_sha256": {
-          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
-        },
-        "projection_module_sha256": "229099945ec7bdf52c311574a282c14bdf6789de3d70b8cc4391379eb6ab15b5",
-        "rank_deficient_k_indices_one_based": [],
-        "relative_rank_tolerance": 1e-08,
-        "scf_input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
-        "scf_result_sha256": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
-        "schema_sha256": "404f8d799fb6c26a0d8e518e66e9fe425b420ccda7a205c8b472fc172ce81bc2",
-        "time_reversal_gate_passed": false,
-        "time_reversal_representation": "adjacent up/down pairs; real spatial trials",
-        "time_reversal_tolerance_eV": 0.001,
-        "win_sha256": "92ad3495bed900e9ce990d583f48a6b08b4150a453b2bc2b90f3f0d5e748206f",
-        "worst_condition_number": 9.60005725758837,
-        "written_utc": "2026-10-11T01:35:06.405757+00:00"
       },
       "native_wavefunction_TR": {
         "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
@@ -1131,6 +362,52 @@
         "wavefunction_module_sha256": "2dd6469f9395a6b8013d2b0f280195ed17ca673b8993fa1dfedd71e7ea558100",
         "written_utc": "2026-10-11T01:34:23.426508+00:00"
       },
+      "projection26": {
+        "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
+        "accepted_frame": true,
+        "accepted_scattering_host": false,
+        "amn_sha256": "c1ebf07fe4068649257166b7fc36be71c17eb7bdf3c14779662592dabccd7751",
+        "bands_used_one_based": [
+          19,
+          44
+        ],
+        "claim_status": "CALCULATED trial-frame capability diagnostic",
+        "common_physical_basis_established": false,
+        "driver_sha256": "7b233216a22da1bc1f9751ed6fd4989624003622448abecc29960ee055ce44ba",
+        "eig_sha256": "b8ff5b28f6d2adcec825b5a1f6f0f3aeb287c901b6e1a2587c36812389e6b7e7",
+        "empirical_alloy_gap_inputs": [],
+        "git_commit": "a0c91cc6f6eafcbd807b92ba33c201e95de9860d",
+        "host_frame_sha256": "6186077561cbefed424b399bc632e808a12740f74959642a4df517ec8535490d",
+        "hydrogenic_radial_r": 1,
+        "hydrogenic_zona_inverse_A": 1.0,
+        "independent_interpolation_validation": false,
+        "interface_input_sha256": "36201cdbca6f4e706f09f257c6ccc10a7f82a9399eeb334e08434dc85b9d9546",
+        "k_points": 64,
+        "max_interface_energy_error_eV": 5.044853423896711e-13,
+        "max_polar_isospectral_error_eV": 4.440892098500626e-14,
+        "max_time_reversal_matrix_error_eV": 0.0029513688586369838,
+        "minimum_singular_value": 0.10677087620680949,
+        "mpi_ranks": 6,
+        "nnkp_sha256": "24934c42351d4b400f2cd93bfec87dba7ee6c765e3ba3b6587546a4b4d650c7f",
+        "num_bands": 26,
+        "num_orbitals": 26,
+        "pp_sha256": {
+          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "projection_module_sha256": "229099945ec7bdf52c311574a282c14bdf6789de3d70b8cc4391379eb6ab15b5",
+        "rank_deficient_k_indices_one_based": [],
+        "relative_rank_tolerance": 1e-08,
+        "scf_input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
+        "scf_result_sha256": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+        "schema_sha256": "404f8d799fb6c26a0d8e518e66e9fe425b420ccda7a205c8b472fc172ce81bc2",
+        "time_reversal_gate_passed": false,
+        "time_reversal_representation": "adjacent up/down pairs; real spatial trials",
+        "time_reversal_tolerance_eV": 0.001,
+        "win_sha256": "92ad3495bed900e9ce990d583f48a6b08b4150a453b2bc2b90f3f0d5e748206f",
+        "worst_condition_number": 9.60005725758837,
+        "written_utc": "2026-10-11T01:35:06.405757+00:00"
+      },
       "same_material_frame_comparison": {
         "QE_versions": [
           "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
@@ -1186,70 +463,771 @@
           "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/result.json": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665"
         },
         "written_utc": "2026-10-11T01:39:16.621035+00:00"
+      },
+      "signed_gap": {
+        "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9565276842996502,
+        "E_Gamma6_minus_Gamma8_eV": 1.575364690979324,
+        "Gamma6_bands_1based": [
+          37,
+          38
+        ],
+        "Gamma6_s_weight": 0.9952517860347129,
+        "Gamma7_Te_p_j_half_weight": 0.9283908194285126,
+        "Gamma7_bands_1based": [
+          31,
+          32
+        ],
+        "Gamma8_Te_p_j_three_halves_weight": 0.9400177833967054,
+        "Gamma8_bands_1based": [
+          33,
+          36
+        ],
+        "SCF": {
+          "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
+          "args": {
+            "accurate_empty": true,
+            "dry_run": false,
+            "ecut": 90,
+            "family": "sg15",
+            "functional": "HSE",
+            "material": "cdte",
+            "mesh": 4,
+            "qmesh": 2,
+            "ranks": 6,
+            "restart_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc",
+            "seconds": 900
+          },
+          "git_commit": "a0c91cc6f6eafcbd807b92ba33c201e95de9860d",
+          "input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
+          "lattice_A": 6.48,
+          "pp_sha256": {
+            "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+            "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+          }
+        },
+        "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
+        "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
+        "known_limitations": [
+          "cutoff/k/q convergence not established",
+          "PBE potentials used with HSE; core approximation needs validation",
+          "static lattice, without electron-phonon or GW correction"
+        ],
+        "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f",
+        "source_sha256": {
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/bands.out": "c2a9ef7c193e5b72b4f40eba7629c723121d36892d97ef5f4430701d193029a8",
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/orbital_character.json": "8287d8a25d81f5698698d673a9557d7504fd60793102ff5c40eac0857cf2d363",
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/result.json": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09"
+        }
       }
     }
   },
-  "fixed_ion_impurity_pair": {
-    "preparation": {
-      "Te_environment_substitute_counts": [
-        1,
-        1,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0
-      ],
-      "cation_sites": 8,
-      "claim_status": "PREPARED inputs only; no electronic result or endpoint slope",
-      "driver_sha256": "b13e351ceef3dba558ad2e2679f1e7a8fbb52e3eb8989f20f33134c6672cd7b3",
-      "electron_count": 288.0,
-      "empirical_alloy_gap_inputs": [],
-      "geometry_checks": {
-        "formula": "CdHg7Te8",
-        "implied_a_conventional_ang": 6.459999999999997,
-        "n_atoms": 16,
-        "nn_coordination": [
-          4
-        ],
-        "nn_distance_ang": 2.7972620542237356,
-        "volume_ang3": 539.1722719999998,
-        "volume_per_atom_ang3": 33.69826699999999
+  "completed_grid_expansion": {
+    "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
+    "expanded_k_weight_sum": 1.0,
+    "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
+    "k_points": 64,
+    "matched_original_k_points": 8,
+    "max_original_eigenvalue_error_eV": 0.0,
+    "original_irreducible_k_points": 8,
+    "parent_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
+    "written_utc": "2026-10-10T20:37:09.904845+00:00"
+  },
+  "completed_hosts": {
+    "dojo": {
+      "directory": "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6",
+      "grid_expansion": {
+        "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
+        "expanded_k_weight_sum": 1.0,
+        "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
+        "k_points": 64,
+        "matched_original_k_points": 8,
+        "max_original_eigenvalue_error_eV": 0.0,
+        "original_irreducible_k_points": 8,
+        "parent_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
+        "written_utc": "2026-10-10T20:37:09.904845+00:00"
       },
-      "git_commit": "400a2da0f74823ee579fe9053abe50843ffca4e1",
-      "host": "Hg",
-      "inputs_sha256": {
-        "host": {
-          "pw.in": "0bb59d1611596f240cb39dd4b5f830bae3583daaac8eb3775b62fd98df01a901",
-          "pw_dry.in": "eae886071af306bf4f6b189aae80713bb3244d7a88506b72beee9c9ad1156d43"
+      "native_wavefunction_TR": {
+        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
+        "claim_status": "CALCULATED native wavefunction diagnostic; no correction applied",
+        "driver_sha256": "f8569a1d4116cb2728b998621d23f462bc6228fe8702636ba6075aeeabe0d3ba",
+        "empirical_alloy_gap_inputs": [],
+        "euclidean_metric_scope": "norm-conserving pseudopotentials only",
+        "expanded_schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
+        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
+        "h5py_version": "3.16.0",
+        "mpi_ranks": 6,
+        "original_schema_sha256": "f052c5c0652a3472beaa2318743f9f9ed24c27f87d47ace3e13882f4da931fe1",
+        "pp_sha256": {
+          "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+          "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
         },
-        "impurity": {
-          "pw.in": "994df9d80ec137a75677d6edaacbbebe55fa2c46e76195d8355e65f9dbf6a4e5",
-          "pw_dry.in": "64bfbb33875faf67fea947e158fa387db50cd990936e8dc82c7c19250bcd4b67"
-        }
+        "results": {
+          "Gamma": {
+            "expanded_k_index_one_based": 1,
+            "fractional_k": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_original_expanded_coefficient_difference": 2.237726045655905e-16,
+            "original_k_index_one_based": 1,
+            "subspaces": {
+              "all44": {
+                "TR_subspace_sine_max": 4.795498353739433e-05,
+                "bands_used_one_based": [
+                  1,
+                  44
+                ],
+                "max_Gram_error": 3.229622326821086e-15,
+                "min_TR_overlap_singular_value": 0.9999999988501598
+              },
+              "bands31to38": {
+                "TR_subspace_sine_max": 7.169348037434158e-06,
+                "bands_used_one_based": [
+                  31,
+                  38
+                ],
+                "max_Gram_error": 1.4475952558525868e-15,
+                "min_TR_overlap_singular_value": 0.9999999999743002
+              },
+              "occupied36": {
+                "TR_subspace_sine_max": 3.909815958080864e-06,
+                "bands_used_one_based": [
+                  1,
+                  36
+                ],
+                "max_Gram_error": 2.9684089508552028e-15,
+                "min_TR_overlap_singular_value": 0.9999999999923567
+              },
+              "projected26": {
+                "TR_subspace_sine_max": 4.795490713784981e-05,
+                "bands_used_one_based": [
+                  19,
+                  44
+                ],
+                "max_Gram_error": 2.9618995710636215e-15,
+                "min_TR_overlap_singular_value": 0.9999999988501634
+              }
+            }
+          },
+          "X": {
+            "expanded_k_index_one_based": 11,
+            "fractional_k": [
+              -1.9651167240051506e-16,
+              -0.5000000000000001,
+              -0.5000000000000001
+            ],
+            "max_original_expanded_coefficient_difference": 1.2412670766236366e-16,
+            "original_k_index_one_based": 7,
+            "subspaces": {
+              "all44": {
+                "TR_subspace_sine_max": 0.016255698360441224,
+                "bands_used_one_based": [
+                  1,
+                  44
+                ],
+                "max_Gram_error": 3.744076738224132e-15,
+                "min_TR_overlap_singular_value": 0.999867867405896
+              },
+              "bands31to38": {
+                "TR_subspace_sine_max": 4.3546078193791083e-07,
+                "bands_used_one_based": [
+                  31,
+                  38
+                ],
+                "max_Gram_error": 2.66895106882783e-15,
+                "min_TR_overlap_singular_value": 0.9999999999999052
+              },
+              "occupied36": {
+                "TR_subspace_sine_max": 1.9314112360500873e-07,
+                "bands_used_one_based": [
+                  1,
+                  36
+                ],
+                "max_Gram_error": 3.4697371752352675e-15,
+                "min_TR_overlap_singular_value": 0.9999999999999813
+              },
+              "projected26": {
+                "TR_subspace_sine_max": 0.016255698360448056,
+                "bands_used_one_based": [
+                  19,
+                  44
+                ],
+                "max_Gram_error": 3.636220789770626e-15,
+                "min_TR_overlap_singular_value": 0.9998678674058958
+              }
+            }
+          }
+        },
+        "scf_input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
+        "scf_result_sha256": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
+        "source_wfc_sha256": {
+          "out/r07.save/wfc1.hdf5": "75a77ace442db879f31d336765e5a1aab939d98f81bd84b3c6340c1e9fdefb6e",
+          "out/r07.save/wfc7.hdf5": "3df2da1918e8daaf1f6d8c175fe00658ce421882d2f91d253c5d12094ca4f593",
+          "out/r07_open.save/wfc1.hdf5": "4e3450d6727322d360b76dc1a26b51314b15585f1bfb490d92df20c2ad4b1d89",
+          "out/r07_open.save/wfc11.hdf5": "10cc27e56b361fb89f12b64dcc1200774341676cc94367d90dea050fce11fb41"
+        },
+        "wavefunction_module_sha256": "2dd6469f9395a6b8013d2b0f280195ed17ca673b8993fa1dfedd71e7ea558100",
+        "written_utc": "2026-10-10T21:06:30.448829+00:00"
       },
-      "lattice_A": 6.46,
-      "n_atoms": 16,
-      "periodic_substitute_fraction": 0.125,
-      "planned_MPI_ranks": 6,
-      "planned_QE_version": "7.5",
+      "projection26": {
+        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
+        "accepted_frame": true,
+        "accepted_scattering_host": false,
+        "amn_sha256": "bbb0e714a2692a8f8ccc8d786bb1973445efa1173311e09273b766827c382669",
+        "bands_used_one_based": [
+          19,
+          44
+        ],
+        "claim_status": "CALCULATED trial-frame capability diagnostic",
+        "common_physical_basis_established": false,
+        "driver_sha256": "7b233216a22da1bc1f9751ed6fd4989624003622448abecc29960ee055ce44ba",
+        "eig_sha256": "d7f19bc7a26c9d7a4d30eaaba5dfc332ce7071b43dd82f540f98cfa36a49da7e",
+        "empirical_alloy_gap_inputs": [],
+        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
+        "host_frame_sha256": "405ba582404820a50fb8e99bc548335d756f2d849dc45ae106b4684aeae3e305",
+        "hydrogenic_radial_r": 1,
+        "hydrogenic_zona_inverse_A": 1.0,
+        "independent_interpolation_validation": false,
+        "interface_input_sha256": "eb090b3c77aa546b6860deeb331a284c870275f69719284f25f3888e69a9f861",
+        "k_points": 64,
+        "max_interface_energy_error_eV": 5.115907697472721e-13,
+        "max_polar_isospectral_error_eV": 4.085620730620576e-14,
+        "max_time_reversal_matrix_error_eV": 0.07822556986927706,
+        "minimum_singular_value": 0.11418212192528715,
+        "mpi_ranks": 6,
+        "nnkp_sha256": "53214b3cc3b05ed1b2208d6a7f53551067c662a0f7c32bee7596afc3e3ea9710",
+        "num_bands": 26,
+        "num_orbitals": 26,
+        "pp_sha256": {
+          "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+          "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
+        },
+        "projection_module_sha256": "229099945ec7bdf52c311574a282c14bdf6789de3d70b8cc4391379eb6ab15b5",
+        "rank_deficient_k_indices_one_based": [],
+        "relative_rank_tolerance": 1e-08,
+        "scf_input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
+        "scf_result_sha256": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582",
+        "schema_sha256": "49c6c5d198a08464be50f29640550f16d24de56fd52b20fcc707a57dffebb818",
+        "time_reversal_gate_passed": false,
+        "time_reversal_representation": "adjacent up/down pairs; real spatial trials",
+        "time_reversal_tolerance_eV": 0.001,
+        "win_sha256": "92ad3495bed900e9ce990d583f48a6b08b4150a453b2bc2b90f3f0d5e748206f",
+        "worst_condition_number": 9.077907619523577,
+        "written_utc": "2026-10-10T21:06:28.817202+00:00"
+      },
+      "signed_gap": {
+        "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9442885160117154,
+        "E_Gamma6_minus_Gamma8_eV": 1.7048135208265158,
+        "Gamma6_bands_1based": [
+          37,
+          38
+        ],
+        "Gamma6_s_weight": 0.9924157520524904,
+        "Gamma7_Te_p_j_half_weight": 0.9367161111552769,
+        "Gamma7_bands_1based": [
+          31,
+          32
+        ],
+        "Gamma8_Te_p_j_three_halves_weight": 0.9466092997452922,
+        "Gamma8_bands_1based": [
+          33,
+          36
+        ],
+        "SCF": {
+          "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
+          "args": {
+            "dry_run": false,
+            "ecut": 90,
+            "family": "dojo",
+            "functional": "HSE",
+            "material": "cdte",
+            "mesh": 4,
+            "qmesh": 2,
+            "ranks": 6,
+            "restart_from": "calculations/r07/cdte_hse_dojo_k4_q2_e90",
+            "seconds": 900
+          },
+          "git_commit": "13d435bad6166a3859cf388e0b019d0fa22e3c58",
+          "input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
+          "lattice_A": 6.48,
+          "pp_sha256": {
+            "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+            "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
+          }
+        },
+        "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
+        "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
+        "known_limitations": [
+          "cutoff/k/q convergence not established",
+          "PBE potentials used with HSE; core approximation needs validation",
+          "static lattice, without electron-phonon or GW correction"
+        ],
+        "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f",
+        "source_sha256": {
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/bands.out": "2013d2ad5dcc695d4957bd1a02518ebfeb1f767015a78b9761e904b007fd58f8",
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/orbital_character.json": "24b3a01235b6ece843e68a820f8b1592cf66da6df0f139b76aec2e7e848e8b35",
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/result.json": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582"
+        }
+      }
+    },
+    "sg15": {
+      "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5",
+      "grid_expansion": {
+        "claim_status": "CALCULATED hybrid spinor grid expansion; Wannier interpolation not validated",
+        "expanded_k_weight_sum": 1.0,
+        "expanded_schema_sha256": "8719e92a6816b0912d69d18a388037478ba17136e1e6501bfde2201da9f10fa5",
+        "k_points": 64,
+        "matched_original_k_points": 8,
+        "max_original_eigenvalue_error_eV": 0.0,
+        "original_irreducible_k_points": 8,
+        "parent_schema_sha256": "9b1f7b4069edaa07d5c173e70979164a9cc62dea530c0a9df8ba3ed7713082c8",
+        "written_utc": "2026-10-10T20:59:51.765865+00:00"
+      },
+      "native_wavefunction_TR": {
+        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
+        "claim_status": "CALCULATED native wavefunction diagnostic; no correction applied",
+        "driver_sha256": "f8569a1d4116cb2728b998621d23f462bc6228fe8702636ba6075aeeabe0d3ba",
+        "empirical_alloy_gap_inputs": [],
+        "euclidean_metric_scope": "norm-conserving pseudopotentials only",
+        "expanded_schema_sha256": "8719e92a6816b0912d69d18a388037478ba17136e1e6501bfde2201da9f10fa5",
+        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
+        "h5py_version": "3.16.0",
+        "mpi_ranks": 6,
+        "original_schema_sha256": "9b1f7b4069edaa07d5c173e70979164a9cc62dea530c0a9df8ba3ed7713082c8",
+        "pp_sha256": {
+          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "results": {
+          "Gamma": {
+            "expanded_k_index_one_based": 1,
+            "fractional_k": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_original_expanded_coefficient_difference": 2.2887833992611187e-16,
+            "original_k_index_one_based": 1,
+            "subspaces": {
+              "all44": {
+                "TR_subspace_sine_max": 2.647462936296472e-06,
+                "bands_used_one_based": [
+                  1,
+                  44
+                ],
+                "max_Gram_error": 2.9891596051830985e-15,
+                "min_TR_overlap_singular_value": 0.9999999999964955
+              },
+              "bands31to38": {
+                "TR_subspace_sine_max": 8.678567277527473e-07,
+                "bands_used_one_based": [
+                  31,
+                  38
+                ],
+                "max_Gram_error": 1.461293973321263e-15,
+                "min_TR_overlap_singular_value": 0.9999999999996234
+              },
+              "occupied36": {
+                "TR_subspace_sine_max": 2.176487905197412e-06,
+                "bands_used_one_based": [
+                  1,
+                  36
+                ],
+                "max_Gram_error": 2.840524493785254e-15,
+                "min_TR_overlap_singular_value": 0.9999999999976315
+              },
+              "projected26": {
+                "TR_subspace_sine_max": 2.647253251209433e-06,
+                "bands_used_one_based": [
+                  19,
+                  44
+                ],
+                "max_Gram_error": 2.8600042342970365e-15,
+                "min_TR_overlap_singular_value": 0.999999999996496
+              }
+            }
+          },
+          "X": {
+            "expanded_k_index_one_based": 11,
+            "fractional_k": [
+              -1.9651167240051506e-16,
+              -0.5000000000000001,
+              -0.5000000000000001
+            ],
+            "max_original_expanded_coefficient_difference": 1.5700924586837752e-16,
+            "original_k_index_one_based": 7,
+            "subspaces": {
+              "all44": {
+                "TR_subspace_sine_max": 0.995508062916455,
+                "bands_used_one_based": [
+                  1,
+                  44
+                ],
+                "max_Gram_error": 3.644729808293926e-15,
+                "min_TR_overlap_singular_value": 0.09467680110949811
+              },
+              "bands31to38": {
+                "TR_subspace_sine_max": 6.332064307990148e-06,
+                "bands_used_one_based": [
+                  31,
+                  38
+                ],
+                "max_Gram_error": 1.8340426360137388e-15,
+                "min_TR_overlap_singular_value": 0.9999999999799525
+              },
+              "occupied36": {
+                "TR_subspace_sine_max": 5.305190086384032e-06,
+                "bands_used_one_based": [
+                  1,
+                  36
+                ],
+                "max_Gram_error": 3.562900904558038e-15,
+                "min_TR_overlap_singular_value": 0.9999999999859275
+              },
+              "projected26": {
+                "TR_subspace_sine_max": 0.995508062916455,
+                "bands_used_one_based": [
+                  19,
+                  44
+                ],
+                "max_Gram_error": 3.574879395124778e-15,
+                "min_TR_overlap_singular_value": 0.09467680110949811
+              }
+            }
+          }
+        },
+        "scf_input_sha256": "e641f85bbddb283a530b2ebc8b98dd6aa147d981b63dbb79576edba30c420f73",
+        "scf_result_sha256": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665",
+        "source_wfc_sha256": {
+          "out/r07.save/wfc1.hdf5": "e997f55e50a7066cc9c760450f4b5821d0b71a4074f76afd21ae7b41101fc554",
+          "out/r07.save/wfc7.hdf5": "4f553d33e5349d7e60771a286aaacd0d322bbd629e122da6298dc1e01ef06505",
+          "out/r07_open.save/wfc1.hdf5": "1c80ff8d5fd0a228f51a68867b287d9323df9271f39ac2401388fef2adb4a684",
+          "out/r07_open.save/wfc11.hdf5": "52c9f521be462e0d8cf8ccc40615ebd37d81f38143f68e675462ae4df83618f9"
+        },
+        "wavefunction_module_sha256": "2dd6469f9395a6b8013d2b0f280195ed17ca673b8993fa1dfedd71e7ea558100",
+        "written_utc": "2026-10-10T21:06:31.350250+00:00"
+      },
+      "projection26": {
+        "QE_version": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
+        "accepted_frame": true,
+        "accepted_scattering_host": false,
+        "amn_sha256": "68a51a0118bc98dd52e0a5c9a1cd587213c301b3a36f74e9ceacc4821fce5262",
+        "bands_used_one_based": [
+          19,
+          44
+        ],
+        "claim_status": "CALCULATED trial-frame capability diagnostic",
+        "common_physical_basis_established": false,
+        "driver_sha256": "7b233216a22da1bc1f9751ed6fd4989624003622448abecc29960ee055ce44ba",
+        "eig_sha256": "d466aeb130b4c2d54d2c1ae94ff243f6c902770ee8ca0959842ddf231ec8485b",
+        "empirical_alloy_gap_inputs": [],
+        "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
+        "host_frame_sha256": "14a1178514e726e1cbeb2099219a0abe3501b8a169ca4a7acfed5dec241ea386",
+        "hydrogenic_radial_r": 1,
+        "hydrogenic_zona_inverse_A": 1.0,
+        "independent_interpolation_validation": false,
+        "interface_input_sha256": "d85c721971c31045a39e3de5d531f102d82c72e614c11818faab699f30877208",
+        "k_points": 64,
+        "max_interface_energy_error_eV": 4.887479310156095e-13,
+        "max_polar_isospectral_error_eV": 4.263256414560601e-14,
+        "max_time_reversal_matrix_error_eV": 6.378273765140013,
+        "minimum_singular_value": 0.012484343994902123,
+        "mpi_ranks": 6,
+        "nnkp_sha256": "19396bef9f182e55addab6e787b7d55b03b259ebd2b077e02cfe9111e5dd918b",
+        "num_bands": 26,
+        "num_orbitals": 26,
+        "pp_sha256": {
+          "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        },
+        "projection_module_sha256": "229099945ec7bdf52c311574a282c14bdf6789de3d70b8cc4391379eb6ab15b5",
+        "rank_deficient_k_indices_one_based": [],
+        "relative_rank_tolerance": 1e-08,
+        "scf_input_sha256": "e641f85bbddb283a530b2ebc8b98dd6aa147d981b63dbb79576edba30c420f73",
+        "scf_result_sha256": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665",
+        "schema_sha256": "8719e92a6816b0912d69d18a388037478ba17136e1e6501bfde2201da9f10fa5",
+        "time_reversal_gate_passed": false,
+        "time_reversal_representation": "adjacent up/down pairs; real spatial trials",
+        "time_reversal_tolerance_eV": 0.001,
+        "win_sha256": "92ad3495bed900e9ce990d583f48a6b08b4150a453b2bc2b90f3f0d5e748206f",
+        "worst_condition_number": 82.4385612383408,
+        "written_utc": "2026-10-10T21:06:29.486076+00:00"
+      },
+      "signed_gap": {
+        "Delta_SO_Gamma8_minus_Gamma7_eV": 0.956530000184463,
+        "E_Gamma6_minus_Gamma8_eV": 1.5753655794066894,
+        "Gamma6_bands_1based": [
+          37,
+          38
+        ],
+        "Gamma6_s_weight": 0.9952517205765601,
+        "Gamma7_Te_p_j_half_weight": 0.9283906288553092,
+        "Gamma7_bands_1based": [
+          31,
+          32
+        ],
+        "Gamma8_Te_p_j_three_halves_weight": 0.9400176163439398,
+        "Gamma8_bands_1based": [
+          33,
+          36
+        ],
+        "SCF": {
+          "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:56:16",
+          "args": {
+            "dry_run": false,
+            "ecut": 90,
+            "family": "sg15",
+            "functional": "HSE",
+            "material": "cdte",
+            "mesh": 4,
+            "qmesh": 2,
+            "ranks": 6,
+            "restart_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90",
+            "seconds": 900
+          },
+          "git_commit": "80247bd69641fcf1cba2e1a4c57f7a763a2273a3",
+          "input_sha256": "e641f85bbddb283a530b2ebc8b98dd6aa147d981b63dbb79576edba30c420f73",
+          "lattice_A": 6.48,
+          "pp_sha256": {
+            "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+            "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+          }
+        },
+        "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
+        "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
+        "known_limitations": [
+          "cutoff/k/q convergence not established",
+          "PBE potentials used with HSE; core approximation needs validation",
+          "static lattice, without electron-phonon or GW correction"
+        ],
+        "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f",
+        "source_sha256": {
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/bands.out": "b2e1dd467513184d918533575280016e8be3e8030fbe63c17053141ab3de82fd",
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/orbital_character.json": "8d1fa1da4afd276310538b04c4af9b79c5c1d754b178d6f255380ad86dc1ace0",
+          "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/result.json": "c19f7971faa2e0ac6c4850e1bdc689a13560f3dcfd98663f45dff46e0148d665"
+        }
+      }
+    }
+  },
+  "completed_signed_gap": {
+    "Delta_SO_Gamma8_minus_Gamma7_eV": 0.9442885160117154,
+    "E_Gamma6_minus_Gamma8_eV": 1.7048135208265158,
+    "Gamma6_bands_1based": [
+      37,
+      38
+    ],
+    "Gamma6_s_weight": 0.9924157520524904,
+    "Gamma7_Te_p_j_half_weight": 0.9367161111552769,
+    "Gamma7_bands_1based": [
+      31,
+      32
+    ],
+    "Gamma8_Te_p_j_three_halves_weight": 0.9466092997452922,
+    "Gamma8_bands_1based": [
+      33,
+      36
+    ],
+    "SCF": {
+      "QE_version_line": "Program PWSCF v.7.5 starts on 10Oct2026 at 20:32:25",
+      "args": {
+        "dry_run": false,
+        "ecut": 90,
+        "family": "dojo",
+        "functional": "HSE",
+        "material": "cdte",
+        "mesh": 4,
+        "qmesh": 2,
+        "ranks": 6,
+        "restart_from": "calculations/r07/cdte_hse_dojo_k4_q2_e90",
+        "seconds": 900
+      },
+      "git_commit": "13d435bad6166a3859cf388e0b019d0fa22e3c58",
+      "input_sha256": "a379721b1d5659fca964a4cc8506984ed1c5e4e3ab9410df4fe81543b0203ac2",
+      "lattice_A": 6.48,
+      "pp_sha256": {
+        "Cd": "d79c48e48b2dcf1f5d347bc0b53d31b01b04acefbf7eb6f8d9f969a73a937cbd",
+        "Te": "db5bfbdcbf39096cf2a25c6382f4b07e93e25fe88a162014789466fb5fff6519"
+      }
+    },
+    "assignment_evidence": "Explicit reviewed band choices; bands.x double-group labels and dominant orbital traces both checked",
+    "claim_status": "CALCULATED coarse-grid signed binary gap; material accuracy not validated",
+    "known_limitations": [
+      "cutoff/k/q convergence not established",
+      "PBE potentials used with HSE; core approximation needs validation",
+      "static lattice, without electron-phonon or GW correction"
+    ],
+    "parser_sha256": "9d4eaed03f5e2b1145434c0b4a974e087ebb75dcc06fdc365654731efa57263f",
+    "source_sha256": {
+      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/bands.out": "2013d2ad5dcc695d4957bd1a02518ebfeb1f767015a78b9761e904b007fd58f8",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/orbital_character.json": "24b3a01235b6ece843e68a820f8b1592cf66da6df0f139b76aec2e7e848e8b35",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/result.json": "a8fcd407a18c0f41ab5fc5fef71cb3f4a315210086760405203da7d8e3cad582"
+    }
+  },
+  "empty_state_accuracy_control": {
+    "accepted_scattering_host": false,
+    "directory": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2",
+    "required_next_gate": "new longer-budget CdTe refinement after the active MPI family; do not resume the interrupted run as an outer checkpoint",
+    "result": {
+      "QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:37:10",
+      "accepted_scf": false,
+      "args": {
+        "accurate_empty": true,
+        "dry_run": false,
+        "ecut": 90,
+        "family": "sg15",
+        "functional": "HSE",
+        "material": "cdte",
+        "mesh": 4,
+        "qmesh": 2,
+        "ranks": 6,
+        "restart_from": null,
+        "scf_threshold": 1e-10,
+        "seconds": 900,
+        "seed_from": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97"
+      },
+      "band_irrep_assignment": "not assigned; raw eigenvalues are not a signed gap",
+      "claim_status": "CALCULATED capability diagnostic only",
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
+        "-np",
+        "6",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+        "-in",
+        "pw.in"
+      ],
+      "driver_sha256": "d15b43ba25199e74dbc606dbb21102551125079635c6736ce327e1f9f2b3180a",
+      "empirical_alloy_gap_inputs": [],
+      "exit_requested": true,
+      "exx_converged": false,
+      "gamma_eigenvalues_eV": [
+        [
+          -99.10649328181164,
+          -99.10649326495299,
+          -62.61707299674483,
+          -62.61707298121254,
+          -56.74932848997626,
+          -56.74932848852785,
+          -56.749328463229645,
+          -56.74932846173209,
+          -29.039838204662075,
+          -29.039838201019776,
+          -29.039838196780433,
+          -29.03983819136011,
+          -27.543347747292493,
+          -27.543347736662803,
+          -27.5338661140593,
+          -27.533866110643974,
+          -27.533866108660483,
+          -27.533866104975406,
+          -4.228569205032167,
+          -4.228569185111092,
+          -1.6502262245503778,
+          -1.6502262127095462,
+          -1.650226207585062,
+          -1.6502261978476767,
+          -1.0974350368300583,
+          -1.097435031771021,
+          -0.8606213185622242,
+          -0.8606213132204814,
+          -0.8606213131369254,
+          -0.8606213079618835,
+          7.139477290967606,
+          7.139477300852282,
+          8.096004974754049,
+          8.096004976364432,
+          8.096004981016193,
+          8.096004988703704,
+          9.671369666388172,
+          9.671369675989665,
+          13.411556511301725,
+          13.411556517018585,
+          13.770490224801401,
+          13.770490230688937,
+          13.770490231771621,
+          13.770490240384955
+        ]
+      ],
+      "git_commit": "2cd616fa2c7c9933be19bcbc9cde98d780515532",
+      "hardware": {
+        "cpu_logical_count": 8,
+        "machine": "x86_64",
+        "mem_available_kb": 27166244,
+        "mem_total_kb": 32863192,
+        "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+        "processor": ""
+      },
+      "initialization_mode": "new outer SCF from accepted density and spinors",
+      "inner_scf_converged": true,
+      "input_sha256": "cffa449ae7599433ed73e2b7b2cbbb1539b3fea4011d0fb3d4ee54181756d81c",
+      "job_done": false,
+      "lattice_A": 6.48,
+      "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
+      "mpi_ranks": 6,
+      "packages": {
+        "ase": "3.29.0",
+        "icet": "4.0",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pytest": "9.1.1",
+        "pyyaml": "6.0.3",
+        "scipy": "1.18.1",
+        "seekpath": "2.2.1",
+        "spglib": "2.7.0"
+      },
       "pp_sha256": {
         "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
-        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
         "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
       },
-      "spinor_bands": 352,
-      "substitute": "Cd",
-      "unresolved_requirements": [
-        "dry-run and measured memory/time",
-        "matching host/impurity physical basis",
-        "full nonlocal HSE operator difference",
-        "electrostatic alignment",
-        "larger-cell and k/q convergence before dilute interpretation"
-      ],
-      "written_utc": "2026-10-11T01:43:58.035159+00:00"
+      "program": "R07 static microscopic bandgap; no AHC or phonon execution",
+      "restart_checkpoint": {
+        "files": {
+          "r07.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+          "r07.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+          "r07.save/ace1.hdf5": "e506269258c9332e3cb7e98d1cf1f5b23b38e7bbdb28513432c4d86560efefeb",
+          "r07.save/ace2.hdf5": "2dff63b09e8f6de64c3cf03e99c0c470030ab8f086e24c25b5990184dc397106",
+          "r07.save/ace3.hdf5": "35ddc0da4374812d35cdb15809129562500b34dd279edf297871ad0671f4ffc3",
+          "r07.save/ace4.hdf5": "eecc7473fa7b57a5184b3edc928603b95b4f13876c8bef5d4006bffd7ce4101c",
+          "r07.save/ace5.hdf5": "6c018ae453b1294ea492cb63de68177f0551c8b357b4b7865d6ca63a4138d997",
+          "r07.save/ace6.hdf5": "f28fc2e134d3cd0d7559a031116188601e39eebeae39ac1829553f889fcbfaa9",
+          "r07.save/ace7.hdf5": "9a2399e6efb2db0b97d766e3f2c4e491c347ab2649627c153d193b62aa25326b",
+          "r07.save/ace8.hdf5": "2888eba4eab978ddbea9076f75e9ff26dfa7072b21b5bf1e720456b33859dd3d",
+          "r07.save/atomic_proj.xml": "70c4d52c35845118cdfb55a4dde2f309c96b494703f809235e6508ae4d2f1f38",
+          "r07.save/charge-density.hdf5": "225d27a4b906d46b4e090597ad7917b37681e3299270395a2b652b4792da7e3c",
+          "r07.save/data-file-schema.xml": "d8a1a2e75ed5cc270b862a1e8e7d691d254bf3700bf869765075229b08348d5b",
+          "r07.save/wfc1.hdf5": "79b05688035291effa7b15f8409553cb31a5b9c2906633cc3b973eaf29b466ab",
+          "r07.save/wfc2.hdf5": "e347330e383f8b841d7890d234aab2e9cecd515c5f5ad9be01006c999aca5d95",
+          "r07.save/wfc3.hdf5": "a8e34b8ee31a772260dc8a5b1c961901abab6c7e5b6f9d0e6973dfd19b3e42c1",
+          "r07.save/wfc4.hdf5": "5bdfec53f0d6753da8f6e97a934a0c3e1ad0670f9397ac36e868eb94059568e1",
+          "r07.save/wfc5.hdf5": "856f0b9984719462c1e2cd51c1540d89d5e8f3efbedd00147e40c8478539b764",
+          "r07.save/wfc6.hdf5": "948a88caaaa8001426ba8fbd94b5e0297c8ee0427fdbc410db944589d54d8140",
+          "r07.save/wfc7.hdf5": "d696066449dcec708f9d1cd1939f17e23689d738621a6e32d553873b4ddd0b9d",
+          "r07.save/wfc8.hdf5": "c89b343219fb979dc9a166f14cb3f31d05067c50f9817b17a06f2d5804145a24",
+          "r07.wfc1": "4035b68555b8e9e5f7e337b817e218c257a96189e8c5c81df6803755ecdb6564",
+          "r07.wfc2": "84ecfb9546515da724aa04332501dde3bb6edcc522402cb55ba43e633643e6d0",
+          "r07.wfc3": "adc6e88b12f08232e106d7cfb9a531267719d8be39b8681bde40a303b398737f",
+          "r07.wfc4": "0a2c9c551f433d41804d00918d5905cc9e2e97e09503e038b710734a6646e023",
+          "r07.wfc5": "62c07638232b74988d3f90c093583b7820c617e26602f9ab8af2c30331819a43",
+          "r07.wfc6": "09c6a7a5fec7f0d99c68c58f814945f4cd372c710180086ac77127e16b866148"
+        },
+        "parent": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97",
+        "parent_result_sha256": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+        "parent_stdout_sha256": "9f8a342b7688db8d4ff6a1292237d21f0ca650e104b1208616fe5603120c8d05"
+      },
+      "restart_physics_unchanged": true,
+      "returncode": 1,
+      "seed_initialization": true,
+      "seed_numerical_threshold_Ry": 1e-08,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a2c93014620eb70264ead8ebfdc571890c1fe289703be41474aa5784976cb992",
+      "wall_seconds": 1020.7845119386911,
+      "written_utc": "2026-10-11T01:54:09.853497+00:00"
     },
+    "status": "stricter seeded refinement rejected: hard wall stop during exchange, no EXX convergence and no outer checkpoint"
+  },
+  "experimental_alloy_coefficients_used": [],
+  "fixed_ion_impurity_pair": {
+    "bounded_runner": "scripts/r07_run_impurity_pair.py; full SCF not launched yet",
     "host_native_dry": {
       "QE_version": "planned QE 7.5; see actual native line below",
       "accepted_native_dry_run": true,
@@ -1350,68 +1328,197 @@
       "stdout_sha256": "a04486adef2cf1ba02502b566246542516703c4ac261cc6621e679cef73f7b78",
       "written_utc": "2026-10-11T01:55:48.749724+00:00"
     },
-    "status": "native capability dry runs passed; full SCF, common-basis extraction and dilute convergence pending"
-  },
-  "active_binary_reference": {
-    "directory": "calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800",
-    "provenance": {
-      "args": {
-        "accurate_empty": true,
-        "dry_run": false,
-        "ecut": 90,
-        "family": "sg15",
-        "functional": "HSE",
-        "material": "hgte",
-        "mesh": 4,
-        "qmesh": 2,
-        "ranks": 6,
-        "restart_from": null,
-        "scf_threshold": 1e-10,
-        "seconds": 1800,
-        "seed_from": null
-      },
-      "claim_status": "CALCULATED capability diagnostic only",
-      "command": [
-        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun",
-        "-np",
-        "6",
-        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
-        "-in",
-        "pw.in"
+    "preparation": {
+      "Te_environment_substitute_counts": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
       ],
-      "driver_sha256": "1a56bd2452e13b478081b19f21b42edbff8126e7ca69ac74d32c01daab1877c5",
+      "cation_sites": 8,
+      "claim_status": "PREPARED inputs only; no electronic result or endpoint slope",
+      "driver_sha256": "b13e351ceef3dba558ad2e2679f1e7a8fbb52e3eb8989f20f33134c6672cd7b3",
+      "electron_count": 288.0,
       "empirical_alloy_gap_inputs": [],
-      "git_commit": "ce75ed3241dc7263a7a9d799623e0859a686277a",
-      "hardware": {
-        "cpu_logical_count": 8,
-        "machine": "x86_64",
-        "mem_available_kb": 27125800,
-        "mem_total_kb": 32863192,
-        "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
-        "processor": ""
+      "geometry_checks": {
+        "formula": "CdHg7Te8",
+        "implied_a_conventional_ang": 6.459999999999997,
+        "n_atoms": 16,
+        "nn_coordination": [
+          4
+        ],
+        "nn_distance_ang": 2.7972620542237356,
+        "volume_ang3": 539.1722719999998,
+        "volume_per_atom_ang3": 33.69826699999999
       },
-      "input_sha256": "1094371721fec79d62394c32bfa6e459710fb5779fa18ec8bdb506c0e1578c0b",
+      "git_commit": "400a2da0f74823ee579fe9053abe50843ffca4e1",
+      "host": "Hg",
+      "inputs_sha256": {
+        "host": {
+          "pw.in": "0bb59d1611596f240cb39dd4b5f830bae3583daaac8eb3775b62fd98df01a901",
+          "pw_dry.in": "eae886071af306bf4f6b189aae80713bb3244d7a88506b72beee9c9ad1156d43"
+        },
+        "impurity": {
+          "pw.in": "994df9d80ec137a75677d6edaacbbebe55fa2c46e76195d8355e65f9dbf6a4e5",
+          "pw_dry.in": "64bfbb33875faf67fea947e158fa387db50cd990936e8dc82c7c19250bcd4b67"
+        }
+      },
       "lattice_A": 6.46,
-      "lattice_source": "Nicklas and Wilkins, PRB 84,121308 (2011), fixed parent geometry",
-      "mpi_ranks": 6,
-      "packages": {
-        "ase": "3.29.0",
-        "icet": "4.0",
-        "matplotlib": "3.11.2",
-        "numpy": "2.5.3",
-        "pytest": "9.1.1",
-        "pyyaml": "6.0.3",
-        "scipy": "1.18.1",
-        "seekpath": "2.2.1",
-        "spglib": "2.7.0"
-      },
+      "n_atoms": 16,
+      "periodic_substitute_fraction": 0.125,
+      "planned_MPI_ranks": 6,
+      "planned_QE_version": "7.5",
       "pp_sha256": {
+        "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
         "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
         "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
       },
-      "program": "R07 static microscopic bandgap; no AHC or phonon execution",
-      "written_utc": "2026-10-11T01:57:15.183881+00:00"
+      "spinor_bands": 352,
+      "substitute": "Cd",
+      "unresolved_requirements": [
+        "dry-run and measured memory/time",
+        "matching host/impurity physical basis",
+        "full nonlocal HSE operator difference",
+        "electrostatic alignment",
+        "larger-cell and k/q convergence before dilute interpretation"
+      ],
+      "written_utc": "2026-10-11T01:43:58.035159+00:00"
     },
-    "status": "running at capture; no accepted HgTe result or assigned signed gap"
-  }
+    "projection_preparation": {
+      "adjacent_spin_pair_convention_checked": true,
+      "band_window_validated": false,
+      "claim_status": "PREPARED identical trial definitions; no projected electronic matrices",
+      "common_physical_projected_basis_established": false,
+      "driver_sha256": "85459bf629566890e30b51a057be86d5cd1b7718242d96424cefed3d15731841",
+      "empirical_alloy_gap_inputs": [],
+      "excluded_deep_bands": 144,
+      "git_commit": "f4f77d45c2f266f220fb65f313ca682e3c82bf9a",
+      "native_Wannier90_version": "3.1.0",
+      "native_spatial_and_spin_trial_blocks_identical": true,
+      "num_spinor_trials": 208,
+      "preparation_sha256": "4cb4f91a239e6119c8ba093d36b8aa7dc681d9e66f61bf133e9a0d5dde76dc0e",
+      "reports": {
+        "host": {
+          "command": [
+            "/home/User/opencode_workspace/DFT/.local/qe-env/bin/wannier90.x",
+            "-pp",
+            "project208"
+          ],
+          "nnkp_sha256": "27d88235976c46ffb190ee464e83879c8976a2b955abf6cf08ee9b6c7136ba38",
+          "returncode": 0,
+          "win_sha256": "d8cfe970754a03de36c7da6059e0843158b41af9ccf41c5b239dc0519961e57d"
+        },
+        "impurity": {
+          "command": [
+            "/home/User/opencode_workspace/DFT/.local/qe-env/bin/wannier90.x",
+            "-pp",
+            "project208"
+          ],
+          "nnkp_sha256": "27d88235976c46ffb190ee464e83879c8976a2b955abf6cf08ee9b6c7136ba38",
+          "returncode": 0,
+          "win_sha256": "e2f8cc13c5b5d63063b9f082d956d13e586ba866e6273e53f3e59e22d7548ce3"
+        }
+      },
+      "written_utc": "2026-10-11T02:03:33.234481+00:00"
+    },
+    "status": "native capability dry runs passed; full SCF, common-basis extraction and dilute convergence pending"
+  },
+  "input_files_sha256": {
+    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/pw_dry_result.json": "f67eabf1bf3507a18ee0b8316ddfe8f1a47eb7e4eed65666b71a2f85f97bb2c4",
+    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/pw_dry_result.json": "88d46b0969411186106e67cc48517d3d33b00a85c85946e73b9c62166577a066",
+    "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/preparation.json": "4cb4f91a239e6119c8ba093d36b8aa7dc681d9e66f61bf133e9a0d5dde76dc0e",
+    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/grid_expansion.json": "37e2a609345fa3390661ed78704502fe29048feba94eb2e5b72620280b6e9da8",
+    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/gamma/signed_gap.json": "e4a13e65bade0aed259aff7e39eac40884ea3cfee5b7aeb4ff946ed657a188f7",
+    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/projection_report.json": "a59cb56c2b02dabf9bd095cc94f24e5f21969b4eb0e861a119c3fa58576e07ac",
+    "calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/wavefunction_TR_audit.json": "60107a83a1a9870e7d766c82d5f3e9045d6054a29fc120e9ae34fc4621a5cd20",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc/result.json": "4b7c5f97cff6f77fcb7785c4d7c0cb97de7594c84d67f6e1b19d871c5ebce98f",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/provenance.json": "c15e09ac60d54d97687e4a913d66a4c0ffba6ea89fd68e01c29a7e668f063390",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/result.json": "9cc01b46ee8dc84a85c8fb15fd185a47d4c6131483ee03cc886553767653048d",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/grid_expansion.json": "1eccda42b7dcaa027dfea0c5f4572bd6ce1de73e0bfaf6a5653cefc8feb8e8ae",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/signed_gap.json": "f6ed896b0f49e211b3323b0c80520ddbbe027e7b91367db1015bc2cf50216be0",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/host_control_comparison.json": "7ed8c32ab09ecb34b847cf491969d2bfd1d15a0a9166c127fec3a8138c0298f9",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/projection_report.json": "7ea0174f4f919134b3b824539e96ab829e3411f48e80fe0051c047997c6c3580",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/wavefunction_TR_audit.json": "428c515f936cbc9c67209304419bb0980af5b3af58881a855f6eac3b7e8d85ed",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/result.json": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/grid_expansion.json": "b5c3529df6ef397107c3421747716dff5071737913e2c08e76bc297e0a7802fe",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/signed_gap.json": "09ad8f98ff50b3d28041eccb1375f18e692bebc48033d34907bc7cf816a31425",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/projection_report.json": "b6f689d5c0fb2f32350b2843dcc21a3e9368b51d18a42819d841369092031327",
+    "calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/wavefunction_TR_audit.json": "78278553849dcd25dc7c40f98fd9935414ad613a24261b2f77aeea391ea6e9b9",
+    "calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/provenance.json": "82b43d7bb748d76d8bc943ff89b564d950792d9e42c5824a3162f50bfe27f4fa",
+    "pseudopotentials/r07_manifest.json": "8fc7df33901138af4a001235912d2e8b70f0d58457391ec77fd81e4c5376976a",
+    "pseudopotentials/r07_sg15_manifest.json": "b22176c079c2b6fe887de840f7032293ec756013dfe7b751e24d56082f83e179"
+  },
+  "physical_trial_capture": {
+    "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
+    "amn_sha256": "c1ebf07fe4068649257166b7fc36be71c17eb7bdf3c14779662592dabccd7751",
+    "claim_status": "CALCULATED trial-unit and band-window audit, no impurity T-matrix",
+    "driver_sha256": "e3fd0f6bbc90749a73125aa04b77f813d416e8a9cb7f4788239482df2c2e538f",
+    "empirical_alloy_gap_inputs": [],
+    "git_commit": "2febfe064bf6c5c5c537d42eb3695d16a4d3996c",
+    "guiding_function_module_sha256": "3da8798e17f15b1bf2f3d2acaf591076a0e567764671b427330159364d951665",
+    "interpretation": "A full-rank polar projection does not preserve the full fixed physical trial set; no band-window or common-basis convergence inferred",
+    "mpi_ranks": 6,
+    "nnkp_sha256": "24934c42351d4b400f2cd93bfec87dba7ee6c765e3ba3b6587546a4b4d650c7f",
+    "normalization": "exact guiding-function Gram in the native plane-wave cutoff",
+    "pp_sha256": {
+      "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+    },
+    "results": {
+      "Gamma": {
+        "native_amplitude_max_error": 6.993810153082419e-13,
+        "subspaces": {
+          "all44": {
+            "max_physical_trial_capture": 0.9703611304483648,
+            "max_unresolved_trial_weight": 0.42988011592456576,
+            "mean_physical_trial_capture": 0.8275520937817729,
+            "min_physical_trial_capture": 0.5701198840754342
+          },
+          "retained26": {
+            "max_physical_trial_capture": 0.8924404271902735,
+            "max_unresolved_trial_weight": 0.8560282356907185,
+            "mean_physical_trial_capture": 0.5940124479775922,
+            "min_physical_trial_capture": 0.1439717643092815
+          }
+        }
+      },
+      "X": {
+        "native_amplitude_max_error": 6.771412403692862e-13,
+        "subspaces": {
+          "all44": {
+            "max_physical_trial_capture": 0.9853439464426683,
+            "max_unresolved_trial_weight": 0.530144151364736,
+            "mean_physical_trial_capture": 0.8223306405314939,
+            "min_physical_trial_capture": 0.469855848635264
+          },
+          "retained26": {
+            "max_physical_trial_capture": 0.899346269542558,
+            "max_unresolved_trial_weight": 0.9837796098650953,
+            "mean_physical_trial_capture": 0.5895803813403537,
+            "min_physical_trial_capture": 0.016220390134904762
+          }
+        }
+      }
+    },
+    "scf_input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
+    "scf_result_sha256": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+    "source_wfc_sha256": {
+      "out/r07_open.save/wfc1.hdf5": "0cea95d207a3422269c0643b82b639ee0cd8462d2d376aa77ad746c77f38524d",
+      "out/r07_open.save/wfc11.hdf5": "8da2f303bef8c2babf6c53d31ce58ddb554aa33319832b53c51c4d18eb0e19a3"
+    },
+    "verified_native_alpha_unit": "bohr^-1 for this QE 7.5 standalone interface",
+    "written_utc": "2026-10-11T02:15:30.697892+00:00",
+    "zona_numeric_inputs": [
+      1.0
+    ]
+  },
+  "potential_set_gap_difference_meV": 129.4479414198264,
+  "potential_set_interpretation": "Sets differ in generator choices in addition to NLCC; no isolated NLCC attribution",
+  "radial_metadata_correction": "The historical inverse_A label is inaccurate for the pinned QE 7.5 standalone interface. Native coefficient reconstruction verifies alpha=1 bohr^-1 for the unchanged numeric input 1.0.",
+  "temperature_work": "deferred",
+  "updated_utc": "2026-10-11T02:20:43.416210+00:00"
 }
