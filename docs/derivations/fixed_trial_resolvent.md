@@ -105,3 +105,9 @@ alloy-gap inputs are used. Temperature remains deferred.
 **HYPOTHESIS:** none needed for the bounds. Whether this route is efficient
 for the physical impurity requires the actual two operators and convergence
 checks. **NOVELTY CANDIDATE:** none established.
+
+A union of folded momentum-block band prefixes need not be globally
+contiguous. Retain only levels at or below the smallest last-supplied
+energy among the blocks before applying the global omitted-distance bound.
+Native transport and a missing-level counterexample are recorded in the
+[host-invariant control](host_invariant_reaction_kernel.md).

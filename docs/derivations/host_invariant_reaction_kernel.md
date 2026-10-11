@@ -206,5 +206,28 @@ cloud rather than the unrelated high-energy tail of an atomic trial.
 The measurable matrix I-B*B still supplies the operative window certificate.
 Neither the 1/Ncell scaling nor multiplying K_P by Ncell establishes a
 few-meV dilute-limit error by itself. A continuum or near-resonant response
-can amplify the inverse, and electrostatic alignment, eigenpair errors,+self-consistent periodic-image effects and volume convergence remain
+can amplify the inverse, and electrostatic alignment, eigenpair errors,
+self-consistent periodic-image effects and volume convergence remain
 separate checks.
+
+## Native commensurate-cell transport control
+
+**PROVEN:** if A_super=R A_primitive, reciprocal labels obey
+m_super+k_super=(m_primitive+k_primitive) R.T. Native host coefficients
+remain unchanged; supercell plane-wave normalization supplies the
+extended-state 1/sqrt(det R) factor.
+
+**CALCULATED:** eight accepted CdTe native momentum blocks fold to
+supercell Gamma with disjoint reciprocal cosets. The constructed
+folded-host negative control gives reaction-kernel norm 2.8506e-15 eV,
+unresolved projector norm 3.8373e-15 and independent real-space phase
+error 1.7428e-15. This represents the same constructed host operator,
+not an independent pure-supercell SCF or physical impurity result.
+The [native protocol](/home/User/opencode_workspace/DFT/docs/r07_native_folding_control.md)
+pins source data and remaining operator-matching conditions.
+
+The union of individually contiguous momentum-block band prefixes can
+contain holes in the globally ordered spectrum. A common energy ceiling
+retains 316 of 352 supplied states for the omitted-spectrum certificate.
+A block-diagonal counterexample verifies that taking the largest supplied
+energy across the blocks can understate the error.

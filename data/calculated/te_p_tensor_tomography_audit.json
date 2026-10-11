@@ -1,0 +1,243 @@
+{
+  "claim_status": "CALCULATED exhaustive algebra/geometry audit; no material amplitude or alloy fit",
+  "git_commit": "dfc837ad3615cb64da32f28576bbe4a17c9cc6fd",
+  "driver_sha256": "112297a72d7d25ebc07080c7094c9eb167215c59934215afe4649de2431f3665",
+  "empirical_alloy_gap_inputs": [],
+  "assumptions": [
+    "fixed four-neighbor ideal Td geometry",
+    "real symmetric spin-independent p-onsite tensors in one Cartesian frame",
+    "independent Bernoulli occupations; translationally identical Te frames"
+  ],
+  "amplitude_status": "seven arbitrary audit parameters; no HgCdTe calibration",
+  "stabilizer_dimensions": [
+    {
+      "N": 0,
+      "stabilizer_order": 24,
+      "exact_dimension": 1
+    },
+    {
+      "N": 1,
+      "stabilizer_order": 6,
+      "exact_dimension": 2
+    },
+    {
+      "N": 2,
+      "stabilizer_order": 4,
+      "exact_dimension": 3
+    },
+    {
+      "N": 3,
+      "stabilizer_order": 6,
+      "exact_dimension": 2
+    },
+    {
+      "N": 4,
+      "stabilizer_order": 24,
+      "exact_dimension": 1
+    }
+  ],
+  "endpoint_invisible_parameter_dimension": 7,
+  "coherent_parameter_dimension": 3,
+  "hidden_directional_parameter_dimension": 4,
+  "tetrahedral_group_elements": 24,
+  "configurations": 16,
+  "group_covariance_max_error": 0.0,
+  "representative_extraction_error": 2.220446049250313e-16,
+  "directional_raw_four_body_norm": 4.86118919788475e-16,
+  "concentration_controls": [
+    {
+      "x": 0.17,
+      "coherent_error": 4.8208143142923684e-17,
+      "centered_directional_vertex_max_error": 4.86118919788475e-16,
+      "direct_directional_Frobenius_variance": 0.587384164537387,
+      "predicted_directional_Frobenius_variance": 0.5873841645373871,
+      "variance_error": 1.1102230246251565e-16
+    },
+    {
+      "x": 0.2,
+      "coherent_error": 7.576238456559581e-18,
+      "centered_directional_vertex_max_error": 4.86118919788475e-16,
+      "direct_directional_Frobenius_variance": 0.6647380362505468,
+      "predicted_directional_Frobenius_variance": 0.6647380362505471,
+      "variance_error": 2.220446049250313e-16
+    },
+    {
+      "x": 0.5,
+      "coherent_error": 9.625370785294944e-17,
+      "centered_directional_vertex_max_error": 4.86118919788475e-16,
+      "direct_directional_Frobenius_variance": 0.872021786296785,
+      "predicted_directional_Frobenius_variance": 0.8720217862967851,
+      "variance_error": 1.1102230246251565e-16
+    },
+    {
+      "x": 0.83,
+      "coherent_error": 3.2580951775025826e-17,
+      "centered_directional_vertex_max_error": 4.86118919788475e-16,
+      "direct_directional_Frobenius_variance": 0.21575395087941898,
+      "predicted_directional_Frobenius_variance": 0.21575395087941907,
+      "variance_error": 8.326672684688674e-17
+    }
+  ],
+  "Fourier_controls": [
+    {
+      "q_times_lattice_constant": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scalar_form_factor_squared": 16.0,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 0.0,
+      "complementary_norm_error": 0.0
+    },
+    {
+      "q_times_lattice_constant": [
+        0.0,
+        0.0,
+        6.283185307179586
+      ],
+      "scalar_form_factor_squared": 5.99903913064743e-32,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 3.5555555555555554,
+      "complementary_norm_error": 0.0
+    },
+    {
+      "q_times_lattice_constant": [
+        -13.270150740932506,
+        7.473641799128197,
+        20.84552033301986
+      ],
+      "scalar_form_factor_squared": 0.6508700958117621,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 3.4109177564862754,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        4.199230526990919,
+        14.395543957849277,
+        12.048794008143902
+      ],
+      "scalar_form_factor_squared": 3.1770980476463833,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 2.849533767189692,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        7.118016843120944,
+        -2.4009689960699805,
+        -1.004650572998602
+      ],
+      "scalar_form_factor_squared": 0.7406148196322394,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 3.3909744845261685,
+      "complementary_norm_error": 0.0
+    },
+    {
+      "q_times_lattice_constant": [
+        2.9788726212752747,
+        7.790968761693482,
+        6.199912762952643
+      ],
+      "scalar_form_factor_squared": 6.351801526765632,
+      "hadamard_sum_error": 3.552713678800501e-15,
+      "directional_vertex_Frobenius_squared": 2.1440441051631924,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        -5.3922801648579135,
+        5.205233019236918,
+        12.50035645114689
+      ],
+      "scalar_form_factor_squared": 0.05917225658209096,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 3.542406165203979,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        -8.109539026272914,
+        2.97529225350012,
+        13.893263368609931
+      ],
+      "scalar_form_factor_squared": 2.1323785496005443,
+      "hadamard_sum_error": 1.7763568394002505e-15,
+      "directional_vertex_Frobenius_squared": 3.0816936556443237,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        -4.972496967498558,
+        -2.755155602124826,
+        -7.567567602386011
+      ],
+      "scalar_form_factor_squared": 5.315551859030751,
+      "hadamard_sum_error": 0.0,
+      "directional_vertex_Frobenius_squared": 2.3743218091042775,
+      "complementary_norm_error": 0.0
+    },
+    {
+      "q_times_lattice_constant": [
+        -15.159983681888072,
+        -1.9711854530472477,
+        -3.136058460556155
+      ],
+      "scalar_form_factor_squared": 4.606936745174673,
+      "hadamard_sum_error": 1.7763568394002505e-15,
+      "directional_vertex_Frobenius_squared": 2.5317918344056283,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        -5.923277198520683,
+        -13.236766836444934,
+        -10.848049150805736
+      ],
+      "scalar_form_factor_squared": 0.18041358774047087,
+      "hadamard_sum_error": 3.552713678800501e-15,
+      "directional_vertex_Frobenius_squared": 3.515463647168783,
+      "complementary_norm_error": 8.881784197001252e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        9.202748638965875,
+        -3.541661686119121,
+        -6.219817073494223
+      ],
+      "scalar_form_factor_squared": 5.325393120974381,
+      "hadamard_sum_error": 1.7763568394002505e-15,
+      "directional_vertex_Frobenius_squared": 2.3721348620056926,
+      "complementary_norm_error": 4.440892098500626e-16
+    },
+    {
+      "q_times_lattice_constant": [
+        5.090743193707059,
+        -0.8963993681725824,
+        -4.08768575978612
+      ],
+      "scalar_form_factor_squared": 0.8826347301316277,
+      "hadamard_sum_error": 3.552713678800501e-15,
+      "directional_vertex_Frobenius_squared": 3.3594145044151937,
+      "complementary_norm_error": 0.0
+    },
+    {
+      "q_times_lattice_constant": [
+        7.290855355229604,
+        -14.606195418003884,
+        -8.939870013127267
+      ],
+      "scalar_form_factor_squared": 2.5047393540508707,
+      "hadamard_sum_error": 1.7763568394002505e-15,
+      "directional_vertex_Frobenius_squared": 2.9989468102109176,
+      "complementary_norm_error": 0.0
+    }
+  ],
+  "maximum_audit_error": 3.552713678800501e-15,
+  "limits": [
+    "No physical impurity potential, spectral susceptibility, linewidth or inversion is calculated",
+    "SOC, other orbitals, hopping tensors and background dependence are outside this restricted classification",
+    "Full physical T-matrix endpoint slopes can contain directional scattering even when coherent M derivatives cannot"
+  ]
+}

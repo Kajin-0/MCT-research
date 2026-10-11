@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** native host-projector extraction passes; finer-grid HgTe quartet restored but EXX unfinished; unchanged continuation running; finer impurity-cell memory estimate exceeds RAM
+**State:** native host-projector and supercell transport controls pass; oriented Te covariance qualified; finer-grid HgTe quartet restored but EXX unfinished; detached supervision active; finer impurity-cell memory exceeds RAM
 
 **Updated:** 2026-10-11
 
@@ -42,7 +42,7 @@ description was inaccurate. The 26-band window captures only 0.0162204 of
 the least-captured fixed physical trial direction at X. All 44 supplied
 bands raise this to 0.469856. These are trial-norm fractions, not gap errors.
 Identical ordered 208-spinor trial blocks are prepared for the paired cells.
-A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 75 pass.
+A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 83 pass.
 
 **CALCULATED:** the prepared Gamma-only n2/q1 supercell preserves the
 primitive q2 exchange-feedback spacing. Matched n2/k2/q2 input decks are
@@ -109,6 +109,18 @@ for before interpreting the boundary slope sum as dynamic susceptibility.
 **PROVEN:** full host-referenced impurity T cannot also be added as a residual
 to a binary chord. The correct residuals are t_H=tau_H-DeltaM and
 t_C=tau_C+DeltaM. The handoff mass law is valid with these residuals.
+
+**PROVEN under fixed tetrahedral covariance:** coherent Bernstein derivatives
+determine order-averaged orbital vertices. Full local covariance adds a
+positive directional term that those derivatives cannot determine. In the
+restricted real spin-independent Te p-onsite sector, three coherent scalars
+and four directional coefficients reconstruct all 16 environments from
+three oriented representative matrices. Directional one-body Frobenius
+scattering has the complementary filter (2/9)(16-|F(q)|^2). It is zero at
+q=0 and maximal at scalar form-factor zeros; pair/triplet configurational
+channels remain white. Exact stabilizer ranks and exhaustive covariance,
+tomography and Fourier audits pass to 3.55e-15. No physical coefficient,
+linewidth or susceptibility is inferred.
 
 **PROVEN:** for an embedded lattice Green function, g'=-P G^2 P*, generally
 not -g^2. At complex energy the positive scattering-cloud norm is
@@ -178,6 +190,10 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Continuum prescription and broadened crossing qualification](../../../docs/derivations/continuum_prescription_and_crossing.md)
 - [Archived-model continuum audit](../../../data/calculated/sp3d5_continuum_prescription.json)
 - [Coarse HgTe quartet and exchange-component figure](figures/hgte_quartet_feedback.pdf)
+- [Finer quartet and impurity memory control](figures/hgte_grid_control.pdf)
+- [General oriented tetrahedral response](../../../docs/derivations/oriented_tetrahedral_response.md)
+- [Oriented Te p-tensor tomography](../../../docs/derivations/te_p_tensor_tomography.md)
+- [Frozen directional identity audit](../../../data/calculated/te_p_tensor_tomography_audit.json)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
@@ -223,6 +239,13 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    smeared HgTe, a fixed lowest-36-band slice is not an occupied projector.
    No scattering host is accepted yet. A clean time-limited continuation
    must retain `--accurate-empty` and `--scf-threshold 1e-10`.
+   The original wrapper exited 143 while its ranks survived. Detached
+   supervision preserves the missing native OS status; this run itself
+   cannot be accepted. At a clean checkpoint the serial sequence will
+   dry check the f120 pair first and then start a fresh unchanged SCF,
+   capturing its native exit status. An interim exchange error of 4e-8
+   Ry still exceeds the 1e-10-Ry criterion. DFT commit bae7985 preserves
+   the detached launch, raw prefix snapshots and retired waiting queue.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    First test the host-invariant edge-spinor resolvent/reaction-kernel route,
@@ -243,6 +266,8 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    curvatures. CdTe mid-gap mass evaluation is a cleaner control than its band edge.
 5. Test local-background dependence and irreducible environment clusters only
    after the physical one-impurity problem; add no empirical bowing coefficients.
+   Preserve common-frame orbital tensors and bond-resolved hopping directions
+   in that extraction before taking any coherent tetrahedral average.
 
 The existing binary-derived vertex is terminated as a candidate physical
 predictor at this level. It is retained as a reproducible diagnostic and code test.

@@ -2,10 +2,41 @@
   "DFT_branch": "research/hgcdte-analytical-gap-20261010",
   "DFT_fast_tests": {
     "deselected": 1,
-    "passed": 75
+    "passed": 83
   },
-  "DFT_repository_commit": "6a1f9f8",
+  "DFT_repository_commit": "bae7985e0b7eef96d9e9e01f6a7b2a4a633400d2",
   "active_binary_reference": {
+    "detached_supervision": {
+      "claim_status": "RUNNING external native supervision; original wrapper exit 143, MPI exit unavailable",
+      "empirical_alloy_gap_inputs": [],
+      "family_RSS_limit_bytes": 26921526886.4,
+      "initial_stdout_prefix_sha256": "6d8f3d0c3a9f2ad80fc5d147cb3944ee2fb1083c10173dd3928334d68d44f782",
+      "launcher_pid": 1755855,
+      "launcher_start_ticks": 623716124,
+      "monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+      "native_exit_status_can_be_recovered": false,
+      "native_exit_status_unavailable": true,
+      "original_checkpoint_grace": 1800,
+      "original_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
+      "original_seconds": 3600,
+      "original_start_epoch": 1791712439.649711,
+      "recovery_driver_sha256": "dad40ec7237e5e110b8f235ee4eed22dcb23fe1bc6d9f8d668be17d6e5fcba7e",
+      "recovery_git_commit": "456847b69bddcd672407af0a8458bf346e560134",
+      "wrapper_exit_status": 143,
+      "written_utc": "2026-10-11T10:32:08.826864+00:00"
+    },
+    "detached_supervisor_launch": {
+      "detached_supervisor_pid": 1757546,
+      "detached_supervisor_process_group": 1757546,
+      "launch_command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/opencode_workspace/DFT/scripts/r07_recover_reference.py",
+        "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare"
+      ],
+      "log": "work/r07_reference_recovery_20261011.log",
+      "startup_acknowledged": true
+    },
     "directory": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
     "instantaneous_family_RSS_snapshot": {
       "RSS_bytes": 15374221312,
@@ -65,6 +96,90 @@
         }
       },
       "written_utc": "2026-10-11T10:00:02.213175+00:00"
+    },
+    "latest_raw_interim_snapshot": {
+      "claim_status": "CALCULATED raw interim spectrum only; no accepted binary or final sector assignment",
+      "empirical_alloy_gap_inputs": [],
+      "input_sha256": "3fd111cd0451eff3d3bd251618f48fbefe2a966c1404d48faa1508bb828a0e41",
+      "last_printed_exchange_error_Ry": "0.00000004",
+      "launch_git_commit": "09723876f834c7b95746537cf6f2b8f5fe9d186a",
+      "mpi_ranks": 6,
+      "pp_sha256": {
+        "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+        "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+      },
+      "printed_history": [
+        {
+          "printed_step": 0,
+          "quartet_energies_eV": [
+            8.9586,
+            8.9586,
+            8.9586,
+            8.9586
+          ],
+          "quartet_occupations": [
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "quartet_spread_eV": 0.0
+        },
+        {
+          "printed_step": 1,
+          "quartet_energies_eV": [
+            8.955,
+            8.955,
+            8.955,
+            8.955
+          ],
+          "quartet_occupations": [
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "quartet_spread_eV": 0.0
+        },
+        {
+          "printed_step": 2,
+          "quartet_energies_eV": [
+            8.9548,
+            8.9548,
+            8.9548,
+            8.9548
+          ],
+          "quartet_occupations": [
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "quartet_spread_eV": 0.0
+        }
+      ],
+      "source_stdout_prefix_bytes": 51222,
+      "source_stdout_prefix_sha256": "bdb2763d0fdb407688c0e7a03ba732f7210bd70e31b3f0588b36a1a05da92c2a",
+      "supervision_recovery": {
+        "claim_status": "RUNNING external native supervision; original wrapper exit 143, MPI exit unavailable",
+        "empirical_alloy_gap_inputs": [],
+        "family_RSS_limit_bytes": 26921526886.4,
+        "initial_stdout_prefix_sha256": "6d8f3d0c3a9f2ad80fc5d147cb3944ee2fb1083c10173dd3928334d68d44f782",
+        "launcher_pid": 1755855,
+        "launcher_start_ticks": 623716124,
+        "monitor_sha256": "b89fd1d3912224b670436dd39558e026ba9e56ced87cce98eb94ba9fc0d0048f",
+        "native_exit_status_can_be_recovered": false,
+        "native_exit_status_unavailable": true,
+        "original_checkpoint_grace": 1800,
+        "original_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
+        "original_seconds": 3600,
+        "original_start_epoch": 1791712439.649711,
+        "recovery_driver_sha256": "dad40ec7237e5e110b8f235ee4eed22dcb23fe1bc6d9f8d668be17d6e5fcba7e",
+        "recovery_git_commit": "456847b69bddcd672407af0a8458bf346e560134",
+        "wrapper_exit_status": 143,
+        "written_utc": "2026-10-11T10:32:08.826864+00:00"
+      },
+      "written_utc": "2026-10-11T10:43:45.119281+00:00"
     },
     "process": {
       "launcher_pid": 1755855,
@@ -166,7 +281,25 @@
       "seed_initialization": false,
       "written_utc": "2026-10-11T09:53:59.647808+00:00"
     },
-    "status": "Unchanged q4 continuation running; parent stops cleanly with restored native Gamma8 quartet but fails EXX convergence; no accepted HgTe reference"
+    "serial_queue_directory": "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4",
+    "serial_queue_limits": "At first valid observed stop: matched f120 dry resource probes, then at most two unchanged q4 3600-second chunks with 1800-second grace; distinct f120 primitive only after accepted default reference; no full impurity SCF",
+    "serial_queue_snapshot": {
+      "claim_status": "INCOMPLETE operational queue, replaced by detached recovered supervision",
+      "driver_sha256": "f0854a43ef41368a93e79bafc3418ab09dc5e30748029ef28229609451bbd052",
+      "empirical_alloy_gap_inputs": [],
+      "initial_provenance_sha256": "5eed5ea46282959131b2c6289b9d114b0a32359bb46347fbe395ea39e7747383",
+      "initial_reference": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9",
+      "launch_git_commit": "520ce81fa72e5f2b0e533fe8d6451e7eb46da25c",
+      "max_additional_continuations": 2,
+      "preparation_sha256": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
+      "prepared_pair": "calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare",
+      "reason": "Original native execution wrapper exited 143 while its MPI ranks continued; preserve missing native exit status",
+      "stage": "RETIRED waiting queue before recovery; no child MPI stage launched",
+      "stages": [],
+      "written_utc": "2026-10-11T10:30:04.200257+00:00"
+    },
+    "serial_queue_status": "Initial waiting queue retired without child native launch; detached recovery will launch a new recovered queue only at a valid observed terminal",
+    "status": "LIVE orphaned native MPI launch under detached supervision; native OS exit unavailable, this run cannot be accepted; no physical impurity coefficient"
   },
   "claim_status": "CALCULATED two coarse-grid binary hosts; both projected finite-q matrix gates failed; physical impurity prediction pending",
   "completed_controls": {
@@ -5369,6 +5502,170 @@
     ],
     "written_utc": "2026-10-11T03:14:25.651397+00:00"
   },
+  "native_supercell_folding_control": {
+    "claim_status": "CALCULATED native folded-host negative control; no independent supercell SCF or impurity",
+    "common_folded_spectral_ceiling_eV": 13.770490240384955,
+    "driver_sha256": "ba28259c9366ef7aed52b4e05ddd340955d2263b49202f5a0c5b3e8c264b16a2",
+    "empirical_alloy_gap_inputs": [],
+    "extended_host_state_definition": "psi_super=psi_primitive/sqrt(8); native plane-wave coefficients unchanged",
+    "full_T_norm_eV": 2.8525463440780248e-15,
+    "git_commit": "6a1f9f84e418d89f827d071176894774ae5eb16b",
+    "inverse_certificate": {
+      "certificate_sufficient": true,
+      "inverse_error_bound_eV": 3.220037730354436e-16,
+      "inverse_norm_eV": 0.7880789846142134,
+      "inverse_times_error": 4.085932746868935e-16
+    },
+    "limits": [
+      "The folded host is constructed from the same primitive HSE operator, not an independently converged supercell",
+      "Matching numerical Fock cutoffs, cell origins, spin axes and full host/impurity operators remain required",
+      "No physical impurity amplitude, concentration slope or inversion composition is computed"
+    ],
+    "native_blocks": [
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc1.hdf5",
+        "native_wavefunction_sha256": "0cea95d207a3422269c0643b82b639ee0cd8462d2d376aa77ad746c77f38524d",
+        "primitive_k": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "primitive_plane_wave_count": 6615
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc3.hdf5",
+        "native_wavefunction_sha256": "46b618f2d8e93c33f64d0b3833dd1226af6c237582d2e19ba24eaf5a04f645f0",
+        "primitive_k": [
+          -1.2378876872477377e-16,
+          -1.2766466262258107e-17,
+          -0.5000000000000001
+        ],
+        "primitive_plane_wave_count": 6586
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc9.hdf5",
+        "native_wavefunction_sha256": "a465570868a86275a857d00b09559d882184b507725908c4255df573c827820a",
+        "primitive_k": [
+          -9.825583620025754e-17,
+          -0.5000000000000001,
+          -3.981316398788893e-17
+        ],
+        "primitive_plane_wave_count": 6586
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc11.hdf5",
+        "native_wavefunction_sha256": "8da2f303bef8c2babf6c53d31ce58ddb554aa33319832b53c51c4d18eb0e19a3",
+        "primitive_k": [
+          -1.9651167240051506e-16,
+          -0.5000000000000001,
+          -0.5000000000000001
+        ],
+        "primitive_plane_wave_count": 6638
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc33.hdf5",
+        "native_wavefunction_sha256": "b9b3ae5e8b79ef1ad525f6f8305f5b3195c87329422288339206035e0c5fa223",
+        "primitive_k": [
+          -0.5,
+          1.2766466262258107e-17,
+          -1.4280231463372715e-17
+        ],
+        "primitive_plane_wave_count": 6586
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc35.hdf5",
+        "native_wavefunction_sha256": "a9a21dcbf56e750b1c1f6d671992d9e02306449dfd754c51c557b033ab83acd0",
+        "primitive_k": [
+          -0.5000000000000001,
+          -5.4093395451261644e-17,
+          -0.5000000000000001
+        ],
+        "primitive_plane_wave_count": 6638
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc41.hdf5",
+        "native_wavefunction_sha256": "5dd3bb8dfd1afbb4c107d81b7f3bc97207672a798854433b9f41807f5ebb5edb",
+        "primitive_k": [
+          -0.5000000000000001,
+          -0.5000000000000001,
+          -5.4093395451261644e-17
+        ],
+        "primitive_plane_wave_count": 6638
+      },
+      {
+        "bands": 44,
+        "native_wavefunction": "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc43.hdf5",
+        "native_wavefunction_sha256": "70695b1af174787fdc842137e02d65e1a6f67fb00ec86a2c168506b3aa5a052b",
+        "primitive_k": [
+          0.5000000000000002,
+          0.5000000000000001,
+          0.5000000000000001
+        ],
+        "primitive_plane_wave_count": 6586
+      }
+    ],
+    "prefix_module_sha256": "8dc26a086cc3266fd9e154ce458b4b1ec542d291692068ced737b58aeb6fb342",
+    "previous_certificate_status": "Unqualified: union of separate per-k prefixes was not guaranteed to be a global prefix; native zero-substitution values are a control, not that bound",
+    "previous_record_sha256": "b4932317344a5958cd99e6cb91ab2c43c61af55a776c9abfd8fbfb1666aab3bf",
+    "projector_unresolved_norm": 3.837311433681618e-15,
+    "reaction_kernel_norm_eV": 2.8505871661593358e-15,
+    "realspace_phase_max_error": 1.7427919793097064e-15,
+    "repeat_matrix": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        2
+      ]
+    ],
+    "resolvent_certificate": {
+      "derivative_error_bound_eV_inverse_squared": 1.0609403336565143e-16,
+      "omitted_distance_lower_bound_eV": 4.886866862006847,
+      "omitted_weight_norm": 2.5336812338470123e-15,
+      "resolvent_error_bound_eV_inverse": 5.184674159112507e-16
+    },
+    "resolvent_error_eV_inverse": 4.5616561394983254e-15,
+    "retained_contiguous_folded_prefix_bands": 316,
+    "schema_sha256": "404f8d799fb6c26a0d8e518e66e9fe425b420ccda7a205c8b472fc172ce81bc2",
+    "source_QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
+    "source_input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
+    "source_mpi_ranks": 6,
+    "source_pp_sha256": {
+      "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+    },
+    "source_scf_result_sha256": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+    "spinor_module_sha256": "b49ad16fff8f4b2f8967b0c10aa2e6ced2edad94a7b571e90f1295c785c71a9b",
+    "supplied_folded_bands": 352,
+    "target_plane_wave_count": 52873,
+    "target_supercell_momentum": [
+      0,
+      0,
+      0
+    ],
+    "volume_multiplier": 8,
+    "written_utc": "2026-10-11T10:14:18.631929+00:00",
+    "z_eV": {
+      "imag": 0.025,
+      "real": 8.883687325699256
+    }
+  },
   "physical_trial_capture": {
     "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
     "amn_sha256": "c1ebf07fe4068649257166b7fc36be71c17eb7bdf3c14779662592dabccd7751",
@@ -5437,5 +5734,5 @@
   "potential_set_interpretation": "Sets differ in generator choices in addition to NLCC; no isolated NLCC attribution",
   "radial_metadata_correction": "The historical inverse_A label is inaccurate for the pinned QE 7.5 standalone interface. Native coefficient reconstruction verifies alpha=1 bohr^-1 for the unchanged numeric input 1.0.",
   "temperature_work": "deferred",
-  "updated_utc": "2026-10-11T10:04:19.400364+00:00"
+  "updated_utc": "2026-10-11T10:45:31.183927+00:00"
 }

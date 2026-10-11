@@ -1,0 +1,133 @@
+{
+  "claim_status": "CALCULATED exact-combinatorial identity audit; unit response, no material coefficient",
+  "git_commit": "dfc837ad3615cb64da32f28576bbe4a17c9cc6fd",
+  "driver_sha256": "52ef6042eebd376cbfae847cc951541d69ea6af36b9151bbb375e533d6b0adb2",
+  "empirical_alloy_gap_inputs": [],
+  "amplitude": "lambda left unspecified; numerical tensors normalized to lambda=1",
+  "source_geometry": "Fixed ideal zincblende tetrahedral bond directions",
+  "prior_art": "Niquet et al., PRB79,245201 (2009), Eq.(10); https://arxiv.org/pdf/0902.0491; angular tensor precedent, not HgCdTe calibration",
+  "rational_endpoint_sum_is_exactly_zero": true,
+  "tetrahedral_group_elements": 24,
+  "oriented_configurations": 16,
+  "group_covariance_max_error": 0.0,
+  "X_vertex_error": 0.0,
+  "normalized_X_vertex": [
+    [
+      {
+        "real": 0.0,
+        "imag": 0.0
+      },
+      {
+        "real": 0.0,
+        "imag": 1.3333333333333333
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0
+      }
+    ],
+    [
+      {
+        "real": 0.0,
+        "imag": 1.3333333333333333
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0
+      }
+    ],
+    [
+      {
+        "real": 0.0,
+        "imag": 0.0
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0
+      }
+    ]
+  ],
+  "directional_counterexample": [
+    {
+      "x": 0.17,
+      "coherent_norm": 1.137534255038139e-17,
+      "normalized_local_Frobenius_variance": 0.3762666666666673,
+      "predicted_local_variance": 0.3762666666666667,
+      "normalized_X_Frobenius_variance": 0.5016888888888889
+    },
+    {
+      "x": 0.2,
+      "coherent_norm": 8.630140327254252e-18,
+      "normalized_local_Frobenius_variance": 0.42666666666666647,
+      "predicted_local_variance": 0.42666666666666675,
+      "normalized_X_Frobenius_variance": 0.568888888888889
+    },
+    {
+      "x": 0.5,
+      "coherent_norm": 6.938893903907228e-18,
+      "normalized_local_Frobenius_variance": 0.6666666666666661,
+      "predicted_local_variance": 0.6666666666666666,
+      "normalized_X_Frobenius_variance": 0.8888888888888888
+    },
+    {
+      "x": 0.83,
+      "coherent_norm": 0.0,
+      "normalized_local_Frobenius_variance": 0.3762666666666669,
+      "predicted_local_variance": 0.37626666666666675,
+      "normalized_X_Frobenius_variance": 0.501688888888889
+    }
+  ],
+  "general_covariance_closure": [
+    {
+      "x": 0.17,
+      "direct_vs_cluster_covariance_error": 8.689489589997518e-16,
+      "mean_vertex_derivative_max_error": 5.39986845747401e-16,
+      "floor_plus_directional_decomposition_error": 3.720255357002074e-16,
+      "minimum_directional_covariance_eigenvalue": 0.0028261323073951335,
+      "directional_covariance_trace": 4.458871458817163
+    },
+    {
+      "x": 0.2,
+      "direct_vs_cluster_covariance_error": 6.947865170381586e-16,
+      "mean_vertex_derivative_max_error": 3.7904402627041597e-16,
+      "floor_plus_directional_decomposition_error": 7.712746805247215e-16,
+      "minimum_directional_covariance_eigenvalue": 0.004033632371641979,
+      "directional_covariance_trace": 4.992998274635977
+    },
+    {
+      "x": 0.5,
+      "direct_vs_cluster_covariance_error": 8.491264005741391e-16,
+      "mean_vertex_derivative_max_error": 3.9691443593156936e-16,
+      "floor_plus_directional_decomposition_error": 5.287839845168568e-16,
+      "minimum_directional_covariance_eigenvalue": 0.011304386308102047,
+      "directional_covariance_trace": 7.13736157103544
+    },
+    {
+      "x": 0.83,
+      "direct_vs_cluster_covariance_error": 9.586149022302389e-16,
+      "mean_vertex_derivative_max_error": 1.0706603116298291e-15,
+      "floor_plus_directional_decomposition_error": 4.2897770882168743e-16,
+      "minimum_directional_covariance_eigenvalue": 0.001717387066188056,
+      "directional_covariance_trace": 3.9978249387091793
+    }
+  ],
+  "consequences": [
+    "Coherent configurational derivatives determine order-averaged vertices only",
+    "Full oriented covariance is the Bernstein floor plus positive directional terms",
+    "A directional one-body response can survive a scalar tetrahedral form-factor zero",
+    "Centered-subset orthogonality and white m>=2 zincblende configurational channels remain intact"
+  ],
+  "limits": [
+    "No HgCdTe lambda, gap shift, dynamic susceptibility or inversion is computed",
+    "Count-symmetric closure remains exact under its additional equal-matrix assumption",
+    "A actual impurity extraction must retain common-frame orbital directions before averaging"
+  ]
+}
