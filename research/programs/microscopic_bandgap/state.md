@@ -2,9 +2,31 @@
 
 **Portfolio contribution:** R07
 
-**State:** continuous existing-input qualification completed through three decision-driven phases; conditional reference-window control passes, binary-to-impurity and one-cell-to-isolated transfer fail; one unexecuted matched acquisition design retained; STOP_ACQUISITION_BOUNDARY; physical ordering/inversion and all prior NO-GO findings remain unqualified/preserved
+**State:** explicitly approved staged native matched pilot stopped at measured RAM preflight NO-GO; no host or Cd SCF launched, no physical inputs downgraded; earlier conditional reference certificates and transfer/continuum negatives preserved; physical ordering/inversion remain OPEN
 
 **Updated:** 2026-10-11
+
+## Approved staged native pilot — measured preflight NO-GO
+
+The user explicitly approved one n2/k2/q2 16-atom f120 HSE+SOC matched host,
+then one Cd member only if the host's native SCF/exchange/projector/irrep gates
+pass, with at most six ranks and 3600+1800 seconds per member. The
+[finite pilot intake](native_matched_pilot_2026-10-11/README.md) records a safe
+NO-GO at 2026-10-11 19:22:26 UTC: measured available RAM 26.39040 GiB versus
+27.524 GiB required by a declared 20% dry-estimate margin +2-GiB system-reserve
+policy. The guard is conservative engineering judgment, not a measured peak
+or proof of unavoidable OOM. Disk has 30.16499 GiB free; no active MPI family
+or R07 numerical driver is found. Existing supervisors are FINISHED and untouched.
+
+Prepared matching physical inputs, dry QE 7.5/six-rank and PP provenance verify.
+Host SCF/exchange convergence and projector/irrep gates are **NOT RUN / NOT
+EVALUABLE**; Cd is **NOT ADMITTED**. No new native directory, SCF, postprocessor,
+restart, queue, variant, supervisor operation, lowered physical input or DFT
+file modification occurs. Full-SCF peak RAM/disk, chemistry-bearing spectra
+and physical x_c remain unknown. Adequate measured headroom or an independently
+justified tighter peak/resource-containment plan is needed before any fresh
+scoped attempt. This finite approval does not resume/change the historical goal.
+The previous acquisition and analytical decisions below remain dated records.
 
 ## Continuous minimum-cost physical-input qualification
 

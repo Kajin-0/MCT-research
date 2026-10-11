@@ -1,5 +1,29 @@
 # Persistent R07 phase/handoff ledger
 
+## Latest finite approval and terminal preflight amendment
+
+After checkpoint `626fbc3`, the user explicitly authorized one staged native
+HSE+SOC n2/k2/q2 16-atom f120 host followed **only after all host gates pass**
+by one Cd member, six ranks maximum and 3600+1800 seconds per member. This
+overrides the earlier no-native-launch restriction only within that scope;
+the old paused/blocked goal is unchanged and no supervisor state may be altered.
+
+[Measured preflight](../native_matched_pilot_2026-10-11/README.md),
+2026-10-11 19:22:26 UTC: 31.34078 GiB total RAM, 26.39040 GiB available,
+30.16499 GiB free disk, no active QE/MPI/R07 driver; supervisor records FINISHED
+and hashes unchanged. Declared launch policy =20% margin on the rough dry
+estimate +2 GiB system reserve, excluding swap. Host needs 27.524 GiB available;
+shortfall 1.13360 GiB. This is a conservative engineering guard, not a proven
+peak or unavoidable-OOM statement. Prepared physics and provenance verify.
+
+**PREFLIGHT_RESOURCE_NO_GO — STOP.** Zero native launches/output directories;
+host SCF/projector/irrep/exchange gates not evaluable, Cd stage not admitted.
+No deck/DFT/dirty-file or supervisor change, no downgrades, queues, variants,
+repeat preflights or implicit continuation. Physical x_c remains OPEN. Resume
+only under a fresh scoped decision with adequate measured headroom or an
+independently justified tighter peak/resource-containment plan. Do not silently
+restart after compaction. The earlier three-phase ledger below is historical.
+
 Active authorization: the user's continuous R07 mandate of 2026-10-11, in the
 existing research Codex session. This does **not** resume, replace or query the
 historical blocked /goal. Base is `b19fc65` on

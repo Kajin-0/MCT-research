@@ -1,8 +1,11 @@
 # One discriminating acquisition design — unexecuted
 
-**Status: DESIGN ONLY; new native runs not authorized.** The active mandate
-authorizes this reduction/design and cheap checks, not DFT/HSE/MPI or queues.
-No input decks, scripts, supervisors or DFT files are changed.
+**Latest authorization amendment, 2026-10-11:** the user subsequently approved
+one guarded staged host-then-Cd native pilot. Its [measured resource preflight](../native_matched_pilot_2026-10-11/README.md)
+ends at NO-GO before either launch. Approval does not waive scientific/resource
+gates; no input, supervisor or DFT file is changed. The following design and
+resource estimates are the preserved pre-approval record, not new permission
+to retry or create other calculations.
 
 ## 1. Precise question and minimum quantity
 
@@ -154,6 +157,6 @@ metallic states. The [QE 7.5 memory estimator source](https://raw.githubusercont
 is the primary source behind the pinned native memory records; a dry estimate
 is not a measured SCF peak. Accessed 2026-10-11; no downloads/paid actions.
 
-**STOP at acquisition boundary.** No new SCF, native postprocessor, supercell
+**Original decision: STOP at acquisition boundary.** No new SCF, native postprocessor, supercell
 construction, allocation or job queue is launched. Further progress requires
 the missing data packet or independently justified tighter physical restrictions.
