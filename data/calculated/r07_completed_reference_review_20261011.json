@@ -1,0 +1,87 @@
+{
+  "scope": "Read-only review of completed existing reference controls; no new native calculation or material prediction",
+  "review_date": "2026-10-11",
+  "claim_status": "CALCULATED: existing numerical controls verified; physical impurity/mass/domain inputs remain unavailable",
+  "mct_parent_commit": "954574f058e50abfd0c4d76d9020f23c460c4cca",
+  "dft_source_commit": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "source_repository": "/home/User/opencode_workspace/DFT",
+  "external_sources_sha256": {
+    "calculations/r07/reference_queue_5eed5ea4_recovered/state.json": "7d2149f1329d0d0901ddc6c047fbfa79333fbb3204bc669b8843ede7fba5848b",
+    "calculations/r07/fock_followthrough_5eed5ea4/state.json": "198bbdf186e8ac0fd4c34aa79e6d732a654a3f62c41313609a7723a761bb397d",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/fock_operator_control_2caac68e.json": "fd9543a39b775673ae5db43e018ae94847cffdcfaf4397bfc98687eed852dd74",
+    "scripts/r07_fock_operator_control.py": "a2152ee65c49783060d9d622cfcfdecf2771ccb7fc9cd5b88958aab1985dbf1c",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/result.json": "2caac68e44f47cbbf35dd4a094dd8fe3d825d907d20a35e38bbd9a8826129631",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/pw.in": "6ec1ce0b8a089ed4635d2aedc0b04e34c0bdc59bf6dfede702c8d23ebc665363",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/pw.out": "4a5d08948a116a86f0ec441c8bf26ba3909cda2fb3437fca1886c0ef20441fcd",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/gamma/signed_gap.json": "eb431777682b7a31944e305ea379fc8a42d600abe53597d4845bc7b82c069c3a",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/gamma/bands.out": "4ef8c41bc83aed0afe3fc6cea52322c0ec9433e2cf1e033eff3486f47ba1cb2d",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/gamma/orbital_character.json": "5a35512aaef3284a0e958dc5e9e3d2fb189846b1fadd0f6564bcc5ef35390b93",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/out/r07_open.save/data-file-schema.xml": "d2f5d5e8fc9e5caf242a6e8daf8a1624f0c6246b724aa2c17e58f4c69a150769",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/out/r07_open.save/wfc1.hdf5": "6b32f909b127cb4d8ceb2fdc99206132d7816802dbc1900825ef8a88754cd3ff",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/result.json": "95ed8813fe6e73dec7aec7799a8622ac17de8425bc1ebc59109bcfa24a67c8a1",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/pw.in": "af0f4de4a62306df09e9229863dec26e9ced675693148967b5646a4bdd47d9e7",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/pw.out": "74b70b837e83bbc8e3c6a8616b0174a09aa402a33cb9dcae300e2fe3e8ca8893",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/signed_gap.json": "5912c08289910bf552e6d69978911b847eb0a51e2369a03c4b10d58ae8b4b50c",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/bands.out": "3b1ed34b4d9c96fdd9535648decab2310fdd3fb875bac06ea340e7ec9370071c",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/orbital_character.json": "b57a3acfc14537ab046c47f78a5f33a6fadfe17e1fb07a5f9c1d1e62e1e7651b",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/data-file-schema.xml": "761891446c6a86d88f929cb2903a2de756d4ba0ede3aaa275b0b26055ad6a0c8",
+    "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc1.hdf5": "58a4beb14445d822463ab4a6cc874c9a9e7130b01d3695198c5512f2c51facc1",
+    "pseudopotentials/r07_sg15_manifest.json": "b22176c079c2b6fe887de840f7032293ec756013dfe7b751e24d56082f83e179",
+    "pseudopotentials/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "pseudopotentials/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "native_terminal_evidence": [
+    {
+      "run": "calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b",
+      "accepted_scf": true,
+      "native_returncode": 0,
+      "native_job_done": true,
+      "native_EXX_convergence_message": true,
+      "record_written_utc": "2026-10-11T12:18:08.309897+00:00"
+    },
+    {
+      "run": "calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800",
+      "accepted_scf": true,
+      "native_returncode": 0,
+      "native_job_done": true,
+      "native_EXX_convergence_message": true,
+      "record_written_utc": "2026-10-11T13:01:38.077384+00:00"
+    }
+  ],
+  "numerical_controls": {
+    "native_Fock_cutoffs_Ry": [
+      360,
+      120.0
+    ],
+    "signed_Gamma_gaps_eV": [
+      -0.28976341236020176,
+      -0.28977011377785367
+    ],
+    "gap_difference_eV": -6.7014176519109014e-06,
+    "pointwise_Gamma_kernel_norm_eV": 4.205828324256838e-06,
+    "evaluation_z_eV": {
+      "imag": 0.025,
+      "real": 8.809990166855265
+    },
+    "omitted_window_inverse_error_bound_eV": 4.458892854275447e-15,
+    "full_grid_kpoints": 64,
+    "bands_per_kpoint": 44,
+    "maximum_sorted_difference_eV": 5.8279960256868435e-05,
+    "physical_Fock_approximation_validated": false
+  },
+  "decisions": {
+    "native_reference_SCF_gate": "passed for the two existing controls",
+    "full_impurity_SCF": "not launched by the completed supervisors; no accepted input found",
+    "finite_q_operator_and_dilute_accuracy": "unvalidated",
+    "root_certificate_branch_errors": "not supplied by this pointwise binary comparison",
+    "physical_x_c": "unresolved; stop at missing interior mass/domain information",
+    "new_acquisition": "none authorized or launched"
+  },
+  "verification": "Source hashes, native terminal messages, 64x44 schema eigenvalues, Gamma sector gaps and 6x6 reported kernel norm independently checked; no native adapter rerun",
+  "source_control_limits": [
+    "Gamma inverse error certificate assumes exact native eigenpairs; SCF/grid errors are separate",
+    "Sorted spectral agreement is not a physical matrix/operator-norm bound at finite q",
+    "Passing this control alone does not certify full impurity vertex, isolated-cell or material accuracy",
+    "No alloy coefficient, dilute slope, static mass susceptibility or inversion is calculated"
+  ]
+}

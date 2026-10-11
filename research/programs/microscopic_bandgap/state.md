@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** threshold-retaining causal reduction and conditional uniform inversion certificate established; physical prediction stopped at the missing interior mass/domain input; existing bounded numerical supervision left untouched
+**State:** threshold-retaining causal reduction and conditional uniform inversion certificate established; physical prediction stopped at the missing interior mass/domain input; existing reference supervisors completed and reviewed without intervention
 
 **Updated:** 2026-10-11
 
@@ -85,7 +85,29 @@ All earlier negative results, numerical gate failures and detached numerical
 ownership remain unchanged. A causal local energy-linear approximation does
 not replace the exact global spectral normalization or centroid sum rules.
 
+## Completed existing reference controls: current availability
+
+The [completed-reference review](result_2026-10-11_completed_reference_review.md)
+records newly available terminal outputs from the established supervisors.
+**CALCULATED:** both HgTe k4/q4 controls pass their native SCF acceptance gate;
+their 360/120-Ry Fock-cutoff signed Gamma gaps differ by 6.7014 micro-eV.
+The pointwise six-state Gamma reaction-kernel comparison is 4.2058 micro-eV,
+while the maximum sorted-band difference is 58.2800 micro-eV. Source hashes,
+native termination, eigenvalue arrays and reported matrix norm are checked.
+
+These are accepted numerical reference controls, not a physical impurity
+potential, finite-q operator certificate or alloy mass uncertainty budget.
+The source records explicitly retain those limitations and launch no full
+impurity SCF. No DFT files or supervisors were modified. The current physical
+prediction decision above is unchanged: the interior mass/domain/modulus
+input is missing. No further numerical work is proposed or queued.
+
 ## Preserved numerical and analytical evidence from preceding tranches
+
+The following numerical status statements describe their preceding tranches.
+In particular, the formerly running HgTe reference and pending Fock comparison
+have the completed status recorded above; their earlier failures remain
+preserved and do not become accepted retrospectively.
 
 **CALCULATED:** the SG15 CdTe accurate-empty control reduces the projected
 time-reversal defect from 6.37827 eV to 2.95137 meV, while the signed Gamma
