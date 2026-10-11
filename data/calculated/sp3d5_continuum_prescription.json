@@ -1,0 +1,607 @@
+{
+  "claim_status": "CALCULATED mathematical prescription audit in an archived, rejected binary-derived impurity model; no physical alloy coefficient",
+  "git_commit": "a2ca95b9a5ae156ef9bafa1df92f34f943ad71dd",
+  "driver_sha256": "5b6e19d9e2927ce8b3fa4600d40e07b07e201b5096caf8214a207f529ec268dd",
+  "module_sha256": {
+    "mct_research.impurity_tmatrix": "4057059a2d162a1caa680647a0a3c14b292cd11032348f4dc551c09ef4d4b003",
+    "mct_research.sp3d5": "8d9541557e04cae1f880457ea8ffee1d53f959c1f07f4e0fa20904f1f6d46473"
+  },
+  "parameter_file_sha256": "841222a0db79f4f75e0bcc49032877ede3a10350d3d0dee2648975d817004e58",
+  "source": {
+    "author": "Christoph Schindler",
+    "title": "Quantum spin transport in semiconductor nanostructures",
+    "year": 2012,
+    "url": "https://www.osti.gov/etdeweb/servlets/purl/21595032",
+    "pdf_sha256": "851cc42594bb800288b26d02d2e3ff5d551a0a2690260cfbde5ac4feaa631fbe",
+    "parameters": "Table 2.2, printed page 29 (PDF page 29)",
+    "soc_convention": "Eq. (1.15): H_SO = Delta_SO L.sigma on p orbitals; no d SOC",
+    "offset": "Section 4.2: valence-band offset 0.4 eV; HgTe valence higher than CdTe",
+    "fit_inputs": "Binary band energies in Table 2.1; alloys subsequently checked using VCA",
+    "status": "Published semiempirical binary Hamiltonian, not a first-principles impurity potential"
+  },
+  "offset_eV": 0.4,
+  "te_share": 0.25,
+  "quadrature": "Even midpoint primitive reciprocal grid, no discrete Gamma pole",
+  "identities": {
+    "g": "h-i gamma",
+    "retarded_conversion": "T[g]=(I+i K_h gamma)^(-1) K_h, K_h=T[h]",
+    "scalar_hermitian_part": "Herm(T)=k_h/(1+(gamma k_h)^2)"
+  },
+  "rows": [
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "eta_eV": 0.01,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 5.503655713938716e-16,
+      "reactance_hermiticity_relative_error": 2.7600497163889496e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.008431819308837732,
+      "hermitian_resolvent_denominator_min_singular": 0.37636691787413495,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 7.040494877688243e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7595751720628814,
+          "retarded_imag_eV": -0.002313259745541617,
+          "hermitian_resolvent_reactance_eV": 0.759580394239453
+        },
+        "8": {
+          "retarded_real_eV": 0.10344867765250482,
+          "retarded_imag_eV": -0.012358158317827179,
+          "hermitian_resolvent_reactance_eV": 0.10373179074372096
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.3280632472051883,
+      "hermitian_resolvent_full_mass_projection_eV": 0.327924301747866,
+      "mass_prescription_difference_eV": -0.00013894545732229258
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "eta_eV": 0.02,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 5.63446038591587e-16,
+      "reactance_hermiticity_relative_error": 1.8213476471818994e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.024542891547615117,
+      "hermitian_resolvent_denominator_min_singular": 0.3901210461182829,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00014059852678207797,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7595078470268702,
+          "retarded_imag_eV": -0.004578622550533698,
+          "hermitian_resolvent_reactance_eV": 0.759527992677568
+        },
+        "8": {
+          "retarded_real_eV": 0.09960615843029662,
+          "retarded_imag_eV": -0.022161388764895734,
+          "hermitian_resolvent_reactance_eV": 0.10048088824952195
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.3299508442982868,
+      "hermitian_resolvent_full_mass_projection_eV": 0.329523552214023,
+      "mass_prescription_difference_eV": -0.0004272920842637862
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 14,
+      "eta_eV": 0.05,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 5.245878183796755e-16,
+      "reactance_hermiticity_relative_error": 1.7456507805780494e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.06125632984448237,
+      "hermitian_resolvent_denominator_min_singular": 0.3978940881142536,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.0003496238589747289,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7593661285668367,
+          "retarded_imag_eV": -0.011156761342554944,
+          "hermitian_resolvent_reactance_eV": 0.7594834321922295
+        },
+        "8": {
+          "retarded_real_eV": 0.08948797907657785,
+          "retarded_imag_eV": -0.04193880452923008,
+          "hermitian_resolvent_reactance_eV": 0.09225253030148063
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.3349390747451294,
+      "hermitian_resolvent_full_mass_projection_eV": 0.3336154509453744,
+      "mass_prescription_difference_eV": -0.0013236237997549805
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 22,
+      "eta_eV": 0.01,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 4.150277478759818e-16,
+      "reactance_hermiticity_relative_error": 1.8734302990658055e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.06459543471233724,
+      "hermitian_resolvent_denominator_min_singular": 0.39762293807987226,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 7.141027383298317e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7594915748759759,
+          "retarded_imag_eV": -0.002690875130555797,
+          "hermitian_resolvent_reactance_eV": 0.7594992644164353
+        },
+        "8": {
+          "retarded_real_eV": 0.09518992329916731,
+          "retarded_imag_eV": -0.02641242752256266,
+          "hermitian_resolvent_reactance_eV": 0.09676053175126836
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.33215082578840427,
+      "hermitian_resolvent_full_mass_projection_eV": 0.3313693663325835,
+      "mass_prescription_difference_eV": -0.0007814594558207544
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 22,
+      "eta_eV": 0.02,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 5.461801839256913e-16,
+      "reactance_hermiticity_relative_error": 1.915892951083903e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.05191522713565041,
+      "hermitian_resolvent_denominator_min_singular": 0.39678046847702864,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00014135501917847786,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.759428009258194,
+          "retarded_imag_eV": -0.004755256128020181,
+          "hermitian_resolvent_reactance_eV": 0.7594499928673442
+        },
+        "8": {
+          "retarded_real_eV": 0.09375016631853164,
+          "retarded_imag_eV": -0.027894389989067868,
+          "hermitian_resolvent_reactance_eV": 0.0952795627029909
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.3328389214698312,
+      "hermitian_resolvent_full_mass_projection_eV": 0.33208521508217664,
+      "mass_prescription_difference_eV": -0.0007537063876545402
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 22,
+      "eta_eV": 0.05,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 3.6944891729110353e-16,
+      "reactance_hermiticity_relative_error": 2.043446423035641e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.06187924982321303,
+      "hermitian_resolvent_denominator_min_singular": 0.39922618354879363,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00034977959352011314,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7593713254373128,
+          "retarded_imag_eV": -0.011176505194651642,
+          "hermitian_resolvent_reactance_eV": 0.7594891449004486
+        },
+        "8": {
+          "retarded_real_eV": 0.08802097426676384,
+          "retarded_imag_eV": -0.042003208794895594,
+          "hermitian_resolvent_reactance_eV": 0.09081600566703874
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.3356751755852745,
+      "hermitian_resolvent_full_mass_projection_eV": 0.33433656961670494,
+      "mass_prescription_difference_eV": -0.0013386059685695506
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 30,
+      "eta_eV": 0.01,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 3.501750796868111e-16,
+      "reactance_hermiticity_relative_error": 1.9918204917882544e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.030565579331273574,
+      "hermitian_resolvent_denominator_min_singular": 0.3969757429508087,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 7.093706871007137e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7593653619257688,
+          "retarded_imag_eV": -0.002511442474959689,
+          "hermitian_resolvent_reactance_eV": 0.759371485755225
+        },
+        "8": {
+          "retarded_real_eV": 0.09308261183391281,
+          "retarded_imag_eV": -0.018557913559940055,
+          "hermitian_resolvent_reactance_eV": 0.09380909630132765
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.333141375045928,
+      "hermitian_resolvent_full_mass_projection_eV": 0.33278119472694867,
+      "mass_prescription_difference_eV": -0.00036018031897933067
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 30,
+      "eta_eV": 0.02,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 3.6694663557362966e-16,
+      "reactance_hermiticity_relative_error": 1.946619790662712e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.035606095815677676,
+      "hermitian_resolvent_denominator_min_singular": 0.3964937812897848,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00014103421741969323,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7593927205298316,
+          "retarded_imag_eV": -0.004669002985848145,
+          "hermitian_resolvent_reactance_eV": 0.759413705767779
+        },
+        "8": {
+          "retarded_real_eV": 0.09302352176732757,
+          "retarded_imag_eV": -0.02464416804705144,
+          "hermitian_resolvent_reactance_eV": 0.09416920483130796
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.33318459938125206,
+      "hermitian_resolvent_full_mass_projection_eV": 0.3326222504682355,
+      "mass_prescription_difference_eV": -0.0005623489130165416
+    },
+    {
+      "host": "HgTe",
+      "guest": "CdTe",
+      "mesh": 30,
+      "eta_eV": 0.05,
+      "energy_eV": -0.15078543941179548,
+      "retarded_vs_conversion_relative_error": 5.461010770258028e-16,
+      "reactance_hermiticity_relative_error": 2.097208955801075e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.05978386662235995,
+      "hermitian_resolvent_denominator_min_singular": 0.3990519747912848,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00034973105132039627,
+      "branches": {
+        "6": {
+          "retarded_real_eV": 0.7593807414742246,
+          "retarded_imag_eV": -0.011170106540788871,
+          "hermitian_resolvent_reactance_eV": 0.7594983958819199
+        },
+        "8": {
+          "retarded_real_eV": 0.08812131383638083,
+          "retarded_imag_eV": -0.041756009501793784,
+          "hermitian_resolvent_reactance_eV": 0.09087247092704702
+        }
+      },
+      "retarded_full_mass_projection_eV": 0.3356297138189219,
+      "hermitian_resolvent_full_mass_projection_eV": 0.33431296247743647,
+      "mass_prescription_difference_eV": -0.001316751341485456
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "eta_eV": 0.01,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 3.0067894111330784e-16,
+      "reactance_hermiticity_relative_error": 2.2329992826163496e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 3.796516420514588e-05,
+      "hermitian_resolvent_denominator_min_singular": 0.5164995970670242,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 4.931813056110415e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1963986164727496,
+          "retarded_imag_eV": -0.010364857072903143,
+          "hermitian_resolvent_reactance_eV": -3.1964298865171936
+        },
+        "8": {
+          "retarded_real_eV": 0.7056835056941233,
+          "retarded_imag_eV": -0.0015961623558500106,
+          "hermitian_resolvent_reactance_eV": 0.7056838290231445
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9510410610834366,
+      "hermitian_resolvent_full_mass_projection_eV": -1.951056857770169,
+      "mass_prescription_difference_eV": -1.579668673246104e-05
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "eta_eV": 0.02,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 2.4958872788565567e-16,
+      "reactance_hermiticity_relative_error": 1.5103924252992504e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.0001518308440374705,
+      "hermitian_resolvent_denominator_min_singular": 0.5165146296818942,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 9.863534949747752e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1962104946482124,
+          "retarded_imag_eV": -0.020727124850151213,
+          "hermitian_resolvent_reactance_eV": -3.196335550220764
+        },
+        "8": {
+          "retarded_real_eV": 0.7056574407158376,
+          "retarded_imag_eV": -0.0031918191113769526,
+          "hermitian_resolvent_reactance_eV": 0.705658731934885
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.950933967682025,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9509971410778246,
+      "mass_prescription_difference_eV": -6.317339579964276e-05
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "eta_eV": 0.05,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 2.51952048559462e-16,
+      "reactance_hermiticity_relative_error": 1.891832817493261e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.0009476403414148807,
+      "hermitian_resolvent_denominator_min_singular": 0.5166198144671262,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00024657243530377943,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1948950809762495,
+          "retarded_imag_eV": -0.05177255346622851,
+          "hermitian_resolvent_reactance_eV": -3.1956756033644904
+        },
+        "8": {
+          "retarded_real_eV": 0.7054753656663966,
+          "retarded_imag_eV": -0.007970718783391038,
+          "hermitian_resolvent_reactance_eV": 0.7054833443679169
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.950185223321323,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9505794738662037,
+      "mass_prescription_difference_eV": -0.0003942505448806255
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 14,
+      "eta_eV": 0.0,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 7.726314394998415e-17,
+      "reactance_hermiticity_relative_error": 1.5360329181444084e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 4.465397722711461e-16,
+      "hermitian_resolvent_denominator_min_singular": 0.5164945858496568,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": -2.92894185931878e-17,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.196461335184579,
+          "retarded_imag_eV": -9.918552975389421e-18,
+          "hermitian_resolvent_reactance_eV": -3.196461335184579
+        },
+        "8": {
+          "retarded_real_eV": 0.7056921970421512,
+          "retarded_imag_eV": 4.330495647507013e-17,
+          "hermitian_resolvent_reactance_eV": 0.7056921970421512
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9510767661133652,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9510767661133652,
+      "mass_prescription_difference_eV": 0.0
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 22,
+      "eta_eV": 0.01,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 4.79143022866289e-16,
+      "reactance_hermiticity_relative_error": 2.0782221982464634e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 3.796587123137882e-05,
+      "hermitian_resolvent_denominator_min_singular": 0.516498942823443,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 4.9318152380558303e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1964025852959397,
+          "retarded_imag_eV": -0.010364948884979193,
+          "hermitian_resolvent_reactance_eV": -3.1964338558906995
+        },
+        "8": {
+          "retarded_real_eV": 0.7056836237355286,
+          "retarded_imag_eV": -0.0015961640407148687,
+          "hermitian_resolvent_reactance_eV": 0.7056839470705466
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9510431045157342,
+      "hermitian_resolvent_full_mass_projection_eV": -1.951058901480623,
+      "mass_prescription_difference_eV": -1.5796964888847853e-05
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 22,
+      "eta_eV": 0.02,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 3.601303152453477e-16,
+      "reactance_hermiticity_relative_error": 1.8762109409020455e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.00015183366581051136,
+      "hermitian_resolvent_denominator_min_singular": 0.516513976845513,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 9.863539304504518e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1962144530052017,
+          "retarded_imag_eV": -0.020727308066828383,
+          "hermitian_resolvent_reactance_eV": -3.1963395107740773
+        },
+        "8": {
+          "retarded_real_eV": 0.705657558506122,
+          "retarded_imag_eV": -0.0031918224740746246,
+          "hermitian_resolvent_reactance_eV": 0.7056588497491025
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9509360057556617,
+      "hermitian_resolvent_full_mass_projection_eV": -1.95099918026159,
+      "mass_prescription_difference_eV": -6.317450592829843e-05
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 22,
+      "eta_eV": 0.05,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 2.807659294976768e-16,
+      "reactance_hermiticity_relative_error": 1.6548604381786928e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.0009476577032788328,
+      "hermitian_resolvent_denominator_min_singular": 0.5166191713878133,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00024657254258818225,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1948989668761905,
+          "retarded_imag_eV": -0.05177300444682002,
+          "hermitian_resolvent_reactance_eV": -3.1956795027773435
+        },
+        "8": {
+          "retarded_real_eV": 0.70547548171552,
+          "retarded_imag_eV": -0.007970727068228095,
+          "hermitian_resolvent_reactance_eV": 0.7054834605643301
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9501872242958553,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9505814816708367,
+      "mass_prescription_difference_eV": -0.00039425737498133273
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 22,
+      "eta_eV": 0.0,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 1.1814539464443078e-16,
+      "reactance_hermiticity_relative_error": 1.8438665857998473e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 5.991603098776496e-16,
+      "hermitian_resolvent_denominator_min_singular": 0.5164939311362631,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": -3.135681176455819e-17,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.196465307502948,
+          "retarded_imag_eV": -1.9759858094439116e-17,
+          "hermitian_resolvent_reactance_eV": -3.196465307502948
+        },
+        "8": {
+          "retarded_real_eV": 0.7056923151673977,
+          "retarded_imag_eV": -1.7851049791358806e-17,
+          "hermitian_resolvent_reactance_eV": 0.7056923151673977
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9510788113351727,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9510788113351727,
+      "mass_prescription_difference_eV": 0.0
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 30,
+      "eta_eV": 0.01,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 4.0368108822832055e-16,
+      "reactance_hermiticity_relative_error": 1.6638136228878615e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 3.796587407879151e-05,
+      "hermitian_resolvent_denominator_min_singular": 0.5164989402660188,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 4.9318152665833315e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1964026008058646,
+          "retarded_imag_eV": -0.010364949253479097,
+          "hermitian_resolvent_reactance_eV": -3.1964338714028417
+        },
+        "8": {
+          "retarded_real_eV": 0.705683624179551,
+          "retarded_imag_eV": -0.0015961640470002563,
+          "hermitian_resolvent_reactance_eV": 0.7056839475145915
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.951043112492708,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9510589094587165,
+      "mass_prescription_difference_eV": -1.5796966008618796e-05
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 30,
+      "eta_eV": 0.02,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 3.248832020481784e-16,
+      "reactance_hermiticity_relative_error": 1.6497267177075608e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.00015183367716216367,
+      "hermitian_resolvent_denominator_min_singular": 0.5165139742966086,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 9.863539361415823e-05,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1962144684557265,
+          "retarded_imag_eV": -0.020727308801331973,
+          "hermitian_resolvent_reactance_eV": -3.196339526233433
+        },
+        "8": {
+          "retarded_real_eV": 0.7056575589486909,
+          "retarded_imag_eV": -0.003191822486604776,
+          "hermitian_resolvent_reactance_eV": 0.7056588501917609
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9509360137022087,
+      "hermitian_resolvent_full_mass_projection_eV": -1.950999188212597,
+      "mass_prescription_difference_eV": -6.317451038828636e-05
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 30,
+      "eta_eV": 0.05,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 3.291293276095705e-16,
+      "reactance_hermiticity_relative_error": 1.60552387746075e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 0.0009476577725615844,
+      "hermitian_resolvent_denominator_min_singular": 0.5166191688976997,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": 0.00024657254398548494,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.194898981917482,
+          "retarded_imag_eV": -0.05177300624002575,
+          "hermitian_resolvent_reactance_eV": -3.1956795178725277
+        },
+        "8": {
+          "retarded_real_eV": 0.7054754821480578,
+          "retarded_imag_eV": -0.007970727098852284,
+          "hermitian_resolvent_reactance_eV": 0.705483460997413
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9501872320327698,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9505814894349705,
+      "mass_prescription_difference_eV": -0.0003942574022006706
+    },
+    {
+      "host": "CdTe",
+      "guest": "HgTe",
+      "mesh": 30,
+      "eta_eV": 0.0,
+      "energy_eV": 0.39906726140173193,
+      "retarded_vs_conversion_relative_error": 6.598169356185513e-17,
+      "reactance_hermiticity_relative_error": 1.517032248973418e-16,
+      "retarded_vs_hermitian_resolvent_operator_difference_eV": 4.266571303475119e-16,
+      "hermitian_resolvent_denominator_min_singular": 0.5164939285759923,
+      "minimum_absorptive_resolvent_eigenvalue_eV_inverse": -2.8297051967436465e-17,
+      "branches": {
+        "6": {
+          "retarded_real_eV": -3.1964653230327293,
+          "retarded_imag_eV": -2.3454958700203932e-18,
+          "hermitian_resolvent_reactance_eV": -3.1964653230327293
+        },
+        "8": {
+          "retarded_real_eV": 0.7056923156119057,
+          "retarded_imag_eV": 3.79299529976472e-17,
+          "hermitian_resolvent_reactance_eV": 0.7056923156119058
+        }
+      },
+      "retarded_full_mass_projection_eV": -1.9510788193223174,
+      "hermitian_resolvent_full_mass_projection_eV": -1.9510788193223176,
+      "mass_prescription_difference_eV": -2.220446049250313e-16
+    }
+  ],
+  "empirical_alloy_gap_inputs": [],
+  "limits": [
+    "Finite-eta T[Herm(g)] is not an established principal-value eta-to-zero limit",
+    "No physical impurity vertex or inversion composition is inferred",
+    "K_h is a support-space reactance, distinct from the host-edge P-irreducible K_P",
+    "The CdTe real mid-gap row is an off-continuum control",
+    "Continuum prescriptions must be tied to the requested physical observable"
+  ]
+}

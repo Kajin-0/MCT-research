@@ -78,6 +78,16 @@ sum_a ||V Phi_a||^2/(Lambda-E_a)^2. Its conditional O(1/Ncell) scaling
 explains a possible window advantage over local atomic trials; actual
 self-consistent localization and continuum/volume limits remain untested.
 
+**PROVEN continuum qualification:** Herm(T[g^R]) generally differs from
+T[Herm(g^R)]. A common complex mass zero characterizes a shared complex
+pole; a real-energy ordering crossing can occur with unequal linewidths
+without such a shared pole. The real-denominator, spectral-peak and complex
+pole observables must be distinguished before using a mass-route x_c.
+**CALCULATED:** the archived-model 21-row continuation audit verifies the
+ordered reactance/retarded conversion to 5.64e-16 relative error, with a
+real mid-gap CdTe equality control. It predicts no new physical coefficient
+or inversion composition. See the [continuum gate](../../../docs/derivations/continuum_prescription_and_crossing.md).
+
 **PROVEN under an isolated quadratic Gamma8 threshold and nonzero finite
 forward amplitude:** the gap-side contribution to -T8' scales as
 tau8^2 k8/sqrt(delta). **CALCULATED:** k8=0.5119895494464 eV^(-3/2) for
@@ -159,6 +169,8 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Frozen Gamma8 kernel](../../../data/calculated/gamma8_quadratic_threshold_20261011.json)
 - [Fixed-trial resolvent and spectral-window certificate](../../../docs/derivations/fixed_trial_resolvent.md)
 - [Host-invariant reaction kernel and finite-volume pole limits](../../../docs/derivations/host_invariant_reaction_kernel.md)
+- [Continuum prescription and broadened crossing qualification](../../../docs/derivations/continuum_prescription_and_crossing.md)
+- [Archived-model continuum audit](../../../data/calculated/sp3d5_continuum_prescription.json)
 - [Coarse HgTe quartet and exchange-component figure](figures/hgte_quartet_feedback.pdf)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)

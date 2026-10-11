@@ -96,7 +96,7 @@ No claim about the linewidths of actual HgCdTe is made by this example.
 For real energy one can instead define the Hermitian inverse-Green channels
 
     F_s,H(E,x)=E-C-Herm(Sigma_s),
-    M_H(E,x)=M+Herm(Sigma_m).
+    M_Herm(E,x)=M+Herm(Sigma_m).
 
 Simultaneous zeros of these scalar sector quantities locate a coincident
 real-denominator crossing. They need not locate the crossing of spectral
@@ -120,6 +120,25 @@ T[g(E+i eta)], Herm(T[g]), and T[Herm(g)]. It tests their exact ordered
 conversion, with CdTe real mid-gap as an off-continuum equality control.
 The model remains rejected as a physical impurity predictor: no new x_c
 is computed and no continuum prescription is selected by matching data.
+
+**CALCULATED:** 21 common-mode records use grids 14^3, 22^3 and 30^3,
+eta=10,20,50 meV, and additional real mid-gap CdTe controls. The maximum
+relative error in the ordered conversion is 5.64e-16. At mesh 30^3 and
+eta=50 meV the two prescriptions differ as follows:
+
+| Archived host | Operator norm difference | Mass projection K_h minus Herm(T) |
+| --- | ---: | ---: |
+| HgTe | 59.7839 meV | -1.31675 meV |
+| CdTe | 0.94766 meV | -0.39426 meV |
+
+The CdTe real mid-gap control agrees to about 4.3e-16 eV in operator
+norm. The broad finite-eta operator difference and its much smaller mass
+projection are different quantities; neither is a physical HgCdTe mass
+error or evidence for self-consistent static repair. The small-eta HgTe
+mesh drift also precludes declaring a converged principal-value limit.
+The [frozen audit](../../data/calculated/sp3d5_continuum_prescription.json)
+records every row, source and code hash. No alternative inversion root is
+generated from this rejected model.
 
 **HYPOTHESIS:** sharp enough physical Gamma branches may make the real
 mass reduction useful near the transition. This needs the self-consistent
