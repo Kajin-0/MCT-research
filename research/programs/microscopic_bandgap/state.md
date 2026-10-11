@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** reference/direct-alloy audits complete; hybrid host gate running; physical impurity input unresolved
+**State:** reference/direct-alloy audits complete; two hybrid CdTe hosts converged; projected empty-state gate failed; numerical control running
 
 **Updated:** 2026-10-10
 
@@ -76,6 +76,7 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Calculation and interpretation](result_2026-10-10.md)
 - [Direct-alloy and self-consistency result](result_2026-10-10_self_consistency.md)
 - [Hybrid host capability and core-approximation gate](result_2026-10-10_hybrid_gate.md)
+- [Completed host comparison and projected-frame failure](result_2026-10-10_projected_host.md)
 - [Portable hybrid host record](../../../data/calculated/static_hse_binary_gate_20261010.json)
 - [Reference and threshold derivation](../../../docs/derivations/impurity_reference_and_threshold.md)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
@@ -97,13 +98,18 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
 
 ## Next decision-changing work
 
-1. Finish the live CdTe HSE+SOC SG15 no-NLCC comparison in the companion
-   DFT repository before launching another MPI family. The PseudoDojo
-   CdTe HSE job converged with assigned signed gap 1.7048135 eV on k4/q2/90 Ry;
-   Gamma symmetry/projection and full 64-point spinor expansion pass, but
-   grid and core approximations are not materially validated. DFT commit
-   12bde47 contains this completed gate. Check the live run's terminal state,
-   continue a time-limited checkpoint if needed, and then classify sectors.
+1. Finish the live SG15 CdTe `--accurate-empty` numerical control in the
+   companion DFT repository before another MPI family. Both coarse HSE hosts
+   converged: signed gaps 1.7048135 eV (PseudoDojo) and 1.5753656 eV (SG15),
+   with independently assigned Gamma sectors and verified grid expansion.
+   Their 129.4479-meV difference is not attributable to NLCC alone.
+   Full-rank 26-spinor frames fail matrix time reversal; the tested defect
+   exists already in the native empty-state span at X. DFT commit a0c91cc
+   contains the completed audits and the tighter-empty-state driver. The
+   October 11 continuation is
+   `cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97`; after convergence rerun
+   the projection and native-wavefunction checks. No scattering host is
+   accepted yet. A time-limited continuation must also pass `--accurate-empty`.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
