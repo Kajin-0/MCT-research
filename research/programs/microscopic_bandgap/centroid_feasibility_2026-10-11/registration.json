@@ -1,0 +1,70 @@
+{
+  "base_commit": "c1a2ccde7f10ad3ff23c2d224ffa415f0545404a",
+  "model": "existing_N3_continuum_family_fixed_projection",
+  "reference_chord_eV": [
+    "-0.3",
+    "1.1"
+  ],
+  "continuum_half_width_eV": "2",
+  "continuum_mixed_weight": "0.05",
+  "window_half_widths_eV": [
+    "0.5",
+    "1.5",
+    "5.0"
+  ],
+  "eta_eV": [
+    "0.05",
+    "0.10",
+    "0.20"
+  ],
+  "composition": [
+    "0.20",
+    "0.25",
+    "0.30",
+    "0.35",
+    "0.40"
+  ],
+  "alternatives": {
+    "balanced": "0",
+    "positive": "1",
+    "negative": "-1"
+  },
+  "decimal_precision": 32,
+  "atan_terms": 64,
+  "quad_orders": [
+    8,
+    16
+  ],
+  "max_rows": 135,
+  "max_quad_segments": 200,
+  "mass_floor": "0.05",
+  "max_numerical_centroid_radius_eV": "0.0001",
+  "minimum_sign_margin_eV": "0.001",
+  "quad_mass_tolerance": "0.00000001",
+  "quad_moment_tolerance_per_W": "0.00000001",
+  "root_search": false,
+  "physical_xc": null,
+  "new_goal_or_session": false,
+  "sources": [
+    {
+      "path": "research/programs/microscopic_bandgap/continuum_spectral_2026-10-11/observables_and_failures.md",
+      "sha256": "72f656ff724eee66ffdea853189e69e01db1cd8d63aa2b0d29cc6779bc123ee2"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/continuum_spectral_2026-10-11/bounds.md",
+      "sha256": "cc820048fdd6eb25c963a3072516103b3158757663f2c8ce7809aa25daf5ced4"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/continuum_spectral_2026-10-11/test_independent.py",
+      "sha256": "fadb57b5b2c334768196f1009c8235541bca273ce8e4c293f2ca8dd6113ab0ee"
+    },
+    {
+      "path": "tests/test_r07_analytical_first.py",
+      "sha256": "49a28c96023167d629da2849948a1792c9abcb41ec4c421db9d3d72bb2d6b391"
+    },
+    {
+      "path": "docs/derivations/self_consistent_threshold_and_centroid.md",
+      "sha256": "43e3de1c6c38a660ad49400ae5dd382b3a5f69ad1a118154a07060fcb1a01cfc"
+    }
+  ]
+}
