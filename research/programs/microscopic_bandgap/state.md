@@ -2,9 +2,28 @@
 
 **Portfolio contribution:** R07
 
-**State:** threshold-retaining causal reduction and conditional uniform inversion certificate established; physical prediction stopped at the missing interior mass/domain input; existing reference supervisors completed and reviewed without intervention
+**State:** independent R07 primary-evidence acquisition completed with substantiated missing qualified physical inputs; conditional causal certificates and earlier negative results preserved; no certified physical zero-temperature inversion interval
 
 **Updated:** 2026-10-11
+
+## Independent evidence-acquisition decision
+
+The [2026-10-11 evidence memo](evidence_acquisition_2026-10-11/decision_memo.md)
+and [primary-source matrix](evidence_acquisition_2026-10-11/source_evidence_matrix.md)
+complete the separately authorized R07 investigation. Published alloy states,
+unfolded weights, CPA/SCBA propagators and independent inversion observations
+exist. The audited evidence does not qualify the common support-free kernel
+domain, interior mass signs on that domain, all-pairs lower composition modulus
+and uniform physical residual budget required for the inversion certificate.
+No physical zero-temperature x_c or new material coefficient is asserted.
+
+One [staged archival ordering pilot](evidence_acquisition_2026-10-11/next_pilot.md)
+is proposed, with raw-data/metrology intake gates and explicit resource caps.
+It is not run or queued. This evidence-acquisition task stops at the substantiated
+missing-input conclusion. The old blocked analytical goal's status, controls and
+usage budget are unchanged; no goal API was called. No existing process or
+supervisor was interrupted or altered. Historical analytical/numerical decisions
+and their goal wording below are preserved as dated records.
 
 ## Objective and scope
 
