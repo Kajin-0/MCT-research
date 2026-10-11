@@ -2,9 +2,29 @@
 
 **Portfolio contribution:** R07
 
-**State:** finite continuum-observable sprint completed: bounded spectral-ordering certificates avoid D at fixed resolution, but qualified interior physical contractions remain missing; conditional causal certificates and earlier negative results preserved; no certified physical zero-temperature inversion interval
+**State:** bounded synthetic centroid study completed at registered robust-sign NO-GO; numerical and mass-floor gates pass, but endpoint/coherent-equivalent alternatives disagree; continuum certificates and prior rejections preserved; physical spectral input and sharp inversion remain unqualified
 
 **Updated:** 2026-10-11
+
+## Separate bounded centroid model-feasibility study
+
+The [registered feasibility package](centroid_feasibility_2026-10-11/README.md)
+was frozen in `5347d3c` before scanning 135 exact synthetic continuum rows:
+three window half-widths, three finite analytical eta values, five interior
+compositions and three endpoint/coherent-equivalent spectral redistributions.
+**CALCULATED:** all numerical and >=0.05 window-mass gates pass; the minimum
+lower mass is 0.0694186. Balanced signs are stable across all nine windows/eta
+at each composition. The alternatives destroy the registered robust sign at
+every composition, with individual enclosed signs at least 5.408 meV from zero.
+
+**Decision: finite model NO-GO — STOP.** The study qualifies an exact causal
+synthetic benchmark, not a physical HgCdTe TB/CPA model. Its negative result
+quantifies the prior windowed odd-moment obstruction without changing any
+rejection gate. The ranked missing physical input remains independently bounded
+interior Gamma spectral-window contractions in a predetermined physical frame
+and state; no material x_c or operational sign bracket is asserted. No new scan,
+native calculation, acquisition, numerical queue or supervisor action follows.
+The historical blocked goal is unchanged; no goal API or new session was used.
 
 ## Separate finite continuum-observable sprint
 
