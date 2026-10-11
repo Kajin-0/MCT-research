@@ -1,0 +1,30 @@
+{
+  "task": "New finite streaming engineering phase, independent of historical BLOCKED goal",
+  "source_base": "ea8823e",
+  "sequence": [
+    "complete EXX checkpoint closure + durable ownership tests",
+    "exact disk/quota reservation + RAM/tmpfs guards",
+    "conditional small native MPI/FFT/exchange/ACE comparison"
+  ],
+  "native_limits": {
+    "max_peak_RAM_bytes": 12884901888,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_wall_seconds_each": 600,
+    "one_MPI_family": true
+  },
+  "excluded": [
+    "16-atom HSE",
+    "new session/agent",
+    "supervisor changes",
+    "hardware purchase/paid resources",
+    "historical goal API",
+    "DFT commit",
+    "main merge"
+  ],
+  "stop_if": [
+    "checkpoint/source/guard gate unready",
+    "resource refusal",
+    "native mismatch"
+  ],
+  "native_execution_not_preapproved_unconditionally": true
+}

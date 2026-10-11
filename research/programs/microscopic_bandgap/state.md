@@ -8,6 +8,21 @@
 
 ## Separate finite QE low-RAM engineering task
 
+The subsequent [bounded checkpoint/resource phase](qe75_streaming_2026-10-11/checkpoint_phase/README.md)
+implements and tests a versioned no-copy storage-ownership transaction, read-only
+Fortran storage adapter, strict 64-bit block/quota/reservation and resource guard
+APIs. Fifteen small test methods plus 24 storage regressions pass; no native
+QE/MPI runs. Read-only Q_GETINFO resolves quota status without elevated permissions.
+A missed between-EXX-iterations export path is documented and closed by a compiled
+private-source refusal patch. **Native state capture/import remains unimplemented
+and unqualified:** old ACE/occupations must be bound to the current native SCF save
+at both stop points and after punch. **Decision STOP_NO_NATIVE_STATE_BRIDGE**;
+the conditionally authorized small native comparison is NOT ADMITTED / NOT RUN.
+No checkpoint library test is promoted to native restart success. Stock QE,
+previous private PW binary, dirty DFT files, 17 pins and historical BLOCKED goal
+remain unchanged. The original nominal 22-GiB store also fails the new 10-GiB disk
+reserve; it is not allocated. [Handoff](qe75_streaming_2026-10-11/checkpoint_phase/handoff_ledger.md).
+
 The [q-plane streaming package](qe75_streaming_2026-10-11/README.md) traces the
 actual QE 7.5 producer/readers, ACE and EXX checkpoints. **PROVEN UNDER ASSUMPTIONS:**
 lossless one-q-plane storage preserves the scoped CPU/NC/SOC exchange action and

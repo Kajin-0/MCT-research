@@ -4,6 +4,11 @@
 SCF **NOT QUALIFIED / NOT RUN**. No hardware purchase or physics reduction.
 The historical blocked R07 goal is unchanged.
 
+The separately authorized [checkpoint/resource phase](checkpoint_phase/README.md)
+adds tested no-copy ownership and reservation components but stops at the absent
+complete native-state bridge. It also corrects a missed outer-stop/export refusal
+path in the dated first patch. The earlier build is not promoted to native-ready.
+
 The pinned source, dependency proof and lossless store remove the simultaneous
 residence of eight exchange q planes for the prepared CPU/NC/SOC/fresh-SCF path.
 Nominal `exxbuff` allocation becomes **2.75 GiB instead of 22 GiB**, saving

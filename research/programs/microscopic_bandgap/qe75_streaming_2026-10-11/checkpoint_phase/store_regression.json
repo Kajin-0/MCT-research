@@ -1,0 +1,218 @@
+[
+  {
+    "optimization": "-O0",
+    "case": "normal",
+    "passed": true,
+    "returncode": 0,
+    "stdout": "GENERATION_PASS 1 kernel_difference=  0.0000E+00\nGENERATION_PASS 2 kernel_difference=  0.0000E+00\nSTORE_KERNEL_PASS\n",
+    "stderr": "",
+    "wall_seconds": 0.004030544310808182
+  },
+  {
+    "optimization": "-O0",
+    "case": "extent64",
+    "passed": true,
+    "returncode": 0,
+    "stdout": "EXTENT64_PASS 23622320128\n",
+    "stderr": "",
+    "wall_seconds": 0.0022485991939902306
+  },
+  {
+    "optimization": "-O0",
+    "case": "missing",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: missing producer vectors\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0020717382431030273
+  },
+  {
+    "optimization": "-O0",
+    "case": "duplicate",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: duplicate producer vector\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002178017981350422
+  },
+  {
+    "optimization": "-O0",
+    "case": "unsealed",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: load requires sealed generation\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.003034701570868492
+  },
+  {
+    "optimization": "-O0",
+    "case": "sealed_write",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: put requires unsealed open generation\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0020167678594589233
+  },
+  {
+    "optimization": "-O0",
+    "case": "q_range",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: load q outside store\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002086077816784382
+  },
+  {
+    "optimization": "-O0",
+    "case": "plane_shape",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: load plane shape mismatch\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0027559511363506317
+  },
+  {
+    "optimization": "-O0",
+    "case": "truncate",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: read: End of file\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0026431912556290627
+  },
+  {
+    "optimization": "-O0",
+    "case": "shape",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: invalid store shape\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002238558605313301
+  },
+  {
+    "optimization": "-O0",
+    "case": "preexisting",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: refusing pre-existing stream file; require unique fresh outdir\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002083507366478443
+  },
+  {
+    "optimization": "-O0",
+    "case": "overflow",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: 64-bit storage offset overflow\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0019141072407364845
+  },
+  {
+    "optimization": "-O2",
+    "case": "normal",
+    "passed": true,
+    "returncode": 0,
+    "stdout": "GENERATION_PASS 1 kernel_difference=  0.0000E+00\nGENERATION_PASS 2 kernel_difference=  0.0000E+00\nSTORE_KERNEL_PASS\n",
+    "stderr": "",
+    "wall_seconds": 0.004422707483172417
+  },
+  {
+    "optimization": "-O2",
+    "case": "extent64",
+    "passed": true,
+    "returncode": 0,
+    "stdout": "EXTENT64_PASS 23622320128\n",
+    "stderr": "",
+    "wall_seconds": 0.0019945967942476273
+  },
+  {
+    "optimization": "-O2",
+    "case": "missing",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: missing producer vectors\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0022997790947556496
+  },
+  {
+    "optimization": "-O2",
+    "case": "duplicate",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: duplicate producer vector\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0025151390582323074
+  },
+  {
+    "optimization": "-O2",
+    "case": "unsealed",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: load requires sealed generation\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002870350144803524
+  },
+  {
+    "optimization": "-O2",
+    "case": "sealed_write",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: put requires unsealed open generation\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002244269475340843
+  },
+  {
+    "optimization": "-O2",
+    "case": "q_range",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: load q outside store\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002701031044125557
+  },
+  {
+    "optimization": "-O2",
+    "case": "plane_shape",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: load plane shape mismatch\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0024331388995051384
+  },
+  {
+    "optimization": "-O2",
+    "case": "truncate",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: read: End of file\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.00324186310172081
+  },
+  {
+    "optimization": "-O2",
+    "case": "shape",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: invalid store shape\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0024270303547382355
+  },
+  {
+    "optimization": "-O2",
+    "case": "preexisting",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: refusing pre-existing stream file; require unique fresh outdir\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.002125699073076248
+  },
+  {
+    "optimization": "-O2",
+    "case": "overflow",
+    "passed": true,
+    "returncode": 9,
+    "stdout": "EXPECTED_QS_ERROR exx_qstream: 64-bit storage offset overflow\n",
+    "stderr": "STOP 9\n",
+    "wall_seconds": 0.0020177187398076057
+  }
+]

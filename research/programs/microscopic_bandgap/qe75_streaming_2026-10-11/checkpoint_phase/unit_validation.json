@@ -1,0 +1,53 @@
+[
+  {
+    "command": [
+      "/usr/bin/gcc",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c11",
+      "-fPIC",
+      "-shared",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/checkpoint_phase/storage_guard.c",
+      "-o",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/checkpoint_phase/storage_guard.so"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_seconds": 0.10813504178076982
+  },
+  {
+    "command": [
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+      "-O2",
+      "-g",
+      "-fcheck=all",
+      "-fcheck=array-temps",
+      "-ffree-line-length-none",
+      "-J",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/checkpoint_phase",
+      "-I",
+      "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_modules",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/checkpoint_phase/exx_qstream_v2.f90",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/checkpoint_phase/ownership_unit.f90",
+      "-o",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/checkpoint_phase/ownership_unit"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_seconds": 0.3362385109066963
+  },
+  {
+    "command": [
+      "python",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/checkpoint_phase/test_checkpoint_phase.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_actual_fortran_open_file_checkpoint_and_restore (__main__.PhaseChecks.test_actual_fortran_open_file_checkpoint_and_restore) ... ok\ntest_all_publication_crash_points (__main__.PhaseChecks.test_all_publication_crash_points) ... ok\ntest_corruption_and_layout_provenance_refused (__main__.PhaseChecks.test_corruption_and_layout_provenance_refused) ... ok\ntest_incomplete_rank_or_operator_members_refused (__main__.PhaseChecks.test_incomplete_rank_or_operator_members_refused) ... ok\ntest_manifest_version_digest_and_native_gate (__main__.PhaseChecks.test_manifest_version_digest_and_native_gate) ... ok\ntest_old_ace_cannot_be_rebuilt_from_current_basis (__main__.PhaseChecks.test_old_ace_cannot_be_rebuilt_from_current_basis) ... ok\ntest_preexisting_adoption_target_refused (__main__.PhaseChecks.test_preexisting_adoption_target_refused) ... ok\ntest_ram_disk_quota_and_bad_telemetry_refusals (__main__.PhaseChecks.test_ram_disk_quota_and_bad_telemetry_refusals) ... ok\ntest_real_ext4_reservation_and_tmpfs_refusal (__main__.PhaseChecks.test_real_ext4_reservation_and_tmpfs_refusal) ... ok\ntest_retirement_crash_is_refusal_not_stale_restore (__main__.PhaseChecks.test_retirement_crash_is_refusal_not_stale_restore) ... ok\ntest_signed64_rounding_and_actual_guard_refusal (__main__.PhaseChecks.test_signed64_rounding_and_actual_guard_refusal) ... ok\ntest_symlinks_and_second_writer_refused (__main__.PhaseChecks.test_symlinks_and_second_writer_refused) ... ok\ntest_unrelated_cleanup_target_and_current_refused (__main__.PhaseChecks.test_unrelated_cleanup_target_and_current_refused) ... ok\ntest_zero_copy_immutable_ownership (__main__.PhaseChecks.test_zero_copy_immutable_ownership) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.263s\n\nOK\n",
+    "wall_seconds": 0.4140307977795601
+  }
+]

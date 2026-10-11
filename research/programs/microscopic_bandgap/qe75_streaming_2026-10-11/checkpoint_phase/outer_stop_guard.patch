@@ -1,0 +1,7 @@
+--- a/PW/src/electrons.f90
++++ b/PW/src/electrons.f90
+@@ -350,0 +351,4 @@
++#if defined(__EXX_QSTREAM)
++        ! Both interruption paths refuse incomplete native state/checkpoint export.
++        CALL errore('electrons','qstream native checkpoint bridge not qualified (outer stop)',1)
++#endif

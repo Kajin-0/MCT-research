@@ -1,0 +1,146 @@
+{
+  "quota_and_fs_probe": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 7940080,
+    "available_bytes": 32522567680,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "mem_bytes": {
+    "MemTotal": 33651908608,
+    "MemAvailable": 31851802624
+  },
+  "small_arithmetic_admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 1073750016,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "16_atom_original_nominal_stream_policy": {
+    "admitted": false,
+    "reason": "10-GiB physical disk reserve would be violated",
+    "not_run_or_reserved": true
+  },
+  "native_state_gate": {
+    "qualified": false,
+    "reason": "Complete QE old ACE/occupation + SCF-state capture/import bridge not implemented or validated"
+  },
+  "native_MPI_fixture": {
+    "status": "NOT_RUN",
+    "reason": "Sequential prerequisite native state/source gate failed"
+  },
+  "source_supervisor_pins": {
+    "/home/User/opencode_workspace/DFT/AGENTS.md": {
+      "expected": "786ce7bd8b51b90c67a220e4bc30cf8c671e37f56bef266c6f7ad3838a4d2fc5",
+      "observed": "786ce7bd8b51b90c67a220e4bc30cf8c671e37f56bef266c6f7ad3838a4d2fc5"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw.in": {
+      "expected": "ed0dfcb72be290486aded7959aa6b0e4846e409945d9c0ce53555a4eba75b721",
+      "observed": "ed0dfcb72be290486aded7959aa6b0e4846e409945d9c0ce53555a4eba75b721"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry.in": {
+      "expected": "d048dd9b294aeaa2bc35173aa61223e8a87f9c32fde91fa3fa321b08056f9758",
+      "observed": "d048dd9b294aeaa2bc35173aa61223e8a87f9c32fde91fa3fa321b08056f9758"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry.out": {
+      "expected": "4ce49b624033d11699c356060bffe1286b804a89aed1781067176d680d108e24",
+      "observed": "4ce49b624033d11699c356060bffe1286b804a89aed1781067176d680d108e24"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry_provenance.json": {
+      "expected": "daf39cfc5f7102ffc20d06863ef4c377a900c8169cd2f7dcf1e0c0d9b965f67e",
+      "observed": "daf39cfc5f7102ffc20d06863ef4c377a900c8169cd2f7dcf1e0c0d9b965f67e"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry_result.json": {
+      "expected": "ecdd0800179542d74f42eae21b45b429395555999852953d55ce945267e55bd7",
+      "observed": "ecdd0800179542d74f42eae21b45b429395555999852953d55ce945267e55bd7"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw.in": {
+      "expected": "9c9a8968a6dace160de05a72497b1cab36fe9f7f9f455a78016da69f3fb02453",
+      "observed": "9c9a8968a6dace160de05a72497b1cab36fe9f7f9f455a78016da69f3fb02453"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry.in": {
+      "expected": "32739dbc423e5dc6b8169234ed49a8574e1b612b3b61732aa62f790f21c89021",
+      "observed": "32739dbc423e5dc6b8169234ed49a8574e1b612b3b61732aa62f790f21c89021"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry.out": {
+      "expected": "74b27ca9008b8ebabfafea80588e0d1e753eddff728c68901f33f5998d3d1edc",
+      "observed": "74b27ca9008b8ebabfafea80588e0d1e753eddff728c68901f33f5998d3d1edc"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry_provenance.json": {
+      "expected": "97246158293cb1c11ca3f4e7ea776ca29e8053c2e29821c615c14ca7b8a83386",
+      "observed": "97246158293cb1c11ca3f4e7ea776ca29e8053c2e29821c615c14ca7b8a83386"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry_result.json": {
+      "expected": "9c26a2f09bbdbe24d7b474b2338ac5ee88ce0dd3b695ce298b4e5208a77aa50c",
+      "observed": "9c26a2f09bbdbe24d7b474b2338ac5ee88ce0dd3b695ce298b4e5208a77aa50c"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/preparation.json": {
+      "expected": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
+      "observed": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/fock_followthrough_5eed5ea4/state.json": {
+      "expected": "198bbdf186e8ac0fd4c34aa79e6d732a654a3f62c41313609a7723a761bb397d",
+      "observed": "198bbdf186e8ac0fd4c34aa79e6d732a654a3f62c41313609a7723a761bb397d"
+    },
+    "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4_recovered/state.json": {
+      "expected": "7d2149f1329d0d0901ddc6c047fbfa79333fbb3204bc669b8843ede7fba5848b",
+      "observed": "7d2149f1329d0d0901ddc6c047fbfa79333fbb3204bc669b8843ede7fba5848b"
+    },
+    "/home/User/opencode_workspace/DFT/pseudopotentials/Cd_sg15_pbe_fr_v12.UPF": {
+      "expected": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "observed": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b"
+    },
+    "/home/User/opencode_workspace/DFT/pseudopotentials/Hg_sg15_pbe_fr_v12.UPF": {
+      "expected": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "observed": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0"
+    },
+    "/home/User/opencode_workspace/DFT/pseudopotentials/Te_sg15_pbe_fr_v12.UPF": {
+      "expected": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "observed": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+    }
+  },
+  "stock_QE_hashes": {
+    ".local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+    ".local/qe-env/lib/libqe_pw.a": "65349164becf7adab64d8c4cc1ad02be16d4ac3c86b1635fe840bcaf5116f0a2"
+  },
+  "DFT_dirty_status_identical": true,
+  "existing_private_PW_candidate_not_executed_or_replaced": true,
+  "MPI_family_processes": "",
+  "previous_private_PW_sha256": "12dfd617585c9b2b00b4fa743ce06cf09062520ef481118fac2035fa10eeee08",
+  "previous_private_PW_hash_unchanged": true
+}
