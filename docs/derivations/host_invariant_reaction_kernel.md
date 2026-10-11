@@ -101,10 +101,18 @@ requires N to grow before the real-energy limit, or an explicitly
 P-irreducible finite-volume construction with a checked convergence limit.
 
 Under localization of V, nonresonance and convergence of the Q lattice
-resolvent to the specified retarded/principal-value thermodynamic host,
+resolvent at fixed positive eta, the retarded construction is
 
-    lim_(N->infinity) N K_P,N(Ea)
-       = the corresponding forward impurity amplitude.
+    lim_(eta->0+) lim_(N->infinity) N K_P,N(Ea+i eta)
+       = the retarded forward impurity amplitude.
+
+The finite-volume P subtraction removes the one exact host pole; it does
+not eliminate the need for this ordered continuum limit. At a real gap
+energy a direct real-energy kernel limit can instead be tested. Inside a
+continuum a finite real-energy lattice sum is not automatically a converged
+principal-value construction. A principal-value reactance and the Hermitian
+part of the retarded T are themselves distinct, as shown in the
+[continuum prescription audit](continuum_prescription_and_crossing.md).
 
 For several Gamma edge states, all relevant host poles and their symmetry
 channels must be handled together. Inverted HgTe can have continuum
