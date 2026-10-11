@@ -2,9 +2,9 @@
   "DFT_branch": "research/hgcdte-analytical-gap-20261010",
   "DFT_fast_tests": {
     "deselected": 1,
-    "passed": 84
+    "passed": 85
   },
-  "DFT_repository_commit": "82628b7cb36ebe93585151aaf0f208aa92b1c406",
+  "DFT_repository_commit": "422d71de02df56edae96e47e1a71931e073b48ad",
   "active_binary_reference": {
     "detached_supervisor_launch": {
       "detached_supervisor_pid": 1757546,
@@ -421,6 +421,42 @@
     },
     "serial_queue_status": "Recovered serial queue has finished both f120 dry probes and is running unchanged q4 additional chunk 1",
     "status": "LIVE fresh unchanged q4 native continuation, captured OS status and recursive MPI-family supervision; no accepted HgTe gap or physical impurity coefficient"
+  },
+  "bounded_Fock_followthrough": {
+    "launch": {
+      "claim_status": "RUNNING detached bounded numerical Fock followthrough; no impurity or inversion",
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/opencode_workspace/DFT/scripts/r07_finish_fock_reference.py",
+        "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4_recovered",
+        "--max-continuations",
+        "2"
+      ],
+      "git_commit": "76afbaed920a5919add59c28ef3865192e87ddf7",
+      "log": "work/r07_fock_followthrough_20261011.log",
+      "original_native_sequence_owner_pid": 1757546,
+      "owner_pgid": 1763338,
+      "owner_pid": 1763338,
+      "owner_start_ticks": 624194361,
+      "startup_acknowledged": true,
+      "written_utc": "2026-10-11T11:13:42.527592+00:00"
+    },
+    "maximum_work": "Wait for exact preceding queue up to five hours; at most two unchanged f120 3600-second chunks +1800-second grace each; compare only accepted native SCFs; no full impurity SCF",
+    "scientific_status": "LIVE waiting controller; no Fock accuracy result, physical impurity amplitude or inversion inferred",
+    "state_snapshot": {
+      "claim_status": "RUNNING bounded Fock-reference followthrough; no physical impurity or inversion",
+      "driver_sha256": "87810a34b2d2953252c58cdce0a35985f847ce2167ae5be70fb82af8224e9127",
+      "empirical_alloy_gap_inputs": [],
+      "launch_git_commit": "76afbaed920a5919add59c28ef3865192e87ddf7",
+      "max_additional_continuations": 2,
+      "owner_pid": 1763338,
+      "preceding_driver_sha256": "4459e62027213db09de4fbe78f0caec5e6ca2f2e6fb43609d5d98c473cb0c8e4",
+      "preceding_initial_snapshot_sha256": "ab5d9fe45500dffbed9e2e717a5ebc7a537bf5b4f03d8f80cb2c5c660ae3f85f",
+      "preceding_queue": "calculations/r07/reference_queue_5eed5ea4_recovered",
+      "stage": "WAIT for the exact preceding reference/resource queue",
+      "stages": [],
+      "written_utc": "2026-10-11T11:13:42.492282+00:00"
+    }
   },
   "claim_status": "CALCULATED two coarse-grid binary hosts; both projected finite-q matrix gates failed; physical impurity prediction pending",
   "completed_controls": {
@@ -7024,5 +7060,5 @@
   "potential_set_interpretation": "Sets differ in generator choices in addition to NLCC; no isolated NLCC attribution",
   "radial_metadata_correction": "The historical inverse_A label is inaccurate for the pinned QE 7.5 standalone interface. Native coefficient reconstruction verifies alpha=1 bohr^-1 for the unchanged numeric input 1.0.",
   "temperature_work": "deferred",
-  "updated_utc": "2026-10-11T11:08:31.293451+00:00"
+  "updated_utc": "2026-10-11T11:15:15.358958+00:00"
 }

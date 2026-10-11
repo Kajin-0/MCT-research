@@ -42,7 +42,7 @@ description was inaccurate. The 26-band window captures only 0.0162204 of
 the least-captured fixed physical trial direction at X. All 44 supplied
 bands raise this to 0.469856. These are trial-norm fractions, not gap errors.
 Identical ordered 208-spinor trial blocks are prepared for the paired cells.
-A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 84 pass.
+A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 85 pass.
 
 **CALCULATED:** the prepared Gamma-only n2/q1 supercell preserves the
 primitive q2 exchange-feedback spacing. Matched n2/k2/q2 input decks are
@@ -262,6 +262,12 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    DFT commit 82628b7 preserves the terminal and resource records and the
    physical-frame Fock comparison. Its native same-operator CdTe control
    gives a 1.84e-15-eV residual, not an f120 accuracy result.
+   A second acknowledged detached owner waits for the exact numerical
+   queue, allows at most two unchanged f120 continuation chunks if needed,
+   and compares only accepted references through native spinor overlaps
+   and window certificates. Both owners enforce one MPI family. These
+   bounded numerical sequences start no full impurity SCF; physical
+   finite-q operator, isolated-cell and material accuracy remain pending.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    First test the host-invariant edge-spinor resolvent/reaction-kernel route,
