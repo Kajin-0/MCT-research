@@ -79,6 +79,7 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Completed host comparison and projected-frame failure](result_2026-10-10_projected_host.md)
 - [Portable hybrid host record](../../../data/calculated/static_hse_binary_gate_20261010.json)
 - [Reference and threshold derivation](../../../docs/derivations/impurity_reference_and_threshold.md)
+- [Endpoint volume-path correction](../../../docs/derivations/endpoint_volume_path.md)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
@@ -114,7 +115,9 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
 3. Use the corrected full/residual conventions and define the HgTe common-mode
-   continuation explicitly. Freeze branch values and mass roots before validation.
+   continuation explicitly. Declare the lattice path: fixed-volume impurity
+   derivatives omit the endpoint homogeneous-strain terms when a(x) varies.
+   Freeze branch values and mass roots before validation.
 4. Determine the threshold channel selection, the intended spectral observable,
    and self-consistent linewidth
    before treating T' as a finite constant-A input or invoking endpoint pair
