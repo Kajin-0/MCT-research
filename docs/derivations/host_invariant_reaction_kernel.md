@@ -146,3 +146,57 @@ mass values than constructing a complete common-Wannier substitution matrix
 first. The actual self-consistent paired spectra are still required.
 **NOVELTY CANDIDATE:** none established. No empirical alloy coefficient or
 temperature input is used.
+
+## Native physical-overlap control
+
+**CALCULATED:** the companion DFT implementation now matches NC plane-wave
+coefficients by their physical reciprocal vectors, allowing reordered
+Miller lists and integer Bloch relabeling. It rejects differing cells,
+reciprocal axes, physical plane-wave spaces and nonorthonormal NC metrics.
+Synthetic dense-state checks verify unitary covariance of the projected
+reaction kernel, including invariance of a degenerate sector trace.
+
+The native irreducible and expanded-grid Gamma files of the same SG15
+CdTe HSE host give K_P norm 2.5819e-15 eV, full T_P norm 2.5874e-15 eV,
+and projected resolvent error 4.2102e-15 eV^-1. The six physical host
+Gamma6/Gamma8 spinors have unresolved supplied-window weight 3.6086e-15.
+This is a same-operator negative control, not a physical impurity shift
+or an upgrade of binary/grid accuracy. The [native control protocol](/home/User/opencode_workspace/DFT/docs/r07_invariant_host_control.md)
+records the exact files, potential hashes and remaining gates.
+
+## Why localized substitution can have a small omitted host-projector weight
+
+For one of the fixed physical host eigenstates Phi_a with energy E_a,
+the exact static-operator identity H=H0+V gives, for an impurity eigenstate,
+
+    (epsilon_n-E_a) <psi_n|Phi_a> = <psi_n|V|Phi_a>.
+
+Suppose the omitted eigenvalues are all at least Lambda, with
+Lambda>max_a E_a. For the unresolved host-projector weight N_B,
+
+    ||N_B|| <= trace(N_B)
+             <= sum_a ||V Phi_a||^2/(Lambda-E_a)^2.
+
+**PROVEN:** multiply each exact eigenstate identity by its conjugate,
+sum over the omitted states, use the positive denominator bound, and
+bound that omitted norm by the complete norm of V Phi_a. This is a
+conditional upper bound; no unknown matrix element is assigned a number.
+
+If Phi_a is an extended normalized host Bloch state in Ncell primitive
+cells and the static substitution V remains localized with a cell-size
+independent square-summable scattering cloud, ||V Phi_a||^2=O(1/Ncell).
+Consequently the unresolved fixed-edge-projector norm is O(1/Ncell) at
+a fixed positive spectral separation. This assumption must be checked
+for the actual self-consistent screened-exchange substitution; it is not
+established by the current binary calculations.
+
+This explains a potential computational advantage over fixed local atomic
+trials: in the absence of substitution, any supplied prefix containing
+the selected host eigenstates captures their norm exactly. A localized
+substitution introduces an unresolved norm proportional to its scattering
+cloud rather than the unrelated high-energy tail of an atomic trial.
+The measurable matrix I-B*B still supplies the operative window certificate.
+Neither the 1/Ncell scaling nor multiplying K_P by Ncell establishes a
+few-meV dilute-limit error by itself. A continuum or near-resonant response
+can amplify the inverse, and electrostatic alignment, eigenpair errors,+self-consistent periodic-image effects and volume convergence remain
+separate checks.

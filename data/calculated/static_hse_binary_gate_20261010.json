@@ -2,9 +2,9 @@
   "DFT_branch": "research/hgcdte-analytical-gap-20261010",
   "DFT_fast_tests": {
     "deselected": 1,
-    "passed": 67
+    "passed": 70
   },
-  "DFT_repository_commit": "152e801",
+  "DFT_repository_commit": "30b3e72",
   "active_binary_reference": {
     "directory": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800",
     "interim_raw_gamma": {
@@ -3820,6 +3820,15 @@
     "reaction_formula": "A-inverse(R_imp)",
     "status": "PROVEN finite-operator identities and CALCULATED exact model verification; physical paired SCF pending"
   },
+  "host_invariant_extraction_localization_bound": {
+    "bound": "||N_B|| <= trace(N_B) <= sum_a ||V Phi_a||^2/(Lambda-E_a)^2",
+    "claim_status": "PROVEN for exact static matched operators and an omitted prefix above all selected host eigenvalues",
+    "conditional_scaling": "O(1/Ncell) under a cell-size-independent localized square-summable static substitution cloud",
+    "empirical_alloy_gap_inputs": [],
+    "identity": "(epsilon_n-E_a)<psi_n|Phi_a>=<psi_n|V|Phi_a>",
+    "physical_impurity_coefficient_calculated": false,
+    "physical_localization_verified": false
+  },
   "input_files_sha256": {
     "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/pw_dry_result.json": "f67eabf1bf3507a18ee0b8316ddfe8f1a47eb7e4eed65666b71a2f85f97bb2c4",
     "calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/pw_dry_result.json": "88d46b0969411186106e67cc48517d3d33b00a85c85946e73b9c62166577a066",
@@ -4493,6 +4502,87 @@
     },
     "source_url": "https://raw.githubusercontent.com/QEF/q-e/qe-7.5/PP/src/projwfc.f90",
     "written_utc": "2026-10-11T02:54:20.692239+00:00"
+  },
+  "native_host_eigenstate_negative_control": {
+    "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",
+    "analysis_execution": "serial; no MPI launch",
+    "claim_status": "CALCULATED zero-substitution negative control in actual host Gamma eigenstates; no physical impurity coefficient",
+    "control": {
+      "full_finite_volume_t_norm_eV": 2.5874399583960045e-15,
+      "host_spinor_gram_error": 2.0423937326331473e-15,
+      "projected_resolvent_error_eV_inverse": 4.210218720586071e-15,
+      "reaction_kernel_norm_eV": 2.5818687130140917e-15,
+      "unresolved_projector_weight_norm": 3.608573021444288e-15
+    },
+    "driver_sha256": "c7e8a475dd7f0f6cab47157d0ee4d0591b6a4f344147c94f10ff84c6a11a6e82",
+    "empirical_alloy_gap_inputs": [],
+    "eta_eV": 0.025,
+    "evaluation_energy_eV": 8.883687325699256,
+    "git_commit": "012cf0b4e047d4960729a15e646a978bf2bbe86f",
+    "host_bands_1based": [
+      37,
+      38,
+      33,
+      34,
+      35,
+      36
+    ],
+    "input_sha256": "6119fd8590fc5ce887d8225a32defbaa674994312eb362c0e1f024a8b5770a88",
+    "inverse_certificate": {
+      "certificate_sufficient": true,
+      "inverse_error_bound_eV": 1.4230579647546843e-16,
+      "inverse_norm_eV": 0.7880789846142127,
+      "inverse_times_error": 1.805730126722402e-16
+    },
+    "limits": [
+      "Same operator represented twice, not two self-consistent impurity operators",
+      "CdTe coarse host material/grid accuracy is not upgraded by this control",
+      "Pointwise Gamma projector, no new finite-q scattering amplitude",
+      "Electrostatic alignment, finite-volume and continuum limits remain required for a substituted cell",
+      "Window bounds assume exact eigenpairs; SCF and eigenpair errors remain separate"
+    ],
+    "module_sha256": {
+      "src/mct_dft/invariant_projected_impurity.py": "0acdde6ea7bd331de61f2771654fdd91024c5cdfaa7b94ca870380995401e27b",
+      "src/mct_dft/qe_wavefunctions.py": "376dd48345980d3cfb3809984d3dad66412f1921429a3a72aa35b4b72dd43ee6"
+    },
+    "omitted_window_bounds": {
+      "derivative_error_bound_eV_inverse_squared": 4.6887015568392547e-17,
+      "omitted_distance_lower_bound_eV": 4.886866862006847,
+      "omitted_weight_norm": 1.1197307491110056e-15,
+      "resolvent_error_bound_eV_inverse": 2.2913060263957664e-16
+    },
+    "parent_scf_mpi_ranks": 6,
+    "pp_sha256": {
+      "Cd": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+    },
+    "projector": "Six orthonormal NC native pure-host Gamma6/Gamma8 eigenstates",
+    "sectors": {
+      "Gamma6": [
+        0,
+        1
+      ],
+      "Gamma8": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "source_files_sha256": {
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/grid_expansion.json": "1eccda42b7dcaa027dfea0c5f4572bd6ce1de73e0bfaf6a5653cefc8feb8e8ae",
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/signed_gap.json": "f6ed896b0f49e211b3323b0c80520ddbbe027e7b91367db1015bc2cf50216be0",
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07.save/data-file-schema.xml": "d8a1a2e75ed5cc270b862a1e8e7d691d254bf3700bf869765075229b08348d5b",
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07.save/wfc1.hdf5": "79b05688035291effa7b15f8409553cb31a5b9c2906633cc3b973eaf29b466ab",
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/data-file-schema.xml": "404f8d799fb6c26a0d8e518e66e9fe425b420ccda7a205c8b472fc172ce81bc2",
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/out/r07_open.save/wfc1.hdf5": "0cea95d207a3422269c0643b82b639ee0cd8462d2d376aa77ad746c77f38524d",
+      "calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/result.json": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09"
+    },
+    "spectral_prefix_bands_1based": [
+      1,
+      44
+    ],
+    "written_utc": "2026-10-11T03:14:25.651397+00:00"
   },
   "physical_trial_capture": {
     "QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at  1:28:54",

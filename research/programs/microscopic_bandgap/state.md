@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** reference/direct-alloy audits complete; physical frame unresolved; coarse HgTe quartet fails; finer exchange-grid control running; impurity inputs prepared
+**State:** reference/direct-alloy audits complete; native host-projector extraction passes; coarse HgTe quartet fails; finer exchange-grid control running; physical impurity pair pending
 
 **Updated:** 2026-10-11
 
@@ -40,7 +40,7 @@ description was inaccurate. The 26-band window captures only 0.0162204 of
 the least-captured fixed physical trial direction at X. All 44 supplied
 bands raise this to 0.469856. These are trial-norm fractions, not gap errors.
 Identical ordered 208-spinor trial blocks are prepared for the paired cells.
-A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 67 pass.
+A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 70 pass.
 
 **CALCULATED:** the prepared Gamma-only n2/q1 supercell preserves the
 primitive q2 exchange-feedback spacing. Matched n2/k2/q2 input decks are
@@ -64,6 +64,19 @@ then yields both full finite-volume T_P and the distinct P-irreducible
 reaction kernel K_P. Full finite-box T can vanish on shell because of the
 one exact host pole; reaction-kernel volume convergence or ordered volume
 and energy limits are required. No physical endpoint value is computed yet.
+
+**CALCULATED:** native same-host extraction in the actual six Gamma6/Gamma8
+spinors gives reaction-kernel norm 2.5819e-15 eV. Physical reciprocal-vector
+transport handles permutation and integer Bloch relabeling, with mismatched
+NC spaces rejected. The 44-band prefix leaves unresolved projector norm
+3.6086e-15. This passes a zero-substitution negative control and does not
+upgrade material accuracy or calculate a physical impurity coefficient.
+
+**PROVEN under static localized-substitution assumptions:** unresolved
+fixed-host-edge projector norm is bounded by
+sum_a ||V Phi_a||^2/(Lambda-E_a)^2. Its conditional O(1/Ncell) scaling
+explains a possible window advantage over local atomic trials; actual
+self-consistent localization and continuum/volume limits remain untested.
 
 **PROVEN under an isolated quadratic Gamma8 threshold and nonzero finite
 forward amplitude:** the gap-side contribution to -T8' scales as
@@ -174,7 +187,7 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
    Their 129.4479-meV difference is not attributable to NLCC alone.
    Accurate empty states reduce the 26-spinor matrix defect by over 2000
    times, to 2.95137 meV, still above the unchanged 1-meV gate. DFT commit
-   152e801 contains the completed controls, physical-frame overlaps,
+   30b3e72 contains the completed controls, physical-frame overlaps,
    native trial-unit/capture audit, prepared pair and bounded SCF runner.
    It also records the rejected coarse HgTe quartet and the blind q4
    component prediction; see the [exchange-grid protocol](/home/User/opencode_workspace/DFT/docs/r07_hgte_exchange_grid.md).
