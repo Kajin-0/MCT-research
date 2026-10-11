@@ -1,5 +1,11 @@
 # Persistent R07 phase/handoff ledger
 
+**Current amendment after user goal reactivation:** measured headroom increased
+to 29.27615 GiB and the retained host guard passes. The already approved host
+is running; follow [the live runtime handoff](../native_matched_pilot_2026-10-11/runtime_handoff.md),
+session 10143, before any action. The original goal is active again. Do not
+restart a live family or infer terminal status from the older NO-GO below.
+
 ## Latest finite approval and terminal preflight amendment
 
 After checkpoint `626fbc3`, the user explicitly authorized one staged native

@@ -1,5 +1,11 @@
 # Approved native matched pilot — safe preflight NO-GO
 
+**Later resumed-goal amendment:** actual external memory headroom increased.
+The [resumed preflight](resumed_preflight.json) passes the unchanged guard and
+the approved host is now running. [Live handoff](runtime_handoff.md) records
+its unique native directory, bounded foreground monitor and strict next gates.
+The original NO-GO below is a dated measurement, not the current run status.
+
 **Decision: PREFLIGHT_RESOURCE_NO_GO. No SCF launched.** The user explicitly
 approved one staged native HSE+SOC 16-atom n2/k2/q2 f120 host, followed only
 after host acceptance by one Cd-substituted member. This finite approval changes

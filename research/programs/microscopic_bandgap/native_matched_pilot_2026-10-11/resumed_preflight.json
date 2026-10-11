@@ -1,0 +1,223 @@
+{
+  "DFT_branch": "research/hgcdte-analytical-gap-20261010",
+  "DFT_dirty_status_after": "M calculations/hgcdte/sqs40_seed1_dos_soc/pw.out\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/projection208/project208.wout\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/projection208/wannier_pp.out\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/projection208/project208.wout\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/projection208/wannier_pp.out\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/interface.err\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/interface.out\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/project26.wout\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/wannier_pp.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/bands.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/gamma.dat.rap\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/open_grid.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/proj.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/interface.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/project26.wout\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/wannier_pp.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/bands.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/gamma.dat.rap\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/open_grid.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/proj.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/interface.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/interface.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/project26.wout\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/wannier_pp.out\n?? calculations/r07/fock_followthrough_5eed5ea4/state.json\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/bands.err\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/gamma.dat.rap\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/proj.err\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_dry_fullacc_c1e-10_t180/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/bands.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/gamma.dat.rap\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/proj.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/pw.out\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/pw.out.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/result.json\n?? calculations/r07/reference_queue_5eed5ea4_recovered/",
+  "DFT_dirty_status_before": "M calculations/hgcdte/sqs40_seed1_dos_soc/pw.out\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/projection208/project208.wout\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/projection208/wannier_pp.out\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/projection208/project208.wout\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/projection208/wannier_pp.out\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/interface.err\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/interface.out\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/project26.wout\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/wannier_pp.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/bands.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/gamma.dat.rap\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/open_grid.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/proj.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/interface.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/project26.wout\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/wannier_pp.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/bands.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/gamma.dat.rap\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/open_grid.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/proj.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/interface.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/interface.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/project26.wout\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/wannier_pp.out\n?? calculations/r07/fock_followthrough_5eed5ea4/state.json\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/bands.err\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/gamma.dat.rap\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/proj.err\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_dry_fullacc_c1e-10_t180/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/bands.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/gamma.dat.rap\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/proj.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/pw.out\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/pw.out.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/result.json\n?? calculations/r07/reference_queue_5eed5ea4_recovered/",
+  "DFT_dirty_status_unchanged": true,
+  "DFT_files_written_by_this_collector": [],
+  "DFT_git_commit": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "QE_invocations": [],
+  "allowed_cap": {
+    "MPI_ranks": 6,
+    "grace_seconds": 1800,
+    "native_seconds": 3600,
+    "sequential_families": 1,
+    "substitution_requires_accepted_host_SCF_projector_irrep_exchange": true
+  },
+  "authorization": "one staged host then conditional Cd pilot; user explicit approval; old goal unchanged",
+  "cgroup_intake": [
+    {
+      "memory.current": 11346972672,
+      "memory.max": "max",
+      "memory.swap.current": 0,
+      "memory.swap.max": "max",
+      "path": "/sys/fs/cgroup/user.slice/user-0.slice/session-12743.scope"
+    },
+    {
+      "memory.current": 12555952128,
+      "memory.max": "max",
+      "memory.swap.current": 191975424,
+      "memory.swap.max": "max",
+      "path": "/sys/fs/cgroup/user.slice/user-0.slice"
+    },
+    {
+      "memory.current": 12578488320,
+      "memory.max": "max",
+      "memory.swap.current": 192114688,
+      "memory.swap.max": "max",
+      "path": "/sys/fs/cgroup/user.slice"
+    }
+  ],
+  "claim_status": "CALCULATED measured intake; engineering launch guard, no native SCF result",
+  "collector_sha256": "3ab303d5978bc247e430fd723ddda4c157e161ffe6b005ad27b0c9aac02d2c10",
+  "created_native_output_directories": [],
+  "decision": "PREFLIGHT_GUARD_PASSED_NOT_A_RUN_AUTHORIZER",
+  "disk_bytes": {
+    "free": 32754204672,
+    "total": 415381426176,
+    "used": 382610444288
+  },
+  "disk_floor_met": true,
+  "effective_available_memory_bytes": 31435030528,
+  "full_SCF_disk_demand_certified": false,
+  "full_SCF_peak_RAM_bytes": null,
+  "host_SCF_gate": "NOT_RUN",
+  "host_preflight_passed": true,
+  "host_projector_irrep_gate": "NOT_EVALUABLE_WITHOUT_SCF",
+  "impurity_stage": "NOT_ADMITTED",
+  "memory_bytes": {
+    "Active": 1556209664,
+    "AnonHugePages": 2097152,
+    "AnonPages": 1110622208,
+    "Balloon": 0,
+    "Bounce": 0,
+    "Buffers": 421167104,
+    "Cached": 12145491968,
+    "CmaFree": 0,
+    "CmaTotal": 0,
+    "CommitLimit": 21120917504,
+    "Committed_AS": 15443349504,
+    "DirectMap1G": 18253611008,
+    "DirectMap2M": 17970495488,
+    "DirectMap4k": 282959872,
+    "Dirty": 2093056,
+    "FileHugePages": 297795584,
+    "FilePmdMapped": 0,
+    "HardwareCorrupted": 0,
+    "Hugepagesize": 2097152,
+    "Hugetlb": 0,
+    "Inactive": 12122886144,
+    "KReclaimable": 1352646656,
+    "KernelStack": 7831552,
+    "Mapped": 522735616,
+    "MemAvailable": 31435030528,
+    "MemFree": 18074673152,
+    "MemTotal": 33651908608,
+    "Mlocked": 0,
+    "NFS_Unstable": 0,
+    "PageTables": 29020160,
+    "Percpu": 9175040,
+    "SReclaimable": 1352646656,
+    "SUnreclaim": 364929024,
+    "SecPageTables": 0,
+    "Shmem": 82046976,
+    "ShmemHugePages": 0,
+    "ShmemPmdMapped": 0,
+    "Slab": 1717575680,
+    "SwapCached": 2572288,
+    "SwapFree": 3966042112,
+    "SwapTotal": 4294963200,
+    "Unaccepted": 0,
+    "Unevictable": 0,
+    "VmallocChunk": 0,
+    "VmallocTotal": 14073748835531776,
+    "VmallocUsed": 29106176,
+    "Writeback": 0,
+    "WritebackTmp": 0,
+    "Zswap": 0,
+    "Zswapped": 0
+  },
+  "physical_xc": null,
+  "policy": {
+    "disk_free_floor_GiB": "8",
+    "policy_scope": "launch guard only; no measured full-SCF peak or certified upper bound",
+    "ram_estimate_margin_fraction": "0.20",
+    "swap_counted_as_headroom": false,
+    "system_ram_reserve_GiB": "2"
+  },
+  "prepared_cases": {
+    "host": {
+      "dry_RSS_is_full_SCF_peak": false,
+      "dry_estimate_GiB": 21.27,
+      "dry_peak_RSS_bytes": 176979968,
+      "full_SCF_launched": false,
+      "input_sha256": "ed0dfcb72be290486aded7959aa6b0e4846e409945d9c0ce53555a4eba75b721",
+      "physics": {
+        "conv_thr": "1e-10",
+        "degauss": "0.001",
+        "ecutfock": "120.0",
+        "ecutrho": "360",
+        "ecutwfc": "90",
+        "exx_fraction": "0.25",
+        "nat": "16",
+        "nbnd": "352",
+        "nqx1": "2",
+        "nqx2": "2",
+        "nqx3": "2",
+        "screening_parameter": "0.106"
+      },
+      "previous_QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at 10:56:45"
+    },
+    "impurity": {
+      "dry_RSS_is_full_SCF_peak": false,
+      "dry_estimate_GiB": 21.32,
+      "dry_peak_RSS_bytes": 177553408,
+      "full_SCF_launched": false,
+      "input_sha256": "9c9a8968a6dace160de05a72497b1cab36fe9f7f9f455a78016da69f3fb02453",
+      "physics": {
+        "conv_thr": "1e-10",
+        "degauss": "0.001",
+        "ecutfock": "120.0",
+        "ecutrho": "360",
+        "ecutwfc": "90",
+        "exx_fraction": "0.25",
+        "nat": "16",
+        "nbnd": "352",
+        "nqx1": "2",
+        "nqx2": "2",
+        "nqx3": "2",
+        "screening_parameter": "0.106"
+      },
+      "previous_QE_version_line": "Program PWSCF v.7.5 starts on 11Oct2026 at 10:56:47"
+    }
+  },
+  "process_ownership": {
+    "MPI_families_or_processes": [],
+    "R07_queue_supervisor_processes": [],
+    "exclusive_MPI_lock_acquired": false,
+    "exclusive_MPI_snapshot": true
+  },
+  "ram_gates": {
+    "host": {
+      "QE_dry_estimate_GiB": "21.27",
+      "available_GiB": "29.276153564453125",
+      "dry_estimate_is_certified_peak": false,
+      "passed": true,
+      "required_available_GiB_under_guard": "27.5240",
+      "shortfall_GiB": "0"
+    },
+    "impurity": {
+      "QE_dry_estimate_GiB": "21.32",
+      "available_GiB": "29.276153564453125",
+      "dry_estimate_is_certified_peak": false,
+      "passed": true,
+      "required_available_GiB_under_guard": "27.5840",
+      "shortfall_GiB": "0"
+    }
+  },
+  "source_sha256": {
+    "/home/User/opencode_workspace/DFT/AGENTS.md": "786ce7bd8b51b90c67a220e4bc30cf8c671e37f56bef266c6f7ad3838a4d2fc5",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw.in": "ed0dfcb72be290486aded7959aa6b0e4846e409945d9c0ce53555a4eba75b721",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry.in": "d048dd9b294aeaa2bc35173aa61223e8a87f9c32fde91fa3fa321b08056f9758",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry.out": "4ce49b624033d11699c356060bffe1286b804a89aed1781067176d680d108e24",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry_provenance.json": "daf39cfc5f7102ffc20d06863ef4c377a900c8169cd2f7dcf1e0c0d9b965f67e",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry_result.json": "ecdd0800179542d74f42eae21b45b429395555999852953d55ce945267e55bd7",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw.in": "9c9a8968a6dace160de05a72497b1cab36fe9f7f9f455a78016da69f3fb02453",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry.in": "32739dbc423e5dc6b8169234ed49a8574e1b612b3b61732aa62f790f21c89021",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry.out": "74b27ca9008b8ebabfafea80588e0d1e753eddff728c68901f33f5998d3d1edc",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry_provenance.json": "97246158293cb1c11ca3f4e7ea776ca29e8053c2e29821c615c14ca7b8a83386",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry_result.json": "9c26a2f09bbdbe24d7b474b2338ac5ee88ce0dd3b695ce298b4e5208a77aa50c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/preparation.json": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
+    "/home/User/opencode_workspace/DFT/pseudopotentials/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/pseudopotentials/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/pseudopotentials/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "supervisor_intake": [
+    {
+      "owner_pid": 1763338,
+      "owner_pid_present": false,
+      "path": "/home/User/opencode_workspace/DFT/calculations/r07/fock_followthrough_5eed5ea4/state.json",
+      "sha256": "198bbdf186e8ac0fd4c34aa79e6d732a654a3f62c41313609a7723a761bb397d",
+      "stage": "FINISHED: accepted Fock references compared; no full impurity SCF launched"
+    },
+    {
+      "owner_pid": null,
+      "owner_pid_present": null,
+      "path": "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4_recovered/state.json",
+      "sha256": "7d2149f1329d0d0901ddc6c047fbfa79333fbb3204bc669b8843ede7fba5848b",
+      "stage": "FINISHED bounded reference/resource work; no full impurity SCF launched"
+    }
+  ],
+  "supervisor_states_unchanged": true,
+  "swap_used_bytes": 328921088,
+  "written_utc": "2026-10-11T19:45:02.270369+00:00"
+}

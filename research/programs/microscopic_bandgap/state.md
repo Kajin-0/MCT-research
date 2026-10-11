@@ -2,9 +2,30 @@
 
 **Portfolio contribution:** R07
 
-**State:** explicitly approved staged native matched pilot stopped at measured RAM preflight NO-GO; no host or Cd SCF launched, no physical inputs downgraded; earlier conditional reference certificates and transfer/continuum negatives preserved; physical ordering/inversion remain OPEN
+**State:** original thread goal reactivated by user; actual headroom increased and unchanged resource guard passes; one approved six-rank native matched-host pilot RUNNING under bounded foreground monitor; Cd remains conditional, material ordering/inversion OPEN and all prior negatives preserved
 
 **Updated:** 2026-10-11
+
+## Resumed goal and live approved host input
+
+The user reactivated the original analytical-bandgap goal after `52e7915`.
+Current [resource preflight](native_matched_pilot_2026-10-11/resumed_preflight.json)
+measures 29.27615 GiB available, now above the unchanged 27.524-GiB host guard,
+with no competing MPI/R07 driver. Existing explicit staged-pilot authorization
+persists. One new matched-host SCF was launched in a unique output directory,
+six ranks, unchanged 90/360/120-Ry HSE+SOC input, 352 bands, conv_thr=1e-10,
+3600-second native limit plus at most 1800 seconds grace. A foreground owned
+family monitor tracks RSS, disk and process identities; no detached queue or
+existing supervisor was created/changed.
+
+The [live handoff](native_matched_pilot_2026-10-11/runtime_handoff.md) pins session
+10143, native paths and launch provenance. Poll that handle/identity; observation
+timeouts are not terminal. Host acceptance requires strict native inner/EXX
+convergence plus physical projector/irrep and retained 1-meV host gates. The Cd
+member has **not** run and is admissible only after all host gates pass and fresh
+resource/ownership admission. Early sampled RSS is not a full-SCF peak bound.
+No material coefficient, signed alloy gap or physical x_c is inferred. Original
+goal remains active/unachieved; the previous preflight NO-GO below is historical.
 
 ## Approved staged native pilot — measured preflight NO-GO
 
