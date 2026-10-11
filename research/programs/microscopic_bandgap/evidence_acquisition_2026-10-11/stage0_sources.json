@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0",
+  "task": "finite_R07_Stage0_archival_feasibility",
+  "audit_date": "2026-10-11",
+  "base_commit": "59af123c725e44d073cf8665d5ea8dd968c4e9fd",
+  "decision": "STAGE0_NO_GO_RAW_AND_ASSAY_PACKAGE_NOT_ACCESSIBLE",
+  "stage1_admitted": false,
+  "physical_xc": null,
+  "new_operational_sign_bracket": null,
+  "accepted_raw_bundles": 0,
+  "limits": "Bounded inspected-source audit; no assertion of global nonexistence, destroyed records or exhaustive private/unindexed archive coverage. Web content is time-dependent; only local inputs have binary hashes here.",
+  "controls": {
+    "goal_api_calls": 0,
+    "new_native_jobs": 0,
+    "new_queues": 0,
+    "new_supervisors": 0,
+    "author_or_archive_contacts": 0,
+    "new_agent_forks": 0,
+    "new_Codex_sessions": 0,
+    "stage1_fit_runs": 0,
+    "shell_network_downloads": 0,
+    "SciDownl_installed_or_used": false,
+    "paid_actions": 0
+  },
+  "local_inputs": [
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/decision_memo.md",
+      "bytes": 17447,
+      "sha256": "0750b2d2c80a9138d5c31f0d2869807a5fe96dd6cbdad131533ead64e727fca7"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/next_pilot.md",
+      "bytes": 7750,
+      "sha256": "5356d39882328ac415258df1171614df34d460e93d7641a77e99b4f74dfe0edf"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/source_evidence_matrix.md",
+      "bytes": 14757,
+      "sha256": "5599344fa981023522bd78f5138079a66b4b0bc4743e3e25982fa645608d1101"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/sources.json",
+      "bytes": 22823,
+      "sha256": "a05e365b4c20a2c7f4bf2fa9c06435c20928e6bac07253ecb305083dbc1821f1"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/verification.md",
+      "bytes": 4138,
+      "sha256": "4be78ae488e7d7a17068fad0da137e3a5191f55ac67768a733660afd337cdf49"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/local_evidence_inventory.json",
+      "bytes": 155741,
+      "sha256": "2acc654631337a902fe737eca76b561a8a7eb9db6d342a2bf5a2914014ef9c90"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/threshold_causal_2026-10-11/cycles_and_boundary.md",
+      "bytes": 15420,
+      "sha256": "76f18452907fa449f73ede539fdd8e15fadc3e1d7c87d2d8f398c063cd67088e"
+    },
+    {
+      "path": "data/hansen/guldner1977_hsc_r14_README.md",
+      "bytes": 7355,
+      "sha256": "ed6c07f339220e5a1a21ccf565e488c7445141bbf50571a7a5a98004689d2574"
+    },
+    {
+      "path": "data/hansen/guldner1977_hsc_r14_source_metadata.csv",
+      "bytes": 1082,
+      "sha256": "9c208ca8124461bab0615f2cb5d2a8f3ebbdef31da0d13e1759b560685a6b483"
+    },
+    {
+      "path": "data/hansen/guldner1977_hsc_r15_README.md",
+      "bytes": 6516,
+      "sha256": "b9a11c1d2713fd3ffdba1a28ecd663df8b0b2c112e43531308d046b47bd3d23b"
+    },
+    {
+      "path": "data/hansen/guldner1977_hsc_r15_source_metadata.csv",
+      "bytes": 1254,
+      "sha256": "cfb84ab743f6b5cfe397df018fb9515c55c6d3edce2b184a1f1aaa39e1dd4bbf"
+    },
+    {
+      "path": "data/hansen/guldner1977_hsc_r15_specimen_groups.csv",
+      "bytes": 1651,
+      "sha256": "f8c1081cab0be7665212eab468772fbba8e6312071c032c727c82bb87e978e3a"
+    },
+    {
+      "path": "data/hansen/guldner1977_specimen_groups.csv",
+      "bytes": 2319,
+      "sha256": "75cfabe68dd1c90118ab5112cb513eee45eb4398c191935a2d42e067ee563024"
+    },
+    {
+      "path": "data/hansen/weiler1981_hsc_r04_README.md",
+      "bytes": 4672,
+      "sha256": "800ecf811c008939f8e334183943eafcbe9dc2380b24272283fe104e9412ea47"
+    },
+    {
+      "path": "data/hansen/weiler1981_hsc_r04_source_metadata.csv",
+      "bytes": 1096,
+      "sha256": "e9ce97f65809dba1b97398ede456cd0259b49969f95f946b5fc46d41c3ac8398"
+    },
+    {
+      "path": "data/hansen/weiler1981_hsc_r04_composition_provenance.csv",
+      "bytes": 1090,
+      "sha256": "d2bc417f7b30789785d41eeaa2c30c226568a4cff568de623960521fce643b74"
+    },
+    {
+      "path": "data/evidence/guldner_weiler_1977_magneto_core.json",
+      "bytes": 6438,
+      "sha256": "a9157654e65cb490a80218751a31aa022da735125f167c84ae80c21821e64fde"
+    },
+    {
+      "path": "data/experimental/orlita2014_primary_near_critical_constraint.csv",
+      "bytes": 724,
+      "sha256": "e6eedc0edea12493f623acf94ddf8c82f516eda84190428655be58d86963718c"
+    },
+    {
+      "path": "data/experimental/teppe2016_primary_magneto_optical_gap_points.csv",
+      "bytes": 1189,
+      "sha256": "2f6d1a052d75f2a783beaa0370bd828f1434748abbf878b5f6f1c0af9a733bf6"
+    },
+    {
+      "path": "research/decision_records/2026-07-19-orlita2014-integrated-constraint.md",
+      "bytes": 4644,
+      "sha256": "bccdc6b867a29286d6ae464285ece8132c5d37e95e8b398810382e3f1c739513"
+    },
+    {
+      "path": "literature/papers/README.md",
+      "bytes": 5565,
+      "sha256": "8cd23f10ef13842afa35cbb0ecd0868d11031f791f3da56f0027ae3cf56a7b81"
+    }
+  ],
+  "local_scan": {
+    "roots": [
+      "data/experimental",
+      "data/hansen",
+      "data/evidence",
+      "literature"
+    ],
+    "relevant_records_examined": "source-labelled CSV/JSON, primary-paper manifest, inherited source and specimen audits",
+    "raw_binary_extensions_found": 0,
+    "qualification": "Extension scan alone is not proof of absence; CSVs inspected are published summaries, not raw spectra. Existing 584-record inventory checker passed. Owner File Library attachments not asserted mounted."
+  },
+  "sources": [
+    {
+      "id": "GULDNER_I",
+      "url": "https://doi.org/10.1002/pssb.2220810225",
+      "access": "inherited_direct_primary_audit_only",
+      "locations": "Part I methods; existing source manifest",
+      "available_kind": "published_paper_audit",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "private primary-paper copies recorded historically; no raw reuse permission established"
+    },
+    {
+      "id": "GULDNER_II",
+      "url": "https://doi.org/10.1002/pssb.2220820115",
+      "access": "fresh Wiley/DOI retrieval failed; inherited direct primary audit",
+      "locations": "Figs 8-10, Sec 4, density/microprobe statement",
+      "available_kind": "published_figures_and_model_assisted_gap_summary",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "publisher and original laboratory raw-record rights unverified; no paid access attempted"
+    },
+    {
+      "id": "WEILER_1977",
+      "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.16.3603",
+      "access": "fresh_publisher_abstract_and_inherited_primary_audit",
+      "locations": "Abstract; inherited specimen/method audit",
+      "available_kind": "published_peak_fits_and_method_summary",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "publisher reuse permissions apply to article; raw-record license unverified"
+    },
+    {
+      "id": "WEILER_1981",
+      "url": "https://doi.org/10.1016/S0080-8784(08)60130-1",
+      "access": "inherited_publisher_metadata; full text unavailable locally",
+      "locations": "Local source metadata and composition-lineage record",
+      "available_kind": "review_metadata_not_specimen_archive",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "no full-text or raw-data redistribution permission established"
+    },
+    {
+      "id": "ORLITA_AUTHOR",
+      "url": "https://arxiv.org/html/1310.0969",
+      "access": "fresh_author_full_text_html",
+      "locations": "Methods; Figs 1,3,5; Sample structure appendix",
+      "available_kind": "paper_figures_methods_theory",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "arXiv perpetual nonexclusive distribution license; not a license for unavailable laboratory records"
+    },
+    {
+      "id": "ORLITA_PUBLISHER",
+      "url": "https://www.nature.com/articles/nphys2857",
+      "access": "publisher preview; full article subscription restricted",
+      "locations": "Supplementary Information link; corresponding authors; rights",
+      "available_kind": "article_metadata_and_supplement_link",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "copyrighted article; no paid action or permission bypass"
+    },
+    {
+      "id": "ORLITA_SI",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fnphys2857/MediaObjects/41567_2014_BFnphys2857_MOESM1_ESM.pdf",
+      "access": "fresh_publisher_six_page_PDF_read",
+      "locations": "Sample structure p1; theory pp1-5; references p6",
+      "available_kind": "profile_figure_and_theory_not_raw_scan_archive",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "2014 publisher copyright; link and paraphrase only; no binary committed"
+    },
+    {
+      "id": "TEPPE_PUBLISHER",
+      "url": "https://www.nature.com/articles/ncomms12576?error=cookies_not_supported",
+      "access": "fresh_published_full_text_html; existing PDF cache consistent with prior audit",
+      "locations": "Methods; Data availability; Rights and permissions",
+      "available_kind": "paper_and_supporting_data_available_on_request_statement",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "generic supporting data asserted on request; full raw/calibration/assay package and current retention unconfirmed",
+      "rights": "published article CC BY 4.0; unseen raw-record license not inferred"
+    },
+    {
+      "id": "TEPPE_SI",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fncomms12576/MediaObjects/41467_2016_BFncomms12576_MOESM1399_ESM.pdf",
+      "access": "fresh_publisher_six_page_PDF_read",
+      "locations": "Figs S1-S5; Notes 1-2; S5 processed 77K examples; S3 Hall plot",
+      "available_kind": "processed_figures_and_analysis_not_calibrated_raw_archive",
+      "raw_bundle_located": false,
+      "existence_of_retained_raw_bundle": "unknown",
+      "rights": "published supplement linked from article; no unseen raw-data permissions assumed; no binary committed"
+    }
+  ],
+  "samples": [
+    {
+      "id": "GULDNER_II_LEFT",
+      "source_id": "GULDNER_II",
+      "published_composition_values": [
+        0.15
+      ],
+      "published_temperatures_K": [
+        4.2
+      ],
+      "correspondence_qualification": "approximate composition; Fig8-9; specimen ID unreported",
+      "accepted": false,
+      "accessible_calibrated_raw_bundle": false,
+      "independent_sample_composition_interval": null,
+      "complete_uncertainty_budget": false,
+      "target_match_certified": false
+    },
+    {
+      "id": "GULDNER_II_RIGHT",
+      "source_id": "GULDNER_II",
+      "published_composition_values": [
+        0.185
+      ],
+      "published_temperatures_K": [
+        4.2
+      ],
+      "correspondence_qualification": "printed composition; Fig10; specimen ID unreported",
+      "accepted": false,
+      "accessible_calibrated_raw_bundle": false,
+      "independent_sample_composition_interval": null,
+      "complete_uncertainty_budget": false,
+      "target_match_certified": false
+    },
+    {
+      "id": "OPTIONAL_MIDPOINT",
+      "source_id": "GULDNER_II",
+      "published_composition_values": [],
+      "published_temperatures_K": [],
+      "correspondence_qualification": "no uniquely identified x0.1675 specimen located",
+      "accepted": false,
+      "accessible_calibrated_raw_bundle": false,
+      "independent_sample_composition_interval": null,
+      "complete_uncertainty_budget": false,
+      "target_match_certified": false
+    },
+    {
+      "id": "WEILER_SERIES",
+      "source_id": "WEILER_1977",
+      "published_composition_values": [
+        0.175,
+        0.269
+      ],
+      "published_temperatures_K": [
+        24,
+        91
+      ],
+      "correspondence_qualification": "composition range, not two individually linked targets",
+      "accepted": false,
+      "accessible_calibrated_raw_bundle": false,
+      "independent_sample_composition_interval": null,
+      "complete_uncertainty_budget": false,
+      "target_match_certified": false
+    },
+    {
+      "id": "ORLITA_GRADED",
+      "source_id": "ORLITA_AUTHOR",
+      "published_composition_values": [
+        0.17
+      ],
+      "published_temperatures_K": [
+        1.8
+      ],
+      "correspondence_qualification": "graded profile; low-temperature local record; no specimen temperature calibration logs",
+      "accepted": false,
+      "accessible_calibrated_raw_bundle": false,
+      "independent_sample_composition_interval": null,
+      "complete_uncertainty_budget": false,
+      "target_match_certified": false
+    },
+    {
+      "id": "TEPPE_A_B",
+      "source_id": "TEPPE_PUBLISHER",
+      "published_composition_values": [
+        0.175,
+        0.155
+      ],
+      "published_temperatures_K": [
+        2,
+        4.2
+      ],
+      "correspondence_qualification": "A Methods uses lower-precision 0.17; no assay interval inferred",
+      "accepted": false,
+      "accessible_calibrated_raw_bundle": false,
+      "independent_sample_composition_interval": null,
+      "complete_uncertainty_budget": false,
+      "target_match_certified": false
+    }
+  ],
+  "search_log": [
+    {
+      "query": "\"ncomms12576\" data supplementary repository",
+      "tool": "web",
+      "result": "no qualifying raw repository"
+    },
+    {
+      "query": "\"nphys2857\" data supplementary repository",
+      "tool": "web",
+      "result": "no qualifying raw repository"
+    },
+    {
+      "query": "\"Guldner\" \"1977\" HgCdTe raw data archive",
+      "tool": "web",
+      "result": "citations/other articles, no qualifying archive"
+    },
+    {
+      "query": "\"Weiler\" \"3603\" magnetoreflectance data supplementary",
+      "tool": "web",
+      "result": "publisher abstract/citations, no qualifying archive"
+    },
+    {
+      "query": "\"Temperature-driven massless Kane fermions\" data",
+      "tool": "web",
+      "result": "primary supporting-data-on-request statement and paper"
+    },
+    {
+      "query": "\"Observation of three-dimensional massless Kane fermions\" supplementary information",
+      "tool": "web",
+      "result": "publisher SI and author manuscript available"
+    },
+    {
+      "query": "HgCdTe Teppe Orlita data repository Zenodo Figshare Dryad GitHub",
+      "tool": "web",
+      "result": "no matched raw dataset; generic repository pages excluded"
+    },
+    {
+      "query": "\"Magnetooptical Investigation\" \"2220820115\"",
+      "tool": "web",
+      "result": "no raw deposit"
+    },
+    {
+      "query": "\"HgCdTe\" \"Teppe\" data",
+      "tool": "web",
+      "domains": [
+        "zenodo.org",
+        "figshare.com",
+        "springernature.figshare.com",
+        "datadryad.org",
+        "data.mendeley.com"
+      ],
+      "result": "no results in final domain-restricted batch"
+    },
+    {
+      "query": "\"nphys2857\"",
+      "tool": "web",
+      "domains": [
+        "zenodo.org",
+        "figshare.com",
+        "springernature.figshare.com",
+        "datadryad.org",
+        "data.mendeley.com"
+      ],
+      "result": "no results in final domain-restricted batch"
+    },
+    {
+      "query": "\"Guldner\" \"HgCdTe\"",
+      "tool": "web",
+      "domains": [
+        "zenodo.org",
+        "figshare.com",
+        "data.mendeley.com",
+        "hal.science",
+        "archives.ens.psl.eu"
+      ],
+      "result": "no results in final domain-restricted batch"
+    },
+    {
+      "query": "\"Weiler\" \"magnetoreflectance\"",
+      "tool": "web",
+      "domains": [
+        "dspace.mit.edu",
+        "zenodo.org",
+        "figshare.com",
+        "data.mendeley.com"
+      ],
+      "result": "no results in final domain-restricted batch"
+    },
+    {
+      "query": "HgCdTe magneto",
+      "tool": "native_GitHub_repository_search",
+      "result": "zero repository hits"
+    },
+    {
+      "query": "ncomms12576",
+      "tool": "native_GitHub_code_search",
+      "result": "three author CV citation files; no dataset",
+      "excluded_urls": [
+        "https://github.com/kadykov/TypstCV-example/blob/d6cba459c2fef0fcaf1dd3da6337c48f9e1043dd/kadykov-after-cv-en.md",
+        "https://github.com/kadykov/TypstCV-example/blob/d6cba459c2fef0fcaf1dd3da6337c48f9e1043dd/kadykov-after-cv-fr.md",
+        "https://github.com/kadykov/kadykov.com/blob/8eeed53dda1f1fa9df3dce32521b58f4148f50d4/src/content/pages/cv.mdoc"
+      ]
+    }
+  ],
+  "access_failures": [
+    "Initial Nature article retrieval encountered cookie redirect; publisher HTML then accessible through its cookies-not-supported URL",
+    "PMC direct open encountered browser challenge; indexed primary statement cross-checked against publisher",
+    "Fresh Wiley/DOI retrieval failed; no fresh historical full-text access claimed",
+    "Nature Physics article preview is subscription content; linked SI and author manuscript accessible"
+  ],
+  "next_action": {
+    "status": "one_unsent_request_only",
+    "target": "custodian of Guldner/Rigaux ENS records underlying PartII Figs8-10",
+    "document": "stage0_raw_data_request.md",
+    "current_custodian_verified": false,
+    "retention_confirmed": false,
+    "replacement_measurement_or_dataset_authorized": false
+  },
+  "domain_D": {
+    "status": "OPEN_not_certified",
+    "assessment": "adverse plausibility for generically coupled inverted heavy-hole continuum; weighted decoupling or separation could change this; not a material impossibility proof",
+    "weaker_claim": "conditional finite-temperature operational ordering-reversal existence from robust opposite signs and independently justified continuity; not newly certified"
+  },
+  "paper_download_decision": "Additional paper download not needed to resolve raw-record/metrology intake failure; existing primary audits and accessible supplements suffice."
+}

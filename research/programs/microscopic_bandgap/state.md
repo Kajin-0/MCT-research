@@ -27,6 +27,17 @@ and their goal wording below are preserved as dated records.
 
 ## Objective and scope
 
+**Separately scoped Stage-0 intake, 2026-10-11:**
+[archival feasibility](evidence_acquisition_2026-10-11/stage0_report.md) is
+complete at NO-GO. No accessible calibrated polarization-resolved raw/independent
+assay package qualifies the requested x approximately 0.150/0.185 pair.
+Supporting-data availability on author request is not verified access to that
+package. One precise archive request is retained unsent. Stage 1 is not admitted;
+no new calculation, contact, queue or goal-status change follows. Domain D
+remains unproved and physically doubtful for generically coupled inverted
+continua; only a conditional operational finite-temperature sign bracket could
+avoid it. No such new bracket or physical x_c is asserted.
+
 Derive an interpretable, no-alloy-gap-fit equation for the signed
 Gamma6-minus-Gamma8 gap and its inversion. The user explicitly authorized this
 research continuation on 2026-10-10. Related endpoint infrastructure is tracked
