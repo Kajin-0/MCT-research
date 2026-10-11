@@ -2,9 +2,24 @@
 
 **Portfolio contribution:** R07
 
-**State:** sole approved matched host TERMINATED on retained RSS cap during exchange initialization; final HSE convergence FAILED; Cd NOT ADMITTED; missing physical packet / material inversion OPEN; original goal active and unachieved; prior negatives preserved
+**State:** sole approved matched host TERMINATED on retained RSS cap during exchange initialization; final HSE convergence FAILED; Cd NOT ADMITTED; missing physical packet / material inversion OPEN; original goal BLOCKED after three repeated resumed-turn acquisition boundaries; objective unachieved; prior negatives preserved
 
 **Updated:** 2026-10-11
+
+## Current goal boundary audit
+
+The goal service now returns **blocked**, after the same indispensable physical
+input boundary recurred in three consecutive resumed goal turns, including the
+approved host-attempt turn. The host/proof turn made progress; two later
+read-only continuations supplied no new scientific information. The native
+terminal result remains byte-identical, Cd data absent, and no live native
+handle exists. No new native scope or independently qualified material packet
+has arrived. This status update is administrative, not a new discovery or
+completion claim. [Audit](native_matched_pilot_2026-10-11/goal_boundary_audit.json)
+records the count and evidence. Stop repeated checks. Resume requires qualifying
+independent data or fresh justified acquisition scope/resources; no automatic
+retry, variant, new session, outreach or supervisor operation is created.
+The dated progress record below is unchanged.
 
 ## Resumed goal and terminal approved host attempt
 

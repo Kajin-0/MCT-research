@@ -1,7 +1,13 @@
 # Terminal approved native-pilot handoff
 
 **HOST_RESOURCE_STOP; Cd NOT ADMITTED. No live native handle. No retry.**
-The original research goal is active/unachieved; the user reactivated it after
+**Latest goal status: BLOCKED**, returned by the goal service after the same
+missing-input boundary persisted through three resumed goal turns. See
+[goal_boundary_audit.json](goal_boundary_audit.json). No completion or new
+scientific result is asserted. Do not repeat audits or launch/restart a native
+job without qualifying new evidence/fresh scope. Prior progress record follows.
+
+The original research goal was active/unachieved; the user reactivated it after
 `52e7915`. This resumed turn made progress through an approved acquisition
 attempt, measured terminal failure and a cheap independent reference-irrep
 check. Do not mark the objective complete. No goal status was changed by the

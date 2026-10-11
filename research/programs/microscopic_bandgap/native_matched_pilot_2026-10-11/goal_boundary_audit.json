@@ -1,0 +1,33 @@
+{
+  "Cd_packet_present": false,
+  "accepted_native_host": false,
+  "audit_is_new_scientific_progress": false,
+  "blocker": "Independently self-consistent chemistry-bearing Gamma spectral packet, physical frame and bounded observable errors remain missing; binary spectra do not identify it.",
+  "consecutive_resumed_goal_turns_ending_at_same_boundary": 3,
+  "goal_achieved": false,
+  "goal_status_returned_by_update_goal": "blocked",
+  "live_native_handle": false,
+  "native_terminal_result_sha256": "d6bd9f1c9c9fc7f5d994c2e4ec33038d9024c290e6b44ab285b485e9942d2b01",
+  "no_new_native_scope_authorized": true,
+  "no_physical_gap_or_xc": true,
+  "prior_results_unchanged": true,
+  "recorded_utc": "2026-10-11T20:25:40.747407+00:00",
+  "resume_requires": "Independent qualifying data or fresh scoped authorization with justified acquisition resources. No automatic retry, new session, variant, supervisor action or repeated source audit.",
+  "turns": [
+    {
+      "classification": "progress",
+      "evidence": "4e8c73f: sole approved host execution/resource failure and independent accepted-reference irrep check; terminal missing-input boundary",
+      "turn": 1
+    },
+    {
+      "classification": "no progress",
+      "evidence": "native result byte hash unchanged; no admitted Cd data or live native handle; no justified safe acquisition",
+      "turn": 2
+    },
+    {
+      "classification": "no progress",
+      "evidence": "same native terminal hash and absent Cd packet revalidated; no new authorization or independent material input; blocked threshold met",
+      "turn": 3
+    }
+  ]
+}

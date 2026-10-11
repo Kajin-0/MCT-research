@@ -79,3 +79,14 @@ The original research goal is active and unachieved; this resumed turn produced
 new measured evidence and a bounded reference check, so it is not marked
 complete or blocked. This finite approved acquisition is terminal. No repeated
 cheap check can manufacture the missing physical packet.
+
+## Later persistent-goal blocked audit
+
+The preceding active-goal statement records the progress turn at `4e8c73f`.
+Two subsequent read-only continuations found the identical terminal host record,
+no Cd packet and no live native handle. The same indispensable input boundary
+therefore recurred across three resumed turns. The goal service now returns
+**blocked**; the full objective remains unachieved. [Audit](goal_boundary_audit.json)
+records the count. No new scientific finding, physical coefficient, native
+retry or supervisor action follows; stop repeated checks until new independent
+input or fresh resource-reviewed scope changes the boundary.

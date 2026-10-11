@@ -1,6 +1,15 @@
 # Persistent R07 phase/handoff ledger
 
-**Current terminal amendment after goal reactivation:** changed available RAM
+**Latest goal audit: BLOCKED / objective unachieved.** The same missing physical
+packet recurred through three resumed turns (one measured host/proof progress
+turn, then two no-progress revalidations). The goal service returned blocked.
+[Audit](../native_matched_pilot_2026-10-11/goal_boundary_audit.json) preserves the
+count and exact native terminal hash. No admitted Cd data/live handle/new native
+authorization exists. Stop repeat checks; fresh qualifying data or explicitly
+scoped resource-reviewed acquisition is indispensable. All prior negatives
+and material OPEN status remain. This administrative audit is not progress.
+
+**Historical terminal amendment after goal reactivation:** changed available RAM
 (29.27615 GiB) passed the unchanged guard. The sole approved six-rank host then
 stopped at an interrupted RSS peak of 26.72213 GiB, above its 26.63966-GiB cap,
 during exchange initialization. Session 10143 COMPLETED; no MPI remains. Final
