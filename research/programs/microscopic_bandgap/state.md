@@ -2,9 +2,34 @@
 
 **Portfolio contribution:** R07
 
-**State:** independent R07 primary-evidence acquisition completed with substantiated missing qualified physical inputs; conditional causal certificates and earlier negative results preserved; no certified physical zero-temperature inversion interval
+**State:** finite continuum-observable sprint completed: bounded spectral-ordering certificates avoid D at fixed resolution, but qualified interior physical contractions remain missing; conditional causal certificates and earlier negative results preserved; no certified physical zero-temperature inversion interval
 
 **Updated:** 2026-10-11
+
+## Separate finite continuum-observable sprint
+
+The [continuum package](continuum_spectral_2026-10-11/README.md) completes three
+analytic/falsification cycles from clean `3316bfd`. **PROVEN UNDER ASSUMPTIONS:**
+positive projected spectral measures give bounded test-function and windowed
+centroid error estimates at fixed analytical eta without support-free domain D.
+Isolated spectral-peak shifts additionally require separation and curvature;
+operational crossing accuracy requires a lower composition modulus. Eta is not
+an intrinsic linewidth. These are alternative observables, not sharp Gamma gap,
+shared-pole or topology certificates.
+
+**FALSIFIED:** causality or endpoint/coherent moments alone fix continuum-window
+ordering, dominant peak selection, a sharp spectral limit, composition
+transversality or bulk topology. The package preserves explicit counterexamples
+and all previous reaction-kernel, full/residual T, strain, threshold, directional
+SOC and continuum negative results.
+
+**Decision: THEOREM PASS / MATERIAL NO-GO — STOP.** The single highest-information
+missing input is independently certified interior Gamma6/Gamma8 windowed moments
+in a predetermined physical frame and state family, with normalization, coverage
+and residual errors. No current material object supplies them. Sharp physical
+inversion remains OPEN; no physical x_c or new operational interval is asserted.
+This separate finite task leaves the historical blocked goal unchanged and
+creates no calculation, acquisition, outreach or supervision queue.
 
 ## Independent evidence-acquisition decision
 

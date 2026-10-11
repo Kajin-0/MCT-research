@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-11",
+  "base_commit": "3316bfdc55c089b11010d157adf3d9622f5215c7",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "decision": "THEOREM_PASS_MATERIAL_NO_GO_STOP",
+  "analytic_cycles": 3,
+  "physical_xc": null,
+  "new_material_ordering_interval": null,
+  "declared_controls": {
+    "goal_api_calls": 0,
+    "new_agents_or_codex_sessions": 0,
+    "native_calculations": 0,
+    "queues": 0,
+    "supervisor_modifications": 0,
+    "outreach": 0,
+    "paid_actions": 0,
+    "other_repo_modifications": 0
+  },
+  "preserved_inputs": [
+    {
+      "path": "docs/derivations/continuum_prescription_and_crossing.md",
+      "bytes": 6501,
+      "sha256": "e9993ada66c4fc6bf2dc6bc3c2c68147f129eb26fa27d7790b5c99f476263e24"
+    },
+    {
+      "path": "docs/derivations/gamma8_threshold_kernel.md",
+      "bytes": 5696,
+      "sha256": "79215269828035e78f79bd29435ee176aab51b6b1f4367e3a8617ffabad32941"
+    },
+    {
+      "path": "docs/derivations/host_invariant_reaction_kernel.md",
+      "bytes": 11264,
+      "sha256": "fead8d8dd5f08c3f500b58564b91e7c2fb5b74fde9aea200a166331a0aaaf1c1"
+    },
+    {
+      "path": "docs/derivations/impurity_reference_and_threshold.md",
+      "bytes": 7115,
+      "sha256": "5ccaf0379944d5cac99506537fc41107c0cb9472d1dcd3be0eff6fbd0faa4cc5"
+    },
+    {
+      "path": "docs/derivations/self_consistent_threshold_and_centroid.md",
+      "bytes": 9633,
+      "sha256": "43e3de1c6c38a660ad49400ae5dd382b3a5f69ad1a118154a07060fcb1a01cfc"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/README.md",
+      "bytes": 6313,
+      "sha256": "618ff0e48e68865488fabccae15251a1548e57003c2ab36e350d6fd02e786779"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/closures.md",
+      "bytes": 12495,
+      "sha256": "2e7b717ce28afe3ef1031e32ffe7df0fc150bb4e5343dbe39efc3f930dc75c09"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/discovery_registry.md",
+      "bytes": 6119,
+      "sha256": "d230e262bad0e604516dd04084dfcddc75da68fdc07544f99b980b2ba2536eea"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/foundation.md",
+      "bytes": 9965,
+      "sha256": "a450f980e1a2c0465c0683043bff54d238a9382bc986c225fac975ba3d6bc46c"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/identifiability.md",
+      "bytes": 15676,
+      "sha256": "fec75c9782e64db2dd4d26b291db6bc4523c529edd9955e77aec703112819e96"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/inputs_and_decision.md",
+      "bytes": 12382,
+      "sha256": "15d217193889ed3fc90fb037d015743866c12b979256f325caf0a5d0c0b44f30"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/literature.md",
+      "bytes": 5032,
+      "sha256": "086d2c4296b7adf064b277a595a2f9a2566bf51e110f842550a16b90e7b01ece"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/analytical_first_2026-10-11/verification.md",
+      "bytes": 5284,
+      "sha256": "36f45b41128f3018b75ad2aef02e46b073ddf2c38ee45b0b8f5673d8a433d516"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/README.md",
+      "bytes": 1980,
+      "sha256": "b1a082518bc2fc4aa1996ebb6469474e54d289c6630398e398ec02ec6f73feec"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/check_evidence.py",
+      "bytes": 5674,
+      "sha256": "e94b67639c3631c84394e2072d608859e32a8d310a4159f6fe2fb8afd50972a8"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/check_stage0.py",
+      "bytes": 3281,
+      "sha256": "efda5f2e849a5b2bfc1984c642278b9c6ce53e85050666c6d2011df66f195f07"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/decision_memo.md",
+      "bytes": 17447,
+      "sha256": "0750b2d2c80a9138d5c31f0d2869807a5fe96dd6cbdad131533ead64e727fca7"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/local_evidence_inventory.json",
+      "bytes": 155741,
+      "sha256": "2acc654631337a902fe737eca76b561a8a7eb9db6d342a2bf5a2914014ef9c90"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/next_pilot.md",
+      "bytes": 7750,
+      "sha256": "5356d39882328ac415258df1171614df34d460e93d7641a77e99b4f74dfe0edf"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/source_evidence_matrix.md",
+      "bytes": 14757,
+      "sha256": "5599344fa981023522bd78f5138079a66b4b0bc4743e3e25982fa645608d1101"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/sources.json",
+      "bytes": 22823,
+      "sha256": "a05e365b4c20a2c7f4bf2fa9c06435c20928e6bac07253ecb305083dbc1821f1"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_availability_matrix.md",
+      "bytes": 5810,
+      "sha256": "4dff7e05b59544593eeddce96c0b86c2929bf7cf0586ea4262b9c75841997bcc"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_domain_and_sign_bracket.md",
+      "bytes": 4519,
+      "sha256": "b503c68adc54e0b9409cc29155574686f041ce32d26dffa5342a6966cdd48574"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_raw_data_request.md",
+      "bytes": 2232,
+      "sha256": "5cc4359b7ff0b4b9b230a8273d7c2f89a604d87acb1be2eca769e17b64195972"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_report.md",
+      "bytes": 6175,
+      "sha256": "f398d0a077b2a39ddac3d9dcc05a745bf8adbe367583ae66f2389d44e09fc586"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_sources.json",
+      "bytes": 18128,
+      "sha256": "48e2f5e55331a61d486c043b558c1df313f27a1dabd4e004775f3cb5212cd626"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_verification.md",
+      "bytes": 3974,
+      "sha256": "291e4465fb1f8df21a4a1a29b1a06ed879e902d1847321447aa9026920f24b24"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/verification.md",
+      "bytes": 4138,
+      "sha256": "4be78ae488e7d7a17068fad0da137e3a5191f55ac67768a733660afd337cdf49"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/threshold_causal_2026-10-11/README.md",
+      "bytes": 3859,
+      "sha256": "fc23cfc20190f10dfdeb91994d42527ec4c749e3d47fe3eb5b6fb7e3e31aaece"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/threshold_causal_2026-10-11/cycles_and_boundary.md",
+      "bytes": 15420,
+      "sha256": "76f18452907fa449f73ede539fdd8e15fadc3e1d7c87d2d8f398c063cd67088e"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/threshold_causal_2026-10-11/derivation.md",
+      "bytes": 13285,
+      "sha256": "9acf0b203e0f61ace64191e8a98e7ed03044e2498f97bb6c2a69bce6ad216dca"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/threshold_causal_2026-10-11/literature.md",
+      "bytes": 3886,
+      "sha256": "5d8e11cccab46de66d6e47e96310b9cc792d2a17070eb296bfe21dc2d67efc9e"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/threshold_causal_2026-10-11/verification.md",
+      "bytes": 5949,
+      "sha256": "331b24e3da4246c9f233a3a058a0e03d44e1a698c484cd277c0fe630742f3453"
+    },
+    {
+      "path": "tests/test_gamma8_threshold.py",
+      "bytes": 2629,
+      "sha256": "206284f3e755ee29ef66f862e52aef18bb3cbc87a7ea28c73a09410fb83dea53"
+    },
+    {
+      "path": "tests/test_r07_analytical_first.py",
+      "bytes": 6931,
+      "sha256": "49a28c96023167d629da2849948a1792c9abcb41ec4c421db9d3d72bb2d6b391"
+    },
+    {
+      "path": "tests/test_r07_threshold_causal_closure.py",
+      "bytes": 8827,
+      "sha256": "42aee851e235c5d9de71fc93535e73f8fbe77e0aa28d9c4db346e67c9eb369d8"
+    },
+    {
+      "path": "tests/test_scalar_cpa_threshold.py",
+      "bytes": 2882,
+      "sha256": "b56e9944c8a1ea5900bd29406a72a5e02077c7ed0f114a4d1dde17b2a424f2d3"
+    }
+  ],
+  "primary_urls": [
+    "https://arxiv.org/html/2006.01766v2",
+    "https://journals.aps.org/pr/abstract/10.1103/PhysRev.156.809",
+    "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.27.1088",
+    "https://arxiv.org/html/cond-mat/0307085",
+    "https://arxiv.org/abs/1310.0969",
+    "https://arxiv.org/abs/cond-mat/0505308",
+    "https://arxiv.org/abs/1203.1028"
+  ]
+}
