@@ -1,11 +1,14 @@
 # One discriminating acquisition design — unexecuted
 
-**Latest authorization amendment, 2026-10-11:** the user subsequently approved
-one guarded staged host-then-Cd native pilot. Its [measured resource preflight](../native_matched_pilot_2026-10-11/README.md)
-ends at NO-GO before either launch. Approval does not waive scientific/resource
-gates; no input, supervisor or DFT file is changed. The following design and
-resource estimates are the preserved pre-approval record, not new permission
-to retry or create other calculations.
+**Terminal authorization amendment, 2026-10-11:** the user later approved one
+staged host-then-Cd pilot. The first intake was a resource NO-GO; actual headroom
+later increased and passed the same guard. The sole host ran and stopped during
+exchange initialization at 26.72213-GiB family RSS, above its 26.63966-GiB cap.
+Final HSE SCF/exchange FAILED; host projector gates NOT EVALUABLE; Cd NOT ADMITTED.
+[Terminal evidence](../native_matched_pilot_2026-10-11/decision.md) preserves source
+and old-supervisor pins. No retry, downgrade or queue. Design/estimates below
+are the **historical pre-approval record**, not new launch authorization. The
+interrupted peak is not a full peak bound or the missing physical response.
 
 ## 1. Precise question and minimum quantity
 

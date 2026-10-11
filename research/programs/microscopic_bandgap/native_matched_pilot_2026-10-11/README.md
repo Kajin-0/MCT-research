@@ -1,10 +1,22 @@
-# Approved native matched pilot — safe preflight NO-GO
+# Approved native matched pilot — terminal host resource stop
 
-**Later resumed-goal amendment:** actual external memory headroom increased.
-The [resumed preflight](resumed_preflight.json) passes the unchanged guard and
-the approved host is now running. [Live handoff](runtime_handoff.md) records
-its unique native directory, bounded foreground monitor and strict next gates.
-The original NO-GO below is a dated measurement, not the current run status.
+**Current decision: HOST_RESOURCE_STOP; Cd NOT ADMITTED; STOP.** The sole
+approved host ran after external RAM pressure subsided and the unchanged guard
+passed. Family RSS reached 26.72213 GiB, above the 26.63966-GiB cap, during
+ACE/exchange initialization. Final HSE convergence failed; owned MPI processes
+terminated. No Cd, retry, variant or new queue follows.
+
+[Decision](decision.md), [result](host_result.json), [telemetry/audit](terminal_audit.json)
+and [terminal handoff](runtime_handoff.md) record the completed attempt.
+[Reference-irrep proof/check](reference_irrep_bound.md) uses earlier accepted
+primitive HgTe only; it cannot admit this host or supply a physical impurity
+response, gap or x_c. The original goal is active/unachieved and unchanged by
+agent action; scientific input remains missing.
+
+## Historical first preflight, preserved
+
+The following is the dated initial NO-GO at `52e7915`. Its zero-launch statement
+applies to that intake, not to the later completed native host.
 
 **Decision: PREFLIGHT_RESOURCE_NO_GO. No SCF launched.** The user explicitly
 approved one staged native HSE+SOC 16-atom n2/k2/q2 f120 host, followed only

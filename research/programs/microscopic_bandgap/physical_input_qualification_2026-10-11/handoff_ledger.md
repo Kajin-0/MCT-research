@@ -1,10 +1,20 @@
 # Persistent R07 phase/handoff ledger
 
-**Current amendment after user goal reactivation:** measured headroom increased
-to 29.27615 GiB and the retained host guard passes. The already approved host
-is running; follow [the live runtime handoff](../native_matched_pilot_2026-10-11/runtime_handoff.md),
-session 10143, before any action. The original goal is active again. Do not
-restart a live family or infer terminal status from the older NO-GO below.
+**Current terminal amendment after goal reactivation:** changed available RAM
+(29.27615 GiB) passed the unchanged guard. The sole approved six-rank host then
+stopped at an interrupted RSS peak of 26.72213 GiB, above its 26.63966-GiB cap,
+during exchange initialization. Session 10143 COMPLETED; no MPI remains. Final
+HSE SCF/exchange FAILED; matched-host projector/irrep gates NOT EVALUABLE;
+Cd NOT ADMITTED. No restart, retry, variant or queue.
+
+Follow the [terminal handoff](../native_matched_pilot_2026-10-11/runtime_handoff.md)
+and [decision](../native_matched_pilot_2026-10-11/decision.md). A source-only Td
+check on earlier accepted primitive spinors supports reference labels under
+explicit arithmetic/metric assumptions, without chemical input or failed-host
+admission. All 17 original source/supervisor pins remain unchanged. Physical
+x_c OPEN; no full-SCF peak bound is known. Original goal active/unachieved;
+this resumed turn made new progress and does not meet the blocker threshold.
+Historical pause/zero-launch descriptions below are dated, not current.
 
 ## Latest finite approval and terminal preflight amendment
 

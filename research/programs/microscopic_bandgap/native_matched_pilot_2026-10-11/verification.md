@@ -1,4 +1,36 @@
-# Preflight verification
+# Pilot verification
+
+## Terminal attempt and source-only check
+
+The host result and 354 telemetry rows are copied byte-identically. Tests
+independently isolate the RSS violation from time/disk/available-RAM hard-floor
+and foreign-MPI triggers, verify strict failure/Cd rejection, and check all 17
+original source/supervisor pins. Stdout/input and monitor hashes verify. A fresh
+read-only terminal snapshot contains no MPI or R07 numerical driver.
+
+Independent angular-momentum matrix exponentials, group/lift closure, character
+orthogonality, dense twirl projectors and accidental-quartet counterexamples
+check the source-only symmetry argument. Its scalar arithmetic envelopes are
+conditional model estimates, not HSE eigenpair/material-error certificates.
+The failed matched host is never admitted by the primitive reference check.
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 /home/User/opencode_workspace/DFT/.venv/bin/python -m pytest -q \
+  research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/test_preflight.py \
+  research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/test_native_member_protocol.py \
+  research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/test_terminal_result.py \
+  research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/test_reference_irreps.py \
+  research/programs/microscopic_bandgap/physical_input_qualification_2026-10-11/test_qualification.py
+git diff --check
+```
+
+**31 focused tests passed** (6+4+3+6+12). Local package/state/ledger/registry
+links resolve, and `git diff --check` passes after terminal artifact review. Validation starts no native process,
+changes no supervisor/other program/main/goal, and supplies no material x_c.
+No DFT scratch or UPF is committed. No automatic follow-up job is created.
+
+## Historical first preflight verification
+
 
 Scope: the user's finite native-pilot approval, starting at MCT `626fbc3` on
 `research/hgcdte-impurity-tmatrix-20261010`. The DFT branch is separately recorded

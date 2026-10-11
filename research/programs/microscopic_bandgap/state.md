@@ -2,30 +2,39 @@
 
 **Portfolio contribution:** R07
 
-**State:** original thread goal reactivated by user; actual headroom increased and unchanged resource guard passes; one approved six-rank native matched-host pilot RUNNING under bounded foreground monitor; Cd remains conditional, material ordering/inversion OPEN and all prior negatives preserved
+**State:** sole approved matched host TERMINATED on retained RSS cap during exchange initialization; final HSE convergence FAILED; Cd NOT ADMITTED; missing physical packet / material inversion OPEN; original goal active and unachieved; prior negatives preserved
 
 **Updated:** 2026-10-11
 
-## Resumed goal and live approved host input
+## Resumed goal and terminal approved host attempt
 
 The user reactivated the original analytical-bandgap goal after `52e7915`.
-Current [resource preflight](native_matched_pilot_2026-10-11/resumed_preflight.json)
-measures 29.27615 GiB available, now above the unchanged 27.524-GiB host guard,
-with no competing MPI/R07 driver. Existing explicit staged-pilot authorization
-persists. One new matched-host SCF was launched in a unique output directory,
-six ranks, unchanged 90/360/120-Ry HSE+SOC input, 352 bands, conv_thr=1e-10,
-3600-second native limit plus at most 1800 seconds grace. A foreground owned
-family monitor tracks RSS, disk and process identities; no detached queue or
-existing supervisor was created/changed.
+External resource conditions changed: the [resumed preflight](native_matched_pilot_2026-10-11/resumed_preflight.json)
+measured 29.27615 GiB available and passed the unchanged 27.524-GiB guard, with
+no MPI/R07 driver. Existing approval permitted one six-rank matched-host SCF:
+unchanged 90/360/120-Ry HSE+SOC, 352 bands, conv_thr=1e-10, 3600+1800-second cap,
+unique directory and foreground owned-process monitoring. No old supervisor
+or detached queue was created/changed.
 
-The [live handoff](native_matched_pilot_2026-10-11/runtime_handoff.md) pins session
-10143, native paths and launch provenance. Poll that handle/identity; observation
-timeouts are not terminal. Host acceptance requires strict native inner/EXX
-convergence plus physical projector/irrep and retained 1-meV host gates. The Cd
-member has **not** run and is admissible only after all host gates pass and fresh
-resource/ownership admission. Early sampled RSS is not a full-SCF peak bound.
-No material coefficient, signed alloy gap or physical x_c is inferred. Original
-goal remains active/unachieved; the previous preflight NO-GO below is historical.
+The [terminal handoff](native_matched_pilot_2026-10-11/runtime_handoff.md) records
+session 10143 COMPLETED at 20:01:04 UTC, after 732.39 seconds. Family RSS reached
+26.72213 GiB above its retained 26.63966-GiB cap; minimum available RAM was
+2.76587 GiB and minimum free disk was 30.48957 GiB. All owned descendants
+terminated; no foreign MPI appeared. Adaptive inner SCF converged but EXX/final
+1e-10-Ry SCF did not. Matched-host projector/irrep/1-meV gates NOT EVALUABLE;
+**Cd NOT ADMITTED / NOT RUN**. [Result and decision](native_matched_pilot_2026-10-11/decision.md)
+retain measured rejection. No retry, restart, variant, lowered input or queue.
+The interrupted peak is not a full-SCF bound; successful runtime/peak errors
+remain unknown. All 17 original source/supervisor pins verify.
+
+An independent [reference-irrep bound/check](native_matched_pilot_2026-10-11/reference_irrep_bound.md)
+uses earlier accepted primitive spinors only. Conditional nearby-projector
+math and small-matrix counterexamples support their Gamma6/8 labels; calculated
+arithmetic envelopes do not certify HSE eigenpair/material accuracy or admit
+this failed host. The chemistry-bearing packet remains missing. No physical
+gap, t_H or x_c is inferred. The original goal is active/unachieved; this
+resumed turn made progress, not three repeated blocked turns. Records below
+are historical and preserve their original outcomes.
 
 ## Approved staged native pilot — measured preflight NO-GO
 

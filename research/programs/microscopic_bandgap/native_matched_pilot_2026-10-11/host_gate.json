@@ -1,0 +1,10 @@
+{
+  "Cd_stage": "NOT_RUN",
+  "accepted_for_substitution": false,
+  "decision": "HOST_RESOURCE_STOP_CD_NOT_ADMITTED",
+  "host_native_SCF_gate": "FAILED",
+  "host_projector_irrep_and_1meV_gates": "NOT_EVALUABLE",
+  "new_native_restart_variant_or_retry_authorized": false,
+  "physical_xc": null,
+  "source_only_irrep_check_cannot_admit_this_host": true
+}

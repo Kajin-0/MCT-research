@@ -1,0 +1,291 @@
+{
+  "arithmetic_model": "standard IEEE complex dot products, no overflow/underflow; ideal Td lift error included; scalar envelopes conditional, not interval-native audit",
+  "claim_status": "CALCULATED source numerical character check; PROVEN UNDER ASSUMPTIONS nearby-projector theorem",
+  "double_group_order": 48,
+  "driver_sha256": "74e63f8f130110412ea9ab47bc416657823fd34e44b2733bc0ae5c52ea3595fe",
+  "failed_pilot_host_irreps_admitted": false,
+  "native_plane_waves": 6567,
+  "native_postprocessor_invoked": false,
+  "physical_xc": null,
+  "point_group_order": 24,
+  "sector_order": [
+    "Gamma6",
+    "Gamma7",
+    "Gamma8"
+  ],
+  "sectors": {
+    "Gamma6": {
+      "Gram_defect_frobenius": 5.372291239789567e-16,
+      "Gram_error_upper_model": 3.7329482161914724e-10,
+      "character_complex": [
+        [
+          1.8543519710082434e-18,
+          5.551115123125783e-16
+        ],
+        [
+          9.728063622291324e-17,
+          -6.661338147750939e-16
+        ],
+        [
+          -2.6362730957098154e-16,
+          2.220446049250313e-16
+        ],
+        [
+          2.0000000000000004,
+          1.749707589613278e-18
+        ],
+        [
+          -1.4142135623730954,
+          6.106226635438361e-16
+        ],
+        [
+          1.4142135623730945,
+          2.7755575615628914e-16
+        ],
+        [
+          -2.866527804853115e-16,
+          -5.342948306008566e-16
+        ],
+        [
+          -1.1564398259316459e-16,
+          -4.440892098500626e-16
+        ],
+        [
+          5.408425297076559e-16,
+          -4.718447854656915e-16
+        ],
+        [
+          -1.4142135623730951,
+          6.106226635438361e-16
+        ],
+        [
+          1.4142135623730936,
+          3.885780586188048e-16
+        ],
+        [
+          3.155907082295176e-18,
+          3.3306690738754696e-16
+        ],
+        [
+          1.0000000000000002,
+          3.3306690738754696e-16
+        ],
+        [
+          -1.0000000000000004,
+          7.216449660063518e-16
+        ],
+        [
+          0.9999999999999989,
+          -8.326672684688674e-17
+        ],
+        [
+          -0.9999999999999987,
+          -4.996003610813204e-16
+        ],
+        [
+          0.9999999999999993,
+          7.771561172376096e-16
+        ],
+        [
+          -0.9999999999999987,
+          6.938893903907228e-16
+        ],
+        [
+          -0.9999999999999993,
+          1.4432899320127035e-15
+        ],
+        [
+          0.9999999999999993,
+          -5.551115123125783e-16
+        ],
+        [
+          1.414213562373094,
+          -4.996003610813204e-16
+        ],
+        [
+          -2.30069648239415e-16,
+          -1.5543122344752192e-15
+        ],
+        [
+          -1.414213562373094,
+          -6.661338147750939e-16
+        ],
+        [
+          1.659804788183545e-16,
+          6.522560269672795e-16
+        ]
+      ],
+      "dot_entry_error_model": 1.8664714219501164e-10,
+      "maximum_character_mismatch": 1.602148379482783e-15,
+      "maximum_span_leakage_defect_frobenius": 3.7029177257203636e-15,
+      "multiplicity_complex": [
+        [
+          0.9999999999999998,
+          -1.0139217030095253e-16
+        ],
+        [
+          0.0,
+          -5.559780692267575e-17
+        ],
+        [
+          2.4372305794391593e-16,
+          7.893241550921747e-17
+        ]
+      ],
+      "multiplicity_error_upper_model": [
+        0.0006182850907504685,
+        0.0006182850907504685,
+        0.0012365701813304068
+      ],
+      "nearby_invariant_projector_distance_upper_model": 7.728526302793914e-05,
+      "nearest_integer_classification_admitted_under_model": true,
+      "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+        1,
+        0,
+        0
+      ],
+      "twirl_projector_distance_tau_upper_model": 3.864263151396957e-05
+    },
+    "Gamma8": {
+      "Gram_defect_frobenius": 2.918321346406169e-15,
+      "Gram_error_upper_model": 7.46591487101393e-10,
+      "character_complex": [
+        [
+          2.7347842184701698e-17,
+          3.3306690738754696e-16
+        ],
+        [
+          3.353920806371832e-17,
+          5.551115123125783e-17
+        ],
+        [
+          -8.336865304362955e-17,
+          1.6653345369377348e-16
+        ],
+        [
+          3.9999999999999982,
+          0.0
+        ],
+        [
+          -2.6645352591003757e-15,
+          -3.3306690738754696e-16
+        ],
+        [
+          2.220446049250313e-15,
+          -2.0816681711721685e-16
+        ],
+        [
+          -2.0174184975886934e-16,
+          3.3306690738754696e-16
+        ],
+        [
+          -6.687609874206103e-17,
+          -1.9984014443252818e-15
+        ],
+        [
+          -2.7383101536620873e-17,
+          7.7021722333370235e-16
+        ],
+        [
+          1.2490009027033011e-15,
+          -1.6445178552260131e-15
+        ],
+        [
+          -1.4432899320127035e-15,
+          -1.7832957333041577e-15
+        ],
+        [
+          2.4228279566524083e-16,
+          -9.575673587391975e-16
+        ],
+        [
+          -0.9999999999999992,
+          7.632783294297951e-16
+        ],
+        [
+          0.9999999999999989,
+          -6.661338147750939e-16
+        ],
+        [
+          -0.9999999999999979,
+          1.1102230246251565e-16
+        ],
+        [
+          0.9999999999999996,
+          -7.494005416219807e-16
+        ],
+        [
+          -0.9999999999999987,
+          -2.220446049250313e-16
+        ],
+        [
+          0.999999999999998,
+          7.494005416219807e-16
+        ],
+        [
+          0.9999999999999994,
+          7.008282842946301e-16
+        ],
+        [
+          -0.9999999999999998,
+          -7.771561172376096e-16
+        ],
+        [
+          -2.6645352591003757e-15,
+          -5.551115123125783e-17
+        ],
+        [
+          -2.874480163073294e-18,
+          -1.1657341758564144e-15
+        ],
+        [
+          6.661338147750939e-16,
+          1.1102230246251565e-16
+        ],
+        [
+          1.2957209649717346e-16,
+          4.440892098500626e-16
+        ]
+      ],
+      "dot_entry_error_model": 1.8664714219501164e-10,
+      "maximum_character_mismatch": 3.1264164235997256e-15,
+      "maximum_span_leakage_defect_frobenius": 6.861874953201463e-15,
+      "multiplicity_complex": [
+        [
+          1.2755349151353208e-16,
+          -1.7280607680249144e-17
+        ],
+        [
+          2.240171329511008e-16,
+          3.981061031093624e-18
+        ],
+        [
+          0.9999999999999993,
+          6.649773324577763e-18
+        ]
+      ],
+      "multiplicity_error_upper_model": [
+        0.0017488203467447155,
+        0.0017488203467447155,
+        0.0034976406933189008
+      ],
+      "nearby_invariant_projector_distance_upper_model": 0.00010930052507085808,
+      "nearest_integer_classification_admitted_under_model": true,
+      "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+        0,
+        0,
+        1
+      ],
+      "twirl_projector_distance_tau_upper_model": 5.465026253542904e-05
+    }
+  },
+  "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800",
+  "source_sha256": {
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/signed_gap.json": "5912c08289910bf552e6d69978911b847eb0a51e2369a03c4b10d58ae8b4b50c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/data-file-schema.xml": "761891446c6a86d88f929cb2903a2de756d4ba0ede3aaa275b0b26055ad6a0c8",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc1.hdf5": "58a4beb14445d822463ab4a6cc874c9a9e7130b01d3695198c5512f2c51facc1",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/result.json": "95ed8813fe6e73dec7aec7799a8622ac17de8425bc1ebc59109bcfa24a67c8a1",
+    "/home/User/opencode_workspace/DFT/src/mct_dft/qe_wavefunctions.py": "b49ad16fff8f4b2f8967b0c10aa2e6ced2edad94a7b571e90f1295c785c71a9b"
+  },
+  "true_HSE_eigenpair_metric_or_material_accuracy_certified": false
+}

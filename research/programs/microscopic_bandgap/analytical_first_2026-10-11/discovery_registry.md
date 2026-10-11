@@ -45,3 +45,14 @@ unclaimed; the literature audit is targeted rather than exhaustive.
 The new analytical assignment changes research priority, not the truth status
 of previous calculations. Historical numerical records and supervisors remain
 untouched. There is no new physical success ledger or manuscript promotion.
+
+## Later approved native pilot and source-only symmetry audit
+
+Finite amendments on 2026-10-11; prior proofs and rejections are unchanged.
+
+| ID | Status | Finding | Evidence / scope / prior-art boundary |
+|---|---|---|---|
+| P-RAM | CALCULATED | Sole approved host stopped during exchange initialization at 26.72213-GiB family RSS above retained 26.63966-GiB cap; final SCF/EXX failed; Cd rejected | [Terminal decision](../native_matched_pilot_2026-10-11/decision.md); not full peak bound/material response; old supervisors untouched |
+| P-Td | PROVEN UNDER ASSUMPTIONS | Leakage tau<1/2 gives rank-d invariant Q with distance <=2tau and multiplicity error <=4 d_alpha d tau before arithmetic errors | [Proof](../native_matched_pilot_2026-10-11/reference_irrep_bound.md); exact unitary finite group, correct metric/frame; established twirl/character math; no novelty claim |
+| P-Td-C | CALCULATED | Accepted primitive HgTe spinors match Gamma6/8 characters within 3.127e-15; conditional arithmetic envelopes identify nearby invariant multiplicities | Independent j=1/2,3/2 checks; no failed-host admission or eigenpair/material-error bound |
+| P-Td-N | FALSIFIED | Fourfold energy degeneracy alone identifies Gamma8 | Exact Gamma6+Gamma7 and two-Gamma6 counterexamples; actual physical transformations/metric are necessary |

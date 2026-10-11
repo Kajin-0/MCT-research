@@ -1,0 +1,30 @@
+Program PWSCF v.7.5 starts on 11Oct2026 at 19:48:54
+estimated scf accuracy    <       0.40184489 Ry
+estimated scf accuracy    <       0.04481804 Ry
+estimated scf accuracy    <       0.01142364 Ry
+estimated scf accuracy    <       0.00027676 Ry
+estimated scf accuracy    <       0.00006496 Ry
+estimated scf accuracy    <       0.00000687 Ry
+convergence has been achieved in   6 iterations
+Using ACE for calculation of exact exchange
+ACE projected onto   352 (nbndproj) and applied to   352 (nbnd) bands
+
+Final native stdout lines:
+     0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+     0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+     0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+     0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000
+
+     the Fermi energy is     9.5595 ev
+
+!    total energy              =   -3878.64333380 Ry
+     estimated scf accuracy    <       0.00000687 Ry
+     smearing contrib. (-TS)   =      -0.00008205 Ry
+     internal energy E=F+TS    =   -3878.64325176 Ry
+
+     convergence has been achieved in   6 iterations
+
+     Using ACE for calculation of exact exchange
+
+     EXX grid:    80899 G-vectors     FFT dimensions: (  64,  64,  64)
+     ACE projected onto   352 (nbndproj) and applied to   352 (nbnd) bands
