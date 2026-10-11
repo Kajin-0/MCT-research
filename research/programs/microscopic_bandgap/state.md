@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** analytical-first identifiability and symmetry reduction established; three conditional closures documented; physical gap prediction unresolved; existing bounded numerical supervision left untouched
+**State:** threshold-retaining causal reduction and conditional uniform inversion certificate established; physical prediction stopped at the missing interior mass/domain input; existing bounded numerical supervision left untouched
 
 **Updated:** 2026-10-11
 
@@ -45,12 +45,45 @@ The [analytical package](analytical_first_2026-10-11/README.md) establishes:
   Bernoulli spectral support is x-independent inside (0,1); this established
   phenomenon further separates support edges from measured Γ peaks.
 
-**Decision:** continue threshold-aware analytical development and a quantified
+**Previous decision (preserved):** continue threshold-aware analytical development and a quantified
 common/mass uncertainty budget. The [ranked input plan](analytical_first_2026-10-11/inputs_and_decision.md)
 specifies physical forward contractions as missing information; it creates no
 calculation queue. Spectral-moment, weak-covariance and CPA closures each retain
 explicit gates and falsification conditions. No physical E_g(x), x_c, material
 validation, priority claim or manuscript promotion is established.
+
+## Resumed threshold-aware analytical cycles and current decision
+
+The [threshold package](threshold_causal_2026-10-11/README.md) completes three
+distinct theory-first derivation/falsification cycles, without new native work.
+
+- **PROVEN UNDER ASSUMPTIONS:** a specified positive fractional density admits
+  an exact infrared split, uniform regular C¹/value bounds for subleading p>1,
+  and a positive-envelope causal closure. A raw divergent threshold derivative
+  is retained through an infrared function, not inserted as a finite constant.
+- **PROVEN UNDER ASSUMPTIONS:** on a common support-free real energy segment,
+  positive Γ measures give |Δmass|<=|Δcommon inverse|, including finite threshold
+  endpoint limits. With branch residuals ε6,ε8, existence margins and a lower
+  composition mass secant slope m>0, |δx_c|<=max(ε6,ε8)/m. No separate finite
+  raw T' or mass-energy Lipschitz input is needed for this gap-side certificate.
+- **FALSIFIED:** causality alone extends the contraction into a continuum;
+  a bounded positive-density bath gives ratio 9. Positivity also cannot ensure
+  composition transversality; a cubic mass tangency violates linear root bounds.
+- **PROVEN / FALSIFICATION:** identical IR channels and regular C,A,S,d at the
+  same threshold can still have different exact sharp-crossing roots. These
+  inputs close a bounded approximation, not an exact universal gap law.
+
+**Current decision:** stop physical prediction at the demonstrated missing-input
+boundary. An independently qualified interior mass contraction on the common
+trajectory, or a controlled microscopic bound fixing it, is indispensable;
+support/observable and composition-modulus gates remain required. The package
+ranks these inputs by information gained. No acquisition queue or expensive
+calculation proposal is created. The persistent broad objective remains active
+and unresolved; its completion is not inferred from synthetic checks.
+
+All earlier negative results, numerical gate failures and detached numerical
+ownership remain unchanged. A causal local energy-linear approximation does
+not replace the exact global spectral normalization or centroid sum rules.
 
 ## Preserved numerical and analytical evidence from preceding tranches
 

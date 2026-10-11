@@ -1,0 +1,91 @@
+{
+  "status": "CALCULATED: synthetic mathematical audit; no material validation",
+  "date": "2026-10-11",
+  "parent_commit": "36ed9854db1e89ab91370ec824e1fc632475ebfc",
+  "numpy_version": "2.5.3",
+  "source_sha256": {
+    "src/mct_research/threshold_causal_closure.py": "18f5a7a44362fadc21c494b29c4a46ab773fca8f2fd3a65fa4dbb0fbc32eaff9",
+    "tests/test_r07_threshold_causal_closure.py": "42aee851e235c5d9de71fc93535e73f8fbe77e0aa28d9c4db346e67c9eb369d8",
+    "tools/check_r07_threshold_causal.py": "f59ebbb874eccd86465c25294457920200e17c9fefe63ff664e3b9a3ff4ad595"
+  },
+  "threshold_root_certificate": [
+    {
+      "gap_detuning_eV": 1e-06,
+      "raw_normalized_host_susceptibility": 2353.194492192343,
+      "branch_residual_eV": 0.0004719388981384576,
+      "root_error": 0.0005886736226731193,
+      "root_error_bound": 0.000589923622673072,
+      "error_over_bound": 0.9978810816317396
+    },
+    {
+      "gap_detuning_eV": 1e-10,
+      "raw_normalized_host_susceptibility": 235616.44901923463,
+      "branch_residual_eV": 4.712458980427048e-06,
+      "root_error": 5.890448725509589e-06,
+      "root_error_bound": 5.89057372553381e-06,
+      "error_over_bound": 0.9999787796520263
+    },
+    {
+      "gap_detuning_eV": 1e-12,
+      "raw_normalized_host_susceptibility": 2356191.4901923453,
+      "branch_residual_eV": 4.7123959800998705e-07,
+      "root_error": 5.89048247540136e-07,
+      "root_error_bound": 5.890494975124838e-07,
+      "error_over_bound": 0.9999978779841878
+    }
+  ],
+  "subleading_bounds": [
+    {
+      "exponent": 1.5,
+      "synthetic_density_bound_coefficient": 0.3,
+      "h_eV": 0.01,
+      "cutoff_eV": 0.7,
+      "remainder_bound_eV": 0.0009424777960769379
+    },
+    {
+      "exponent": 2,
+      "synthetic_density_bound_coefficient": 0.3,
+      "h_eV": 0.01,
+      "cutoff_eV": 0.7,
+      "remainder_bound_eV": 0.00012788039631123947
+    },
+    {
+      "exponent": 2.5,
+      "synthetic_density_bound_coefficient": 0.3,
+      "h_eV": 0.01,
+      "cutoff_eV": 0.7,
+      "remainder_bound_eV": 5.0199601592044536e-05
+    }
+  ],
+  "causal_continuum_counterexample": {
+    "density_eV": 0.9,
+    "half_width_eV": 1,
+    "energy_eV": 0.001,
+    "abs_mass_over_common_secant": 9.000030000105966,
+    "derivative_ratio_at_center": 9.0
+  },
+  "same_IR_and_regular_moments_distinct_roots": [
+    {
+      "sign": -1,
+      "regular_moment_reference_eV": 0.3,
+      "C_eV": 0.0,
+      "A": 0.2,
+      "distance_eV": 0.5,
+      "total_weight_eV2": 0.07999999999999999,
+      "shared_IR_at_crossing_eV": -0.016417996192108306,
+      "full_kernel_at_crossing_eV": 0.0323915276174155,
+      "root": 0.2264536861922255
+    },
+    {
+      "sign": 1,
+      "regular_moment_reference_eV": 0.3,
+      "C_eV": 0.0,
+      "A": 0.2,
+      "distance_eV": 0.5,
+      "total_weight_eV2": 0.08,
+      "shared_IR_at_crossing_eV": -0.016417996192108306,
+      "full_kernel_at_crossing_eV": 0.02762962285551073,
+      "root": 0.22697015791467717
+    }
+  ]
+}
