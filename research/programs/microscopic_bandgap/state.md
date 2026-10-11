@@ -2,7 +2,7 @@
 
 **Portfolio contribution:** R07
 
-**State:** reference/direct-alloy audits complete; CdTe empty-state defect largely repaired, matrix gate unresolved; impurity dry runs pass; tighter HgTe binary running
+**State:** reference/direct-alloy audits complete; physical frame unresolved; coarse HgTe quartet fails; finer exchange-grid control running; impurity inputs prepared
 
 **Updated:** 2026-10-11
 
@@ -20,8 +20,12 @@ Temperature and empirical coefficient tuning are outside this tranche.
 time-reversal defect from 6.37827 eV to 2.95137 meV, while the signed Gamma
 gap changes by only 0.8884 micro-eV. The unchanged 1-meV gate still fails;
 a 1e-10-Ry seeded SCF refinement was interrupted at its wall limit without
-an outer checkpoint and is rejected. A longer-budget tight HgTe binary is
-running. At X the two same-material
+an outer checkpoint and is rejected. The longer-budget HgTe k4/q2 host
+stops cleanly without exchange convergence and splits its Gamma8-derived
+quartet by 311.9218 meV. A source-checked q=G=0 exchange feedback component
+is 297.6848 meV at q2; its blind q4 prediction is 6.711425 meV. A fresh
+q4 control is running, with all physical settings fixed. Its outcome is
+pending; no signed HgTe gap is assigned. At X the two same-material
 physical frames have minimum overlap singular value 0.109056 and a
 same-label matrix difference of 6.30703 eV, invalid as an impurity operator.
 
@@ -36,12 +40,30 @@ description was inaccurate. The 26-band window captures only 0.0162204 of
 the least-captured fixed physical trial direction at X. All 44 supplied
 bands raise this to 0.469856. These are trial-norm fractions, not gap errors.
 Identical ordered 208-spinor trial blocks are prepared for the paired cells.
-A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 59 pass.
+A bounded, checkpoint-checked SCF runner is ready; DFT fast tests: 67 pass.
+
+**CALCULATED:** the prepared Gamma-only n2/q1 supercell preserves the
+primitive q2 exchange-feedback spacing. Matched n2/k2/q2 input decks are
+prepared to match the finer k4/q4 reference-host spacings; their native
+resource check is pending. The full 64-point, 44-band fixed-hydrogenic-trial
+resolvent fails the sufficient inverse certificate (product 58.86078).
+A different reference-UPF atomic s/p projector has a pointwise Gamma
+omitted-window inverse bound 2.355045 meV, but a worst finite-q bound
+484.115 meV. Reference-radial reconstruction and transport to the impurity
+remain pending. The bound assumes exact eigenpairs; SCF/grid and residual
+errors are separate. These are physical-projector controls, not a T-matrix.
 
 **PROVEN:** fixed-physical-trial projected resolvents admit an omitted-band
 error certificate from the unresolved spectral norm and distance to the
 omitted spectrum. A separate energy-dependent effective inverse difference
 must not be confused with the ambient physical impurity T-matrix.
+
+**PROVEN:** actual host eigenstates provide an invariant physical projector
+with exact R0. The impurity spectrum projected onto the same host spinors
+then yields both full finite-volume T_P and the distinct P-irreducible
+reaction kernel K_P. Full finite-box T can vanish on shell because of the
+one exact host pole; reaction-kernel volume convergence or ordered volume
+and energy limits are required. No physical endpoint value is computed yet.
 
 **PROVEN under an isolated quadratic Gamma8 threshold and nonzero finite
 forward amplitude:** the gap-side contribution to -T8' scales as
@@ -123,6 +145,8 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Conditional Gamma8 threshold kernel](../../../docs/derivations/gamma8_threshold_kernel.md)
 - [Frozen Gamma8 kernel](../../../data/calculated/gamma8_quadratic_threshold_20261011.json)
 - [Fixed-trial resolvent and spectral-window certificate](../../../docs/derivations/fixed_trial_resolvent.md)
+- [Host-invariant reaction kernel and finite-volume pole limits](../../../docs/derivations/host_invariant_reaction_kernel.md)
+- [Coarse HgTe quartet and exchange-component figure](figures/hgte_quartet_feedback.pdf)
 - [Self-consistent threshold and centroid derivation](../../../docs/derivations/self_consistent_threshold_and_centroid.md)
 - [Frozen endpoint reductions](../../../data/calculated/sp3d5_endpoint_reductions.json)
 - [Threshold convergence](../../../data/calculated/sp3d5_cdte_threshold.json)
@@ -142,25 +166,39 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
 
 ## Next decision-changing work
 
-1. Finish the live SG15 HgTe binary
-   `hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800` in the companion DFT
+1. Finish the live SG15 HgTe finer-exchange control
+   `hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800` in the companion DFT
    repository before another MPI family. Both coarse CdTe HSE hosts
    converged: signed gaps 1.7048135 eV (PseudoDojo) and 1.5753656 eV (SG15),
    with independently assigned Gamma sectors and verified grid expansion.
    Their 129.4479-meV difference is not attributable to NLCC alone.
    Accurate empty states reduce the 26-spinor matrix defect by over 2000
    times, to 2.95137 meV, still above the unchanged 1-meV gate. DFT commit
-   6e06fd7 contains the completed controls, physical-frame overlaps,
+   152e801 contains the completed controls, physical-frame overlaps,
    native trial-unit/capture audit, prepared pair and bounded SCF runner.
+   It also records the rejected coarse HgTe quartet and the blind q4
+   component prediction; see the [exchange-grid protocol](/home/User/opencode_workspace/DFT/docs/r07_hgte_exchange_grid.md).
    The stricter CdTe refinement was
    killed at its wall limit without a checkpoint and is rejected. It
-   needs a new longer-budget calculation. Rerun the Gamma assignments,
+   needs a new longer-budget calculation. After the live job ends, resource
+   check the n2/k2/q2 prepared pair rather than silently reusing its coarse
+   Gamma-only estimate. Compare the q4 quartet spread,
+   occupations and orbital/symmetry identity before accepting a Gamma8
+   edge. Restoration supports a coarse-grid cause; the component's isolated
+   gain is not the full SCF Jacobian. Rerun the Gamma assignments,
    projection and native-wavefunction checks after HgTe converges. In
    smeared HgTe, a fixed lowest-36-band slice is not an occupied projector.
    No scattering host is accepted yet. A clean time-limited continuation
    must retain `--accurate-empty` and `--scf-threshold 1e-10`.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
+   First test the host-invariant edge-spinor resolvent/reaction-kernel route,
+   retaining full nonlocal HSE through the impurity spectrum. Certify its
+   window and cell-size/continuation limits before interpreting an endpoint
+   shift; the finite-box on-shell full T is not a dilute amplitude.
+   Test frozen reference-potential atomic radial projectors and enlarge
+   the supplied spectral window; do not identify native host/impurity
+   atomic labels as one physical basis.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
 3. Use the corrected full/residual conventions and define the HgTe common-mode
    continuation explicitly. Declare the lattice path: fixed-volume impurity
