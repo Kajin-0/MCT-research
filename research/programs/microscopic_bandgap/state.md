@@ -4,7 +4,7 @@
 
 **State:** reference/direct-alloy audits complete; two hybrid CdTe hosts converged; projected empty-state gate failed; numerical control running
 
-**Updated:** 2026-10-10
+**Updated:** 2026-10-11
 
 ## Objective and scope
 
@@ -15,6 +15,17 @@ in issue #4; this work does not alter R02's thermal or first-principles gates.
 Temperature and empirical coefficient tuning are outside this tranche.
 
 ## Current evidence
+
+**CALCULATED:** the SG15 CdTe accurate-empty control reduces the projected
+time-reversal defect from 6.37827 eV to 2.95137 meV, while the signed Gamma
+gap changes by only 0.8884 micro-eV. The unchanged 1-meV gate still fails;
+a 1e-10-Ry seeded SCF refinement is running. At X the two same-material
+physical frames have minimum overlap singular value 0.109056 and a
+same-label matrix difference of 6.30703 eV, invalid as an impurity operator.
+
+**PROVEN:** a composition-dependent volume path adds homogeneous-strain
+terms to fixed-volume impurity endpoint slopes. These must be accounted
+for before interpreting the boundary slope sum as dynamic susceptibility.
 
 **PROVEN:** full host-referenced impurity T cannot also be added as a residual
 to a binary chord. The correct residuals are t_H=tau_H-DeltaM and
@@ -77,6 +88,7 @@ optical-theorem, threshold and interpolation mathematics is established.
 - [Direct-alloy and self-consistency result](result_2026-10-10_self_consistency.md)
 - [Hybrid host capability and core-approximation gate](result_2026-10-10_hybrid_gate.md)
 - [Completed host comparison and projected-frame failure](result_2026-10-10_projected_host.md)
+- [Empty-state repair and physical-frame negative control](result_2026-10-11.md)
 - [Portable hybrid host record](../../../data/calculated/static_hse_binary_gate_20261010.json)
 - [Reference and threshold derivation](../../../docs/derivations/impurity_reference_and_threshold.md)
 - [Endpoint volume-path correction](../../../docs/derivations/endpoint_volume_path.md)
@@ -99,18 +111,18 @@ implicit derivatives, threshold coefficients and the pair indicator limits.
 
 ## Next decision-changing work
 
-1. Finish the live SG15 CdTe `--accurate-empty` numerical control in the
-   companion DFT repository before another MPI family. Both coarse HSE hosts
+1. Finish the live SG15 CdTe 1e-10-Ry numerical refinement in the companion
+   DFT repository before another MPI family. Both coarse HSE hosts
    converged: signed gaps 1.7048135 eV (PseudoDojo) and 1.5753656 eV (SG15),
    with independently assigned Gamma sectors and verified grid expansion.
    Their 129.4479-meV difference is not attributable to NLCC alone.
-   Full-rank 26-spinor frames fail matrix time reversal; the tested defect
-   exists already in the native empty-state span at X. DFT commit a0c91cc
-   contains the completed audits and the tighter-empty-state driver. The
-   October 11 continuation is
-   `cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97`; after convergence rerun
-   the projection and native-wavefunction checks. No scattering host is
-   accepted yet. A time-limited continuation must also pass `--accurate-empty`.
+   Accurate empty states reduce the 26-spinor matrix defect by over 2000
+   times, to 2.95137 meV, still above the unchanged 1-meV gate. DFT commit
+   400a2da contains the completed control and physical-frame overlaps.
+   The live run is `cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2`;
+   rerun the projection and native-wavefunction checks after convergence.
+   No scattering host is accepted yet. A time-limited continuation must
+   retain both `--accurate-empty` and `--scf-threshold 1e-10`.
 2. Obtain or compute a common-gauge, self-consistent Cd-in-HgTe potential and
    the reciprocal Hg-in-CdTe potential with defensible binary electronic structure.
    The present PBE endpoint artifacts are not adequate meV-level inputs.
