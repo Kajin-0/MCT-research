@@ -1,0 +1,87 @@
+{
+  "claim_status": "PROVEN UNDER ASSUMPTIONS / CALCULATED conditional exact-input reference envelope only",
+  "eta_domain_eV": "0<eta<=0.1",
+  "evaluator_sha256": "f8ae004efb60ab95c5c42dc16d3c376e9d01e7606b6329c64964015193b7f20a",
+  "impurity_response_error_bound_eV": null,
+  "interval_helper_sha256": "88137b65f1caaa3aa5ac5a20e6f69730669bfe5ed03cf093894a6ad6724bb464",
+  "material_error_bound_eV": null,
+  "minimum_conditional_mass_floor": "0.29017025917435746239094598463735",
+  "native_exact_eigenpair_metric_assumption_certified": false,
+  "new_native_computation": false,
+  "ordering_transfer_error_bound_eV": {
+    "hi": "0.000058813986030219002603753567565362",
+    "lo": "0.000058813986030219002603753567565342",
+    "mid": "0.00005881398603021900260375356756535",
+    "radius": "1.2E-35"
+  },
+  "physical_xc": null,
+  "reference_r_native_eV": {
+    "hi": "8.8099901668552650",
+    "lo": "8.8099901668552650",
+    "mid": "8.8099901668552650",
+    "radius": "0E-16"
+  },
+  "sectors": {
+    "Gamma6": {
+      "centroid_transfer_error_bound_eV": {
+        "hi": "0.000021914955656997768676994654591345",
+        "lo": "0.000021914955656997768676994654591341",
+        "mid": "0.000021914955656997768676994654591343",
+        "radius": "2E-36"
+      },
+      "comparison_floor": {
+        "hi": "0.29017553077046334313392646284226",
+        "lo": "0.29017553077046334313392646283848",
+        "mid": "0.29017553077046334313392646284037",
+        "radius": "1.89E-30"
+      },
+      "mass_error_uniform_bound": {
+        "hi": "0.0000077103240789377222097648455806774",
+        "lo": "0.0000077103240789377222097648455806758",
+        "mid": "0.0000077103240789377222097648455806765",
+        "radius": "9E-37"
+      },
+      "rounded_input_delta_eV": "0.000002504",
+      "rounded_input_leakage": "0.000000000001842",
+      "source_floor": {
+        "hi": "0.29018324109454228085613622768784",
+        "lo": "0.29018324109454228085613622768407",
+        "mid": "0.29018324109454228085613622768596",
+        "radius": "1.89E-30"
+      }
+    },
+    "Gamma8": {
+      "centroid_transfer_error_bound_eV": {
+        "hi": "0.000036899030373221233926758912974017",
+        "lo": "0.000036899030373221233926758912974001",
+        "mid": "0.000036899030373221233926758912974009",
+        "radius": "8E-36"
+      },
+      "comparison_floor": {
+        "hi": "0.29017025917435746239094598464113",
+        "lo": "0.29017025917435746239094598463735",
+        "mid": "0.29017025917435746239094598463924",
+        "radius": "1.89E-30"
+      },
+      "mass_error_uniform_bound": {
+        "hi": "0.000012981920184818465190243046712515",
+        "lo": "0.000012981920184818465190243046712511",
+        "mid": "0.000012981920184818465190243046712513",
+        "radius": "2E-36"
+      },
+      "rounded_input_delta_eV": "0.000004216",
+      "rounded_input_leakage": "0.000000000003466",
+      "source_floor": {
+        "hi": "0.29018324109454228085613622768784",
+        "lo": "0.29018324109454228085613622768407",
+        "mid": "0.29018324109454228085613622768596",
+        "radius": "1.89E-30"
+      }
+    }
+  },
+  "source_audit_sha256": "823a7c6b0d851139818901f3d1fb7f1bfdf3029c9fee4ba55efaa92db03bc7e1",
+  "window_half_width_domain_eV": [
+    "0.5",
+    "5"
+  ]
+}

@@ -26,8 +26,9 @@ execution/convergence gate, not exact material Hamiltonian acceptance.
 
 Twenty-nine source hashes are saved, including 21 completed-reference sources
 from the frozen review. The two historical supervisor state paths are skipped
-even for hashing; no process/supervisor is inspected. Six further prepared-input
-and SQS/module sources permit reproduction. The DFT repository is read-only;
+even for hashing; no process/supervisor is inspected. Six prepared-input/SQS
+sources, the native overlap module and the MCT review complete the 29 pins.
+The DFT repository is read-only;
 bytecode is disabled, and no DFT driver, environment setup script or native job
 is invoked. A fresh MCT-only audit result is produced using the existing DFT
 Python environment for its already installed h5py.

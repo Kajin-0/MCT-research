@@ -20,8 +20,8 @@ material NO-GO findings remain valid. Physical x_c remains OPEN.
 | Phase | Question | Cheapest discriminating check | State |
 |---|---|---|---|
 | P1 | Which existing numerical references and interior inputs actually qualify? | Source hashes, accepted terminal/input metadata, Gamma assignments and native fixed-frame overlaps; inspect existing x=.20 SQS record | Complete; advance P2 |
-| P2 | Can saved projector overlaps certify an operational reference window more broadly than one inverse-kernel point? | Positive measure/parity/Lipschitz bounds, explicit error/floor budgets; independent small-matrix failures of sorted-band and endpoint inference | In progress |
-| P3 | Can one missing physical response be acquired without redundant data or hidden reference assumptions? | Reduction to retained spectral contractions, operator-folding falsification, one unexecuted acquisition design with resource/acceptance gates | Pending P2 |
+| P2 | Can saved projector overlaps certify an operational reference window more broadly than one inverse-kernel point? | Positive measure/parity/Lipschitz bounds, explicit error/floor budgets; independent small-matrix failures of sorted-band and endpoint inference | Complete; advance P3 |
+| P3 | Can one missing physical response be acquired without redundant data or hidden reference assumptions? | Reduction to retained spectral contractions, operator-folding falsification, one unexecuted acquisition design with resource/acceptance gates | In progress |
 
 Continue from each checkpoint into the next justified cheap phase. Stop if a
 minimum physical acquisition is indispensable, a scientific boundary is proven,
@@ -50,5 +50,20 @@ Native Gamma overlap/kernel reconstruction completed read-only in 0.83 seconds;
 1.656e-15, f360/f120 kernel difference 4.20583 micro-eV. No accepted impurity
 operator appears; x=.20 PBE band-count SQS data lack Gamma contractions.
 [P1 inventory](phase1_reference_inventory.md) and [audit](existing_audit.json)
-record precise admission limits. Commit/push this evidence checkpoint, then
-continue P2 without asking for permission. Do not rerun a native driver.
+record precise admission limits. Checkpoint **904748f** is pushed. No native driver
+was rerun; no supervisor state was opened.
+
+## P2 retained result / next action
+
+[Uniform reference bounds](phase2_uniform_reference_bounds.md) use sector
+capture, bounded test functions and a mass-floor lemma. Conditional on exact
+native eigenpairs/metric and the reported scalars, across W in [0.5,5] eV
+and all 0<eta<=0.1 eV, the floor exceeds 0.29017 and the cutoff-induced
+ordering error is <=0.058814 meV. Native residual/model/material errors are
+**unknown**, never set to zero. This is a reference-conditioning result only.
+
+An exact 4x4 counterexample has identical binary P Green functions and all
+sorted eigenvalues but opposite substituted real reaction kernels: the Q/V
+orientation is missing. Do not promote the small binary cutoff difference
+to a physical impurity error. Commit/push P2, then continue P3's minimum
+first-principles acquisition design and image/localization falsification.
