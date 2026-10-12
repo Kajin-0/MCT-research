@@ -371,16 +371,20 @@ def main():
     bundle=NativeBundle(root)
     if os.environ.get('QE75_BRIDGE_FINGERPRINT')!=hashlib.sha256(encode(bundle.profile)).hexdigest():
         raise Refusal('environment/profile fingerprint mismatch')
-    # No launch or self-certification. The original runtime monitor must supply
-    # a current owned-family receipt, not merely set an environment boolean.
-    if bundle.profile.get('runtime_authorized') is not True:
-        raise Refusal('bridge runtime not qualified for bounded fixture: admission not issued')
     if (bundle.profile['provenance'].get('kind')!='QEF_QE75_NATIVE_FIXTURE' or
         bundle.profile['provenance'].get('qe_commit')!='770a0b2d12928a67048e2f3da8d10d057e52179e'):
-        raise Refusal('synthetic/unqualified source provenance cannot enter native runtime')
+        raise Refusal('bridge runtime not qualified: synthetic/unqualified source provenance cannot enter native runtime')
+    # M4 live lease fence: a profile Boolean / MONITOR.json cannot grant native
+    # authority. No native registration adapter is qualified yet; fake workers
+    # are expressly refused by authorize_native_hook. This stays fail-closed.
+    sys.path.insert(0,str(HERE.parent/'runtime_admission'))
+    from runtime_client import authorize_native_hook
+    try:
+        receipt=authorize_native_hook(bundle.root,hashlib.sha256(encode(bundle.profile)).hexdigest(),'authorize')
+    except (Refusal,OSError,KeyError,ValueError) as error:
+        raise Refusal('bridge runtime not qualified: live native lease unavailable: '+str(error)) from error
     expected_exe=bundle.profile.get('candidate_executable_sha256','')
     if not re.fullmatch('[0-9a-f]{64}',expected_exe): raise Refusal('native executable fingerprint absent')
-    receipt=read_meta(bundle.root/'MONITOR.json')
     fingerprint=hashlib.sha256(encode(bundle.profile)).hexdigest()
     if receipt.get('owner')!=bundle.owner['id'] or receipt.get('profile_sha256')!=fingerprint:
         raise Refusal('monitor ownership/profile mismatch')

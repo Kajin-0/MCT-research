@@ -1,0 +1,1593 @@
+{
+  "passed": true,
+  "methods": 17,
+  "results": [
+    {
+      "case": "test_completed_ticket_cannot_authorize",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.45012886822223663,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808089,
+          "start_ticks": 629401935
+        },
+        {
+          "pid": 1808090,
+          "start_ticks": 629401940
+        },
+        {
+          "pid": 1808091,
+          "start_ticks": 629401940
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31845416960,
+      "minimum_free_disk_bytes": 32454533120,
+      "native_PW_MPI_executed": false,
+      "passed": true,
+      "peak_summed_PSS_bytes": 42338304,
+      "peak_summed_RSS_bytes": 91283456,
+      "rank_registration": {
+        "0": {
+          "pid": 1808090,
+          "start_ticks": 629401940
+        },
+        "1": {
+          "pid": 1808091,
+          "start_ticks": 629401940
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808089,
+          "status": 0
+        }
+      ],
+      "reason": "PASS",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-iv1gbt96/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-iv1gbt96/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-iv1gbt96/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 15,
+      "shared_RSS_overcount_indicator_bytes": 48969728,
+      "signals": [],
+      "survivors": []
+    },
+    {
+      "case": "test_detached_descendant_cannot_escape",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.7362419245764613,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 20480,
+      "members": [
+        {
+          "pid": 1808094,
+          "start_ticks": 629402000
+        },
+        {
+          "pid": 1808096,
+          "start_ticks": 629402006
+        },
+        {
+          "pid": 1808095,
+          "start_ticks": 629402006
+        },
+        {
+          "pid": 1808097,
+          "start_ticks": 629402024
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31828025344,
+      "minimum_free_disk_bytes": 32454529024,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 43509760,
+      "peak_summed_RSS_bytes": 102559744,
+      "rank_registration": {
+        "0": {
+          "pid": 1808095,
+          "start_ticks": 629402006
+        },
+        "1": {
+          "pid": 1808096,
+          "start_ticks": 629402006
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808094,
+          "status": 0
+        },
+        {
+          "pid": 1808097,
+          "status": 9
+        }
+      ],
+      "reason": "launcher exited with orphan/unresolved descendants",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-beo2b4hy/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-beo2b4hy/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-beo2b4hy/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 15,
+      "shared_RSS_overcount_indicator_bytes": 59054080,
+      "signals": [
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 15,
+          "start_ticks": 629402024
+        },
+        {
+          "pid": 1808097,
+          "signal": 9,
+          "start_ticks": 629402024
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_double_crash_fences_restart_until_explicit_test_cleanup",
+      "expected_refusal": {
+        "native_PW_MPI_executed": false,
+        "passed": false,
+        "reason": "previous family not durably closed; orphan/recovery boundary",
+        "survivors": []
+      },
+      "kernel_lease_released": true,
+      "automatic_cleanup_claimed": false
+    },
+    {
+      "case": "test_exclusive_lease_refuses_second_owner",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.5597793450579047,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808107,
+          "start_ticks": 629402161
+        },
+        {
+          "pid": 1808108,
+          "start_ticks": 629402167
+        },
+        {
+          "pid": 1808109,
+          "start_ticks": 629402167
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31813238784,
+      "minimum_free_disk_bytes": 32454504448,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42302464,
+      "peak_summed_RSS_bytes": 91095040,
+      "rank_registration": {
+        "0": {
+          "pid": 1808108,
+          "start_ticks": 629402167
+        },
+        "1": {
+          "pid": 1808109,
+          "start_ticks": 629402167
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808107,
+          "status": 15
+        },
+        {
+          "pid": 1808108,
+          "status": 15
+        },
+        {
+          "pid": 1808109,
+          "status": 15
+        }
+      ],
+      "reason": "owner cancellation",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-2lufhlev/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-2lufhlev/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-2lufhlev/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 17,
+      "shared_RSS_overcount_indicator_bytes": 49831936,
+      "signals": [
+        {
+          "pid": 1808107,
+          "signal": 15,
+          "start_ticks": 629402161
+        },
+        {
+          "pid": 1808108,
+          "signal": 15,
+          "start_ticks": 629402167
+        },
+        {
+          "pid": 1808109,
+          "signal": 15,
+          "start_ticks": 629402167
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_guardian_sigkill_owner_fallback",
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "ready": {
+        "abstract_socket": "qe75-r07-71ebc6de385045529fbd9d8469b488f0",
+        "event": "READY",
+        "global_lock": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/MPI_FAMILY.lock",
+        "guardian": {
+          "pid": 1808113,
+          "start_ticks": 629402231
+        },
+        "launch": {
+          "pid": 1808114,
+          "start_ticks": 629402238
+        },
+        "profile_sha256": "90e897a45e47e5220d1b64b02edf2219ad58a1dc35ff5605483e8f549d9fbcfa",
+        "version": 1
+      },
+      "reason": "guardian died; owner fallback",
+      "survivors": []
+    },
+    {
+      "case": "test_normal_real_family_all_ranks_reservation",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.48583104368299246,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808119,
+          "start_ticks": 629402288
+        },
+        {
+          "pid": 1808120,
+          "start_ticks": 629402293
+        },
+        {
+          "pid": 1808121,
+          "start_ticks": 629402293
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31818174464,
+      "minimum_free_disk_bytes": 32454533120,
+      "native_PW_MPI_executed": false,
+      "passed": true,
+      "peak_summed_PSS_bytes": 42301440,
+      "peak_summed_RSS_bytes": 91037696,
+      "rank_registration": {
+        "0": {
+          "pid": 1808120,
+          "start_ticks": 629402293
+        },
+        "1": {
+          "pid": 1808121,
+          "start_ticks": 629402293
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808119,
+          "status": 0
+        }
+      ],
+      "reason": "PASS",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-1p87qdj2/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-1p87qdj2/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-1p87qdj2/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 15,
+      "shared_RSS_overcount_indicator_bytes": 48818176,
+      "signals": [],
+      "survivors": []
+    },
+    {
+      "case": "test_outside_peer_boolean_and_forged_monitor_do_not_authorize",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.3642766922712326,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 20480,
+      "members": [
+        {
+          "pid": 1808124,
+          "start_ticks": 629402357
+        },
+        {
+          "pid": 1808125,
+          "start_ticks": 629402363
+        },
+        {
+          "pid": 1808126,
+          "start_ticks": 629402363
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31822614528,
+      "minimum_free_disk_bytes": 32454529024,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42306560,
+      "peak_summed_RSS_bytes": 91136000,
+      "rank_registration": {
+        "0": {
+          "pid": 1808125,
+          "start_ticks": 629402363
+        },
+        "1": {
+          "pid": 1808126,
+          "start_ticks": 629402363
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808124,
+          "status": 15
+        },
+        {
+          "pid": 1808125,
+          "status": 15
+        },
+        {
+          "pid": 1808126,
+          "status": 15
+        }
+      ],
+      "reason": "owner cancellation",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-bls8oygl/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-bls8oygl/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-bls8oygl/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 11,
+      "shared_RSS_overcount_indicator_bytes": 48968704,
+      "signals": [
+        {
+          "pid": 1808124,
+          "signal": 15,
+          "start_ticks": 629402357
+        },
+        {
+          "pid": 1808125,
+          "signal": 15,
+          "start_ticks": 629402363
+        },
+        {
+          "pid": 1808126,
+          "signal": 15,
+          "start_ticks": 629402363
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_owner_cancellation",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.36436139326542616,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808129,
+          "start_ticks": 629402416
+        },
+        {
+          "pid": 1808130,
+          "start_ticks": 629402421
+        },
+        {
+          "pid": 1808131,
+          "start_ticks": 629402421
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31828733952,
+      "minimum_free_disk_bytes": 32454533120,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42304512,
+      "peak_summed_RSS_bytes": 90959872,
+      "rank_registration": {
+        "0": {
+          "pid": 1808130,
+          "start_ticks": 629402421
+        },
+        "1": {
+          "pid": 1808131,
+          "start_ticks": 629402421
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808129,
+          "status": 15
+        },
+        {
+          "pid": 1808130,
+          "status": 15
+        },
+        {
+          "pid": 1808131,
+          "status": 15
+        }
+      ],
+      "reason": "owner cancellation",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-8qye_l9h/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-8qye_l9h/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-8qye_l9h/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 11,
+      "shared_RSS_overcount_indicator_bytes": 48724992,
+      "signals": [
+        {
+          "pid": 1808129,
+          "signal": 15,
+          "start_ticks": 629402416
+        },
+        {
+          "pid": 1808130,
+          "signal": 15,
+          "start_ticks": 629402421
+        },
+        {
+          "pid": 1808131,
+          "signal": 15,
+          "start_ticks": 629402421
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_owner_sigkill_guardian_cleans_and_releases",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.3252510838210583,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808134,
+          "start_ticks": 629402470
+        },
+        {
+          "pid": 1808136,
+          "start_ticks": 629402476
+        },
+        {
+          "pid": 1808135,
+          "start_ticks": 629402476
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31836962816,
+      "minimum_free_disk_bytes": 32454533120,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42291200,
+      "peak_summed_RSS_bytes": 91242496,
+      "rank_registration": {
+        "0": {
+          "pid": 1808135,
+          "start_ticks": 629402476
+        },
+        "1": {
+          "pid": 1808136,
+          "start_ticks": 629402476
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808134,
+          "status": 15
+        },
+        {
+          "pid": 1808135,
+          "status": 15
+        },
+        {
+          "pid": 1808136,
+          "status": 15
+        }
+      ],
+      "reason": "owner cancellation/parent death",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-zlv51v73/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-zlv51v73/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-zlv51v73/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 10,
+      "shared_RSS_overcount_indicator_bytes": 48984064,
+      "signals": [
+        {
+          "pid": 1808134,
+          "signal": 15,
+          "start_ticks": 629402470
+        },
+        {
+          "pid": 1808136,
+          "signal": 15,
+          "start_ticks": 629402476
+        },
+        {
+          "pid": 1808135,
+          "signal": 15,
+          "start_ticks": 629402476
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_owner_sigkill_guardian_cleans_and_releases",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.4774599829688668,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808139,
+          "start_ticks": 629402520
+        },
+        {
+          "pid": 1808140,
+          "start_ticks": 629402525
+        },
+        {
+          "pid": 1808141,
+          "start_ticks": 629402525
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31830368256,
+      "minimum_free_disk_bytes": 32454455296,
+      "native_PW_MPI_executed": false,
+      "passed": true,
+      "peak_summed_PSS_bytes": 42277888,
+      "peak_summed_RSS_bytes": 91045888,
+      "rank_registration": {
+        "0": {
+          "pid": 1808140,
+          "start_ticks": 629402525
+        },
+        "1": {
+          "pid": 1808141,
+          "start_ticks": 629402525
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808139,
+          "status": 0
+        }
+      ],
+      "reason": "PASS",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545819,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-zlv51v73/after-crash/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545828,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-zlv51v73/after-crash/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545829,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-zlv51v73/after-crash/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 15,
+      "shared_RSS_overcount_indicator_bytes": 48845824,
+      "signals": [],
+      "survivors": []
+    },
+    {
+      "case": "test_predicate_faults_stop_owned_real_processes",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.2211268786340952,
+      "injected_predicate": "mem",
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1808144,
+          "start_ticks": 629402591
+        },
+        {
+          "pid": 1808145,
+          "start_ticks": 629402598
+        },
+        {
+          "pid": 1808146,
+          "start_ticks": 629402598
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31841972224,
+      "minimum_free_disk_bytes": 32454537216,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42937344,
+      "peak_summed_RSS_bytes": 91996160,
+      "rank_registration": {
+        "0": {
+          "pid": 1808145,
+          "start_ticks": 629402598
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808144,
+          "status": 15
+        },
+        {
+          "pid": 1808146,
+          "status": 15
+        }
+      ],
+      "reason": "runtime system RAM reserve crossed",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/mem/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/mem/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/mem/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 5,
+      "shared_RSS_overcount_indicator_bytes": 49058816,
+      "signals": [
+        {
+          "pid": 1808144,
+          "signal": 15,
+          "start_ticks": 629402591
+        },
+        {
+          "pid": 1808146,
+          "signal": 15,
+          "start_ticks": 629402598
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_predicate_faults_stop_owned_real_processes",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.188352195546031,
+      "injected_predicate": "disk",
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1808149,
+          "start_ticks": 629402633
+        },
+        {
+          "pid": 1808150,
+          "start_ticks": 629402638
+        },
+        {
+          "pid": 1808151,
+          "start_ticks": 629402638
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31833800704,
+      "minimum_free_disk_bytes": 32454459392,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42824704,
+      "peak_summed_RSS_bytes": 91459584,
+      "rank_registration": {
+        "0": {
+          "pid": 1808150,
+          "start_ticks": 629402638
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808149,
+          "status": 15
+        },
+        {
+          "pid": 1808151,
+          "status": 15
+        }
+      ],
+      "reason": "runtime disk reserve crossed",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545817,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/disk/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545826,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/disk/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545827,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/disk/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 4,
+      "shared_RSS_overcount_indicator_bytes": 48634880,
+      "signals": [
+        {
+          "pid": 1808149,
+          "signal": 15,
+          "start_ticks": 629402633
+        },
+        {
+          "pid": 1808151,
+          "signal": 15,
+          "start_ticks": 629402638
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_predicate_faults_stop_owned_real_processes",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.18284230306744576,
+      "injected_predicate": "probe",
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1808154,
+          "start_ticks": 629402672
+        },
+        {
+          "pid": 1808155,
+          "start_ticks": 629402677
+        },
+        {
+          "pid": 1808156,
+          "start_ticks": 629402677
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31844454400,
+      "minimum_free_disk_bytes": 32454381568,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42731520,
+      "peak_summed_RSS_bytes": 90402816,
+      "rank_registration": {
+        "0": {
+          "pid": 1808155,
+          "start_ticks": 629402677
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808154,
+          "status": 15
+        },
+        {
+          "pid": 1808156,
+          "status": 15
+        }
+      ],
+      "reason": "runtime filesystem probe failed",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545832,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/probe/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545840,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/probe/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545841,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/probe/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 4,
+      "shared_RSS_overcount_indicator_bytes": 47671296,
+      "signals": [
+        {
+          "pid": 1808154,
+          "signal": 15,
+          "start_ticks": 629402672
+        },
+        {
+          "pid": 1808156,
+          "signal": 15,
+          "start_ticks": 629402677
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_predicate_faults_stop_owned_real_processes",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.1999377477914095,
+      "injected_predicate": "envelope",
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1808159,
+          "start_ticks": 629402711
+        },
+        {
+          "pid": 1808160,
+          "start_ticks": 629402716
+        },
+        {
+          "pid": 1808161,
+          "start_ticks": 629402716
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31840100352,
+      "minimum_free_disk_bytes": 32454303744,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42952704,
+      "peak_summed_RSS_bytes": 91779072,
+      "rank_registration": {
+        "1": {
+          "pid": 1808161,
+          "start_ticks": 629402716
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808159,
+          "status": 15
+        },
+        {
+          "pid": 1808160,
+          "status": 15
+        },
+        {
+          "pid": 1808161,
+          "status": 256
+        }
+      ],
+      "reason": "output envelope exceeded",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545846,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/envelope/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545854,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/envelope/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545855,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-r_7zv2l4/envelope/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 5,
+      "shared_RSS_overcount_indicator_bytes": 48906240,
+      "signals": [
+        {
+          "pid": 1808159,
+          "signal": 15,
+          "start_ticks": 629402711
+        },
+        {
+          "pid": 1808160,
+          "signal": 15,
+          "start_ticks": 629402716
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_reservation_collision_keeps_foreign_file",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.01837960910052061,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 0,
+      "members": [],
+      "minimum_MemAvailable_bytes": 9223372036854775807,
+      "minimum_free_disk_bytes": 9223372036854775807,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 0,
+      "peak_summed_RSS_bytes": 0,
+      "rank_registration": {},
+      "reaped": [],
+      "reason": "[Errno 17] File exists: '/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jmupxsrs/job/scratch/rank1.stream'",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jmupxsrs/job/scratch/rank0.stream"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 0,
+      "shared_RSS_overcount_indicator_bytes": 0,
+      "signals": [],
+      "survivors": []
+    },
+    {
+      "case": "test_stale_identity_refuses_signal_and_unrelated_sentinel_survives_timeout",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.8671756722033024,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808167,
+          "start_ticks": 629402773
+        },
+        {
+          "pid": 1808168,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "start_ticks": 629402779
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31838875648,
+      "minimum_free_disk_bytes": 32454406144,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 41998336,
+      "peak_summed_RSS_bytes": 91144192,
+      "rank_registration": {
+        "0": {
+          "pid": 1808168,
+          "start_ticks": 629402779
+        },
+        "1": {
+          "pid": 1808169,
+          "start_ticks": 629402779
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808167,
+          "status": 15
+        },
+        {
+          "pid": 1808168,
+          "status": 9
+        },
+        {
+          "pid": 1808169,
+          "status": 9
+        }
+      ],
+      "reason": "monotonic wall cap",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-c5gy5ivg/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-c5gy5ivg/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-c5gy5ivg/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 19,
+      "shared_RSS_overcount_indicator_bytes": 49305600,
+      "signals": [
+        {
+          "pid": 1808167,
+          "signal": 15,
+          "start_ticks": 629402773
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 15,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808168,
+          "signal": 9,
+          "start_ticks": 629402779
+        },
+        {
+          "pid": 1808169,
+          "signal": 9,
+          "start_ticks": 629402779
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_stricter_rss_actual_stop",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.08954712841659784,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 8192,
+      "members": [
+        {
+          "pid": 1808172,
+          "start_ticks": 629402883
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31842721792,
+      "minimum_free_disk_bytes": 32454541312,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 28224512,
+      "peak_summed_RSS_bytes": 58454016,
+      "rank_registration": {},
+      "reaped": [
+        {
+          "pid": 1808172,
+          "status": 15
+        }
+      ],
+      "reason": "stricter fake family RSS cap",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-ocufudxa/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-ocufudxa/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-ocufudxa/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 1,
+      "shared_RSS_overcount_indicator_bytes": 30229504,
+      "signals": [
+        {
+          "pid": 1808172,
+          "signal": 15,
+          "start_ticks": 629402883
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_timeout_term_ignored_then_identity_safe_kill",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.855344956740737,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808175,
+          "start_ticks": 629402912
+        },
+        {
+          "pid": 1808176,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "start_ticks": 629402917
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31845953536,
+      "minimum_free_disk_bytes": 32454533120,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42323968,
+      "peak_summed_RSS_bytes": 91144192,
+      "rank_registration": {
+        "0": {
+          "pid": 1808176,
+          "start_ticks": 629402917
+        },
+        "1": {
+          "pid": 1808177,
+          "start_ticks": 629402917
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808175,
+          "status": 15
+        },
+        {
+          "pid": 1808176,
+          "status": 9
+        },
+        {
+          "pid": 1808177,
+          "status": 9
+        }
+      ],
+      "reason": "monotonic wall cap",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-knnkds9q/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-knnkds9q/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-knnkds9q/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 21,
+      "shared_RSS_overcount_indicator_bytes": 48885760,
+      "signals": [
+        {
+          "pid": 1808175,
+          "signal": 15,
+          "start_ticks": 629402912
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 15,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808176,
+          "signal": 9,
+          "start_ticks": 629402917
+        },
+        {
+          "pid": 1808177,
+          "signal": 9,
+          "start_ticks": 629402917
+        }
+      ],
+      "survivors": []
+    },
+    {
+      "case": "test_worker_failure",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.4181180577725172,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1808180,
+          "start_ticks": 629403016
+        },
+        {
+          "pid": 1808181,
+          "start_ticks": 629403022
+        },
+        {
+          "pid": 1808182,
+          "start_ticks": 629403022
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31841386496,
+      "minimum_free_disk_bytes": 32454533120,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42284032,
+      "peak_summed_RSS_bytes": 90198016,
+      "rank_registration": {
+        "0": {
+          "pid": 1808181,
+          "start_ticks": 629403022
+        },
+        "1": {
+          "pid": 1808182,
+          "start_ticks": 629403022
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1808180,
+          "status": 1792
+        }
+      ],
+      "reason": "launcher/worker failure",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545810,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jcios35f/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545811,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jcios35f/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 32768,
+          "bytes": 32768,
+          "dev": 2049,
+          "inode": 545812,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jcios35f/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 13,
+      "shared_RSS_overcount_indicator_bytes": 47979520,
+      "signals": [],
+      "survivors": []
+    }
+  ],
+  "native_PW_HSE_MPI_executed": false
+}

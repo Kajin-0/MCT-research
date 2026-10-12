@@ -38,3 +38,12 @@
   in-place native writes. Preserve this limitation rather than silently promise
   last-checkpoint recovery through arbitrary producer replacement.
 - No material gap, impurity t_H or x_c; existing scientific no-go results preserved.
+
+## M4 follow-up — 2026-10-12 01:40 UTC
+
+The Python native CLI now requires a live M4 lease RPC and rejects Boolean or
+`MONITOR.json` authority. See [M4 decision](../runtime_admission/decision.md).
+Retained 21 serial bridge tests pass. The native binary/Fortran code is unchanged;
+no compiled native rank adapter, typed PROFILE/JOB binding or diagnostic/readback
+qualification is supplied by the fake-worker gate. Native restart remains
+unqualified and no PW/MPI was run. Use the parent execution plan for current state.

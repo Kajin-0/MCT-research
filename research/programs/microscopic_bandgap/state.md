@@ -620,3 +620,23 @@ any calculation under the current analytical-first directive.
 The existing binary-derived vertex is terminated as a candidate physical
 predictor at this level. It is retained as a reproducible diagnostic and code test.
 No manuscript, material validation, or replacement of Hansen is claimed.
+
+## QE7.5 M4 finite engineering checkpoint — 2026-10-12 01:40 UTC
+
+**TESTED SMALL-SCALE:** [runtime admission package](qe75_streaming_2026-10-11/runtime_admission/decision.md)
+passes a previously absent real foreground fake-family owner/lease/monitor gate.
+65 focused methods verify actual tiny ext4 reservations, identity-safe process
+cleanup, live all-fake-rank receipts, refusal after dual authority crash, exact
+small paired decks and matched compiler/FFT/MPI backend pins. Native bridge
+entry now requires live RPC rather than Boolean/file authorization. Stock QE,
+prepared physical inputs, dirty DFT state and pre-existing supervisors/sessions
+are unchanged. No native PW/HSE/MPI run occurred.
+
+**BLOCKED:** native compiled rank registration and PROFILE/JOB binding,
+EXX/energy/Gram/ACE and density/wave/old-ACE readback instruments, native
+layout/output/common-wave certificates and complete global MPI inventory.
+Unreadable pre-existing mappings remain UNKNOWN; no permission change.
+Sampled resource predicates are not hard cgroup bounds. M5 remains NOT RUN;
+the original 16-atom/352-band experiment still fails disk admission. The finite
+phase stops here. Historical blocked goal, physical no-go results and missing
+material-input boundary remain unchanged; no physical gap or `x_c` is inferred.
