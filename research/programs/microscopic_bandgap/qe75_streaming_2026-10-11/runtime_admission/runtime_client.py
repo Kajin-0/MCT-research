@@ -57,4 +57,14 @@ def authorize_native_hook(root,profile_sha256,action,rank=None,size=None):
     from checkpoint_capsule import read_meta
     job=read_meta(Path(root)/'JOB.json')
     if job.get('kind')!='QEF_QE75_NATIVE_FIXTURE': raise Refusal('synthetic/unqualified runtime is not native authority')
-    return request(root,action,rank,size,profile_sha256)
+    # A PROFILE is not a JOB. Bind its independently computed digest into the
+    # versioned JOB; never require the two different objects to hash equally.
+    sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'m5_readiness'))
+    from binding import load_pair,native_admission
+    identities=load_pair(root)
+    if identities['profile_sha256']!=profile_sha256: raise Refusal('native PROFILE digest mismatch')
+    if action!='authorize': raise Refusal('native hook action unregistered')
+    # The new compiled transport can issue only component receipts until the
+    # full native owner/state/common-wave/layout/inventory gate is qualified.
+    # No Boolean, synthetic receipt or speculative JSON handler can bypass it.
+    return native_admission()

@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "methods": 13,
+  "compiled_peer_evidence": [
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [
+        {
+          "peer": {
+            "pid": 1811187,
+            "start_ticks": 629882679
+          },
+          "world_rank": 0,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        }
+      ],
+      "expected_refusals": [],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [],
+      "expected_refusals": [
+        "wire JOB/PROFILE digest mismatch"
+      ],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [],
+      "expected_refusals": [
+        "wire JOB/PROFILE digest mismatch"
+      ],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [
+        {
+          "peer": {
+            "pid": 1811199,
+            "start_ticks": 629882841
+          },
+          "world_rank": 0,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        }
+      ],
+      "expected_refusals": [],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [],
+      "expected_refusals": [],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [
+        {
+          "peer": {
+            "pid": 1811203,
+            "start_ticks": 629882933
+          },
+          "world_rank": 0,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        }
+      ],
+      "expected_refusals": [],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [
+        {
+          "peer": {
+            "pid": 1811205,
+            "start_ticks": 629882940
+          },
+          "world_rank": 0,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        },
+        {
+          "peer": {
+            "pid": 1811206,
+            "start_ticks": 629882940
+          },
+          "world_rank": 1,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        },
+        {
+          "peer": {
+            "pid": 1811205,
+            "start_ticks": 629882940
+          },
+          "world_rank": 0,
+          "action": 2,
+          "scope": "ABI_NO_MPI"
+        },
+        {
+          "peer": {
+            "pid": 1811206,
+            "start_ticks": 629882940
+          },
+          "world_rank": 1,
+          "action": 2,
+          "scope": "ABI_NO_MPI"
+        }
+      ],
+      "expected_refusals": [],
+      "PW_HSE_MPI_executed": false
+    },
+    {
+      "kind": "real_compiled_serial_peers_NO_MPI",
+      "history": [
+        {
+          "peer": {
+            "pid": 1811208,
+            "start_ticks": 629882966
+          },
+          "world_rank": 0,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        },
+        {
+          "peer": {
+            "pid": 1811209,
+            "start_ticks": 629882966
+          },
+          "world_rank": 1,
+          "action": 1,
+          "scope": "ABI_NO_MPI"
+        },
+        {
+          "peer": {
+            "pid": 1811208,
+            "start_ticks": 629882966
+          },
+          "world_rank": 0,
+          "action": 2,
+          "scope": "ABI_NO_MPI"
+        }
+      ],
+      "expected_refusals": [],
+      "PW_HSE_MPI_executed": false
+    }
+  ],
+  "PW_HSE_MPI_executed": false
+}

@@ -1,0 +1,123 @@
+{
+  "timestamp_UTC": "2026-10-12T03:02:04.824237+00:00",
+  "passed": true,
+  "focused_methods": 78,
+  "test_records": [
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_readiness/test_readiness.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_abi_receipt_cannot_release_native_fortran_scope (__main__.ReadinessTest.test_abi_receipt_cannot_release_native_fortran_scope) ... ok\ntest_actual_wave_density_ace_pristine_qe_io_bitwise_readback (__main__.ReadinessTest.test_actual_wave_density_ace_pristine_qe_io_bitwise_readback) ... ok\ntest_changed_profile_and_job_refused (__main__.ReadinessTest.test_changed_profile_and_job_refused) ... ok\ntest_checked_component_bounds_match_serial_capture (__main__.ReadinessTest.test_checked_component_bounds_match_serial_capture) ... ok\ntest_compiled_wrapper_uses_real_world_and_precedes_state_read (__main__.ReadinessTest.test_compiled_wrapper_uses_real_world_and_precedes_state_read) ... ok\ntest_diagnostic_probe_capture_and_independent_ace_counterexample (__main__.ReadinessTest.test_diagnostic_probe_capture_and_independent_ace_counterexample) ... ok\ntest_dual_hash_binding_is_not_hash_equality (__main__.ReadinessTest.test_dual_hash_binding_is_not_hash_equality) ... ok\ntest_native_hook_accepts_distinct_digests_but_refuses_unearned_scope (__main__.ReadinessTest.test_native_hook_accepts_distinct_digests_but_refuses_unearned_scope) ... ok\ntest_one_rank_cannot_claim_all_registered (__main__.ReadinessTest.test_one_rank_cannot_claim_all_registered) ... ok\ntest_peer_identity_and_challenge_refusals (__main__.ReadinessTest.test_peer_identity_and_challenge_refusals) ... ok\ntest_real_compiled_peers_two_live_ranks (__main__.ReadinessTest.test_real_compiled_peers_two_live_ranks) ... ok\ntest_registered_dead_rank_cannot_keep_all_rank_receipt (__main__.ReadinessTest.test_registered_dead_rank_cannot_keep_all_rank_receipt) ... ok\ntest_serial_decoder_initialization_traps_are_live (__main__.ReadinessTest.test_serial_decoder_initialization_traps_are_live) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 3.815s\n\nOK\n",
+      "wall_seconds": 4.006190142594278
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/runtime_admission/test_preflight.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_allocation_amplification_refused_before_reservation (__main__.PreflightTest.test_allocation_amplification_refused_before_reservation) ... ok\ntest_changed_or_ambiguous_deck_refused (__main__.PreflightTest.test_changed_or_ambiguous_deck_refused) ... ok\ntest_exact_templates_same_physics (__main__.PreflightTest.test_exact_templates_same_physics) ... ok\ntest_forged_native_boolean_and_monitor_never_grant_lease (__main__.PreflightTest.test_forged_native_boolean_and_monitor_never_grant_lease) ... ok\ntest_snapshot_pid_reuse_cannot_establish_owned_lineage (__main__.PreflightTest.test_snapshot_pid_reuse_cannot_establish_owned_lineage) ... ok\ntest_stdout_and_unknown_files_charge_envelope (__main__.PreflightTest.test_stdout_and_unknown_files_charge_envelope) ... ok\ntest_unreadable_global_inventory_refuses (__main__.PreflightTest.test_unreadable_global_inventory_refuses) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.117s\n\nOK\n",
+      "wall_seconds": 0.2360768672078848
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/runtime_admission/test_runtime.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_completed_ticket_cannot_authorize (__main__.RuntimeTest.test_completed_ticket_cannot_authorize) ... ok\ntest_detached_descendant_cannot_escape (__main__.RuntimeTest.test_detached_descendant_cannot_escape) ... ok\ntest_double_crash_fences_restart_until_explicit_test_cleanup (__main__.RuntimeTest.test_double_crash_fences_restart_until_explicit_test_cleanup) ... ok\ntest_exact_600s_and_resource_boundaries (__main__.RuntimeTest.test_exact_600s_and_resource_boundaries) ... ok\ntest_exclusive_lease_refuses_second_owner (__main__.RuntimeTest.test_exclusive_lease_refuses_second_owner) ... ok\ntest_guardian_sigkill_owner_fallback (__main__.RuntimeTest.test_guardian_sigkill_owner_fallback) ... ok\ntest_incompatible_job_and_native_promotion_refused (__main__.RuntimeTest.test_incompatible_job_and_native_promotion_refused) ... ok\ntest_normal_real_family_all_ranks_reservation (__main__.RuntimeTest.test_normal_real_family_all_ranks_reservation) ... ok\ntest_outside_peer_boolean_and_forged_monitor_do_not_authorize (__main__.RuntimeTest.test_outside_peer_boolean_and_forged_monitor_do_not_authorize) ... ok\ntest_owner_cancellation (__main__.RuntimeTest.test_owner_cancellation) ... ok\ntest_owner_sigkill_guardian_cleans_and_releases (__main__.RuntimeTest.test_owner_sigkill_guardian_cleans_and_releases) ... ok\ntest_predicate_faults_stop_owned_real_processes (__main__.RuntimeTest.test_predicate_faults_stop_owned_real_processes) ... ok\ntest_reservation_collision_keeps_foreign_file (__main__.RuntimeTest.test_reservation_collision_keeps_foreign_file) ... ok\ntest_stale_identity_refuses_signal_and_unrelated_sentinel_survives_timeout (__main__.RuntimeTest.test_stale_identity_refuses_signal_and_unrelated_sentinel_survives_timeout) ... ok\ntest_stricter_rss_actual_stop (__main__.RuntimeTest.test_stricter_rss_actual_stop) ... ok\ntest_timeout_term_ignored_then_identity_safe_kill (__main__.RuntimeTest.test_timeout_term_ignored_then_identity_safe_kill) ... ok\ntest_worker_failure (__main__.RuntimeTest.test_worker_failure) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 12.893s\n\nOK\n",
+      "wall_seconds": 13.014764795079827
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/native_bridge/test_native_bridge.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_actual_stock_zero_counter_requires_packet_tolerance (__main__.NativeBridgeTest.test_actual_stock_zero_counter_requires_packet_tolerance) ... ok\ntest_boolean_cannot_promote_synthetic_profile (__main__.NativeBridgeTest.test_boolean_cannot_promote_synthetic_profile) ... ok\ntest_codec_refusals (__main__.NativeBridgeTest.test_codec_refusals) ... ok\ntest_coordinator_lock_refused (__main__.NativeBridgeTest.test_coordinator_lock_refused) ... ok\ntest_corrupt_current_density_refused (__main__.NativeBridgeTest.test_corrupt_current_density_refused) ... ok\ntest_corrupt_packet_payload_refused (__main__.NativeBridgeTest.test_corrupt_packet_payload_refused) ... ok\ntest_exact_roundtrip_both_stops_optimizations (__main__.NativeBridgeTest.test_exact_roundtrip_both_stops_optimizations) ... ok\ntest_failure_injection_publication (__main__.NativeBridgeTest.test_failure_injection_publication) ... ok\ntest_inner_restart_and_mix_required_outer_not (__main__.NativeBridgeTest.test_inner_restart_and_mix_required_outer_not) ... ok\ntest_missing_rank_and_cross_rank_epoch_refused (__main__.NativeBridgeTest.test_missing_rank_and_cross_rank_epoch_refused) ... ok\ntest_native_reservation_collision_rolls_back_only_owned (__main__.NativeBridgeTest.test_native_reservation_collision_rolls_back_only_owned) ... ok\ntest_native_reservation_fortran_producer (__main__.NativeBridgeTest.test_native_reservation_fortran_producer) ... ok\ntest_native_runtime_fails_closed (__main__.NativeBridgeTest.test_native_runtime_fails_closed) ... ok\ntest_no_copy_all_native_members (__main__.NativeBridgeTest.test_no_copy_all_native_members) ... ok\ntest_outer_stale_history_refused (__main__.NativeBridgeTest.test_outer_stale_history_refused) ... ok\ntest_outer_stop_without_inner_files (__main__.NativeBridgeTest.test_outer_stop_without_inner_files) ... ok\ntest_profile_changed_refused (__main__.NativeBridgeTest.test_profile_changed_refused) ... ok\ntest_reservation_overflow_and_22GiB_policy_refused (__main__.NativeBridgeTest.test_reservation_overflow_and_22GiB_policy_refused) ... ok\ntest_retirement_failure_has_no_import_receipt (__main__.NativeBridgeTest.test_retirement_failure_has_no_import_receipt) ... ok\ntest_symlink_refused (__main__.NativeBridgeTest.test_symlink_refused) ... ok\ntest_unrelated_orphan_file_refuses_cleanup (__main__.NativeBridgeTest.test_unrelated_orphan_file_refuses_cleanup) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 1.073s\n\nOK\n",
+      "wall_seconds": 1.1620640456676483
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/checkpoint_phase/test_checkpoint_phase.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_actual_fortran_open_file_checkpoint_and_restore (__main__.PhaseChecks.test_actual_fortran_open_file_checkpoint_and_restore) ... ok\ntest_all_publication_crash_points (__main__.PhaseChecks.test_all_publication_crash_points) ... ok\ntest_corruption_and_layout_provenance_refused (__main__.PhaseChecks.test_corruption_and_layout_provenance_refused) ... ok\ntest_incomplete_rank_or_operator_members_refused (__main__.PhaseChecks.test_incomplete_rank_or_operator_members_refused) ... ok\ntest_manifest_version_digest_and_native_gate (__main__.PhaseChecks.test_manifest_version_digest_and_native_gate) ... ok\ntest_old_ace_cannot_be_rebuilt_from_current_basis (__main__.PhaseChecks.test_old_ace_cannot_be_rebuilt_from_current_basis) ... ok\ntest_per_rank_reservation_and_collision_rollback (__main__.PhaseChecks.test_per_rank_reservation_and_collision_rollback) ... ok\ntest_preexisting_adoption_target_refused (__main__.PhaseChecks.test_preexisting_adoption_target_refused) ... ok\ntest_ram_disk_quota_and_bad_telemetry_refusals (__main__.PhaseChecks.test_ram_disk_quota_and_bad_telemetry_refusals) ... ok\ntest_real_ext4_reservation_and_tmpfs_refusal (__main__.PhaseChecks.test_real_ext4_reservation_and_tmpfs_refusal) ... ok\ntest_retirement_crash_is_refusal_not_stale_restore (__main__.PhaseChecks.test_retirement_crash_is_refusal_not_stale_restore) ... ok\ntest_signed64_rounding_and_actual_guard_refusal (__main__.PhaseChecks.test_signed64_rounding_and_actual_guard_refusal) ... ok\ntest_symlinks_and_second_writer_refused (__main__.PhaseChecks.test_symlinks_and_second_writer_refused) ... ok\ntest_unrelated_cleanup_target_and_current_refused (__main__.PhaseChecks.test_unrelated_cleanup_target_and_current_refused) ... ok\ntest_zero_copy_immutable_ownership (__main__.PhaseChecks.test_zero_copy_immutable_ownership) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.369s\n\nOK\n",
+      "wall_seconds": 0.5036226538941264
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.venv/bin/python",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/test_qstream_package.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_actual_source_operation_audit (__main__.EngineeringChecks.test_actual_source_operation_audit) ... ok\ntest_capacity_identity_including_arbitrary_padding (__main__.EngineeringChecks.test_capacity_identity_including_arbitrary_padding) ... ok\ntest_changed_global_weight_is_rejected (__main__.EngineeringChecks.test_changed_global_weight_is_rejected) ... ok\ntest_continued_source_index_defect_is_rejected (__main__.EngineeringChecks.test_continued_source_index_defect_is_rejected) ... ok\ntest_final_unit_and_preservation_evidence (__main__.EngineeringChecks.test_final_unit_and_preservation_evidence) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.025s\n\nOK\n",
+      "wall_seconds": 0.13054202124476433
+    }
+  ],
+  "PW_HSE_MPI_run": false,
+  "native_fixture_admitted": false,
+  "gates": {
+    "compiled_transport_source_and_dual_binding": "PASS COMPONENT",
+    "actual_native_MPI_lease_collectives": "NOT RUN / NOT QUALIFIED",
+    "first_ACE_instruments": "COMPILED / SERIAL CODEC CHECKED; NATIVE VALUES NOT RUN",
+    "native_qeh5_existing_wave_density_ACE_decode": "PASS BITWISE, SERIAL ONLY",
+    "SCF_restart_both_stop_paths": "NOT RUN / NOT QUALIFIED",
+    "actual_small_FFT_layout": "UNCERTIFIED",
+    "whole_output_bound": "UNCERTIFIED",
+    "common_initial_state": "UNCERTIFIED; existing reference incompatible",
+    "global_inventory": "UNKNOWN_REFUSE"
+  },
+  "preservation": {
+    "mismatches": [],
+    "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+    "dirty_status_unchanged": true,
+    "sessions": [
+      "calcura:$0",
+      "commander:$1",
+      "research:$3"
+    ],
+    "protected_pins_checked": 17
+  },
+  "runtime_closed": {
+    "ABI_workers": [],
+    "lease_holders": [],
+    "M4_own_ledger": {
+      "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-74zl79sk/job",
+      "members": [],
+      "phase": "FINISHED",
+      "version": 1
+    }
+  },
+  "visible_MPI_families_after_tests": [],
+  "MemAvailable_bytes": 31834042368,
+  "free_disk_bytes": 32401891328,
+  "compiler_peak_RSS_KiB": 189012,
+  "source_sha256": {
+    "native_lease.f90": "98a80fcfe424dd9079eac9c7fa6167ab0d1730d5f99c4acab96a266ebb8c1f7d",
+    "diagnostic_unit.f90": "81a8f4ee234f7b02de770ab4f196c9882138a38944badee2eeeace84a20dd046",
+    "guard_unit.c": "389a0c9b47506f38a3275a25a5897de692de7e2fc46cdb62ceb81c94758e2efb",
+    "patch_sources.py": "2e899fdbb62f49c5c4300cd3b487a177503e2077887914b0add92656025dffef",
+    "binding.py": "e95e775cf8bf59709505b31bf40ea394099226f2aba7aa823e0fef2a5f1812b3",
+    "abi_worker.c": "38e3f70f4c38e331fd26f46bdaf6f28c251769001f8bb8c9c95c2f9750eeca3f",
+    "spectral_io_checks.py": "c209f6713fedeeaed16fd65d56d41e95fe572c07891f3506fa8740ce6dd51316",
+    "layout_budget.py": "b2cc9e4d311682c237be1df6c9a3a86f308a27b1c1c2818e0b9047dc81125128",
+    "diagnostics.f90": "ed75ff12e50ac7ffe3c8075e433d4071f8d3fa919b684d10b68f329426eda194",
+    "no_mpi_init.c": "9ae3ee777ac134bb0db46303f8fcdb71dfb924b3136dae066e940e217f51a2e0",
+    "build.py": "013ea70a7dcad8ce28a5a239d38826c3d23bda9e328c885318ac177751fd7521",
+    "hdf5_readback.f90": "f74a79e3a829e491d6c0f90d0220a888e3f7fe51eab4f530d8d3ab3458d5de13",
+    "validate.py": "33ecf98bf2f85b5e810130df519a1343428e44a556f72edde445872539aeb268",
+    "test_readiness.py": "ca8f62f768d05801cdbe833b6e4cd11035f1ed9db3bbda63a2ac3a628ae85e73",
+    "lease_client.c": "78b73eceb9f963ada30bfc494110af7ca066714529bfb80bb2882c5c688c1c63"
+  },
+  "runtime_client_sha256": "512bb501c1c6c3c96cf6c6916b5b0696c8abe28efd7cc035d12e40cfde8068e4"
+}

@@ -1,0 +1,223 @@
+{
+  "complete_global_inventory": false,
+  "unreadable": [
+    {
+      "pid": 1,
+      "start_ticks": 97,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 299,
+      "start_ticks": 571,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 355,
+      "start_ticks": 600,
+      "UID": 990,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 364,
+      "start_ticks": 605,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 652,
+      "start_ticks": 748,
+      "UID": 998,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 692,
+      "start_ticks": 808,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 693,
+      "start_ticks": 809,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 694,
+      "start_ticks": 809,
+      "UID": 996,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 700,
+      "start_ticks": 813,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 701,
+      "start_ticks": 813,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 707,
+      "start_ticks": 816,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 743,
+      "start_ticks": 824,
+      "UID": 101,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 751,
+      "start_ticks": 825,
+      "UID": 102,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 764,
+      "start_ticks": 830,
+      "UID": 102,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 773,
+      "start_ticks": 835,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 774,
+      "start_ticks": 835,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 782,
+      "start_ticks": 842,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 794,
+      "start_ticks": 849,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 802,
+      "start_ticks": 851,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 805,
+      "start_ticks": 852,
+      "UID": 1001,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 810,
+      "start_ticks": 857,
+      "UID": 1001,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 811,
+      "start_ticks": 857,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 921,
+      "start_ticks": 1026,
+      "UID": 997,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 923,
+      "start_ticks": 1027,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 930,
+      "start_ticks": 1031,
+      "UID": 997,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 445753,
+      "start_ticks": 470267874,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 448322,
+      "start_ticks": 3191109,
+      "UID": 987,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1216060,
+      "start_ticks": 117842635,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1216084,
+      "start_ticks": 117842640,
+      "UID": 1001,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1773860,
+      "start_ticks": 210976228,
+      "UID": 999,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1809677,
+      "start_ticks": 629706003,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1809716,
+      "start_ticks": 629706020,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1809717,
+      "start_ticks": 629706025,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 1809738,
+      "start_ticks": 629706316,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 2225510,
+      "start_ticks": 287503432,
+      "UID": 997,
+      "reason": "mapping permission denied"
+    },
+    {
+      "pid": 2823950,
+      "start_ticks": 490265528,
+      "UID": 0,
+      "reason": "mapping permission denied"
+    }
+  ],
+  "native_inventory_gate": "UNKNOWN_REFUSE",
+  "permissions_modified": false
+}

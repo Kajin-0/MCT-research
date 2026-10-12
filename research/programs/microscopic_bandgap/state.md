@@ -640,3 +640,25 @@ Sampled resource predicates are not hard cgroup bounds. M5 remains NOT RUN;
 the original 16-atom/352-band experiment still fails disk admission. The finite
 phase stops here. Historical blocked goal, physical no-go results and missing
 material-input boundary remain unchanged; no physical gap or `x_c` is inferred.
+
+## QE7.5 M5-readiness finite checkpoint — 2026-10-12 03:08 UTC
+
+**SOURCE-CONDITIONED / TESTED COMPONENTS:** [M5 readiness](qe75_streaming_2026-10-11/m5_readiness/decision.md)
+adds typed separate PROFILE/JOB digests, compiled real-QE-world-rank registration
+before state reads, deterministic first-ACE direct/energy/Gram/factor/xi/probe
+instruments and signed-64 component extents. Both private candidates link with
+matching backends; 78 focused methods pass. Pristine serial QE qeh5 versus h5py
+reads 1,208,137 existing wave/ACE/density complex values bitwise. This is I/O and
+software evidence, not material convergence, native action equality or restart.
+ACE/direct inequality off the interpolation span is preserved as a synthetic
+counterexample, not a novel material result.
+
+**BLOCKED / NOT RUN:** production native packet/hook dispatch, real MPI collective
+and both-stop SCF restoration behavior, common initial 48-band k2/Fock120Ry state,
+actual FFT and complete output/RAM certificate, and full inventory (36 unreadable
+mapping entries). The inspected 44-band k4/Fock180Ry save is not relabelled as the
+fixture seed. Serial parallel-HDF5 dependency loading is distinguished from MPI
+initialization; explicit initialization refusal stubs pass checks. No PW/HSE or
+real MPI communicator was run, no DFT data/supervisor/session changed, and no
+physical gap or `x_c` is inferred. The finite phase stops here; historical blocked
+goal and all prior physical no-go results remain unchanged.

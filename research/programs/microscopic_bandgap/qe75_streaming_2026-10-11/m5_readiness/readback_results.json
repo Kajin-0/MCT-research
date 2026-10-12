@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "PW_MPI_HSE_executed": false,
+  "MPI_initialization_trapped": true,
+  "HDF5_transitive_MPI_library_loaded": true,
+  "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/out/r07.save",
+  "cases": [
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/out/r07.save/wfc1.hdf5",
+      "source_sha256": "8430ed5332a76b5dea1e56b47b114854678e63fad06fae17132e7f7e7cec8d4a",
+      "kind": "wave",
+      "attrs": {
+        "gamma_only": ".FALSE.",
+        "igwx": 6567,
+        "ik": 1,
+        "ispin": 1,
+        "nbnd": 44,
+        "ngw": 6567,
+        "npol": 2,
+        "scale_factor": 1.0,
+        "xk": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "npol": 2,
+      "igwx": 6567,
+      "bands": 44,
+      "complex_values_checked": 577896,
+      "HDF5_column_bytes_sha256": "25262ae6184145723d3f533354a955e32391228c0a7b22ac160bdde34374d8d4",
+      "QE_qeh5_read_bytes_sha256": "25262ae6184145723d3f533354a955e32391228c0a7b22ac160bdde34374d8d4",
+      "bitwise_equal": true,
+      "source_unchanged": true
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/out/r07.save/ace1.hdf5",
+      "source_sha256": "fad46a55da0dd2eb0e6a2127fa9a3f7563ac8f3512079023a57943083d58e4c2",
+      "kind": "wave",
+      "attrs": {
+        "gamma_only": ".FALSE.",
+        "igwx": 6567,
+        "ik": 1,
+        "ispin": 1,
+        "nbnd": 44,
+        "ngw": 6567,
+        "npol": 2,
+        "scale_factor": 1.0,
+        "xk": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "npol": 2,
+      "igwx": 6567,
+      "bands": 44,
+      "complex_values_checked": 577896,
+      "HDF5_column_bytes_sha256": "b1edb3ad73dd53b96d44757387fb7421051349ce376fd29d15fb113c54ecd668",
+      "QE_qeh5_read_bytes_sha256": "b1edb3ad73dd53b96d44757387fb7421051349ce376fd29d15fb113c54ecd668",
+      "bitwise_equal": true,
+      "source_unchanged": true
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/out/r07.save/charge-density.hdf5",
+      "source_sha256": "3761bede783f697ee4566affaf9895eb0f24852eae03958ba63266376b44bdf9",
+      "kind": "density",
+      "attrs": {
+        "gamma_only": ".FALSE.",
+        "ngm_g": 52345,
+        "nspin": 1
+      },
+      "npol": 1,
+      "igwx": 52345,
+      "bands": 1,
+      "complex_values_checked": 52345,
+      "HDF5_column_bytes_sha256": "f20074f9ecd3ed96ed3d71ca9c60bc3b7ee817f9c982a28dd076dc46665adfcc",
+      "QE_qeh5_read_bytes_sha256": "f20074f9ecd3ed96ed3d71ca9c60bc3b7ee817f9c982a28dd076dc46665adfcc",
+      "bitwise_equal": true,
+      "source_unchanged": true
+    }
+  ],
+  "native_schema_sha256": "cf63517eb146b5119553d0541917fee575f1b57d10b96486275e170eb4831967",
+  "bands_in_schema": [
+    "44",
+    "44"
+  ],
+  "ecutfock_Ha_in_schema": [
+    "1.800000000000000E+002"
+  ],
+  "existing_reference_is_target_seed": false,
+  "seed_refusal": "Existing 44-band/k4/Fock180Ry save is not the admitted 48-band/k2/Fock120Ry fixture. No seed relabelled or reused.",
+  "boundary": "Serial pristine QE qeh5 decoding only; no actual MPI splitwf, XML/SCF restore or old-vs-current ACE restart qualification."
+}
