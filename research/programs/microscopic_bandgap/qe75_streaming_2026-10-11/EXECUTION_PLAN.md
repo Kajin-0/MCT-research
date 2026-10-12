@@ -1,10 +1,10 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-11 23:56 UTC
+**Last verified update:** 2026-10-12 00:40 UTC
 **Status:** ACTIVE ENGINEERING; PHYSICAL HgCdTe INVERSION REMAINS BLOCKED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
-**Starting verified revision:** `b1a4772`. **This plan does not authorize new numerical runs.**
+**Starting verified revision:** `b1a4772`. **Latest verified implementation revision:** `6b21779`. **This plan does not authorize new numerical runs.**
 
 ## Objective and nonnegotiable boundaries
 
@@ -17,15 +17,15 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 
 ## Evidence-backed milestone ledger
 
-| ID | Deliverable and binary acceptance gate | State at 2026-10-11 23:56 UTC | Evidence |
+| ID | Deliverable and binary acceptance gate | State at 2026-10-12 00:40 UTC | Evidence |
 |---|---|---|---|
 | M0 | Converged binary HgTe Γ reference and cutoff comparison | **PASS: numerical reference only**; no alloy response | `state.md`; binary difference ~6.7014 µeV |
 | M1 | Diagnose native 16-atom resource failure | **PASS: diagnostic**, host SCF **FAIL** | `native_matched_pilot_2026-10-11/decision.md`; 26.722-GiB summed RSS, stopped in ACE; Cd never admitted |
 | M2 | Implement lossless one-q-plane streamed EXX candidate; source/build/unit checks | **PASS: software-only**; nominal `exxbuff` 22→2.75 GiB | `qe75_streaming_2026-10-11/{decision.md,verification.md}`; `ea8823e` |
 | M3a | No-copy versioned checkpoint storage + read-only restoration + 64-bit guards | **PASS: component tests only**; 15 focused + 24 regression | `checkpoint_phase/{decision.md,checkpoint_contract.md}`; `b1a4772` |
-| M3b | Complete native checkpoint state bridge: old ACE `xi` and occupations + HSE outer iteration + matching inner SCF/orbitals, both stop paths and post-`punch` publication; proven import | **IN PROGRESS / NOT VERIFIED** | Work started under `native_bridge/`; no committed or accepted result as of this timestamp |
-| M4 | Runtime-integrated per-rank disk reservation, disk quota, filesystem, RAM and time monitoring | **PARTIAL**: APIs tested; native hooks/monitor not verified | `checkpoint_phase/resource_contract.md` |
-| M5 | Native small stock-versus-streamed MPI/FFT/EXX/ACE equivalence: actions, energy, Gram/projectors; controlled restart | **NOT RUN / GATED** by M3b/M4 | `checkpoint_phase/native_fixture_protocol.md` |
+| M3b | Complete native checkpoint state bridge: old ACE `xi` and occupations + HSE outer iteration + matching inner SCF/orbitals, both stop paths and post-`punch` publication; proven import | **CANDIDATE BUILT; UNIT TESTS PASS; NATIVE RESTART NOT QUALIFIED** | `native_bridge/{decision.md,closure_and_boundaries.md,validation.json}`; `6b21779`: 21 bridge tests, 24 storage regressions, 14 native-unit compiles and private link; real native MPI/HDF5 readback unverified |
+| M4 | Runtime-integrated per-rank disk reservation, disk quota, filesystem, RAM and time monitoring | **PARTIAL; NEXT CRITICAL GATE**: reserved-file hooks and checked handoff compiled; foreground MPI-family monitor, exclusive lease receipt and exact fixture admission absent | `native_bridge/{decision.md,handoff_ledger.md}`, `checkpoint_phase/resource_contract.md` |
+| M5 | Native small stock-versus-streamed MPI/FFT/EXX/ACE equivalence: actions, energy, Gram/projectors; controlled restart | **NOT RUN / GATED**: live MPI/HDF5 wave, density and ACE readback, stop/failure collectives and monitor/lease unverified | `native_bridge/decision.md`, `checkpoint_phase/native_fixture_protocol.md` |
 | M6 | Admission of full-size host on actual RAM/disk/time using measured peak and sufficient scratch | **NO-GO**: ~31 GiB disk available versus nominal ~22 GiB stream + 10 GiB reserve + output | `checkpoint_phase/phase_outcomes.json` |
 | M7 | Accepted matched 16-atom HgTe host then Cd-substituted spectra, physically labelled Γ6/Γ8 overlaps | **NOT ACHIEVED** | Host termination; Cd stage absent |
 | M8 | Convergence/locality/finite-size/disorder and physical `x_c` error bounds | **NOT ACHIEVED** | `state.md`; physical input remains missing |
@@ -34,9 +34,9 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 
 ## Critical path and decision points
 
-1. **Finish M3b once**. Audit and implement exact native state capture/import with end-to-end failure injection. A byte-valid EXX file alone cannot restore the old ACE operator; never reconstruct it from current orbitals without proof. On implementation failure, write an exact blocking defect and STOP.
+1. **Validate M3b, do not redesign it again without evidence.** Candidate `6b21779` now captures old `xi`, occupations, current tolerance/state scalars, both stop hooks and post-`punch` atomic manifests. Unit compilation and synthetic tests pass. The remaining falsifiable check is real QE MPI/HDF5 state readback and old-versus-current ACE action after native restart. Any failed readback or state mismatch must be recorded as an explicit defect; no restart success is claimed from synthetic tests.
 2. **Decouple the two engineering hypotheses where safe:** numerical equivalence of streamed exchange versus reliability of long-running checkpoint/restart. An explicitly authorized **fresh no-restart tiny fixture** may provide earlier information, but do not reinterpret the existing conditional authorization to skip its checkpoint prerequisite. Require approval of a revised test protocol before changing sequence.
-3. **Pass M4 and M5** using the already scoped candidate controls when admissible: <=12 GiB monitored MPI-family RSS, >=10 GiB disk reserve, <=600 s per fixture, one MPI family, identical input/binary-backend provenance, quantitative native action/energy/Gram checks. Report numerical residuals, not just process exit status.
+3. **Make M4 the next bounded implementation gate, then conditionally M5.** Implement and independently test a real foreground owned MPI-family monitor/lease receipt, exact small-fixture binary/backend/PP fingerprints, output envelope and per-rank extents. Do not set a synthetic `runtime_authorized` flag to bypass lease validation. Only after true admission, use the previously scoped <=12 GiB monitored family RSS, >=10 GiB disk reserve, <=600 s each, one MPI family, matching numerical settings, quantitative action/energy/Gram and native restart readback. Report measured defects, not merely exit status.
 4. **Solve M6 using the current VPS only.** Inspect disk inventory; reclaim only identified dispensable scratch after explicit review. Do not delete scientific data or relax disk policy to force an admission.
 5. **Obtain M7 then M8** through fresh separately justified execution scope and error budgets. A 16-atom periodic Cd substitution is a finite-cell calculation, not by itself a dilute-limit or alloy inversion determination.
 
@@ -56,17 +56,18 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Context-reset handoff (snapshot at creation)
+## Context-reset handoff (updated 2026-10-12 00:40 UTC)
 
-- **Read first:** this file, `research/programs/microscopic_bandgap/state.md`, `qe75_streaming_2026-10-11/checkpoint_phase/{decision.md,checkpoint_contract.md,resource_contract.md,native_fixture_protocol.md}`, then DFT `AGENTS.md`.
-- **Repo:** `/home/User/repos/MCT-research`; branch `research/hgcdte-impurity-tmatrix-20261010`, last verified committed `b1a4772`.
-- **Active owner:** existing tmux `research`, Codex GPT-6.1-Sol xhigh. At snapshot it was working on `native_bridge/exx_checkpoint_state.f90` and QE restart paths; **untracked `native_bridge/` belongs to that active agent—do not stage/overwrite without coordination**.
+- **Read first:** this file, `research/programs/microscopic_bandgap/state.md`, `qe75_streaming_2026-10-11/native_bridge/{decision.md,closure_and_boundaries.md,handoff_ledger.md,validation.json}`, `checkpoint_phase/{decision.md,checkpoint_contract.md,resource_contract.md,native_fixture_protocol.md}`, then DFT `AGENTS.md`.
+- **Repo:** `/home/User/repos/MCT-research`; branch `research/hgcdte-impurity-tmatrix-20261010`, latest independently checked implementation commit `6b21779`. This execution-plan-only maintenance commit comes afterward.
+- **Active owner:** existing tmux `research`, Codex GPT-6.1-Sol xhigh; original bridge phase finished and pushed `6b21779`. The research tree was clean before this plan edit; no MPI family found. Recheck Codex activity and tree before modifying source.
 - **DFT working tree:** `/home/User/opencode_workspace/DFT` contains retained modified/untracked research outputs. Private source/compiler/binary under `.local/qe75_lowram_20261011/`; original stock binary unchanged.
-- **Current blocker:** no native capture/import of old ACE projectors/occupations bound to complete inner/outer QE restart, including after `punch`. No native comparison has been run.
+- **Current blocker:** bridge code and typed packets now exist, but the owned launcher/lease and exact native admission are not implemented, and live MPI/HDF5 current-density/wave/old-ACE readback and real rank-collective stop paths have not been tested. The bridge remains a candidate, not a qualified restart. No native comparison has been run.
 - **Resource snapshot:** approximately 29 GiB MemAvailable; ~31 GiB free disk, 4 GiB swap. Original full stream fails retained 10 GiB disk reserve. Recheck; numbers become stale.
 - **Approval:** user authorized checkpoint-bridge engineering with conditional small fixture; **no full 16-atom HSE rerun or historical blocked-goal resume**.
-- **Next action:** let active agent finish an independently verifiable M3b artifact; update this ledger with test result and change-log entry, or record exact technical NO-GO.
+- **Next action:** implement/test the real M4 owned-family runtime monitor/lease and exact small-fixture admission. Only if all safety/state preconditions actually pass, conduct the single bounded M5 control-versus-streamed native equivalence/restart fixture; stop at any mismatch or guard refusal. Do not reinterpret missing runtime permission as authorization to bypass it.
 
 ## Change log
 
 - **2026-10-11 23:56 UTC | starting `b1a4772` | governance | PLAN CREATED |** Original native HSE host failed; software EXX stream, checkpoint storage and guard components tested; native state bridge still in progress; no accepted alloy spectra. Next: M3b qualification, then M4/M5.
+- **2026-10-12 00:40 UTC | `6b21779` | M3b | CANDIDATE BUILT / NATIVE QUALIFICATION BLOCKED |** Typed old `xi`/occupation/`ethr` packets, both stop hooks, post-`punch` manifests and no-copy handoff implemented; 21 tests, 24 regressions, 14 native-unit compiles and private linking pass; no MPI/HDF5 readback or native fixture. Next: M4 owned monitor/lease and admitted tiny matched fixture before claiming M3b native success.
