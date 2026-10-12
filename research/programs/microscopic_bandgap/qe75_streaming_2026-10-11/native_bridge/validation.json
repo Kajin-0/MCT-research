@@ -1,0 +1,233 @@
+{
+  "timestamp_UTC": "2026-10-12T00:29:16Z",
+  "passed": true,
+  "native_QE_restart_qualified": false,
+  "native_PW_or_MPI_executed": false,
+  "unit_test_methods": 21,
+  "unit_output": "test_actual_stock_zero_counter_requires_packet_tolerance (test_native_bridge.NativeBridgeTest.test_actual_stock_zero_counter_requires_packet_tolerance) ... ok\ntest_boolean_cannot_promote_synthetic_profile (test_native_bridge.NativeBridgeTest.test_boolean_cannot_promote_synthetic_profile) ... ok\ntest_codec_refusals (test_native_bridge.NativeBridgeTest.test_codec_refusals) ... ok\ntest_coordinator_lock_refused (test_native_bridge.NativeBridgeTest.test_coordinator_lock_refused) ... ok\ntest_corrupt_current_density_refused (test_native_bridge.NativeBridgeTest.test_corrupt_current_density_refused) ... ok\ntest_corrupt_packet_payload_refused (test_native_bridge.NativeBridgeTest.test_corrupt_packet_payload_refused) ... ok\ntest_exact_roundtrip_both_stops_optimizations (test_native_bridge.NativeBridgeTest.test_exact_roundtrip_both_stops_optimizations) ... ok\ntest_failure_injection_publication (test_native_bridge.NativeBridgeTest.test_failure_injection_publication) ... ok\ntest_inner_restart_and_mix_required_outer_not (test_native_bridge.NativeBridgeTest.test_inner_restart_and_mix_required_outer_not) ... ok\ntest_missing_rank_and_cross_rank_epoch_refused (test_native_bridge.NativeBridgeTest.test_missing_rank_and_cross_rank_epoch_refused) ... ok\ntest_native_reservation_collision_rolls_back_only_owned (test_native_bridge.NativeBridgeTest.test_native_reservation_collision_rolls_back_only_owned) ... ok\ntest_native_reservation_fortran_producer (test_native_bridge.NativeBridgeTest.test_native_reservation_fortran_producer) ... ok\ntest_native_runtime_fails_closed (test_native_bridge.NativeBridgeTest.test_native_runtime_fails_closed) ... ok\ntest_no_copy_all_native_members (test_native_bridge.NativeBridgeTest.test_no_copy_all_native_members) ... ok\ntest_outer_stale_history_refused (test_native_bridge.NativeBridgeTest.test_outer_stale_history_refused) ... ok\ntest_outer_stop_without_inner_files (test_native_bridge.NativeBridgeTest.test_outer_stop_without_inner_files) ... ok\ntest_profile_changed_refused (test_native_bridge.NativeBridgeTest.test_profile_changed_refused) ... ok\ntest_reservation_overflow_and_22GiB_policy_refused (test_native_bridge.NativeBridgeTest.test_reservation_overflow_and_22GiB_policy_refused) ... ok\ntest_retirement_failure_has_no_import_receipt (test_native_bridge.NativeBridgeTest.test_retirement_failure_has_no_import_receipt) ... ok\ntest_symlink_refused (test_native_bridge.NativeBridgeTest.test_symlink_refused) ... ok\ntest_unrelated_orphan_file_refuses_cleanup (test_native_bridge.NativeBridgeTest.test_unrelated_orphan_file_refuses_cleanup) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.929s\n\nOK\n",
+  "store_regressions": [
+    {
+      "optimization": "O0",
+      "case": "normal",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "extent64",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "missing",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "duplicate",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "unsealed",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "sealed_write",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "q_range",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "plane_shape",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "truncate",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "shape",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "preexisting",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O0",
+      "case": "overflow",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "normal",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "extent64",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "missing",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "duplicate",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "unsealed",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "sealed_write",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "q_range",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "plane_shape",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "truncate",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "shape",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "preexisting",
+      "returncode": 9,
+      "passed": true
+    },
+    {
+      "optimization": "O2",
+      "case": "overflow",
+      "returncode": 9,
+      "passed": true
+    }
+  ],
+  "preservation_identical": true,
+  "preservation": {
+    "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+    "DFT_status": " M calculations/hgcdte/sqs40_seed1_dos_soc/pw.out\n?? calculations/r07/approved_pair_pilot_20261011T195000_scope52e7915/\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/projection208/project208.wout\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/projection208/wannier_pp.out\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/projection208/project208.wout\n?? calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/projection208/wannier_pp.out\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/interface.err\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/interface.out\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/project26.wout\n?? calculations/r07/cdte_hse_dojo_k4_q2_e90_restart_d9917fc6/projection26/wannier_pp.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_c1e-10_seed_4b2ebbd2/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/bands.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/gamma.dat.rap\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/open_grid.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/proj.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/interface.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/project26.wout\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/wannier_pp.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/bands.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/gamma.dat.rap\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/open_grid.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/gamma/proj.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/process.json\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/interface.err\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/interface.out\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/project26.wout\n?? calculations/r07/cdte_hse_sg15_k4_q2_e90_restart_a4e3a7c5/projection26/wannier_pp.out\n?? calculations/r07/fock_followthrough_5eed5ea4/state.json\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/bands.err\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/gamma.dat.rap\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/gamma/proj.err\n?? calculations/r07/hgte_hse_sg15_k4_q2_e90_fullacc_c1e-10_t1800/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_dry_fullacc_c1e-10_t180/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/bands.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/gamma.dat.rap\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/gamma/proj.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b/\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_bfecdeb9/process.json\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/pw.out\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/pw.out.err\n?? calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_cee66000/result.json\n?? calculations/r07/reference_queue_5eed5ea4_recovered/\n?? scripts/r07_approved_pair_member_20261011.py\n",
+    "pins": {
+      "/home/User/opencode_workspace/DFT/AGENTS.md": "786ce7bd8b51b90c67a220e4bc30cf8c671e37f56bef266c6f7ad3838a4d2fc5",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw.in": "ed0dfcb72be290486aded7959aa6b0e4846e409945d9c0ce53555a4eba75b721",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry.in": "d048dd9b294aeaa2bc35173aa61223e8a87f9c32fde91fa3fa321b08056f9758",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry.out": "4ce49b624033d11699c356060bffe1286b804a89aed1781067176d680d108e24",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry_provenance.json": "daf39cfc5f7102ffc20d06863ef4c377a900c8169cd2f7dcf1e0c0d9b965f67e",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw_dry_result.json": "ecdd0800179542d74f42eae21b45b429395555999852953d55ce945267e55bd7",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw.in": "9c9a8968a6dace160de05a72497b1cab36fe9f7f9f455a78016da69f3fb02453",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry.in": "32739dbc423e5dc6b8169234ed49a8574e1b612b3b61732aa62f790f21c89021",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry.out": "74b27ca9008b8ebabfafea80588e0d1e753eddff728c68901f33f5998d3d1edc",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry_provenance.json": "97246158293cb1c11ca3f4e7ea776ca29e8053c2e29821c615c14ca7b8a83386",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw_dry_result.json": "9c26a2f09bbdbe24d7b474b2338ac5ee88ce0dd3b695ce298b4e5208a77aa50c",
+      "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/preparation.json": "9e6942e5b92d9ff828d389e4efcde01a640f86903592ee58e84bbcc25bf2aee1",
+      "/home/User/opencode_workspace/DFT/calculations/r07/fock_followthrough_5eed5ea4/state.json": "198bbdf186e8ac0fd4c34aa79e6d732a654a3f62c41313609a7723a761bb397d",
+      "/home/User/opencode_workspace/DFT/calculations/r07/reference_queue_5eed5ea4_recovered/state.json": "7d2149f1329d0d0901ddc6c047fbfa79333fbb3204bc669b8843ede7fba5848b",
+      "/home/User/opencode_workspace/DFT/pseudopotentials/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "/home/User/opencode_workspace/DFT/pseudopotentials/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "/home/User/opencode_workspace/DFT/pseudopotentials/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+    },
+    "stock": {
+      ".local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+      ".local/qe-env/lib/libqe_pw.a": "65349164becf7adab64d8c4cc1ad02be16d4ac3c86b1635fe840bcaf5116f0a2"
+    },
+    "previous_candidate": "12dfd617585c9b2b00b4fa743ce06cf09062520ef481118fac2035fa10eeee08"
+  },
+  "resources": {
+    "disk_free_bytes": 32490029056,
+    "MemAvailable_bytes": 31845294080,
+    "MemTotal_bytes": 33651908608,
+    "fs_and_quota": {
+      "probe_errno": 0,
+      "fs_type": 61267,
+      "block_bytes": 4096,
+      "available_blocks": 7932136,
+      "available_bytes": 32490029056,
+      "project_error": 0,
+      "project_id": 0,
+      "quotas": [
+        {
+          "error": 3,
+          "active": 0,
+          "used_bytes": 0,
+          "hard_blocks_1024": 0,
+          "soft_blocks_1024": 0,
+          "valid": 0,
+          "limit_error": 3,
+          "status_error": 3
+        },
+        {
+          "error": 3,
+          "active": 0,
+          "used_bytes": 0,
+          "hard_blocks_1024": 0,
+          "soft_blocks_1024": 0,
+          "valid": 0,
+          "limit_error": 3,
+          "status_error": 3
+        },
+        {
+          "error": 3,
+          "active": 0,
+          "used_bytes": 0,
+          "hard_blocks_1024": 0,
+          "soft_blocks_1024": 0,
+          "valid": 0,
+          "limit_error": 1,
+          "status_error": 3
+        }
+      ]
+    },
+    "nominal_22GiB_plus_10GiB_admissible": false,
+    "no_22GiB_allocation": true,
+    "native_fixture": "NOT_RUN",
+    "MPI_processes": []
+  }
+}

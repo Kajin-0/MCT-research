@@ -4,9 +4,25 @@
 
 **State:** sole approved matched host TERMINATED on retained RSS cap during exchange initialization; final HSE convergence FAILED; Cd NOT ADMITTED; missing physical packet / material inversion OPEN; original goal BLOCKED after three repeated resumed-turn acquisition boundaries; objective unachieved; prior negatives preserved
 
-**Updated:** 2026-10-11
+**Updated:** 2026-10-12
 
 ## Separate finite QE low-RAM engineering task
+
+The separately authorized [native bridge phase](qe75_streaming_2026-10-11/native_bridge/README.md)
+implements a compiled candidate with exact old xi/occupations, current wg/et,
+HSE outer scalars including **ethr**, both EXX stop hooks, post-punch publication,
+native-file hardlink/atomic transactions, explicit old-operator import and a
+checked reserved-inode producer handoff. It adds the missing natural inner-limit
+SCF record and refuses atomic/random wavefunction fallback. **21 serial methods,
+24 storage regressions, 14 native-unit compiles and six unchanged reader/ACE
+body checks pass; a private binary links but is never executed.** Full native
+MPI/HDF5 readback and the owned monitor/whole-job lease/admission profile remain
+unqualified. Decision **STOP_NATIVE_READBACK_AND_RUNTIME_OWNERSHIP_BOUNDARY**;
+native fixture NOT ADMITTED / NOT RUN. No actual restart or physical gap/x_c is
+claimed. Final free disk ~30.259 GiB still fails nominal 22-GiB stream + 10-GiB
+reserve before state overhead. Stock/previous private PW, dirty DFT status,
+17 protected pins and historical BLOCKED goal remain unchanged.
+[Handoff](qe75_streaming_2026-10-11/native_bridge/handoff_ledger.md).
 
 The subsequent [bounded checkpoint/resource phase](qe75_streaming_2026-10-11/checkpoint_phase/README.md)
 implements and tests a versioned no-copy storage-ownership transaction, read-only
@@ -14,7 +30,7 @@ Fortran storage adapter, strict 64-bit block/quota/reservation and resource guar
 APIs. Fifteen small test methods plus 24 storage regressions pass; no native
 QE/MPI runs. Read-only Q_GETINFO resolves quota status without elevated permissions.
 A missed between-EXX-iterations export path is documented and closed by a compiled
-private-source refusal patch. **Native state capture/import remains unimplemented
+private-source refusal patch. **At b1a4772 native state capture/import was unimplemented
 and unqualified:** old ACE/occupations must be bound to the current native SCF save
 at both stop points and after punch. **Decision STOP_NO_NATIVE_STATE_BRIDGE**;
 the conditionally authorized small native comparison is NOT ADMITTED / NOT RUN.

@@ -1,0 +1,19 @@
+{
+  "test_native_bridge.py": "786752903c5c804dc77dc8a4f23d1f1a89f95f0ccad8e8887f69caa617e8962f",
+  "build_results.json": "7988d7945a8b926dfa059d1b835822c99a9bb2bbba8421e45caf4e27efc873ec",
+  "patch_native_bridge.py": "11d4313aeae17f4afc3e45f5387a435c60f18832a00a8a1a206307d0f4a80d9f",
+  "decision.md": "d0bfdf89f8ce8d28d772eb5c93ed27b02925069e54f58330f9ea90ca4d2106dd",
+  "exx_checkpoint_state.f90": "2624dc5d9a048bb036f37487b9813584eae1fbf9707ddbf510a75cafb28317ff",
+  "native_hooks.patch.json": "a4ab3fdc5ff49a0f42af680b4965d956b0dd4e786d6db4c182f32551d3a5ea50",
+  "validation.json": "b575b8f9e7110c9ac7d50a1a277ac7e5aadedc2e8d167f3057722ad5ce12d799",
+  "handoff_ledger.md": "270ecd2baadbca4c84439f0eeefa552304cba5f04648f45dc29052fa8271c6d1",
+  "reserved_store.f90.inc": "886de299e1b7cedb1fe6eff93a99e266af08cafeb985d3188757ce381508208b",
+  "zero_counter_unit.f90": "7162f29a830d631f08fd97aed5141aa1c61ddfb8297a194603986cd17f204e17",
+  "closure_and_boundaries.md": "1d9d3d926ea8c6eca65ca4aebf22019408a99db208ef64577185fe72bd4ee6bc",
+  "final_checks.py": "4cba1783d70ab0fd79a87d5708f51611d91085008e7f6bb61989d5fe31c37c08",
+  "reserved_unit.f90": "9d43d04cd59ce0b560f40e370ec17b72c3c4a695d96cf2d6b0b3d0b6a5812757",
+  "native_bundle.py": "e2244ddfe840bfe44890841c234265951b28319fb648c5c06189e44f9f645ae2",
+  "README.md": "92f29deddb5c1f36188c04c104b2ac1992238bf9b78c7a6161f7b1a246873c33",
+  "state_unit.f90": "e759e6eec5f3989c97a2fa09f8fd552f2c4fb86a293e6b288216cb5b56d439d7",
+  "build_checks.py": "45f35d912b8f69e658ed469fdcde225c92d5515a8eddd0a735b32cdefbb024c1"
+}
