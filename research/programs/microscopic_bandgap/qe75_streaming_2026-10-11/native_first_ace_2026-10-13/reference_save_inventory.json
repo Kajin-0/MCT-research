@@ -1,0 +1,312 @@
+[
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.restart_e",
+    "bytes": 7660,
+    "allocated_bytes": 8192,
+    "sha256": "91caa718facab037f2fd2507df1475fc6e25d5e4134dbf1be4a168548bd8172e"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.restart_e2",
+    "bytes": 7660,
+    "allocated_bytes": 8192,
+    "sha256": "91caa718facab037f2fd2507df1475fc6e25d5e4134dbf1be4a168548bd8172e"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/Hg_sg15_pbe_fr_v12.UPF",
+    "bytes": 374986,
+    "allocated_bytes": 376832,
+    "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/Te_sg15_pbe_fr_v12.UPF",
+    "bytes": 320714,
+    "allocated_bytes": 323584,
+    "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/ace1.hdf5",
+    "bytes": 10170060,
+    "allocated_bytes": 10170368,
+    "sha256": "bf22199e04cd151aea895d15ebcec18b62859e42bc58c668d045d6dabb61d4a5",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "igwx": 6567,
+      "ik": 1,
+      "ispin": 1,
+      "nbnd": 48,
+      "ngw": 6567,
+      "npol": 2,
+      "scale_factor": 1.0,
+      "xk": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          6567,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 78804
+      },
+      "evc": {
+        "shape": [
+          48,
+          26268
+        ],
+        "dtype": "float64",
+        "storage_bytes": 10086912
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/ace2.hdf5",
+    "bytes": 10143744,
+    "allocated_bytes": 10145792,
+    "sha256": "275969819c90b02f11dcba587fc1db56311c8686c362b994d629274be941f7fe",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "igwx": 6550,
+      "ik": 2,
+      "ispin": 1,
+      "nbnd": 48,
+      "ngw": 7506,
+      "npol": 2,
+      "scale_factor": 1.0,
+      "xk": [
+        -0.2573466313034058,
+        -0.2573466313034058,
+        0.2573466313034058
+      ]
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          6550,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 78600
+      },
+      "evc": {
+        "shape": [
+          48,
+          26200
+        ],
+        "dtype": "float64",
+        "storage_bytes": 10060800
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/ace3.hdf5",
+    "bytes": 10106592,
+    "allocated_bytes": 10108928,
+    "sha256": "f34b54af5da12a7f67e2ac0e6f709cabd949ba30857b7e9f6470f8a0ddd9253a",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "igwx": 6526,
+      "ik": 3,
+      "ispin": 1,
+      "nbnd": 48,
+      "ngw": 7531,
+      "npol": 2,
+      "scale_factor": 1.0,
+      "xk": [
+        -0.5146932626068116,
+        0.0,
+        0.0
+      ]
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          6526,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 78312
+      },
+      "evc": {
+        "shape": [
+          48,
+          26104
+        ],
+        "dtype": "float64",
+        "storage_bytes": 10023936
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/charge-density.hdf5",
+    "bytes": 1469756,
+    "allocated_bytes": 1470464,
+    "sha256": "ecae2b2cc81415c4689970d1c16f444940cfbf45881b0b6cbd45bc899272ac70",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "ngm_g": 52345,
+      "nspin": 1
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          52345,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 628140
+      },
+      "rhotot_g": {
+        "shape": [
+          104690
+        ],
+        "dtype": "float64",
+        "storage_bytes": 837520
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/data-file-schema.xml",
+    "bytes": 54275,
+    "allocated_bytes": 57344,
+    "sha256": "efc65e6c183c522e5d36c29550b043a7be5fbc14cef27c5c4d30ff42842b00b5"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/wfc1.hdf5",
+    "bytes": 10170060,
+    "allocated_bytes": 10170368,
+    "sha256": "a1236dc282bfd6a41b73452007153274c2fb613fe761aa472675527ea315f135",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "igwx": 6567,
+      "ik": 1,
+      "ispin": 1,
+      "nbnd": 48,
+      "ngw": 6567,
+      "npol": 2,
+      "scale_factor": 1.0,
+      "xk": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          6567,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 78804
+      },
+      "evc": {
+        "shape": [
+          48,
+          26268
+        ],
+        "dtype": "float64",
+        "storage_bytes": 10086912
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/wfc2.hdf5",
+    "bytes": 10143744,
+    "allocated_bytes": 10145792,
+    "sha256": "ec6cfcfa088daa895544527bdae1b75787b216baa0d5daec94329e02f274adb7",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "igwx": 6550,
+      "ik": 2,
+      "ispin": 1,
+      "nbnd": 48,
+      "ngw": 7506,
+      "npol": 2,
+      "scale_factor": 1.0,
+      "xk": [
+        -0.2573466313034058,
+        -0.2573466313034058,
+        0.2573466313034058
+      ]
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          6550,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 78600
+      },
+      "evc": {
+        "shape": [
+          48,
+          26200
+        ],
+        "dtype": "float64",
+        "storage_bytes": 10060800
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.save/wfc3.hdf5",
+    "bytes": 10106592,
+    "allocated_bytes": 10108928,
+    "sha256": "9d715dfa18242890fea247befede21f1f60e4d6b6655f12729c9416926f46fcf",
+    "attributes": {
+      "gamma_only": ".FALSE.",
+      "igwx": 6526,
+      "ik": 3,
+      "ispin": 1,
+      "nbnd": 48,
+      "ngw": 7531,
+      "npol": 2,
+      "scale_factor": 1.0,
+      "xk": [
+        -0.5146932626068116,
+        0.0,
+        0.0
+      ]
+    },
+    "datasets": {
+      "MillerIndices": {
+        "shape": [
+          6526,
+          3
+        ],
+        "dtype": "int32",
+        "storage_bytes": 78312
+      },
+      "evc": {
+        "shape": [
+          48,
+          26104
+        ],
+        "dtype": "float64",
+        "storage_bytes": 10023936
+      }
+    }
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.wfc1",
+    "bytes": 15118848,
+    "allocated_bytes": 15122432,
+    "sha256": "d90a996684ed3c01692c3fea8bb83f5ad68781a277b991c066b02520c192d376"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.wfc2",
+    "bytes": 15141888,
+    "allocated_bytes": 15142912,
+    "sha256": "46865c6681f855eee462074e7fb36c9e3489161ecee6e49cdc77a0b148382476"
+  },
+  {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/out/r07m4.xml",
+    "bytes": 54275,
+    "allocated_bytes": 57344,
+    "sha256": "efc65e6c183c522e5d36c29550b043a7be5fbc14cef27c5c4d30ff42842b00b5"
+  }
+]

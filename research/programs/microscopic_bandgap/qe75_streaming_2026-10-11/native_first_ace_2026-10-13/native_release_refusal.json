@@ -1,0 +1,1 @@
+{"native_QE_MPI_started":false,"reason":"native disk gate: retained backend/tempfile generation envelope is uncertified; per-file FSIZE plus sampled OUTPUT is not aggregate disk enforcement","refusal_before_flock_registry_reservation_systemd_MPI":true,"source_candidate_not_native_qualified":true,"timestamp":"2026-10-13T17:10:27.033479+00:00"}

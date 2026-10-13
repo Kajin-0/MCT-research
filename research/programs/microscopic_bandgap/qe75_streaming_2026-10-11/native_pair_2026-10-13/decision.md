@@ -2,6 +2,14 @@
 
 **2026-10-13 14:34 UTC; starts clean `3713045`.**
 
+**Subsequent native evidence — 2026-10-13 17:18 UTC:** the user has now executed
+a real stock two-rank two-atom HSE+SOC run with14 outer iterations; it is
+unconverged after MAX_SECONDS420. The journal records peak706,560,000bytes/swap0.
+Its compatible48-band save now supplies a qualified common-state seed candidate.
+See [new native evidence and current decision](../native_first_ace_2026-10-13/decision.md).
+The statements below are the retained `066e27e` checkpoint, not a claim that no
+stock native QE has subsequently run. Streamed numerical equivalence remains absent.
+
 **USER-MEASURED / INDEPENDENTLY CORROBORATED:** the user's genuine two-rank C MPI
 smoke is retained. Source/binary hashes exactly match the supplied pins. The
 exact user-journal invocation and launcher command agree; independent historical

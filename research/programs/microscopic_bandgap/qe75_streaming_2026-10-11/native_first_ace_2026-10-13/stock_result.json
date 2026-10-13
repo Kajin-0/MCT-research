@@ -1,0 +1,32 @@
+{
+  "captured_utc": "2026-10-13T15:39:54.624977+00:00",
+  "run": "stock QE7.5 HgTe 2 atom HSE+SOC 48 bands 2 ranks k2 q2 90/360/120 Ry",
+  "input_sha256": "6dc041903af5d2116e0f673e8dda7ad277db378dba2409fe9331206dee305eb3",
+  "stdout_sha256": "a7beb13e03eb725f6dd96045800d586ffe1e0d53301f04197a88f12bb3de21e3",
+  "qe_job_done": true,
+  "fully_converged": false,
+  "stop_reason": "Maximum CPU time exceeded / max_seconds 420",
+  "outer_exx_iterations": 14,
+  "last_reported_total_energy_ry": -484.05790653,
+  "last_estimated_exchange_error_ry": 3.87e-06,
+  "last_fock_ace_energy_ry": -8.96709093,
+  "all_total_energies_ry": [
+    -484.05787373,
+    -484.05788049,
+    -484.05788101,
+    -484.0578811,
+    -484.057887,
+    -484.05788729,
+    -484.05789262,
+    -484.05789286,
+    -484.05789766,
+    -484.05789781,
+    -484.05790219,
+    -484.05790259,
+    -484.05790265,
+    -484.05790653
+  ],
+  "total_output_bytes": 92847,
+  "wave_save_bytes": 93390854,
+  "scientific_claim": "unconverged HSE reference progress, not a final HgTe material gap and no Cd result"
+}

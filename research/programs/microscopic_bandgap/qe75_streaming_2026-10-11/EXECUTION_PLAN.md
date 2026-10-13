@@ -1,9 +1,14 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 14:34 UTC
-**Status:** USER'S REAL TWO-RANK NATIVE MPI MILESTONE CORROBORATED; FRESH FIRST-ACE NUMERICAL FENCES/COMPARATOR BUILT AND TESTED; QE PAIR BLOCKED BEFORE LAUNCH BY COMPLETE RESOURCE/PRODUCER CERTIFICATE; ORIGINAL HOST-WIDE/PRIVATE-NETWORK CLAIMS STILL UNPASSED
+**Last verified update:** 2026-10-13 17:18 UTC
+**Status:** REAL STOCK QE HSE+SOC TWO-RANK EXPERIMENT HAS14 EXX ITERATIONS, UNCONVERGED AFTER MAX_SECONDS420; ACTUAL48-BAND SEED QUALIFIED; LIVE NON-MPI KERNEL LAUNCH-GATE REFUSAL PASS; STREAMED NUMERICAL PAIR STILL UNRELEASED AT AGGREGATE OUTPUT/OWNERSHIP QUALIFICATION
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+**Latest checkpoint starts clean `066e27e`:** see
+`native_first_ace_2026-10-13/{decision.md,handoff.md,reference_evidence.json,bootstrap_result.json}`.
+Stock native output is now real; it is not the yet-unexecuted private streamed
+comparison. Historical no-native statements below refer to their dated phases.
 **Starting verified revision:** `b1a4772`. **Latest native bridge revision:** `6b21779`. **Latest M4 checkpoint:** `1d74a0d`. **Latest readiness checkpoint:** `m5_readiness` artifacts starting `1d74a0d`. **Latest finite checkpoint:** `native_pair_2026-10-13`, starts clean `3713045`. **Latest user scope:** ONE conditional fresh two-atom control/stream first-ACE numerical pair under the explicitly revised LOCAL-OWNED contract; no admission issued, no full-sized run or goal resume.
 
 ## Objective and nonnegotiable boundaries
@@ -35,6 +40,21 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 **Scientific truth boundary:** Calculated binary HgTe Γ splitting is not a measured or first-principles alloy `E_g(x)`. The 87.5% number is an **allocation estimate**, not native peak-RAM proof. A linked private QE executable is not a validated SCF. Do not infer a physical `x_c` until M7 and M8 pass.
 
 ## Critical path and decision points
+
+**Current new physical evidence (2026-10-13 17:18 UTC):** stock QE7.5 primitive
+HgTe/48-band/HSE+SOC/k2/q2/90-360-120Ry/two-rank experiment ran14 outer iterations,
+last E−484.05790653Ry/dexx3.87e−6Ry/ACE−8.96709093Ry. MAX_SECONDS420 and XML
+convergence=false: not a fully converged reference or Cd result. Exact journal
+peak706,560,000bytes/swap0; full stdout/input/save hashes and metadata retained.
+Saved48-band waves have independently checked NC Gram defects≤3.2e−15 and
+provide a compatible common seed, using separate writable copies and no old ACE
+import. A source-candidate local owner implements native callbacks; only its
+actual NON-MPI launch-refusal path/kernel12GiB-swap0-tasks12-AS896MiB was tested.
+The first native-release defect is uncertified aggregate output/closed-file
+generation control:14GiB allowance+per-file limits+sampled counter is insufficient.
+Native release refusal is recorded before state/service/MPI mutation. All-rank
+native receipts/crash lease/equivalence remain unqualified. No new QE run by
+this Codex phase. Use the current decision, not the stale066e27e no-stock statement.
 
 **Current user-authorized route (2026-10-13 14:34 UTC):** use the narrow fresh
 first-ACE [protocol](native_pair_2026-10-13/protocol.md), not the original
@@ -161,7 +181,18 @@ Stop this finite investigation after evidence/plan commit/push. Read `namespace_
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Context-reset handoff (updated 2026-10-13 14:34 UTC)
+## Context-reset handoff (updated 2026-10-13 17:18 UTC)
+
+- Read this plan then `native_first_ace_2026-10-13/{decision.md,handoff.md,reference_evidence.json,reference_save_inventory.json,bootstrap_result.json,native_release_refusal.json}` and DFT AGENTS. Started clean066e27e; historical goal unchanged.
+- New USER actual stock HSE:14 outer EXX iterations, last−484.05790653Ry/dexx3.87e−6Ry/ACE−8.96709093Ry, MAX_SECONDS420, native429.15s, XMLconvergence=false. Journal431.497914s/706,560,000bytes/swap0. Input/stdout/stderr/manifest/result and all save metadata/hashes retained; no Cd packet.
+- Supplied energy array is a14-report tail of39 total reports. XML input Fock0 differs from output60Ha/native120Ry. Keep those corrections. Stock saved93,390,854logicalbytes. All three48-band spinor waves pass independent NC Gram≤3.2e−15. No old44-band seed or old ACE import used.
+- Independent copies prepared under DFT `.local/qe75_lowram_20261011/first_ace_owned_20261013/{control,stream}`. Only new numeric startup (`startingwfc/pot=file`) differs from the user's original random startup; future two members match each other. Source ownership candidate adds real phase callbacks/reservation logic but **native path unqualified and disabled**, not a permit.
+- ONE actual NON-MPI fixed launch-gate probe passes MainPID1857813/UID1001/invocatione2c471e71307486ab0e354488dec6101, kernelmemory12GiB/swap0/tasks12/OOMgroup1, hardAS896MiB/file1GiB, live challenge refusal and empty/collected group.20,160,512bytes peak/0.348345s. No native rank is granted; no actual all-rank lease/equivalence or crash-lifetime qualification.
+- Native release is refused before flock/registry/reservations/service/MPI: no certified aggregate backend/tempfile generation envelope. A14GiB allowance and sampled tree counter cannot supply it. Exact actionable remedy is complete producer/generation bounds or hard aggregate mediation, then source/ownership qualification before ONE pair. No unchanged kernel/namespace/inventory probes or broad suites. Native errore diagnostic85 actually MPI_ABORT(1), so terminal acceptance was corrected.
+- Prepared jobs' source pins precede final status/refusal logging fixes; regenerate in a new versioned root only after qualification. Never force the refusal, claim complete output bounds, or equate the non-MPI gate with two native ranks. Resident-mapping AS/task bound is conditional, not exact reported-RSS theorem. Preserve all original resource floors and original16atom/352band inputs.
+- Stock/ref data/old candidates, dirty DFT422d71d/status,17 pins and calcura/commander/research/supervisors unchanged; global ledgerFINISHED/knownflockfree; only own probe unit reset/collected. No HSE/QE/MPI by this phase, full-sized run, hardware purchase, goal/session/agent or DFT/main changes. Commit/push tested evidence on existing research branch.
+
+## Previous first-ACE component handoff (2026-10-13 14:34 UTC; retained)
 
 - Read this plan, `native_pair_2026-10-13/{decision.md,protocol.md,handoff_ledger.md,smoke_verification.json,preflight_results.json,build_results.json,test_results.json}` and DFT AGENTS. Starting clean `3713045`; current research branch/session and historical goal unchanged.
 - User's **genuine native two-rank C MPI** run is corroborated by matching source/binary hashes and exact journal unit/invocation/launcher: 0.846275-s historical interval, 12,890,112-byte peak and zero swap. Rank PIDs/collective outputs and historical configured caps are user-reported, not recovered stdout/config after collection. Do not falsely label this QE/R07C/private-network/global-exclusion validation, or repeat the smoke.
@@ -204,6 +235,8 @@ Stop this finite investigation after evidence/plan commit/push. Read `namespace_
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-13 17:18 UTC | starts clean066e27e | ACTUAL STOCK HSE EVIDENCE / MATCHED STATE / OWNED GATE |** Preserved14-iteration unconverged stock HSE+SOC with exact unit journal706,560,000byte peak/swap0, stdout/schema agreement,93,390,854byte save metadata and NC Gram≤3.2e−15. Prepared independent actual48-band seed copies; source-candidate scope4 owner and actual NON-MPI kernel launch-refusal component tested. Corrected39-energy-history versus14-tail, XML Fock-section and diagnostic85/MPI_ABORT1 semantics. Aggregate closed-backend-output and native ownership qualification remain unpassed; release refuses before mutation, no new native run. Protected state and blocked goal unchanged; no broad suite, main merge or DFT commit.
 
 - **2026-10-13 14:34 UTC | starts clean `3713045` | actual MPI evidence / targeted first-ACE remedy | NATIVE MPI CORROBORATED; SOURCE/COMPONENT PASS; QE RESOURCE GATE BLOCKED:** Preserved the user's native two-rank smoke with exact hashes/journal and narrow acceptance claim. Built two fresh-only fenced QE candidates and strict independent EXX/ACE comparator; six real-QE compiles/two links and nine focused methods PASS. Fixed fresh scope4 versus old scope2 reservation callback incompatibility without weakening restart. Native density output still precedes first ACE, so raw floors/cgroup cap do not certify full resource envelope. No native launch, inventory/namespace re-probe, supervisor/session/goal changes or physical x_c. Updated local protocol, evidence and reset handoff; checkpoint on existing research branch only.
 

@@ -2,9 +2,32 @@
 
 **Portfolio contribution:** R07
 
-**State:** sole approved matched host TERMINATED on retained RSS cap during exchange initialization; final HSE convergence FAILED; Cd NOT ADMITTED; missing physical packet / material inversion OPEN; original goal BLOCKED after three repeated resumed-turn acquisition boundaries; objective unachieved; prior negatives preserved
+**State:** original approved matched 16-atom host TERMINATED on retained RSS cap; separate user stock two-atom HSE+SOC run now has14 real EXX iterations but is UNCONVERGED after MAX_SECONDS420; Cd material result absent; matched streamed action equivalence and material inversion OPEN; historical goal BLOCKED and unchanged; prior negatives preserved
 
 **Updated:** 2026-10-13
+
+## Actual stock native HSE evidence — 2026-10-13 17:18 UTC
+
+**CALCULATED, not fully converged:** [independently retained stock experiment](qe75_streaming_2026-10-11/native_first_ace_2026-10-13/decision.md)
+verifies two MPI ranks, primitive HgTe/48 spinor bands, HSE+SOC90/360/120Ry/k2/q2,
+14 real outer EXX iterations, last total energy−484.05790653Ry, dexx3.87e−6Ry,
+Fock ACE−8.96709093Ry; XML convergence=false and MAX_SECONDS420. Own journal
+peak706,560,000bytes/swap0. Save93,390,854logicalbytes, independent NC wave Gram
+errors≤3.2e−15. This is genuine native progress and a compatible initialization
+seed, not a final material gap, isotope/temperature result, Cd response or x_c.
+
+The same finite task prepares separate seed copies and a source-candidate local
+first-ACE owner. One **NON-MPI** production launch-refusal probe verifies actual
+cgroup12GiB/swap0/tasks12/AS896MiB and cleanup. Native rank callbacks/lease lifetime
+and numerical EXX/ACE equivalence remain unqualified. Actual native release is
+refused before mutation because14GiB output allowance/per-file limits do not
+certify retained backend/tempfile generations. No new QE/HSE/MPI or16-atom job
+was launched by this Codex phase. Source intentional-error85 versus MPI_ABORT(1)
+terminal semantics are corrected. Larger PBE host remains incomplete; smaller
+160-band PBE is confirmed rejected for too few noncollinear bands; no Cd packet.
+All older dated software/no-native statements below are retained historical
+conditions. The historical blocked goal, original HSE352-band settings, stock,
+protected DFT files/supervisors and other sessions remain unchanged.
 
 ## Separate finite QE low-RAM engineering task
 

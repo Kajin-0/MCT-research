@@ -1,5 +1,12 @@
 # One fresh first-ACE pair — local pilot, not admitted
 
+**2026-10-13 17:18 update:** real stock HSE and a compatible48-band save are now
+available. The proposed matched initialization uses separate wave/density/schema
+copies from that actual save; no old ACE restart import. See the
+[current decision](../native_first_ace_2026-10-13/decision.md). No numerical pair
+has run. Also, diagnostic error85 is printed but QE's errore invokes MPI_ABORT(1):
+the intentional-stop process status is1, not85. Keep this distinction in validation.
+
 2026-10-13. Latest user authorization permits one sequential two-atom control
 then streamed numerical fixture **if resource and actual-state admission pass**.
 This narrow LOCAL-OWNED protocol supersedes the private-network/global-inventory

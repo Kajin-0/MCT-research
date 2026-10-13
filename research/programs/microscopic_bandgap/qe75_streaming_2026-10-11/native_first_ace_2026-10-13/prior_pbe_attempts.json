@@ -1,0 +1,10 @@
+{
+  "provenance_sha256": "c3e83a60734e6fbc873d2d12bca2e12fee717e341d57184ce75e8e37fd9459cd",
+  "host_stdout_sha256": "6d69b6c53adbb23fcb0ca8429da90ed09f8281d38a70585c6c7b4d74999a42a4",
+  "rejected160_stdout_sha256": "a022e8ae4071edeea4e0adf44670b8b30291539c63eb78d0279e5c1528e0d7d0",
+  "rejected160_reason": "QE setup: too few bands noncolin case",
+  "larger_host_last_observation": "Slow Davidson; no completed material packet in retained stdout",
+  "larger_host_stopping_action": "User-reported stopped; not inferred from truncated stdout alone",
+  "Cd_result": false,
+  "original_HSE_352_input_changed": false
+}

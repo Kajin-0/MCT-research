@@ -1,0 +1,10 @@
+{
+  "purpose": "HSE+SOC reference baseline two-atom HgTe first-ACE, private fresh outdir",
+  "source": "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/native_pair_2026-10-13/control.in",
+  "source_sha256": "1c4d2e175f66b6d6b5b3b42b546bc1d9788178d30a3b56cc86cfbbe4ad665e50",
+  "input_sha256": "6dc041903af5d2116e0f673e8dda7ad277db378dba2409fe9331206dee305eb3",
+  "created": "2026-10-13T15:30:28.913288+00:00",
+  "maxmem_gib": 12,
+  "maxseconds": 460,
+  "ranks": 2
+}
