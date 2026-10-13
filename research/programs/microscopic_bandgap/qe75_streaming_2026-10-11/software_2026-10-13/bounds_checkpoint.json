@@ -1,0 +1,24 @@
+{
+  "timestamp_UTC": "2026-10-13T01:17:58.865984+00:00",
+  "component_budget": "PASS SOURCE-CONDITIONED",
+  "whole_native_envelope": "BLOCKED / UNKNOWN",
+  "preservation": {
+    "passed": true,
+    "mismatches": [],
+    "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+    "dirty_status_unchanged": true,
+    "pins": 17,
+    "stock_prior_candidates_unchanged": true,
+    "sessions": [
+      "calcura:$0",
+      "commander:$1",
+      "research:$3"
+    ],
+    "lease_holders": [],
+    "own_ledger_phase": "FINISHED",
+    "MemAvailable_bytes": 31834701824,
+    "free_disk_bytes": 32406917120,
+    "native_MPI_QE_run": false
+  },
+  "active_next": "collective/readback source failure tests"
+}

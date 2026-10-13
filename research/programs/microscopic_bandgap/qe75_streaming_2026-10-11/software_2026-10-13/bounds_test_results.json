@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "methods": 7,
+  "conservative_components": {
+    "kind": "CONSERVATIVE_COMPONENT_BOUND_NOT_NATIVE_ADMISSION",
+    "Miller_bounds": {
+      "wave": 13,
+      "fock": 15,
+      "density": 26
+    },
+    "global_FFT_order_upper": {
+      "fock": 32,
+      "density": 54
+    },
+    "global_G_box_upper": {
+      "wave": 19683,
+      "fock": 29791,
+      "density": 148877
+    },
+    "per_rank_fft_rows_including_spin_upper": 131072,
+    "per_rank_density_rows_upper": 314928,
+    "per_rank_npwx_upper": 19683,
+    "world_ranks": 2,
+    "bands": 48,
+    "k_upper": 8,
+    "stored_q_upper": 8,
+    "diagnostic_layout_ints_upper": 306811,
+    "initial_layout_ints_upper": 744404,
+    "per_rank_initial_packet_upper_bytes": 66350584,
+    "initial_packet_guard_bytes": 134217728,
+    "per_rank_components_upper_bytes": {
+      "rank_stream_bytes": 805306368,
+      "rank_state_packet_bytes": 244328648,
+      "first_ACE_before_per_k_bytes": 64377888,
+      "first_ACE_after_per_k_bytes": 33511856,
+      "first_ACE_diagnostics_all_k_bytes": 783117952,
+      "probe_scratch_bytes": 61096032,
+      "whole_native_output_envelope_certified": false
+    },
+    "two_rank_full_q_store_upper_bytes": 1610612736,
+    "two_rank_one_q_plane_resident_upper_bytes": 201326592,
+    "two_rank_initial_all_k_upper_bytes": 1061609344,
+    "collected_wave_and_ACE_payload_upper_bytes": 483729408,
+    "collected_density_payload_upper_bytes": 9528128,
+    "whole_native_output_envelope_certified": false,
+    "whole_family_RSS_certified": false,
+    "actual_native_MPI_descriptor": "UNKNOWN",
+    "unbounded_or_unqualified": [
+      "HDF5 metadata/allocation and temporary replacement lifetime",
+      "all XML/log/mix/native files and maximum live generations",
+      "allocator/FFT/MPI/backend workspaces and page cache",
+      "actual FFT factors, ownership/G maps and native q selection"
+    ],
+    "scope": "exact pinned 2-atom CPU NC SOC geometry/cutoffs, one pool/group, symmorphic fft_fact<=2; source conditions must be checked"
+  },
+  "native_MPI_QE_run": false
+}

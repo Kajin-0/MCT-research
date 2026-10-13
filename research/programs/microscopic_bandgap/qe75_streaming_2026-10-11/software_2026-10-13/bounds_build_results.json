@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-cpp",
+        "-O0",
+        "-fcheck=all",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds",
+        "-c",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_param.f90",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds/fft_param.o"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.024265012703835964
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-cpp",
+        "-O0",
+        "-fcheck=all",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds",
+        "-c",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_support.f90",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds/fft_support.o"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.04280528239905834
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-fcheck=all",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/fft_unit.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds/fft_support.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds/fft_param.o",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/bounds/fft_unit"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.08069594018161297
+    }
+  ],
+  "native_MPI_QE_run": false,
+  "FFT_transform_run": false,
+  "source_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_param.f90": "004c209974f2c8bfaa003bdbdcf5f7bf3c23ad3214964201dfa6cfc15b298eec",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_support.f90": "bbee3c539747cd46efe0d4d1ba2396468cd1f85f0af03a20c519232afa3e14d0",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/fft_unit.f90": "0b350cbc6d530bd030a86b7d604450cba1af38d950bb4d787e90b0fa99fadc68"
+  }
+}
