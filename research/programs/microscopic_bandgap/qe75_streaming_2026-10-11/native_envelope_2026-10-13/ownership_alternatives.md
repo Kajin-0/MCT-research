@@ -26,3 +26,11 @@ receipt was issued, no new session/broker was created, and no supervisor was
 modified. Actual all-rank state/layout/readback and whole resources remain
 separate unpassed prerequisites even if an authoritative host gate becomes
 available later.
+
+**Dated addendum, 2026-10-13:** the subsequently supplied UID1001 user-manager
+finding is independently verified in `../cgroup_owned_2026-10-13/`. The prior
+availability observation for a dedicated owned-family control is superseded:
+transient user services provide actual memory/pids limits and group cleanup.
+This does not supersede the foreign-process non-identifiability theorem, and
+does not supply a host-wide inventory/exclusion certificate. Original content
+above records the earlier evidence boundary; no native gate is weakened.

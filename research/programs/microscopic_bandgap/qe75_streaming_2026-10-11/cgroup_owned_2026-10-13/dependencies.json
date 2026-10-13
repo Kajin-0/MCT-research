@@ -1,0 +1,25 @@
+{
+  "verified_UTC": "2026-10-13T04:42:34.807081+00:00",
+  "uid": 1001,
+  "cgroup": "v2",
+  "user_bus": "/run/user/1001/bus",
+  "records": [
+    {
+      "command": [
+        "/usr/bin/systemd-run",
+        "--version"
+      ],
+      "stdout": "systemd 257 (257.9-0ubuntu2.5)\n+PAM +AUDIT +SELINUX +APPARMOR +IMA +IPE +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF -XKBCOMMON -UTMP +SYSVINIT +LIBARCHIVE\n"
+    },
+    {
+      "command": [
+        "/usr/bin/systemctl",
+        "--user",
+        "show",
+        "--property=Version"
+      ],
+      "stdout": "Version=257.9-0ubuntu2.5\n"
+    }
+  ],
+  "native_MPI_execution": false
+}

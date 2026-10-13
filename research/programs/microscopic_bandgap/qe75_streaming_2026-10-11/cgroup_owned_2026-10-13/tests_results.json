@@ -1,0 +1,6144 @@
+{
+  "passed": true,
+  "methods": 13,
+  "real_tiny_unit_cases": [
+    {
+      "case": "normal",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-1cb2ecf020444c0187c73ca7ab4c88df",
+      "action": null,
+      "result": {
+        "reason": "PASS",
+        "unit_returncode": 0,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-e10f7bc133be4c6dae8d9b181e62e8dc.service",
+          "cgroup_inode": 1252854,
+          "invocation": "86fabf871bd94ad187fca6b3809078cc",
+          "job_sha256": "134d187de7f5d974b10fd82c0b2b30efc070b69227ae01c1966871998775beb3",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8929280,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10588160,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832409,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639070658,
+          "unit": "r07-owned-e10f7bc133be4c6dae8d9b181e62e8dc.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.16304678563028574,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8929280,
+            "memory_peak": 10588160,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.1888975827023387,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9375744,
+            "memory_peak": 10588160,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2149319313466549,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9375744,
+            "memory_peak": 10588160,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2409450290724635,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9375744,
+            "memory_peak": 10588160,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.26608795393258333,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9220096,
+            "memory_peak": 10588160,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 9220096,
+          "memory_peak": 10588160,
+          "pids_current": 1,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1min 30s",
+          "RuntimeMaxUSec": "infinity",
+          "MainPID": "0",
+          "Result": "success",
+          "OOMPolicy": "",
+          "ExecMainCode": "0",
+          "ExecMainStatus": "0",
+          "ControlGroup": "",
+          "MemoryPeak": "[not set]",
+          "Delegate": "no",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "TasksMax": "38447",
+          "LimitFSIZE": "infinity",
+          "LimitCORE": "infinity",
+          "NoNewPrivileges": "no",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-e10f7bc133be4c6dae8d9b181e62e8dc.service",
+          "LoadState": "not-found",
+          "ActiveState": "inactive",
+          "SubState": "dead",
+          "FragmentPath": "",
+          "Transient": "no",
+          "InvocationID": "",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.3682501493021846,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-e10f7bc133be4c6dae8d9b181e62e8dc.service",
+            "cgroup_inode": 1252854,
+            "invocation": "86fabf871bd94ad187fca6b3809078cc",
+            "job_sha256": "134d187de7f5d974b10fd82c0b2b30efc070b69227ae01c1966871998775beb3",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8929280,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10588160,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832409,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639070658,
+            "unit": "r07-owned-e10f7bc133be4c6dae8d9b181e62e8dc.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9220096,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10588160,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 78,
+          "native_MPI_QE_executed": false,
+          "passed": true,
+          "peak_summed_RSS_bytes": 60739584,
+          "ranks": {
+            "0": {
+              "pid": 1832412,
+              "start_ticks": 639070673
+            },
+            "1": {
+              "pid": 1832413,
+              "start_ticks": 639070673
+            }
+          },
+          "reason": "PASS",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546651,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546652,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1252854,
+              "invocation": "86fabf871bd94ad187fca6b3809078cc",
+              "peer": {
+                "pid": 1832412,
+                "start_ticks": 639070673
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1252854,
+              "invocation": "86fabf871bd94ad187fca6b3809078cc",
+              "peer": {
+                "pid": 1832413,
+                "start_ticks": 639070673
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1252854,
+              "invocation": "86fabf871bd94ad187fca6b3809078cc",
+              "peer": {
+                "pid": 1832412,
+                "start_ticks": 639070673
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1252854,
+              "invocation": "86fabf871bd94ad187fca6b3809078cc",
+              "peer": {
+                "pid": 1832413,
+                "start_ticks": 639070673
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": true
+      }
+    },
+    {
+      "case": "task_limit",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-3e2f1a9beed741618c614549864ec32e",
+      "action": null,
+      "result": {
+        "reason": "PASS",
+        "unit_returncode": 0,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-2ca56b6a360e46beaabcacf49f99562d.service",
+          "cgroup_inode": 1252897,
+          "invocation": "a8497ca9850f47998575cea1d994b1cf",
+          "job_sha256": "b337604569422558e16ab87fbf89cfd66ed8dca01adc6bf0d6daf216c3ff96eb",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8990720,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10592256,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832425,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639070701,
+          "unit": "r07-owned-2ca56b6a360e46beaabcacf49f99562d.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.13957286719232798,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9121792,
+            "memory_peak": 10592256,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.16688986960798502,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9637888,
+            "memory_peak": 10592256,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.19386979192495346,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11997184,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.22098303399980068,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11988992,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.24842553678900003,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.27776009775698185,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.3050647210329771,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.331680191680789,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.35999574791640043,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.3886001668870449,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.4193315915763378,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 11862016,
+            "memory_peak": 11997184,
+            "pids_current": 16,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.4439056050032377,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 10260480,
+            "memory_peak": 11997184,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 1
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 10260480,
+          "memory_peak": 11997184,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 1
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1min 30s",
+          "RuntimeMaxUSec": "infinity",
+          "MainPID": "0",
+          "Result": "success",
+          "OOMPolicy": "",
+          "ExecMainCode": "0",
+          "ExecMainStatus": "0",
+          "ControlGroup": "",
+          "MemoryPeak": "[not set]",
+          "Delegate": "no",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "TasksMax": "38447",
+          "LimitFSIZE": "infinity",
+          "LimitCORE": "infinity",
+          "NoNewPrivileges": "no",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-2ca56b6a360e46beaabcacf49f99562d.service",
+          "LoadState": "not-found",
+          "ActiveState": "inactive",
+          "SubState": "dead",
+          "FragmentPath": "",
+          "Transient": "no",
+          "InvocationID": "",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.5609293272718787,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-2ca56b6a360e46beaabcacf49f99562d.service",
+            "cgroup_inode": 1252897,
+            "invocation": "a8497ca9850f47998575cea1d994b1cf",
+            "job_sha256": "b337604569422558e16ab87fbf89cfd66ed8dca01adc6bf0d6daf216c3ff96eb",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8990720,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10592256,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832425,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639070701,
+            "unit": "r07-owned-2ca56b6a360e46beaabcacf49f99562d.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 10260480,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 11997184,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 1
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 109,
+          "native_MPI_QE_executed": false,
+          "passed": true,
+          "peak_summed_RSS_bytes": 65740800,
+          "ranks": {
+            "0": {
+              "pid": 1832428,
+              "start_ticks": 639070714
+            },
+            "1": {
+              "pid": 1832429,
+              "start_ticks": 639070714
+            }
+          },
+          "reason": "PASS",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546668,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546669,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1252897,
+              "invocation": "a8497ca9850f47998575cea1d994b1cf",
+              "peer": {
+                "pid": 1832428,
+                "start_ticks": 639070714
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1252897,
+              "invocation": "a8497ca9850f47998575cea1d994b1cf",
+              "peer": {
+                "pid": 1832429,
+                "start_ticks": 639070714
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1252897,
+              "invocation": "a8497ca9850f47998575cea1d994b1cf",
+              "peer": {
+                "pid": 1832428,
+                "start_ticks": 639070714
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1252897,
+              "invocation": "a8497ca9850f47998575cea1d994b1cf",
+              "peer": {
+                "pid": 1832429,
+                "start_ticks": 639070714
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": true
+      }
+    },
+    {
+      "case": "oom",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-49b21eb582f34b70972afac8d84f9e28",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-a610411fa0374a6dbc54e53f5e9a81b4.service",
+          "cgroup_inode": 1252940,
+          "invocation": "e849566465cf43b0a14a4cad641759c1",
+          "job_sha256": "18425dcd0bc5b2d7cc3f0b034823412c09eccc3de31939da30a84ab8abb08919",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8994816,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "67108864",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832455,
+          "profile_sha256": "d93812269ea6720cd55df166d0e484a65fa8c391595fe383f35ea8bedb6eccc8",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639070764,
+          "unit": "r07-owned-a610411fa0374a6dbc54e53f5e9a81b4.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.15124795027077198,
+            "memory_max": "67108864",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8871936,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.17601138353347778,
+            "memory_max": "67108864",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9375744,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.20453455112874508,
+            "memory_max": "67108864",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 15667200,
+            "memory_peak": 15667200,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2317905630916357,
+            "memory_max": "67108864",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 46600192,
+            "memory_peak": 46600192,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2583236237987876,
+            "memory_max": "67108864",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 67055616,
+            "memory_peak": 67108864,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 33,
+              "oom": 1,
+              "oom_kill": 3,
+              "oom_group_kill": 1
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "67108864",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 67055616,
+          "memory_peak": 67108864,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 33,
+            "oom": 1,
+            "oom_kill": 3,
+            "oom_group_kill": 1
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "oom-kill",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "2",
+          "ExecMainStatus": "9",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-49b21eb582f34b70972afac8d84f9e28 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:06 UTC] ; stop_time=[Tue 2026-10-13 04:33:06 UTC] ; pid=1832455 ; code=killed ; status=9/KILL }",
+          "ControlGroup": "",
+          "MemoryPeak": "67108864",
+          "Delegate": "no",
+          "MemoryMax": "67108864",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-a610411fa0374a6dbc54e53f5e9a81b4.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-a610411fa0374a6dbc54e53f5e9a81b4.service",
+          "Transient": "yes",
+          "InvocationID": "e849566465cf43b0a14a4cad641759c1",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.3864245070144534,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "passed": false
+      },
+      "OOM_group_counter_observed": 1
+    },
+    {
+      "case": "log_flood",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-88fbc47339dd44b9a974b87f75f2ca7c",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-c2da0a0432f845a0ba8642cd47478baa.service",
+          "cgroup_inode": 1252983,
+          "invocation": "6f93eaa751074beab52e62ecdbcdb987",
+          "job_sha256": "c8132f08d3775efbef2ca3b9e65e19676b9e9632c973f8c6c1eb108b621cc902",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8880128,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10592256,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832471,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639070809,
+          "unit": "r07-owned-c2da0a0432f845a0ba8642cd47478baa.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.15445535350590944,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8863744,
+            "memory_peak": 10592256,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.18146061524748802,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9375744,
+            "memory_peak": 10592256,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.208415437489748,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10592256,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.23361345194280148,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10592256,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2589542381465435,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 10162176,
+            "memory_peak": 10592256,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 10162176,
+          "memory_peak": 10592256,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-88fbc47339dd44b9a974b87f75f2ca7c ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:06 UTC] ; stop_time=[Tue 2026-10-13 04:33:06 UTC] ; pid=1832471 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10592256",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-c2da0a0432f845a0ba8642cd47478baa.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-c2da0a0432f845a0ba8642cd47478baa.service",
+          "Transient": "yes",
+          "InvocationID": "6f93eaa751074beab52e62ecdbcdb987",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.3828750057145953,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-c2da0a0432f845a0ba8642cd47478baa.service",
+            "cgroup_inode": 1252983,
+            "invocation": "6f93eaa751074beab52e62ecdbcdb987",
+            "job_sha256": "c8132f08d3775efbef2ca3b9e65e19676b9e9632c973f8c6c1eb108b621cc902",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8880128,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10592256,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832471,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639070809,
+            "unit": "r07-owned-c2da0a0432f845a0ba8642cd47478baa.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9732096,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10592256,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 32768,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60784640,
+          "ranks": {
+            "0": {
+              "pid": 1832474,
+              "start_ticks": 639070824
+            },
+            "1": {
+              "pid": 1832475,
+              "start_ticks": 639070824
+            }
+          },
+          "reason": "exact aggregate worker log cap",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546702,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546703,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1252983,
+              "invocation": "6f93eaa751074beab52e62ecdbcdb987",
+              "peer": {
+                "pid": 1832474,
+                "start_ticks": 639070824
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1252983,
+              "invocation": "6f93eaa751074beab52e62ecdbcdb987",
+              "peer": {
+                "pid": 1832475,
+                "start_ticks": 639070824
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1252983,
+              "invocation": "6f93eaa751074beab52e62ecdbcdb987",
+              "peer": {
+                "pid": 1832474,
+                "start_ticks": 639070824
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1252983,
+              "invocation": "6f93eaa751074beab52e62ecdbcdb987",
+              "peer": {
+                "pid": 1832475,
+                "start_ticks": 639070824
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": false
+      }
+    },
+    {
+      "case": "file_limit",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-4a35338f162e440190791c0408c76924",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-16946794296c4136a7f7910470c891e9.service",
+          "cgroup_inode": 1253026,
+          "invocation": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+          "job_sha256": "264aeffb39be6eb3f944835ec5c2b35683f13d18d8a8c2c48331e48f6895e8d9",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8957952,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832487,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639070854,
+          "unit": "r07-owned-16946794296c4136a7f7910470c891e9.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.1327729895710945,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8880128,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.15846694633364677,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9379840,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.18339677155017853,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9658368,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 9658368,
+          "memory_peak": 10596352,
+          "pids_current": 1,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-4a35338f162e440190791c0408c76924 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:06 UTC] ; stop_time=[Tue 2026-10-13 04:33:07 UTC] ; pid=1832487 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10596352",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-16946794296c4136a7f7910470c891e9.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-16946794296c4136a7f7910470c891e9.service",
+          "Transient": "yes",
+          "InvocationID": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.3097948683425784,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-16946794296c4136a7f7910470c891e9.service",
+            "cgroup_inode": 1253026,
+            "invocation": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+            "job_sha256": "264aeffb39be6eb3f944835ec5c2b35683f13d18d8a8c2c48331e48f6895e8d9",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8957952,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10596352,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832487,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639070854,
+            "unit": "r07-owned-16946794296c4136a7f7910470c891e9.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9658368,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 78,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60784640,
+          "ranks": {
+            "0": {
+              "pid": 1832490,
+              "start_ticks": 639070867
+            },
+            "1": {
+              "pid": 1832491,
+              "start_ticks": 639070867
+            }
+          },
+          "reason": "compiled worker nonzero: [-25, -25]",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546720,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546721,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1253026,
+              "invocation": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+              "peer": {
+                "pid": 1832490,
+                "start_ticks": 639070867
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1253026,
+              "invocation": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+              "peer": {
+                "pid": 1832491,
+                "start_ticks": 639070867
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253026,
+              "invocation": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+              "peer": {
+                "pid": 1832490,
+                "start_ticks": 639070867
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253026,
+              "invocation": "9da5b8ebf7b245b4bf0a5ec21b47baca",
+              "peer": {
+                "pid": 1832491,
+                "start_ticks": 639070867
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": false
+      }
+    },
+    {
+      "case": "hold",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-83e08c5d1e9a4296814de2b7a265841d",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service",
+          "cgroup_inode": 1253069,
+          "invocation": "575b5afd1925484fabe6c68ae159135d",
+          "job_sha256": "07fe16300414d20d441ce927d79d857225922a66bd2039c27b21496b18dbe812",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8912896,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832503,
+          "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639070891,
+          "unit": "r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.15277436655014753,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9125888,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.18121708370745182,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9641984,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2107409043237567,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.23928193375468254,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.26592174265533686,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.29184261057525873,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.32092799060046673,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.34784104209393263,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.37796257622539997,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.404181394726038,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.43016145285218954,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.45610656030476093,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.48224183917045593,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.5079665863886476,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.5328301703557372,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.5580354435369372,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.5833761701360345,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.6087218252941966,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.6337133003398776,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.6610275935381651,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.6871778722852468,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.7129201889038086,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.7382941534742713,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.7626088159158826,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.7871182281523943,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.8123051347211003,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.8372227577492595,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.8630017442628741,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.8878955487161875,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.914749070070684,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.9416601015254855,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.9676624201238155,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.9951788634061813,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.0246483040973544,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9900032,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.0499689700081944,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.0786935482174158,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.1047831261530519,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.1327915424481034,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.1582449981942773,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.1829120516777039,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.2080040061846375,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.2337800841778517,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.2606649743393064,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.2855884283781052,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.3109862254932523,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.3369000824168324,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.362182967364788,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.3867389596998692,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.4115583337843418,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9953280,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.4375289427116513,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9945088,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.462865237146616,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9945088,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.4877910912036896,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9945088,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.5144496411085129,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9945088,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.5395171763375401,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9940992,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.5643767304718494,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.5887128515169024,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.6137712262570858,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.642320235259831,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.6681946823373437,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.6925779543817043,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.7180344704538584,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.742918023839593,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.7672999268397689,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.7929116832092404,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.8181391563266516,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.8459574338048697,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.8716389182955027,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.8997052442282438,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.9268361376598477,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.9547338439151645,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 1.9856124790385365,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.0120491283014417,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.0403648568317294,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.066428284160793,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.0917937895283103,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.121236380189657,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.1504824105650187,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.1830608835443854,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.210798288695514,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.2375285094603896,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.263975439593196,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.291143081150949,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.3192893574014306,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.3450490655377507,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.370654000900686,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.3961393972858787,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.422049965709448,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.446648948825896,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.471778362058103,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.496589276008308,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.5239522689953446,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.5493721356615424,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.5742088593542576,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.599080203101039,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.624360208399594,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.6488182405009866,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.6744334073737264,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.699594001285732,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.724864197894931,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.7496059611439705,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.7777932165190578,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.803630885668099,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.8304963558912277,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.855395699851215,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.8819387294352055,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.906887374818325,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.9322123397141695,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.9568828428164124,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 2.981531785801053,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 3.006741350516677,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 3.0319169657304883,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 3.0585276754572988,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 3.0838438319042325,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9936896,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 9936896,
+          "memory_peak": 10596352,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "3s",
+          "MainPID": "0",
+          "Result": "timeout",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-83e08c5d1e9a4296814de2b7a265841d ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:07 UTC] ; stop_time=[Tue 2026-10-13 04:33:10 UTC] ; pid=1832503 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10596352",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service",
+          "Transient": "yes",
+          "InvocationID": "575b5afd1925484fabe6c68ae159135d",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 3.2016517352312803,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service",
+            "cgroup_inode": 1253069,
+            "invocation": "575b5afd1925484fabe6c68ae159135d",
+            "job_sha256": "07fe16300414d20d441ce927d79d857225922a66bd2039c27b21496b18dbe812",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8912896,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10596352,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832503,
+            "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639070891,
+            "unit": "r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9695232,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 78,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60833792,
+          "ranks": {
+            "0": {
+              "pid": 1832506,
+              "start_ticks": 639070906
+            },
+            "1": {
+              "pid": 1832507,
+              "start_ticks": 639070906
+            }
+          },
+          "reason": "compiled worker nonzero: [-15, -15]",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546740,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546742,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1253069,
+              "invocation": "575b5afd1925484fabe6c68ae159135d",
+              "peer": {
+                "pid": 1832506,
+                "start_ticks": 639070906
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1253069,
+              "invocation": "575b5afd1925484fabe6c68ae159135d",
+              "peer": {
+                "pid": 1832507,
+                "start_ticks": 639070906
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253069,
+              "invocation": "575b5afd1925484fabe6c68ae159135d",
+              "peer": {
+                "pid": 1832506,
+                "start_ticks": 639070906
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253069,
+              "invocation": "575b5afd1925484fabe6c68ae159135d",
+              "peer": {
+                "pid": 1832507,
+                "start_ticks": 639070906
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": false
+      }
+    },
+    {
+      "case": "hold",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-1c3d3b9a4d084bed8657ea99588f58a2",
+      "action": "cancel",
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service",
+          "cgroup_inode": 1253112,
+          "invocation": "bc5bcaca68b74ccc9d4e0b23d776cd1c",
+          "job_sha256": "4fe0ce62f71baa4eda97a0269d092ae62e240d9790cf40be9536160478e8da1c",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8929280,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832524,
+          "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639071218,
+          "unit": "r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.15109859965741634,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8880128,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 8880128,
+          "memory_peak": 10596352,
+          "pids_current": 1,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "3s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-1c3d3b9a4d084bed8657ea99588f58a2 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:10 UTC] ; stop_time=[Tue 2026-10-13 04:33:10 UTC] ; pid=1832524 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10596352",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service",
+          "Transient": "yes",
+          "InvocationID": "bc5bcaca68b74ccc9d4e0b23d776cd1c",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.30745608918368816,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service",
+            "cgroup_inode": 1253112,
+            "invocation": "bc5bcaca68b74ccc9d4e0b23d776cd1c",
+            "job_sha256": "4fe0ce62f71baa4eda97a0269d092ae62e240d9790cf40be9536160478e8da1c",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8929280,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10596352,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832524,
+            "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639071218,
+            "unit": "r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9117696,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 0,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60542976,
+          "ranks": {},
+          "reason": "owner cancellation",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546758,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546759,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": []
+        },
+        "passed": false
+      }
+    },
+    {
+      "case": "guard_crash",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-cddaacd32cf0458888c1a5bc0699bddb",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 77",
+        "unit_returncode": 77,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-30d7b230f7ab4501be47fe9c0940f7e8.service",
+          "cgroup_inode": 1253155,
+          "invocation": "3b60e7fdff2f448ba43e5f0943bfa35a",
+          "job_sha256": "848eec50cdd30cdf7bd87c723aef69484af3d0de6c7c4ec82436bc174c03e44f",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8892416,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832540,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639071257,
+          "unit": "r07-owned-30d7b230f7ab4501be47fe9c0940f7e8.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.1663879994302988,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8888320,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.1937038218602538,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9379840,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 9379840,
+          "memory_peak": 10596352,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "77",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-cddaacd32cf0458888c1a5bc0699bddb ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:10 UTC] ; stop_time=[Tue 2026-10-13 04:33:11 UTC] ; pid=1832540 ; code=exited ; status=77 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10596352",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-30d7b230f7ab4501be47fe9c0940f7e8.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-30d7b230f7ab4501be47fe9c0940f7e8.service",
+          "Transient": "yes",
+          "InvocationID": "3b60e7fdff2f448ba43e5f0943bfa35a",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.3183093722909689,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "passed": false
+      }
+    },
+    {
+      "case": "orphan",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-71d40d6d6a0e444caf9573e2c03b8b90",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-3c416af68fe343b79f1b48618e36ae4e.service",
+          "cgroup_inode": 1253198,
+          "invocation": "fe543f70e4d546e7a452504af522b3be",
+          "job_sha256": "92e0d54839ab6e742a82b18ee1e604d49d1b371d87cc6fef5e66c48c8c73a06a",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8949760,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832557,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639071295,
+          "unit": "r07-owned-3c416af68fe343b79f1b48618e36ae4e.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.1502443067729473,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8949760,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.17781837098300457,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9379840,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2067731898277998,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 10137600,
+            "memory_peak": 10596352,
+            "pids_current": 5,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 10137600,
+          "memory_peak": 10596352,
+          "pids_current": 5,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-71d40d6d6a0e444caf9573e2c03b8b90 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:11 UTC] ; stop_time=[Tue 2026-10-13 04:33:11 UTC] ; pid=1832557 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10596352",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-3c416af68fe343b79f1b48618e36ae4e.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-3c416af68fe343b79f1b48618e36ae4e.service",
+          "Transient": "yes",
+          "InvocationID": "fe543f70e4d546e7a452504af522b3be",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.3574139382690191,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-3c416af68fe343b79f1b48618e36ae4e.service",
+            "cgroup_inode": 1253198,
+            "invocation": "fe543f70e4d546e7a452504af522b3be",
+            "job_sha256": "92e0d54839ab6e742a82b18ee1e604d49d1b371d87cc6fef5e66c48c8c73a06a",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8949760,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10596352,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832557,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639071295,
+            "unit": "r07-owned-3c416af68fe343b79f1b48618e36ae4e.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 10137600,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 78,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60858368,
+          "ranks": {
+            "0": {
+              "pid": 1832560,
+              "start_ticks": 639071309
+            },
+            "1": {
+              "pid": 1832561,
+              "start_ticks": 639071309
+            }
+          },
+          "reason": "rank exited with live detached descendant",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546790,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546791,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1253198,
+              "invocation": "fe543f70e4d546e7a452504af522b3be",
+              "peer": {
+                "pid": 1832560,
+                "start_ticks": 639071309
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1253198,
+              "invocation": "fe543f70e4d546e7a452504af522b3be",
+              "peer": {
+                "pid": 1832561,
+                "start_ticks": 639071309
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253198,
+              "invocation": "fe543f70e4d546e7a452504af522b3be",
+              "peer": {
+                "pid": 1832560,
+                "start_ticks": 639071309
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253198,
+              "invocation": "fe543f70e4d546e7a452504af522b3be",
+              "peer": {
+                "pid": 1832561,
+                "start_ticks": 639071309
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": false
+      }
+    },
+    {
+      "case": "owner_crash",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-87dbbb567b8d4de0b854aa6882fae472",
+      "returncode": 76,
+      "record": {
+        "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-0f0d1838d19d4fb688476cf14d0e6963.service",
+        "cgroup_inode": 1253241,
+        "escrow_guard": {
+          "pid": 1832576,
+          "start_ticks": 639071346
+        },
+        "invocation": "8d16d77ab3a94f60854c86d6a93380e6",
+        "job_sha256": "d6e0039d39e31f961f8d50b5d297c010897416e6e777b35a6c99e5962cffa851",
+        "legacy_saved_hex": "7b226a6f62223a222f686f6d652f557365722f6f70656e636f64655f776f726b73706163652f4446542f2e6c6f63616c2f716537355f6c6f7772616d5f32303236313031312f72756e74696d655f61646d697373696f6e2f746573742d6a77376164716f6c2f6a6f62222c226d656d62657273223a5b5d2c227068617365223a2246494e4953484544222c2276657273696f6e223a317d0a",
+        "members": [
+          {
+            "pid": 1832576,
+            "start_ticks": 639071346
+          },
+          {
+            "pid": 1832579,
+            "start_ticks": 639071362
+          },
+          {
+            "pid": 1832580,
+            "start_ticks": 639071362
+          }
+        ],
+        "phase": "RUNNING",
+        "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+        "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-87dbbb567b8d4de0b854aa6882fae472",
+        "unit": "r07-owned-0f0d1838d19d4fb688476cf14d0e6963.service"
+      },
+      "cleanup_verified": true
+    },
+    {
+      "case": "native_scope",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-919694c91c634219abb6f2ceeb9782f1",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service",
+          "cgroup_inode": 1253284,
+          "invocation": "e5ed3372779a4a6fb2b67c09a0b7d3f3",
+          "job_sha256": "10a04530ee8282b80621e5f0eec2c301a51261d9e29806c78786b2ea90f2356a",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8929280,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10592256,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832593,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639071391,
+          "unit": "r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.15955266263335943,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8871936,
+            "memory_peak": 10592256,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.1880443301051855,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8994816,
+            "memory_peak": 10592256,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 8994816,
+          "memory_peak": 10592256,
+          "pids_current": 1,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-919694c91c634219abb6f2ceeb9782f1 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:33:12 UTC] ; stop_time=[Tue 2026-10-13 04:33:12 UTC] ; pid=1832593 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10592256",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service",
+          "Transient": "yes",
+          "InvocationID": "e5ed3372779a4a6fb2b67c09a0b7d3f3",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "controller_elapsed_seconds": 0.33279234636574984,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service",
+            "cgroup_inode": 1253284,
+            "invocation": "e5ed3372779a4a6fb2b67c09a0b7d3f3",
+            "job_sha256": "10a04530ee8282b80621e5f0eec2c301a51261d9e29806c78786b2ea90f2356a",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8929280,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10592256,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832593,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639071391,
+            "unit": "r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9003008,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10592256,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 40,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60469248,
+          "ranks": {
+            "0": {
+              "pid": 1832596,
+              "start_ticks": 639071406
+            },
+            "1": {
+              "pid": 1832597,
+              "start_ticks": 639071406
+            }
+          },
+          "reason": "compiled worker nonzero: [91, 91]",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546825,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546826,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1253284,
+              "invocation": "e5ed3372779a4a6fb2b67c09a0b7d3f3",
+              "peer": {
+                "pid": 1832596,
+                "start_ticks": 639071406
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1253284,
+              "invocation": "e5ed3372779a4a6fb2b67c09a0b7d3f3",
+              "peer": {
+                "pid": 1832597,
+                "start_ticks": 639071406
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": false
+      }
+    }
+  ],
+  "hostwide_inventory_scanned": false,
+  "native_QE_MPI_HSE_executed": false,
+  "kernel_limit_scope": "new transient UID1001 family only",
+  "final_owned_ledger": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service",
+    "cgroup_inode": 1253284,
+    "escrow_guard": {
+      "pid": 1832593,
+      "start_ticks": 639071391
+    },
+    "invocation": "e5ed3372779a4a6fb2b67c09a0b7d3f3",
+    "job_sha256": "10a04530ee8282b80621e5f0eec2c301a51261d9e29806c78786b2ea90f2356a",
+    "legacy_saved_hex": "7b226a6f62223a222f686f6d652f557365722f6f70656e636f64655f776f726b73706163652f4446542f2e6c6f63616c2f716537355f6c6f7772616d5f32303236313031312f72756e74696d655f61646d697373696f6e2f746573742d6a77376164716f6c2f6a6f62222c226d656d62657273223a5b5d2c227068617365223a2246494e4953484544222c2276657273696f6e223a317d0a",
+    "members": [
+      {
+        "pid": 1832593,
+        "start_ticks": 639071391
+      }
+    ],
+    "phase": "FINISHED",
+    "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+    "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-919694c91c634219abb6f2ceeb9782f1",
+    "unit": "r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service"
+  },
+  "lease_holders": []
+}

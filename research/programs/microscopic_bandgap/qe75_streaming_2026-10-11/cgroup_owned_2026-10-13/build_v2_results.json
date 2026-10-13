@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "command": [
+    "/usr/bin/cc",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/rank_worker.c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/lease_client.c",
+    "-o",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/rank_worker.v2"
+  ],
+  "stdout": "",
+  "stderr": "",
+  "worker_sha256": "08364082f774cba59e54b5ef8327797fbb686f5afa99d80d38f9c03ad76632ce",
+  "fixed_lease_source_sha256": "ecab5af0b06e011004fa2132b5f7332551845faa6f0354896542c942c8aa7736",
+  "maximum_child_RSS_KiB": 34720,
+  "QE_MPI_execution": false
+}

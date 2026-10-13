@@ -1,0 +1,321 @@
+{
+  "passed": true,
+  "verified_UTC": "2026-10-13T04:42:34.807692+00:00",
+  "starting_MCT_commit": "de000d4",
+  "full_suite_methods": 13,
+  "final_focused_methods": 3,
+  "source_conditions": {
+    "full_suite_before_final_probe": {
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/rank_worker.v2": "08364082f774cba59e54b5ef8327797fbb686f5afa99d80d38f9c03ad76632ce",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/checkpoint_phase/storage_guard.so": "96265b14361cab1f28ea658b9626562b60c55e14953886f09c2a563ceaa073a5",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/contracts.py": "778947ccdc555af00ceaf37e90261283e29f5d5aa6124e321ffb5e3d275dc975",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/controller.py": "7c514306477ff711b0436fe2532fbc21049f23e275a9a957b251a1b08942e13c",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py": "8076a35da658737bf8d5d352be74124c3bdb474b6988963b3489743e852a2ed9",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/rank_worker.c": "30e31e2434fa7bb792baacb63049c41c51e643d074c6e993dffdcdbb96b2dd92",
+      "/usr/bin/python3.13": "efb29ce53d36ebaeee80e3aa44fd6c7f9d71bbded5fe1665240b2ed8ecaeee0e"
+    },
+    "final_escrow_probe_source": {
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/rank_worker.v2": "08364082f774cba59e54b5ef8327797fbb686f5afa99d80d38f9c03ad76632ce",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/checkpoint_phase/storage_guard.so": "96265b14361cab1f28ea658b9626562b60c55e14953886f09c2a563ceaa073a5",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/contracts.py": "778947ccdc555af00ceaf37e90261283e29f5d5aa6124e321ffb5e3d275dc975",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/controller.py": "07896020f65708548d50dfff789895c592208620143e4d7e0438dc20c8e6c3ce",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py": "8076a35da658737bf8d5d352be74124c3bdb474b6988963b3489743e852a2ed9",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/rank_worker.c": "30e31e2434fa7bb792baacb63049c41c51e643d074c6e993dffdcdbb96b2dd92",
+      "/usr/bin/python3.13": "efb29ce53d36ebaeee80e3aa44fd6c7f9d71bbded5fe1665240b2ed8ecaeee0e"
+    }
+  },
+  "source_condition_note": "Final change added post-guard-exit independent flock probe and corresponding assertions; full suite preceded that addition; final 3 focused checks exercise it.",
+  "current_package_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py": "8076a35da658737bf8d5d352be74124c3bdb474b6988963b3489743e852a2ed9",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/controller.py": "07896020f65708548d50dfff789895c592208620143e4d7e0438dc20c8e6c3ce",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/test_owned.py": "ed38ef25940688598f97757129ebc15c6968bfe6d319d9d712d896d628cfe2b1",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/preservation.py": "8dc90f8b9b82f9532d8992269ea59377a120eba241f56c0105e171ec59b64a83",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/contracts.py": "778947ccdc555af00ceaf37e90261283e29f5d5aa6124e321ffb5e3d275dc975",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/build.py": "a44fc39c88ca9f738324068f80e3571a566a441bb24a66fdea89a02dbe03c2fd"
+  },
+  "compiled_worker_sha256": "08364082f774cba59e54b5ef8327797fbb686f5afa99d80d38f9c03ad76632ce",
+  "prior_v1_binary_preserved_sha256": "4404778697c1af0b99ac6d0f2e930223ae719bc0732f5b8d0cf3ee2f651e1180",
+  "preservation": {
+    "passed": true,
+    "mismatches": [],
+    "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+    "dirty_status_unchanged": true,
+    "pins": 17,
+    "stock_prior_candidates_unchanged": true,
+    "sessions": [
+      "calcura:$0",
+      "commander:$1",
+      "research:$3"
+    ],
+    "lease_holders": [],
+    "own_ledger_phase": "FINISHED",
+    "MemAvailable_bytes": 31853924352,
+    "free_disk_bytes": 32296517632,
+    "native_MPI_QE_run": false,
+    "capture_candidates_unchanged": true,
+    "foreign_process_inventory_repeated": false,
+    "legacy_registry_restored_byte_exact": true,
+    "de000d4_candidates_unchanged": true,
+    "owned_units": [
+      {
+        "unit": "r07-owned-0688bdd150274f5baaed5ac9918ea5b5.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-e02334aad9f74bd0ae8d96f1fb25271a.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-119d269236b14ad19a44c0fcc8c5f227.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-1d5ecb2b4408497fa49ea003d841073f.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-42757b0ec0e140bfb939a76ea71b7d94.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-c56474137d414853809d68cf7c497f2a.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-32ce04d5007540878c0945a72a5fda77.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-a698fbd27e4740249091b8599c79063e.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-afc9feb177624505a17e37dfb3e27ecc.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-52760210f6e34cdfbf7499c3dc7d453e.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-03490e76b0c34bde8d5fcc6f7cf01e03.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-287b247081d6458ea715d88f451fe7d0.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-98da6875c997432183cf299b2ec3f75b.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-18d0161e88604836aaebdc04496e2586.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-bbd95aafc1fa4b99b4b5b3403b1a6797.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-6b9893518edd4ac38ab4d35dbca9593f.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-349eb55ee9b24a00a6584a83a6bfcd4c.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-dec2e9c3c27f48e0b46c5bff6a3a7e5e.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-7779bb70b3ab451f9d918b016c6df796.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-c2fb72c302fc471d8d76bdddacb616e4.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-be2fb3c5f637436f9b314022d9ee30ac.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-ea8c19b9b54b4db4ab4c19aac4db8d89.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-675e7b78303a4909808f2fab95deb6f1.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-637ef9b7069748b6bd569eb7daa17927.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-aee22524c62644d88e0a2d61fef9f3cb.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-e10f7bc133be4c6dae8d9b181e62e8dc.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-f7d1070e018f449887e5e063beb47c4e.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-69ea8fc8f24648cc9f11d06f2f7b5c88.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-c2da0a0432f845a0ba8642cd47478baa.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-c35df313b1f246b0b9caaa33a28a4d27.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-3037f25d104e479a887997512da8d276.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-439546b8c9154a2aa424c9bf97ae88ea.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-2b68b0273ed9431c8335a62420ea40e3.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-2701403fe9494046b26197d1ec35f63f.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-96b759494f83472d877b50c4c0bc3cde.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-407c9a19f25641e2b0f41fda2aa9b1cf.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-91b2a2afa2264741a3a8f7912379b673.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-64b9957f00cd44bab10f3af290325411.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-47995b030d70427c90f8fc9d29a6c5aa.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-3ae9923654ef4a6e9f7537ed56cd0090.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-a6f4c7d3a1a64a22a8bfad32c39babbd.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-16946794296c4136a7f7910470c891e9.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-43150c4b610d4c35b3e351964aa0a93c.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-262b660818d4482ebd0c78c99f7029ae.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-b330e6cdfbae49b9a4d97107db5a54cc.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-b0061281e0e54c5b8af4f3b8443b299c.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-396a9ff46ec94ff48356f4d4544fe72f.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-30d7b230f7ab4501be47fe9c0940f7e8.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-2ca56b6a360e46beaabcacf49f99562d.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-d9dd763cb88b4d459627c25e1800aee7.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-6a070bf2426840679695e21a137a4d46.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-a5bea935379e49b6a44fbdfadd7e9fc8.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-a06a0a191251483aa8dd021a19216bf4.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-9212ca5b9df547c8936eee05e842fcd4.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-f0e2f777b2894788bd4547071ffe370d.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-0f0d1838d19d4fb688476cf14d0e6963.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-b3e3e862083943bdb711c093c379fbb0.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-555f5cc3b300476aa5fc1a0ec5b8169a.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-c1c6b1adc44a4f7abfdf9f24a9cec137.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-a610411fa0374a6dbc54e53f5e9a81b4.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-7e695b39486f404192b309c23f789c27.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-d488fc34bf6c4d1891dbc82f37bd837e.service",
+        "state": "not-found"
+      },
+      {
+        "unit": "r07-owned-3c416af68fe343b79f1b48618e36ae4e.service",
+        "state": "not-found"
+      }
+    ],
+    "own_cgroup_ledger_phase": "FINISHED"
+  },
+  "native_QE_HSE_MPI_executed": false,
+  "native_admission_issued": false,
+  "hostwide_inventory_repeated": false,
+  "owned_family_controls_measured": true,
+  "hostwide_exclusivity_proven": false,
+  "whole_native_resource_envelope_certified": false
+}

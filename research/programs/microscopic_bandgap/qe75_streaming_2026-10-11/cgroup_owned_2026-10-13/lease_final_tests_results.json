@@ -1,0 +1,982 @@
+{
+  "passed": true,
+  "methods": 3,
+  "real_tiny_unit_cases": [
+    {
+      "case": "normal",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-4dfc1c7f377b420ea876abeb79d59ee1",
+      "action": null,
+      "result": {
+        "reason": "PASS",
+        "unit_returncode": 0,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-f0e2f777b2894788bd4547071ffe370d.service",
+          "cgroup_inode": 1253327,
+          "invocation": "00c6c370830c4812b04e1244d3938194",
+          "job_sha256": "9cdebb223b88ef3a440bd67d71511966f97d7bf30a64c109649129b4b6a0dc30",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9248768,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10600448,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832665,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639082673,
+          "unit": "r07-owned-f0e2f777b2894788bd4547071ffe370d.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.16387377958744764,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8974336,
+            "memory_peak": 10600448,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.1881339903920889,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9478144,
+            "memory_peak": 10600448,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2140510082244873,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9478144,
+            "memory_peak": 10600448,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.23902582190930843,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9478144,
+            "memory_peak": 10600448,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.2641521571204066,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9318400,
+            "memory_peak": 10600448,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 9318400,
+          "memory_peak": 10600448,
+          "pids_current": 1,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1min 30s",
+          "RuntimeMaxUSec": "infinity",
+          "MainPID": "0",
+          "Result": "success",
+          "OOMPolicy": "",
+          "ExecMainCode": "0",
+          "ExecMainStatus": "0",
+          "ControlGroup": "",
+          "MemoryPeak": "[not set]",
+          "Delegate": "no",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "TasksMax": "38447",
+          "LimitFSIZE": "infinity",
+          "LimitCORE": "infinity",
+          "NoNewPrivileges": "no",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-f0e2f777b2894788bd4547071ffe370d.service",
+          "LoadState": "not-found",
+          "ActiveState": "inactive",
+          "SubState": "dead",
+          "FragmentPath": "",
+          "Transient": "no",
+          "InvocationID": "",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "escrow_exclusive_after_guard_exit": true,
+        "controller_elapsed_seconds": 0.3816197393462062,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-f0e2f777b2894788bd4547071ffe370d.service",
+            "cgroup_inode": 1253327,
+            "invocation": "00c6c370830c4812b04e1244d3938194",
+            "job_sha256": "9cdebb223b88ef3a440bd67d71511966f97d7bf30a64c109649129b4b6a0dc30",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 9248768,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10600448,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832665,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639082673,
+            "unit": "r07-owned-f0e2f777b2894788bd4547071ffe370d.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 9318400,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10600448,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 78,
+          "native_MPI_QE_executed": false,
+          "passed": true,
+          "peak_summed_RSS_bytes": 60379136,
+          "ranks": {
+            "0": {
+              "pid": 1832668,
+              "start_ticks": 639082688
+            },
+            "1": {
+              "pid": 1832669,
+              "start_ticks": 639082688
+            }
+          },
+          "reason": "PASS",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546865,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546866,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1253327,
+              "invocation": "00c6c370830c4812b04e1244d3938194",
+              "peer": {
+                "pid": 1832668,
+                "start_ticks": 639082688
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1253327,
+              "invocation": "00c6c370830c4812b04e1244d3938194",
+              "peer": {
+                "pid": 1832669,
+                "start_ticks": 639082688
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253327,
+              "invocation": "00c6c370830c4812b04e1244d3938194",
+              "peer": {
+                "pid": 1832668,
+                "start_ticks": 639082688
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253327,
+              "invocation": "00c6c370830c4812b04e1244d3938194",
+              "peer": {
+                "pid": 1832669,
+                "start_ticks": 639082688
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": true
+      }
+    },
+    {
+      "case": "guard_crash",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-d36cce2bb60b458a84eab464898d22f7",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 77",
+        "unit_returncode": 77,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-396a9ff46ec94ff48356f4d4544fe72f.service",
+          "cgroup_inode": 1253370,
+          "invocation": "ce7574c9b63042d58befd1bacc0c630d",
+          "job_sha256": "7b28b9f271e369ffc8f8ef09f1954c94c8346c00977a5ffde82474300caeb080",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8945664,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10592256,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832681,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639082717,
+          "unit": "r07-owned-396a9ff46ec94ff48356f4d4544fe72f.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.1508975988253951,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 8945664,
+            "memory_peak": 10592256,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.1763833649456501,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9252864,
+            "memory_peak": 10592256,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 9252864,
+          "memory_peak": 10592256,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "77",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-d36cce2bb60b458a84eab464898d22f7 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:35:05 UTC] ; stop_time=[Tue 2026-10-13 04:35:05 UTC] ; pid=1832681 ; code=exited ; status=77 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10592256",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-396a9ff46ec94ff48356f4d4544fe72f.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-396a9ff46ec94ff48356f4d4544fe72f.service",
+          "Transient": "yes",
+          "InvocationID": "ce7574c9b63042d58befd1bacc0c630d",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "escrow_exclusive_after_guard_exit": true,
+        "controller_elapsed_seconds": 0.30674964748322964,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "passed": false
+      }
+    },
+    {
+      "case": "orphan",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-c587e1e22c1c4beea4d40f8e0e2f2b17",
+      "action": null,
+      "result": {
+        "reason": "unit nonzero 1",
+        "unit_returncode": 1,
+        "hello": {
+          "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-1d5ecb2b4408497fa49ea003d841073f.service",
+          "cgroup_inode": 1253413,
+          "invocation": "cae747005d3e4c3888c2c78ca4b199bc",
+          "job_sha256": "157f53bf1e91b9b826f534b1d9ab9a734baf7dda7983099bc291a2fb0516fe2b",
+          "kernel": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 8884224,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "pid": 1832697,
+          "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+          "rlimit_core": [
+            0,
+            0
+          ],
+          "rlimit_fsize": [
+            131072,
+            131072
+          ],
+          "scope": "ABI_NO_MPI",
+          "start_ticks": 639082754,
+          "unit": "r07-owned-1d5ecb2b4408497fa49ea003d841073f.service"
+        },
+        "samples": [
+          {
+            "elapsed": 0.1551378546282649,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9129984,
+            "memory_peak": 10596352,
+            "pids_current": 1,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.18462324514985085,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 9641984,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          },
+          {
+            "elapsed": 0.21379495598375797,
+            "memory_max": "134217728",
+            "swap_max": "0",
+            "tasks_max": "16",
+            "oom_group": "1",
+            "memory_current": 10387456,
+            "memory_peak": 10596352,
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            },
+            "cgroup_events": {
+              "populated": 1,
+              "frozen": 0
+            }
+          }
+        ],
+        "last_kernel_sample": {
+          "memory_max": "134217728",
+          "swap_max": "0",
+          "tasks_max": "16",
+          "oom_group": "1",
+          "memory_current": 10387456,
+          "memory_peak": 10596352,
+          "pids_current": 3,
+          "pids_events": {
+            "max": 0
+          },
+          "memory_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          },
+          "cgroup_events": {
+            "populated": 1,
+            "frozen": 0
+          }
+        },
+        "systemd_diagnostics": "",
+        "owned_unit_closed": true,
+        "lease_holders_after": [],
+        "manager_terminal": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "8s",
+          "MainPID": "0",
+          "Result": "exit-code",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "1",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/cgroup_owned_2026-10-13/guard.py /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-c587e1e22c1c4beea4d40f8e0e2f2b17 ; ignore_errors=no ; start_time=[Tue 2026-10-13 04:35:05 UTC] ; stop_time=[Tue 2026-10-13 04:35:06 UTC] ; pid=1832697 ; code=exited ; status=1 }",
+          "ControlGroup": "",
+          "MemoryPeak": "10596352",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "16",
+          "LimitFSIZE": "131072",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-1d5ecb2b4408497fa49ea003d841073f.service",
+          "LoadState": "loaded",
+          "ActiveState": "failed",
+          "SubState": "failed",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-1d5ecb2b4408497fa49ea003d841073f.service",
+          "Transient": "yes",
+          "InvocationID": "cae747005d3e4c3888c2c78ca4b199bc",
+          "CollectMode": "inactive"
+        },
+        "lease_fd_escrow_until_verified_empty": true,
+        "escrow_exclusive_after_guard_exit": true,
+        "controller_elapsed_seconds": 0.3721143426373601,
+        "native_QE_MPI_HSE_executed": false,
+        "hostwide_inventory_scanned": false,
+        "hostwide_exclusivity_proven": false,
+        "guard": {
+          "cgroup_memory_is_not_RSS": true,
+          "hello": {
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-1d5ecb2b4408497fa49ea003d841073f.service",
+            "cgroup_inode": 1253413,
+            "invocation": "cae747005d3e4c3888c2c78ca4b199bc",
+            "job_sha256": "157f53bf1e91b9b826f534b1d9ab9a734baf7dda7983099bc291a2fb0516fe2b",
+            "kernel": {
+              "cgroup_events": {
+                "frozen": 0,
+                "populated": 1
+              },
+              "memory_current": 8884224,
+              "memory_events": {
+                "high": 0,
+                "low": 0,
+                "max": 0,
+                "oom": 0,
+                "oom_group_kill": 0,
+                "oom_kill": 0
+              },
+              "memory_max": "134217728",
+              "memory_peak": 10596352,
+              "oom_group": "1",
+              "pids_current": 1,
+              "pids_events": {
+                "max": 0
+              },
+              "swap_max": "0",
+              "tasks_max": "16"
+            },
+            "pid": 1832697,
+            "profile_sha256": "36289bdb399bc7415ff068b6af126407c68e6555f065305ac711e2a5275ea0bb",
+            "rlimit_core": [
+              0,
+              0
+            ],
+            "rlimit_fsize": [
+              131072,
+              131072
+            ],
+            "scope": "ABI_NO_MPI",
+            "start_ticks": 639082754,
+            "unit": "r07-owned-1d5ecb2b4408497fa49ea003d841073f.service"
+          },
+          "hostwide_exclusivity_proven": false,
+          "kernel_final": {
+            "cgroup_events": {
+              "frozen": 0,
+              "populated": 1
+            },
+            "memory_current": 10387456,
+            "memory_events": {
+              "high": 0,
+              "low": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_group_kill": 0,
+              "oom_kill": 0
+            },
+            "memory_max": "134217728",
+            "memory_peak": 10596352,
+            "oom_group": "1",
+            "pids_current": 3,
+            "pids_events": {
+              "max": 0
+            },
+            "swap_max": "0",
+            "tasks_max": "16"
+          },
+          "log_written_bytes": 78,
+          "native_MPI_QE_executed": false,
+          "passed": false,
+          "peak_summed_RSS_bytes": 60338176,
+          "ranks": {
+            "0": {
+              "pid": 1832700,
+              "start_ticks": 639082768
+            },
+            "1": {
+              "pid": 1832701,
+              "start_ticks": 639082768
+            }
+          },
+          "reason": "rank exited with live detached descendant",
+          "reservations": [
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546900,
+              "rank": 0,
+              "requested": 4096
+            },
+            {
+              "allocated": 4096,
+              "dev": 2049,
+              "inode": 546901,
+              "rank": 1,
+              "requested": 4096
+            }
+          ],
+          "wire": [
+            {
+              "action": 1,
+              "cgroup_inode": 1253413,
+              "invocation": "cae747005d3e4c3888c2c78ca4b199bc",
+              "peer": {
+                "pid": 1832700,
+                "start_ticks": 639082768
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 1,
+              "cgroup_inode": 1253413,
+              "invocation": "cae747005d3e4c3888c2c78ca4b199bc",
+              "peer": {
+                "pid": 1832701,
+                "start_ticks": 639082768
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253413,
+              "invocation": "cae747005d3e4c3888c2c78ca4b199bc",
+              "peer": {
+                "pid": 1832700,
+                "start_ticks": 639082768
+              },
+              "rank": 0,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            },
+            {
+              "action": 2,
+              "cgroup_inode": 1253413,
+              "invocation": "cae747005d3e4c3888c2c78ca4b199bc",
+              "peer": {
+                "pid": 1832701,
+                "start_ticks": 639082768
+              },
+              "rank": 1,
+              "scope": "ABI_NO_MPI",
+              "status": 0
+            }
+          ]
+        },
+        "passed": false
+      }
+    },
+    {
+      "case": "owner_crash",
+      "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-f578b1743d7242d786963ffbec3800f4",
+      "returncode": 76,
+      "record": {
+        "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-43150c4b610d4c35b3e351964aa0a93c.service",
+        "cgroup_inode": 1253456,
+        "escrow_guard": {
+          "pid": 1832716,
+          "start_ticks": 639082803
+        },
+        "invocation": "c573f9393a7447e2bec823bebc992b65",
+        "job_sha256": "18069516b5b7f634ad539ef3b9e6434bbdf4d2906e86bd4342dcc1e5c97e3197",
+        "legacy_saved_hex": "7b226a6f62223a222f686f6d652f557365722f6f70656e636f64655f776f726b73706163652f4446542f2e6c6f63616c2f716537355f6c6f7772616d5f32303236313031312f72756e74696d655f61646d697373696f6e2f746573742d6a77376164716f6c2f6a6f62222c226d656d62657273223a5b5d2c227068617365223a2246494e4953484544222c2276657273696f6e223a317d0a",
+        "members": [
+          {
+            "pid": 1832716,
+            "start_ticks": 639082803
+          },
+          {
+            "pid": 1832719,
+            "start_ticks": 639082817
+          },
+          {
+            "pid": 1832720,
+            "start_ticks": 639082817
+          }
+        ],
+        "phase": "RUNNING",
+        "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+        "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-f578b1743d7242d786963ffbec3800f4",
+        "unit": "r07-owned-43150c4b610d4c35b3e351964aa0a93c.service"
+      },
+      "cleanup_verified": true
+    }
+  ],
+  "hostwide_inventory_scanned": false,
+  "native_QE_MPI_HSE_executed": false,
+  "kernel_limit_scope": "new transient UID1001 family only",
+  "final_owned_ledger": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-43150c4b610d4c35b3e351964aa0a93c.service",
+    "cgroup_inode": 1253456,
+    "escrow_guard": {
+      "pid": 1832716,
+      "start_ticks": 639082803
+    },
+    "invocation": "c573f9393a7447e2bec823bebc992b65",
+    "job_sha256": "18069516b5b7f634ad539ef3b9e6434bbdf4d2906e86bd4342dcc1e5c97e3197",
+    "legacy_saved_hex": "7b226a6f62223a222f686f6d652f557365722f6f70656e636f64655f776f726b73706163652f4446542f2e6c6f63616c2f716537355f6c6f7772616d5f32303236313031312f72756e74696d655f61646d697373696f6e2f746573742d6a77376164716f6c2f6a6f62222c226d656d62657273223a5b5d2c227068617365223a2246494e4953484544222c2276657273696f6e223a317d0a",
+    "members": [
+      {
+        "pid": 1832716,
+        "start_ticks": 639082803
+      },
+      {
+        "pid": 1832719,
+        "start_ticks": 639082817
+      },
+      {
+        "pid": 1832720,
+        "start_ticks": 639082817
+      }
+    ],
+    "phase": "FINISHED",
+    "profile_sha256": "de31be68281bce70bab9c5eafcf3a0eefcee62f878d2f86f02f65849a1b88d4d",
+    "recovery": "verified empty/disappeared cgroup and retired identities",
+    "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-f578b1743d7242d786963ffbec3800f4",
+    "unit": "r07-owned-43150c4b610d4c35b3e351964aa0a93c.service"
+  },
+  "lease_holders": []
+}

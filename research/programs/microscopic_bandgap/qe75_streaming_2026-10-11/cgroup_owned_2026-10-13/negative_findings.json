@@ -1,0 +1,41 @@
+[
+  {
+    "finding": "Automatic collection lost the sampled oom_group_kill witness; nonzero exit insufficient",
+    "private_report": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/initial_counter_capture_failure.json",
+    "private_report_sha256": "e4548d1c15c7d8127444e1c36cd2d08f85b4b22a23bb5305720dc9c020977724",
+    "methods_before_failure": 3,
+    "case": "oom",
+    "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-5c06b56bc6b74a90a92ae83136ec5351",
+    "reason": "unit nonzero 1",
+    "guard_reason": null,
+    "sampled_oom_group_counter": 0,
+    "cleanup_verified": true,
+    "native_execution": false
+  },
+  {
+    "finding": "Whole cgroup disappeared during a sampled read; normal guard had passed but controller falsely failed",
+    "private_report": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/controller_collection_race_failure.json",
+    "private_report_sha256": "a254b3861d0c68fa47d1ca58902f12d3a084e163becab29ac8e62f5bac74e5ea",
+    "methods_before_failure": 1,
+    "case": "normal",
+    "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-7561188e81374d5990276bad5d7e17f3",
+    "reason": "[Errno 2] No such file or directory: '/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-42757b0ec0e140bfb939a76ea71b7d94.service/memory.max'",
+    "guard_reason": "PASS",
+    "sampled_oom_group_counter": null,
+    "cleanup_verified": true,
+    "native_execution": false
+  },
+  {
+    "finding": "v1 actor exited before other actor finished CHECK; explicit two-sided release required",
+    "private_report": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/actor_release_race_failure.json",
+    "private_report_sha256": "10dc31b1f9501e3a614f1ebd1880418c5705564994761165e0ad9d43c73811d4",
+    "methods_before_failure": 7,
+    "case": "orphan",
+    "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/cgroup_owned_20261013/case-60e71fb84bdc4240a477be3a1a0e7447",
+    "reason": "unit nonzero 1",
+    "guard_reason": "compiled worker nonzero: [0, 93]",
+    "sampled_oom_group_counter": null,
+    "cleanup_verified": true,
+    "native_execution": false
+  }
+]
