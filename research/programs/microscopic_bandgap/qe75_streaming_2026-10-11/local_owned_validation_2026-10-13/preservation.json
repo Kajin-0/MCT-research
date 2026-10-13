@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "mismatches": [],
+  "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "dirty_status_unchanged": true,
+  "pins": 17,
+  "stock_prior_candidates_unchanged": true,
+  "sessions": [
+    "calcura:$0",
+    "commander:$1",
+    "research:$3"
+  ],
+  "lease_holders": [],
+  "own_ledger_phase": "FINISHED",
+  "MemAvailable_bytes": 31838486528,
+  "free_disk_bytes": 32292179968,
+  "native_MPI_QE_run": false,
+  "capture_candidates_unchanged": true,
+  "foreign_process_inventory_repeated": false,
+  "legacy_registry_restored_byte_exact": true,
+  "de000d4_candidates_unchanged": true,
+  "own_cgroup_ledger_phase": "FINISHED",
+  "new_unit_cleanup_checks": [
+    {
+      "unit": "r07-owned-9bab9b933eaf43e38c6595c30562a04d.service",
+      "LoadState": "not-found",
+      "recorded_exec_pid": 1837624,
+      "recorded_pid_absent": true,
+      "manager_MemoryPeak_bytes": 2359296
+    },
+    {
+      "unit": "r07-owned-a02f543174ef45ca9894552fdd0f7f31.service",
+      "LoadState": "not-found",
+      "recorded_exec_pid": 1837721,
+      "recorded_pid_absent": true,
+      "manager_MemoryPeak_bytes": 2097152
+    }
+  ],
+  "new_MPI_harness_launched": false
+}

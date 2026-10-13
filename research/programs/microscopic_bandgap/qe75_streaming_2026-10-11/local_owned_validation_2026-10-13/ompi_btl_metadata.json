@@ -1,0 +1,22 @@
+{
+  "file": ".local/qe75_lowram_20261011/local_owned_mpi_20261013/ompi_btl.txt",
+  "sha256": "5fae20f801da52cdc53c9a57aec57bda158564ddad760395d92fac91bf7809f6",
+  "selected_metadata": [
+    "                 MCA btl: sm (MCA v2.1.0, API v3.3.0, Component v5.0.10)",
+    "                 MCA btl: tcp (MCA v2.1.0, API v3.3.0, Component v5.0.10)",
+    "                 MCA btl: uct (MCA v2.1.0, API v3.3.0, Component v5.0.10)",
+    "              MCA btl sm: parameter \"btl_sm_segment_size\" (current value: \"16777216\", data source: default, level: 5 tuner/detail, type: int, synonyms: btl_vader_segment_size)",
+    "                          Maximum size of all shared memory buffers (default: 16M)",
+    "              MCA btl sm: parameter \"btl_sm_max_inline_send\" (current value: \"256\", data source: default, level: 5 tuner/detail, type: unsigned_int, synonyms: btl_vader_max_inline_send)",
+    "              MCA btl sm: parameter \"btl_sm_backing_directory\" (current value: \"/dev/shm\", data source: default, level: 3 user/all, type: string, synonyms: btl_vader_backing_directory)",
+    "                          Directory to place backing files for shared memory communication. This directory should be on a local filesystem such as /tmp or /dev/shm (default: (linux) /dev/shm, (others) session directory)",
+    "              MCA btl sm: parameter \"btl_sm_exclusivity\" (current value: \"65536\", data source: default, level: 7 dev/basic, type: unsigned_int, synonyms: btl_vader_exclusivity)",
+    "           MCA btl vader: parameter \"btl_vader_segment_size\" (current value: \"16777216\", data source: default, level: 5 tuner/detail, type: int, synonym of: btl_sm_segment_size)",
+    "                          Maximum size of all shared memory buffers (default: 16M)",
+    "           MCA btl vader: parameter \"btl_vader_max_inline_send\" (current value: \"256\", data source: default, level: 5 tuner/detail, type: unsigned_int, synonym of: btl_sm_max_inline_send)",
+    "           MCA btl vader: parameter \"btl_vader_backing_directory\" (current value: \"/dev/shm\", data source: default, level: 3 user/all, type: string, synonym of: btl_sm_backing_directory)",
+    "                          Directory to place backing files for shared memory communication. This directory should be on a local filesystem such as /tmp or /dev/shm (default: (linux) /dev/shm, (others) session directory)",
+    "           MCA btl vader: parameter \"btl_vader_exclusivity\" (current value: \"65536\", data source: default, level: 7 dev/basic, type: unsigned_int, synonym of: btl_sm_exclusivity)"
+  ],
+  "MPI_Init_executed": false
+}

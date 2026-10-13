@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "methods": 10,
+  "failures": 0,
+  "errors": 0,
+  "actual_MPI_collectives": false,
+  "MPI_Init": false,
+  "QE_executed": false,
+  "kind": "COMPILED_SCOPE3_SERIAL_UNIX_CODEC_ONLY"
+}

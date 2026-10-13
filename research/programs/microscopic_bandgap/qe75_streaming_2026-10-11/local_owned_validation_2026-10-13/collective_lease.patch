@@ -1,0 +1,16 @@
+--- retained/lease_client.c
++++ private/collective_lease.c
+@@ -52 +52,2 @@
+-int qe75_lease_call(int rank,int size,int action,int required_scope) {
++int r07_collective_lease_call(int rank,int size,int action) {
++    const int required_scope=3;
+@@ -56 +57,2 @@
+-    if(rank<0||rank>=2||size!=2||(action!=1&&action!=2)||(required_scope!=1&&required_scope!=2))return EINVAL;
++    if(action==3) { if(rank!=-1||size!=0)return EINVAL; }
++    else if(rank<0||rank>=2||size!=2||(action!=1&&action!=2))return EINVAL;
+@@ -59 +61 @@
+-    memcpy(request,"R07L",4);u32(request+4,1);u32(request+8,action);u32(request+12,rank);u32(request+16,size);
++    memcpy(request,"R07C",4);u32(request+4,1);u32(request+8,action);u32(request+12,rank);u32(request+16,size);
+@@ -72 +74 @@
+-    if(memcmp(reply,"R07L",4)||get32(reply+4)!=1||memcmp(reply+16,request+148,32)) {result=EPROTO;goto done;}
++    if(memcmp(reply,"R07C",4)||get32(reply+4)!=1||memcmp(reply+16,request+148,32)) {result=EPROTO;goto done;}

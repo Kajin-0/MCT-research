@@ -1,0 +1,22 @@
+{
+  "file": ".local/qe75_lowram_20261011/local_owned_mpi_20261013/prte_all.txt",
+  "sha256": "86337f85103db3bda3234c51edd05522d09344ca8d9fc64be9602bd3db6db442",
+  "selected_metadata": [
+    "                 MCA oob: tcp (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "                 MCA plm: slurm (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "                 MCA plm: ssh (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "                 MCA plm: slurm (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "                 MCA plm: ssh (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "           MCA backtrace: execinfo (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "                 MCA plm: ssh (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "           MCA backtrace: execinfo (MCA v2.1.0, API v2.0.0, Component v3.0.8)",
+    "              MCA prtedl: dlopen (MCA v2.1.0, API v1.0.0, Component v3.0.8)",
+    "                MCA prte: \"prte_tmpdir_base\" (current value: \"\", data source:",
+    "                          default, type: string)",
+    "                          Base of the session directory tree to be used by",
+    "                MCA prte: \"prte_local_tmpdir_base\" (current value: \"\", data",
+    "                          source: default, type: string)",
+    "                          Base of the session directory tree to be used by"
+  ],
+  "MPI_Init_executed": false
+}

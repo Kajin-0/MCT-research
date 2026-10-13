@@ -1,0 +1,14 @@
+test_fingerprint_format_refused_before_peer (__main__.SerialComponents.test_fingerprint_format_refused_before_peer) ... ok
+test_negative_challenge_refused (__main__.SerialComponents.test_negative_challenge_refused) ... ok
+test_new_magic_scope_success_is_codec_only (__main__.SerialComponents.test_new_magic_scope_success_is_codec_only) ... ok
+test_nonzero_status_and_bad_rank (__main__.SerialComponents.test_nonzero_status_and_bad_rank) ... ok
+test_old_abi_and_qe_native_scopes_refused (__main__.SerialComponents.test_old_abi_and_qe_native_scopes_refused) ... ok
+test_old_magic_not_interchangeable (__main__.SerialComponents.test_old_magic_not_interchangeable) ... ok
+test_probe_has_no_payload_override (__main__.SerialComponents.test_probe_has_no_payload_override) ... ok
+test_signed_overflow_status_refused (__main__.SerialComponents.test_signed_overflow_status_refused) ... ok
+test_status_normalizes_without_abs_or_overflow (__main__.SerialComponents.test_status_normalizes_without_abs_or_overflow) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 2.084s
+
+OK

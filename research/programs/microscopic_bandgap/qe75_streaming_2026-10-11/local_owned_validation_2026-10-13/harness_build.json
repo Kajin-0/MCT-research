@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpicc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-I/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/local_owned_validation_2026-10-13",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/local_owned_validation_2026-10-13/collective_harness.c",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_lease.v2.c",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_harness.COMPILE_ONLY.v2"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fPIC",
+        "-shared",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_lease.v2.c",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_lease.v2.so"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "wrapper": {
+    "command": {
+      "returncode": 0,
+      "text": "x86_64-conda-linux-gnu-cc\n"
+    },
+    "compile": {
+      "returncode": 0,
+      "text": "-I/home/User/opencode_workspace/DFT/.local/qe-env/include -pthread\n"
+    },
+    "link": {
+      "returncode": 0,
+      "text": "-pthread -L/home/User/opencode_workspace/DFT/.local/qe-env/lib -Wl,--allow-shlib-undefined -Wl,-rpath -Wl,/home/User/opencode_workspace/DFT/.local/qe-env/lib -lmpi\n"
+    },
+    "version": {
+      "returncode": 0,
+      "text": "mpicc: Open MPI 5.0.10 (Language: C)\n"
+    }
+  },
+  "pins": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/local_owned_validation_2026-10-13/collective_harness.c": "0918fd6ca353f651806ef581f6f600679d33b5d3d494cda75cc6a812a4e0183a",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/local_owned_validation_2026-10-13/status.h": "7db25483b7c3a290bd1e974b4f3eb657f2adf938f25812c881e0787ad013fcfa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/lease_client.c": "ecab5af0b06e011004fa2132b5f7332551845faa6f0354896542c942c8aa7736",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_lease.v2.c": "ae2fbdf48e5829be4c9a1b93a2f566b3b336958ed8766aa2777c449b85737207",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_harness.COMPILE_ONLY.v2": "4eec01a76be60f2518fcd500bf581f65e9d8a59a6fd68f1dc5f5ace92be2fefc",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/local_owned_mpi_20261013/collective_lease.v2.so": "6b06ed2b95ed07b7ae20a557119e9398fba1888187ba1e5f7d7900a575de7807",
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/opal_wrapper": "882bd6c7cac76f87a49cd2c8e18f9167e45ff055ea56328003a00b3409b3b463",
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpirun": "9647aa90368686758b66cb2984cda4f552ac170851f34ff07e35f9bdbf54e625",
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prte": "823411e91988389a14c931eaacbef0482db7e00a320d1875f7b900a9884cb811",
+    "/home/User/opencode_workspace/DFT/.local/qe-env/lib/libmpi.so.40.40.7": "a7eb6553586d8b2b352c668f6d2ea096dc59bb0fd7908cc9a82616976ea621e1",
+    "/home/User/opencode_workspace/DFT/.local/qe-env/lib/libpmix.so.2.13.8": "b6d29b82d6f85a446ab57eb88aa78fd98de9dadd614aba8d5fe15ca269966418",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gcc": "7527e73d0f0d8a45d75064e17fcee58eb839afc2cca4b72c3e390621e2377e97"
+  },
+  "new_wire_magic": "R07C",
+  "new_scope": 3,
+  "MPI_Init_executed": false,
+  "MPI_job_executed": false,
+  "candidate_status": "COMPILE_ONLY_RUNTIME_UNADMITTED"
+}

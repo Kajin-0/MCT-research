@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "pin_count": 12,
+  "serial_methods": 10,
+  "original_hostwide_gate": "UNPASSED_UNCHANGED",
+  "MPI_job_executed": false,
+  "kind": "READ_ONLY_ARTIFACT_CONSISTENCY_NOT_NEW_MEASUREMENT"
+}

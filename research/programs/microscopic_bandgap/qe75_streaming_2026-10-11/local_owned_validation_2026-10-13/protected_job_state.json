@@ -1,0 +1,13 @@
+[
+  {
+    "state_path": "calculations/r07/fock_followthrough_5eed5ea4/state.json",
+    "claim_status": "COMPLETED bounded numerical operator control; finite-q matrix, impurity and dilute accuracy remain pending",
+    "recorded_owner_pid": 1763338,
+    "recorded_pid_exists": false
+  },
+  {
+    "state_path": "calculations/r07/reference_queue_5eed5ea4_recovered/state.json",
+    "claim_status": "COMPLETED bounded numerical-reference queue; physical impurity and inversion remain pending",
+    "recorded_owner_pid": null
+  }
+]

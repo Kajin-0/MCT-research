@@ -1,0 +1,22 @@
+[
+  {
+    "version": "v1",
+    "returncode": 0,
+    "stdout": "patching file .local/qe75_lowram_20261011/local_owned_mpi_20261013/patch-check-4abeebd8f1c845e6aefadddf41e8516a/lease_client.c\n",
+    "stderr": "",
+    "sha256": "4e241dbe91595a47d02a81dc21f42e7069d18a074741cd92092b91a7570f9aa3",
+    "candidate_bytes_equal": true,
+    "context_lines": 0,
+    "QE_MPI_executed": false
+  },
+  {
+    "version": "v2",
+    "returncode": 0,
+    "stdout": "patching file .local/qe75_lowram_20261011/local_owned_mpi_20261013/patch-check-e1a538a7401c4610ab62b23978c93b02/lease_client.c\n",
+    "stderr": "",
+    "sha256": "ae2fbdf48e5829be4c9a1b93a2f566b3b336958ed8766aa2777c449b85737207",
+    "candidate_bytes_equal": true,
+    "context_lines": 0,
+    "QE_MPI_executed": false
+  }
+]
