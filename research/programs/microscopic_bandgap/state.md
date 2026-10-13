@@ -4,7 +4,7 @@
 
 **State:** sole approved matched host TERMINATED on retained RSS cap during exchange initialization; final HSE convergence FAILED; Cd NOT ADMITTED; missing physical packet / material inversion OPEN; original goal BLOCKED after three repeated resumed-turn acquisition boundaries; objective unachieved; prior negatives preserved
 
-**Updated:** 2026-10-12
+**Updated:** 2026-10-13
 
 ## Separate finite QE low-RAM engineering task
 
@@ -662,3 +662,23 @@ initialization; explicit initialization refusal stubs pass checks. No PW/HSE or
 real MPI communicator was run, no DFT data/supervisor/session changed, and no
 physical gap or `x_c` is inferred. The finite phase stops here; historical blocked
 goal and all prior physical no-go results remain unchanged.
+
+## QE7.5 finite M5 integration checkpoint — 2026-10-13 00:44 UTC
+
+**TESTED SMALL-SCALE:** [production guardian transport](qe75_streaming_2026-10-11/m5_integration/decision.md)
+now dispatches the unchanged compiled rank ABI with distinct JOB/PROFILE digests
+and live registered-C-child receipts; native bridge requires native scope and
+agreement with the registered executable ancestor. Only ABI_NO_MPI scope is
+issued. Thirty-seven focused methods pass; peak integration summed RSS
+97,746,944 bytes. Dirty DFT, 17 pins, stock/previous candidates and sessions are
+unchanged; final workers/lease empty. Historical BLOCKED goal remains unchanged.
+
+**STOP AT FIRST NATIVE GATE:** 32 live mappings remain unreadable, including
+PID 1 and three same-UID processes; strict global inventory refuses at PID 1.
+Owned-family control does not prove host-wide absence of foreign MPI. One missing
+input is a permission-compatible authoritative foreign-family inventory/admission-domain
+certificate. No permissions or unrelated processes changed. Native collective,
+checkpoint/readback, common 48-band wave, actual FFT/output and action/energy/Gram
+qualification remain unpassed. No QE/HSE/MPI run, 44-band seed reuse, original
+352-band physics change, physical gap or `x_c` claim. Finite phase ends here;
+see [reset handoff](qe75_streaming_2026-10-11/m5_integration/handoff_ledger.md).

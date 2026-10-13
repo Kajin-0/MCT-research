@@ -76,9 +76,14 @@ def verify_job(root):
     root=Path(root).absolute();no_symlink(root)
     if not root.is_relative_to(PRIVATE): raise Refusal('project-local runtime job required')
     job=read_meta(root/'JOB.json')
-    if job.get('version')!=1 or job.get('uid')!=os.getuid() or job.get('root')!=str(root):
+    if type(job.get('version')) is not int or job.get('version') not in [1,2] or job.get('uid')!=os.getuid() or job.get('root')!=str(root):
         raise Refusal('job owner/version/path mismatch')
-    if job['kind']!='EXPLICIT_FAKE_WORKERS_NO_MPI':
+    typed=job['version']==2
+    if typed:
+        sys.path.insert(0,str(HERE.parent/'m5_integration'))
+        from production_transport import verify_typed_job,required_files
+        verify_typed_job(root,job)
+    elif job['kind']!='EXPLICIT_FAKE_WORKERS_NO_MPI':
         # A Boolean or renamed kind cannot bypass the native diagnostics/readback
         # and certified extent/envelope gates; native admission is not issued.
         raise Refusal('native fixture BLOCKED: diagnostic/readback and certified layout gates incomplete')
@@ -86,15 +91,15 @@ def verify_job(root):
         raise Refusal('two ranks required')
     if [exact_extent(s) for s in job['rank_shapes']]!=job['rank_bytes']:
         raise Refusal('byte-checked rank extents mismatch')
-    if job['rank_shapes']!=[[3,2,2],[3,2,2]] or job['output_envelope_bytes']!=32768:
+    if not typed and (job['rank_shapes']!=[[3,2,2],[3,2,2]] or job['output_envelope_bytes']!=32768):
         raise Refusal('fake fixture allocation/envelope cannot be enlarged')
     if not 0<job['wall_seconds']<=600 or not 0<integer(job['rss_cap_bytes'])<=12*(1<<30):
         raise Refusal('cannot weaken runtime limits')
-    if job['scenario'] not in ['normal','hold','fail','detach','ignore_term','race_orphan']:
+    if not typed and job['scenario'] not in ['normal','hold','fail','detach','ignore_term','race_orphan']:
         raise Refusal('unregistered fake scenario')
     if job['fault'] not in [None,'mem','disk','probe','envelope']:
         raise Refusal('unregistered fake fault')
-    required=[HERE/'fake_launcher.py',HERE/'fake_worker.py',HERE/'exec_worker.py',HERE/'family_runtime.py',
+    required=required_files() if typed else [HERE/'fake_launcher.py',HERE/'fake_worker.py',HERE/'exec_worker.py',HERE/'family_runtime.py',
               HERE/'process_identity.py',HERE/'runtime_client.py',Path(sys.executable).resolve(),LIB]
     if set(job['files'])!=set(map(str,required)): raise Refusal('exact fake command/backend allowlist mismatch')
     for path,sha in job['files'].items():
@@ -113,6 +118,10 @@ class Family:
         self.max_output=0;self.samples=0;self.signals=[];self.reaped=[];self.pss_unavailable=0
         self.guard=LinuxGuard(LIB);self.start=time.monotonic();self.phase='SETUP';self.reservations=[]
         self.owner_identity=Identity(os.getppid())
+        self.transport=None;self.launch_identity=None;self.rpc_refusals=[]
+        if self.job['version']==2:
+            from production_transport import ProductionTransport
+            self.transport=ProductionTransport(self)
 
     def discover(self):
         rows=table();owned=descendants(os.getpid(),rows)
@@ -286,15 +295,23 @@ def guardian(root,life_fd,parent_pid):
         ticket={'version':1,'abstract_socket':address,'global_lock':str(LOCK),
                 'profile_sha256':hashlib.sha256(encode(family.job)).hexdigest(),
                 'guardian':{'pid':os.getpid(),'start_ticks':proc(os.getpid())['start_ticks']}}
+        if family.transport:
+            ticket.update(version=2,**family.transport.binding)
         atomic_json(family.root/'LEASE_ENDPOINT.json',ticket)
         if stopped or os.getppid()!=parent_pid: raise Refusal('owner died before launcher creation')
         env=dict(os.environ,OMP_NUM_THREADS='1')
+        if family.transport:
+            env.update(QE75_LEASE_SOCKET=address,QE75_LEASE_LOCK=str(LOCK),
+                       QE75_LEASE_PID=str(os.getpid()),QE75_LEASE_TICKS=str(ticket['guardian']['start_ticks']),
+                       QE75_JOB_SHA256=ticket['job_sha256'],QE75_PROFILE_SHA256=ticket['profile_sha256'])
         out=open(family.root/'logs/worker.stdout','wb');err=open(family.root/'logs/worker.stderr','wb')
+        launch_script=HERE.parent/'m5_integration/fixture_launcher.py' if family.transport else HERE/'fake_launcher.py'
         command=[sys.executable,str(HERE/'exec_worker.py'),str(os.getpid()),sys.executable,
-                 str(HERE/'fake_launcher.py'),str(family.root)]
+                 str(launch_script),str(family.root)]
         launcher=subprocess.Popen(command,stdout=out,stderr=err,env=env,process_group=0,close_fds=True)
         out.close();err.close();family.phase='RUNNING'
         leader=Identity(launcher.pid);family.members[launcher.pid]=leader
+        family.launch_identity=leader
         family.ever[(launcher.pid,leader.start_ticks)]=leader.record()
         life.send(encode({'event':'READY',**ticket,'launch':leader.record()}))
         while True:
@@ -306,16 +323,30 @@ def guardian(root,life_fd,parent_pid):
                 if json.loads(message).get('event')=='CANCEL': raise Refusal('owner cancellation')
             if server in readable:
                 connection,_=server.accept();connection.settimeout(.25)
-                payload={}
+                payload={};raw=b'';binary=False
                 try:
                     peer,uid,gid=struct.unpack('3i',connection.getsockopt(socket.SOL_SOCKET,socket.SO_PEERCRED,12))
-                    payload=json.loads(connection.recv(8192))
+                    raw=connection.recv(8192,socket.MSG_TRUNC);binary=raw.startswith(b'R07L')
                     if uid!=os.getuid(): raise Refusal('foreign peer UID')
-                    reply=family.authorize(peer,payload)
+                    if binary:
+                        if not family.transport: raise Refusal('compiled transport absent for legacy fake job')
+                        reply=family.transport.wire(uid,peer,raw)
+                    else:
+                        payload=json.loads(raw)
+                        if type(payload) is not dict: raise Refusal('RPC object required')
+                        reply=family.transport.hook(peer,payload) if family.transport else family.authorize(peer,payload)
                 except (Refusal,ValueError,OSError,KeyError,TypeError) as error:
-                    reply={'ok':False,'reason':str(error)}
-                reply['challenge']=payload.get('challenge')
-                try: connection.send(encode(reply))
+                    family.rpc_refusals.append(str(error));family.rpc_refusals=family.rpc_refusals[-32:]
+                    if binary:
+                        sys.path.insert(0,str(HERE.parent/'m5_readiness'))
+                        from binding import REPLY,MAGIC,VERSION,SCOPE_ABI_NO_MPI,REQUEST
+                        challenge=REQUEST.unpack(raw)[-1] if len(raw)==REQUEST.size else bytes(32)
+                        reply=REPLY.pack(MAGIC,VERSION,22,SCOPE_ABI_NO_MPI,challenge)
+                    else: reply={'ok':False,'reason':str(error)}
+                if not binary:
+                    reply['challenge']=payload.get('challenge') if type(payload) is dict else None
+                    reply=encode(reply)
+                try: connection.send(reply)
                 except (BrokenPipeError,ConnectionResetError): pass
                 connection.close()
             measured=family.measure()
@@ -343,6 +374,12 @@ def guardian(root,life_fd,parent_pid):
                     'minimum_free_disk_bytes':family.minimum_disk,'maximum_output_allocated_bytes':family.max_output,
                     'elapsed_seconds':time.monotonic()-family.start,'native_PW_MPI_executed':False}
             result['injected_predicate']=family.job['fault']
+            if family.transport:
+                result['typed_transport']={'binding':family.transport.binding,
+                                          'wire_history':family.transport.registry.history,
+                                          'hook_receipts':family.transport.hooks,'refusals':family.rpc_refusals,
+                                          'scope':'ABI_NO_MPI'}
+                family.transport.close()
             result['resource_guard_semantics']='sampled stop predicates; not cgroup/continuous hard resource bounds'
             atomic_json(family.root/'RESULT.json',result)
             atomic_json(REGISTRY,{'version':1,'job':str(family.root),'members':survivors,'phase':'FINISHED' if not survivors else 'ORPHANED'})

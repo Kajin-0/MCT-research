@@ -13,11 +13,17 @@ from process_identity import Identity,flock_owner,Refusal
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'native_bridge'))
 
 
-def request(root,action,rank=None,size=None,profile_sha256=None):
+def request(root,action,rank=None,size=None,profile_sha256=None,*,typed=False):
     root=Path(root)
     from checkpoint_capsule import read_meta,encode
     job=read_meta(root/'JOB.json');ticket=read_meta(root/'LEASE_ENDPOINT.json')
-    if ticket['profile_sha256']!=hashlib.sha256(encode(job)).hexdigest():
+    if typed:
+        sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'m5_readiness'))
+        from binding import load_pair
+        binding=load_pair(root)
+        if ticket.get('version')!=2 or any(ticket.get(k)!=v for k,v in binding.items()):
+            raise Refusal('runtime not qualified: typed endpoint/JOB/PROFILE mismatch')
+    elif ticket['profile_sha256']!=hashlib.sha256(encode(job)).hexdigest():
         raise Refusal('runtime not qualified: profile/endpoint mismatch')
     if profile_sha256 is not None and profile_sha256!=ticket['profile_sha256']:
         raise Refusal('runtime not qualified: requested profile mismatch')
@@ -41,16 +47,24 @@ def request(root,action,rank=None,size=None,profile_sha256=None):
                 raise Refusal('guardian source fingerprint changed')
             payload={'action':action,'rank':rank,'size':size,'profile_sha256':ticket['profile_sha256'],
                      'challenge':os.urandom(32).hex()}
+            if typed: payload.update(binding)
             sock.send(json.dumps(payload).encode())
             result=json.loads(sock.recv(65536))
             if result.get('challenge')!=payload['challenge']: raise Refusal('lease challenge not acknowledged')
             if not result.get('ok'): raise Refusal(result.get('reason','lease RPC refused'))
+            if typed and any(result.get(k)!=v for k,v in binding.items()):
+                raise Refusal('lease reply JOB/PROFILE mismatch')
             if not 0<=time.monotonic()-result['monotonic']<=2: raise Refusal('stale live lease response')
             if not identity.live() or flock_owner(Path(ticket['global_lock']))!=[pid]:
                 raise Refusal('lease lost during authorization')
             return result
         finally: identity.close()
     finally: sock.close()
+
+
+def typed_request(root,profile_sha256):
+    """Live RPC for a registered rank's child; never itself native admission."""
+    return request(root,'bridge_authorize',profile_sha256=profile_sha256,typed=True)
 
 
 def authorize_native_hook(root,profile_sha256,action,rank=None,size=None):
@@ -64,7 +78,7 @@ def authorize_native_hook(root,profile_sha256,action,rank=None,size=None):
     identities=load_pair(root)
     if identities['profile_sha256']!=profile_sha256: raise Refusal('native PROFILE digest mismatch')
     if action!='authorize': raise Refusal('native hook action unregistered')
-    # The new compiled transport can issue only component receipts until the
-    # full native owner/state/common-wave/layout/inventory gate is qualified.
-    # No Boolean, synthetic receipt or speculative JSON handler can bypass it.
-    return native_admission()
+    if not (Path(root)/'LEASE_ENDPOINT.json').exists(): native_admission()
+    receipt=typed_request(root,profile_sha256)
+    if receipt.get('scope')!=2: raise Refusal('live lease scope is not native authority')
+    return receipt

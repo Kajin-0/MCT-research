@@ -375,8 +375,8 @@ def main():
         bundle.profile['provenance'].get('qe_commit')!='770a0b2d12928a67048e2f3da8d10d057e52179e'):
         raise Refusal('bridge runtime not qualified: synthetic/unqualified source provenance cannot enter native runtime')
     # M4 live lease fence: a profile Boolean / MONITOR.json cannot grant native
-    # authority. No native registration adapter is qualified yet; fake workers
-    # are expressly refused by authorize_native_hook. This stays fail-closed.
+    # authority. The production adapter has only tested ABI_NO_MPI scope;
+    # authorize_native_hook requires a distinct live NATIVE receipt.
     sys.path.insert(0,str(HERE.parent/'runtime_admission'))
     from runtime_client import authorize_native_hook
     try:
@@ -386,6 +386,7 @@ def main():
     expected_exe=bundle.profile.get('candidate_executable_sha256','')
     if not re.fullmatch('[0-9a-f]{64}',expected_exe): raise Refusal('native executable fingerprint absent')
     fingerprint=hashlib.sha256(encode(bundle.profile)).hexdigest()
+    if receipt.get('scope')!=2: raise Refusal('bridge requires native live receipt scope')
     if receipt.get('owner')!=bundle.owner['id'] or receipt.get('profile_sha256')!=fingerprint:
         raise Refusal('monitor ownership/profile mismatch')
     if not 0<=time.monotonic()-receipt['monotonic']<=2: raise Refusal('stale monitor receipt')
@@ -407,6 +408,7 @@ def main():
         pid=int(raw[1])
     if pid!=int(receipt['launch_pid']): raise Refusal('hook outside owned MPI family')
     if native_pid is None: raise Refusal('running native binary fingerprint mismatch')
+    if native_pid!=receipt.get('native_pid'): raise Refusal('hook ancestor differs from live registered native rank')
     pinned=bundle.profile.get('runtime_file_sha256',{})
     if not pinned: raise Refusal('native backend file fingerprints absent')
     loaded=set()

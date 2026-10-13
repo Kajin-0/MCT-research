@@ -1,0 +1,1525 @@
+{
+  "passed": true,
+  "methods": 9,
+  "real_guardian_component_evidence": [
+    {
+      "case": "test_live_production_wire_and_child_hook",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.7206789311021566,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 20480,
+      "members": [
+        {
+          "pid": 1824181,
+          "start_ticks": 637697831
+        },
+        {
+          "pid": 1824182,
+          "start_ticks": 637697852
+        },
+        {
+          "pid": 1824183,
+          "start_ticks": 637697852
+        },
+        {
+          "pid": 1824184,
+          "start_ticks": 637697867
+        },
+        {
+          "pid": 1824185,
+          "start_ticks": 637697870
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31833100288,
+      "minimum_free_disk_bytes": 32407470080,
+      "native_PW_MPI_executed": false,
+      "passed": true,
+      "peak_summed_PSS_bytes": 44698624,
+      "peak_summed_RSS_bytes": 97411072,
+      "rank_registration": {
+        "0": {
+          "pid": 1824182,
+          "start_ticks": 637697852
+        },
+        "1": {
+          "pid": 1824183,
+          "start_ticks": 637697852
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824181,
+          "status": 0
+        }
+      ],
+      "reason": "PASS",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-vl8wrq4l/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-vl8wrq4l/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-vl8wrq4l/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 23,
+      "shared_RSS_overcount_indicator_bytes": 52712448,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "d150a351ec9ee353b3d98a12b8e24db2b1594b378b110e4d1f038993c97e16d5",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [
+          {
+            "job_sha256": "d150a351ec9ee353b3d98a12b8e24db2b1594b378b110e4d1f038993c97e16d5",
+            "peer": {
+              "pid": 1824184,
+              "start_ticks": 637697867
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "job_sha256": "d150a351ec9ee353b3d98a12b8e24db2b1594b378b110e4d1f038993c97e16d5",
+            "peer": {
+              "pid": 1824185,
+              "start_ticks": 637697870
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ],
+        "refusals": [],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824182,
+              "start_ticks": 637697852
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824183,
+              "start_ticks": 637697852
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824182,
+              "start_ticks": 637697852
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824183,
+              "start_ticks": 637697852
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_outside_hook_and_malformed_packet_refused",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.5620490219444036,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 16384,
+      "members": [
+        {
+          "pid": 1824188,
+          "start_ticks": 637697945
+        },
+        {
+          "pid": 1824189,
+          "start_ticks": 637697951
+        },
+        {
+          "pid": 1824190,
+          "start_ticks": 637697951
+        },
+        {
+          "pid": 1824191,
+          "start_ticks": 637697966
+        },
+        {
+          "pid": 1824192,
+          "start_ticks": 637697971
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31835258880,
+      "minimum_free_disk_bytes": 32407474176,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 43365376,
+      "peak_summed_RSS_bytes": 95760384,
+      "rank_registration": {
+        "0": {
+          "pid": 1824189,
+          "start_ticks": 637697951
+        },
+        "1": {
+          "pid": 1824190,
+          "start_ticks": 637697951
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824188,
+          "status": 15
+        },
+        {
+          "pid": 1824192,
+          "status": 15
+        },
+        {
+          "pid": 1824189,
+          "status": 15
+        },
+        {
+          "pid": 1824190,
+          "status": 15
+        }
+      ],
+      "reason": "owner cancellation",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-neu1ejns/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-neu1ejns/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-neu1ejns/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 17,
+      "shared_RSS_overcount_indicator_bytes": 52410368,
+      "signals": [
+        {
+          "pid": 1824188,
+          "signal": 15,
+          "start_ticks": 637697945
+        },
+        {
+          "pid": 1824189,
+          "signal": 15,
+          "start_ticks": 637697951
+        },
+        {
+          "pid": 1824190,
+          "signal": 15,
+          "start_ticks": 637697951
+        },
+        {
+          "pid": 1824192,
+          "signal": 15,
+          "start_ticks": 637697971
+        }
+      ],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "854712dc5055d1cbd39b65b404889c4a2fee10416b9581eb848efc6143f29a76",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [
+          {
+            "job_sha256": "854712dc5055d1cbd39b65b404889c4a2fee10416b9581eb848efc6143f29a76",
+            "peer": {
+              "pid": 1824191,
+              "start_ticks": 637697966
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          }
+        ],
+        "refusals": [
+          "wire peer outside pinned guardian family",
+          "wire peer outside pinned guardian family",
+          "hook outside pinned owned family"
+        ],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824189,
+              "start_ticks": 637697951
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824190,
+              "start_ticks": 637697951
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824189,
+              "start_ticks": 637697951
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824190,
+              "start_ticks": 637697951
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_owned_but_unregistered_launcher_child_refused",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 1.0012202598154545,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 24576,
+      "members": [
+        {
+          "pid": 1824195,
+          "start_ticks": 637698027
+        },
+        {
+          "pid": 1824196,
+          "start_ticks": 637698033
+        },
+        {
+          "pid": 1824197,
+          "start_ticks": 637698033
+        },
+        {
+          "pid": 1824198,
+          "start_ticks": 637698046
+        },
+        {
+          "pid": 1824199,
+          "start_ticks": 637698052
+        },
+        {
+          "pid": 1824200,
+          "start_ticks": 637698058
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31836598272,
+      "minimum_free_disk_bytes": 32407465984,
+      "native_PW_MPI_executed": false,
+      "passed": true,
+      "peak_summed_PSS_bytes": 44043264,
+      "peak_summed_RSS_bytes": 95903744,
+      "rank_registration": {
+        "0": {
+          "pid": 1824196,
+          "start_ticks": 637698033
+        },
+        "1": {
+          "pid": 1824197,
+          "start_ticks": 637698033
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824195,
+          "status": 0
+        }
+      ],
+      "reason": "PASS",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-xtlox211/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-xtlox211/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-xtlox211/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 31,
+      "shared_RSS_overcount_indicator_bytes": 52241408,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "4a5047f145636f03d76962cd6cdd1e5601e5bd2c8d2c5767f0f19358566385c8",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [
+          {
+            "job_sha256": "4a5047f145636f03d76962cd6cdd1e5601e5bd2c8d2c5767f0f19358566385c8",
+            "peer": {
+              "pid": 1824198,
+              "start_ticks": 637698046
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "job_sha256": "4a5047f145636f03d76962cd6cdd1e5601e5bd2c8d2c5767f0f19358566385c8",
+            "peer": {
+              "pid": 1824199,
+              "start_ticks": 637698052
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ],
+        "refusals": [
+          "hook not descended from a live registered rank"
+        ],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824196,
+              "start_ticks": 637698033
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824197,
+              "start_ticks": 637698033
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824196,
+              "start_ticks": 637698033
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824197,
+              "start_ticks": 637698033
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_registered_dead_rank_cannot_authorize_child",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 3.0481883101165295,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824203,
+          "start_ticks": 637698162
+        },
+        {
+          "pid": 1824204,
+          "start_ticks": 637698168
+        },
+        {
+          "pid": 1824205,
+          "start_ticks": 637698168
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31835623424,
+      "minimum_free_disk_bytes": 32407478272,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 29032448,
+      "peak_summed_RSS_bytes": 59060224,
+      "rank_registration": {
+        "0": {
+          "pid": 1824204,
+          "start_ticks": 637698168
+        },
+        "1": {
+          "pid": 1824205,
+          "start_ticks": 637698168
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824203,
+          "status": 15
+        },
+        {
+          "pid": 1824205,
+          "status": 15
+        }
+      ],
+      "reason": "monotonic wall cap",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-4twt9dq2/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-4twt9dq2/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-4twt9dq2/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 116,
+      "shared_RSS_overcount_indicator_bytes": 30339072,
+      "signals": [
+        {
+          "pid": 1824203,
+          "signal": 15,
+          "start_ticks": 637698162
+        },
+        {
+          "pid": 1824205,
+          "signal": 15,
+          "start_ticks": 637698168
+        }
+      ],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "ec248e215b1b1f3fe34bc9c3cb48ee33fe03db6a2c1291351df1a639d1de7643",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [],
+        "refusals": [],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824204,
+              "start_ticks": 637698168
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824205,
+              "start_ticks": 637698168
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_transport_guardian_crash_owner_cleans",
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "ready": {
+        "abstract_socket": "qe75-r07-3d53c1f64f60414aaae4272c9c499e60",
+        "event": "READY",
+        "global_lock": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/MPI_FAMILY.lock",
+        "guardian": {
+          "pid": 1824207,
+          "start_ticks": 637698482
+        },
+        "job_sha256": "5281cc755d956560fe5b891344ba1389e9182a85dac50b1acb274aadf6d06f82",
+        "launch": {
+          "pid": 1824208,
+          "start_ticks": 637698492
+        },
+        "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+        "version": 2
+      },
+      "reason": "guardian died; owner fallback",
+      "survivors": []
+    },
+    {
+      "case": "test_transport_owner_crash_and_fresh_lease",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.3551317350938916,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824215,
+          "start_ticks": 637698550
+        },
+        {
+          "pid": 1824216,
+          "start_ticks": 637698555
+        },
+        {
+          "pid": 1824217,
+          "start_ticks": 637698555
+        },
+        {
+          "pid": 1824218,
+          "start_ticks": 637698569
+        },
+        {
+          "pid": 1824219,
+          "start_ticks": 637698572
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31836573696,
+      "minimum_free_disk_bytes": 32407478272,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 44655616,
+      "peak_summed_RSS_bytes": 97452032,
+      "rank_registration": {
+        "0": {
+          "pid": 1824216,
+          "start_ticks": 637698555
+        },
+        "1": {
+          "pid": 1824217,
+          "start_ticks": 637698555
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824215,
+          "status": 15
+        },
+        {
+          "pid": 1824219,
+          "status": 256
+        },
+        {
+          "pid": 1824216,
+          "status": 15
+        },
+        {
+          "pid": 1824217,
+          "status": 15
+        }
+      ],
+      "reason": "owner disappeared",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-3g8khm9_/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-3g8khm9_/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-3g8khm9_/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 12,
+      "shared_RSS_overcount_indicator_bytes": 52796416,
+      "signals": [
+        {
+          "pid": 1824215,
+          "signal": 15,
+          "start_ticks": 637698550
+        },
+        {
+          "pid": 1824216,
+          "signal": 15,
+          "start_ticks": 637698555
+        },
+        {
+          "pid": 1824217,
+          "signal": 15,
+          "start_ticks": 637698555
+        },
+        {
+          "pid": 1824219,
+          "signal": 15,
+          "start_ticks": 637698572
+        }
+      ],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "2d96f6244d87f0f1be3aaff7cf2df48ba0e4e44486ffaa86e20c17bb60a8cb45",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [
+          {
+            "job_sha256": "2d96f6244d87f0f1be3aaff7cf2df48ba0e4e44486ffaa86e20c17bb60a8cb45",
+            "peer": {
+              "pid": 1824218,
+              "start_ticks": 637698569
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          }
+        ],
+        "refusals": [
+          "owner disappeared"
+        ],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824216,
+              "start_ticks": 637698555
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824217,
+              "start_ticks": 637698555
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824216,
+              "start_ticks": 637698555
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824217,
+              "start_ticks": 637698555
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_transport_owner_crash_and_fresh_lease",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.6786399688571692,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 20480,
+      "members": [
+        {
+          "pid": 1824222,
+          "start_ticks": 637698605
+        },
+        {
+          "pid": 1824224,
+          "start_ticks": 637698617
+        },
+        {
+          "pid": 1824223,
+          "start_ticks": 637698617
+        },
+        {
+          "pid": 1824225,
+          "start_ticks": 637698631
+        },
+        {
+          "pid": 1824226,
+          "start_ticks": 637698636
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31840866304,
+      "minimum_free_disk_bytes": 32407158784,
+      "native_PW_MPI_executed": false,
+      "passed": true,
+      "peak_summed_PSS_bytes": 44657664,
+      "peak_summed_RSS_bytes": 97746944,
+      "rank_registration": {
+        "0": {
+          "pid": 1824223,
+          "start_ticks": 637698617
+        },
+        "1": {
+          "pid": 1824224,
+          "start_ticks": 637698617
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824222,
+          "status": 0
+        }
+      ],
+      "reason": "PASS",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545908,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-3g8khm9_/fresh/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545918,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-3g8khm9_/fresh/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545919,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-3g8khm9_/fresh/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 21,
+      "shared_RSS_overcount_indicator_bytes": 53089280,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "e1bcc0cecdfee59f1c923c3f5b7da63e3a2e290433005c181ef27bd50623e441",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [
+          {
+            "job_sha256": "e1bcc0cecdfee59f1c923c3f5b7da63e3a2e290433005c181ef27bd50623e441",
+            "peer": {
+              "pid": 1824225,
+              "start_ticks": 637698631
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "job_sha256": "e1bcc0cecdfee59f1c923c3f5b7da63e3a2e290433005c181ef27bd50623e441",
+            "peer": {
+              "pid": 1824226,
+              "start_ticks": 637698636
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ],
+        "refusals": [],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824223,
+              "start_ticks": 637698617
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824224,
+              "start_ticks": 637698617
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824223,
+              "start_ticks": 637698617
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824224,
+              "start_ticks": 637698617
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_transport_wall_cap_terminates_only_owned_family",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.8464223742485046,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 20480,
+      "members": [
+        {
+          "pid": 1824229,
+          "start_ticks": 637698700
+        },
+        {
+          "pid": 1824230,
+          "start_ticks": 637698707
+        },
+        {
+          "pid": 1824231,
+          "start_ticks": 637698707
+        },
+        {
+          "pid": 1824232,
+          "start_ticks": 637698718
+        },
+        {
+          "pid": 1824233,
+          "start_ticks": 637698722
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31842099200,
+      "minimum_free_disk_bytes": 32407470080,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 42057728,
+      "peak_summed_RSS_bytes": 90279936,
+      "rank_registration": {
+        "0": {
+          "pid": 1824230,
+          "start_ticks": 637698707
+        },
+        "1": {
+          "pid": 1824231,
+          "start_ticks": 637698707
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824229,
+          "status": 15
+        },
+        {
+          "pid": 1824230,
+          "status": 15
+        },
+        {
+          "pid": 1824231,
+          "status": 15
+        }
+      ],
+      "reason": "monotonic wall cap",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-_i0_uk5u/job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-_i0_uk5u/job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-_i0_uk5u/job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 27,
+      "shared_RSS_overcount_indicator_bytes": 48222208,
+      "signals": [
+        {
+          "pid": 1824229,
+          "signal": 15,
+          "start_ticks": 637698700
+        },
+        {
+          "pid": 1824230,
+          "signal": 15,
+          "start_ticks": 637698707
+        },
+        {
+          "pid": 1824231,
+          "signal": 15,
+          "start_ticks": 637698707
+        }
+      ],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "49768f5397a0823907db7c4c4ea73cc37fbdce4dda152a5bfbf92cc3e591c2d5",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [
+          {
+            "job_sha256": "49768f5397a0823907db7c4c4ea73cc37fbdce4dda152a5bfbf92cc3e591c2d5",
+            "peer": {
+              "pid": 1824233,
+              "start_ticks": 637698722
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "job_sha256": "49768f5397a0823907db7c4c4ea73cc37fbdce4dda152a5bfbf92cc3e591c2d5",
+            "peer": {
+              "pid": 1824232,
+              "start_ticks": 637698718
+            },
+            "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9",
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          }
+        ],
+        "refusals": [],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824230,
+              "start_ticks": 637698707
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824231,
+              "start_ticks": 637698707
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824230,
+              "start_ticks": 637698707
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 2,
+            "peer": {
+              "pid": 1824231,
+              "start_ticks": 637698707
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_wrong_job_profile_guardian_identity_and_native_scope",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.14596751146018505,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824236,
+          "start_ticks": 637698808
+        },
+        {
+          "pid": 1824237,
+          "start_ticks": 637698814
+        },
+        {
+          "pid": 1824238,
+          "start_ticks": 637698814
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31843172352,
+      "minimum_free_disk_bytes": 32407478272,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 28495872,
+      "peak_summed_RSS_bytes": 57122816,
+      "rank_registration": {},
+      "reaped": [
+        {
+          "pid": 1824236,
+          "status": 1792
+        }
+      ],
+      "reason": "launcher/worker failure",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545900,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_job/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545901,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_job/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545902,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_job/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 4,
+      "shared_RSS_overcount_indicator_bytes": 28626944,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "8f0c0ead6e586bcd0f5c0ddc8d5781fbac6c41e44e805ce24a033607ab805cc0",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [],
+        "refusals": [
+          "wire JOB/PROFILE digest mismatch",
+          "wire JOB/PROFILE digest mismatch"
+        ],
+        "scope": "ABI_NO_MPI",
+        "wire_history": []
+      }
+    },
+    {
+      "case": "test_wrong_job_profile_guardian_identity_and_native_scope",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.18395815696567297,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824241,
+          "start_ticks": 637698846
+        },
+        {
+          "pid": 1824242,
+          "start_ticks": 637698855
+        },
+        {
+          "pid": 1824243,
+          "start_ticks": 637698855
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31844605952,
+      "minimum_free_disk_bytes": 32407171072,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 29118464,
+      "peak_summed_RSS_bytes": 59576320,
+      "rank_registration": {},
+      "reaped": [
+        {
+          "pid": 1824241,
+          "status": 1792
+        }
+      ],
+      "reason": "launcher/worker failure",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545907,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_profile/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545917,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_profile/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545918,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_profile/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 5,
+      "shared_RSS_overcount_indicator_bytes": 30457856,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "f9e2d2a1255a10aeb32ecb990c0836df00a0d4820514b2636f66075bb2978f48",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [],
+        "refusals": [
+          "wire JOB/PROFILE digest mismatch",
+          "wire JOB/PROFILE digest mismatch"
+        ],
+        "scope": "ABI_NO_MPI",
+        "wire_history": []
+      }
+    },
+    {
+      "case": "test_wrong_job_profile_guardian_identity_and_native_scope",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.1051324037835002,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824246,
+          "start_ticks": 637698885
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31838965760,
+      "minimum_free_disk_bytes": 32406863872,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 28239872,
+      "peak_summed_RSS_bytes": 55083008,
+      "rank_registration": {},
+      "reaped": [
+        {
+          "pid": 1824246,
+          "status": 1792
+        }
+      ],
+      "reason": "launcher/worker failure",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545923,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_ticks/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545933,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_ticks/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545934,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/bad_ticks/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 2,
+      "shared_RSS_overcount_indicator_bytes": 26843136,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "90b66cfc21c25ee5b9de01b8e6de5cdc4e72a89436f8fc73d9219879345bbbc5",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [],
+        "refusals": [],
+        "scope": "ABI_NO_MPI",
+        "wire_history": []
+      }
+    },
+    {
+      "case": "test_wrong_job_profile_guardian_identity_and_native_scope",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 0.20890538301318884,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824251,
+          "start_ticks": 637698918
+        },
+        {
+          "pid": 1824252,
+          "start_ticks": 637698923
+        },
+        {
+          "pid": 1824253,
+          "start_ticks": 637698924
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31838994432,
+      "minimum_free_disk_bytes": 32406556672,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 28718080,
+      "peak_summed_RSS_bytes": 59158528,
+      "rank_registration": {
+        "0": {
+          "pid": 1824252,
+          "start_ticks": 637698923
+        },
+        "1": {
+          "pid": 1824253,
+          "start_ticks": 637698924
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824251,
+          "status": 1792
+        }
+      ],
+      "reason": "launcher/worker failure",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545939,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/native_scope/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545948,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/native_scope/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545949,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/native_scope/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 7,
+      "shared_RSS_overcount_indicator_bytes": 30440448,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "0cd6e90d34f911bd02a2843b9fb7e790462e90653485f086efe94b0ecd9d3129",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [],
+        "refusals": [],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824252,
+              "start_ticks": 637698923
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          },
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824253,
+              "start_ticks": 637698924
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "test_wrong_job_profile_guardian_identity_and_native_scope",
+      "PSS_unavailable_samples": 0,
+      "elapsed_seconds": 3.0666881101205945,
+      "injected_predicate": null,
+      "maximum_output_allocated_bytes": 12288,
+      "members": [
+        {
+          "pid": 1824256,
+          "start_ticks": 637698961
+        },
+        {
+          "pid": 1824257,
+          "start_ticks": 637698967
+        },
+        {
+          "pid": 1824258,
+          "start_ticks": 637698967
+        }
+      ],
+      "minimum_MemAvailable_bytes": 31848820736,
+      "minimum_free_disk_bytes": 32406249472,
+      "native_PW_MPI_executed": false,
+      "passed": false,
+      "peak_summed_PSS_bytes": 29028352,
+      "peak_summed_RSS_bytes": 58998784,
+      "rank_registration": {
+        "0": {
+          "pid": 1824257,
+          "start_ticks": 637698967
+        }
+      },
+      "reaped": [
+        {
+          "pid": 1824256,
+          "status": 1792
+        }
+      ],
+      "reason": "monotonic wall cap",
+      "reservations": [
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545955,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/duplicate/scratch/rank0.stream"
+        },
+        {
+          "allocated_bytes": 4096,
+          "bytes": 192,
+          "dev": 2049,
+          "inode": 545965,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/duplicate/scratch/rank1.stream"
+        },
+        {
+          "allocated_bytes": 262144,
+          "bytes": 262144,
+          "dev": 2049,
+          "inode": 545966,
+          "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/integration-83saex7m/duplicate/scratch/output.escrow"
+        }
+      ],
+      "resource_guard_semantics": "sampled stop predicates; not cgroup/continuous hard resource bounds",
+      "samples": 131,
+      "shared_RSS_overcount_indicator_bytes": 30280704,
+      "signals": [],
+      "survivors": [],
+      "typed_transport": {
+        "binding": {
+          "job_sha256": "dd84005c89d7d99df6da271998b80100e60c0805c44b5328d5ab34339e5be771",
+          "profile_sha256": "80fc930bd16888d96cb35a15497f3e237b732460d6fd4d3a26e5aa647efcd8f9"
+        },
+        "hook_receipts": [],
+        "refusals": [
+          "rank identity replacement",
+          "monotonic wall cap"
+        ],
+        "scope": "ABI_NO_MPI",
+        "wire_history": [
+          {
+            "action": 1,
+            "peer": {
+              "pid": 1824257,
+              "start_ticks": 637698967
+            },
+            "scope": "ABI_NO_MPI",
+            "world_rank": 0
+          }
+        ]
+      }
+    }
+  ],
+  "MPI_PW_executed": false
+}

@@ -1,0 +1,42 @@
+{
+  "compile": {
+    "command": [
+      "/usr/bin/x86_64-linux-gnu-gcc-15",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_integration/rank_worker.c",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_readiness/lease_client.c",
+      "-o",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_integration/rank_worker"
+    ],
+    "cwd": "/home/User/opencode_workspace/DFT",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "wall_seconds": 0.5248128995299339
+  },
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-15",
+  "compiler_sha256": "1fa7bb6439186b9f4912ad97d9072b6e0ded5b98b831a257d23d619719b74722",
+  "compiler_version": "x86_64-linux-gnu-gcc-15 (Ubuntu 15.2.0-4ubuntu4) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "binary": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_integration/rank_worker",
+  "binary_sha256": "0168ef6fd96bd5e6c397d467c58327dcab29ba08aaf22343b515e57a095fb1ce",
+  "dependencies": {
+    "command": [
+      "ldd",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_integration/rank_worker"
+    ],
+    "cwd": "/home/User/opencode_workspace/DFT",
+    "returncode": 0,
+    "stdout": "\tlinux-vdso.so.1 (0x0000784bf662b000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000784bf6200000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000784bf662d000)\n",
+    "stderr": "",
+    "wall_seconds": 0.011089421808719635
+  },
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_integration/rank_worker.c": "db42ac631f27aa7611d00656a2f4f9541b1c1397f3dc387310dba7bad10a1627",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_readiness/lease_client.c": "78b73eceb9f963ada30bfc494110af7ca066714529bfb80bb2882c5c688c1c63"
+  },
+  "MPI_PW_executed": false
+}
