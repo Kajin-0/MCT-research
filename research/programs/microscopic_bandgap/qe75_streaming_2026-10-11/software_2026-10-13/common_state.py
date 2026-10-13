@@ -12,6 +12,17 @@ from family_runtime import integer,multiply
 from resource_guard import add
 
 
+def common_input_id(control_deck,stream_deck,backend_identity):
+    from fixture_preflight import match_deck,physical_text,PP_SHA,QE_PIN
+    match_deck(control_deck,'control');match_deck(stream_deck,'stream')
+    if physical_text(control_deck)!=physical_text(stream_deck):raise Refusal('common physical/numerical input differs')
+    if not backend_identity:raise Refusal('common backend identity absent')
+    value={'version':1,'kind':'COMMON_INPUT_NOT_RUN_PROFILE','physical_numerical_text':physical_text(control_deck),
+           'PP_sha256':PP_SHA,'QE_pin':QE_PIN,'world_ranks':2,'pool_band_task_groups':[1,1,1],
+           'backend_identity':backend_identity}
+    return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+
 def decode(path):
     path=Path(path)
     if path.is_symlink() or not 208<=path.stat().st_size<=128*(1<<20): raise Refusal('initial bounded regular packet required')
@@ -50,7 +61,7 @@ def decode(path):
 
 def compare(control,stream,expected_profile):
     a=decode(control);b=decode(stream)
-    if a['fingerprint']!=expected_profile or b['fingerprint']!=expected_profile: raise Refusal('common PROFILE mismatch')
+    if a['fingerprint']!=expected_profile or b['fingerprint']!=expected_profile: raise Refusal('common INPUT identity mismatch')
     if a!=b: raise Refusal('common initial state differs: phases, maps and all payload bytes must match')
     return {'passed':True,'observation':'EXACT_PACKET_EQUALITY','packet_sha256':a['packet_sha256'],
             'bands':48,'bytes':a['bytes'],'native_generation_or_MPI_verified':False}
@@ -81,5 +92,5 @@ def all_rank_certificate(control,stream,expected_profile,ks,gram_tolerance=1e-12
         if error>gram_tolerance: raise Refusal('initial full-band NC Gram condition failed')
         gram_errors.append(error)
     return {'version':1,'kind':'INITIAL_STATE_OBSERVATION_NOT_ADMISSION','records':records,
-            'profile_sha256':expected_profile,'NC_Gram_errors':gram_errors,'Gram_tolerance':gram_tolerance,
+            'common_input_sha256':expected_profile,'NC_Gram_errors':gram_errors,'Gram_tolerance':gram_tolerance,
             'certificate_sha256':hashlib.sha256(json.dumps(records,sort_keys=True).encode()).hexdigest()}

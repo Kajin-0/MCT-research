@@ -38,7 +38,10 @@ SUBROUTINE qe75_capture_initial()
   IF(nproc/=2 .OR. npool/=1 .OR. nat/=2 .OR. npol/=2 .OR. nbnd/=48 .OR. okvan .OR. use_gpu) code=1
   CALL get_environment_variable('QE75_INITIAL_ROOT',root,LENGTH=length,STATUS=status)
   IF(status/=0 .OR. length<1 .OR. length>850) code=1
-  CALL get_environment_variable('QE75_PROFILE_SHA256',fingerprint,LENGTH=length,STATUS=status)
+  ! Run PROFILE binds the mode's executable/owned paths and therefore differs
+  ! between modes. This shared identifier is a distinct field bound into each
+  ! run PROFILE, not a replacement for live authorization.
+  CALL get_environment_variable('QE75_COMMON_INPUT_SHA256',fingerprint,LENGTH=length,STATUS=status)
   IF(status/=0 .OR. length/=64) code=1
   CALL mp_max(code,world_comm)
   IF(code/=0) CALL errore('initial_capture','fixture/profile/root refused',1)

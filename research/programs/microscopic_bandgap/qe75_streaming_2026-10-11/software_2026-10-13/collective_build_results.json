@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-g",
+        "-fcheck=all",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives",
+        "-c",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/collective_stubs.f90",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives/stubs.o"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.02798824943602085
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-g",
+        "-fcheck=all",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives",
+        "-c",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_readiness/native_lease.f90",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives/native_lease.o"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.025166088715195656
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-fcheck=all",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/collective_unit.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives/native_lease.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives/stubs.o",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives/collective_unit"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.060579029843211174
+    }
+  ],
+  "unchanged_native_lease_sha256": "98a80fcfe424dd9079eac9c7fa6167ab0d1730d5f99c4acab96a266ebb8c1f7d",
+  "dependencies": {
+    "command": [
+      "ldd",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/collectives/collective_unit"
+    ],
+    "returncode": 0,
+    "stdout": "\tlinux-vdso.so.1 (0x0000709f098ca000)\n\tlibgfortran.so.5 => /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/lib/libgfortran.so.5 (0x0000709f09400000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000709f097a6000)\n\tlibgcc_s.so.1 => /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/lib/libgcc_s.so.1 (0x0000709f09778000)\n\tlibquadmath.so.0 => /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/lib/libquadmath.so.0 (0x0000709f093b7000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000709f09000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000709f098cc000)\n",
+    "stderr": "",
+    "wall_seconds": 0.009762207977473736
+  },
+  "MPI_communicator_or_QE_run": false,
+  "model": "SERIAL_COLLECTIVE_DECISION_STUB_NOT_NATIVE_AUTHORITY"
+}

@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "methods": 3,
+  "serial_decision_traces": [
+    {
+      "rank": 0,
+      "scenario": 0,
+      "code": 0,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           0           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n DECISION_STUB_NO_AUTHORITY           0           2           2           2           0\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n",
+      "stderr": ""
+    },
+    {
+      "rank": 0,
+      "scenario": 1,
+      "code": 88,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           0           2           1           2           0\n REDUCE           1          13          17\n REFUSEnative_registerlive typed native lease refused           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 0,
+      "scenario": 2,
+      "code": 88,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           0           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n DECISION_STUB_NO_AUTHORITY           0           2           2           2           0\n REDUCE           2          13          17\n REFUSEnative_checkall-rank native receipt absent/lost           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 0,
+      "scenario": 3,
+      "code": 88,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           0           2           1           2          13\n REDUCE           1          13          17\n REFUSEnative_registerlive typed native lease refused           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 0,
+      "scenario": 4,
+      "code": 88,
+      "stdout": " REFUSEnative_registerexact two-world-rank scope required           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 1,
+      "scenario": 0,
+      "code": 0,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           1           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n DECISION_STUB_NO_AUTHORITY           1           2           2           2           0\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n",
+      "stderr": ""
+    },
+    {
+      "rank": 1,
+      "scenario": 1,
+      "code": 88,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           1           2           1           2           0\n REDUCE           1          13          17\n REFUSEnative_registerlive typed native lease refused           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 1,
+      "scenario": 2,
+      "code": 88,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           1           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n DECISION_STUB_NO_AUTHORITY           1           2           2           2           0\n REDUCE           2          13          17\n REFUSEnative_checkall-rank native receipt absent/lost           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 1,
+      "scenario": 3,
+      "code": 88,
+      "stdout": " DECISION_STUB_NO_AUTHORITY           1           2           1           2          13\n REDUCE           1          13          17\n REFUSEnative_registerlive typed native lease refused           1\n",
+      "stderr": "STOP 88\n"
+    },
+    {
+      "rank": 1,
+      "scenario": 4,
+      "code": 88,
+      "stdout": " REFUSEnative_registerexact two-world-rank scope required           1\n",
+      "stderr": "STOP 88\n"
+    }
+  ],
+  "actual_MPI_collective_execution": false,
+  "native_SCf_restart": false
+}

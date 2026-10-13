@@ -1,7 +1,7 @@
 PROGRAM initial_unit
   USE kinds, ONLY: DP
   USE iso_fortran_env, ONLY: int64
-  USE qe75_initial_state, ONLY: initial_write
+  USE qe75_initial_state, ONLY: initial_write,initial_read
   IMPLICIT NONE
   COMPLEX(DP) :: wave(64,48),rg(5,1)
   REAL(DP) :: et(48,2),wg(48,2),rr(8,1),v(8,1),kp(3)
@@ -21,6 +21,26 @@ PROGRAM initial_unit
   IF(mode==1) wave(1,1)=(-1._DP,0._DP) ! phase-equivalent is not byte-identical
   IF(mode==2) mill(1,1)=99
   IF(mode==4) wave(31,1)=(19._DP,-7._DP) ! unused padding must not alter capture
+  IF(mode==5 .OR. mode==6) THEN
+    CALL initial_read(TRIM(path),REPEAT('a',64),0,1,32,30,2,[1_int64,2_int64],mill,kp,wave,et,wg,rr,rg,v,code)
+    IF(mode==6) THEN
+      IF(code==0) ERROR STOP 'expected exact reader refusal'
+      WRITE(*,*)'EXPECTED_READ_REFUSAL',code
+    ELSE
+      IF(code/=0) ERROR STOP 'unexpected exact reader failure'
+      IF(SUM(ABS(wave))/=48._DP .OR. ANY(v/=rr*2)) ERROR STOP 'reader payload mismatch'
+      DO j=1,2;DO i=1,48
+        IF(et(i,j)/=i/8._DP .OR. wg(i,j)/=j/4._DP) ERROR STOP 'reader et/wg mismatch'
+      ENDDO;ENDDO
+      DO i=1,5
+        IF(rg(i,1)/=CMPLX(i/4._DP,-i/2._DP,DP)) ERROR STOP 'reader density mismatch'
+      ENDDO
+      CALL initial_write(TRIM(path)//'.readback',REPEAT('a',64),0,1,32,30,2,[1_int64,2_int64], &
+                         mill,kp,wave,et,wg,rr,rg,v,code)
+      IF(code/=0) ERROR STOP 'readback reserialization failed'
+    ENDIF
+    STOP
+  ENDIF
   CALL initial_write(TRIM(path),REPEAT('a',64),0,1,32,30,2,[1_int64,2_int64],mill,kp,wave,et,wg,rr,rg,v,code)
   IF(mode==3) THEN
     IF(code==0) ERROR STOP 'expected collision/path refusal'

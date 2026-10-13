@@ -37,7 +37,16 @@ values must not cause false mismatch. Every recoverable local write error is
 reduced with real QE `mp_max` before the next k/barrier. Actual MPI progress and
 readback remain unexecuted; dead-rank recovery still belongs to the guardian.
 
-The observation packet is native-endian/versioned and PROFILE-bound. The checker
+The observation packet is native-endian/versioned and binds a **shared common
+input ID**, separately from live run PROFILE/JOB authorization. Run PROFILEs
+include different executable/owned-path identities and must differ between
+control and streamed modes. Requiring their equality would falsely reject the
+pair. `common_input_id` derives the shared ID from the exact whitelisted physical/
+numerical decks, PP/source pins, rank/group scope and common backend identity.
+Each future run PROFILE must bind this field, and its guardian must set
+`QE75_COMMON_INPUT_SHA256` accordingly. That native environment/publication gate
+is unissued; supplied backend strings alone are not live certification.
+The checker
 requires the exact two-rank/k set, equal corresponding packet bytes, finite
 fields, distinct physical reciprocal ownership and the summed NC full-band Gram
 error <=1e-12. It refuses phase-only equivalence, changed maps or density,

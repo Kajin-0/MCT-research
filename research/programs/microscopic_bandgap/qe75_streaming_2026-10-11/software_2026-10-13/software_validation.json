@@ -1,0 +1,61 @@
+{
+  "timestamp_UTC": "2026-10-13T01:36:15.718609+00:00",
+  "starting_commit": "339265a",
+  "checkpoint_commits": [
+    "3342cc3",
+    "402b340"
+  ],
+  "focused_methods": 17,
+  "wave_protocol": "PASS SOFTWARE / native input ID and common state require live binding",
+  "resource_components": "PASS SOURCE-CONDITIONED / whole envelope UNKNOWN",
+  "readback": "PASS NATIVE-ENCODED SERIAL, not SCF restore",
+  "collectives": "PASS SERIAL DECISION MODEL, real MPI NOT RUN",
+  "native_admission": "HARD_BLOCKED",
+  "remaining_observations": [
+    "authoritative foreign inventory/admission domain",
+    "actual common 48-band state/maps and source initialization parity",
+    "whole native HDF5/output/backend lifetime/peak certificate",
+    "real MPI/native both-stop readback and EXX/ACE equivalence"
+  ],
+  "preservation": {
+    "passed": true,
+    "mismatches": [],
+    "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+    "dirty_status_unchanged": true,
+    "pins": 17,
+    "stock_prior_candidates_unchanged": true,
+    "sessions": [
+      "calcura:$0",
+      "commander:$1",
+      "research:$3"
+    ],
+    "lease_holders": [],
+    "own_ledger_phase": "FINISHED",
+    "MemAvailable_bytes": 31842062336,
+    "free_disk_bytes": 32359022592,
+    "native_MPI_QE_run": false
+  },
+  "source_sha256": {
+    "build_bounds.py": "11a2a0da9752506c2efcccb0d681d70158a9b93ec428eea9a3ff70c93d9caf3a",
+    "build_collectives.py": "4272cc10c535a24ca1ed4be2f22a24e36a96bdfa2019a8a6d65fd00ed6e23195",
+    "test_bounds.py": "941b6abdb5c4291c52935af923c6f970e4ffff690f3967d5f88a994dbdd3fafa",
+    "fft_unit.f90": "0b350cbc6d530bd030a86b7d604450cba1af38d950bb4d787e90b0fa99fadc68",
+    "collective_stubs.f90": "6e45a54c93d0494ff51f536ebf9abdac40a834819157dc7705913491aeb3372a",
+    "build_wave.py": "5b58f77a19676bca3997739409d792c961b21517e29eea9be8e6909a58a06e55",
+    "test_readback_collectives.py": "8f1a25a2b9205e954370812a046dfe6a54ae4e1073abb505cc1f9f891701fed0",
+    "test_common_state.py": "4fc6b12907c313bad9f684ab6968a84b956520ee3fbc542bf6c9dfc743c63777",
+    "link_capture.py": "a0d6b74784b88677d4392b9119c3ce0a9ea45d38dde3221b6a745a92650b159e",
+    "initial_state.f90": "19f55e2487fdb2e50ba4768e6fe5eb9ea7f699e4feed6dab8133099bc869c20d",
+    "preservation.py": "b35ff7684e78df0e68599da70e11fbd3d648aeb14817bdcf6e9bf4aa8fb0b8db",
+    "rng_unit.f90": "db7666256cdb3afb22d3e9aa833d86688dff6ec9428e66da44e97756d986af87",
+    "collective_unit.f90": "f4b44149ee36d7fac118233bc52f83f357fea95a98889bd019efa441b9097237",
+    "source_capture.py": "1c079550961013c7fdcad68301c36ca505e8cf39ef6fff5e2d61af2f2f81f31f",
+    "initial_unit.f90": "d6d501bc7d505d0cf66e345b418244db75c15c18abf44362b1b367161509c214",
+    "common_state.py": "13bfe7f4b06aa0fea34cc25919a421c9f3db061a75b2f1deb805757825c1741f",
+    "bounds.py": "1d581fb47a6199bb73b9bca1c8000c82b4187a73cd37b0714c8db5db3bbb05b3"
+  },
+  "native_MPI_QE_run": false,
+  "scientific_xc_claimed": false,
+  "new_private_capture_candidates": "LINKED BOTH MODES / UNEXECUTED / UNADMITTED",
+  "capture_candidate_backend_identity": "MATCH retained and each other"
+}

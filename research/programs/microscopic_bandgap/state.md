@@ -682,3 +682,28 @@ checkpoint/readback, common 48-band wave, actual FFT/output and action/energy/Gr
 qualification remain unpassed. No QE/HSE/MPI run, 44-band seed reuse, original
 352-band physics change, physical gap or `x_c` claim. Finite phase ends here;
 see [reset handoff](qe75_streaming_2026-10-11/m5_integration/handoff_ledger.md).
+
+## Autonomous independent QE software progression — 2026-10-13 01:36 UTC
+
+User policy `339265a` permits independent safe engineering despite blocked native
+inventory. Three checkpoints advance source/serial gates: `3342cc3` matched
+48-band initial-state capture/protocol; `402b340` conservative FFT/component/
+lifetime bounds; current checkpoint exact serial native-encoded reader and
+collective decision checks. [Decision](qe75_streaming_2026-10-11/software_2026-10-13/decision.md).
+Seventeen focused methods, 512 pristine FFT size cases, two actual QE capture
+object compiles and ten no-MPI decision traces pass. Shared common input ID is
+separate from differing mode-specific PROFILE/JOB identity; full packet bytes,
+physical maps, NC Gram and density/potential/et/wg are checked. Irrelevant padded
+memory is canonicalized in output only.
+
+**SOURCE-CONDITIONED, not native:** selected small-fixture two-rank q payload
+<=1.5 GiB and resident plane <=192 MiB; initial packet <=66,350,584 bytes. Full
+native HDF5/output/generation/backend/RSS and true descriptors remain unknown.
+Actual common waves, MPI progress, both native SCF stop/readback paths and
+EXX/ACE values remain unobserved. Native launch HARD_BLOCKED; scientific goal
+remains BLOCKED/unachieved. No original physics, stock/previous candidates,
+dirty DFT, supervisors, sessions or goal changes; no physical gap/x_c claim.
+
+The capture objects also link into two new private, unexecuted/unadmitted QE
+candidates with matching retained FFT/MPI/runtime backend fingerprints. Old
+stock and private candidates remain preserved; linking is not native validation.

@@ -1,8 +1,8 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 01:17 UTC
-**Status:** COMMON-STATE AND COMPONENT BOUNDS SOFTWARE PASS; CONTINUE READBACK/COLLECTIVE SOURCE WORK; NATIVE LAUNCH HARD_BLOCKED
+**Last verified update:** 2026-10-13 01:36 UTC
+**Status:** THREE INDEPENDENT SOFTWARE CHECKPOINTS PASS; REMAINING NATIVE OBSERVATIONS/WHOLE ENVELOPE UNQUALIFIED; NATIVE LAUNCH HARD_BLOCKED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
 **Starting verified revision:** `b1a4772`. **Latest native bridge revision:** `6b21779`. **Latest M4 checkpoint:** `1d74a0d`. **Latest readiness checkpoint:** `m5_readiness` artifacts in this commit, starting `1d74a0d`. **Latest integration:** this finite checkpoint starts clean `6b5fc5e`. **This plan does not authorize new numerical runs.**
 
@@ -59,15 +59,15 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 
 At every meaningful milestone update the timestamp, status, test evidence, active next item, and context-reset handoff; commit and push validated work only to the existing research branch, no main merge, no DFT commit. Preserve all earlier scientific negative results. This work-queue policy supersedes earlier blanket "stop at the first blocker" instructions **for safe independent engineering tasks only**, not for native numerical admission.
 
-## Independent software milestones — 2026-10-13 01:17 UTC
+## Independent software milestones — 2026-10-13 01:36 UTC
 
 | Work item | State | Evidence / next action |
 |---|---|---|
 | Authoritative admission domain | **HARD_BLOCKED** after one bounded assessment; cooperating-owner lease or private PID namespace cannot certify foreign host processes | `software_2026-10-13/admission_domain.md`; do not repeat inventory fishing |
-| Matched initial-state protocol | **PASS SOFTWARE / NATIVE COMMON STATE UNKNOWN**: read-only 48-band/NC/SOC capture after wfcinit, typed complete rank/k checker, actual-map and density/potential/et/wg comparisons, padding canonicalization; six tests, both real-QE init_run objects compiled | `software_2026-10-13/{common_protocol.md,wave_build_results.json,wave_test_results.json,wave_checkpoint.json}` |
+| Matched initial-state protocol | **PASS SOFTWARE / NATIVE COMMON STATE UNKNOWN**: read-only 48-band/NC/SOC capture after wfcinit, typed complete rank/k checker, actual-map and density/potential/et/wg comparisons, padding canonicalization; seven tests, both real-QE init_run objects compiled | `software_2026-10-13/{common_protocol.md,wave_build_results.json,wave_test_results.json,wave_checkpoint.json}` |
 | RNG/startup identifiability | **TESTED SERIAL / SOURCE-CONDITIONED**: pristine default randy is reproducible; differing call history is a counterexample to a seed-only certificate | No native seed generated; existing incompatible 44-band save remains rejected |
 | FFT/output/lifetime bounds | **PASS SOURCE-CONDITIONED COMPONENTS / WHOLE NATIVE ENVELOPE UNKNOWN**: 512 pristine FFT size cases, seven tests; two-rank full q payload <=1.5 GiB, one resident plane <=192 MiB; initial packet <=66,350,584 bytes under scoped conditions | `software_2026-10-13/{resource_bounds.md,bounds_checkpoint.json,bounds_test_results.json}`; no guessed HDF5/RSS bound |
-| Native readback/collective errors | **ACTIVE NEXT INDEPENDENT SOURCE WORK** | Compile/test recoverable local error propagation without real MPI; never promote to native progress proof |
+| Native readback/collective errors | **PASS SERIAL CODEC / SOURCE DECISION MODEL; REAL MPI/SCF UNKNOWN**: exact full-byte 48-band cross-mode read/reserialization, metadata/extent/NaN/padding refusals; ten unchanged-native-lease serial failure traces | `software_2026-10-13/{readback_collectives.md,readback_collective_results.json,software_validation.json}`; seventeen total focused methods |
 
 ## Churn detection and stop rules
 
@@ -85,16 +85,17 @@ At every meaningful milestone update the timestamp, status, test evidence, activ
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Context-reset handoff (updated 2026-10-13 01:17 UTC)
+## Context-reset handoff (updated 2026-10-13 01:36 UTC)
 
-- Existing research branch, phase starts clean `339265a`; this checkpoint contains `software_2026-10-13` common-state capture/checker and source/serial evidence. Continue independent software tasks under the autonomous policy above.
-- **Read first:** this plan, `software_2026-10-13/{admission_domain.md,common_protocol.md,wave_checkpoint.json}`, retained integration/readiness decisions and DFT AGENTS.
-- **Passed new gate:** read-only complete 48-band initialization capture and comparison protocol, both actual QE init_run object compiles, six serial tests, pristine RNG reproducibility/history counterexample. Padding canonicalization alters output only; no initialization physics or native coefficients change.
-- **Native truth:** no native wave generated, no real MPI collective, no SCF or fixture run. Native launch HARD_BLOCKED at foreign inventory and still requires all original common-state/layout/readback/resource gates. No new namespaces/permissions/supervisors or historical-goal change.
-- **New bounds:** seven tests and 512 pristine FFT padding cases pass; exact checked extents, q2 coset and conservative local-workspace/lifetime bounds. Equal-payload HDF5 allocation counterexample prevents fabricated whole-output certificate. See `software_2026-10-13/resource_bounds.md` and evidence.
-- **Active next:** source collective/readback failure tests; actual FFT/HDF5/generation/backend/RSS certification stays UNKNOWN. Do not stop software solely at unreadable mappings; do not admit native execution from a protocol or synthetic certificate.
-- **Preservation:** DFT `422d71d`, dirty status, 17 pins, stock and all prior private candidates, calcura/commander/research sessions unchanged; own ledger FINISHED and lease empty. New private compile-only/serial artifacts at `.local/qe75_lowram_20261011/m5_software_20261013/`.
-- **Reproduction:** DFT `source scripts/env.sh`; run absolute `software_2026-10-13/build_wave.py`, `test_common_state.py`, `preservation.py`. Builds only new private objects/serial helpers, never PW/MPI. Original 352-band/full-size jobs remain excluded.
+- **Read first:** this plan, `software_2026-10-13/{decision.md,handoff_ledger.md,software_validation.json}` and DFT AGENTS. The autonomous policy from `339265a` remains active; unrelated native blockers do not forbid safe independent source work.
+- **Research branch/checkpoints:** phase starts `339265a`; pushed `3342cc3` common-state protocol and `402b340` conservative bounds; this checkpoint completes serial reader/collective decision tests and shared identity correction. No DFT commit/main merge.
+- **Linked integration gate:** new private control/stream capture candidates link with matching retained FFT/MPI/runtime backends; both are unexecuted/unadmitted. All prior binaries preserved. See `software_2026-10-13/capture_link_results.json`.
+- **New gates:** 17 focused methods (7 common-state, 7 bounds, 3 readback); 512 pristine FFT size cases; both real-QE init_run object compiles; ten explicit no-MPI collective decision traces; exact full-byte 48-band cross-mode read/reserialization. Padding changes output only, never native coefficients.
+- **Identity correction:** common input ID is separate from each run's distinct JOB/PROFILE/executable/owned paths. Requiring full PROFILE equality would falsely reject a pair. Each future native PROFILE must bind the common ID; supplied strings or synthetic packets do not authorize native execution.
+- **Source-conditioned bounds:** selected two-rank q payload <=1.5 GiB, one resident plane <=192 MiB, initial packet <=66,350,584 bytes. Actual descriptors, full native HDF5/file lifetimes and backend/RSS remain UNKNOWN. A source bound is not a native peak measurement.
+- **Remaining observation boundary:** no real MPI, native common 48-band packets, both native SCF stop/restoration paths or EXX/ACE values. Foreign admission domain HARD_BLOCKED after one assessment; complete output/peak certification unpassed. The current source/serial tests cannot certify these observations. Any further task must pass a new independent gate; do not repackage the same tests or waive native admission.
+- **Preserved/closed:** DFT `422d71d`, dirty status, 17 pins, stock/all prior private candidates, calcura/commander/research sessions unchanged. Own ledger FINISHED and lease empty. Historical blocked goal untouched. New private artifacts at `.local/qe75_lowram_20261011/m5_software_20261013/`.
+- **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `software_2026-10-13/{build_wave.py,test_common_state.py,test_bounds.py,test_readback_collectives.py,preservation.py}`. Only new compile/serial components. Native binaries, full 16-atom/352-band runs, queues, sessions/agents/supervisors and empirical/physical x_c claims remain excluded.
 
 ## Change log
 
@@ -113,3 +114,5 @@ At every meaningful milestone update the timestamp, status, test evidence, activ
 - **2026-10-13 01:10 UTC | common-state checkpoint (this commit; starts `339265a`) | independent software | PASS SOFTWARE / NATIVE UNKNOWN |** Six tests, two real-QE capture object compiles and pristine serial RNG checks; complete typed initial-state observation and padding-only canonicalization implemented. One admission-domain assessment HARD_BLOCKED; safe engineering continues. Protected state unchanged. Next: FFT/output/lifetime bounds.
 
 - **2026-10-13 01:17 UTC | bounds checkpoint (this commit; starts `3342cc3`) | independent software | PASS CONDITIONAL COMPONENTS / NATIVE ENVELOPE UNKNOWN |** Seven tests; 512 pristine FFT helper comparisons; q2 closure, local-workspace and alias/generation bounds. Selected two-rank q payload <=1.5 GiB, resident plane <=192 MiB, initial packet <=66,350,584 bytes under explicit source conditions. HDF5 payload-only inference falsified. No native run; protected state unchanged. Continue source collective/readback work.
+
+- **2026-10-13 01:36 UTC | readback/collective checkpoint (this commit; starts `402b340`) | independent software | PASS SERIAL/SOURCE MODEL / NATIVE UNKNOWN |** Seventeen focused methods, exact full-byte 48-band reader, ten unchanged-lease failure traces without MPI. Shared input ID separated from differing mode PROFILEs; two new private capture candidates link with identical retained backends, unexecuted/unadmitted. No native seed/execution. Protected state unchanged. Remaining acceptance observations require authoritative admission and actual native state/layout/file/backend/MPI evidence; serial results cannot substitute.

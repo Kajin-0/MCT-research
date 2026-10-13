@@ -5,7 +5,7 @@ import subprocess
 import tempfile
 import unittest
 import numpy as np
-from common_state import HERE,decode,compare,all_rank_certificate,Refusal
+from common_state import HERE,decode,compare,all_rank_certificate,Refusal,common_input_id
 from build_wave import PRIVATE
 
 
@@ -80,6 +80,14 @@ class CommonTest(unittest.TestCase):
             subprocess.run([str(PRIVATE/'wave/rng_unit'),str(path),str(1 if i==2 else 0)],check=True,timeout=3)
         self.assertEqual(paths[0].read_bytes(),paths[1].read_bytes())
         self.assertNotEqual(paths[0].read_bytes(),paths[2].read_bytes())
+    def test_shared_input_identity_is_distinct_from_mode_specific_profile(self):
+        from fixture_preflight import template
+        decks=[template('control'),template('stream')]
+        h=common_input_id(*decks,{'compiler':'pinned-fixture-identity'})
+        self.assertEqual(h,common_input_id(*decks,{'compiler':'pinned-fixture-identity'}))
+        self.assertNotEqual(h,common_input_id(*decks,{'compiler':'another-compiler'}))
+        with self.assertRaises(Refusal):common_input_id(decks[0],decks[1].replace('nbnd = 48','nbnd = 44'),{'compiler':'pinned'})
+        with self.assertRaises(Refusal):common_input_id(*decks,{})
 
 
 if __name__=='__main__':

@@ -74,7 +74,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.09834262635558844
+      "wall_seconds": 0.22312129568308592
     },
     {
       "command": [
@@ -149,7 +149,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.08053225930780172
+      "wall_seconds": 0.09789963252842426
     },
     {
       "command": [
@@ -238,7 +238,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.16692611016333103
+      "wall_seconds": 0.17219395097345114
     },
     {
       "command": [
@@ -313,7 +313,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.08533421717584133
+      "wall_seconds": 0.20551867596805096
     },
     {
       "command": [
@@ -388,7 +388,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.07265035808086395
+      "wall_seconds": 0.10166290774941444
     },
     {
       "command": [
@@ -478,7 +478,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.15188468154519796
+      "wall_seconds": 0.1577861336991191
     },
     {
       "command": [
@@ -551,7 +551,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.05818584281951189
+      "wall_seconds": 0.0484996447339654
     },
     {
       "command": [
@@ -624,27 +624,27 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "wall_seconds": 0.061422876082360744
+      "wall_seconds": 0.07841916382312775
     }
   ],
   "source_audit": {
     "original_sha256": "c9dd8ae0a93d28715e06c80396afb4b5c51f2e5b7bd1847dc4906d367e4fbdee",
-    "capture_source_sha256": "e020099968345dff0c3a2d3447f696b131821fb1a02430bc4ff21f863e941612",
+    "capture_source_sha256": "96eb6acc04ff81cab19c33d83b4da6a8273aebbd2657a6dc5bd20d47ff210adb",
     "writes_existing_initialization": false,
     "requires_live_native_scope": true
   },
   "native_PW_MPI_run": false,
   "native_initial_seed_generated": false,
   "source_sha256": {
-    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/initial_state.f90": "923e9596e0d1da03e16939163b0b46bfdd26939d0142c8c1fc72ba2b4edfb352",
-    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/initial_unit.f90": "0630a9a3805171d49fcd8aefd2c142a5b570b1c58a160e3794012c5bba08c85c",
-    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/source_capture.py": "1d32b17c9e1602b1a669a0bfc37fa4c87613870bb4580303de19a2d0b5b2905c",
-    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/init_run.f90": "e020099968345dff0c3a2d3447f696b131821fb1a02430bc4ff21f863e941612",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/initial_state.f90": "19f55e2487fdb2e50ba4768e6fe5eb9ea7f699e4feed6dab8133099bc869c20d",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/initial_unit.f90": "d6d501bc7d505d0cf66e345b418244db75c15c18abf44362b1b367161509c214",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/source_capture.py": "1c079550961013c7fdcad68301c36ca505e8cf39ef6fff5e2d61af2f2f81f31f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/init_run.f90": "96eb6acc04ff81cab19c33d83b4da6a8273aebbd2657a6dc5bd20d47ff210adb",
     "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/random_numbers.f90": "ec82fdcce1b3e35e624c4d379d456b43fd6fe3fa984420e2778c1bdaa3b678bf",
     "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/software_2026-10-13/rng_unit.f90": "db7666256cdb3afb22d3e9aa833d86688dff6ec9428e66da44e97756d986af87"
   },
   "binaries": {
-    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/stock/initial_unit": "2f1785a2f209c9e45d700ed94ca6a1d65e1401673e18c3a86eee0d781c35ccf8",
-    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/stream/initial_unit": "92b3cf4591772502d2ed026c87198eaffb7bccca83cc5640178825ecfc5e51bd"
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/stock/initial_unit": "78f40f2d0b86087543423f23caa7bdcec9495ea61fbac499ed2ef331e8d6b96a",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/stream/initial_unit": "b09560e0a8bd0b310104b451f2fa819d5814fe4fac43698ad7230339a5f5c241"
   }
 }
