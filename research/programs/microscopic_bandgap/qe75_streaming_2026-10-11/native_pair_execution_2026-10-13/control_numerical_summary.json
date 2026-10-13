@@ -1,0 +1,23 @@
+{
+  "actual_native_control_first_ACE": true,
+  "per_k": [
+    {
+      "k": 1,
+      "native_weighted_exchange_contraction_Ry": -2.2333859453664,
+      "bands": 48
+    },
+    {
+      "k": 2,
+      "native_weighted_exchange_contraction_Ry": -8.951652593765756,
+      "bands": 48
+    },
+    {
+      "k": 3,
+      "native_weighted_exchange_contraction_Ry": -6.700915922315115,
+      "bands": 48
+    }
+  ],
+  "summed_native_contraction_Ry": -17.88595446144727,
+  "not_final_SCF_Fock_energy": true,
+  "paired_stream_exchange_comparison_available": false
+}

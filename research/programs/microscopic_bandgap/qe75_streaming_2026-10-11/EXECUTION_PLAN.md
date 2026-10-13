@@ -1,8 +1,8 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 17:18 UTC
-**Status:** REAL STOCK QE HSE+SOC TWO-RANK EXPERIMENT HAS14 EXX ITERATIONS, UNCONVERGED AFTER MAX_SECONDS420; ACTUAL48-BAND SEED QUALIFIED; LIVE NON-MPI KERNEL LAUNCH-GATE REFUSAL PASS; STREAMED NUMERICAL PAIR STILL UNRELEASED AT AGGREGATE OUTPUT/OWNERSHIP QUALIFICATION
+**Last verified update:** 2026-10-13 19:33 UTC
+**Status:** REAL TWO-RANK CONTROL FIRST-ACE CAPTURE COMPLETE; NATIVE INTERNAL GRAM/ACTION CHECKS PASS; STREAM STARTUP REFUSED AT QUANTIFIED rho(real)/vrs BYTE MISMATCH; PAIRED EXCHANGE AND RAM-GAIN CLAIMS UNQUALIFIED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
 
 **Latest checkpoint starts clean `066e27e`:** see
@@ -40,6 +40,20 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 **Scientific truth boundary:** Calculated binary HgTe Γ splitting is not a measured or first-principles alloy `E_g(x)`. The 87.5% number is an **allocation estimate**, not native peak-RAM proof. A linked private QE executable is not a validated SCF. Do not infer a physical `x_c` until M7 and M8 pass.
 
 ## Critical path and decision points
+
+**Latest actual execution (2026-10-13 19:33 UTC, starts `ab8b3e1`):** see
+[native measured decision](native_pair_execution_2026-10-13/decision.md).
+User explicitly approved sampled local disk acceptance. One real control first
+ACE completed with both live phase6 receipts:112.925992s, RSS884166656 bytes;
+internal Gram/ACE checks pass. Original post-exit ESRCH/telemetry-publication
+failures retained with independent numerical-control qualification. Real stream
+registered both ranks but was refused before EXX: identical waves/rhoG/maps/et/wg,
+rhoR delta6.66e−16, vrs delta1.03e−13Ry. No paired operator or RAM-gain result.
+Eight bounded launches, only one completed control EXX; startup failures/fixes
+retained. Empty groups, retired own escrow, old ledger/stock/dirty DFT/sessions
+preserved. STOP at canonical numerical-state/readback boundary; do not weaken
+bitwise parity or rerun control. No full16atom, Cd, physical gap or goal change.
+
 
 **Current new physical evidence (2026-10-13 17:18 UTC):** stock QE7.5 primitive
 HgTe/48-band/HSE+SOC/k2/q2/90-360-120Ry/two-rank experiment ran14 outer iterations,
@@ -181,7 +195,16 @@ Stop this finite investigation after evidence/plan commit/push. Read `namespace_
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Context-reset handoff (updated 2026-10-13 17:18 UTC)
+## Current context-reset handoff (2026-10-13 19:33 UTC)
+
+Read `native_pair_execution_2026-10-13/handoff.md` first, then its decision and
+native evidence. Its result supersedes earlier no-native statuses: control first
+ACE is measured; paired stream equivalence is refused by actual state mismatch.
+Earlier dated checkpoints and unpassed restart/global claims remain valid.
+No further execution from this record; next work is justified common operator
+state replay/readback design, not another infrastructure campaign.
+
+## Previous context-reset handoff (2026-10-13 17:18 UTC)
 
 - Read this plan then `native_first_ace_2026-10-13/{decision.md,handoff.md,reference_evidence.json,reference_save_inventory.json,bootstrap_result.json,native_release_refusal.json}` and DFT AGENTS. Started clean066e27e; historical goal unchanged.
 - New USER actual stock HSE:14 outer EXX iterations, last−484.05790653Ry/dexx3.87e−6Ry/ACE−8.96709093Ry, MAX_SECONDS420, native429.15s, XMLconvergence=false. Journal431.497914s/706,560,000bytes/swap0. Input/stdout/stderr/manifest/result and all save metadata/hashes retained; no Cd packet.
@@ -235,6 +258,8 @@ Stop this finite investigation after evidence/plan commit/push. Read `namespace_
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-13 19:33 UTC | starts ab8b3e1 | ACTUAL NATIVE FIRST-ACE / PAIR REFUSAL:** Revised only the explicitly user-approved sampled local disk domain. Native control closed12 packets and both phase6 receipts; independent Gram/action checks pass. Retained post-exit proc race/lost raw telemetry; strict native control requalification. Stream real registration then rhoR/vrs bitwise mismatch beforeEXX, quantified6.66e−16/1.03e−13Ry. Targeted source/launch fixes and eight measured launches retained; no streamed exchange/RAM claim. Owned cleanup/protected-state PASS; stop at canonical-state boundary, no full16atom/Cd/goal/main/DFT changes.
 
 - **2026-10-13 17:18 UTC | starts clean066e27e | ACTUAL STOCK HSE EVIDENCE / MATCHED STATE / OWNED GATE |** Preserved14-iteration unconverged stock HSE+SOC with exact unit journal706,560,000byte peak/swap0, stdout/schema agreement,93,390,854byte save metadata and NC Gram≤3.2e−15. Prepared independent actual48-band seed copies; source-candidate scope4 owner and actual NON-MPI kernel launch-refusal component tested. Corrected39-energy-history versus14-tail, XML Fock-section and diagnostic85/MPI_ABORT1 semantics. Aggregate closed-backend-output and native ownership qualification remain unpassed; release refuses before mutation, no new native run. Protected state and blocked goal unchanged; no broad suite, main merge or DFT commit.
 

@@ -1,0 +1,10 @@
+{
+  "first_error": "Open MPI default /dev/shm deleted backing inode",
+  "MPI_info_version": "5.0.10",
+  "forced_relocation_parameter": "shmem_mmap_relocate_backing_file=1",
+  "relocation_target": "each member private ext4 tmp/",
+  "negative_fallback_forbidden": true,
+  "first_native_rank_receipts": 0,
+  "first_cleanup_verified": true,
+  "scope": "ONE launch-integrity repair before numerical control capture; no arithmetic or physical-input change"
+}

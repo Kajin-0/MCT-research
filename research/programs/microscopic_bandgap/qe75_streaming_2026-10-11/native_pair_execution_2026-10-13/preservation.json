@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "mismatches": [],
+  "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "dirty_status_unchanged": true,
+  "pins": 17,
+  "stock_prior_candidates_unchanged": true,
+  "sessions": [
+    "calcura:$0",
+    "commander:$1",
+    "research:$3"
+  ],
+  "lease_holders": [],
+  "own_ledger_phase": "FINISHED",
+  "MemAvailable_bytes": 30977118208,
+  "free_disk_bytes": 31166877696,
+  "timestamp": "2026-10-13T19:27:58.666309+00:00",
+  "native_MPI_QE_executed_this_phase": true,
+  "original_native_goal_unchanged": true,
+  "old_ledger_byte_identical": true
+}

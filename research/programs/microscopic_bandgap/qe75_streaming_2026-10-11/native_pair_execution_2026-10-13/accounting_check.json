@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "allocated_blocks",
+    "deleted_open_inode",
+    "unknown_path_refusal"
+  ],
+  "native_execution": false
+}

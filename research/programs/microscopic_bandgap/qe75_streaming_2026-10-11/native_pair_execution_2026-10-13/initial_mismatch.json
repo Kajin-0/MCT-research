@@ -1,0 +1,1083 @@
+{
+  "actual_native_packets": true,
+  "passed": false,
+  "records": [
+    {
+      "rank": 0,
+      "k": 1,
+      "fields": {
+        "header_fingerprint_kpoint": {
+          "byte_identical": true
+        },
+        "layout": {
+          "bytes": 1047072,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 78732.0,
+          "stream_max": 78732.0
+        },
+        "Miller": {
+          "bytes": 78744,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 13.0,
+          "stream_max": 13.0
+        },
+        "waves": {
+          "bytes": 5039616,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.7231185946786254,
+          "stream_max": 0.7231185946786254
+        },
+        "et.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 65788,
+          "max_absolute_difference": 6.661338147750939e-16,
+          "control_max": 1.7546455142281305,
+          "stream_max": 1.7546455142281305
+        },
+        "rho.reciprocal.spin1": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.07915317444982706,
+          "stream_max": 0.07915317444982706
+        },
+        "vrs.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 70584,
+          "max_absolute_difference": 6.306066779870889e-14,
+          "control_max": 20.938446818148428,
+          "stream_max": 20.938446818148435
+        },
+        "rho.real.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin2": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin3": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin4": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        }
+      },
+      "control_sha256": "495a6b97af3d997dbd57012b0aa722b6280815f3c4115069ed175f5a4b948f9f",
+      "stream_sha256": "237522888cf53393c190e4aecde3504e949b7bc630ece4eeca10b955e2da6f6c"
+    },
+    {
+      "rank": 0,
+      "k": 2,
+      "fields": {
+        "header_fingerprint_kpoint": {
+          "byte_identical": true
+        },
+        "layout": {
+          "bytes": 1047072,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 78732.0,
+          "stream_max": 78732.0
+        },
+        "Miller": {
+          "bytes": 78552,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 13.0,
+          "stream_max": 13.0
+        },
+        "waves": {
+          "bytes": 5039616,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.5527296991402624,
+          "stream_max": 0.5527296991402624
+        },
+        "et.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 65788,
+          "max_absolute_difference": 6.661338147750939e-16,
+          "control_max": 1.7546455142281305,
+          "stream_max": 1.7546455142281305
+        },
+        "rho.reciprocal.spin1": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.07915317444982706,
+          "stream_max": 0.07915317444982706
+        },
+        "vrs.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 70584,
+          "max_absolute_difference": 6.306066779870889e-14,
+          "control_max": 20.938446818148428,
+          "stream_max": 20.938446818148435
+        },
+        "rho.real.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin2": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin3": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin4": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        }
+      },
+      "control_sha256": "5b3486f9c4ebfcc086edc3d88e51dd4e2a28ec9b803527ac4d2da2f9d2c5ca46",
+      "stream_sha256": "3accd7f8e9837f07baa54f2106c5e726ce598e325b4948aae9daab6763e2bdc7"
+    },
+    {
+      "rank": 0,
+      "k": 3,
+      "fields": {
+        "header_fingerprint_kpoint": {
+          "byte_identical": true
+        },
+        "layout": {
+          "bytes": 1047072,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 78732.0,
+          "stream_max": 78732.0
+        },
+        "Miller": {
+          "bytes": 78240,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 13.0,
+          "stream_max": 13.0
+        },
+        "waves": {
+          "bytes": 5039616,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.46386100121641594,
+          "stream_max": 0.46386100121641594
+        },
+        "et.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 65788,
+          "max_absolute_difference": 6.661338147750939e-16,
+          "control_max": 1.7546455142281305,
+          "stream_max": 1.7546455142281305
+        },
+        "rho.reciprocal.spin1": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.07915317444982706,
+          "stream_max": 0.07915317444982706
+        },
+        "vrs.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 70584,
+          "max_absolute_difference": 6.306066779870889e-14,
+          "control_max": 20.938446818148428,
+          "stream_max": 20.938446818148435
+        },
+        "rho.real.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin2": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin3": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin4": {
+          "bytes": 418768,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        }
+      },
+      "control_sha256": "df303d4d49cdc6ebb1cefee52b4d2d22a233a83983d8a663651339c4138ae4a8",
+      "stream_sha256": "25e7ad14725ca56f6f698b9f6bb56be1708cfce6788131a6a302109a730b8f45"
+    },
+    {
+      "rank": 1,
+      "k": 1,
+      "fields": {
+        "header_fingerprint_kpoint": {
+          "byte_identical": true
+        },
+        "layout": {
+          "bytes": 1047032,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 78732.0,
+          "stream_max": 78732.0
+        },
+        "Miller": {
+          "bytes": 78864,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 13.0,
+          "stream_max": 13.0
+        },
+        "waves": {
+          "bytes": 5047296,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.4115176497070937,
+          "stream_max": 0.4115176497070937
+        },
+        "et.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 72686,
+          "max_absolute_difference": 4.440892098500626e-16,
+          "control_max": 1.7546455142281305,
+          "stream_max": 1.7546455142281303
+        },
+        "rho.reciprocal.spin1": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.03965745820352735,
+          "stream_max": 0.03965745820352735
+        },
+        "vrs.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 71572,
+          "max_absolute_difference": 1.0302869668521453e-13,
+          "control_max": 20.53830195922848,
+          "stream_max": 20.538301959228484
+        },
+        "rho.real.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin2": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin3": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin4": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        }
+      },
+      "control_sha256": "b45efcda55468bad0deb70414cf1e9a43e1d1fb40e118425ae335d7105177afd",
+      "stream_sha256": "e9ebed7e978396b6b050c71bfa9716de829c246fbaaca057042326048d28513a"
+    },
+    {
+      "rank": 1,
+      "k": 2,
+      "fields": {
+        "header_fingerprint_kpoint": {
+          "byte_identical": true
+        },
+        "layout": {
+          "bytes": 1047032,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 78732.0,
+          "stream_max": 78732.0
+        },
+        "Miller": {
+          "bytes": 78648,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 13.0,
+          "stream_max": 13.0
+        },
+        "waves": {
+          "bytes": 5047296,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.3338713714525202,
+          "stream_max": 0.3338713714525202
+        },
+        "et.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 72686,
+          "max_absolute_difference": 4.440892098500626e-16,
+          "control_max": 1.7546455142281305,
+          "stream_max": 1.7546455142281303
+        },
+        "rho.reciprocal.spin1": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.03965745820352735,
+          "stream_max": 0.03965745820352735
+        },
+        "vrs.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 71572,
+          "max_absolute_difference": 1.0302869668521453e-13,
+          "control_max": 20.53830195922848,
+          "stream_max": 20.538301959228484
+        },
+        "rho.real.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin2": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin3": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin4": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        }
+      },
+      "control_sha256": "de0c758bd8b007f2a90c9370aab47986df7d8f9814b4edbebceb2564d859ed23",
+      "stream_sha256": "37cb1f11864d0a1351aa0d266146628ec87c5c5ae05416d0472d176a8c0d7316"
+    },
+    {
+      "rank": 1,
+      "k": 3,
+      "fields": {
+        "header_fingerprint_kpoint": {
+          "byte_identical": true
+        },
+        "layout": {
+          "bytes": 1047032,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 78732.0,
+          "stream_max": 78732.0
+        },
+        "Miller": {
+          "bytes": 78384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 13.0,
+          "stream_max": 13.0
+        },
+        "waves": {
+          "bytes": 5047296,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.4286417322615515,
+          "stream_max": 0.4286417322615515
+        },
+        "et.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k1": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k2": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "et.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "wg.k3": {
+          "bytes": 384,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 72686,
+          "max_absolute_difference": 4.440892098500626e-16,
+          "control_max": 1.7546455142281305,
+          "stream_max": 1.7546455142281303
+        },
+        "rho.reciprocal.spin1": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.03965745820352735,
+          "stream_max": 0.03965745820352735
+        },
+        "vrs.spin1": {
+          "bytes": 629856,
+          "byte_identical": false,
+          "numeric_unequal": 71572,
+          "max_absolute_difference": 1.0302869668521453e-13,
+          "control_max": 20.53830195922848,
+          "stream_max": 20.538301959228484
+        },
+        "rho.real.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin2": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin2": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin3": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin3": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.real.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "rho.reciprocal.spin4": {
+          "bytes": 418752,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        },
+        "vrs.spin4": {
+          "bytes": 629856,
+          "byte_identical": true,
+          "numeric_unequal": 0,
+          "max_absolute_difference": 0.0,
+          "control_max": 0.0,
+          "stream_max": 0.0
+        }
+      },
+      "control_sha256": "f00f472ad32bf47ac5e8e1f93cfa1c42b688d969d4758ce09034e5e3ba3135df",
+      "stream_sha256": "e53f1d31affc5d831e6b58419653a5e375826df0067bac1136c8e15d2fb067ee"
+    }
+  ],
+  "fields_not_ignored": true,
+  "no_phase_or_band_alignment": true,
+  "stream_EXX_not_constructed": true
+}

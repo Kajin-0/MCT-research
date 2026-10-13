@@ -1,0 +1,11 @@
+--- pinned/lease_client.c
++++ local/lease_client.c
+@@ -67,7 +67,7 @@
+     if(startticks(peer.pid)!=ticks||syscall(SYS_pidfd_send_signal,pfd,0,NULL,0)||lease_owned(peer.pid))goto done;
+     if(send(sock,request,sizeof request,MSG_NOSIGNAL)!=(ssize_t)sizeof request){result=EIO;goto done;}
+     wait.fd=sock;wait.events=POLLIN;
+-    if(poll(&wait,1,1000)!=1){result=ETIMEDOUT;goto done;}
++    if(poll(&wait,1,10000)!=1){result=ETIMEDOUT;goto done;}
+     if(recv(sock,reply,sizeof reply,MSG_TRUNC)!=(ssize_t)sizeof reply){result=EPROTO;goto done;}
+     if(memcmp(reply,"R07L",4)||get32(reply+4)!=1||memcmp(reply+16,request+148,32)) {result=EPROTO;goto done;}
+     if(startticks(peer.pid)!=ticks||syscall(SYS_pidfd_send_signal,pfd,0,NULL,0)||lease_owned(peer.pid))goto done;

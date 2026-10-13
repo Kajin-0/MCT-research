@@ -1,5 +1,9 @@
 # Actual stock HSE progress retained; matched first-ACE release remains blocked
 
+**Subsequent 2026-10-13 19:33 UTC actual native result:** [control firstACE and refused
+stream pair](../native_pair_execution_2026-10-13/decision.md). This dated checkpoint
+is preserved; its no-new-native status does not describe the later assignment.
+
 2026-10-13 17:18 UTC; starts clean MCT `066e27e`. This is a separate finite
 engineering assignment. The historical blocked goal is unchanged.
 

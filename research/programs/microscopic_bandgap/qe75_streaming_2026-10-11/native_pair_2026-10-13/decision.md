@@ -1,5 +1,9 @@
 # Native milestone verified; first-ACE state remedy built; QE not admitted
 
+**Subsequent 2026-10-13 19:33 UTC actual native result:** [control firstACE and refused
+stream pair](../native_pair_execution_2026-10-13/decision.md). This dated checkpoint
+is preserved; its no-new-native status does not describe the later assignment.
+
 **2026-10-13 14:34 UTC; starts clean `3713045`.**
 
 **Subsequent native evidence — 2026-10-13 17:18 UTC:** the user has now executed

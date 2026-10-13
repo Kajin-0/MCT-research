@@ -2,9 +2,23 @@
 
 **Portfolio contribution:** R07
 
-**State:** original approved matched 16-atom host TERMINATED on retained RSS cap; separate user stock two-atom HSE+SOC run now has14 real EXX iterations but is UNCONVERGED after MAX_SECONDS420; Cd material result absent; matched streamed action equivalence and material inversion OPEN; historical goal BLOCKED and unchanged; prior negatives preserved
+**State:** original16atom host failed RSS cap; user two-atom stock14-iteration HSE remains unconverged; new real control first-ACE internal checks PASS, paired stream refused at actual numerical-state mismatch; no Cd/material gap/x_c; historical blocked goal unchanged
 
 **Updated:** 2026-10-13
+
+## Actual first-ACE control and refused pair — 2026-10-13 19:33 UTC
+
+[Measured native decision](qe75_streaming_2026-10-11/native_pair_execution_2026-10-13/decision.md):
+one complete two-rank control first ACE, native12 packets/two phase6 receipts,
+112.925992s, RSS884166656bytes; independent Gram/ACE-action checks pass.
+Original post-exit monitor race and lost raw telemetry retained, no full HSE
+convergence. Real streamed startup fails byte parity before EXX: orbitals/rhoG/
+occupations/maps identical, rhoR6.66e−16/vrs1.03e−13Ry differences. Paired operator
+comparison and streaming memory gain remain unqualified. Sampled local contract
+explicitly differs from unpassed global inventory; old negative results preserved.
+No further native run; precise next requirement is proven canonical operator-
+state replay/readback. All own groups empty; stock/old ledger/dirty DFT/sessions
+preserved. No16atom, Cd, material x_c or historical-goal change.
 
 ## Actual stock native HSE evidence — 2026-10-13 17:18 UTC
 

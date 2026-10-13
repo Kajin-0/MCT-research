@@ -1,0 +1,29 @@
+--- pinned/exx.f90
++++ fresh-scope4/exx.f90
+@@ -183,9 +183,26 @@
+     USE mp, ONLY: mp_barrier, mp_bcast
+     USE mp_images, ONLY: intra_image_comm,nimage
+     USE io_global, ONLY: ionode, ionode_id
++#if defined(__QE75_M5)
++    USE qe75_native_lease, ONLY: native_check
++    USE input_parameters, ONLY: restart_mode
++#endif
+     CHARACTER(*), INTENT(IN) :: action
+     INTEGER :: code,cmdcode
+     CHARACTER(256) :: message
++#if defined(__QE75_M5)
++    ! The fresh first-ACE diagnostic has no native restart transaction.
++    ! Scope4 is validated by actual world peers, never an environment Boolean.
++    ! Legacy builds/actions still require scope2 and full checkpoint state.
++    IF(action=='pre_import') THEN
++      CALL native_check()
++      IF(TRIM(restart_mode)/='from_scratch' .OR. qbridge_import .OR. ALLOCATED(xi)) &
++        CALL errore('qbridge_transaction','fresh scope4 cannot import old native state',1)
++      CALL get_environment_variable('QE75_BRIDGE_ROOT',message,STATUS=cmdcode)
++      IF(cmdcode==0) CALL errore('qbridge_transaction','fresh scope4 refuses restart root',1)
++      RETURN
++    ENDIF
++#endif
+     IF(nimage/=1) CALL errore('qbridge_transaction','one image required',1)
+     CALL mp_barrier(intra_image_comm)
+     code=0

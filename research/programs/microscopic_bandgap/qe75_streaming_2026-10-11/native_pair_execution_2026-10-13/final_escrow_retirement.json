@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-10-13T19:27:56.575887+00:00",
+  "retired_only_owned_empty_families": [
+    {
+      "allocated": 1073745920,
+      "dev": 2049,
+      "inode": 547468,
+      "logical": 1073741824,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/first_ace_sampled_v6_20261013/control/output.escrow"
+    },
+    {
+      "allocated": 1073745920,
+      "dev": 2049,
+      "inode": 547565,
+      "logical": 1073741824,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/first_ace_stream_scope4_20261013/stream/output.escrow"
+    }
+  ]
+}
