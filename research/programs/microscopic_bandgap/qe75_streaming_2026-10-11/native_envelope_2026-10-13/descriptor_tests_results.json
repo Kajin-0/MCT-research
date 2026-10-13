@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "methods": 6,
+  "scope": "standalone serial codec using real QE derived type; synthetic arrays; no MPI authority",
+  "actual_native_MPI_descriptor_observed": false,
+  "native_PW_MPI_run": false
+}

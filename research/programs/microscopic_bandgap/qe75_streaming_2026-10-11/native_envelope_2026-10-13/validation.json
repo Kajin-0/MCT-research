@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "verified_UTC": "2026-10-13T02:47:31.801359+00:00",
+  "focused_test_methods": 13,
+  "serial_qeh5_schema_observations": 4,
+  "preservation": {
+    "passed": true,
+    "mismatches": [],
+    "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+    "dirty_status_unchanged": true,
+    "pins": 17,
+    "stock_prior_candidates_unchanged": true,
+    "sessions": [
+      "calcura:$0",
+      "commander:$1",
+      "research:$3"
+    ],
+    "lease_holders": [],
+    "own_ledger_phase": "FINISHED",
+    "MemAvailable_bytes": 31857627136,
+    "free_disk_bytes": 32297107456,
+    "native_MPI_QE_run": false,
+    "capture_candidates_unchanged": true,
+    "foreign_process_inventory_repeated": false
+  },
+  "native_MPI_PW_HSE_executed": false,
+  "native_scope_authority_issued": false,
+  "hostwide_inventory_repeated": false,
+  "whole_native_output_RSS_certified": false,
+  "compiled_candidates_unexecuted": {
+    "stock": "625cae4eba225d9615b3403868fbff9ac2a4a72b35e5e0aa45352c3af5b67b35",
+    "stream": "64f1a8e9030200fd15c8858262b181cacc864e5d7199b38340671c43ab1a9784"
+  }
+}

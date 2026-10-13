@@ -1,0 +1,204 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-fcheck=all",
+        "-ffree-line-length-none",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_readiness/hdf5-serial",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_atomic",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_couple",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_cpv",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_devxlib",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_dftd3",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_epw",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_fftx",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_gww",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_hp",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_kcw",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_kssolver_davidson",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_lax",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_lr_modules",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_modules",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_neb",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_phonon_ph",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_pioud",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_pp",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_pw",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_pwcond_exe",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_tddfpt",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_utilx",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_utilx_tests",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_wannier90",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_xclib",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_xml",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include/qe/qe_xspectra_gipaw",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/include",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/native_envelope_2026-10-13/hdf5_schema_unit.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_readiness/hdf5-serial/qeh5.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_readiness/hdf5-serial/no_mpi_init.o",
+        "-Wl,--export-dynamic",
+        "-L",
+        "/home/User/opencode_workspace/DFT/.local/qe-env/lib",
+        "-Wl,-rpath,/home/User/opencode_workspace/DFT/.local/qe-env/lib",
+        "-lhdf5_fortran",
+        "-lhdf5",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/schema_unit"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_seconds": 0.28860853984951973
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/schema_unit",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/wave.17.h5",
+        "17",
+        "wave"
+      ],
+      "returncode": 0,
+      "stdout": " SERIAL_QEH5_SCHEMA_NO_PW_NO_MPI\n",
+      "stderr": "",
+      "wall_seconds": 0.43202886171638966
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/schema_unit",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/density.17.h5",
+        "17",
+        "density"
+      ],
+      "returncode": 0,
+      "stdout": " SERIAL_QEH5_SCHEMA_NO_PW_NO_MPI\n",
+      "stderr": "",
+      "wall_seconds": 0.42198832239955664
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/schema_unit",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/wave.257.h5",
+        "257",
+        "wave"
+      ],
+      "returncode": 0,
+      "stdout": " SERIAL_QEH5_SCHEMA_NO_PW_NO_MPI\n",
+      "stderr": "",
+      "wall_seconds": 0.42539291549474
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/schema_unit",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/hdf5/density.257.h5",
+        "257",
+        "density"
+      ],
+      "returncode": 0,
+      "stdout": " SERIAL_QEH5_SCHEMA_NO_PW_NO_MPI\n",
+      "stderr": "",
+      "wall_seconds": 0.42431706096976995
+    }
+  ],
+  "observations": [
+    {
+      "kind": "wave",
+      "G": 17,
+      "dataset_storage_bytes": {
+        "MillerIndices": 204,
+        "evc": 26112
+      },
+      "payload_bytes": 26316,
+      "logical_file_bytes": 32504,
+      "allocated_file_bytes": 32768,
+      "logical_nonpayload_bytes_observed": 6188,
+      "default_contiguous_unfiltered": true,
+      "universal_overhead_bound_proven": false
+    },
+    {
+      "kind": "density",
+      "G": 17,
+      "dataset_storage_bytes": {
+        "MillerIndices": 204,
+        "m_x": 272,
+        "m_y": 272,
+        "m_z": 272,
+        "rhotot_g": 272
+      },
+      "payload_bytes": 1292,
+      "logical_file_bytes": 5388,
+      "allocated_file_bytes": 8192,
+      "logical_nonpayload_bytes_observed": 4096,
+      "default_contiguous_unfiltered": true,
+      "universal_overhead_bound_proven": false
+    },
+    {
+      "kind": "wave",
+      "G": 257,
+      "dataset_storage_bytes": {
+        "MillerIndices": 3084,
+        "evc": 394752
+      },
+      "payload_bytes": 397836,
+      "logical_file_bytes": 402180,
+      "allocated_file_bytes": 405504,
+      "logical_nonpayload_bytes_observed": 4344,
+      "default_contiguous_unfiltered": true,
+      "universal_overhead_bound_proven": false
+    },
+    {
+      "kind": "density",
+      "G": 257,
+      "dataset_storage_bytes": {
+        "MillerIndices": 3084,
+        "m_x": 4112,
+        "m_y": 4112,
+        "m_z": 4112,
+        "rhotot_g": 4112
+      },
+      "payload_bytes": 19532,
+      "logical_file_bytes": 23628,
+      "allocated_file_bytes": 24576,
+      "logical_nonpayload_bytes_observed": 4096,
+      "default_contiguous_unfiltered": true,
+      "universal_overhead_bound_proven": false
+    }
+  ],
+  "max_serial_child_RSS_KiB": 54356,
+  "qeh5_object_sha256": "e26ac6ac70be27469e31edf504c593e491f570388182ac4e77c612819cc47054",
+  "MPI_init_trap_sha256": "31857b0834f6563dbb13dee345217c7642200174000e68a3494fe583f7bbcb93",
+  "binary_sha256": "f1abe459eeab1b72bf9d4f1281613fe981042c18127d0a60eb40c7b6a26402dc",
+  "native_PW_MPI_run": false,
+  "whole_HDF5_RSS_or_disk_bound_proven": false
+}

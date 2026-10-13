@@ -1,0 +1,24 @@
+{
+  "QE_base": "770a0b2d12928a67048e2f3da8d10d057e52179e",
+  "files_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/io_base.f90": "f7953c8f0952d9cb22f48b6291252a36a9f8c14bbcff923d9b75adabcdea4755",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/qeh5_module.f90": "d9ef61d337cf217375cd36b619666e223e8b99fa3950e08a2f4030789ac354d9",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/io_files.f90": "9882ee911e667b836024601be193177a6eb5bc4284ddbf7b217f81bb1f9312fd",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/control_flags.f90": "033e9c50757eb9c31b8cb2f189db51f358a13798f9396bf295cc153a8b895730",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/read_namelists.f90": "dacf74da652b2a07b22e27b383c828885f58078287a84143feb5a6c224b9f7ea",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/input.f90": "bbfe23ac73ccd363812dfd1fb2d6b1784db7e2d430d7a18df177108d3ea4d85a",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/pw_restart_new.f90": "82dfdef8ded7f853b705762036fda7a7694e3a4af6e00e1bfeffa50d35cc46ef",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/mix_rho.f90": "e8ab18c4f0fa1d37aa7974d1e7d53dbf0fc260be1b976977b4bf2d4529f7f646",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/scf_mod.f90": "b38801ad53bd0c96e7a89e1774a96bb244ded9576204b06c5d0e0739afd3d9c2",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/buffers.f90": "393efaaca321ac2c6db8ae0a1306bdb71c8b643214992681bd198efa24d0a672",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_types.f90": "99785dd2d9dbaff4c491db0fb3863117c558f4cb1f349c63f0d5c135f5fc547d",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_scalar.FFTW3.f90": "48a2476bfb831406827656d6ad05184a4f24cfc6d05e6c10a592f2b46f2aa4fd",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/UtilXlib/mp_base.f90": "456863e258c933a2db6bd99434c2a3381f4b0cd997fa2f6d430ac31cad689678",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_readiness/source/exx.f90": "d3edca37a3bacfdb0265502fe8a497aef94c8e4f671ee663db3ae67d97508270",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/descriptor/exx.f90": "35c1388c6285550b6f4d436cd19f024521047d3cd05d0e49dacc35a6fc50ace1",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/descriptor/resource_descriptor.f90": "855dae0f6ce547735f6222b09e0f3194ef5310953b9d910211b66052f083e207",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/lease_client.c": "ecab5af0b06e011004fa2132b5f7332551845faa6f0354896542c942c8aa7736",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/native_lease.f90": "55ec55fbe74fb8267bce6ebdadaf2cb4287ac46b574982d7e15b30763c6c1e17"
+  },
+  "actual_native_MPI_run": false
+}

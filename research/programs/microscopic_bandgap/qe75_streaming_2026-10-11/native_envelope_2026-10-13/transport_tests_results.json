@@ -1,0 +1,144 @@
+{
+  "passed": true,
+  "methods": 3,
+  "evidence": [
+    {
+      "kind": "LIVE_SERIAL_KERNEL_ABI_NOT_MPI",
+      "status": 2147483648,
+      "returns": {
+        "legacy": -2147483648,
+        "safe": 71
+      }
+    },
+    {
+      "kind": "LIVE_SERIAL_KERNEL_ABI_NOT_MPI",
+      "status": 4294967295,
+      "returns": {
+        "legacy": -1,
+        "safe": 71
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 0,
+      "scenario": 0,
+      "results": {
+        "legacy": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           0           2           2           2           0\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        },
+        "safe": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           0           2           2           2           0\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 0,
+      "scenario": 1,
+      "results": {
+        "legacy": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2         -13\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           0           2           2           2         -13\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        },
+        "safe": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2         -13\n REDUCE           1           1          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 0,
+      "scenario": 2,
+      "results": {
+        "legacy": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2 -2147483648\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           0           2           2           2 -2147483648\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        },
+        "safe": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2 -2147483648\n REDUCE           1           1          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 0,
+      "scenario": 3,
+      "results": {
+        "legacy": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2          13\n REDUCE           1          13          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        },
+        "safe": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           0           2           1           2          13\n REDUCE           1           1          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 1,
+      "scenario": 0,
+      "results": {
+        "legacy": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           1           2           2           2           0\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        },
+        "safe": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2           0\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           1           2           2           2           0\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 1,
+      "scenario": 1,
+      "results": {
+        "legacy": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2         -13\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           1           2           2           2         -13\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        },
+        "safe": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2         -13\n REDUCE           1           1          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 1,
+      "scenario": 2,
+      "results": {
+        "legacy": {
+          "returncode": 0,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2 -2147483648\n REDUCE           1           0          17\n BARRIER          17\n SERIAL_MODEL_NO_AUTHORITY           1           2           2           2 -2147483648\n REDUCE           2           0          17\n BARRIER          17\n SERIAL_DECISION_ACCEPT_NOT_NATIVE_AUTHORITY\n"
+        },
+        "safe": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2 -2147483648\n REDUCE           1           1          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        }
+      }
+    },
+    {
+      "kind": "SERIAL_DECISION_MODEL_NOT_MPI",
+      "rank": 1,
+      "scenario": 3,
+      "results": {
+        "legacy": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2          13\n REDUCE           1          13          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        },
+        "safe": {
+          "returncode": 88,
+          "stdout": " SERIAL_MODEL_NO_AUTHORITY           1           2           1           2          13\n REDUCE           1           1          17\n REFUSEnative_registerlive typed native lease refused           1\n"
+        }
+      }
+    }
+  ],
+  "native_MPI_QE_run": false,
+  "native_scope_issued": false
+}

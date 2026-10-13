@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "methods": 4,
+  "selected_envelope": {
+    "kind": "SOURCE_CONDITIONED_SELECTED_ENVELOPE_NOT_ADMISSION",
+    "source_scope": "exact pinned 2-atom CPU NC SOC geometry/cutoffs, one pool/group, symmorphic fft_fact<=2; source conditions must be checked",
+    "per_wave_or_ACE_dataset_payload_upper_bytes": 30469284,
+    "one_collected_wave_plus_ACE_generation_dataset_payload_upper_bytes": 487508544,
+    "per_density_dataset_payload_upper_bytes": 11314652,
+    "added_Miller_dataset_bytes_one_collected_wave_ACE_and_density_generation": 5565660,
+    "collected_writer": {
+      "wave_parent_array_bytes": 393692,
+      "wave_map_phase_bytes": 1663440,
+      "wave_root_gather_phase_bytes": 1023548,
+      "wave_selected_peak_bytes": 1663440,
+      "density_selected_root_peak_bytes": 4764064,
+      "native_merge_MPI_HDF5_included": false
+    },
+    "fixture_default_io_level_source_derived": 0,
+    "per_rank_plain_mix_ndim8": {
+      "record_bytes": 9528128,
+      "max_record_index": 18,
+      "history_store_payload_bytes": 171506304,
+      "history_RAM_payload_bytes": 171506304,
+      "active_history_disk_logical_bytes": 0,
+      "kept_history_disk_logical_upper_bytes": 171506304,
+      "RAM_close_keep_extra_vector_bytes": 9528128,
+      "selected_mix_live_array_bytes": 181035040,
+      "buffer_pointer_metadata_included": false,
+      "scope": "plain mixing, NC, nspin4; no meta/XDM/U/PAW/dipole/SIC/RISM/GC-SCF/plugin chunks"
+    },
+    "two_rank_plain_mix_kept_history_logical_upper_bytes": 343012608,
+    "two_rank_default_wave_RAM_record_payload_upper_bytes": 483729408,
+    "known_EXX_and_initial": {
+      "kind": "CONSERVATIVE_COMPONENT_BOUND_NOT_NATIVE_ADMISSION",
+      "Miller_bounds": {
+        "wave": 13,
+        "fock": 15,
+        "density": 26
+      },
+      "global_FFT_order_upper": {
+        "fock": 32,
+        "density": 54
+      },
+      "global_G_box_upper": {
+        "wave": 19683,
+        "fock": 29791,
+        "density": 148877
+      },
+      "per_rank_fft_rows_including_spin_upper": 131072,
+      "per_rank_density_rows_upper": 314928,
+      "per_rank_npwx_upper": 19683,
+      "world_ranks": 2,
+      "bands": 48,
+      "k_upper": 8,
+      "stored_q_upper": 8,
+      "diagnostic_layout_ints_upper": 306811,
+      "initial_layout_ints_upper": 744404,
+      "per_rank_initial_packet_upper_bytes": 66350584,
+      "initial_packet_guard_bytes": 134217728,
+      "per_rank_components_upper_bytes": {
+        "rank_stream_bytes": 805306368,
+        "rank_state_packet_bytes": 244328648,
+        "first_ACE_before_per_k_bytes": 64377888,
+        "first_ACE_after_per_k_bytes": 33511856,
+        "first_ACE_diagnostics_all_k_bytes": 783117952,
+        "probe_scratch_bytes": 61096032,
+        "whole_native_output_envelope_certified": false
+      },
+      "two_rank_full_q_store_upper_bytes": 1610612736,
+      "two_rank_one_q_plane_resident_upper_bytes": 201326592,
+      "two_rank_initial_all_k_upper_bytes": 1061609344,
+      "collected_wave_and_ACE_payload_upper_bytes": 483729408,
+      "collected_density_payload_upper_bytes": 9528128,
+      "whole_native_output_envelope_certified": false,
+      "whole_family_RSS_certified": false,
+      "actual_native_MPI_descriptor": "UNKNOWN",
+      "unbounded_or_unqualified": [
+        "HDF5 metadata/allocation and temporary replacement lifetime",
+        "all XML/log/mix/native files and maximum live generations",
+        "allocator/FFT/MPI/backend workspaces and page cache",
+        "actual FFT factors, ownership/G maps and native q selection"
+      ],
+      "scope": "exact pinned 2-atom CPU NC SOC geometry/cutoffs, one pool/group, symmorphic fft_fact<=2; source conditions must be checked"
+    },
+    "disk_terms_UNKNOWN": [
+      "HDF5_file_format_and_allocation",
+      "native_XML_restart_and_PPs",
+      "logs_and_errors",
+      "all_live_generations_and_aliases",
+      "misc_native_scratch",
+      "filesystem_metadata_and_quota",
+      "new_FFT_packets_and_manifests"
+    ],
+    "RSS_terms_UNKNOWN": [
+      "all_PW_live_allocation_phases",
+      "solver_ELPA_BLAS_workspace",
+      "FFT_plan_and_copy_workspace",
+      "MPI_transport_collective_and_plugin_buffers",
+      "HDF5_caches_and_conversion_workspace",
+      "allocator_fragmentation_thread_stacks_shared_libraries",
+      "diagnostic_and_capture_temporaries",
+      "guardian_launcher_and_all_descendants"
+    ],
+    "whole_disk_envelope_certified": false,
+    "whole_RSS_envelope_certified": false,
+    "native_MPI_PW_run": false,
+    "native_admission_issued": false
+  }
+}

@@ -1,0 +1,116 @@
+--- /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_readiness/lease_client.c
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/lease_client.c
+@@ -4,6 +4,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <inttypes.h>
++#include <limits.h>
+ #include <poll.h>
+ #include <stdint.h>
+ #include <stdio.h>
+@@ -70,7 +71,11 @@
+     if(recv(sock,reply,sizeof reply,MSG_TRUNC)!=(ssize_t)sizeof reply){result=EPROTO;goto done;}
+     if(memcmp(reply,"R07L",4)||get32(reply+4)!=1||memcmp(reply+16,request+148,32)) {result=EPROTO;goto done;}
+     if(startticks(peer.pid)!=ticks||syscall(SYS_pidfd_send_signal,pfd,0,NULL,0)||lease_owned(peer.pid))goto done;
+-    result=(int)get32(reply+8);
++    /* Wire status is unsigned. Reject nonrepresentable signed errors before
++       conversion; a negative value could otherwise disappear in MPI_MAX. */
++    uint32_t wire_status=get32(reply+8);
++    if(wire_status>INT_MAX){result=EPROTO;goto done;}
++    result=(int)wire_status;
+     if(!result&&get32(reply+12)!=(uint32_t)required_scope)result=EACCES;
+ done:
+     if(pfd>=0)close(pfd);
+--- /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/m5_readiness/native_lease.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/native_lease.f90
+@@ -17,6 +17,9 @@
+     INTEGER :: code
+     IF(nproc/=2) CALL errore('native_register','exact two-world-rank scope required',1)
+     code=lease_call(INT(mpime,c_int),INT(nproc,c_int),1_c_int,2_c_int)
++    ! Reduce a Boolean FAILURE indicator, not a signed foreign status.
++    ! Preserve every nonzero error including INT_MIN; never use ABS(code).
++    code=MERGE(1,0,code/=0)
+     CALL mp_max(code,world_comm)
+     IF(code/=0) CALL errore('native_register','live typed native lease refused',1)
+     CALL mp_barrier(world_comm)
+@@ -25,6 +28,9 @@
+   SUBROUTINE native_check()
+     INTEGER :: code
+     code=lease_call(INT(mpime,c_int),INT(nproc,c_int),2_c_int,2_c_int)
++    ! Reduce a Boolean FAILURE indicator, not a signed foreign status.
++    ! Preserve every nonzero error including INT_MIN; never use ABS(code).
++    code=MERGE(1,0,code/=0)
+     CALL mp_max(code,world_comm)
+     IF(code/=0) CALL errore('native_check','all-rank native receipt absent/lost',1)
+     CALL mp_barrier(world_comm)
+--- /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_readiness/source/exx.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/descriptor/exx.f90
+@@ -659,6 +659,9 @@
+     ! Note that nxxs is not the same as nrxxs in parallel case
+     nxxs = dfftt%nr1x * dfftt%nr2x * dfftt%nr3x
+     nrxxs = dfftt%nnr
++#if defined(__QE75_RESOURCE_CAPTURE)
++    CALL qe75_capture_fft(dfftt)
++#endif
+ #if defined(__MPI)
+     IF (noncolin) THEN
+        ALLOCATE( psic_all_nc(nxxs,npol), temppsic_all_nc(nxxs,npol) )
+@@ -5297,3 +5300,58 @@
+   !
+   !
+ END MODULE exx
++
++#if defined(__QE75_RESOURCE_CAPTURE)
++SUBROUTINE qe75_capture_fft(fock)
++  USE iso_fortran_env, ONLY: int64
++  USE fft_types, ONLY: fft_type_descriptor
++  USE fft_base, ONLY: dfftp,dffts
++  USE qe75_resource_descriptor, ONLY: resource_write
++  USE qe75_native_lease, ONLY: native_check
++  USE mp_world, ONLY: mpime,nproc,world_comm
++  USE mp_pools, ONLY: npool
++  USE mp, ONLY: mp_max,mp_barrier
++  USE wvfct, ONLY: npwx,nbnd
++  USE klist, ONLY: nks,nkstot
++  USE exx_base, ONLY: nkqs,nqs
++  USE gvect, ONLY: ngm
++  USE gvecs, ONLY: ngms
++  USE lsda_mod, ONLY: nspin
++  USE noncollin_module, ONLY: npol
++  USE control_flags, ONLY: nmix,io_level,use_gpu
++  USE ions_base, ONLY: nat
++  USE uspp, ONLY: okvan
++  IMPLICIT NONE
++  TYPE(fft_type_descriptor), INTENT(IN) :: fock
++  CHARACTER(1024) :: root,path
++  CHARACTER(64) :: profile,common
++  CHARACTER(32) :: rank
++  INTEGER :: length,status,code
++  LOGICAL, SAVE :: captured=.FALSE.
++  CALL native_check()
++  IF(captured) RETURN
++  code=0
++  IF(nproc/=2 .OR. npool/=1 .OR. nat/=2 .OR. npol/=2 .OR. nbnd/=48 .OR. okvan .OR. use_gpu) code=1
++  CALL get_environment_variable('QE75_RESOURCE_ROOT',root,LENGTH=length,STATUS=status)
++  IF(status/=0 .OR. length<1 .OR. length>850) code=1
++  CALL get_environment_variable('QE75_PROFILE_SHA256',profile,LENGTH=length,STATUS=status)
++  IF(status/=0 .OR. length/=64) code=1
++  CALL get_environment_variable('QE75_COMMON_INPUT_SHA256',common,LENGTH=length,STATUS=status)
++  IF(status/=0 .OR. length/=64) code=1
++  code=MERGE(1,0,code/=0)
++  CALL mp_max(code,world_comm)
++  IF(code/=0) CALL errore('resource_capture','fixture/profile/root refused',1)
++  WRITE(rank,'(I0)') mpime
++  path=TRIM(root)//'/rank'//TRIM(rank)//'.fft'
++  CALL resource_write(TRIM(path),profile,common,mpime,nproc, &
++       INT([npwx,npol,nbnd,nks,nkstot,nkqs,nqs,ngm,ngms,nspin,nmix,io_level],int64), &
++       dfftp,dffts,fock,code)
++  ! Every rank takes this collective on local I/O failure before any EXX
++  ! allocation proceeds. An absent/truncated packet NEVER certifies a layout.
++  code=MERGE(1,0,code/=0)
++  CALL mp_max(code,world_comm)
++  IF(code/=0) CALL errore('resource_capture','all-rank FFT capture refused',1)
++  CALL mp_barrier(world_comm)
++  captured=.TRUE.
++END SUBROUTINE
++#endif
