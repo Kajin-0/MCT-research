@@ -1,0 +1,97 @@
+{
+  "records": [
+    {
+      "version": "v1",
+      "report_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/build.json",
+      "report_sha256": "5da145e87792321cf7a17db4bafb196a5408aa9b93576cdc28554bd1f720daee",
+      "passed": false,
+      "compile_or_link_records": 0,
+      "QE_MPI_executed": false,
+      "pins": {},
+      "candidate_binary_pins": {}
+    },
+    {
+      "version": "v2",
+      "report_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v2/build.json",
+      "report_sha256": "eb6301617e56b495e6d3388929785bc143ec26f6e32caa69c4cd2e6c214e0c4f",
+      "passed": true,
+      "compile_or_link_records": 13,
+      "QE_MPI_executed": false,
+      "pins": {
+        "prior_source_pins": {
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/descriptor/exx.f90": "35c1388c6285550b6f4d436cd19f024521047d3cd05d0e49dacc35a6fc50ace1",
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/init_run.f90": "96eb6acc04ff81cab19c33d83b4da6a8273aebbd2657a6dc5bd20d47ff210adb",
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/native_lease.f90": "55ec55fbe74fb8267bce6ebdadaf2cb4287ac46b574982d7e15b30763c6c1e17",
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/lease_client.c": "ecab5af0b06e011004fa2132b5f7332551845faa6f0354896542c942c8aa7736"
+        },
+        "new_source_pins": {
+          "native_lease.f90": "3c7ad018f056e760a0155a1e385bab92e04655496f07468e7761cfd99eedf491",
+          "init_run.f90": "6ba919ff60888cdca2ef0247aadb59e7849ae26dd6f13829e54a1911b5f15535",
+          "exx.f90": "a397fe26a209bba22e57090eb9116f208fd21b87ad93bd51079aa999d87811c2",
+          "lease_client.c": "264d06c71a86812c898af016b8ec50d911974111f7fff55b9ff09d0a62147d4d"
+        },
+        "native_arithmetic_byte_equal": {
+          "SUBROUTINE vexx_k(": true,
+          "FUNCTION exxenergy2_k(": true,
+          "SUBROUTINE aceupdate_k(": true,
+          "SUBROUTINE vexxace_k(": true
+        },
+        "phase_scope": 4,
+        "source_compilation_is_not_phase_authority": true
+      },
+      "candidate_binary_pins": {
+        "stock": {
+          "binary": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v2/stock/pw.first_ace.UNADMITTED",
+          "sha256": "9b22528f2755d40a61cc7b6c94f020a36f1b7e7e4a67a80c1f2793be6c6812bd"
+        },
+        "stream": {
+          "binary": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v2/stream/pw.first_ace.UNADMITTED",
+          "sha256": "a862710c49ba1f6545de0d8e6cc360de92c5226bc98ca098e691e184ed7e8e79"
+        }
+      }
+    },
+    {
+      "version": "v3",
+      "report_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/build.json",
+      "report_sha256": "15e6a26815c98628871d5533fc1823ebc5a01e5d026aee572f202c195b7c018b",
+      "passed": true,
+      "compile_or_link_records": 13,
+      "QE_MPI_executed": false,
+      "pins": {
+        "prior_source_pins": {
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/descriptor/exx.f90": "35c1388c6285550b6f4d436cd19f024521047d3cd05d0e49dacc35a6fc50ace1",
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/m5_software_20261013/wave/init_run.f90": "96eb6acc04ff81cab19c33d83b4da6a8273aebbd2657a6dc5bd20d47ff210adb",
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/native_lease.f90": "55ec55fbe74fb8267bce6ebdadaf2cb4287ac46b574982d7e15b30763c6c1e17",
+          "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_envelope_20261013/transport/lease_client.c": "ecab5af0b06e011004fa2132b5f7332551845faa6f0354896542c942c8aa7736"
+        },
+        "new_source_pins": {
+          "native_lease.f90": "4a1e2b3f0c7ac1a88091fb798712d382ae7271a510bad69561f41e7be0818a86",
+          "init_run.f90": "6ba919ff60888cdca2ef0247aadb59e7849ae26dd6f13829e54a1911b5f15535",
+          "exx.f90": "0e605503620d6d6414f8cc319899ba32ce295a5d4cc125ce333108191d67f3ea",
+          "lease_client.c": "527b9c64e886d904b13618f7817b7947e6988f10c50c378667bbbfe988933582"
+        },
+        "native_arithmetic_byte_equal": {
+          "SUBROUTINE vexx_k(": true,
+          "FUNCTION exxenergy2_k(": true,
+          "SUBROUTINE aceupdate_k(": true,
+          "SUBROUTINE vexxace_k(": true
+        },
+        "phase_scope": 4,
+        "source_compilation_is_not_phase_authority": true
+      },
+      "candidate_binary_pins": {
+        "stock": {
+          "binary": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/stock/pw.first_ace.UNADMITTED",
+          "sha256": "3b2979b9528fcfbbd849754cbca9ff66c65128e317c56ef458015073ea0624db"
+        },
+        "stream": {
+          "binary": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/stream/pw.first_ace.UNADMITTED",
+          "sha256": "7664269c2672362c18b66239bb7398d47eac44f74b80a63cbcdf52e1c18b2ea6"
+        }
+      }
+    }
+  ],
+  "v1_failure": "exact source anchor expected two scope arguments, but broad 2_c_int text also matched the action",
+  "v2_rejection": "old scope2 restart reservation callback incompatible with fresh scope4",
+  "current": "v3, fresh live phase7 reservation callback, not admitted"
+}

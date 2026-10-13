@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "mismatches": [],
+  "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "dirty_status_unchanged": true,
+  "pins": 17,
+  "stock_prior_candidates_unchanged": true,
+  "sessions": [
+    "calcura:$0",
+    "commander:$1",
+    "research:$3"
+  ],
+  "lease_holders": [],
+  "own_ledger_phase": "FINISHED",
+  "MemAvailable_bytes": 31837241344,
+  "free_disk_bytes": 32183173120,
+  "MPI_QE_started_by_this_Codex_phase": false
+}

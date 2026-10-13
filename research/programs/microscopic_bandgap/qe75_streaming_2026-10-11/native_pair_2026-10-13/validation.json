@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2026-10-13T14:43:23.413411+00:00",
+  "passed_components": true,
+  "focused_methods": 9,
+  "real_QE_objects_compiled": 6,
+  "paired_private_links": 2,
+  "native_QE_MPI_executed_by_this_Codex_phase": false,
+  "native_fresh_phase_issuer_qualified": false,
+  "resource_admission": "BLOCKED",
+  "package_file_sha256": {
+    "build_results.json": "15e6a26815c98628871d5533fc1823ebc5a01e5d026aee572f202c195b7c018b",
+    "phase_stubs.f90": "7cf19a229573756ab93ba8a30f555197bbd18ecebf7e05d20db63174f6f604c9",
+    "compare_pair.py": "66e0425033e3ec2fc15cfddf148aa4548208b12837a5cb5ba06d880ae87a3afe",
+    "decision.md": "a9a6aabba4d07a8c0aec48dd05bb132007cc18933685e6c441356a0b7695756e",
+    "preflight_results.json": "3e3870721b0638176dd8c0fc5c7343390a08c5ca3d8d7b334915885183360e39",
+    "phase_unit.f90": "d4cc7763a281571aab0349ee058794c88f9b2eb6f58fd17343c602411087ecbf",
+    "handoff_ledger.md": "b2f01b3e1b4e856fe0b6bdd76302f4e3a854efcdc086679b2f48b0c9cfbb4a74",
+    "smoke_verification.json": "0bcab99ad62a788a4a0cd4d6ea99fd1b5adbe7c43134281257db380106ddcfa4",
+    "preservation_final.json": "87315fb4a3c1bd862e8bb8ff05d44ed704b32f8b8d1c46b2ca6002eeb363b1a9",
+    "preflight.py": "034c38db99e8e9599a7417015081f29640998aee350e11250c9c9ca2862a1570",
+    "protocol.md": "18f9e91ae593c8357ef8c42ed1a0eae254499b7c661f1d40fb4548ecd7428501",
+    "test_pair.py": "9f3ecc14310039d8c9d3f705205f9ef87c5ffa07193fd36853dab45faffaa25c",
+    "stream.in": "9543581af8a85be530ce14df9053ce72c988104e445f2805c33cc5099a8d5d44",
+    "phase_worker.c": "e010f3ee7295e55df07b1d8bc03d5407d5b2f69d1e64b6b88ec08bd5fe3a38b8",
+    "user_mpi_probe.c": "fc30a6357c7b0031b36584cc34a74da64db442c0f5886882d04932aa76c260ba",
+    "verify_smoke.py": "ce68fdb3be6b71684c25c9140e1790d88188253d35c7cdc860d6abded188a742",
+    "phase_sources.py": "6736aee643c6f393a31f939a1e6fc98c55ae283754159e5c062015d2761a0239",
+    "test_results.json": "8589fcd6a2197ede4caf302237d396838f051c459e40a6c87715014502b46f35",
+    "build_pair.py": "4b115ff6169d266086220b5966006e9868e4ae4a0a6057b8c95c6c34e2c5cd1f",
+    "build_history.json": "2e7ad2c701b335c1088ecfbf09e5035c9c8eedfa08f31a76f7606e46d621c442",
+    "smoke_journal.json": "0c01fd956724eb99a61b9571376ae67064bd89478802fc9aa0178de2c3ca6135",
+    "control.in": "1c4d2e175f66b6d6b5b3b42b546bc1d9788178d30a3b56cc86cfbbe4ad665e50"
+  },
+  "retained_serial_unit_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/phase_model": "f348d810397a8ebf9db3e17118c4de0a02f618eae7516ccaf9807ccfab0165de",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/wire_worker": "bf32ee909f93669d754cc3d507eb8e2d8a9b4048b5057e0983ab1ad3206bdbe9"
+  }
+}

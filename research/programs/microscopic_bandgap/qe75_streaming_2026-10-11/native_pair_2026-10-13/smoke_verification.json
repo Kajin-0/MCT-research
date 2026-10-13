@@ -1,0 +1,49 @@
+{
+  "timestamp_utc": "2026-10-13T14:07:17.128644+00:00",
+  "verified_historical": {
+    "invocation": "4cb067dcd8614e6fa51ad6881168c2f8",
+    "unit": "r07-direct-mpi-smoke-20261013.service",
+    "journal_interval_seconds": 0.846275,
+    "memory_peak_bytes": 12890112,
+    "swap_peak_bytes": 0,
+    "cpu_seconds": 1.193464,
+    "boot_id": "b01532b5d8b64614ad013924c14d9194",
+    "started_realtime_us": 1791899940172190
+  },
+  "observed_artifacts": {
+    "mpi_probe": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/direct_local_probe_20261013/mpi_probe",
+      "sha256": "b3b61b7ef1de2c928ba86949e252cfa1c5cccf3f4742875767d8e026cd29cadd"
+    },
+    "mpi_probe.c": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/direct_local_probe_20261013/mpi_probe.c",
+      "sha256": "fc30a6357c7b0031b36584cc34a74da64db442c0f5886882d04932aa76c260ba"
+    }
+  },
+  "current_collected_unit": "LoadState=not-found\nActiveState=inactive\nInvocationID=\n",
+  "user_reported_rank_output": {
+    "pids": [
+      1841538,
+      1841539
+    ],
+    "sum": 3,
+    "gathered": [
+      0,
+      1
+    ],
+    "invalid": 0,
+    "persisted_stdout_recovered": false
+  },
+  "user_reported_limits": {
+    "memory_max_bytes": 536870912,
+    "swap_max_bytes": 0,
+    "tasks_max": 32,
+    "runtime_max_seconds": 45,
+    "historical_config_recovered": false
+  },
+  "interpretation": "Native MPI run corroborated; rank values and hard limits user-reported. Journal resource peak independently recovered. Not authenticated R07C/QE.",
+  "hostwide_MPI_absence_proven": false,
+  "private_network_proven": false,
+  "native_QE_EXX_equivalence_proven": false,
+  "MPI_reexecuted": false
+}

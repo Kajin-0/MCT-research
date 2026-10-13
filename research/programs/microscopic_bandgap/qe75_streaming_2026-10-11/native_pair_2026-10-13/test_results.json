@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "methods": 9,
+  "build_records": [
+    {
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/native_pair_2026-10-13/phase_worker.c",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/source/lease_client.c",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/wire_worker"
+      ],
+      "status": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-fcheck=all",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model",
+        "-c",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/native_pair_2026-10-13/phase_stubs.f90",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model/stubs.o"
+      ],
+      "status": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-fcheck=all",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model",
+        "-c",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/source/native_lease.f90",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model/lease.o"
+      ],
+      "status": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-O0",
+        "-fcheck=all",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/native_pair_2026-10-13/phase_unit.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model/lease.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/model/stubs.o",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/focused-tests-final/phase_model"
+      ],
+      "status": 0,
+      "stderr": ""
+    }
+  ],
+  "real_C_Unix_wire_tested": true,
+  "Fortran_collective_tests": "SERIAL STUBS ONLY",
+  "native_MPI_QE_started": false,
+  "native_phase_authority_issued": false,
+  "synthetic_packet_tests_are_not_material_or_native_QE_validation": true,
+  "failures": []
+}
