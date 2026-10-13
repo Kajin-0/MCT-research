@@ -1,8 +1,8 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 00:55 UTC
-**Status:** CONTINUE INDEPENDENT ENGINEERING; PRODUCTION TRANSPORT PASS; NATIVE LAUNCH BLOCKED AT INVENTORY; SCIENTIFIC GOAL BLOCKED
+**Last verified update:** 2026-10-13 01:10 UTC
+**Status:** COMMON-STATE PROTOCOL SOFTWARE PASS; CONTINUE FFT/OUTPUT BOUNDS; NATIVE LAUNCH HARD_BLOCKED; SCIENTIFIC GOAL BLOCKED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
 **Starting verified revision:** `b1a4772`. **Latest native bridge revision:** `6b21779`. **Latest M4 checkpoint:** `1d74a0d`. **Latest readiness checkpoint:** `m5_readiness` artifacts in this commit, starting `1d74a0d`. **Latest integration:** this finite checkpoint starts clean `6b5fc5e`. **This plan does not authorize new numerical runs.**
 
@@ -59,6 +59,16 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 
 At every meaningful milestone update the timestamp, status, test evidence, active next item, and context-reset handoff; commit and push validated work only to the existing research branch, no main merge, no DFT commit. Preserve all earlier scientific negative results. This work-queue policy supersedes earlier blanket "stop at the first blocker" instructions **for safe independent engineering tasks only**, not for native numerical admission.
 
+## Independent software milestones — 2026-10-13 01:10 UTC
+
+| Work item | State | Evidence / next action |
+|---|---|---|
+| Authoritative admission domain | **HARD_BLOCKED** after one bounded assessment; cooperating-owner lease or private PID namespace cannot certify foreign host processes | `software_2026-10-13/admission_domain.md`; do not repeat inventory fishing |
+| Matched initial-state protocol | **PASS SOFTWARE / NATIVE COMMON STATE UNKNOWN**: read-only 48-band/NC/SOC capture after wfcinit, typed complete rank/k checker, actual-map and density/potential/et/wg comparisons, padding canonicalization; six tests, both real-QE init_run objects compiled | `software_2026-10-13/{common_protocol.md,wave_build_results.json,wave_test_results.json,wave_checkpoint.json}` |
+| RNG/startup identifiability | **TESTED SERIAL / SOURCE-CONDITIONED**: pristine default randy is reproducible; differing call history is a counterexample to a seed-only certificate | No native seed generated; existing incompatible 44-band save remains rejected |
+| FFT/output/lifetime bounds | **ACTIVE NEXT** | Derive conservative geometry/parallel-workspace bounds and exact conditional file extents; retain unknown true descriptors |
+| Native readback/collective errors | **PENDING INDEPENDENT SOURCE WORK** | Compile/test recoverable local error propagation without real MPI; never promote to native progress proof |
+
 ## Churn detection and stop rules
 
 - Every substantial phase must change a previously failing **acceptance gate** or produce a new physically meaningful observation, not merely add tests, write more handoffs, or re-audit identical data.
@@ -75,16 +85,15 @@ At every meaningful milestone update the timestamp, status, test evidence, activ
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Context-reset handoff (updated 2026-10-13 00:44 UTC)
+## Context-reset handoff (updated 2026-10-13 01:10 UTC)
 
-- **Read first:** this file, `m5_integration/{decision.md,contract.md,handoff_ledger.md,validation.json}`, retained readiness/M4/M3b decisions and DFT `AGENTS.md`.
-- **Repo:** `/home/User/repos/MCT-research`, branch `research/hgcdte-impurity-tmatrix-20261010`; this finite phase starts clean `6b5fc5e`. Checkpoint includes runtime guardian/client/native-bridge changes, focused evidence and this ledger. No main merge or DFT commit.
-- **State:** Native launch is blocked at 32 unreadable live mapping entries, strict refusal at PID 1; continue other safe workstreams. No native PW/HSE/MPI/communicator/fixture run. Only tiny compiled libc workers and serial Python hooks; historical blocked goal unchanged.
-- **New measured gate:** production guardian binary dispatch + distinct PROFILE/JOB + two live unique peers + actual rank-child ancestry receipts. Native scope stays unissued; native hook allowlist/collectives/readback/common-wave/actual FFT and whole-output gates remain unqualified. A compiled or ABI receipt cannot admit native QE.
-- **Tests:** 37 focused methods; integration maximum summed RSS 97,746,944 bytes, maximum PSS 44,698,624, maximum RSS-minus-PSS indicator 53,089,280 bytes (separate maxima). Actual 192-byte/rank extents and 262,144-byte output escrow; resource floors retained. No large stores or repeated numerical campaign.
-- **Preservation/closure:** DFT HEAD `422d71d`, dirty status, 17 protected input/PP/supervisor pins, stock archive/executable and all earlier private candidates, plus `calcura:$0`, `commander:$1`, `research:$3`, unchanged. Final owned test workers/lease holders empty; own ledger FINISHED. Never reset an unknown registry. Fresh snapshot and binary under `.local/qe75_lowram_20261011/m5_integration/`.
-- **Reproduction if needed:** DFT `source scripts/env.sh`, then absolute `m5_integration/validate.py` path in its contract. Tiny serial components only; no native candidate runs. Preserve first inventory evidence, do not fish for a passing snapshot.
-- **Missing next input:** permission-compatible authoritative foreign-family inventory/admission-domain certificate covering unreadable live identities. Native launch stops; other safe engineering continues under the autonomous work queue above. No permission/privilege change or unverified isolation is issued. The 44-band reference cannot certify the 48-band fixture. Full 16-atom/352-band execution, physical `x_c`, lowered target physics, queues, supervisors and goal resume remain excluded.
+- Existing research branch, phase starts clean `339265a`; this checkpoint contains `software_2026-10-13` common-state capture/checker and source/serial evidence. Continue independent software tasks under the autonomous policy above.
+- **Read first:** this plan, `software_2026-10-13/{admission_domain.md,common_protocol.md,wave_checkpoint.json}`, retained integration/readiness decisions and DFT AGENTS.
+- **Passed new gate:** read-only complete 48-band initialization capture and comparison protocol, both actual QE init_run object compiles, six serial tests, pristine RNG reproducibility/history counterexample. Padding canonicalization alters output only; no initialization physics or native coefficients change.
+- **Native truth:** no native wave generated, no real MPI collective, no SCF or fixture run. Native launch HARD_BLOCKED at foreign inventory and still requires all original common-state/layout/readback/resource gates. No new namespaces/permissions/supervisors or historical-goal change.
+- **Active next:** exact conditional extents and conservative FFT/output/lifetime bounds, then independent source collective/readback tests. Do not stop software solely at unreadable mappings; do not admit native execution from a protocol or synthetic certificate.
+- **Preservation:** DFT `422d71d`, dirty status, 17 pins, stock and all prior private candidates, calcura/commander/research sessions unchanged; own ledger FINISHED and lease empty. New private compile-only/serial artifacts at `.local/qe75_lowram_20261011/m5_software_20261013/`.
+- **Reproduction:** DFT `source scripts/env.sh`; run absolute `software_2026-10-13/build_wave.py`, `test_common_state.py`, `preservation.py`. Builds only new private objects/serial helpers, never PW/MPI. Original 352-band/full-size jobs remain excluded.
 
 ## Change log
 
@@ -99,3 +108,5 @@ At every meaningful milestone update the timestamp, status, test evidence, activ
 - **2026-10-12 03:08 UTC | M5-readiness checkpoint (this commit; starts `1d74a0d`) | M5 readiness | COMPONENT PASS / NATIVE BLOCKED |** Typed distinct PROFILE/JOB digests, compiled native world-rank lease and deterministic first-ACE instruments; both private candidates linked; 78 methods pass, exact serial wave/ACE/density decode checks 1,208,137 values. Existing 44-band seed is incompatible, 36 mappings unknown, production dispatch/actual collective/state/layout/full-envelope gates remain unqualified. No native run; protected state unchanged. Stop at admission boundary.
 
 - **2026-10-13 00:44 UTC | M5-integration checkpoint (this commit; starts `6b5fc5e`) | M4/M5 integration | PRODUCTION COMPONENT PASS / NATIVE BLOCKED |** Real guardian compiled-wire dispatch and typed live rank-child receipts tested; 37 focused methods, peak integration summed RSS 97,746,944 bytes, protected state unchanged, workers/lease closed. First native stop: 32 unreadable mappings, strict refusal PID 1. No native launch or changed physics. Next required input: authoritative permission-compatible foreign-family inventory/admission-domain certificate; stop here.
+
+- **2026-10-13 01:10 UTC | common-state checkpoint (this commit; starts `339265a`) | independent software | PASS SOFTWARE / NATIVE UNKNOWN |** Six tests, two real-QE capture object compiles and pristine serial RNG checks; complete typed initial-state observation and padding-only canonicalization implemented. One admission-domain assessment HARD_BLOCKED; safe engineering continues. Protected state unchanged. Next: FFT/output/lifetime bounds.
