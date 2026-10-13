@@ -1,0 +1,6 @@
+test_requested_private_network_does_not_admit_host_cookie (__main__.MeasuredReplay.test_requested_private_network_does_not_admit_host_cookie) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/usr/bin/journalctl",
+    "--user",
+    "--unit=r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service",
+    "--since",
+    "2026-10-13 12:20:20",
+    "--until",
+    "2026-10-13 12:20:30",
+    "--no-pager",
+    "-n",
+    "80",
+    "-o",
+    "short"
+  ],
+  "returncode": 0,
+  "stdout": "Oct 13 12:20:24 srv1323456 systemd[805]: Starting r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service - [systemd-run] /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/namespace_cookie_20261013/cookie_probe.v1 /home/User/opencode_workspace/DFT/.tmp/r07cookie-f50b821e25534be3b4f40c3118e5ec5d/owner.sock 1839686 641874639 1b676bf3cff0693fc02d81904b3b69d15c6b8f087f8a6a8d89cab4eb4ef6654a a51e0e59f692edb96d6d0dccf45ec58d51f17a9b9dd957474f7b5b1b9a5b638b 1 2049 545780 normal...\nOct 13 12:20:24 srv1323456 (probe.v1)[1839689]: r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service: PrivateNetwork=yes is configured, but the kernel does not support or we lack privileges for network namespace, proceeding without.\nOct 13 12:20:24 srv1323456 systemd[805]: Started r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service - [systemd-run] /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/namespace_cookie_20261013/cookie_probe.v1 /home/User/opencode_workspace/DFT/.tmp/r07cookie-f50b821e25534be3b4f40c3118e5ec5d/owner.sock 1839686 641874639 1b676bf3cff0693fc02d81904b3b69d15c6b8f087f8a6a8d89cab4eb4ef6654a a51e0e59f692edb96d6d0dccf45ec58d51f17a9b9dd957474f7b5b1b9a5b638b 1 2049 545780 normal.\nOct 13 12:20:24 srv1323456 systemd[805]: r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service: Main process exited, code=exited, status=94/n/a\nOct 13 12:20:24 srv1323456 systemd[805]: r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service: Failed with result 'exit-code'.\n",
+  "stderr": ""
+}

@@ -86,3 +86,13 @@ cross PrivateNetwork; masking this would hide an additional failure.
 Stop this finite assignment after preservation, validation and commit/push.
 Do not repeat unchanged inventories/tests or launch the candidate on this
 decision. The original one-MPI-run conditional permission remains unused.
+
+## Dated follow-up — 2026-10-13 12:44 UTC
+
+The next bounded [namespace-cookie investigation](../namespace_cookie_2026-10-13/decision.md)
+measured a working fresh-socket getter but actual network isolation failure:
+service and host cookie1/five interfaces, despite requested properties yes.
+The exact owned journal reports proceeding without network namespace support/
+privileges. This retires the getter-observation uncertainty, not the admission
+gate. Original inode EACCES and all strict host-wide/native negative results
+remain valid. No native MPI/QE/HSE or cross-namespace receipt qualification.

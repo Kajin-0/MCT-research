@@ -1,0 +1,14 @@
+{
+  "source_sha256": "4eaefc0c12b85cf19e7ac338c3eb772be734e7ad2c44cc14f3f15e4122185bed",
+  "binary_sha256": "7c0fafaca94f6376e67a31c17a26a4a6f8dd4e1d8012698cdd59d2c7f138846e",
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-15",
+  "compiler_sha256": "1fa7bb6439186b9f4912ad97d9072b6e0ded5b98b831a257d23d619719b74722",
+  "flags": [
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "MPI_linked": false
+}

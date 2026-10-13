@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "mismatches": [],
+  "DFT_head": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "dirty_status_unchanged": true,
+  "pins": 17,
+  "stock_prior_candidates_unchanged": true,
+  "sessions": [
+    "calcura:$0",
+    "commander:$1",
+    "research:$3"
+  ],
+  "lease_holders": [],
+  "own_ledger_phase": "FINISHED",
+  "MemAvailable_bytes": 31848853504,
+  "free_disk_bytes": 32287784960,
+  "native_MPI_QE_run": false,
+  "capture_candidates_unchanged": true,
+  "foreign_process_inventory_repeated": false,
+  "legacy_registry_restored_byte_exact": true,
+  "de000d4_candidates_unchanged": true,
+  "own_cgroup_ledger_phase": "FINISHED"
+}

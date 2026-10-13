@@ -1,0 +1,31 @@
+{
+  "fresh_host_cookie": 1,
+  "interfaces": [
+    {
+      "index": 1,
+      "name": "lo",
+      "flags": 73
+    },
+    {
+      "index": 2,
+      "name": "eth0",
+      "flags": 4163
+    },
+    {
+      "index": 3,
+      "name": "docker0",
+      "flags": 4163
+    },
+    {
+      "index": 1193,
+      "name": "veth9db2745",
+      "flags": 4163
+    },
+    {
+      "index": 3935,
+      "name": "br-bca680bc19ec",
+      "flags": 4099
+    }
+  ],
+  "network_data_sent": false
+}

@@ -1,0 +1,11 @@
+{
+  "unit": "r07-owned-c65ad3a7ee2a467fbd4f6eae71b4d443.service",
+  "LoadState": "not-found",
+  "recorded_PID": 1839689,
+  "recorded_PID_absent": true,
+  "flock_holders": [],
+  "legacy_byte_exact": true,
+  "fresh_getter_worked": true,
+  "realized_private_network": false,
+  "repeated_service_runs": false
+}

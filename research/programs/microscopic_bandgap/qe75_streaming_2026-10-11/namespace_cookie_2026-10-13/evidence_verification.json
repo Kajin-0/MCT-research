@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "non_MPI_service_attempts": 1,
+  "realized_network_isolation": false,
+  "fresh_getter_observation": true,
+  "cross_namespace_handshake_qualified": false,
+  "MPI_QE_HSE_executed": false,
+  "original_hostwide_exclusion": "UNPASSED",
+  "kind": "READ_ONLY_CONSISTENCY"
+}

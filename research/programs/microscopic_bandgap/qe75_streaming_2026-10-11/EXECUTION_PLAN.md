@@ -1,8 +1,8 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 11:53 UTC
-**Status:** LOCAL-OWNED VALIDATION STRATEGY SOURCE/COMPILE/SERIAL PASS; NEW LOCAL MPI PATH BLOCKED AT NAMESPACE IDENTITY EACCES; ORIGINAL STRICT HOST-WIDE EXCLUSION UNPASSED; NO MPI/QE RUN
+**Last verified update:** 2026-10-13 12:44 UTC
+**Status:** FRESH-SOCKET COOKIE OBSERVATION WORKS; EFFECTIVE PRIVATE NETWORK FAILS DESPITE REQUESTED PROPERTIES; LOCAL MPI STILL BLOCKED; ORIGINAL HOST-WIDE EXCLUSION UNPASSED; NO MPI/QE/HSE RUN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
 **Starting verified revision:** `b1a4772`. **Latest native bridge revision:** `6b21779`. **Latest M4 checkpoint:** `1d74a0d`. **Latest readiness checkpoint:** `m5_readiness` artifacts in this commit, starting `1d74a0d`. **Latest integration:** this finite checkpoint starts clean `6b5fc5e`. **This plan does not authorize new numerical runs.**
 
@@ -111,6 +111,24 @@ The original conditional **one** MPI harness permission remains unused. Installe
 
 Stop this finite strategy assignment after tested commit/push at the concrete namespace-observation boundary. No third namespace probe, host-network fallback, unchanged inventory fishing, or speculative native launch. Read `local_owned_validation_2026-10-13/{decision.md,handoff_ledger.md,local_protocol.md}` first after this plan; read-only pin verification is provided.
 
+## Fresh-socket namespace investigation — 2026-10-13 12:44 UTC
+
+Starting clean `9fdfdaa`, explicit bounded NON-MPI user authorization. One fixed compiled C service only; no third-party process inventory/control, global permissions, supervisors, goal, sessions, MPI/QE/HSE or DFT commit. No follow-up negative units after the healthy attempt failed; no namespace/settings retry.
+
+| Gate / independent work | Actual result | Evidence |
+|---|---|---|
+| Fresh namespace getter | **OBSERVATION PASS:** three freshly created service sockets and independent host before/after sockets all return cookie1; inode stat still EACCES13 | `namespace_cookie_2026-10-13/normal_result.json`; never use an inherited/accepted endpoint as self identity |
+| Realized private domain | **FAIL:** five interfaces/non-loopback addresses in service; independent host also five. Requested PrivateNetwork/PrivateUsers yes, but owned journal explicitly reports proceeding without network namespace due unsupported/privilege condition | `owned_unit_journal.json`, `independent_host_interfaces.json`; configured property is not realization |
+| Owned identity/control | **MEASURED PASS COMPONENT:** exact peer UID/PID/start, executable hash/path/inode, invocation/MainPID/cgroup, actual64MiB/swap0/tasks4/oom.group1; peak2MiB/pids1/no cap events | Raw normal result; not a foreign-MPI exclusion certificate |
+| Pathname owner transport | **PARTIAL / NOT CROSS-NAMESPACE QUALIFIED:** connection/authenticated owner observed within host namespace. Receipt/fd withheld after domain refusal; terminal manager status94/owner EOF | Raw null exit_status serialization retained; terminal manager is exit evidence |
+| Source / negative checks | Seven initial certificate/host-socket tests PASS, one captured-refusal offline replay PASS; five final integer budget tests PASS | Distinguish serial/model checks from live isolated MPI; no service rerun |
+| Runtime envelope | **INCOMPLETE:** conditional exact resident-mapping bound; automatic transfer to proc RSS rejected absent accounting margin. NOFILE/FSIZE do not bound closed retained generations; incomplete producer sum refuses | `runtime_resource_assessment.md`, `resource_bounds.py`, tests; no large budget allocation |
+| Closure/preservation | **MEASURED PASS:** exact unit not-found/PID1839689 absent, lease free and legacy byte-exact; old ledgers closed,17 pins/dirty DFT/stock/candidates/sessions unchanged | `closure.json`, `preservation.json`, read-only4096-byte reservation readback |
+
+The EACCES **observation** workaround is now functional, and it exposed the actual unsafe condition instead of laundering a Boolean. The current manager/settings do not realize the required network isolation; the result does not prove every possible permission-compatible domain construction impossible. Rank1 next prerequisite is an actually segregated permitted execution domain certified by fresh cookies and loopback-only state. Real cross-namespace owner/lease, production live issuer, complete MPI producer/generation/path bounds and actual rank registration/lifecycle remain unqualified. Original strict host-wide exclusion is still unpassed. Kernel-owned caps cannot prove absence of foreign MPI. No native attempt was consumed; no physical x_c or target-physics change.
+
+Stop this finite investigation after evidence/plan commit/push. Read `namespace_cookie_2026-10-13/{decision.md,preregistration.md,runtime_resource_assessment.md,handoff_ledger.md}` next. Read-only `verify_evidence.py` is supplied; do not rerun the failed service or skipped cases unchanged.
+
 ## Churn detection and stop rules
 
 - Every substantial phase must change a previously failing **acceptance gate** or produce a new physically meaningful observation, not merely add tests, write more handoffs, or re-audit identical data.
@@ -127,7 +145,17 @@ Stop this finite strategy assignment after tested commit/push at the concrete na
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Context-reset handoff (updated 2026-10-13 11:53 UTC)
+## Context-reset handoff (updated 2026-10-13 12:44 UTC)
+
+- Read this plan then `namespace_cookie_2026-10-13/{decision.md,preregistration.md,runtime_resource_assessment.md,handoff_ledger.md}`, prior local/cgroup decisions and DFT AGENTS. Start clean `9fdfdaa` on existing research branch/session; blocked goal unchanged.
+- One NON-MPI service only. Fresh cookies work under inode EACCES, but both host/service report1; five interfaces in each. Own unit journal explicitly warns it proceeds without network namespaces. **Actual private domain FAIL** despite manager properties yes. No settings/capability retries, negative follow-up units or global permission changes.
+- Actual kernel peer/executable/unit/cgroup binding and64MiB/swap0/tasks4/oom.group1 measured, peak2MiB/pids1. Pathname connection/owner identity measured only within host namespace; no receipt/fd granted after refusal, no actual cross-namespace/production MPI issuer/collective qualification. Retain raw null exit_status and terminal manager status94.
+- Seven certificate tests + captured-refusal offline replay + five final resource tests pass, distinctly labelled. Exact resident-mapping bound is conditional; Linux reported-RSS extension was rejected without accounting/snapshot margin. Aggregate scratch requires retained-generation/metadata/path producer bounds; partial sums refuse. No huge allocation.
+- Exact unit unloaded/PID1839689 absent; original lease free/ledger byte-exact/old ledgers FINISHED.17 protected pins, dirty DFT HEAD422d71d/status, stock/all candidates and calcura/commander/research sessions intact. MemAvailable31,848,853,504 bytes, free disk32,287,784,960 bytes at audit. Known unit journal/interface observations are not global foreign-process inventory.
+- Private outputs in DFT `.local/qe75_lowram_20261011/namespace_cookie_20261013/` and one retained `.tmp/r07cookie-*` evidence directory (dead socket inode, no listener). Source/binary and raw logs preserved. `verify_evidence.py` is read-only; source/replay tests do not relaunch services. No unchanged reruns or live native experiments from this handoff.
+- Rank1 missing input: actual permitted segregated local network domain, certified with fresh sockets and loopback-only state. Then cross-namespace authenticated owner/lease and complete runtime producer bounds. The current tested manager/settings fail; no universal impossibility claimed. Original strict host-wide exclusion remains unpassed. No MPI/QE/HSE/48-band/Cd/16-atom, paid actions, main merge/DFT commit, new sessions/agents, supervisor changes, goal resume or physical x_c.
+
+## Previous local validation handoff (2026-10-13 11:53 UTC; retained)
 
 - Read this plan then `local_owned_validation_2026-10-13/{decision.md,preregistration.md,local_protocol.md,handoff_ledger.md}`, retained owned/backend decisions and DFT AGENTS. This finite phase starts clean `ba48c97`; existing research branch/session and historical goal unchanged.
 - Native MPI attempt count **zero**. New measured prerequisite failure is self namespace stat EACCES13 in fixed non-MPI isolated user service. First raw error instrument omitted site; one correction localized it. Earlier dependency-type preflight error launched nothing. No permission change/fallback or third probe. Preserve both short failed unit records and original host-wide unprovability.
@@ -173,3 +201,5 @@ Stop this finite strategy assignment after tested commit/push at the concrete na
 - **2026-10-13 04:42 UTC | user-manager checkpoint (this commit; starts `de000d4`) | owned-family control | REAL KERNEL/LEASE/LIFECYCLE PASS / NATIVE STILL BLOCKED |** UID1001 systemd user bus verified; actual memory/swap/pids/group cleanup, typed live rank receipts, per-file/log controls, cancellation/timeout/OOM/task limits and crash/restart tested on tiny non-MPI actors. Added SCM_RIGHTS flock escrow/durable legacy refusal marker; original registry restored byte-exact. Full13 suite plus final3 checks pass; negatives preserved. Stock/dirty DFT/17 pins/candidates/sessions protected, units/ledgers/lease closed; no native job or inventory scan. Adopt owned control supplement; host-wide and native state/resource gates remain.
 
 - **2026-10-13 11:53 UTC | local strategy checkpoint (this commit; starts `ba48c97`) | narrow local-owned evaluation | COMPILE/SERIAL PASS / NATIVE LOCAL PATH BLOCKED |** Fixed non-MPI isolated-user probe cannot observe self netns inode (EACCES13); one diagnostic correction retained, own units closed. Built unexecuted standalone collective harness and R07C/scope3 client; ten serial C/Unix tests and twelve-pin read-only verification PASS. Conditional local correctness does not require proving absent foreign MPI, but does not guarantee host floors/timing or pass original strict exclusion. No MPI/QE/HSE, permission/global changes, new sessions or inventory fishing. Prior pins/dirty DFT/stock/candidates/sessions and ledger bytes preserved. Stop at accessible owned-namespace/rank evidence plus isolated owner/output integration prerequisites.
+
+- **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.

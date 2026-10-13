@@ -1,0 +1,10 @@
+test_complete_finite_model_and_checked_units (__main__.Bounds.test_complete_finite_model_and_checked_units) ... ok
+test_no_evidence_and_duplicate_terms_refuse (__main__.Bounds.test_no_evidence_and_duplicate_terms_refuse) ... ok
+test_open_fd_limit_is_not_retained_file_limit (__main__.Bounds.test_open_fd_limit_is_not_retained_file_limit) ... ok
+test_partial_runtime_sum_refuses (__main__.Bounds.test_partial_runtime_sum_refuses) ... ok
+test_shared_rss_conditional_address_bound (__main__.Bounds.test_shared_rss_conditional_address_bound) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

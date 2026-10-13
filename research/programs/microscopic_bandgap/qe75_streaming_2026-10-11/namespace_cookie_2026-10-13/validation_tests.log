@@ -1,0 +1,12 @@
+test_complete_component_record_with_inode_eacces (__main__.Certificate.test_complete_component_record_with_inode_eacces) ... ok
+test_exact_fixed_command_is_non_mpi (__main__.Certificate.test_exact_fixed_command_is_non_mpi) ... ok
+test_executing_image_unknown_refuses (__main__.Certificate.test_executing_image_unknown_refuses) ... ok
+test_fresh_host_sockets_are_consistent (__main__.Certificate.test_fresh_host_sockets_are_consistent) ... ok
+test_live_binding_and_scope_refuse (__main__.Certificate.test_live_binding_and_scope_refuse) ... ok
+test_manager_kernel_unknown_or_weakened_refuse (__main__.Certificate.test_manager_kernel_unknown_or_weakened_refuse) ... ok
+test_missing_or_false_namespace_evidence (__main__.Certificate.test_missing_or_false_namespace_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.008s
+
+OK

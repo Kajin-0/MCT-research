@@ -1,0 +1,47 @@
+{
+  "path": "/home/User/opencode_workspace/DFT/.tmp/r07cookie-f50b821e25534be3b4f40c3118e5ec5d/reserved.extent",
+  "logical_bytes": 4096,
+  "allocated_bytes": 4096,
+  "read_only_postrun_storage_probe": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 7882969,
+    "available_bytes": 32288641024,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "MPI_QE_executed": false
+}
