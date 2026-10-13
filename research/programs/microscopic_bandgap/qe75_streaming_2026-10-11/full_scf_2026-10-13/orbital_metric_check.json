@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "synthetic_algebra_only": true,
+  "cases": [
+    {
+      "case": "same",
+      "block_norm2": 1.3145433953794319e-30,
+      "direct_norm2": 0.0,
+      "difference": 1.3145433953794319e-30
+    },
+    {
+      "case": "occupied_gauge",
+      "block_norm2": 8.328901246998377e-31,
+      "direct_norm2": 4.690391730967446e-32,
+      "difference": 7.859862073901632e-31
+    },
+    {
+      "case": "different",
+      "block_norm2": 3.7669964526565587,
+      "direct_norm2": 3.7669964526565582,
+      "difference": 4.440892098500626e-16
+    }
+  ]
+}

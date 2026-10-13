@@ -1,0 +1,201 @@
+--- /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/native_pair_20261013/v3/source/exx.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_build3_20261013/source/control_exx.f90
+@@ -132,6 +132,8 @@
+   INTEGER :: ibnd_buff_end
+   !! ending buffer index used in bgrp parallelization
+   !
++ LOGICAL,PRIVATE::full_fft_seen=.FALSE.
++ INTEGER,PRIVATE::full_store_generation=0
+  CONTAINS
+ 
+ #if defined(__QE75_M5)
+@@ -661,7 +663,10 @@
+     nxxs = dfftt%nr1x * dfftt%nr2x * dfftt%nr3x
+     nrxxs = dfftt%nnr
+ #if defined(__QE75_RESOURCE_CAPTURE)
+-    CALL qe75_capture_fft(dfftt)
++    IF(.NOT.full_fft_seen) THEN
++      CALL qe75_capture_fft(dfftt)
++      full_fft_seen=.TRUE.
++    ENDIF
+ #endif
+ #if defined(__MPI)
+     IF (noncolin) THEN
+@@ -4177,8 +4182,7 @@
+     ! A fresh diagnostic member ends here, after ALL local k actions and
+     ! global energy reduction. No next HSE iteration, punch, SCF convergence
+     ! or checkpoint/restart success is implied by this deliberate termination.
+-    CALL native_phase(6)
+-    CALL errore('r07_first_ace','first ACE captured; intentional fixture stop, not SCF',85)
++
+     domat = .FALSE.
+     !
+   END SUBROUTINE aceinit
+@@ -4523,7 +4527,7 @@
+       ALLOCATE(qdiag_seen(nks));qdiag_seen=.FALSE.
+     ENDIF
+     IF(SIZE(qdiag_seen)/=nks) CALL errore('qdiag','changed k layout',1)
+-    capture=.NOT.qdiag_seen(current_k)
++    capture=.FALSE.
+     IF(capture) THEN
+       CALL native_check()
+       IF(DoLoc .OR. gamma_only .OR. use_gpu .OR. npol/=2 .OR. nbnd/=48 .OR. nbndproj/=nbnd) &
+--- electrons.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_build3_20261013/source/control_electrons.f90
+@@ -15,6 +15,7 @@
+ #if defined(__EXX_QSTREAM)
+   USE exx, ONLY: qbridge_capture,qbridge_restore
+ #endif
++  USE qe75_full_state, ONLY:full_observe
+   USE kinds,                ONLY : DP
+   USE check_stop,           ONLY : check_stop_now, stopped_by_user
+   USE io_global,            ONLY : stdout, ionode
+@@ -258,6 +259,7 @@
+         IF (okpaw) CALL PAW_potential(rho%bec, ddd_paw, epaw,etot_cmp_paw)
+         CALL set_vrs( vrs, vltot, v%of_r, kedtau, v%kin_r, dfftp%nnr, &
+              nspin, doublegrid )
++        CALL full_observe(iter,1,tr2_final)
+         !
+      ELSE
+         !
+@@ -320,6 +322,7 @@
+         etot = etot + exxen + 0.5D0*fock2 - fock1
+         hwf_energy = hwf_energy + exxen + 0.5D0*fock2 - fock1 ! [LP]
+         exxen = 0.5D0*fock2 
++        CALL full_observe(iter,1,tr2_final)
+         !
+         IF ( dexx < tr2_final ) THEN
+            WRITE( stdout, 9066 ) '!!', etot, hwf_energy
+--- punch.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_build3_20261013/source/control_punch.f90
+@@ -27,6 +27,8 @@
+   USE exx, ONLY: qbridge_transaction
+   USE exx_checkpoint_state, ONLY: bridge_pending
+ #endif
++  USE qe75_full_state, ONLY:full_observe
++  USE kinds, ONLY:DP
+   USE io_global,            ONLY : stdout, ionode
+   USE io_files,             ONLY : iunwfc, nwordwfc, diropn, tmp_dir, prefix, &
+                                    restart_dir, xmlfile, create_directory
+@@ -178,6 +180,7 @@
+   ! ... FIXME: for electron-phonon calculations - data should be read from xml file!
+   ! 
+   IF ( la2F ) CALL a2Fsave()
++  IF(TRIM(what)=='all') CALL full_observe(0,2,0._DP)
+ #if defined(__EXX_QSTREAM)
+   IF(bridge_pending) THEN
+     IF(TRIM(what)/='all' .OR. io_level<0) CALL errore('punch','incomplete native checkpoint',1)
+--- /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fresh_scope4_fix_20261013/exx.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_build3_20261013/source/stream_exx.f90
+@@ -132,6 +132,8 @@
+   INTEGER :: ibnd_buff_end
+   !! ending buffer index used in bgrp parallelization
+   !
++ LOGICAL,PRIVATE::full_fft_seen=.FALSE.
++ INTEGER,PRIVATE::full_store_generation=0
+  CONTAINS
+ 
+ #if defined(__QE75_M5)
+@@ -194,6 +196,10 @@
+     ! The fresh first-ACE diagnostic has no native restart transaction.
+     ! Scope4 is validated by actual world peers, never an environment Boolean.
+     ! Legacy builds/actions still require scope2 and full checkpoint state.
++    IF(action=='post_punch') THEN
++      CALL native_check()
++      RETURN ! fresh capture only: no qualified restart publication
++    ENDIF
+     IF(action=='pre_import') THEN
+       CALL native_check()
+       IF(TRIM(restart_mode)/='from_scratch' .OR. qbridge_import .OR. ALLOCATED(xi)) &
+@@ -243,10 +249,13 @@
+     USE mp_pools, ONLY: me_pool
+     INTEGER, INTENT(IN) :: nr,lo,hi,nq
+     INTEGER :: unit,ios
+-    CHARACTER(32) :: rank
++    CHARACTER(32) :: rank,generation
+     CHARACTER(1024) :: path
++    IF(full_store_generation>=20) CALL errore('qbridge','outer generation cap',1)
++    full_store_generation=full_store_generation+1
++    WRITE(generation,'(I0)') full_store_generation
+     WRITE(rank,'(I0)') me_pool
+-    path=TRIM(tmp_dir)//'/'//TRIM(prefix)//'.stream_request.'//TRIM(rank)
++    path=TRIM(tmp_dir)//'/'//TRIM(prefix)//'.stream_request.'//TRIM(generation)//'.'//TRIM(rank)
+     CALL qs_close(qstore)
+     OPEN(NEWUNIT=unit,FILE=TRIM(path),STATUS='new',IOSTAT=ios)
+     IF(ios/=0) CALL errore('qbridge','owned stream reservation request collision',1)
+@@ -678,7 +687,10 @@
+     nxxs = dfftt%nr1x * dfftt%nr2x * dfftt%nr3x
+     nrxxs = dfftt%nnr
+ #if defined(__QE75_RESOURCE_CAPTURE)
+-    CALL qe75_capture_fft(dfftt)
++    IF(.NOT.full_fft_seen) THEN
++      CALL qe75_capture_fft(dfftt)
++      full_fft_seen=.TRUE.
++    ENDIF
+ #endif
+ #if defined(__MPI)
+     IF (noncolin) THEN
+@@ -4194,8 +4206,7 @@
+     ! A fresh diagnostic member ends here, after ALL local k actions and
+     ! global energy reduction. No next HSE iteration, punch, SCF convergence
+     ! or checkpoint/restart success is implied by this deliberate termination.
+-    CALL native_phase(6)
+-    CALL errore('r07_first_ace','first ACE captured; intentional fixture stop, not SCF',85)
++
+     domat = .FALSE.
+     !
+   END SUBROUTINE aceinit
+@@ -4540,7 +4551,7 @@
+       ALLOCATE(qdiag_seen(nks));qdiag_seen=.FALSE.
+     ENDIF
+     IF(SIZE(qdiag_seen)/=nks) CALL errore('qdiag','changed k layout',1)
+-    capture=.NOT.qdiag_seen(current_k)
++    capture=.FALSE.
+     IF(capture) THEN
+       CALL native_check()
+       IF(DoLoc .OR. gamma_only .OR. use_gpu .OR. npol/=2 .OR. nbnd/=48 .OR. nbndproj/=nbnd) &
+--- electrons.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_build3_20261013/source/stream_electrons.f90
+@@ -15,6 +15,7 @@
+ #if defined(__EXX_QSTREAM)
+   USE exx, ONLY: qbridge_capture,qbridge_restore
+ #endif
++  USE qe75_full_state, ONLY:full_observe
+   USE kinds,                ONLY : DP
+   USE check_stop,           ONLY : check_stop_now, stopped_by_user
+   USE io_global,            ONLY : stdout, ionode
+@@ -258,6 +259,7 @@
+         IF (okpaw) CALL PAW_potential(rho%bec, ddd_paw, epaw,etot_cmp_paw)
+         CALL set_vrs( vrs, vltot, v%of_r, kedtau, v%kin_r, dfftp%nnr, &
+              nspin, doublegrid )
++        CALL full_observe(iter,1,tr2_final)
+         !
+      ELSE
+         !
+@@ -320,6 +322,7 @@
+         etot = etot + exxen + 0.5D0*fock2 - fock1
+         hwf_energy = hwf_energy + exxen + 0.5D0*fock2 - fock1 ! [LP]
+         exxen = 0.5D0*fock2 
++        CALL full_observe(iter,1,tr2_final)
+         !
+         IF ( dexx < tr2_final ) THEN
+            WRITE( stdout, 9066 ) '!!', etot, hwf_energy
+--- punch.f90
++++ /home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_build3_20261013/source/stream_punch.f90
+@@ -27,6 +27,8 @@
+   USE exx, ONLY: qbridge_transaction
+   USE exx_checkpoint_state, ONLY: bridge_pending
+ #endif
++  USE qe75_full_state, ONLY:full_observe
++  USE kinds, ONLY:DP
+   USE io_global,            ONLY : stdout, ionode
+   USE io_files,             ONLY : iunwfc, nwordwfc, diropn, tmp_dir, prefix, &
+                                    restart_dir, xmlfile, create_directory
+@@ -178,6 +180,7 @@
+   ! ... FIXME: for electron-phonon calculations - data should be read from xml file!
+   ! 
+   IF ( la2F ) CALL a2Fsave()
++  IF(TRIM(what)=='all') CALL full_observe(0,2,0._DP)
+ #if defined(__EXX_QSTREAM)
+   IF(bridge_pending) THEN
+     IF(TRIM(what)/='all' .OR. io_level<0) CALL errore('punch','incomplete native checkpoint',1)

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-10-13T22:47:26.522600+00:00",
+  "actual_native_common_steps_1_2_3_pass": true,
+  "actual_native_step4_occupation_refusal_reproduced": true,
+  "strict_tolerances_unchanged": true,
+  "raw_failed_results_preserved": true,
+  "old_fixed_operator_package_unchanged": true,
+  "protected_state_pass": true,
+  "no_native_restart_attempt": true,
+  "no_new_MPI_in_validation": true,
+  "failure": "SCF state mismatch {'eigenvalue_Ry': 1.919420178353448e-11, 'occupation': 1.4692691729933927e-08, 'orbital_density_relative_F': 7.776699230049112e-09, 'NC_Gram_control': 1.9965560144834115e-15, 'NC_Gram_stream': 1.3322676295501878e-15, 'rhoR': 4.732880753977042e-13, 'rhoG': 4.063752195989359e-15, 'vrs': 4.67803573656056e-12}"
+}

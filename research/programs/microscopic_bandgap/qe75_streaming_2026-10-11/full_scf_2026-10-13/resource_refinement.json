@@ -1,0 +1,13 @@
+{
+  "actual_control_per_rank_bytes": [
+    201326592,
+    201326592
+  ],
+  "calculation": "16*fock_nnr*npol*nkqs*48",
+  "physical_inputs_unchanged": true,
+  "maximum_owned_output_bytes": 15032385536,
+  "minimum_disk_bytes": 10737418240,
+  "remaining_output": "14GiB - currently sampled retained allocation charge",
+  "rank_extent_added_conservatively": true,
+  "no_continuous_guarantee": true
+}

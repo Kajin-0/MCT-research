@@ -2,9 +2,24 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; original16atom host failed RSS, Cd not admitted; actual fixed-orbital streamed HgTe HSE EXX/ACE is bitwise equal to retained control; original post-completion owner failure retained, full SCF/restart/material gap/x_c remain gated
+**State:** historical physical goal BLOCKED; original16atom host failed/Cd not admitted; real fixed-orbital streamed HSE bitwise qualified; full-SCF control12outer unconverged/stream4outer occupation-gate failure; full native restart/material x_c OPEN
 
 **Updated:** 2026-10-13
+
+## Full-SCF numerical/scientific checkpoint — 2026-10-13 22:51 UTC
+
+**CALCULATED / PARTIAL:** [full-SCF decision](qe75_streaming_2026-10-11/full_scf_2026-10-13/decision.md)
+records real control12HSEouter updates/486.471663s/native480softstop, finalE
+−484.05799662412244Ry/Fock−8.967244339726552Ry/dexx3.62615e−6>1e−10. Exact
+native wave/rhoG HDF5readback/both finalreceipts/cleanowned exit, not convergence.
+Stream4generations/173.113413s passes commonsteps1–3; fourthstepoccupation
+1.469269e−8>prereg1e−8 fails. Other state/energy differences tiny, but fullpaired
+acceptance remains FAILED. No toleratedrerun or restart; highprecisionFermi and
+independent smearing-sensitivity budget missing. Previous fixed-Fock bitwise
+success/fullstatebyte refusal preserved. Native qstore generation life advanced;
+operatorimport remainsOPEN. Counts12vs4 unmatched, no whole-SCF RAMgain claim.
+Stock/original352band/dirtyDFT/ledger/sessions preserved, ownunitscollected/lease
+free; historicalgoal unchanged, no physicalxc/Cd/material convergence claim.
 
 ## Actual fixed-orbital streamed EXX/ACE — 2026-10-13 21:01 UTC
 

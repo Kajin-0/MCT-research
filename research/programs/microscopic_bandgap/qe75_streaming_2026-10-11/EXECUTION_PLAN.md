@@ -1,9 +1,16 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 21:01 UTC
-**Status:** REAL FIXED-ORBITAL STREAMED FIRST-ACE NUMERICAL EQUIVALENCE QUALIFIED: ALL ACTIVE DIRECT/GRAM/ACE FIELDS BITWISE IDENTICAL TO RETAINED CONTROL; ORIGINAL OWNER TEARDOWN FAILURE RETAINED; FULL SCF/RESTART AND PHYSICAL ALLOY TARGETS STILL GATED
+**Last verified update:** 2026-10-13 22:51 UTC
+**Status:** REAL FULL-SCF CONTROL12 OUTERS/SOFT STOP; STREAM4 OUTERS/SCIENTIFIC OCCUPATION GATE FAIL AT STEP4; PAIRED STEPS1–3 PASS; NO CONVERGENCE/RESTART CLAIM; PRIOR FIXED-OPERATOR BITWISE SUCCESS RETAINED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+**Latest full-SCF checkpoint starts clean `7116be0`:** read
+[full-SCF decision](full_scf_2026-10-13/decision.md),
+[actual trajectories/refusal](full_scf_2026-10-13/numerical_result.json) and
+[reset handoff](full_scf_2026-10-13/handoff_ledger.md). Real streamed outer-SCF
+life advanced; occupation1.469269e−8>prereg1e−8 failsstep4. STOP, no tolerance
+increase/retry/resume or fully converged HSE claim.
 
 **Latest finite checkpoint starts clean `682b5d5`:** read
 [fixed-operator decision](fixed_operator_2026-10-13/decision.md),
@@ -41,11 +48,49 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 | M4-L | Actual local two-rank standalone native collective feasibility, separate acceptance domain | **USER NATIVE SUCCESS / HISTORICAL PROVENANCE CORROBORATED**: exact artifact hashes and invocation/launcher journal; interval0.846275s, peak12,890,112bytes/swap0. Rank stdout/caps user-reported; not QE, private network, R07C or foreign exclusion | `native_pair_2026-10-13/{smoke_verification.json,smoke_journal.json,user_mpi_probe.c}` |
 | M5-F | Revised local fresh first-ACE numerical protocol and executable state fences | **COMPILE/COMPONENT PASS; QE UNADMITTED**: six real-QE objects/two links, scope4 initial/FFT/fresh-stream/terminal fences, independent strict action/Gram/ACE comparison and nine focused tests. Complete resource certificate, production issuer and actual wave/FFT/action observations remain unqualified; no launch | `native_pair_2026-10-13/{decision.md,protocol.md,build_results.json,test_results.json,preflight_results.json}` |
 | M5-O | Fixed-orbital replay from actual control; complete source/q/kernel/basis fences and real EXX/ACE comparison | **NATIVE NUMERICS QUALIFIED / ORIGINAL OWNER TEARDOWN FAILED:** all active direct/Gram/ACE/energy fields bitwise identical; full SCF/restart not tested | `fixed_operator_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts682b5d5, 2026-10-13 21:01 UTC |
+| M5-S | Genuine full HSE SCF trajectory pair + final readback | **PARTIAL / SCIENTIFIC GATE FAILED:** control12outer/softstop/notconverged, stream4outer/occupationrefusal; paired1–3PASS, native control wave/rhoG readbackPASS, restartOPEN | `full_scf_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts7116be0, 2026-10-13 22:51 UTC |
 | M6 | Admission of full-size host on actual RAM/disk/time using measured peak and sufficient scratch | **NO-GO**: ~31 GiB disk available versus nominal ~22 GiB stream + 10 GiB reserve + output | `checkpoint_phase/phase_outcomes.json` |
 | M7 | Accepted matched 16-atom HgTe host then Cd-substituted spectra, physically labelled Γ6/Γ8 overlaps | **NOT ACHIEVED** | Host termination; Cd stage absent |
 | M8 | Convergence/locality/finite-size/disorder and physical `x_c` error bounds | **NOT ACHIEVED** | `state.md`; physical input remains missing |
 
 **Scientific truth boundary:** Calculated binary HgTe Γ splitting is not a measured or first-principles alloy `E_g(x)`. The 87.5% number is an **allocation estimate**, not native peak-RAM proof. A linked private QE executable is not a validated SCF. Do not infer a physical `x_c` until M7 and M8 pass.
+
+## Full-SCF scientific checkpoint — 2026-10-13 22:51 UTC
+
+**CALCULATED:** actual two-rank48-band HgTe HSE+SOC90/360/120Ry/k2/q2/SG15
+control12outer updates/486.471663s, native480ssoftstop, exact native final wave/
+rhoG readback and both postpunch10receipts/clean0/JOBDONE. Last Etot
+−484.05799662412244Ry/Fock−8.967244339726552Ry/dexx3.62615e−6>1e−10; NOT CONVERGED.
+Stream4operator generations/173.113413s; passedpairedsteps1–3. Fourth step fails
+preregistered occupation1.469269e−8>1e−8, owned abort/refusal retained. Other
+step4errors Etot1.38e−11Ry/eigen1.919e−11Ry/orbitaldensity7.777e−9/rhoR4.733e−13/
+vrs4.678e−12Ry; no posthoc gate enlargement or full-pairPASS. No stream final
+punch/import and no restart attempt. Actual precisionFermi input/sensitivity
+budget missing; cause of occupation drift OPEN, not a proof of wrong Fock math.
+
+**MEASURED:** controlRSS963956736B/cgrouppeak1800224768B; streamRSS553095168B/
+cgrouppeak1083039744B incl.cache. Counts12vs4 differ; no whole-SCF RAM/performance
+improvement claim. Min sampled disk27.367GB/26.581GB, hostRAM30.112GB/30.317GB;
+12GiB/swap0/tasks12/600s and4GiB/10GiB/14GiBsampled floors/budget maintained.
+Control unloaded manager defaults are not runningcaps: actual admitted kernel
+records/runtime counters retained. Clean lifecycle/readback advanced on control.
+
+**TARGETED SOURCE RESULTS:** genuine electrons() path, intentional first-ACE
+stop removed only in new private candidates; no successful fixed-Fock rerun.
+Generation-specific request/reservation after old qstore retirement, four real
+201326592B/rank generations with distinct inodes, no whole-storecopy. First
+control observer misplaced in restart branch -> step1missingrefusal after real
+step2; one exact source correction/freshoriginalseed run, oldFAILEDrecord kept.
+Generic805MiB/rank resource overestimate -> prelaunchrefusal; measured exactFFT
+bound and remaining14GiBbudget accounting corrected, original10GiBfloor kept.
+
+**STOP at scientific refusal / convergence boundary:** preserve old full-state
+byte refusal and fixed-operator bitwise success. Next independently justified
+input highprecision Fermi energy + smearing-sensitive uncertainty criterion,
+then qualified native oldoperator/SCFstate import before any continuation.
+Original16atom352band/stock/dirtyDFT/oldledger/sessions byte-exact; all3own units
+collected/leasefree, only own escrows retired. No physicalxc/Cd/full16atom/goal/
+agent/session/main/DFTcommit changes.
 
 ## Fixed-operator checkpoint — 2026-10-13 21:01 UTC
 
@@ -303,6 +348,8 @@ state replay/readback design, not another infrastructure campaign.
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-13 22:51 UTC | starts7116be0 | REAL FULL-SCF EVOLUTION / OCCUPATION FALSIFICATION:** Control12outer updates/486.471663s with exact native finalwave/rhoG readback/clean0; HSEnotconverged. Stream4generations/173.113413s, common1–3PASS then occupation1.469269e−8>prereg1e−8refusal; no toleranceadjustment/retry. Generation retirement/reservation advanced; observerfault + conservative resource refusal targeted fixes retained. No unmatched whole-SCF memorybenefit, native restart, physicalxc or protected-state changes. STOP at evidenced numerical/scientific gate, records pushed researchbranch only.
 
 - **2026-10-13 21:01 UTC | starts clean682b5d5 | FIXED-ORBITAL REAL STREAM EXX/ACE:** Canonical full-source/trial/probe replay and targeted setup-only missing-table capture; one streamed native first ACE passes bitwise direct/Gram/ACE equality at all3k/two ranks, contraction−17.885954461447270Ry/delta0. Stream96.193434s/RSS629506048B, raw receipts/resource samples/pins retained. Original post-completion cgroup deletion failure remains FAILED, with independent numerical qualification; targeted future teardown predicate tested offline only. No control SCF rerun, old full-state refusal unchanged. Protected state/cleanup PASS; stop finite numerical scope, full SCF/restart/material targets gated.
 

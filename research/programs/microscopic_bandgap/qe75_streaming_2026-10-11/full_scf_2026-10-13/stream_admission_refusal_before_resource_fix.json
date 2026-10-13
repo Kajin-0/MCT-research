@@ -1,0 +1,1 @@
+{"native_QE_MPI_started":false,"reason":"10-GiB physical disk reserve would be violated","refusal_before_flock_registry_reservation_systemd_MPI":true,"source_candidate_not_native_qualified":true,"timestamp":"2026-10-13T22:35:28.114839+00:00"}
