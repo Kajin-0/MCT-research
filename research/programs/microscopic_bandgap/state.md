@@ -2,9 +2,32 @@
 
 **Portfolio contribution:** R07
 
-**State:** original16atom host failed RSS cap; user two-atom stock14-iteration HSE remains unconverged; new real control first-ACE internal checks PASS, paired stream refused at actual numerical-state mismatch; no Cd/material gap/x_c; historical blocked goal unchanged
+**State:** historical physical goal BLOCKED; original16atom host failed RSS, Cd not admitted; actual fixed-orbital streamed HgTe HSE EXX/ACE is bitwise equal to retained control; original post-completion owner failure retained, full SCF/restart/material gap/x_c remain gated
 
 **Updated:** 2026-10-13
+
+## Actual fixed-orbital streamed EXX/ACE — 2026-10-13 21:01 UTC
+
+**CALCULATED:** [native fixed-operator decision](qe75_streaming_2026-10-11/fixed_operator_2026-10-13/decision.md)
+qualifies ONE real two-rank48-band HgTe HSE+SOC90/360/120Ry/k2/q2 streamed first
+ACE. Replayed actual control source/trial/probe inputs and full kernel/FFT
+readbacks; all active corresponding direct/Gram/ACE/projector/energy outputs
+bitwise identical at all3k. Native weighted contraction−17.885954461447270Ry,
+difference0, independently WG-trace/Gram/action checked. No final SCF Fock term,
+HSE convergence, Cd or physical xc inference. Original rhoR/vrs full-state
+refusal unchanged; new fixed Fock driver does not run SCF. Original raw control
+auxiliary tables were not captured; reconstruction remains source-conditioned,
+independently tested by real action equality.
+
+Stream96.193434s/RSS629506048B/cgrouppeak982867968B incl.cache, sampled floors
+30.399GBRAM/28.908GBdisk, no cap events. No matched whole-SCF memory-gain claim.
+Original owner RESULT remains FAILED for post-completion cgroup-file deletion
+race after both6receipts; raw stack/samples retained. Numerical qualification
+is separate; completion-only future fix tested offline, not a native rerun.
+Two setup-only attempts retained (inactiveWK serializer refusal then completed
+kernel capture/ENODEV). Stock/dirty DFT/old ledger/sessions unchanged, groups
+collected/lease free. Stop finite authorized operator scope; physical acquisition
+and full SCF/restart boundaries preserved. Historical goal never changed.
 
 ## Actual first-ACE control and refused pair — 2026-10-13 19:33 UTC
 

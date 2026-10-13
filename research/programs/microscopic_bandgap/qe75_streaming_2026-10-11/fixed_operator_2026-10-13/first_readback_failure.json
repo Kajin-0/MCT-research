@@ -1,0 +1,110 @@
+[
+  {
+    "name": "rank0.k1.input",
+    "expected": 6415008,
+    "actual": 6734984,
+    "byte_differences": 103241,
+    "first": [
+      6310000,
+      6310001,
+      6310002,
+      6310003,
+      6310004,
+      6310005,
+      6310006,
+      6310007
+    ],
+    "footer_expected": "b'\\xcb[d?QE75-FIXED-END  '",
+    "footer_actual": "b'\\xcb[d?QE75-FIXED-END  '"
+  },
+  {
+    "name": "rank0.k2.input",
+    "expected": 6414944,
+    "actual": 6734920,
+    "byte_differences": 103554,
+    "first": [
+      6309936,
+      6309937,
+      6309938,
+      6309939,
+      6309940,
+      6309941,
+      6309942,
+      6309943
+    ],
+    "footer_expected": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '",
+    "footer_actual": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '"
+  },
+  {
+    "name": "rank0.k3.input",
+    "expected": 6414840,
+    "actual": 6734816,
+    "byte_differences": 103384,
+    "first": [
+      6309832,
+      6309833,
+      6309834,
+      6309835,
+      6309836,
+      6309837,
+      6309838,
+      6309839
+    ],
+    "footer_expected": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '",
+    "footer_actual": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '"
+  },
+  {
+    "name": "rank1.k1.input",
+    "expected": 6423608,
+    "actual": 6743584,
+    "byte_differences": 103265,
+    "first": [
+      6318440,
+      6318441,
+      6318442,
+      6318443,
+      6318444,
+      6318445,
+      6318446,
+      6318447
+    ],
+    "footer_expected": "b'\\xc0\\xfb\\x81?QE75-FIXED-END  '",
+    "footer_actual": "b'\\xc0\\xfb\\x81?QE75-FIXED-END  '"
+  },
+  {
+    "name": "rank1.k2.input",
+    "expected": 6423536,
+    "actual": 6743512,
+    "byte_differences": 103663,
+    "first": [
+      6318368,
+      6318369,
+      6318370,
+      6318371,
+      6318372,
+      6318373,
+      6318374,
+      6318375
+    ],
+    "footer_expected": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '",
+    "footer_actual": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '"
+  },
+  {
+    "name": "rank1.k3.input",
+    "expected": 6423448,
+    "actual": 6743424,
+    "byte_differences": 103808,
+    "first": [
+      6318280,
+      6318281,
+      6318282,
+      6318283,
+      6318284,
+      6318285,
+      6318286,
+      6318287
+    ],
+    "footer_expected": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '",
+    "footer_actual": "b'\\x00\\x00\\x00\\x00QE75-FIXED-END  '"
+  }
+]

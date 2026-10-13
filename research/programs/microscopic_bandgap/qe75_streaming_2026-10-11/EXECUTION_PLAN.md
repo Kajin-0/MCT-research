@@ -1,9 +1,16 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 19:33 UTC
-**Status:** REAL TWO-RANK CONTROL FIRST-ACE CAPTURE COMPLETE; NATIVE INTERNAL GRAM/ACTION CHECKS PASS; STREAM STARTUP REFUSED AT QUANTIFIED rho(real)/vrs BYTE MISMATCH; PAIRED EXCHANGE AND RAM-GAIN CLAIMS UNQUALIFIED
+**Last verified update:** 2026-10-13 21:01 UTC
+**Status:** REAL FIXED-ORBITAL STREAMED FIRST-ACE NUMERICAL EQUIVALENCE QUALIFIED: ALL ACTIVE DIRECT/GRAM/ACE FIELDS BITWISE IDENTICAL TO RETAINED CONTROL; ORIGINAL OWNER TEARDOWN FAILURE RETAINED; FULL SCF/RESTART AND PHYSICAL ALLOY TARGETS STILL GATED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+**Latest finite checkpoint starts clean `682b5d5`:** read
+[fixed-operator decision](fixed_operator_2026-10-13/decision.md),
+[actual numerical result](fixed_operator_2026-10-13/numerical_result.json) and
+[reset handoff](fixed_operator_2026-10-13/handoff_ledger.md). ONE real streamed
+first ACE has now run; prior no-stream/failed-full-state claims below are dated
+history and remain valid for their respective experiment domains.
 
 **Latest checkpoint starts clean `066e27e`:** see
 `native_first_ace_2026-10-13/{decision.md,handoff.md,reference_evidence.json,bootstrap_result.json}`.
@@ -33,15 +40,53 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 | M5 | Native small control-versus-streamed action/energy/Gram/ACE equivalence and restart | **READINESS COMPONENTS ADVANCED / NATIVE NOT RUN**: 12 native-unit compiles + both private links; deterministic first-ACE instruments; exact serial qeh5 wave/density/ACE readback of 1,208,137 values. Actual MPI collectives/SCF restore/common 48-band seed/FFT layout/full envelope/inventory not qualified | `m5_readiness/{decision.md,contract_and_failures.md,validation.json,readback_results.json,link_results.json}` |
 | M4-L | Actual local two-rank standalone native collective feasibility, separate acceptance domain | **USER NATIVE SUCCESS / HISTORICAL PROVENANCE CORROBORATED**: exact artifact hashes and invocation/launcher journal; interval0.846275s, peak12,890,112bytes/swap0. Rank stdout/caps user-reported; not QE, private network, R07C or foreign exclusion | `native_pair_2026-10-13/{smoke_verification.json,smoke_journal.json,user_mpi_probe.c}` |
 | M5-F | Revised local fresh first-ACE numerical protocol and executable state fences | **COMPILE/COMPONENT PASS; QE UNADMITTED**: six real-QE objects/two links, scope4 initial/FFT/fresh-stream/terminal fences, independent strict action/Gram/ACE comparison and nine focused tests. Complete resource certificate, production issuer and actual wave/FFT/action observations remain unqualified; no launch | `native_pair_2026-10-13/{decision.md,protocol.md,build_results.json,test_results.json,preflight_results.json}` |
+| M5-O | Fixed-orbital replay from actual control; complete source/q/kernel/basis fences and real EXX/ACE comparison | **NATIVE NUMERICS QUALIFIED / ORIGINAL OWNER TEARDOWN FAILED:** all active direct/Gram/ACE/energy fields bitwise identical; full SCF/restart not tested | `fixed_operator_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts682b5d5, 2026-10-13 21:01 UTC |
 | M6 | Admission of full-size host on actual RAM/disk/time using measured peak and sufficient scratch | **NO-GO**: ~31 GiB disk available versus nominal ~22 GiB stream + 10 GiB reserve + output | `checkpoint_phase/phase_outcomes.json` |
 | M7 | Accepted matched 16-atom HgTe host then Cd-substituted spectra, physically labelled Γ6/Γ8 overlaps | **NOT ACHIEVED** | Host termination; Cd stage absent |
 | M8 | Convergence/locality/finite-size/disorder and physical `x_c` error bounds | **NOT ACHIEVED** | `state.md`; physical input remains missing |
 
 **Scientific truth boundary:** Calculated binary HgTe Γ splitting is not a measured or first-principles alloy `E_g(x)`. The 87.5% number is an **allocation estimate**, not native peak-RAM proof. A linked private QE executable is not a validated SCF. Do not infer a physical `x_c` until M7 and M8 pass.
 
+## Fixed-operator checkpoint — 2026-10-13 21:01 UTC
+
+**CALCULATED / NATIVE NUMERICAL FOUNDATION PASS:** ONE two-rank48-band primitive
+HgTe HSE+SOC90/360/120Ry/k2/q2 streamed first ACE, replaying actual retained
+control source/trial/probe data. Six canonical native input-buffer readbacks,
+full kernel/symmetry/table packets and actual rank FFT layouts pass exact
+bytes. All twelve corresponding direct/direct and ACE/ACE output records,
+Grams, factors/projectors and native contractions are bitwise identical.
+Unique-k contraction−17.885954461447270Ry, difference0. Independent WG trace,
+NC Gram and ACE-action reconstruction pass. No control SCF/action rerun.
+
+**MEASURED:** stream96.193434s, sampled family RSS629506048B, cgroup peak982867968B
+(includes charged file cache), minimum sampled MemAvailable30398865408B/disk
+28907634688B, output679354368B, no cap events. Actual201326592B/rank disk extents
+and25165824B resident planes. Whole-SCF RSS/performance gain not qualified;
+replay excludes old control SCF and cgroup peak is higher than old control.
+12GiB/swap0/tasks12/600s kernel contract and sampled4GiB/10GiB/14GiB guards
+retained; no continuous disk promise/global foreign-MPI/private-network proof.
+
+**RETAINED FAILURE:** stream original owner RESULT stays FAILED for counters(cg)
+racing removal of memory.oom.group AFTER both phase6 completions. Exact stack,
+native intentional stop/MPI_ABORT1, raw samples and empty collected group kept.
+Separate read-only qualification certifies NUMERICS, not a passed owner lifecycle.
+Targeted completion-only teardown remedy passes two offline checks, not a new
+native rerun. Setupv1 serializer inactive-WK extent refusal fixed; setupv2 all
+kernel data completed then ENODEV/unknown exact stack retained. Two setup-only
+attempts, ONE stream operator execution, zero setup EXX or repeated control.
+Original full-state rhoR/vrs refusal remains unchanged; no electrons/SCF/punch
+in the new Fock domain. Original control auxiliary tables reconstructed by
+pinned pure constructors: source-conditioned, not nonexistent raw old tables.
+
+**STOP:** finite numerical objective achieved. Full SCF-state parity, checkpoint/
+restart, qualified owner teardown and full16atom352-band host/impurity acquisition
+remain gated. Stock/DFT dirty HEAD/status/diff/old ledger/three sessions byte-exact;
+all3 own units collected/lease free. Own escrows retired only; raw qstores remain.
+No Cd/material gap/xc, goal/session/agent change, main merge or DFT commit.
+
 ## Critical path and decision points
 
-**Latest actual execution (2026-10-13 19:33 UTC, starts `ab8b3e1`):** see
+**Previous actual execution (2026-10-13 19:33 UTC, starts `ab8b3e1`):** see
 [native measured decision](native_pair_execution_2026-10-13/decision.md).
 User explicitly approved sampled local disk acceptance. One real control first
 ACE completed with both live phase6 receipts:112.925992s, RSS884166656 bytes;
@@ -258,6 +303,8 @@ state replay/readback design, not another infrastructure campaign.
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-13 21:01 UTC | starts clean682b5d5 | FIXED-ORBITAL REAL STREAM EXX/ACE:** Canonical full-source/trial/probe replay and targeted setup-only missing-table capture; one streamed native first ACE passes bitwise direct/Gram/ACE equality at all3k/two ranks, contraction−17.885954461447270Ry/delta0. Stream96.193434s/RSS629506048B, raw receipts/resource samples/pins retained. Original post-completion cgroup deletion failure remains FAILED, with independent numerical qualification; targeted future teardown predicate tested offline only. No control SCF rerun, old full-state refusal unchanged. Protected state/cleanup PASS; stop finite numerical scope, full SCF/restart/material targets gated.
 
 - **2026-10-13 19:33 UTC | starts ab8b3e1 | ACTUAL NATIVE FIRST-ACE / PAIR REFUSAL:** Revised only the explicitly user-approved sampled local disk domain. Native control closed12 packets and both phase6 receipts; independent Gram/action checks pass. Retained post-exit proc race/lost raw telemetry; strict native control requalification. Stream real registration then rhoR/vrs bitwise mismatch beforeEXX, quantified6.66e−16/1.03e−13Ry. Targeted source/launch fixes and eight measured launches retained; no streamed exchange/RAM claim. Owned cleanup/protected-state PASS; stop at canonical-state boundary, no full16atom/Cd/goal/main/DFT changes.
 

@@ -1,0 +1,32 @@
+[
+  {
+    "packet": "rank0.k1.input",
+    "only_extra_inactive_WK_bytes": 319976,
+    "exact_after_extent_correction": true
+  },
+  {
+    "packet": "rank0.k2.input",
+    "only_extra_inactive_WK_bytes": 319976,
+    "exact_after_extent_correction": true
+  },
+  {
+    "packet": "rank0.k3.input",
+    "only_extra_inactive_WK_bytes": 319976,
+    "exact_after_extent_correction": true
+  },
+  {
+    "packet": "rank1.k1.input",
+    "only_extra_inactive_WK_bytes": 319976,
+    "exact_after_extent_correction": true
+  },
+  {
+    "packet": "rank1.k2.input",
+    "only_extra_inactive_WK_bytes": 319976,
+    "exact_after_extent_correction": true
+  },
+  {
+    "packet": "rank1.k3.input",
+    "only_extra_inactive_WK_bytes": 319976,
+    "exact_after_extent_correction": true
+  }
+]

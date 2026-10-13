@@ -1,0 +1,64 @@
+{
+  "canonical_identity": "8037044faca0537a0c7c3e37e4c702d61f7d956ed234c7b78d817dc1149e17c0",
+  "records": [
+    {
+      "rank": 0,
+      "k": 1,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fixed_operator_20261013/canonical/rank0.k1.input",
+      "sha256": "162113f2c64efc7e71463188e493b384d97d68f24efcf5bb3f59a0c6c019a939",
+      "bytes": 6415008
+    },
+    {
+      "rank": 0,
+      "k": 2,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fixed_operator_20261013/canonical/rank0.k2.input",
+      "sha256": "f4e0798ee0155947168a02fb097a6c529c646dba29aa18d74b606b454b0f321d",
+      "bytes": 6414944
+    },
+    {
+      "rank": 0,
+      "k": 3,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fixed_operator_20261013/canonical/rank0.k3.input",
+      "sha256": "1b0b4bdb54e6e411512acdabd018ed870f5df0c1d379838d1018a780b86500b7",
+      "bytes": 6414840
+    },
+    {
+      "rank": 1,
+      "k": 1,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fixed_operator_20261013/canonical/rank1.k1.input",
+      "sha256": "a047d4a70a39751025518d7a5d51583351e144eddde24471ec3fdd201c050afc",
+      "bytes": 6423608
+    },
+    {
+      "rank": 1,
+      "k": 2,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fixed_operator_20261013/canonical/rank1.k2.input",
+      "sha256": "bf38cadf7e4f4238178648a2fd44df567bb3117f3d156e6dfec22aa59216e369",
+      "bytes": 6423536
+    },
+    {
+      "rank": 1,
+      "k": 3,
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fixed_operator_20261013/canonical/rank1.k3.input",
+      "sha256": "f39d43dd72b133753d10dd9253ea535a178f3407759d45e2029aa43fe4e4efd2",
+      "bytes": 6423448
+    }
+  ],
+  "control_before_files_sha256": {
+    "diag/rank0.k1.before": "289ac9f651b6b181cf4e4461737c3c8ab35a0b68d6b747fb0bedcf0810300cc1",
+    "diag/rank0.k2.before": "66a64f3d96fc02fa6805880484fd2b0612d2e070d50592fe66ecb0fd4b3d8013",
+    "diag/rank0.k3.before": "900b56ac9198a140b899a86a2cf46ca470592aef45b7b5e16c05f3553299de62",
+    "diag/rank1.k1.before": "7cf5977a2d0f45e3caa8efa748a310781b89a754092ef0e3f20cf61dff1e40d2",
+    "diag/rank1.k2.before": "76327572432e049f220474cee87264595ca0e6aadddb88fc1224e266af59bb33",
+    "diag/rank1.k3.before": "9ab411ef16d7c87c1799007d18e2ccddd3dd8d5606cea2236af352c869a92638"
+  },
+  "wk": [
+    0.125,
+    0.5,
+    0.375
+  ],
+  "exact_weight_reconstruction": true,
+  "partial_weight_only_dyadic": true,
+  "new_domain": "fixed Fock inputs; original full-state refusal preserved",
+  "old_control_setup_tables_not_captured": true
+}

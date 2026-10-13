@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "canonical_actual_checks": [
+    {
+      "rank": 0,
+      "k": 1,
+      "all_active_source_trial_bytes_equal": true,
+      "packet_bytes": 6415008
+    },
+    {
+      "rank": 0,
+      "k": 2,
+      "all_active_source_trial_bytes_equal": true,
+      "packet_bytes": 6414944
+    },
+    {
+      "rank": 0,
+      "k": 3,
+      "all_active_source_trial_bytes_equal": true,
+      "packet_bytes": 6414840
+    },
+    {
+      "rank": 1,
+      "k": 1,
+      "all_active_source_trial_bytes_equal": true,
+      "packet_bytes": 6423608
+    },
+    {
+      "rank": 1,
+      "k": 2,
+      "all_active_source_trial_bytes_equal": true,
+      "packet_bytes": 6423536
+    },
+    {
+      "rank": 1,
+      "k": 3,
+      "all_active_source_trial_bytes_equal": true,
+      "packet_bytes": 6423448
+    }
+  ],
+  "weight_neighbor_inverse_checks": true,
+  "unchanged_arithmetic": [
+    "setup.vexx_k",
+    "setup.aceupdate_k",
+    "stream.vexx_k",
+    "stream.aceupdate_k"
+  ],
+  "private_build": true,
+  "resource_preflight": {
+    "admitted": true,
+    "rounded_reservation_bytes": 17716740096,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "native_not_yet_executed": true
+}
