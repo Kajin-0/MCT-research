@@ -1,0 +1,5 @@
+{
+  "initial_fixture_assertion_failed": true,
+  "explanation": "the first fixture removed a new-only vector, which should be allowed; missing-source negative now removes mapped source slot",
+  "physical_mapping_formula_changed": false
+}

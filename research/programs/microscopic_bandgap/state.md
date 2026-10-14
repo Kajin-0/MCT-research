@@ -2,9 +2,40 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; exploratory PBE+SOC host/Cd response tested against spectral probes and one matched k refinement; cutoff/BZ/material uncertainty OPEN; HSE-grade/dilute input and physical x_c OPEN; original failures/full-target gates preserved
+**State:** historical physical goal BLOCKED; exploratory PBE+SOC host/Cd response has measured probe, k and cutoff sensitivity; full cutoff/BZ/material accuracy OPEN; small HSE assessed only, no admitted full 600-s HSE pair; HSE-grade/dilute input and physical x_c OPEN; original failures/full-target gates preserved
 
 **Updated:** 2026-10-14
+
+## One measured cutoff pair and separate HSE assessment — 2026-10-14 20:34 UTC
+
+[Finite decision](chemical_cutoff_2026-10-14/decision.md): starting31e872e,
+ONE sequential stock PBE+SOC8atomHg4Te4/CdHg3Te4 pair increases40/160→50/200Ry,
+unchanged176bands144e/6.46A/SG15FR/FD.001Ry/k2/nativeTd/solver. Both SCFs
+converge11iterations226.27/212.73s, independent all-k charge<1.3e-11e;
+both live rank/resource/terminal gates PASS. Original host uncertainty retained.
+
+Exact NC physical-vector isometry embeds ORIGINAL7809PW host frame into10827PW
+with3018new-only zeros, no truncation/renormalization/index overlap; all24Tdmaps
+pass. W2 response+.393337031960eV vs+.395351851152eV: measured−2.014819meV.
+Conditional cutoff-difference interval[−9.57679,+5.54715]meV includeszero.
+W1–3 shifts−1.83450…−2.05337meV; all new conditional response intervals positive.
+Secondary new50host-frame change+.087142meV is kept separate. Seven focused
+actual-data/math/source checks pass; full cutoff/BZ/material errors remainOPEN.
+
+PeakRSS1.038GB/kernel.954GB under12GiB/swap0/tasks12/600s, hostRAM>28.72GB/
+disk>65.45GB; final aggregate499945472B under sampled14GiB. Both groups absent,
+knownflockfree/oldledger unchanged; protected stock/dirtyDFT exact. No retry,
+NSCF/HSE/16atom/jobqueue, other session/supervisor/Calcura or historicalgoal action.
+All prior occupation/neutrality/owner/RAM failures and full-target gates remain.
+
+[HSE source assessment](chemical_cutoff_2026-10-14/hse_feasibility.md) has no launch:
+complex Gamma/q1 buffer1.133GiB subtotal, k2/q2 buffer9.064GiB before fulloverhead;
+actual old2atom ACErebuild25.19s/unconverged14updates. 8atom Gamma14-rebuild
+heuristic~25min is not a convergence guarantee; full600s HSE unqualified.
+Rank missing HSE input as actual8atom ACE timing/wholepeak/descriptor under a
+separate scope. Best next current-cost chemistry test is PBE50/200unshifted3x3x3,
+four exactTd/TRstars and estimated220–260s/member, NOT launched/admitted here.
+STOP this finite cutoff phase. No material signed gap, HSE convergence or x_c.
 
 ## Probe sensitivity and one matched k refinement — 2026-10-14 18:24 UTC
 

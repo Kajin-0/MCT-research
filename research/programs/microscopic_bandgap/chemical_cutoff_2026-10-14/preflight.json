@@ -1,0 +1,68 @@
+{
+  "parent": "31e872e",
+  "only_input_cutoff_and_unique_paths_changed": true,
+  "stock_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "physical_RAM_available_B": 29834174464,
+  "storage": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 16124525,
+    "available_bytes": 66046054400,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "plane_wave_volume_scale": 1.3975424859373686,
+  "possible_60_vs_50_FFT_work_scale": 1.808534201793497,
+  "wall_heuristic_native40_times2_and_PW_scale_s": {
+    "host": 455.37524361783215,
+    "cd": 442.5178527472084
+  },
+  "conservative_memory_4x_measured_peak_B": 2773729280,
+  "not_a_convergence_guarantee": true,
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "old_registry": {
+    "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jw7adqol/job",
+    "members": [],
+    "phase": "FINISHED",
+    "version": 1
+  }
+}

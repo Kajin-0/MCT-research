@@ -1,9 +1,53 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 18:24 UTC
-**Status:** EXPLORATORY CHEMICAL RESPONSE HAS REAL PROBE CURVE AND ONE MATCHED K REFINEMENT; BOTH NEW SCF/TERMINAL GATES PASS; BZ/MATERIAL ACCURACY OPEN; ORIGINAL HSE16/352/GOAL AND HISTORICAL FAILS UNCHANGED
+**Last verified update:** 2026-10-14 20:34 UTC
+**Status:** ONE MATCHED 50/200 RY PBE CUTOFF PAIR COMPLETED; RESPONSE CHANGE −2.015 MEV; BOTH NATIVE SCF/TERMINAL GATES PASS; HSE ASSESSED ONLY, FULL 600-S HSE UNQUALIFIED; MATERIAL ACCURACY/PHYSICAL XC OPEN; ORIGINAL TARGET/GOAL/FAILURES UNCHANGED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## NEW finite chemistry cutoff milestone — 2026-10-14 20:34 UTC
+
+From clean31e872e, read [measured decision](../chemical_cutoff_2026-10-14/decision.md),
+[reset handoff](../chemical_cutoff_2026-10-14/handoff_ledger.md) and
+[separate HSE assessment](../chemical_cutoff_2026-10-14/hse_feasibility.md).
+ONE sequential stock-QE Hg4Te4/CdHg3Te4 PBE+SOC pair increases only40/160→50/200Ry,
+same176bands144e/6.46A/SG15FR/FD.001Ry/k2/nativeTd/solver. Both SCFs converge11
+iterations in226.27/212.73s, charge<1.3e-11e, actual live rank/terminal gates PASS.
+No retry/NSCF/HSE/extra grid/source arithmetic change.
+
+Primary ORIGINAL Gamma host projectors physically embed7809→10827PW by vectors,
+not indices; zero source norm discarded, no renormalization, all24 Td maps pass.
+W2response+.393337031960eV versus+.395351851152eV, measured−2.014819meV.
+Conditional change interval[−9.57679,+5.54715]meV includeszero. All tested W1–3
+responses remain positive; shifts−1.83450…−2.05337meV. Secondary newhost frame
+changes W2+.087142meV. Seven focused independent checks PASS. Two cutoffs
+do not establish full convergence; spectral completion bounds exclude material,
+eigenpair/operator/grid/cell/functional/ionic errors.
+
+PeakRSS1.038GB/kernel.954GB under12GiB/swap0/tasks12/600s; hostRAM>28.72GB,
+disk>65.45GB; aggregate499945472B under sampled14GiB. Both owned groups absent,
+knownlockfree/oldledger unchanged, stock/dirtyDFT exactbefore/after. Old host
+uncertainty and HSE occupation/neutrality/owner/RAM FAILS unchanged. No foreign
+MPI absence/network isolation, wholeSCF RAMgain, converged HSE or physical x_c.
+
+HSE source-conditioned complex buffers and real old timing assessed only;
+full8atomHSE600s is NOT ADMITTED. Need actual8atom ACE timing/wholepeak/native
+descriptor under separately scoped acquisition; Gamma/q1 14-rebuild heuristic
+~25min/member is not a convergence bound. Best next experiment within current
+cost scale is matched PBE50/200 unshifted3x3x3, fourTd/TRstars, estimated220–260s
+permember; proposal only, no queue/launch. STOP completed finite cutoff phase.
+
+## Current context-reset handoff — 2026-10-14 20:34 UTC
+
+This checkpoint starts31e872e on the existing research branch/session. Read the
+new cutoff handoff/decision/preregistration/verification, then DFT AGENTS. Both
+new native jobs are finished and accepted; exact data root is DFT
+`.local/qe75_lowram_20261011/chemical_pbe8_k2_e50_20261014/`. Compact raw files and
+wave/source pins are in the MCT package. Reproduction command in verification
+runs seven read-only scientific checks, never a job. No active owned family;
+historicalgoal/other sessions/supervisors unchanged. HSE and nextPBE3 are not
+authorized by this completed assessment. Commit/push this measured milestone
+and stop; do not create another native campaign or repair historical verdicts.
 
 ## NEW finite uncertainty experiment — 2026-10-14 18:24 UTC
 
@@ -490,7 +534,7 @@ Stop this finite investigation after evidence/plan commit/push. Read `namespace_
 4. Run appropriate *small* tests and `git diff --check`, then commit and push this plan **together with corresponding validated research artifacts** on the existing research branch. Do not falsely stamp verification before it occurs. Never overwrite an active agent's uncommitted work.
 5. On context reset, **read this file first** followed by cited package decisions/AGENTS. Compare against live `git status`, actual provenance and any running jobs; this document is a checkpoint, **not automatically trusted live state**.
 
-## Current context-reset handoff (2026-10-13 19:33 UTC)
+## Previous context-reset handoff (2026-10-13 19:33 UTC; retained)
 
 Read `native_pair_execution_2026-10-13/handoff.md` first, then its decision and
 native evidence. Its result supersedes earlier no-native statuses: control first
@@ -597,6 +641,8 @@ state replay/readback design, not another infrastructure campaign.
 - **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.
 
 ## Finite checkpoint change log — 2026-10-14 00:01 UTC
+
+- **2026-10-14 20:34 UTC | cutoff checkpoint (this commit; starts `31e872e`) | physics | NATIVE PAIR/FRAMES/SCF/OWNER PASS; HSE FULL600S UNQUALIFIED |** ONE50/200Ry matched8atom PBE pair11/11steps226.27/212.73s; original-frame W2+.393337eV and−2.015meV cutoff sensitivity, conditional difference includeszero. Seven focused checks, native wave/provenance/telemetry archived, aggregate499945472B, protected state/old negatives unchanged. HSE source/timing assessment only; no HSE launch. Next proposed physics PBE3x3x3 or separately scoped8atomACE resource acquisition. STOP finite completed pair.
 
 Starts clean1b4c59b. Added one scoped smearing-conditioning proof/audit package,
 prospectively frozen native ef/density/charge policy and observer-only private

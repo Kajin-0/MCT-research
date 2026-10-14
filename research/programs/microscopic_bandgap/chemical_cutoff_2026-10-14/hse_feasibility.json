@@ -1,0 +1,147 @@
+{
+  "status": "SOURCE-CONDITIONED arrays / HEURISTIC times; HSE NOT ADMITTED OR LAUNCHED",
+  "source_commit": "770a0b2d12928a67048e2f3da8d10d057e52179e",
+  "pristine_exx_SHA": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+  "pristine_exx_base_SHA": "918bb1ddb1dcac9074d7f5878898a5cd62b5dd92b602bb1f16339f3d4fdabf74",
+  "source_matches_Git_blob": true,
+  "source_formulas": {
+    "exxbuff": "complex16 * local_nnr * npol2 * bandgroup176 * Nkqs",
+    "xi": "complex16 * local_npwx * npol2 * nbndproj176 * nks"
+  },
+  "measured_reference": {
+    "input": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/hse_native_probe_20261013/pw.in",
+    "input_sha256": "6dc041903af5d2116e0f673e8dda7ad277db378dba2409fe9331206dee305eb3",
+    "stdout_sha256": "a7beb13e03eb725f6dd96045800d586ffe1e0d53301f04197a88f12bb3de21e3",
+    "nat": 2,
+    "nbnd": 48,
+    "nelec": 36,
+    "irreducible_k": 3,
+    "q_mesh": [
+      2,
+      2,
+      2
+    ],
+    "FFT": [
+      32,
+      32,
+      32
+    ],
+    "ACE_wall_s": 352.64,
+    "ACE_calls": 42,
+    "outer_updates": 14,
+    "mean_whole_outer_ACE_wall_s": 25.18857142857143,
+    "fully_converged": false
+  },
+  "options": [
+    {
+      "option": "Gamma_k1_q1",
+      "k_representatives": 1,
+      "q_mesh": [
+        1,
+        1,
+        1
+      ],
+      "Nq": 1,
+      "Nkqs": 1,
+      "conditional_real_FFT_grid": [
+        60,
+        60,
+        60
+      ],
+      "exxbuff_aggregate_bytes": 1216512000,
+      "exxbuff_aggregate_GiB": 1.132965087890625,
+      "ACE_xi_aggregate_source_bound_bytes": 60977664,
+      "retained_native_PBE_peak_bytes": 1037570048,
+      "buffer_plus_xi_bound_plus_PBE_peak_GiB": 2.156067371368408,
+      "additional_backend_and_EXX_scratch_not_bounded": true,
+      "work_proxy_vs_retained_HSE": 4.0283203125,
+      "heuristic_ACE_rebuild_s": 101.46763392857143,
+      "heuristic_PBE_start_s": 56.5675,
+      "heuristic_first_rebuild_total_s": 158.03513392857144,
+      "heuristic_14_rebuilds_total_s": 1477.114375,
+      "full600s_admission": false
+    },
+    {
+      "option": "same_k2_q1",
+      "k_representatives": 4,
+      "q_mesh": [
+        1,
+        1,
+        1
+      ],
+      "Nq": 1,
+      "Nkqs": 4,
+      "conditional_real_FFT_grid": [
+        60,
+        60,
+        60
+      ],
+      "exxbuff_aggregate_bytes": 4866048000,
+      "exxbuff_aggregate_GiB": 4.5318603515625,
+      "ACE_xi_aggregate_source_bound_bytes": 976070656,
+      "retained_native_PBE_peak_bytes": 1037570048,
+      "buffer_plus_xi_bound_plus_PBE_peak_GiB": 6.407209396362305,
+      "additional_backend_and_EXX_scratch_not_bounded": true,
+      "work_proxy_vs_retained_HSE": 16.11328125,
+      "heuristic_ACE_rebuild_s": 405.8705357142857,
+      "heuristic_PBE_start_s": 226.27,
+      "heuristic_first_rebuild_total_s": 632.1405357142858,
+      "heuristic_14_rebuilds_total_s": 5908.4575,
+      "full600s_admission": false
+    },
+    {
+      "option": "same_k2_q2",
+      "k_representatives": 4,
+      "q_mesh": [
+        2,
+        2,
+        2
+      ],
+      "Nq": 8,
+      "Nkqs": 8,
+      "conditional_real_FFT_grid": [
+        60,
+        60,
+        60
+      ],
+      "exxbuff_aggregate_bytes": 9732096000,
+      "exxbuff_aggregate_GiB": 9.063720703125,
+      "ACE_xi_aggregate_source_bound_bytes": 976070656,
+      "retained_native_PBE_peak_bytes": 1037570048,
+      "buffer_plus_xi_bound_plus_PBE_peak_GiB": 10.939069747924805,
+      "additional_backend_and_EXX_scratch_not_bounded": true,
+      "work_proxy_vs_retained_HSE": 128.90625,
+      "heuristic_ACE_rebuild_s": 3246.964285714286,
+      "heuristic_PBE_start_s": 226.27,
+      "heuristic_first_rebuild_total_s": 3473.2342857142858,
+      "heuristic_14_rebuilds_total_s": 45683.77,
+      "full600s_admission": false
+    }
+  ],
+  "heuristic_assumptions": [
+    "source occupied bands approximated by nelec; FD tails can increase work",
+    "FFT60^3 follows same dense cutoff/cell/library IF layout unchanged; not a native HSE descriptor certificate",
+    "FFT-volume times source/trial pair count excludes FFTlogs/kernels and changing SCF iterations",
+    "old timing reference is cold90/360/120; new candidate FD50/200/200 is a different regime"
+  ],
+  "best_next_under_current600s": {
+    "experiment": "matched PBE+SOC50/200Ry unshifted3x3x3 pair, SAME frames; NOT launched",
+    "full_points": 27,
+    "nonmagnetic_Td_TR_star_sizes": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "representatives": 4,
+    "estimated_member_wall_s": [
+      220,
+      260
+    ],
+    "not_BZ_convergence_guarantee": true
+  },
+  "minimum_missing_HSE_input": "actual eight-atom ACE/update timing, peak and descriptor under separately admitted scope; arrays alone cannot certify full600s SCF completion",
+  "HSE_native_runs_this_phase": 0,
+  "physical_xc": null,
+  "analysis_source_sha256": "3ac97de746b602c7132ae41127feb77263b7382c243bf720782a2f1edb1727b1"
+}

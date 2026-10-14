@@ -1,0 +1,9 @@
+{
+  "scope": "Seven focused actual native spectra, physical reciprocal mapping, conditional bound and source arithmetic checks; no native launch",
+  "command": "source scripts/env.sh && OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s /home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14 -p test_science.py -v",
+  "working_directory": "/home/User/opencode_workspace/DFT",
+  "tests": 7,
+  "measured_elapsed_s": 5.858,
+  "result": "OK",
+  "native_material_validation": false
+}

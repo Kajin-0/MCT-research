@@ -1,0 +1,48 @@
+{
+  "Gamma6": {
+    "bands_1based": [
+      139,
+      140
+    ],
+    "native_eigenenergies_relative_Fermi_eV": [
+      -0.9644466194961403,
+      -0.964446619495428
+    ],
+    "highG_probability": [
+      1.380028089154e-05,
+      1.3800272619538208e-05
+    ],
+    "Td_multiplicities": [
+      1,
+      0,
+      0
+    ],
+    "Td_label_pass": true
+  },
+  "Gamma8": {
+    "bands_1based": [
+      143,
+      144,
+      145,
+      146
+    ],
+    "native_eigenenergies_relative_Fermi_eV": [
+      -4.867217739956686e-13,
+      -3.0730973321624333e-13,
+      2.255973186038318e-13,
+      1.1119993814645568e-12
+    ],
+    "highG_probability": [
+      7.539639567834656e-06,
+      7.539637419073981e-06,
+      7.539639573163912e-06,
+      7.539637865791533e-06
+    ],
+    "Td_multiplicities": [
+      0,
+      0,
+      1
+    ],
+    "Td_label_pass": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "mapping": {
+    "source_PW": 7809,
+    "target_PW": 10827,
+    "new_only_PW": 3018,
+    "all_source_labels_present": true,
+    "max_Gram_change": 7.771561172558134e-16,
+    "source_Gram_defect_op": 1.966790392076292e-15,
+    "new_only_coefficient_max": 0.0,
+    "physical_axes_match": true,
+    "source_norm_discarded": 0.0,
+    "renormalization_used": false
+  },
+  "source_reciprocal": [
+    [
+      0.5146932626068116,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5146932626068116,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.5146932626068116
+    ]
+  ],
+  "native50_reciprocal": [
+    [
+      0.5146932626068116,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5146932626068116,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.5146932626068116
+    ]
+  ],
+  "host_charge_error": -1.2505552149377763e-12,
+  "SCF_iterations": 11
+}
