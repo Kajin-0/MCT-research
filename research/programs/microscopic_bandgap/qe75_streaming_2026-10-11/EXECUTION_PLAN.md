@@ -1,7 +1,7 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 00:01 UTC
+**Last verified update:** 2026-10-14 00:04 UTC
 **Status:** COLD-SMEARING HISTORICAL FAIL EXPLAINED/PRESERVED; ONE FRESH NATIVE CONTROL5 OUTERS REFUSED AT NONNEUTRAL FERMI STATIONARY POINT; STREAM UNLAUNCHED; STOP UNCHANGED-SOLVER BOUNDARY
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
 
@@ -429,3 +429,9 @@ build; executed ONE fresh control, stopped at native charge refusal5, no stream.
 Independent exact scalar replay/root counterexample, cleanup/protected-state and
 frozen-source validations retained. Reset handoff and R07 state updated in this
 checkpoint. Historical failure files/goals/supervisors untouched; no further run.
+
+**Preflight correction — 2026-10-14 00:04 UTC:** retained old control5 already exposed
+the same charge bias. Checking only paired1–4 missed this available-data refusal;
+the fresh202s control was avoidable under the new neutrality gate. All future
+prospective native policies must first be checked against EVERY available old
+control step. Native ef/cleanup evidence is retained; no further run or gate change.

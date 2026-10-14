@@ -59,6 +59,17 @@ receipts, initial parity and FFT passed; 12GiB/swap0/tasks12/600s limits and sam
 of BOTH members; parent owner bookkeeping is separately small and reported,
 not represented as a quota. No host-wide exclusion/private-network claim.
 
+## Execution-efficiency limitation
+
+The retrospective audit was initially restricted to the requested paired steps1–4.
+The available older control step5 already contained the same charge bias, found
+only after the fresh control refusal. Checking ALL retained control states against
+the proposed neutrality gate first could have prevented this202s native attempt.
+The new run supplies directly captured ef and real refusal/cleanup evidence, but
+it was avoidable under this charge policy; it is not independent material
+validation. Any future prospective gate must first be screened against every
+available retained trajectory, including the unpaired control continuation.
+
 ## One precise next requirement, outside this unchanged-solver sprint
 
 **NO-GO for further strict-neutral full-SCF comparison with this unchanged Fermi

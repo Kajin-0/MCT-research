@@ -46,3 +46,8 @@
 - Reproduce cheap analysis only: source DFT/scripts/env.sh; audit.py reads retained
   old packets; checks.py verifies theorem/pointwise/oldFAIL, summarize.py reads
   this native control. No broad suites or expensive physics calculations.
+
+- Missed cheap preflight: old control5 already had the .005596924e bias. Audit
+  initially covered only paired1–4, so the new202s control was avoidable under
+  the strict neutrality gate. Before ANY new native scope, screen its proposed
+  gates against ALL available control states, not only the paired prefix.
