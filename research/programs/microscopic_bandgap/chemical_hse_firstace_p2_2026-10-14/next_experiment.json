@@ -1,0 +1,35 @@
+{
+  "status": "RECOMMENDED NOT ADMITTED NOT LAUNCHED",
+  "physical_inputs": "unchanged current 8atom176band144e 50/200/Fock200Ry HSE+SOC Gamma/q1 FD.001 SG15 a6.46",
+  "objective": "one hybrid orbital/density relaxation plus second direct operator rebuild in matched host/Cd",
+  "current_actual_QE_wall_s": {
+    "host": 213.92,
+    "cd": 199.14
+  },
+  "current_actual_ACE_wall_s": {
+    "host": 147.78,
+    "cd": 142.76
+  },
+  "conditional_two_build_s_before_new_inner_SCF": {
+    "host": 361.7,
+    "cd": 341.9
+  },
+  "conditional_remaining_s_in_600": {
+    "host": 238.3,
+    "cd": 258.1
+  },
+  "timing_scenario_is_upper_bound": false,
+  "full_HSE_convergence_within_600s_demonstrated": false,
+  "actual_firstACE_kernel_peak_B": {
+    "host": 4232114176,
+    "cd": 4225994752
+  },
+  "later_memory_lifetimes_qualified": false,
+  "required_new_user_scope": true,
+  "current_ELF_supports_new_experiment": false,
+  "missing_inputs": [
+    "hybrid orbital/density relaxation response",
+    "second source Fock/dexx and actual inner-iteration cost"
+  ],
+  "physical_xc": null
+}

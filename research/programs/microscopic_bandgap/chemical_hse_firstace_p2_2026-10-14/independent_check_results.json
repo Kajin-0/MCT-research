@@ -1,0 +1,24 @@
+{
+  "checks": 3,
+  "passed": true,
+  "native_invocations": 0,
+  "scope": "actual-record FD neutrality; independent complex column contractions; irrep trace basis invariance",
+  "members": {
+    "host": {
+      "high_precision_FD_charge_e": "143.9999999999904499999999996942517889044860578667029326090265248051330",
+      "charge_residual_e": "-9.5500000000003057482110955139421332970673909734751948670E-12",
+      "independent_column_action_matrix_max_Ry": 7.218596248936188e-16,
+      "independent_Fock_contraction_Ry": -71.46168832485576,
+      "Fock_disagreement_Ry": 2.842170943040401e-14,
+      "block_unitary_trace_difference_Ry": 3.469446951953614e-18
+    },
+    "cd": {
+      "high_precision_FD_charge_e": "144.0000000000426499998675235458598005998327222544972417562491326581221",
+      "charge_residual_e": "4.26499998675235458598005998327222544972417562491326581221E-11",
+      "independent_column_action_matrix_max_Ry": 1.6658440904719164e-16,
+      "independent_Fock_contraction_Ry": -71.56432133492274,
+      "Fock_disagreement_Ry": 0.0,
+      "block_unitary_trace_difference_Ry": 3.469446951953614e-18
+    }
+  }
+}

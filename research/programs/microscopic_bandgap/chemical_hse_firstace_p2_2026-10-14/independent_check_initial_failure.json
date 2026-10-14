@@ -1,0 +1,6 @@
+{
+  "status": "not executed",
+  "exception": "ModuleNotFoundError: mpmath",
+  "native_results_unchanged": true,
+  "remedy": "use standard-library Decimal with 70-digit context; no dependency installation"
+}

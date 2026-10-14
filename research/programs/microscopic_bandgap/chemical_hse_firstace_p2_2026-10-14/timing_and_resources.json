@@ -1,0 +1,31 @@
+{
+  "scope": "actual first-ACE pilot, includes observer overhead; no full-SCF memory gain claim",
+  "members": {
+    "host": {
+      "owner_wall_s": 215.6011611148715,
+      "QE_wall_s": 213.92,
+      "preliminary_SCF_wall_s": 55.01,
+      "EXX_initialization_wall_s": 8.53,
+      "instrumented_ACE_wall_s": 147.78,
+      "direct_calls_wall_s": 147.4,
+      "peak_sampled_family_RSS_shared_overcount_B": 4284395520,
+      "peak_sampled_kernel_memory_B": 4232114176,
+      "terminal_manager_memory_peak_B": 4232114176,
+      "min_host_available_B": 25619382272,
+      "min_free_disk_B": 64207831040
+    },
+    "cd": {
+      "owner_wall_s": 200.98594266641885,
+      "QE_wall_s": 199.14,
+      "preliminary_SCF_wall_s": 52.01,
+      "EXX_initialization_wall_s": 1.96,
+      "instrumented_ACE_wall_s": 142.76,
+      "direct_calls_wall_s": 142.39,
+      "peak_sampled_family_RSS_shared_overcount_B": 4279013376,
+      "peak_sampled_kernel_memory_B": 4225994752,
+      "terminal_manager_memory_peak_B": 4225994752,
+      "min_host_available_B": 25636880384,
+      "min_free_disk_B": 63640834048
+    }
+  }
+}

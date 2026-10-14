@@ -1,0 +1,11 @@
+{
+  "parent": "c50f466",
+  "native_source_and_ELF_unchanged": true,
+  "identical_files": {
+    "pilot_native.inc": "e41929d68c262cc16f8a5116bdb26e8a53cc5e87a89f3d932258d02024f71880",
+    "build_results.json": "b4dd1563a437b4e56b615ea869ed6556d34402ffba514415d21afab3b5a5462d",
+    "address_admission.py": "e6c28300f48d9804dd34c775742b40daa9d2f473ca5c2ae487ac65424d726718"
+  },
+  "owner_patch_sha256": "66b298bceda9dc8c55933fe1f3a70414c4f77b25325696bc8043152b3c61029f",
+  "preflight_changes": "import versioned owner; baseline label only"
+}

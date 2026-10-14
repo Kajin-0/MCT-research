@@ -1,0 +1,36 @@
+{
+  "scientific_pass": true,
+  "source_wave_bitwise_readback": true,
+  "fixed_reference_exact": true,
+  "frozen_rhoR_rhoG_bitwise": true,
+  "charge_residual_e": 4.2660985855036415e-11,
+  "source_scf_error_Ry": 2.616093829843282e-10,
+  "source_scf_steps": 11,
+  "direct_ACE_action_relative": 5.311700941319925e-16,
+  "direct_ACE_Gram_relative": 5.714577527757208e-16,
+  "source_wave_max_error": 0.0,
+  "source_Gram_defect_op": 6.563969842283484e-15,
+  "native_unhalved_Fock_Ry": -71.56432133492274,
+  "native_half_Fock_Ry": -35.782160667461376,
+  "native_first_activation_total_Ry": -1936.4355004839274,
+  "source_mean_operator_change_Ry": {
+    "exchange": [
+      -0.2131161465208145,
+      -0.2506870167302363
+    ],
+    "local": [
+      0.19203691750261442,
+      0.20808571753204186
+    ]
+  },
+  "global_plane_waves": 10827,
+  "native_EXX_FFT": [
+    60,
+    60,
+    60
+  ],
+  "aggregate_EXX_buffer_B": 1216512000,
+  "HSE_converged": false,
+  "source_spectra_not_HSE_quasiparticles": true,
+  "physical_xc": null
+}

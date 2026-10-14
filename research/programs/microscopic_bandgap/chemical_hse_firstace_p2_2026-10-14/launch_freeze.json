@@ -1,0 +1,15 @@
+{
+  "timestamp_UTC": "2026-10-14T23:44:20.930001+00:00",
+  "parent": "c50f466",
+  "one_host_then_conditional_Cd": true,
+  "no_retries": true,
+  "protocol_sha256": "ac3b5cf19dc06b6efe1c5cb319a67657f009342477231f09dbd03c6c0df632cf",
+  "preregistration_sha256": "cdb862a93a335a68ff8b71bee112e111fa8c8180e36bb67519d638cd294e9eed",
+  "socket_preflight_sha256": "dbc63baa3cbc4be4be9d34fe790846f9660bffd294a36133281aa95daa8f1b81",
+  "extra_source_hashes": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_hse_firstace_p2_2026-10-14/address_admission.py": "e6c28300f48d9804dd34c775742b40daa9d2f473ca5c2ae487ac65424d726718",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_hse_firstace_p2_2026-10-14/source_identity.json": "5cba93012888f70a1a048a4ec6cc4f80dd12a960d533345901b47fe87200f42e"
+  },
+  "old_failed_evidence_hashes_unchanged": true,
+  "source_ELF_unchanged": true
+}

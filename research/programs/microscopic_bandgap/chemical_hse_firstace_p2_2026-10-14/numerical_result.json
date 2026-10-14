@@ -1,0 +1,218 @@
+{
+  "timestamp_UTC": "2026-10-14T23:51:57.956540+00:00",
+  "parent": "c50f466",
+  "scope": "FIRST-ACE HSE activation on separately converged Gamma-only semilocal densities; periodic x=.25",
+  "quantity": "difference of fixed physical Gamma6/Gamma8 normalized traces of delta-H activation, Cd minus host",
+  "members": {
+    "host": {
+      "operators": {
+        "exchange": {
+          "Gamma6_Ry": -0.21614427109666673,
+          "Gamma8_Ry": -0.24960242713975528,
+          "difference_eV": 0.45522140358351,
+          "antihermitian_opnorm_Ry": 1.4399747000255303e-16,
+          "Gamma6_spread_Ry": 2.5483156418371067e-09,
+          "Gamma8_spread_Ry": 5.498142163773423e-09,
+          "intersector_opnorm_Ry": 4.67126662777607e-09
+        },
+        "local": {
+          "Gamma6_Ry": 0.19266365382998726,
+          "Gamma8_Ry": 0.20784721093867992,
+          "difference_eV": -0.20658281853632626,
+          "antihermitian_opnorm_Ry": 1.358267166304994e-16,
+          "Gamma6_spread_Ry": 2.568897872201603e-09,
+          "Gamma8_spread_Ry": 1.4592838326610291e-09,
+          "intersector_opnorm_Ry": 1.9080479176298253e-09
+        },
+        "total": {
+          "Gamma6_Ry": -0.02348061726667948,
+          "Gamma8_Ry": -0.04175521620107536,
+          "difference_eV": 0.24863858504718353,
+          "antihermitian_opnorm_Ry": 2.1753032089143624e-16,
+          "Gamma6_spread_Ry": 2.512027807988204e-10,
+          "Gamma8_spread_Ry": 5.4204200850005435e-09,
+          "intersector_opnorm_Ry": 3.155520020803932e-09
+        }
+      },
+      "science": {
+        "HSE_converged": false,
+        "aggregate_EXX_buffer_B": 1216512000,
+        "charge_residual_e": -9.57811607804615e-12,
+        "direct_ACE_Gram_relative": 5.280570851076294e-16,
+        "direct_ACE_action_relative": 5.071782925545848e-16,
+        "fixed_reference_exact": true,
+        "frozen_rhoR_rhoG_bitwise": true,
+        "global_plane_waves": 10827,
+        "native_EXX_FFT": [
+          60,
+          60,
+          60
+        ],
+        "native_first_activation_total_Ry": -1936.2918960467555,
+        "native_half_Fock_Ry": -35.73084416242791,
+        "native_unhalved_Fock_Ry": -71.46168832485579,
+        "physical_xc": null,
+        "scientific_pass": true,
+        "source_Gram_defect_op": 1.3366631447425434e-14,
+        "source_mean_operator_change_Ry": {
+          "exchange": [
+            -0.21614427109666673,
+            -0.24960242713975528
+          ],
+          "local": [
+            0.19266365382998726,
+            0.20784721093867992
+          ]
+        },
+        "source_scf_error_Ry": 6.793140473979012e-10,
+        "source_scf_steps": 11,
+        "source_spectra_not_HSE_quasiparticles": true,
+        "source_wave_bitwise_readback": true,
+        "source_wave_max_error": 0.0
+      },
+      "guard": {
+        "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-4df3da1971e147aeaf78b284a4336962.service",
+        "elapsed_s": 215.6011611148715,
+        "error": null,
+        "invocation": "711ff46a2fb34720950d2ed505fda15f",
+        "launcher_returncode": 0,
+        "max_aggregate_output_B": 368046080,
+        "min_free_disk_B": 64207831040,
+        "min_host_available_B": 25619382272,
+        "pass_guard": true,
+        "peak_kernel_memory_B": 4232114176,
+        "peak_sampled_RSS_B": 4284395520,
+        "rank_kernel_exits": {
+          "0": true,
+          "1": true
+        },
+        "sampled_not_continuous": true,
+        "samples": 838
+      },
+      "HSE_converged": false
+    },
+    "cd": {
+      "operators": {
+        "exchange": {
+          "Gamma6_Ry": -0.2131161465208145,
+          "Gamma8_Ry": -0.2506870167302363,
+          "difference_eV": 0.5111777304332302,
+          "antihermitian_opnorm_Ry": 1.0914506514434164e-16,
+          "Gamma6_spread_Ry": 2.4008237342609817e-09,
+          "Gamma8_spread_Ry": 4.396702779629891e-09,
+          "intersector_opnorm_Ry": 7.3476228925665915e-09
+        },
+        "local": {
+          "Gamma6_Ry": 0.19203691750261442,
+          "Gamma8_Ry": 0.20808571753204186,
+          "difference_eV": -0.21835504819268675,
+          "antihermitian_opnorm_Ry": 1.0646362854167977e-16,
+          "Gamma6_spread_Ry": 2.5772676215396473e-09,
+          "Gamma8_spread_Ry": 1.5257807517432553e-09,
+          "intersector_opnorm_Ry": 2.1157736494669966e-09
+        },
+        "total": {
+          "Gamma6_Ry": -0.02107922901820007,
+          "Gamma8_Ry": -0.04260129919819442,
+          "difference_eV": 0.29282268224054336,
+          "antihermitian_opnorm_Ry": 1.4078036433903534e-16,
+          "Gamma6_spread_Ry": 2.064502874210561e-10,
+          "Gamma8_spread_Ry": 3.765496796315215e-09,
+          "intersector_opnorm_Ry": 5.5521703993228125e-09
+        }
+      },
+      "science": {
+        "HSE_converged": false,
+        "aggregate_EXX_buffer_B": 1216512000,
+        "charge_residual_e": 4.2660985855036415e-11,
+        "direct_ACE_Gram_relative": 5.714577527757208e-16,
+        "direct_ACE_action_relative": 5.311700941319925e-16,
+        "fixed_reference_exact": true,
+        "frozen_rhoR_rhoG_bitwise": true,
+        "global_plane_waves": 10827,
+        "native_EXX_FFT": [
+          60,
+          60,
+          60
+        ],
+        "native_first_activation_total_Ry": -1936.4355004839274,
+        "native_half_Fock_Ry": -35.782160667461376,
+        "native_unhalved_Fock_Ry": -71.56432133492274,
+        "physical_xc": null,
+        "scientific_pass": true,
+        "source_Gram_defect_op": 6.563969842283484e-15,
+        "source_mean_operator_change_Ry": {
+          "exchange": [
+            -0.2131161465208145,
+            -0.2506870167302363
+          ],
+          "local": [
+            0.19203691750261442,
+            0.20808571753204186
+          ]
+        },
+        "source_scf_error_Ry": 2.616093829843282e-10,
+        "source_scf_steps": 11,
+        "source_spectra_not_HSE_quasiparticles": true,
+        "source_wave_bitwise_readback": true,
+        "source_wave_max_error": 0.0
+      },
+      "guard": {
+        "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-b06f45b6bc8244ab8bb41c07e487e302.service",
+        "elapsed_s": 200.98594266641885,
+        "error": null,
+        "invocation": "50bcf095108f4ce089466e38660526a7",
+        "launcher_returncode": 0,
+        "max_aggregate_output_B": 861986816,
+        "min_free_disk_B": 63640834048,
+        "min_host_available_B": 25636880384,
+        "pass_guard": true,
+        "peak_kernel_memory_B": 4225994752,
+        "peak_sampled_RSS_B": 4279013376,
+        "rank_kernel_exits": {
+          "0": true,
+          "1": true
+        },
+        "sampled_not_continuous": true,
+        "samples": 778
+      },
+      "HSE_converged": false
+    }
+  },
+  "chemical_operator_change": {
+    "exchange": {
+      "Gamma6_Ry": 0.003028124575852248,
+      "Gamma8_Ry": -0.0010845895904810152,
+      "difference_eV": 0.055956326849720475,
+      "antihermitian_opnorm_Ry": 2.2243378216512456e-16,
+      "Gamma6_spread_Ry": 3.3713509024410615e-10,
+      "Gamma8_spread_Ry": 7.2315932497877405e-09,
+      "intersector_opnorm_Ry": 5.705560904650287e-09
+    },
+    "local": {
+      "Gamma6_Ry": -0.0006267363273728399,
+      "Gamma8_Ry": 0.00023850659336195623,
+      "difference_eV": -0.011772229656360657,
+      "antihermitian_opnorm_Ry": 1.8755183614563987e-16,
+      "Gamma6_spread_Ry": 1.208261030290203e-11,
+      "Gamma8_spread_Ry": 1.3234711997113166e-10,
+      "intersector_opnorm_Ry": 7.551188103881037e-10
+    },
+    "total": {
+      "Gamma6_Ry": 0.002401388248479408,
+      "Gamma8_Ry": -0.0008460829971190589,
+      "difference_eV": 0.04418409719335982,
+      "antihermitian_opnorm_Ry": 2.3238348436137298e-16,
+      "Gamma6_spread_Ry": 3.329782261550507e-10,
+      "Gamma8_spread_Ry": 7.136603049294997e-09,
+      "intersector_opnorm_Ry": 4.957800491013877e-09
+    }
+  },
+  "Rydberg_eV": 13.605693122994,
+  "projector": "same retained original 40Ry six-vector frame embedded exactly into 50Ry G-space",
+  "source_HSE_quasiparticle_spectrum": false,
+  "converged_HSE_gap": false,
+  "physical_xc": null,
+  "not_additive_correction_to_PBE_k3_Gaussian_response": true,
+  "uncertainty": "reported numerical consistency residuals do not bound material, functional, k/q, cutoff, finite-cell or eigenpair errors"
+}

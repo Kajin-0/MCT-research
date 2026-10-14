@@ -2,9 +2,32 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; accepted PBE+SOC host/Cd response+.392177eV at50/200Ry k3 with measured probe/cutoff/grid sensitivities; HSE first-ACE source compiles but soleowner attempt fails pre-MPI on114byteUnix address; HSE/Cd notrun, shortaddressfix prospective only; materialaccuracy/physical x_c OPEN; historical failures/full-target gates preserved
+**State:** historical physical goal BLOCKED; accepted PBE+SOC chemical response +0.392177 eV and real matched HSE first-ACE chemical activation trace +44.1841 meV; native first-ACE owner/readback/resource gates PASS; HSE relaxation/material accuracy/physical x_c OPEN; original owner FAIL and full-target gates preserved
 
-**Updated:** 2026-10-14
+**Updated:** 2026-10-14 23:57 UTC
+
+## Real matched HSE first-ACE activation — 2026-10-14 23:57 UTC
+
+[Scoped decision](chemical_hse_firstace_p2_2026-10-14/decision.md): clean c50f466,
+separate new authorization and p2 root; only reviewed short-socket change. Actual
+103/101-byte binds pass before services. Same native ELF/physics, fresh leases,
+ONE host and ONE Cd two-rank Γ/q1 first ACE, all gates PASS, no retries. Old
+failed owner/root/evidence remains FAIL and unchanged.
+
+CALCULATED fixed original Γ6−Γ8 trace of HSE activation, Cd minus host:
++44.184097 meV = exchange +55.956327 + local −11.772230 meV. This is a direct
+fixed-density operator comparison, not a spectral gap or Gaussian response.
+Both preliminary SCFs 11 steps and <1e-9 Ry; source waves/density byte-exact,
+direct/ACE <6e-16 and three independent offline scientific checks PASS.
+Guard walls 215.601/200.986 s; kernel peaks 4.232/4.226 GB, caps/floors/cleanup
+pass. HSE deliberately unconverged; source spectra remain semilocal. Raw native
+provenance and complex matrices archived/pinned; dirty DFT/stock/past failures/
+16-atom target/sessions/Calcura/goal unchanged.
+
+First-ACE feasibility is now measured. Full HSE within 600 s is not bounded;
+next useful finite acquisition is one hybrid relaxation plus rebuilt operator,
+with separate source/state/cost admission. Nothing further launched. Physical
+x_c, material uncertainty, restart and whole-SCF memory saving remain OPEN.
 
 ## HSE acquisition owner failure before MPI — 2026-10-14 23:16 UTC
 

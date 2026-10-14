@@ -1,9 +1,59 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 23:16 UTC
-**Status:** HSE FIRST-ACE SOURCE COMPILES; SOLE HOST OWNER FAILS BEFORE MPI ON114-BYTE UNIX ADDRESS; HSE/Cd NOT RUN; SHORT-ADDRESS FIX PROSPECTIVE ONLY; PRIOR PBE+.392177/FAILURES/TARGET/GOAL UNCHANGED
+**Last verified update:** 2026-10-14 23:57 UTC
+**Status:** FRESH MATCHED 8-ATOM HSE FIRST-ACE PAIR PASS; CHEMICAL ACTIVATION TRACE +44.1841 MEV; ACTUAL KERNEL PEAK ~4.23 GB / WALL 216 AND 201 S; HSE UNCONVERGED; ORIGINAL OWNER FAIL/TARGET/GOAL PRESERVED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Fresh p2 HSE first-ACE physics milestone — 2026-10-14 23:57 UTC
+
+Starts clean pushed c50f466, separate explicit user authorization. Read
+[decision](../chemical_hse_firstace_p2_2026-10-14/decision.md),
+[observable and limitations](../chemical_hse_firstace_p2_2026-10-14/methods_and_limits.md),
+[native result](../chemical_hse_firstace_p2_2026-10-14/numerical_result.json), and
+[next experiment](../chemical_hse_firstace_p2_2026-10-14/next_experiment.md).
+Only the reviewed short-socket patch changed the versioned owner; private native
+source/ELF and physical settings unchanged. Before services, actual fresh host/Cd
+socket paths 103/101 bytes both bound, closed and inode-checked for removal.
+Old failed root, unit, lease, source and immutable evidence never reused.
+
+ONE real two-rank host then ONE Cd first ACE completed: owner/science/readback/
+resource gates PASS, no retries. Same 8 atoms, 176 spinor bands/144 electrons,
+6.46 Å, SG15 FR NC, 50/200/Fock-200 Ry, HSE .25/.106, Γ/q1, FD .001 Ry.
+Both preliminary source SCFs converge in 11 steps; source errors 6.79e-10 and
+2.62e-10 Ry. Native source waves and activation rhoR/rhoG read back byte-exact;
+fixed original physical Γ frame fully embedded. Direct/ACE action and Gram
+residuals <6e-16; three independent scientific checks pass. Saved HSE convergence
+is deliberately false. Source eigenvalues are not self-consistent HSE eigenvalues.
+
+CALCULATED fixed-density chemical difference in normalized Γ6−Γ8 activation
+trace +44.184097 meV: direct exchange +55.956327, local response −11.772230.
+This is not the Gaussian PBE centroid response and cannot be added to prior
++0.392177486 eV to predict a gap. Complete complex matrices/native packets and
+provenance retained. Material, projector, finite-cell, k/q, and HSE relaxation
+uncertainties remain; no physical x_c or restart claim.
+
+Actual guard wall 215.601/200.986 s, kernel peak 4,232,114,176/4,225,994,752 B;
+Fock half energies −35.730844162428/−35.782160667461 Ry. All caps/floors pass;
+final aggregate including prepared metadata 861,831,394 B. Both cgroups absent,
+known lock free, old ledger and stock/dirty DFT byte-exact. Original host-wide
+exclusion remains unpassed; sampled output policy is not a continuous quota.
+No original 16-atom/352-band, Calcura, supervisor, session, goal or DFT/main work.
+
+Current finite acquisition COMPLETE. Next useful physics: separately admitted
+one hybrid orbital/density relaxation plus second operator rebuild. First-ACE
+cost does not bound outer count or full-SCF convergence within 600 s; no new
+native work launched. Commit/push this measured milestone then STOP.
+
+## Current context reset — 2026-10-14 23:57 UTC
+
+Read the p2 package handoff, decision, methods, next experiment and DFT AGENTS.
+Private job root: DFT .local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/p2;
+original pair root and c50f466 FAIL immutable. Host/Cd are accepted first-ACE
+observations, not restartable/converged HSE. Do not rerun them or the fixed-Fock
+success. Present binary stops at first ACE; future relaxation needs a separately
+qualified private source/state/cost scope. Retained evidence is SHA-pinned;
+protected files/sessions unchanged. No physical x_c or full-SCF RAM gain claim.
 
 ## NEW HSE first-ACE assignment — 2026-10-14 23:16 UTC
 
@@ -34,7 +84,7 @@ allfrozen/protectedstock/dirtyDFT/oldFAIL/source/input/ledger files unchanged.
 PrioracceptedPBEk3+.392177486 remainsvalid; original16atom352band/goal/sessions/
 Calcura/supervisors untouched. STOP failedownerfinitephase aftercommit/push.
 
-## Current context-reset handoff — 2026-10-14 23:16 UTC
+## Previous context-reset handoff — 2026-10-14 23:16 UTC (retained)
 
 Read HSE package decision/preregistration/verification/failure/addressresult
 and DFT AGENTS. Privateexperiment DFT `.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/`;
@@ -733,6 +783,8 @@ state replay/readback design, not another infrastructure campaign.
 - **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.
 
 ## Finite checkpoint change log — 2026-10-14 00:01 UTC
+
+- **2026-10-14 23:57 UTC | p2 first-ACE checkpoint (this commit; starts `c50f466`) | physics | REAL NATIVE PAIR/OWNER/READBACK PASS |** Fresh reviewed socket patch; host/Cd 215.601/200.986 s, kernel peaks ~4.23 GB, direct/ACE <6e-16, byte-exact source/density. Fixed-frame chemical activation +44.1841 meV (exchange +55.9563/local −11.7722); HSE deliberately unconverged. Three independent scientific checks; raw evidence pinned, caps/protected state and old FAIL exact. Next: one HSE relaxation/rebuild, not launched; no full-SCF/x_c claim.
 
 - **2026-10-14 23:16 UTC | firstACE checkpoint (this commit; starts `40d2b9e`) | functional-dependence acquisition | SOURCE COMPILE PASS / OWNER FAIL PRE-MPI / HSE NOT RUN |** Minimal3object private observer/stop built; solehostowner fails114byteAF_UNIXbind beforeMPI,managerexit1/13MBownerpeak/no native records. One tiny nonMPIshortaddress proof and3 focusedchecks; prospectiveunappliedfix103/101bytes/freshstate/no retries. Frozen/protecteddata and priorPBE/FAILs exact; Cd unrun. STOP; next actualscience remains corrected/newlyscopedmatchedHSEfirstACE, not PBEgrid churn.
 

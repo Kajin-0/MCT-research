@@ -1,0 +1,46 @@
+{
+  "upstream_commit": "770a0b2d12928a67048e2f3da8d10d057e52179e",
+  "status": "source-conditioned interpretation, separately supported by actual fixed-density action captures",
+  "sources": {
+    "PW/src/exx.f90": {
+      "source_sha256": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+      "excerpts": [
+        {
+          "first_line": 445,
+          "last_line": 465,
+          "text": "#endif\n    IF (noncolin) THEN\n       ALLOCATE( temppsic_nc(nrxxs, npol), psic_nc(nrxxs, npol) )\n    ELSEIF ( .NOT. gamma_only ) THEN\n       ALLOCATE( temppsic(nrxxs) )\n    ENDIF\n    !\n    ALLOCATE( psic_exx(nrxxs) )\n    !\n    IF (.NOT.exx_is_active()) THEN\n       !\n       erfc_scrlen = get_screening_parameter()\n       gau_scrlen = get_gau_parameter()\n       exxdiv  = exx_divergence()\n       exxalfa = xclib_get_exx_fraction()\n       !\n       CALL start_exx()\n    ENDIF\n    !\n    IF (.NOT. gamma_only) CALL exx_set_symm( dfftt%nr1,  dfftt%nr2,  dfftt%nr3, &\n                                             dfftt%nr1x, dfftt%nr2x, dfftt%nr3x )"
+        }
+      ]
+    },
+    "XClib/dft_setting_routines.f90": {
+      "source_sha256": "2dd883ae4f3ed02d9990a724f1370815a946e5a882022981ff30bc19390836ce",
+      "excerpts": [
+        {
+          "first_line": 668,
+          "last_line": 684,
+          "text": "  SUBROUTINE start_exx\n    !! Activate exact exchange (exx_started=TRUE)\n    USE dft_setting_params, ONLY: ishybrid, exx_started\n    IMPLICIT NONE\n    IF (.NOT. ishybrid) &\n       CALL xclib_error( 'start_exx', 'dft is not hybrid, wrong call', 1 )\n    exx_started = .TRUE.\n  END SUBROUTINE start_exx\n  !-----------------------------------------------------------------------\n  SUBROUTINE stop_exx\n    !! Deactivate exact exchange (exx_started=FALSE)\n    USE dft_setting_params, ONLY: ishybrid, exx_started\n    IMPLICIT NONE\n    IF (.NOT. ishybrid) &\n       CALL xclib_error( 'stop_exx', 'dft is not hybrid, wrong call', 1 )\n    exx_started = .FALSE.\n  END SUBROUTINE stop_exx"
+        },
+        {
+          "first_line": 715,
+          "last_line": 721,
+          "text": "  FUNCTION exx_is_active()\n     !! TRUE if exact exchange is active.\n     USE dft_setting_params, ONLY: exx_started\n     IMPLICIT NONE\n     LOGICAL :: exx_is_active\n     exx_is_active = exx_started\n  END FUNCTION exx_is_active"
+        }
+      ]
+    },
+    "XClib/qe_drivers_gga.f90": {
+      "source_sha256": "8963228db698460c017583512f89e41c338157f271e503d49920fffcdd99e30d",
+      "excerpts": [
+        {
+          "first_line": 174,
+          "last_line": 184,
+          "text": "     CASE( 12 ) ! 'pbexsr'\n        !\n        CALL pbex( rho, grho, 1, sx, v1x, v2x )\n        !\n        IF (exx_started) THEN\n          CALL pbexsr( rho, grho, sxsr, v1xsr, v2xsr, screening_parameter, in_err )\n          sx  = sx  - exx_fraction * sxsr\n          v1x = v1x - exx_fraction * v1xsr\n          v2x = v2x - exx_fraction * v2xsr\n        ENDIF\n        !"
+        },
+        {
+          "first_line": 589,
+          "last_line": 641,
+          "text": "     CASE( 3, 4, 8, 10, 12, 20, 23, 24, 25, 34, 35, 44, 45 )\n        ! igcx=3:  PBE,  igcx=4:  revised PBE, igcx=8:  PBE0, igcx=10: PBEsol\n        ! igcx=12: HSE,  igcx=20: gau-pbe,     igcx=23: obk8, igcx=24: ob86,\n        ! igcx=25: ev93, igcx=34: PBE-AH, igcx=35: PBESOL-AH,\n        ! igcx=44: RPBE,        igcx=45: W31X\n        !\n        iflag = 1\n        IF ( igcx== 4 ) iflag = 2\n        IF ( igcx==10 ) iflag = 3\n        IF ( igcx==23 ) iflag = 5\n        IF ( igcx==24 ) iflag = 6\n        IF ( igcx==25 ) iflag = 7\n        IF ( igcx==44 ) iflag = 8\n        IF ( igcx==45 ) iflag = 9\n        IF ( igcx==34 ) iflag = 1\n        IF ( igcx==35 ) iflag = 3\n        !\n        rho_up = 2.0_DP * rho_up     ; rho_dw = 2.0_DP * rho_dw\n        grho2_up = 4.0_DP * grho2_up ; grho2_dw = 4.0_DP * grho2_dw\n        !\n        CALL pbex( rho_up, grho2_up, iflag, sx_up, v1x_up, v2x_up )\n        CALL pbex( rho_dw, grho2_dw, iflag, sx_dw, v1x_dw, v2x_dw )\n        !\n        sx_tot(ir) = 0.5_DP * ( sx_up*rnull_up + sx_dw*rnull_dw )\n        v2x_up = 2.0_DP * v2x_up\n        v2x_dw = 2.0_DP * v2x_dw\n        !\n        IF ( igcx == 8 .AND. exx_started ) THEN\n           !\n           sx_tot(ir) = (1.0_DP - exx_fraction) * sx_tot(ir)\n           v1x_up = (1.0_DP - exx_fraction) * v1x_up\n           v1x_dw = (1.0_DP - exx_fraction) * v1x_dw\n           v2x_up = (1.0_DP - exx_fraction) * v2x_up\n           v2x_dw = (1.0_DP - exx_fraction) * v2x_dw\n           !\n        ELSEIF ( igcx == 12 .AND. exx_started ) THEN\n           !\n           CALL pbexsr( rho_up, grho2_up, sxsr_up, v1xsr_up, &\n                                          v2xsr_up, screening_parameter, in_err )\n           CALL pbexsr( rho_dw, grho2_dw, sxsr_dw, v1xsr_dw, &\n                                          v2xsr_dw, screening_parameter, in_err )\n           !\n           sx_tot(ir) = sx_tot(ir) - exx_fraction*0.5_DP*( sxsr_up*rnull_up + &\n                                                           sxsr_dw*rnull_dw )\n           v1x_up = v1x_up - exx_fraction * v1xsr_up\n           v1x_dw = v1x_dw - exx_fraction * v1xsr_dw\n           v2x_up = v2x_up - exx_fraction * v2xsr_up * 2.0_DP\n           v2x_dw = v2x_dw - exx_fraction * v2xsr_dw * 2.0_DP\n           !\n        ELSEIF ( igcx == 34 .AND. exx_started ) THEN\n           !\n           CALL axsr( 1, rho_up, grho2_up, sxsr_up, v1xsr_up, &\n                                          v2xsr_up, screening_parameter, in_err )"
+        }
+      ]
+    }
+  }
+}

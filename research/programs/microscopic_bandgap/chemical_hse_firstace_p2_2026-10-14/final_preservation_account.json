@@ -1,0 +1,47 @@
+{
+  "timestamp_UTC": "2026-10-14T23:53:03.329000+00:00",
+  "all_new_frozen_pins_match": true,
+  "old_failed_private_evidence_unchanged": true,
+  "DFT_protected_state_unchanged": true,
+  "old_ledger_unchanged": true,
+  "old_ledger_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "known_lock_free": true,
+  "both_own_cgroups_absent": true,
+  "visible_native_names_empty": true,
+  "hostwide_absence_claim": false,
+  "final_member_accounts": [
+    {
+      "allocated_unique_blocks_bytes": 497831936,
+      "metadata_allowance_bytes": 176128,
+      "budget_charge_bytes": 430899200,
+      "escrow_blocks_bytes": 67108864,
+      "observed_unique_inodes": 43,
+      "cumulative_distinct_observed_inode_ids": 43,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 430899200,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    },
+    {
+      "allocated_unique_blocks_bytes": 497795072,
+      "metadata_allowance_bytes": 176128,
+      "budget_charge_bytes": 430862336,
+      "escrow_blocks_bytes": 67108864,
+      "observed_unique_inodes": 43,
+      "cumulative_distinct_observed_inode_ids": 43,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 430862336,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    }
+  ],
+  "final_members_charged_B": 861761536,
+  "fixed_prepared_source_PROFILE_B": 69858,
+  "total_including_prepared_B": 861831394
+}
