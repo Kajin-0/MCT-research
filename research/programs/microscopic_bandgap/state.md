@@ -2,9 +2,34 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; exploratory PBE+SOC host/Cd response measured at identical50/200Ry k2/k3 with fixed physical projectors, plus prior probe/cutoff sensitivities; full BZ/material accuracy OPEN; matched HSE first-ACE pilot recommended only; HSE-grade/dilute input and physical x_c OPEN; original failures/full-target gates preserved
+**State:** historical physical goal BLOCKED; accepted PBE+SOC host/Cd response+.392177eV at50/200Ry k3 with measured probe/cutoff/grid sensitivities; HSE first-ACE source compiles but soleowner attempt fails pre-MPI on114byteUnix address; HSE/Cd notrun, shortaddressfix prospective only; materialaccuracy/physical x_c OPEN; historical failures/full-target gates preserved
 
 **Updated:** 2026-10-14
+
+## HSE acquisition owner failure before MPI — 2026-10-14 23:16 UTC
+
+[Actual scoped decision](chemical_hse_firstace_2026-10-14/decision.md): from
+40d2b9e, explicitone8atom176band144e/HSE.25/.106/Gamma-q1/50-200-Fock200Ry/
+FD.001/SG15FR/6.46A matched firstACE request. Minimal private3object observer/
+false-convergence postpunch stop compiles/links with unchanged original kernel/
+ACE arithmetic and stock/backends. Fixed6Gamma direct/local action anddensity/
+state capture designed, **native numeric correctness UNEXECUTED**.
+
+Sole host owner fails beforeMPI on114byteAF_UNIXlease.sock pathname. Real
+exactaddress nonMPIbind reproducesrefusal;105byte.../s succeeds/cleansowninode.
+Retained managerexit1,READY but noLAUNCH/RANKS/GUARD_RESULT/pw.out; original
+frontendmissingGUARD_RESULT error retained, underlyingservicestderr notsaved.
+No HSEenergy/state/resource/chemistry exists; Cd notrun. Userno-retry/firstowner
+FAILrule enforced. Owneronlykernelpeak12955648B notHSE; cgroupgone/lockfree/
+oldledgerexact. New shortsocket/freshp2/attempt-reuse-refusal/root-binding patch
+is prospective/unapplied, not originalFAIL promotion or futurelaunch approval.
+
+Three focused source/reference/refusalchecks PASS, sourcebuild/preparedinput/
+reference/failure records archived. Allfrozen/protectedstock/dirtyDFT/pastFAILs
+and acceptedPBE+.392177 unchanged; no newservice/native retry/PBEgrid/16atom/
+goal/supervisor/Calcura/session/main/DFTcommit action. STOP thisfinitefailedowner
+phase; nextphysics remains corrected/newlyscopedHSEfirstACE after minimumlaunch
+integrityfix. Materialfunctional dependence/fullHSEcost and physical x_c OPEN.
 
 ## Same-cutoff k3 chemical pair — 2026-10-14 22:20 UTC
 

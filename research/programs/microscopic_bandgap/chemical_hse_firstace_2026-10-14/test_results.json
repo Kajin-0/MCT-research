@@ -1,0 +1,7 @@
+{
+  "tests": 3,
+  "measured_elapsed_s": 0.032,
+  "result": "OK",
+  "scope": "source arithmetic/stop, reference binary, exact address and old-attempt refusal; no service/MPI/QE",
+  "native_numerical_validation": false
+}

@@ -1,9 +1,50 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 22:20 UTC
-**Status:** ONE SAME-CUTOFF MATCHED PBE K3 PAIR COMPLETED; W2 RESPONSE +.392177 EV / GRID CHANGE −1.160 MEV; BOTH NATIVE SCF/TERMINAL/FRAME GATES PASS; NO BZ CONVERGENCE/MATERIAL XC; HSE FIRST-ACE RECOMMENDED ONLY; ORIGINAL TARGET/GOAL/FAILURES UNCHANGED
+**Last verified update:** 2026-10-14 23:16 UTC
+**Status:** HSE FIRST-ACE SOURCE COMPILES; SOLE HOST OWNER FAILS BEFORE MPI ON114-BYTE UNIX ADDRESS; HSE/Cd NOT RUN; SHORT-ADDRESS FIX PROSPECTIVE ONLY; PRIOR PBE+.392177/FAILURES/TARGET/GOAL UNCHANGED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## NEW HSE first-ACE assignment — 2026-10-14 23:16 UTC
+
+Starts clean40d2b9e, explicit bounded matched8atomHSE Gamma/q1 firstACE user
+authorization. Read[decision](../chemical_hse_firstace_2026-10-14/decision.md),
+[failure](../chemical_hse_firstace_2026-10-14/owner_failure.json) and
+[reset handoff](../chemical_hse_firstace_2026-10-14/handoff_ledger.md).
+Minimal private3object source-matched exx/electrons/run_pwscf compile/link PASS;
+original direct/ACE arithmetic and stock/archive/backends retained. Intended
+176band144e/SG15FR/6.46A/50-200-Fock200Ry/FD.001/HSE.25/.106/Gamma-q1 first
+completeACE + exactfixed6vector direct/local action + false-convergence planned
+postpunch stop implemented, but **NATIVE NUMERICAL PATH UNEXECUTED**.
+
+SOLE host owner fails beforeMPI: new lease.sock path114bytes exceeds pathname
+sun_path108 includingNUL. READY exists,LAUNCH/RANKS/pw.out/GUARD_RESULT absent;
+retainedmanagerexit1. OriginalfrontendmissingGUARD_RESULT exception retained;
+underlyingoriginalstderr lost, source/exactaddressreproducer localizesbinderror.
+One tiny nonMPI114bytebind refuses;105byte.../s succeeds/identity-safeunlink.
+OwneronlyMemoryPeak12955648B, notHSEpeak. No HSEenergy/wave/action/chemistry
+or actualEXX/timing/resource result. Unitcgroupgone,knownlockfree,oldledgerexact.
+
+Userexplicitno-retry/firstownerFAILrule stops host/Cd: **zero MPI/QE/HSE
+invocations, Cd notlaunched, no retry/newunit**. Prospective UNAPPLIED small
+patch uses checked shortsocket/freshp2 addresses103/101bytes and refuses any
+oldREADY/escrow state; no auth/physics/gate/permission relaxation/newframework.
+No p2root/job prepared. Three focused source/reference/refusal checks PASS;
+allfrozen/protectedstock/dirtyDFT/oldFAIL/source/input/ledger files unchanged.
+PrioracceptedPBEk3+.392177486 remainsvalid; original16atom352band/goal/sessions/
+Calcura/supervisors untouched. STOP failedownerfinitephase aftercommit/push.
+
+## Current context-reset handoff — 2026-10-14 23:16 UTC
+
+Read HSE package decision/preregistration/verification/failure/addressresult
+and DFT AGENTS. Privateexperiment DFT `.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/`;
+compiledunexecuted `build4/pw.hse8.firstace`, originalfailedinputs `pair/host`,
+Cdpreparedonly. NEVER rerun this frozenfailedowner: addressinvalid and no-retry
+scope consumed; do not reuse state or overwrite originalFAIL. A future newly
+authorized smallpilot needs fresh versionedMCT freeze/evidence and p2root with
+shortsocket/pre-serviceaddress checks/explicit packet root. Build4 source can
+be requalified without changedphysics; native correctness/admission stillOPEN.
+No fullHSE,missingchemicaldata invented, extra service/queue/main/DFT/goal work.
 
 ## NEW finite same-cutoff k3 physics milestone — 2026-10-14 22:20 UTC
 
@@ -44,7 +85,7 @@ or fullHSE convergence. Need176-band stop/diagnostics/state/descriptor/owner
 admission plus separate authorization. No pilot or source build is launched.
 STOP this finite k3 assignment after validated research commit/push.
 
-## Current context-reset handoff — 2026-10-14 22:20 UTC
+## Previous context-reset handoff — 2026-10-14 22:20 UTC (retained)
 
 New checkpoint starts3fe5ef2, existing research branch/session. Read chemical_k3
 handoff/decision/preregistration/verification/methods/next-experiment and DFT
@@ -692,6 +733,8 @@ state replay/readback design, not another infrastructure campaign.
 - **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.
 
 ## Finite checkpoint change log — 2026-10-14 00:01 UTC
+
+- **2026-10-14 23:16 UTC | firstACE checkpoint (this commit; starts `40d2b9e`) | functional-dependence acquisition | SOURCE COMPILE PASS / OWNER FAIL PRE-MPI / HSE NOT RUN |** Minimal3object private observer/stop built; solehostowner fails114byteAF_UNIXbind beforeMPI,managerexit1/13MBownerpeak/no native records. One tiny nonMPIshortaddress proof and3 focusedchecks; prospectiveunappliedfix103/101bytes/freshstate/no retries. Frozen/protecteddata and priorPBE/FAILs exact; Cd unrun. STOP; next actualscience remains corrected/newlyscopedmatchedHSEfirstACE, not PBEgrid churn.
 
 - **2026-10-14 22:20 UTC | k3 checkpoint (this commit; starts `3fe5ef2`) | physics | NATIVE PAIR/SCF/SYMMETRY/FRAMES/OWNER PASS |** ONE identical-cutoff50/200Ry matched k3 pair11/11steps243.78/225.01s; W2+.392177eV /−1.160meV grid sensitivity, conditional difference includeszero. Five focused checks; raw/complex/provenance evidence archived, aggregate500674560B, protected state and old failures exact. Recommend unlaunched separately qualified matchedGamma HSE firstACE; no BZ/material convergence. STOP finite completed pair.
 

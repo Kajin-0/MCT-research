@@ -1,0 +1,7 @@
+{
+  "stage": "source anchor precheck before compile",
+  "error": "substringexxinit count included restart indentation",
+  "correction": "require exact newline/eight-space branch anchor; keep first source directory and build2 separately",
+  "native_executed": false,
+  "exchange_arithmetic_changed": false
+}

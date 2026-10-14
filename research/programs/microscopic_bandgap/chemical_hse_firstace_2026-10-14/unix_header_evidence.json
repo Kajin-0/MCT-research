@@ -1,0 +1,6 @@
+{
+  "path": "/usr/include/x86_64-linux-gnu/sys/un.h",
+  "sha256": "68e42139922fd1bbf3d13eb0c33ce5c4120cec7668ef130b765c9219cf5e0f3b",
+  "definition": "char sun_path[108];\t\t/* Path name.  */",
+  "writes_to_system": false
+}

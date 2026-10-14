@@ -1,0 +1,37 @@
+{
+  "aggregate_charged_B": 5656576,
+  "members": [
+    {
+      "allocated_unique_blocks_bytes": 69890048,
+      "metadata_allowance_bytes": 57344,
+      "budget_charge_bytes": 2838528,
+      "escrow_blocks_bytes": 67108864,
+      "observed_unique_inodes": 14,
+      "cumulative_distinct_observed_inode_ids": 14,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 2838528,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    },
+    {
+      "allocated_unique_blocks_bytes": 2772992,
+      "metadata_allowance_bytes": 45056,
+      "budget_charge_bytes": 2818048,
+      "escrow_blocks_bytes": 0,
+      "observed_unique_inodes": 11,
+      "cumulative_distinct_observed_inode_ids": 11,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 2818048,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    }
+  ],
+  "includes_prepared_inputs_only_no_HSEdata": true,
+  "sampled_not_continuous": true
+}

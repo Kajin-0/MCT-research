@@ -1,0 +1,26 @@
+{
+  "scope": "ONE tiny AF_UNIX bind experiment; NO MPI/QE/unit/owner retry",
+  "original_address": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/lease.sock",
+  "original_bytes": 114,
+  "original_bind_failure": {
+    "type": "OSError",
+    "text": "AF_UNIX path too long",
+    "errno": null
+  },
+  "prospective_short_address": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/s",
+  "short_bytes": 105,
+  "short_real_bind_pass": true,
+  "only_new_socket_closed_and_identity_checked_unlinked": true,
+  "current_failed_state_reuse_refused": true,
+  "future_fresh_addresses": {
+    "host": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/p2/host/s",
+    "cd": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/p2/cd/s"
+  },
+  "future_byte_lengths": {
+    "host": 103,
+    "cd": 101
+  },
+  "prospective_patch_not_executed": true,
+  "native_hse_runs": 0,
+  "chemical_delta_eV": null
+}

@@ -1,0 +1,6 @@
+{
+  "stage": "arithmetic source-identity guard before compile",
+  "error": "routine names have optional spaces beforeopenparen",
+  "correction": "anchored whitespace-aware routine boundaries; exactbodycomparison remains; build1/2 pristinefiles preserved",
+  "native_executed": false
+}

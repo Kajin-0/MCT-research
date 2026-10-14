@@ -1,0 +1,70 @@
+{
+  "parent": "40d2b9e",
+  "files": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/pw.in": {
+      "sha256": "9190562f8fd51cd421dd3191ae010254ef948e592fa683cc5152d7b81c8dff52",
+      "bytes": 1177,
+      "archive_relative": "evidence/host/pw.in"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/reference.bin": {
+      "sha256": "6889991eaa9402c1c4a0409e81ebe9cbc4766f7b9c2a8972aaefeb3af36a0671",
+      "bytes": 1686872,
+      "archive_relative": "evidence/host/reference.bin"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/JOB.json": {
+      "sha256": "426e6f7c2f9e53b6ef6ddd4391a217ad67ea7d5ee4353b661be85cee4ce1cfcd",
+      "bytes": 363,
+      "archive_relative": "evidence/host/JOB.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/READY.json": {
+      "sha256": "c5e8bfe29b38c3b0b5b6ef5784d9f2ca659aa6010eb6c6300b6503a0d318ad38",
+      "bytes": 1865,
+      "archive_relative": "evidence/host/READY.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/host/REFERENCED.json": {
+      "sha256": "85901bc500d15b3ab4fe7b7b17d04d367f74e926d26617b41bf1b7060d6fe5ca",
+      "bytes": 19,
+      "archive_relative": "evidence/host/REFERENCED.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/cd/pw.in": {
+      "sha256": "19c2447d2f2296b144d4760040bd90ba5d5f35c0bd2b0a7da3bddf5dfea28950",
+      "bytes": 1173,
+      "archive_relative": "evidence/cd/pw.in"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/cd/reference.bin": {
+      "sha256": "6889991eaa9402c1c4a0409e81ebe9cbc4766f7b9c2a8972aaefeb3af36a0671",
+      "bytes": 1686872,
+      "archive_relative": "evidence/cd/reference.bin"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair/cd/JOB.json": {
+      "sha256": "263c714855748b0ec32f8831b363aba9dcbf80f06a8e80186343b0406cb2f007",
+      "bytes": 359,
+      "archive_relative": "evidence/cd/JOB.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/build4/electrons.f90.o": {
+      "sha256": "9f370a1e32e57e379a90b4d77a37b26b095fee45c21687b2cff097889d4a916f",
+      "bytes": 374184,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/build4/run_pwscf.f90.o": {
+      "sha256": "3bbcb2fd65510d3add3b0556f851e096f5535e2dd32b316b22e0791d09410ab4",
+      "bytes": 50032,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/build4/exx.f90.o": {
+      "sha256": "d0f0bfe514e3f83c994162724ec5ef592990c2f4dd4565ddc69dbc790f05a428",
+      "bytes": 1426696,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/build4/pw.hse8.firstace": {
+      "sha256": "9cb5827b29d97f174892460a8362b0ba16f23c00ae5ba6307dcc948550448028",
+      "bytes": 13266248,
+      "retained_private": true,
+      "executed": false
+    }
+  },
+  "scope": "prepared inputs/source/reference and failedNONMPI owner; no HSE spectral data",
+  "protected_state_unchanged": true,
+  "all_frozen_pins_unchanged": true,
+  "native_HSE_invocations": 0
+}

@@ -1,0 +1,101 @@
+--- frozen/run_pilot.py
++++ PROSPECTIVE/run_pilot_fixed.py
+@@ -19,7 +19,7 @@
+ HERE = Path(__file__).resolve().parent
+ BASE = HERE.parent / 'qe75_streaming_2026-10-11'
+ DFT = Path('/home/User/opencode_workspace/DFT')
+-PAIR = DFT / '.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/pair'
++PAIR = DFT / '.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/p2'
+ QE = DFT / '.local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/build4/pw.hse8.firstace'
+ MPI = DFT / '.local/qe-env/bin/mpirun'
+ for folder in ['runtime_admission', 'checkpoint_phase', 'native_bridge',
+@@ -30,6 +30,7 @@
+ from resource_guard import LinuxGuard, admission, live_limits
+ from process_identity import Identity, Refusal
+ from retirement import Peer, UnitReference, exit_events
++from address_admission import checked_address, refuse_reuse
+ from sampled_output import SingleMemberAccount, OutputRefusal
+ 
+ GIB = 1 << 30
+@@ -52,7 +53,7 @@
+         if not p: return kind == 'directory'
+         if len(p) == 1:
+             if kind == 'directory': return p[0] in ['out', 'tmp', 'pp', 'pilot']
+-            if kind == 'socket': return p[0] == 'lease.sock'
++            if kind == 'socket': return p[0] == 's'
+             return kind == 'regular' and (p[0].endswith('.json') or p[0].endswith('.jsonl') or p[0] in ['pw.in', 'pw.out', 'reference.bin', 'output.escrow', 'CRASH'])
+         if p[0]=='pilot':
+             import re
+@@ -121,7 +122,7 @@
+         text += 'K_POINTS automatic\n1 1 1 0 0 0\n'
+         (root / 'pw.in').write_text(text)
+     make_reference()
+-    pins = [QE, MPI, Path(sys.executable).resolve(), HERE / 'run_pilot.py', LIB, HERE / 'preregistration.md']
++    pins = [QE, MPI, Path(sys.executable).resolve(), HERE / 'run_pilot_fixed.py', LIB, HERE / 'preregistration.md']
+     pins += [BASE / 'terminal_owner_2026-10-14' / s for s in ['retirement.py', 'sampled_output.py']]
+     pins += [BASE / 'runtime_admission' / s for s in ['process_identity.py', 'family_runtime.py']]
+     pins += [BASE / 'cgroup_owned_2026-10-13/contracts.py', BASE / 'checkpoint_phase/resource_guard.py']
+@@ -174,7 +175,7 @@
+     if rank not in [0, 1] or os.environ['OMPI_COMM_WORLD_SIZE'] != '2': raise Refusal('actual MPI world')
+     conn = socket.socket(socket.AF_UNIX)
+     conn.settimeout(20)
+-    conn.connect(str(root / 'lease.sock'))
++    conn.connect(checked_address(root))
+     conn.sendall(json.dumps(dict(rank=rank, nonce=job['nonce'], job=digest(job), profile=job['profile_sha256'], cgroup=own_cgroup(os.getpid()), elf=sha(QE))).encode()+b'\n')
+     if conn.recv(128) != b'LIVE_OWNED_HSE8_FIRSTACE_EXEC\n': raise Refusal('owner live lease refused')
+     conn.close()
+@@ -207,12 +208,12 @@
+     while not (root/'REFERENCED.json').exists():
+         if time.monotonic()-started > 15: raise Refusal('terminal manager reference absent')
+         time.sleep(.05)
+-    server = socket.socket(socket.AF_UNIX); server.bind(str(root/'lease.sock')); server.listen(2); server.setblocking(False)
++    server = socket.socket(socket.AF_UNIX); server.bind(checked_address(root)); server.listen(2); server.setblocking(False)
+     env = manager_env()
+     env.update(R07_FIRSTACE_ROOT=str(root),TMPDIR=str(root/'tmp'), PMIX_SYSTEM_TMPDIR=str(root/'tmp'), PRTE_MCA_prte_tmpdir_base=str(root/'tmp'),
+                OMPI_MCA_plm='isolated', OMPI_MCA_btl='self,sm', OMPI_MCA_pml='ob1')
+     output = open(root/'pw.out', 'xb', buffering=0)
+-    command = [str(MPI), '--host', 'localhost:2', '-np', '2', str(Path(sys.executable).resolve()), str(HERE/'run_pilot.py'), 'rank', member]
++    command = [str(MPI), '--host', 'localhost:2', '-np', '2', str(Path(sys.executable).resolve()), str(HERE/'run_pilot_fixed.py'), 'rank', member]
+     launcher = subprocess.Popen(command, env=env, stdout=output, stderr=subprocess.STDOUT, cwd=root)
+     peers={}; conns={}; identities={}; stats=[]; error=None
+     accounts=[Account(PAIR/m, l['aggregate_output'], l['escrow'], storage) for m in ['host','cd']]
+@@ -281,6 +282,8 @@
+ 
+ def launch(member):
+     profile,job,root=load(member)
++    checked_address(root)
++    refuse_reuse(root)
+     if (root/'LAUNCH.json').exists() or (root/'GUARD_RESULT.json').exists(): raise Refusal('no retries/reused state')
+     if member=='cd':
+         h=json.loads((PAIR/'host/FINAL.json').read_text())
+@@ -291,7 +294,7 @@
+     props=dict(Type='exec',MemoryMax=str(12*GIB),MemorySwapMax='0',TasksMax='12',OOMPolicy='kill',KillMode='control-group',Delegate='no',Restart='no',SendSIGKILL='yes',RuntimeMaxSec='600s',TimeoutStopSec='3s',LimitFSIZE=str(GIB),LimitCORE='0',NoNewPrivileges='yes',WorkingDirectory=str(DFT),UnsetEnvironment='LD_PRELOAD LD_AUDIT PYTHONHOME PYTHONPATH LD_LIBRARY_PATH')
+     cmd=['/usr/bin/systemd-run','--user','--pipe','--wait','--quiet','--unit='+job['unit']]
+     for k,v in props.items(): cmd+=['--property='+k+'='+v]
+-    cmd += ['--setenv=PYTHONDONTWRITEBYTECODE=1','--setenv=OMP_NUM_THREADS=1','--setenv=OPENBLAS_NUM_THREADS=1','--setenv=MKL_NUM_THREADS=1',str(Path(sys.executable).resolve()),str(HERE/'run_pilot.py'),'guard',member]
++    cmd += ['--setenv=PYTHONDONTWRITEBYTECODE=1','--setenv=OMP_NUM_THREADS=1','--setenv=OPENBLAS_NUM_THREADS=1','--setenv=MKL_NUM_THREADS=1',str(Path(sys.executable).resolve()),str(HERE/'run_pilot_fixed.py'),'guard',member]
+     ref=None;client=subprocess.Popen(cmd,env=manager_env(),stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+     try:
+         start=time.monotonic()
+@@ -327,7 +330,7 @@
+         symmetry_ok=bool(nsym==24 and flags is not None and all(flags.findtext(k)=='false' for k in ['nosym','noinv','no_t_rev']))
+         scf_error_Ry=float(t.findtext('.//output/convergence_info/scf_conv/scf_error'))*2
+         from packets import validate_native
+-        science=validate_native(member)
++        science=validate_native(member,pair_root=PAIR)
+         scientific=bool(science['scientific_pass'] and achieved=='false' and symmetry_ok and mesh and len(gi)==1 and abs(charge-nelec)<=1e-8 and eig.shape==(1,176) and nelec==144 and occupation_error<1e-9 and actual_cutoffs==[50.,200.])
+         files=[root/'pw.in',root/'pw.out',schema]+sorted((root/'out/r07hse8.save').glob('wfc*.hdf5'))
+         result=dict(member=member,accepted=bool(terminal and scientific),terminal_pass=bool(terminal),scientific_pass=scientific,actual_cutoffs_Ry=actual_cutoffs,native_nsym=nsym,symmetry_flags_pass=symmetry_ok,scf_error_Ry=scf_error_Ry,mesh_pass=bool(mesh),Gamma_index_1based=int(gi[0]+1) if len(gi)==1 else None,
+--- frozen/packets.py
++++ PROSPECTIVE/packets.py
+@@ -48,8 +48,8 @@
+ def relative(x,y):return float(np.linalg.norm(x-y)/max(1.,np.linalg.norm(x),np.linalg.norm(y)))
+ 
+ 
+-def validate_native(member):
+-    root=PAIR/member;records={s:[packet(root,s,r) for r in [0,1]] for s in ['before','after','local0','local1','summary','complete']}
++def validate_native(member,pair_root=PAIR):
++    root=Path(pair_root)/member;records={s:[packet(root,s,r) for r in [0,1]] for s in ['before','after','local0','local1','summary','complete']}
+     ranks=json.loads((root/'RANKS.json').read_text());gram=np.zeros((176,176),complex);acegram=gram.copy();norm=gram.copy();refX=np.zeros((6,6),complex);localshift=refX.copy();refnorm=refX.copy()
+     action_num=0.;action_den=0.;wave_error=0.;seen=set();normpadding=0.
+     wave=root/'out/r07hse8.save/wfc1.hdf5';wf,G,k=read_spinors(wave);assert len(wf)==176 and len(G)==10827 and max(abs(k))<1e-12

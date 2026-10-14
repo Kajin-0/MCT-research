@@ -1,0 +1,6 @@
+{
+  "stage": "arithmetic sourcecheck, before compile",
+  "error": "matcalc_k is an external pristine libraryroutine, not in exx module",
+  "correction": "comparethree modulebodies and retain unchanged original staticarchive/backend containingmatcalc; continue same source-onlybuild3, no compiled objects overwritten",
+  "native_executed": false
+}
