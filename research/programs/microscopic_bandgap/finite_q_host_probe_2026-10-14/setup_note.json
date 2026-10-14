@@ -1,0 +1,4 @@
+{
+  "initial_import_refusal": "mpmath unavailable; no native or scientific contraction executed",
+  "remedy": "standard-library 70-digit Decimal analytic antiderivative; no install/environment or physics change"
+}

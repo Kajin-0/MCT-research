@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-10-14T16:53:57.559893+00:00",
+  "passed": true,
+  "DFT_dirty_stock_preserved": true,
+  "prior_failures_and_frozen_packages_unchanged": true,
+  "bounded_real_existing_data_calculation": true,
+  "no_new_HSE_MPI_or_native_service": true,
+  "check_code_sha256": "f1fa35833f23c51b2a4667c71ddb8c9b0378cfdb033edf28a64eb5b7181c3699",
+  "numerical_result_sha256": "9d08d404adf3885facbc5f52708b50a866b6915bfc82bb8bebcf744b42de35ae",
+  "unbounded_model_grid_material_error_preserved": true,
+  "physical_xc": null
+}

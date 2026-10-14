@@ -1,0 +1,1498 @@
+{
+  "timestamp": "2026-10-14T16:34:29.592073+00:00",
+  "claim_status": "CALCULATED specified coherent-host finite-grid wavepacket probe; conditional spectral completion only",
+  "parent_HSE_accepted": true,
+  "new_HSE_run": false,
+  "parent_QE_version": "Program PWSCF v.7.5 starts on 11Oct2026 at 12:18:38",
+  "parent_MPI_ranks": 6,
+  "parent_DFT_commit": "422d71de02df56edae96e47e1a71931e073b48ad",
+  "PP_sha256": {
+    "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "native_Gamma_gap_eV": -0.28977011377785367,
+  "reference_r_native_eV": 8.809991014134877,
+  "W_eV": 0.5,
+  "eta_eV": 0.025,
+  "k_count": 64,
+  "band_count": 44,
+  "sectors": {
+    "Gamma6_reference_probe": {
+      "retained_probability": 0.8097202594567223,
+      "arbitrary_plane_space_unresolved_probability": 1.2962511446168445e-10,
+      "uncomputed_band_probability": 0.19027974041365264,
+      "window_mass_lower": 0.012575028932866831,
+      "relative_window_moment_eV": -0.0015928859406225608,
+      "relative_centroid_eV": -0.12667055870219915,
+      "raw_near_window_probability": 0.015625000000000014,
+      "raw_nonGamma_near_window_probability": 2.421394034352111e-17,
+      "conditional_added_window_mass_upper": 1.7242180857285808e-05,
+      "conditional_centroid_tail_error_upper_eV": 0.0008594148903175416,
+      "centroid_interval_relative_eV": [
+        -0.1275299735925167,
+        -0.1258111438118816
+      ]
+    },
+    "Gamma8_reference_probe": {
+      "retained_probability": 0.7609124312919067,
+      "arbitrary_plane_space_unresolved_probability": 1.783036879601796e-09,
+      "uncomputed_band_probability": 0.2390875669250565,
+      "window_mass_lower": 0.021068159200253646,
+      "relative_window_moment_eV": -0.0008827363888946767,
+      "relative_centroid_eV": -0.041899075306211335,
+      "raw_near_window_probability": 0.06903131373654996,
+      "raw_nonGamma_near_window_probability": 0.05340631373654996,
+      "conditional_added_window_mass_upper": 2.2107045653728496e-05,
+      "conditional_centroid_tail_error_upper_eV": 0.0005687154479715255,
+      "centroid_interval_relative_eV": [
+        -0.04246779075418286,
+        -0.04133035985823981
+      ]
+    }
+  },
+  "probe_centroid_difference_eV": -0.0847714833959878,
+  "conditional_difference_error_upper_eV": 0.001428130338289067,
+  "conditional_difference_interval_eV": [
+    -0.08619961373427687,
+    -0.08334335305769874
+  ],
+  "physical_impurity_vertex_or_material_observable": false,
+  "physical_xc": null,
+  "unresolved_error_eV": {
+    "native_eigenpair": null,
+    "SCF_operator": null,
+    "finite_grid_to_continuum": null,
+    "material": null,
+    "probe_to_substitution": null
+  },
+  "maximum_native_NC_Gram_2norm": 5.3595968370436344e-15,
+  "minimum_omitted_energy_distance_to_window_eV": 4.949481273331896,
+  "independent_1024_node_quadrature_max_mass_error": 9.2148511043888e-15,
+  "independent_quadrature_max_moment_error_eV": 1.3461454173580023e-15,
+  "native_geometry_or_missing_weight_never_renormalized": true,
+  "source_hashes": {
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/result.json": "95ed8813fe6e73dec7aec7799a8622ac17de8425bc1ebc59109bcfa24a67c8a1",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/pw.in": "af0f4de4a62306df09e9229863dec26e9ced675693148967b5646a4bdd47d9e7",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/pw.out": "74b70b837e83bbc8e3c6a8616b0174a09aa402a33cb9dcae300e2fe3e8ca8893",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/data-file-schema.xml": "761891446c6a86d88f929cb2903a2de756d4ba0ede3aaa275b0b26055ad6a0c8",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/signed_gap.json": "5912c08289910bf552e6d69978911b847eb0a51e2369a03c4b10d58ae8b4b50c",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/reference_irrep_check.json": "b5542e19f90029e9e34fee5317a97cb6e7217ded1f999651befe83292f1edff7",
+    "/home/User/opencode_workspace/DFT/src/mct_dft/qe_wavefunctions.py": "b49ad16fff8f4b2f8967b0c10aa2e6ced2edad94a7b571e90f1295c785c71a9b",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/finite_q_host_probe_2026-10-14/preregistration.json": "e472ab46e96c079617f351ddac2f45596b50354c05c04c0e0c17dc6466c4d196",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc1.hdf5": "58a4beb14445d822463ab4a6cc874c9a9e7130b01d3695198c5512f2c51facc1",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc2.hdf5": "62a465b14b7ff5ef44ca038d1f6eff65453258985c3eebc50a371ba9521ac7c5",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc3.hdf5": "5d1107af408a3dc062e97e909a9166c3abbcea7e863ca7634d6fbaf319c2f74b",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc4.hdf5": "d5cfd5708501a24b47be009bc4e38da3d6879ced6d53d2de7f1584d840701c8c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc5.hdf5": "952705a929a648f1b2b63af0a3730ee810d33d93b905abb3e6b2acfd87da5094",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc6.hdf5": "0db358b1ba58b04d12ef304e26f0c385968fd9d16144d05d7d7ac8848f579ac3",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc7.hdf5": "5ef6cb9a5b23d3dd44856647fc825aeaa877f032189450f1ed0615bccd46fcdd",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc8.hdf5": "5e4c473281a10cecf2d63832da843c9d086a7ab634d8a019030eb56f6dcfee93",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc9.hdf5": "596c179cd3a0618c679c8c9fdb82110a99ec6a7f5ccffc58fc8680faabf89635",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc10.hdf5": "3712aad3b1322f9b66bdaf1776564a0b21d3a2d03d782e376844d329b0e80d4b",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc11.hdf5": "49530bf10dccb52e43e22157ce9cf182b932102b932cb583cfcd3cd0879bba94",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc12.hdf5": "75755335069d0c1b3547d478430381a0cbf41b3d972f20c0cc51a52c77042501",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc13.hdf5": "e7cceab4282aacc6238705df9f91622bd49f2d383c6dfee8f1d9a3f771c1a788",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc14.hdf5": "9c42196b9b4c97e7d7f8c09769a21d25de2615fd8b02e84cff976750e6558bd9",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc15.hdf5": "f035dfcadb57418a3da8c1c0ad1cea28e73387f92446b7c7e59da76e8d469ba9",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc16.hdf5": "ccb9a77e266dd917e39b77eb14caaf321023b143801c011e78b084cdcc859d46",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc17.hdf5": "7461ccf32a42e18b27bccc4c270d6c513b78da8f2151ebd095d34a45f011121c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc18.hdf5": "a216789452bc8d1c48b5dd869609543db9fc42129a0f95cb2343dc414d5dc90f",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc19.hdf5": "4409b8551101ed91513fbe1774bda21c8fa1f8b4287fe625603f4d7f8f03cab6",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc20.hdf5": "951e7151eea5396b55446b1d8822ebf63f8723a89dafa6fce08d65b3f6f9349d",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc21.hdf5": "a7eec61e9c6473305a07b51e7cc061cb162382feff4ca507b44f8b254ce42288",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc22.hdf5": "62d84e8e7c0f07bb6091c3c810feb8cf016391125b430afcee4e65f0ae07a2a3",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc23.hdf5": "9423d3f8ef5e3618b674753f2b57f37b7e176bbabdd84556d790c368f8610581",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc24.hdf5": "919ccaa3acc67430f2905f5482305bbdc40d83eeae839026bc4dcd9f46ec2be3",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc25.hdf5": "c6b746c37dd66cb9949e983898a49de31b5bd0baf020c8f3581d19bfc6706b2d",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc26.hdf5": "6956c1e6a13f86922e6944882a1edb494e71833af54eec288e1b1cc594e5d407",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc27.hdf5": "ae6392c38994a2ead19a3d86790c1230ec0ae7291fa29619ab4e5abb0daa3f79",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc28.hdf5": "f73746ea3e0ebd5ba598cf6b86f5b5403860ade945f8ffe12ef68e28772afc1c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc29.hdf5": "2e6cb21aa375918342fa3c5d26a4b16ed6946e92cb5e29677bea88a50606c82c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc30.hdf5": "e083d91df858d40c79d3bb34c6f2a3cde4c2aca4a3b7e45d2cd706364304d0fa",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc31.hdf5": "8254d1c2aea9e38a637f544801fbcd0eef62f6ae86bdfe5c5520e241d9289ae8",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc32.hdf5": "48a8250c90ed97a040fcf2dd9a769b40303b0f436597a012fd7eaa42ca30d77d",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc33.hdf5": "d9f3e3094b4980cd6d1cc615e29da3e15e9c0d121a0c92dc67714934a7ab27f2",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc34.hdf5": "b90ce6295e80061c737849d36923a74dad551a972f81c805505dd742aac69bc5",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc35.hdf5": "5fde7703d7b02145e39e48f447da692b9af8fd70f224f47cf2d1807512ddeeb1",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc36.hdf5": "4c9392511e9183385692c1094fab8ceecfacf6d7595c85217f91c8fbc23aa689",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc37.hdf5": "9908a3d5c37ffd19226c1a9b84962d6cbd12e286e343b14827dd7744b71486b1",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc38.hdf5": "b8c34c6b4ce3629f38b167d89607d6840840ef1e5a28c6c20b678e4ec8bff329",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc39.hdf5": "1db5837d1a105f62e689e36170928b30ef3b7417cda838c02f29d35e64942265",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc40.hdf5": "478e4a60db135eb2547735c056d322a76dd16d26d9ac24b304382447941db3f5",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc41.hdf5": "0ce994714d24028226ea3c1d02e72bef643712a64b060a4049c8461cf61a46f9",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc42.hdf5": "608e9e4089e48fad480aacc669aca983a65b04bba761d50ea6e0786846a5da76",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc43.hdf5": "3caeabb7ce412cfb9761a2fbf234db6c90e8de1ea2c763f7b5be7e26efd9b9f3",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc44.hdf5": "01042fecdf5c28246ee8af23f4a97310750c8396d25e8953c9838988bd4e7cf0",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc45.hdf5": "af80850f4df7a094118adf0fa1c44b59b7e7bfba0965710af34cdd3fc5895c6b",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc46.hdf5": "1359598961c6f3c4813b7d9617566cbe8e1665a0433dad93326df40d3df66235",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc47.hdf5": "9494d70f043818903a04f635c3db7e4acb837a122de5dc40e796bd49c4757ba2",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc48.hdf5": "316e7165edb8205ca562b56eefb8a11201360436af162442d48cc4f5edb18e5d",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc49.hdf5": "8ae35e3768f910a83658a217e0a45257c019fb65db826a93bb183d0a02a963ef",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc50.hdf5": "f59800cc1001dfb7bea627593b2924d7697e9474aac3bb443628a3e68f5e5719",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc51.hdf5": "84d6272e868d770427097703976f200f587078227321aef7032b48a8d9533a32",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc52.hdf5": "b995f9dab2df22a1c45248366d77b60017a6fa002b9b69ee66aec8440b3f8258",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc53.hdf5": "1addb6c94b605047b7581ad34537866fe4df11111fc566ba14fe93c266ba4f83",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc54.hdf5": "8724656666ab7ef08bdd97619f039026179c50e743c7e58e0ae0354f9271f948",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc55.hdf5": "a54f510b13b0f05cd726de1cc55ea11b5e477b5ee6f1cfc5b2d2c5a76ea6789c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc56.hdf5": "7f0d3e5fbc0539315310685caecd3cb8f5bebd95572532ee263db8cf38b7b8b1",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc57.hdf5": "2c44ade4b01b6817143b9bd67410058f5c419410e51a325cf59111fed2b0d64c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc58.hdf5": "98c4d9b2c14c066a980d7ef48b37f8baf0564753500f4e117d565f03ed3b04a2",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc59.hdf5": "926d5a56fe99c5cef3b6b5ac3491704f3f3e051880d9108d9541380a9f23b5a4",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc60.hdf5": "85bb68675a0369e5e6a209860f0fa520adb974e7fb5e1505c8cd6032badef0e9",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc61.hdf5": "4ff1b2efc85885888f9c2a5f91e320ea71039f2f5426d8c2ffbc5c599459bbe8",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc62.hdf5": "18a3b1507076d78eb55b88484a8381fc306812894b38005a2ab6b1e0b995a9f8",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc63.hdf5": "3bbb1e00fb3270694581b8f52dbce907d1347d4237dd50829fd5b2f413f79c90",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc64.hdf5": "f10d1b96f0c33e3f5a559d9ad54e85faafe063b13ecc29272ed211a863ee8860"
+  },
+  "per_k": [
+    {
+      "k_index": 1,
+      "k_fractional_canonical": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "prefix_mass": [
+        0.9999999999999991,
+        0.9999999999999993
+      ],
+      "plane_space_loss": [
+        4.440892098500626e-16,
+        1.1102230246251565e-16
+      ],
+      "omitted_band_weight": [
+        4.440892098500626e-16,
+        5.551115123125783e-16
+      ],
+      "Gram_2norm": 3.691386592935727e-15
+    },
+    {
+      "k_index": 2,
+      "k_fractional_canonical": [
+        -6.143835638441302e-18,
+        -6.143835638441302e-18,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9838745460050499,
+        0.9173389560036553
+      ],
+      "plane_space_loss": [
+        1.1992518089698478e-11,
+        8.774623250218383e-10
+      ],
+      "omitted_band_weight": [
+        0.016125453982957616,
+        0.08266104311888234
+      ],
+      "Gram_2norm": 5.146312842414254e-15
+    },
+    {
+      "k_index": 3,
+      "k_fractional_canonical": [
+        1.2287671276882603e-17,
+        1.2287671276882603e-17,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.7657204824554444,
+        0.7077227948589733
+      ],
+      "plane_space_loss": [
+        1.0614309431389302e-10,
+        1.8547268165747255e-09
+      ],
+      "omitted_band_weight": [
+        0.23427951743841247,
+        0.2922772032862999
+      ],
+      "Gram_2norm": 3.7898722777682515e-15
+    },
+    {
+      "k_index": 4,
+      "k_fractional_canonical": [
+        6.143835638441302e-18,
+        6.143835638441302e-18,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.983874545872796,
+        0.917338955815414
+      ],
+      "plane_space_loss": [
+        1.1992629112000941e-11,
+        8.774623250218383e-10
+      ],
+      "omitted_band_weight": [
+        0.01612545411521138,
+        0.08266104330712365
+      ],
+      "Gram_2norm": 5.303694414567952e-15
+    },
+    {
+      "k_index": 5,
+      "k_fractional_canonical": [
+        6.143835638441302e-18,
+        0.25000000000000006,
+        -6.143835638441302e-18
+      ],
+      "prefix_mass": [
+        0.9838745459282601,
+        0.9173389555867573
+      ],
+      "plane_space_loss": [
+        1.1992518089698478e-11,
+        8.774623250218383e-10
+      ],
+      "omitted_band_weight": [
+        0.016125454059747413,
+        0.08266104353578041
+      ],
+      "Gram_2norm": 5.197143417776807e-15
+    },
+    {
+      "k_index": 6,
+      "k_fractional_canonical": [
+        1.3872381981111103e-17,
+        0.25000000000000006,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9333597478788827,
+        0.889380141639426
+      ],
+      "plane_space_loss": [
+        3.049338559435455e-11,
+        1.265699767216688e-09
+      ],
+      "omitted_band_weight": [
+        0.06664025209062396,
+        0.11061985709487421
+      ],
+      "Gram_2norm": 4.923825439576088e-15
+    },
+    {
+      "k_index": 7,
+      "k_fractional_canonical": [
+        -7.739357996076514e-18,
+        0.25,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.6298228770945438,
+        0.6736056597654315
+      ],
+      "plane_space_loss": [
+        2.283968569827266e-10,
+        2.3709270102756363e-09
+      ],
+      "omitted_band_weight": [
+        0.3701771226770594,
+        0.32639433786364147
+      ],
+      "Gram_2norm": 4.77843270289259e-15
+    },
+    {
+      "k_index": 8,
+      "k_fractional_canonical": [
+        1.2287671276882603e-17,
+        0.25000000000000006,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9091534520469803,
+        0.8113035688999566
+      ],
+      "plane_space_loss": [
+        5.597811103541517e-11,
+        1.4818439808550465e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654789704161,
+        0.18869642961819943
+      ],
+      "Gram_2norm": 4.5359926585334635e-15
+    },
+    {
+      "k_index": 9,
+      "k_fractional_canonical": [
+        -1.2287671276882603e-17,
+        -0.5000000000000001,
+        1.2287671276882603e-17
+      ],
+      "prefix_mass": [
+        0.7657204818784723,
+        0.7077227956388075
+      ],
+      "plane_space_loss": [
+        1.0614309431389302e-10,
+        1.8547270386193304e-09
+      ],
+      "omitted_band_weight": [
+        0.2342795180153846,
+        0.2922772025064655
+      ],
+      "Gram_2norm": 3.9000104938888326e-15
+    },
+    {
+      "k_index": 10,
+      "k_fractional_canonical": [
+        7.739357996076514e-18,
+        -0.5000000000000001,
+        0.25
+      ],
+      "prefix_mass": [
+        0.629822877338778,
+        0.6736056598046866
+      ],
+      "plane_space_loss": [
+        2.2839663493812168e-10,
+        2.3709272323202413e-09
+      ],
+      "omitted_band_weight": [
+        0.3701771224328254,
+        0.3263943378243862
+      ],
+      "Gram_2norm": 4.866203755923748e-15
+    },
+    {
+      "k_index": 11,
+      "k_fractional_canonical": [
+        -2.7744763962222206e-17,
+        -0.5000000000000001,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.8077650210244959,
+        0.6809939072724324
+      ],
+      "plane_space_loss": [
+        1.9689561092661734e-10,
+        2.4041078017233986e-09
+      ],
+      "omitted_band_weight": [
+        0.1922349787786085,
+        0.31900609032345983
+      ],
+      "Gram_2norm": 5.060027555390795e-15
+    },
+    {
+      "k_index": 12,
+      "k_fractional_canonical": [
+        -7.739357996076514e-18,
+        -0.4999999999999999,
+        -0.25
+      ],
+      "prefix_mass": [
+        0.8127487323096106,
+        0.7526099679182293
+      ],
+      "plane_space_loss": [
+        9.367995268405593e-11,
+        1.7571470944943712e-09
+      ],
+      "omitted_band_weight": [
+        0.1872512675967094,
+        0.2473900303246236
+      ],
+      "Gram_2norm": 4.733384806986887e-15
+    },
+    {
+      "k_index": 13,
+      "k_fractional_canonical": [
+        -6.143835638441302e-18,
+        -0.25000000000000006,
+        6.143835638441302e-18
+      ],
+      "prefix_mass": [
+        0.983874545837735,
+        0.9173389562412456
+      ],
+      "plane_space_loss": [
+        1.1992407067396016e-11,
+        8.774623250218383e-10
+      ],
+      "omitted_band_weight": [
+        0.016125454150272556,
+        0.08266104288129206
+      ],
+      "Gram_2norm": 5.138749760160105e-15
+    },
+    {
+      "k_index": 14,
+      "k_fractional_canonical": [
+        -1.2287671276882603e-17,
+        -0.25000000000000006,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9091534517559178,
+        0.8113035692622975
+      ],
+      "plane_space_loss": [
+        5.597811103541517e-11,
+        1.4818442028996515e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654818810411,
+        0.18869642925585828
+      ],
+      "Gram_2norm": 4.542176759471947e-15
+    },
+    {
+      "k_index": 15,
+      "k_fractional_canonical": [
+        7.739357996076514e-18,
+        -0.25,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.8127487315902452,
+        0.7526099684980679
+      ],
+      "plane_space_loss": [
+        9.368017472866086e-11,
+        1.7571473165389762e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126831607464,
+        0.24739002974478475
+      ],
+      "Gram_2norm": 4.673137254912042e-15
+    },
+    {
+      "k_index": 16,
+      "k_fractional_canonical": [
+        -1.3872381981111103e-17,
+        -0.25000000000000006,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9333597482477454,
+        0.8893801421537036
+      ],
+      "plane_space_loss": [
+        3.049338559435455e-11,
+        1.2656996561943856e-09
+      ],
+      "omitted_band_weight": [
+        0.06664025172176125,
+        0.1106198565805967
+      ],
+      "Gram_2norm": 4.8343359351848115e-15
+    },
+    {
+      "k_index": 17,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        6.143835638441302e-18,
+        6.143835638441302e-18
+      ],
+      "prefix_mass": [
+        0.9838745461019349,
+        0.9173389552544623
+      ],
+      "plane_space_loss": [
+        1.1992518089698478e-11,
+        8.774623250218383e-10
+      ],
+      "omitted_band_weight": [
+        0.01612545388607256,
+        0.08266104386807538
+      ],
+      "Gram_2norm": 5.023339598582006e-15
+    },
+    {
+      "k_index": 18,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        0.0,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9333597465555431,
+        0.8893801423689722
+      ],
+      "plane_space_loss": [
+        3.0493163549749625e-11,
+        1.265699767216688e-09
+      ],
+      "omitted_band_weight": [
+        0.06664025341396373,
+        0.110619856365328
+      ],
+      "Gram_2norm": 4.859420921990663e-15
+    },
+    {
+      "k_index": 19,
+      "k_fractional_canonical": [
+        0.24999999999999997,
+        -7.739357996076514e-18,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.6298228777976502,
+        0.6736056593264159
+      ],
+      "plane_space_loss": [
+        2.2839663493812168e-10,
+        2.3709272323202413e-09
+      ],
+      "omitted_band_weight": [
+        0.37017712197395314,
+        0.32639433830265685
+      ],
+      "Gram_2norm": 4.739481218418719e-15
+    },
+    {
+      "k_index": 20,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        1.2287671276882603e-17,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9091534530238857,
+        0.8113035681766863
+      ],
+      "plane_space_loss": [
+        5.597822205771763e-11,
+        1.481844313921954e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654692013605,
+        0.18869643034146943
+      ],
+      "Gram_2norm": 4.664427505976962e-15
+    },
+    {
+      "k_index": 21,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        0.25000000000000006,
+        0.0
+      ],
+      "prefix_mass": [
+        0.9333597461225772,
+        0.8893801420270038
+      ],
+      "plane_space_loss": [
+        3.049338559435455e-11,
+        1.2656998782389906e-09
+      ],
+      "omitted_band_weight": [
+        0.0666402538469294,
+        0.11061985670729635
+      ],
+      "Gram_2norm": 4.900402110471143e-15
+    },
+    {
+      "k_index": 22,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        0.25000000000000006,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9838745457959769,
+        0.9173389561443163
+      ],
+      "plane_space_loss": [
+        1.1992629112000941e-11,
+        8.77463213200258e-10
+      ],
+      "omitted_band_weight": [
+        0.016125454192030486,
+        0.08266104297822052
+      ],
+      "Gram_2norm": 5.358375221625756e-15
+    },
+    {
+      "k_index": 23,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        0.25000000000000006,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.6374551730235899,
+        0.6337372284488557
+      ],
+      "plane_space_loss": [
+        3.502981238412417e-10,
+        2.776413987604087e-09
+      ],
+      "omitted_band_weight": [
+        0.362544826626112,
+        0.3662627687747303
+      ],
+      "Gram_2norm": 4.721963528810657e-15
+    },
+    {
+      "k_index": 24,
+      "k_fractional_canonical": [
+        0.25,
+        0.25,
+        -0.2499999999999999
+      ],
+      "prefix_mass": [
+        0.8127487295875933,
+        0.7526099680977832
+      ],
+      "plane_space_loss": [
+        9.36800637063584e-11,
+        1.757146539382859e-09
+      ],
+      "omitted_band_weight": [
+        0.18725127031872668,
+        0.24739003014507022
+      ],
+      "Gram_2norm": 4.7162225972453556e-15
+    },
+    {
+      "k_index": 25,
+      "k_fractional_canonical": [
+        0.24999999999999994,
+        -0.5000000000000001,
+        -7.739357996076514e-18
+      ],
+      "prefix_mass": [
+        0.6298228782154638,
+        0.6736056602810451
+      ],
+      "plane_space_loss": [
+        2.2839663493812168e-10,
+        2.3709272323202413e-09
+      ],
+      "omitted_band_weight": [
+        0.3701771215561396,
+        0.3263943373480277
+      ],
+      "Gram_2norm": 4.555930670754411e-15
+    },
+    {
+      "k_index": 26,
+      "k_fractional_canonical": [
+        0.25,
+        -0.4999999999999999,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.6374551785842772,
+        0.6337372269423848
+      ],
+      "plane_space_loss": [
+        3.5029823486354417e-10,
+        2.7764138765817847e-09
+      ],
+      "omitted_band_weight": [
+        0.3625448210654245,
+        0.36626277028120136
+      ],
+      "Gram_2norm": 4.67861403137156e-15
+    },
+    {
+      "k_index": 27,
+      "k_fractional_canonical": [
+        0.2499999999999999,
+        -0.5000000000000001,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.5837791421929983,
+        0.5815993081236348
+      ],
+      "plane_space_loss": [
+        4.4889147954307873e-10,
+        3.0162659037102912e-09
+      ],
+      "omitted_band_weight": [
+        0.4162208573581102,
+        0.4184006888600993
+      ],
+      "Gram_2norm": 4.8713629309504376e-15
+    },
+    {
+      "k_index": 28,
+      "k_fractional_canonical": [
+        0.25,
+        -0.5000000000000001,
+        -0.2500000000000001
+      ],
+      "prefix_mass": [
+        0.6747520865171228,
+        0.6451674988826236
+      ],
+      "plane_space_loss": [
+        2.2081581008137618e-10,
+        2.261968168326689e-09
+      ],
+      "omitted_band_weight": [
+        0.32524791326206137,
+        0.35483249885540824
+      ],
+      "Gram_2norm": 4.4184806899742325e-15
+    },
+    {
+      "k_index": 29,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        -0.25000000000000006,
+        1.2287671276882603e-17
+      ],
+      "prefix_mass": [
+        0.9091534536810858,
+        0.8113035688409459
+      ],
+      "plane_space_loss": [
+        5.597822205771763e-11,
+        1.4818442028996515e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654626293598,
+        0.1886964296772099
+      ],
+      "Gram_2norm": 4.71706997517219e-15
+    },
+    {
+      "k_index": 30,
+      "k_fractional_canonical": [
+        0.25,
+        -0.2499999999999999,
+        0.25
+      ],
+      "prefix_mass": [
+        0.8127487304226892,
+        0.7526099686293284
+      ],
+      "plane_space_loss": [
+        9.367995268405593e-11,
+        1.7571462063159515e-09
+      ],
+      "omitted_band_weight": [
+        0.1872512694836308,
+        0.2473900296135254
+      ],
+      "Gram_2norm": 4.914293469557846e-15
+    },
+    {
+      "k_index": 31,
+      "k_fractional_canonical": [
+        0.25000000000000006,
+        -0.25000000000000006,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.6747520864514337,
+        0.6451674970167713
+      ],
+      "plane_space_loss": [
+        2.208163651928885e-10,
+        2.261967946282084e-09
+      ],
+      "omitted_band_weight": [
+        0.32524791332774994,
+        0.3548325007212607
+      ],
+      "Gram_2norm": 4.600426830979633e-15
+    },
+    {
+      "k_index": 32,
+      "k_fractional_canonical": [
+        0.2499999999999999,
+        -0.25,
+        -0.25
+      ],
+      "prefix_mass": [
+        0.8127487320311184,
+        0.7526099683498721
+      ],
+      "plane_space_loss": [
+        9.367984166175347e-11,
+        1.7571464283605565e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126787520174,
+        0.24739002989298142
+      ],
+      "Gram_2norm": 4.746948874382496e-15
+    },
+    {
+      "k_index": 33,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        -1.2287671276882603e-17,
+        -1.2287671276882603e-17
+      ],
+      "prefix_mass": [
+        0.7657204818913804,
+        0.7077227955615917
+      ],
+      "plane_space_loss": [
+        1.0614320533619548e-10,
+        1.8547274827085403e-09
+      ],
+      "omitted_band_weight": [
+        0.23427951800247637,
+        0.29227720258368084
+      ],
+      "Gram_2norm": 4.0588544294046404e-15
+    },
+    {
+      "k_index": 34,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        7.739357996076514e-18,
+        0.25
+      ],
+      "prefix_mass": [
+        0.6298228774105801,
+        0.6736056602935244
+      ],
+      "plane_space_loss": [
+        2.2839696800502907e-10,
+        2.370927676409451e-09
+      ],
+      "omitted_band_weight": [
+        0.37017712236102296,
+        0.3263943373355479
+      ],
+      "Gram_2norm": 5.017444866221802e-15
+    },
+    {
+      "k_index": 35,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        0.0,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.8077650202091492,
+        0.6809939074532102
+      ],
+      "plane_space_loss": [
+        1.968957219489198e-10,
+        2.4041078017233986e-09
+      ],
+      "omitted_band_weight": [
+        0.19223497959395508,
+        0.319006090142682
+      ],
+      "Gram_2norm": 5.034364405413569e-15
+    },
+    {
+      "k_index": 36,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        -7.739357996076514e-18,
+        -0.25
+      ],
+      "prefix_mass": [
+        0.8127487314086795,
+        0.7526099681585348
+      ],
+      "plane_space_loss": [
+        9.367950859484608e-11,
+        1.7571473165389762e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126849764095,
+        0.24739003008431792
+      ],
+      "Gram_2norm": 4.8391313566144535e-15
+    },
+    {
+      "k_index": 37,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        0.25,
+        7.739357996076514e-18
+      ],
+      "prefix_mass": [
+        0.6298228778066148,
+        0.6736056599111644
+      ],
+      "plane_space_loss": [
+        2.283968569827266e-10,
+        2.3709273433425437e-09
+      ],
+      "omitted_band_weight": [
+        0.3701771219649883,
+        0.32639433771790827
+      ],
+      "Gram_2norm": 4.972822325718381e-15
+    },
+    {
+      "k_index": 38,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        0.25,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.6374551740803498,
+        0.6337372290036577
+      ],
+      "plane_space_loss": [
+        3.502981238412417e-10,
+        2.776414209648692e-09
+      ],
+      "omitted_band_weight": [
+        0.3625448255693521,
+        0.3662627682199281
+      ],
+      "Gram_2norm": 4.45646371896621e-15
+    },
+    {
+      "k_index": 39,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        0.2499999999999999,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.5837791417989103,
+        0.5815993082283832
+      ],
+      "plane_space_loss": [
+        4.488915905653812e-10,
+        3.016266125754896e-09
+      ],
+      "omitted_band_weight": [
+        0.4162208577521981,
+        0.41840068875535064
+      ],
+      "Gram_2norm": 4.813022526631311e-15
+    },
+    {
+      "k_index": 40,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        0.25000000000000006,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.6747520850968671,
+        0.645167497050514
+      ],
+      "plane_space_loss": [
+        2.208160321259811e-10,
+        2.261967724237479e-09
+      ],
+      "omitted_band_weight": [
+        0.32524791468231684,
+        0.35483250068751826
+      ],
+      "Gram_2norm": 4.773086895355464e-15
+    },
+    {
+      "k_index": 41,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        -0.5000000000000001,
+        0.0
+      ],
+      "prefix_mass": [
+        0.8077650186143288,
+        0.6809939075662574
+      ],
+      "plane_space_loss": [
+        1.9689561092661734e-10,
+        2.4041085788795158e-09
+      ],
+      "omitted_band_weight": [
+        0.19223498118877558,
+        0.319006090029634
+      ],
+      "Gram_2norm": 5.3595968370436344e-15
+    },
+    {
+      "k_index": 42,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        -0.5000000000000001,
+        0.2499999999999999
+      ],
+      "prefix_mass": [
+        0.583779140814626,
+        0.5815993082090811
+      ],
+      "plane_space_loss": [
+        4.4889136852077627e-10,
+        3.0162672359779208e-09
+      ],
+      "omitted_band_weight": [
+        0.4162208587364826,
+        0.41840068877465164
+      ],
+      "Gram_2norm": 4.787797316009384e-15
+    },
+    {
+      "k_index": 43,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        -0.4999999999999999,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.7657204809415068,
+        0.707722795674677
+      ],
+      "plane_space_loss": [
+        1.0614265022468317e-10,
+        1.8547293700876821e-09
+      ],
+      "omitted_band_weight": [
+        0.23427951895235055,
+        0.29227720247059363
+      ],
+      "Gram_2norm": 3.931839725435339e-15
+    },
+    {
+      "k_index": 44,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        -0.4999999999999999,
+        -0.2499999999999999
+      ],
+      "prefix_mass": [
+        0.812748729391563,
+        0.7526099686393697
+      ],
+      "plane_space_loss": [
+        9.367973063945101e-11,
+        1.7571490928958156e-09
+      ],
+      "omitted_band_weight": [
+        0.18725127051475732,
+        0.24739002960348122
+      ],
+      "Gram_2norm": 4.800128435231676e-15
+    },
+    {
+      "k_index": 45,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        -0.25,
+        -7.739357996076514e-18
+      ],
+      "prefix_mass": [
+        0.8127487296457732,
+        0.7526099679125537
+      ],
+      "plane_space_loss": [
+        9.367950859484608e-11,
+        1.757147760628186e-09
+      ],
+      "omitted_band_weight": [
+        0.18725127026054733,
+        0.2473900303302985
+      ],
+      "Gram_2norm": 4.822541835241608e-15
+    },
+    {
+      "k_index": 46,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        -0.25000000000000006,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.6747520842855513,
+        0.6451674985211834
+      ],
+      "plane_space_loss": [
+        2.208160321259811e-10,
+        2.2619688344605038e-09
+      ],
+      "omitted_band_weight": [
+        0.32524791549363263,
+        0.3548324992168478
+      ],
+      "Gram_2norm": 4.374430931636758e-15
+    },
+    {
+      "k_index": 47,
+      "k_fractional_canonical": [
+        -0.4999999999999999,
+        -0.2499999999999999,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.8127487312225993,
+        0.7526099684851104
+      ],
+      "plane_space_loss": [
+        9.367984166175347e-11,
+        1.7571486488066057e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126868372088,
+        0.24739002975774094
+      ],
+      "Gram_2norm": 4.6551818546464985e-15
+    },
+    {
+      "k_index": 48,
+      "k_fractional_canonical": [
+        -0.5000000000000001,
+        -0.25,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.909153452403201,
+        0.8113035685811646
+      ],
+      "plane_space_loss": [
+        5.597822205771763e-11,
+        1.4818459792564909e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654754082078,
+        0.18869642993698943
+      ],
+      "Gram_2norm": 4.4650067022937994e-15
+    },
+    {
+      "k_index": 49,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        -6.143835638441302e-18,
+        -6.143835638441302e-18
+      ],
+      "prefix_mass": [
+        0.9838745459750933,
+        0.9173389553473668
+      ],
+      "plane_space_loss": [
+        1.1992629112000941e-11,
+        8.774625470664432e-10
+      ],
+      "omitted_band_weight": [
+        0.016125454012914098,
+        0.0826610437751707
+      ],
+      "Gram_2norm": 5.052157766026268e-15
+    },
+    {
+      "k_index": 50,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        -1.2287671276882603e-17,
+        0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9091534528619174,
+        0.8113035683511656
+      ],
+      "plane_space_loss": [
+        5.597811103541517e-11,
+        1.4818444249442564e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654708210449,
+        0.18869643016699
+      ],
+      "Gram_2norm": 4.6619617979969396e-15
+    },
+    {
+      "k_index": 51,
+      "k_fractional_canonical": [
+        -0.24999999999999997,
+        7.739357996076514e-18,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.8127487309127052,
+        0.7526099686868997
+      ],
+      "plane_space_loss": [
+        9.368017472866086e-11,
+        1.7571473165389762e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126899361466,
+        0.24739002955595302
+      ],
+      "Gram_2norm": 4.793499448239441e-15
+    },
+    {
+      "k_index": 52,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        0.0,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9333597472856845,
+        0.8893801422639444
+      ],
+      "plane_space_loss": [
+        3.049327457205209e-11,
+        1.2656995451720832e-09
+      ],
+      "omitted_band_weight": [
+        0.06664025268382223,
+        0.1106198564703561
+      ],
+      "Gram_2norm": 5.052551416841136e-15
+    },
+    {
+      "k_index": 53,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        0.25000000000000006,
+        -1.2287671276882603e-17
+      ],
+      "prefix_mass": [
+        0.9091534536526831,
+        0.811303568232739
+      ],
+      "plane_space_loss": [
+        5.597811103541517e-11,
+        1.481844313921954e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654629133881,
+        0.18869643028541672
+      ],
+      "Gram_2norm": 4.3135358294189174e-15
+    },
+    {
+      "k_index": 54,
+      "k_fractional_canonical": [
+        -0.2499999999999999,
+        0.25,
+        0.25
+      ],
+      "prefix_mass": [
+        0.8127487316729889,
+        0.7526099681976022
+      ],
+      "plane_space_loss": [
+        9.367973063945101e-11,
+        1.7571464283605565e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126823333138,
+        0.2473900300452514
+      ],
+      "Gram_2norm": 4.882394154428701e-15
+    },
+    {
+      "k_index": 55,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        0.25000000000000006,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.6747520861458991,
+        0.6451674986957693
+      ],
+      "plane_space_loss": [
+        2.2081592110367865e-10,
+        2.261967946282084e-09
+      ],
+      "omitted_band_weight": [
+        0.325247913633285,
+        0.3548324990422628
+      ],
+      "Gram_2norm": 4.729672349508532e-15
+    },
+    {
+      "k_index": 56,
+      "k_fractional_canonical": [
+        -0.25,
+        0.2499999999999999,
+        -0.25
+      ],
+      "prefix_mass": [
+        0.8127487308192263,
+        0.7526099683547874
+      ],
+      "plane_space_loss": [
+        9.367984166175347e-11,
+        1.7571464283605565e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126908709389,
+        0.24739002988806613
+      ],
+      "Gram_2norm": 4.720720845650803e-15
+    },
+    {
+      "k_index": 57,
+      "k_fractional_canonical": [
+        -0.24999999999999994,
+        -0.4999999999999999,
+        7.739357996076514e-18
+      ],
+      "prefix_mass": [
+        0.812748729723787,
+        0.752609969262249
+      ],
+      "plane_space_loss": [
+        9.367995268405593e-11,
+        1.7571474275612786e-09
+      ],
+      "omitted_band_weight": [
+        0.18725127018253307,
+        0.24739002898060358
+      ],
+      "Gram_2norm": 4.618706639002642e-15
+    },
+    {
+      "k_index": 58,
+      "k_fractional_canonical": [
+        -0.25,
+        -0.4999999999999999,
+        0.2500000000000001
+      ],
+      "prefix_mass": [
+        0.6747520849378302,
+        0.6451674972186252
+      ],
+      "plane_space_loss": [
+        2.2081669825979588e-10,
+        2.261968390371294e-09
+      ],
+      "omitted_band_weight": [
+        0.32524791484135307,
+        0.3548325005194064
+      ],
+      "Gram_2norm": 4.4111977051041075e-15
+    },
+    {
+      "k_index": 59,
+      "k_fractional_canonical": [
+        -0.2499999999999999,
+        -0.4999999999999999,
+        -0.4999999999999999
+      ],
+      "prefix_mass": [
+        0.8127487321520178,
+        0.752609967951372
+      ],
+      "plane_space_loss": [
+        9.367973063945101e-11,
+        1.7571485377843032e-09
+      ],
+      "omitted_band_weight": [
+        0.18725126775430245,
+        0.24739003029147943
+      ],
+      "Gram_2norm": 4.71637967262409e-15
+    },
+    {
+      "k_index": 60,
+      "k_fractional_canonical": [
+        -0.25,
+        -0.5000000000000001,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9091534530895293,
+        0.8113035691712857
+      ],
+      "plane_space_loss": [
+        5.597811103541517e-11,
+        1.481845757211886e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654685449256,
+        0.1886964293468686
+      ],
+      "Gram_2norm": 4.516537602208347e-15
+    },
+    {
+      "k_index": 61,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        -0.25000000000000006,
+        0.0
+      ],
+      "prefix_mass": [
+        0.9333597456272958,
+        0.8893801417678839
+      ],
+      "plane_space_loss": [
+        3.0493163549749625e-11,
+        1.265699989261293e-09
+      ],
+      "omitted_band_weight": [
+        0.06664025434221099,
+        0.11061985696641607
+      ],
+      "Gram_2norm": 4.838406312830156e-15
+    },
+    {
+      "k_index": 62,
+      "k_fractional_canonical": [
+        -0.25,
+        -0.25,
+        0.2499999999999999
+      ],
+      "prefix_mass": [
+        0.8127487296634779,
+        0.7526099683715947
+      ],
+      "plane_space_loss": [
+        9.368017472866086e-11,
+        1.7571466504051614e-09
+      ],
+      "omitted_band_weight": [
+        0.18725127024284194,
+        0.2473900298712587
+      ],
+      "Gram_2norm": 4.775607753248067e-15
+    },
+    {
+      "k_index": 63,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        -0.25000000000000006,
+        -0.5000000000000001
+      ],
+      "prefix_mass": [
+        0.9091534541422153,
+        0.8113035691459798
+      ],
+      "plane_space_loss": [
+        5.597811103541517e-11,
+        1.481845535167281e-09
+      ],
+      "omitted_band_weight": [
+        0.09084654580180662,
+        0.18869642937217468
+      ],
+      "Gram_2norm": 4.8099266512481155e-15
+    },
+    {
+      "k_index": 64,
+      "k_fractional_canonical": [
+        -0.25000000000000006,
+        -0.25000000000000006,
+        -0.25000000000000006
+      ],
+      "prefix_mass": [
+        0.9838745461762939,
+        0.9173389561425912
+      ],
+      "plane_space_loss": [
+        1.1992407067396016e-11,
+        8.774633242225605e-10
+      ],
+      "omitted_band_weight": [
+        0.016125453811713708,
+        0.08266104297994548
+      ],
+      "Gram_2norm": 5.0056785809615914e-15
+    }
+  ],
+  "elapsed_seconds": 6.948285266757011,
+  "peak_process_RSS_bytes": 511127552,
+  "evaluator_sha256": "b7336a87deb11dce0a3966f624152653143d999fd6af5499494cbb61118f44ea",
+  "preregistration_sha256": "e472ab46e96c079617f351ddac2f45596b50354c05c04c0e0c17dc6466c4d196",
+  "no_new_MPI_QE": true
+}

@@ -1,0 +1,4 @@
+{
+  "error": "Traceback (most recent call last):\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/finite_q_host_probe_2026-10-14/evaluate.py\", line 248, in <module>\n    value = evaluate()\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/finite_q_host_probe_2026-10-14/evaluate.py\", line 168, in evaluate\n    raise ValueError('actual wave/eigen k correspondence')\nValueError: actual wave/eigen k correspondence\n",
+  "no_new_MPI_QE": true
+}

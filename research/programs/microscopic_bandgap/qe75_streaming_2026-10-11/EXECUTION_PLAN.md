@@ -1,9 +1,31 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 15:20 UTC
-**Status:** ROOTED CONTROL12 SCIENTIFIC CHECKPOINT LOCALLY COMMITTED; ORIGINAL OWNER FAIL PRESERVED; PROSPECTIVE TERMINAL OWNER PASSES NON-MPI KERNEL CHECKS; NO NEW NATIVE RUN; ORDINARY GIT PUSH BLOCKED
+**Last verified update:** 2026-10-14 16:50 UTC
+**Status:** PHYSICS-FIRST EXISTING-DATA HOST PROBE CALCULATED; SSH PUBLICATION RESTORED; NATIVE CHEMICAL TARGET NOT ADMITTED BY THE 48-BAND ROOT/OWNER DOMAIN; ORIGINAL ROOTED CONTROL12/OWNER FAIL PRESERVED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Physics-first existing-data milestone — 2026-10-14
+
+Starting1de0171, [native host-probe decision](../finite_q_host_probe_2026-10-14/decision.md)
+records ONE read-only native64k/44band HgTe fixed-reference contraction,
+6.9483s/RSS511127552B under512MiB/60s analysis caps. Window W=.5eV/eta=.025eV;
+probe ordering−84.771483meV with conditional spectral-completion bound1.428131meV,
+distinct from native Γ gap−289.770114meV. Source/operator/material and continuum
+grid errors remain unknown. No vertex/disorder susceptibility or physical x_c.
+Measured non-Γ Γ8-probe near-window weight.0534063; missing probabilities counted,
+not renormalized. Old chemical mass-floor and projector negatives unchanged.
+
+All six prepared chemical schemas lack eigenvalues; private PBE host incomplete
+and Cd input-only. Existing qualified private root explicitly rejects the
+352band/288electron target (its domain is48band/3k/36e). Tiny owner/profile is not
+full-sized chemical admission; no fake scope, original target downgrade or
+new native run. Next physics input remains accepted matched self-consistent
+host/Cd Γ spectrum+physical complex overlaps with source/error budget, following
+the existing minimum acquisition design. Numerical/profile/resource gates stay.
+Publication now works using the existing Kajin SSH identity;89922a7/1de0171 are
+published, old failed-auth evidence historical. Protected stock/dirty DFT,
+previous FAILs, supervisors/Calcura/sessions/goal unchanged; no broad test cycle.
 
 **Current finite checkpoint starts at `7be091f`:** read the
 [Fermi-root decision](fermi_root_2026-10-14/decision.md),
@@ -160,6 +182,7 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 | ID | Deliverable and binary acceptance gate | State at 2026-10-13 00:44 UTC | Evidence |
 |---|---|---|---|
 | M0 | Converged binary HgTe Γ reference and cutoff comparison | **PASS: numerical reference only**; no alloy response | `state.md`; binary difference ~6.7014 µeV |
+| M0-Q | Native finite-q fixed-reference spectral contraction | **CALCULATED DATA-ONLY DIAGNOSTIC:** actual64k/44band source, non-Γ Γ8-probe weight and conditional narrow-window tails; no substituted spectrum/material sign or new native run | `../finite_q_host_probe_2026-10-14/{decision.md,numerical_result.json,validation.json}` |
 | M1 | Diagnose native 16-atom resource failure | **PASS: diagnostic**, host SCF **FAIL** | `native_matched_pilot_2026-10-11/decision.md`; 26.722-GiB summed RSS, stopped in ACE; Cd never admitted |
 | M2 | Implement lossless one-q-plane streamed EXX candidate; source/build/unit checks | **PASS: software-only**; nominal `exxbuff` 22→2.75 GiB | `qe75_streaming_2026-10-11/{decision.md,verification.md}`; `ea8823e` |
 | M3a | No-copy versioned checkpoint storage + read-only restoration + 64-bit guards | **PASS: component tests only**; 15 focused + 24 regression | `checkpoint_phase/{decision.md,checkpoint_contract.md}`; `b1a4772` |
@@ -472,6 +495,8 @@ state replay/readback design, not another infrastructure campaign.
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-14 16:50 UTC | starts `1de0171` | PHYSICS-FIRST NATIVE DATA:** Completed one bounded coherent-host64k contraction with positive probability/missing-tail accounting and actual physical Γ reference spinors. Defined probe Ω−84.771483meV/conditional tail1.428131meV, not Γ gap or chemistry. Native prepared Cd spectra absent; existing48band/36e root cannot admit352band/288e target. Preserved failed unit intake/explicit conversion correction, old scientific/runtime negatives and protected DFT. Existing Kajin SSH publication restored. No new QE/MPI, fit, changed physics or physical x_c.
 
 - **2026-10-14 15:20 UTC | follows local `89922a7` | TERMINAL OWNER NON-MPI:** Prior native control12 checkpoint committed with owner FAIL unchanged; ordinary-Git publication failed authentication/access. Narrow kernel retirement mechanism implemented/tested on two tiny owned services; live FD denial fails closed, true pidfd exit plus authentic finals/manager exit0/empty group distinguishes valid retirement. Prospective owner/account patches and focused guard/tolerance wiring checks retained; no native release or pair. Stop at publication/final integration freeze, protected scientific/DFT/Calcura state unchanged.
 

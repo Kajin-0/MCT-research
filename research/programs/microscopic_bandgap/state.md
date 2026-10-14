@@ -2,9 +2,39 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; fixed-orbital HSE streaming bitwise qualified; private root qualified through 12 native control steps, HSE unconverged; original owner FAIL preserved; prospective terminal rule passes non-MPI kernel checks; new native pair unissued, publication blocked; full SCF/restart/material x_c OPEN
+**State:** historical physical goal BLOCKED; native HgTe finite-q reference probe calculated with conditional tail bounds; Cd-substitution packet absent and native chemical solver/profile unqualified; fixed-Fock success/rooted control12 and owner FAIL preserved; SSH publication restored; full SCF/restart/material x_c OPEN
 
 **Updated:** 2026-10-14
+
+## Physics-first native existing-data checkpoint — 2026-10-14
+
+[Measured decision](finite_q_host_probe_2026-10-14/decision.md): one bounded
+read-only contraction of accepted native HgTe HSE+SOC f120/k4q4 spinors, all64k,
+44 bands, in the earlier physical Γ6/Γ8 reference frame. Specified cell-periodic
+wavepacket probe W=.5eV/eta=.025eV: ordering−84.771483meV, conditional completion
+interval[−86.199614,−83.343353]meV. Native Γ gap−289.770114meV is a different
+observable. Non-Γ Γ8-probe near-window weight.0534063; no impurity vertex/A or
+bulk-continuum theorem inferred. Global uncomputed band weight19.03/23.91%
+never renormalized; known high-energy separation>=4.94948eV limits the combined
+centroid tail to1.428131meV under explicit eigenpair/metric/input assumptions.
+Operator, native residual, grid-to-continuum and material errors remain unknown.
+Old chemical mass floorp=.05 not passed or changed by this diagnostic.
+
+Actual6.9483s, RSS511127552B under512MiB/60s analysis limits. Integral,
+actual-spinor origin/unitary/relabel, closure and positive-tail checks pass.
+Initial helper dependency and XML/HDF unit intake refusal retained; explicit
+tpiba conversion fixed without changing scientific tolerances. No QE/MPI,
+supercell, native retry or infrastructure campaign. Stock/dirty DFT/old failures/
+supervisors/Calcura/other sessions and historical goal unchanged.
+
+Six prepared chemical schemas have zero eigenvalue sets; incomplete privatePBE
+host has no Cd result. CdTe binary and its rejected scattering-frame trial are
+not substituted spectra. Qualified root is explicitly48band/3k/36e and cannot
+admit352band/288e target. STOP native acquisition at exact profile/input gate;
+highest-information missing packet remains self-consistent matched host/Cd Γ
+eigenvalues and physical complex overlaps with coverage/alignment/residuals.
+Existing Kajin SSH identity now publishes research branch; prior authentication
+failures remain dated history. No new converged HSE/material x_c/RAMgain claim.
 
 ## Prospective terminal ownership — 2026-10-14 15:20 UTC
 

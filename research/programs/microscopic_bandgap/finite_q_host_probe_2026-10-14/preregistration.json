@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-10-14T16:27:27.970363+00:00",
+  "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800",
+  "accepted_model": "existing HgTe primitive HSE+SOC SG15, 90/360/120 Ry, k4/q4, 44-band accurate-empty, static lattice6.46A",
+  "W_eV": 0.5,
+  "eta_eV": 0.025,
+  "reference_energy": "native Gamma6/Gamma8 midpoint, computed before contraction",
+  "physical_frame": "previously Td-qualified native Gamma6 bands33-34 and Gamma8 bands35-38",
+  "transport": "fixed cell-periodic Fourier spinors in canonical fractional k in [-.5,.5); no use of the same-k cross_spinor_overlap function",
+  "claim": "defined 64-point coherent-host wavepacket/window response, not impurity vertex, scattering susceptibility, true Gamma gap, alloy response or material xc",
+  "no_missing_weight_renormalization": true,
+  "numerical_guards": {
+    "Gamma_frame_Gram_2norm": 1e-10,
+    "native_band_Gram_2norm": 1e-08,
+    "closure_negative_allowance": 1e-09,
+    "quadrature_mass_error": 1e-09,
+    "quadrature_moment_error_eV": 1e-09,
+    "as_limit_MiB": 512,
+    "wall_limit_s": 60
+  },
+  "acceptance": "retain measured weights and positivity; conditional centroid tail intervals only if positive mass and spectral ordering pass; no gate enlargement",
+  "known_unknown_errors": [
+    "native eigenpair residual",
+    "SCF/operator model",
+    "finite k grid to continuum",
+    "core/many-body/zero-point",
+    "probe convention to actual impurity vertex",
+    "Cd self-consistent spectrum absent"
+  ],
+  "PP_sha256": {
+    "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "no_new_DFT_MPI_QE": true,
+  "source_unit_correction": "XML k and reciprocal lattice dimensionless in2pi/alat; HDF5 inverse Bohr, independently compare via tpiba=2pi/alat. No tolerance change."
+}

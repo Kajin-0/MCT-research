@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-10-14T16:41:07.159862+00:00",
+  "passed": true,
+  "scope": "focused actual-spinor invariance and contraction/completion tests; no new native run",
+  "within_sector_unitary_probability_error": 8.881784197001252e-16,
+  "common_origin_contraction_error": 2.5476231888929306e-16,
+  "native_reciprocal_relabel_invariant": true,
+  "old_cross_k_physical_overlap_refusal_preserved": true,
+  "all_measured_missing_weight_accounted": true,
+  "conditional_high_energy_tail_envelope_checked": true,
+  "scalar_completion_is_countercheck_not_physics_data": true,
+  "DFT_dirty_stock_source_hashes_preserved": true,
+  "evaluator_sha256": "b7336a87deb11dce0a3966f624152653143d999fd6af5499494cbb61118f44ea",
+  "no_MPI_QE": true
+}

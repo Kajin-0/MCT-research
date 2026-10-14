@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-10-14T16:45:56.215180+00:00",
+  "transport": "ordinary git using existing id_ed25519_kajin SSH identity",
+  "remote": "git@github.com:Kajin-0/MCT-research.git",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "result": "Everything up-to-date",
+  "prior_publication_boundary_resolved_for_89922a7_and_1de0171": true,
+  "no_key_permission_remote_or_force_change": true
+}

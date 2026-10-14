@@ -1,0 +1,161 @@
+{
+  "timestamp": "2026-10-14T16:45:56.214680+00:00",
+  "sources": [
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800",
+      "kind": "pure binary, not substitution",
+      "accepted_parent_SCF": true,
+      "native_EXX_converged": true,
+      "signed_Gamma_gap_eV": -0.28977011377785367,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/result.json": "95ed8813fe6e73dec7aec7799a8622ac17de8425bc1ebc59109bcfa24a67c8a1",
+        "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/signed_gap.json": "5912c08289910bf552e6d69978911b847eb0a51e2369a03c4b10d58ae8b4b50c"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97",
+      "kind": "pure binary, not substitution",
+      "accepted_parent_SCF": true,
+      "native_EXX_converged": true,
+      "signed_Gamma_gap_eV": 1.575364690979324,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/result.json": "4b2ebbd2177c8384029c62409a65c63ce72339c3b72e9989f24b6e37c7ca8e09",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/gamma/signed_gap.json": "f6ed896b0f49e211b3323b0c80520ddbbe027e7b91367db1015bc2cf50216be0",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc_restart_4b7c5f97/projection26/projection_report.json": "7ea0174f4f919134b3b824539e96ab829e3411f48e80fe0051c047997c6c3580"
+      },
+      "trial_frame": {
+        "accepted_frame": true,
+        "accepted_scattering_host": false,
+        "common_physical_basis_established": false,
+        "time_reversal_gate_passed": false,
+        "TR_error_eV": 0.0029513688586369838,
+        "TR_tolerance_eV": 0.001
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host",
+      "kind": "prepared dry initialization, not accepted electronic spectrum",
+      "eigenvalue_sets": 0,
+      "native_convergence": "false",
+      "nbnd": "352",
+      "nelec": null,
+      "pw_out_exists": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/pw.in": "0bb59d1611596f240cb39dd4b5f830bae3583daaac8eb3775b62fd98df01a901",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/host/out/r07.save/data-file-schema.xml": "ca5352f1131d87f257eb09ffa8dcbe500e939ed564dd28cc1adc8d96f138fb9f"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity",
+      "kind": "prepared dry initialization, not accepted electronic spectrum",
+      "eigenvalue_sets": 0,
+      "native_convergence": "false",
+      "nbnd": "352",
+      "nelec": null,
+      "pw_out_exists": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/pw.in": "994df9d80ec137a75677d6edaacbbebe55fa2c46e76195d8355e65f9dbf6a4e5",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k1_q1_e90_prepare/impurity/out/r07.save/data-file-schema.xml": "3722e2dc2a43536be613fedc3eee91b416d7f285e65afdc24440dde0cc4fae5f"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_prepare/host",
+      "kind": "prepared dry initialization, not accepted electronic spectrum",
+      "eigenvalue_sets": 0,
+      "native_convergence": "false",
+      "nbnd": "352",
+      "nelec": null,
+      "pw_out_exists": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_prepare/host/pw.in": "4a4d032a2946001ece4bfd47976c3c6621e9bb2bdfcc9ebb8c2e3aa1a68bb3d3",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_prepare/host/out/r07.save/data-file-schema.xml": "2fe319242ac3c20a78ebc2d39a510c1f6d6d7da460125941f6379e04f4b69264"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_prepare/impurity",
+      "kind": "prepared dry initialization, not accepted electronic spectrum",
+      "eigenvalue_sets": 0,
+      "native_convergence": "false",
+      "nbnd": "352",
+      "nelec": null,
+      "pw_out_exists": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_prepare/impurity/pw.in": "05926371b281d867a0f510a855808d7a63b062ff558c7eb0167c94ad9f321772",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_prepare/impurity/out/r07.save/data-file-schema.xml": "323bd6cf5faeeabc40dccdbb9bd783b69ce35751e7c238a2b69892ffd0ec0abd"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host",
+      "kind": "prepared dry initialization, not accepted electronic spectrum",
+      "eigenvalue_sets": 0,
+      "native_convergence": "false",
+      "nbnd": "352",
+      "nelec": null,
+      "pw_out_exists": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/pw.in": "ed0dfcb72be290486aded7959aa6b0e4846e409945d9c0ce53555a4eba75b721",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/host/out/r07.save/data-file-schema.xml": "ce7b510db042a3c70bbe542418c0fa7e8898c2f853c4e8c1d276ae94f81978da"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity",
+      "kind": "prepared dry initialization, not accepted electronic spectrum",
+      "eigenvalue_sets": 0,
+      "native_convergence": "false",
+      "nbnd": "352",
+      "nelec": null,
+      "pw_out_exists": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/pw.in": "9c9a8968a6dace160de05a72497b1cab36fe9f7f9f455a78016da69f3fb02453",
+        "/home/User/opencode_workspace/DFT/calculations/r07/cd_in_hg_pair_n2_k2_q2_e90_f120_prepare/impurity/out/r07.save/data-file-schema.xml": "fab557a73a38f0e6bb1c50e90a35521bee2080d13c14e7872a52311418304683"
+      }
+    },
+    {
+      "source": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/physical_pbe_soc_16atom_20261013",
+      "kind": "exploratory PBE+SOC, incomplete host; Cd input only",
+      "host_pw_out_exists": true,
+      "impurity_pw_out_exists": false,
+      "accepted_Cd_spectrum": false,
+      "hashes": {
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/physical_pbe_soc_16atom_20261013/provenance.json": "c3e83a60734e6fbc873d2d12bca2e12fee717e341d57184ce75e8e37fd9459cd",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/physical_pbe_soc_16atom_20261013/host/pw.in": "5de2e06185363ab974af3fdeb5723f05fb2a647ac8a4a6cc16e11532eb10d4d7",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/physical_pbe_soc_16atom_20261013/impurity/pw.in": "adbd12be64d4613aa774ddba830b3e51a0aa614f8f9cda706a7a47d542e00f22",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/physical_pbe_soc_16atom_20261013/host/pw.out": "6d69b6c53adbb23fcb0ca8429da90ed09f8281d38a70585c6c7b4d74999a42a4"
+      }
+    }
+  ],
+  "reference_neutrality": [
+    {
+      "schema": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07.save/data-file-schema.xml",
+      "native_retained_weighted_charge": 36.0,
+      "nelec": 36.0,
+      "residual": 0.0,
+      "fermi_Hartree": 0.329155287198713,
+      "hash": "6f7180437eab7b14f4134922d3ee89f9b13eabd230b52d010138455fdd085ed5"
+    },
+    {
+      "schema": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/data-file-schema.xml",
+      "native_retained_weighted_charge": 36.0,
+      "nelec": 36.0,
+      "residual": 0.0,
+      "fermi_Hartree": 0.329155287198713,
+      "hash": "761891446c6a86d88f929cb2903a2de756d4ba0ede3aaa275b0b26055ad6a0c8"
+    }
+  ],
+  "no_qualified_Cd_substitution_spectrum_in_inspected_sources": true,
+  "qualified_root_scope": {
+    "nbnd": 48,
+    "nk": 3,
+    "nelec": 36,
+    "weights": [
+      0.125,
+      0.5,
+      0.375
+    ],
+    "sigma_Ry": 0.001,
+    "source_sha256": "6da2de0ec5afc9a90f5d079fcfb80c58e6c43fcb495af751b52cb65e8a25c9aa"
+  },
+  "prepared_352_band_288_electron_target_not_admissible_under_that_solver_domain": true,
+  "no_new_native_QE_MPI": true,
+  "physics_or_resource_gates_not_weakened": true
+}
