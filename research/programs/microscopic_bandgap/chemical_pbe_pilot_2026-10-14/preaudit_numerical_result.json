@@ -1,0 +1,674 @@
+{
+  "Cd_count": 1,
+  "HSE_convergence_claim": false,
+  "W_eV": 2.0,
+  "actual_complex_invariance_checks": {
+    "cd_Gamma6_Miller_relabel_overlap_max_error": 6.661338147750939e-16,
+    "cd_Gamma6_unitary_weight_max_error": 1.6653345369377348e-16,
+    "cd_Gamma8_Miller_relabel_overlap_max_error": 1.0026641665932502e-15,
+    "cd_Gamma8_unitary_weight_max_error": 2.220446049250313e-16,
+    "host_Gamma6_Miller_relabel_overlap_max_error": 9.992007221626409e-16,
+    "host_Gamma6_unitary_weight_max_error": 1.2212453270876722e-15,
+    "host_Gamma8_Miller_relabel_overlap_max_error": 4.440892098500626e-16,
+    "host_Gamma8_unitary_weight_max_error": 4.718447854656915e-16
+  },
+  "branches": {
+    "cd": {
+      "Gamma6": {
+        "Gaussian_centroid_relative_Fermi_eV": -0.5773431930478381,
+        "Gaussian_mass": 0.9414707403143578,
+        "conditional_arithmetic_bound_eV": 1.4857409093478426e-07,
+        "conditional_nearby_projector_bound_eV": 0.0003208086840255759,
+        "conditional_omitted_spectrum_bound_eV": 0.0011134011095728941,
+        "full_retained_band_centroid_relative_Fermi_eV": -0.5824493533850328,
+        "full_unbounded_centroid_tail_bound": null,
+        "largest_projected_bands": [
+          {
+            "band_1based": 141,
+            "energy_relative_Fermi_eV": -0.5979269567161207,
+            "weight": 0.4881737853999146
+          },
+          {
+            "band_1based": 142,
+            "energy_relative_Fermi_eV": -0.5979269567156926,
+            "weight": 0.4881737853655549
+          },
+          {
+            "band_1based": 157,
+            "energy_relative_Fermi_eV": 2.26707955151201,
+            "weight": 0.00697022146488141
+          },
+          {
+            "band_1based": 158,
+            "energy_relative_Fermi_eV": 2.2670795515122215,
+            "weight": 0.006970221417884826
+          },
+          {
+            "band_1based": 126,
+            "energy_relative_Fermi_eV": -5.002414939013691,
+            "weight": 0.0035302006204818806
+          },
+          {
+            "band_1based": 125,
+            "energy_relative_Fermi_eV": -5.002414939013691,
+            "weight": 0.0035302006010433026
+          },
+          {
+            "band_1based": 166,
+            "energy_relative_Fermi_eV": 6.556335480218939,
+            "weight": 0.0004307992906005887
+          },
+          {
+            "band_1based": 165,
+            "energy_relative_Fermi_eV": 6.556335480218726,
+            "weight": 0.00043079928299674517
+          }
+        ],
+        "omitted_probability": 0.0005854735952650625,
+        "retained_weight_sum": 0.9994145264047349
+      },
+      "Gamma8": {
+        "Gaussian_centroid_relative_Fermi_eV": 0.0008252487149725939,
+        "Gaussian_mass": 0.9937221052975056,
+        "conditional_arithmetic_bound_eV": 9.543592745571701e-08,
+        "conditional_nearby_projector_bound_eV": 0.00029154522351427,
+        "conditional_omitted_spectrum_bound_eV": 0.00140159877586651,
+        "full_retained_band_centroid_relative_Fermi_eV": -0.03042176506294977,
+        "full_unbounded_centroid_tail_bound": null,
+        "largest_projected_bands": [
+          {
+            "band_1based": 143,
+            "energy_relative_Fermi_eV": -1.442456376565815e-07,
+            "weight": 0.2479997935969516
+          },
+          {
+            "band_1based": 144,
+            "energy_relative_Fermi_eV": -1.442454262701176e-07,
+            "weight": 0.2479997935736165
+          },
+          {
+            "band_1based": 145,
+            "energy_relative_Fermi_eV": 1.442456696310046e-07,
+            "weight": 0.247999788912531
+          },
+          {
+            "band_1based": 146,
+            "energy_relative_Fermi_eV": 1.442458810174685e-07,
+            "weight": 0.24799978889833274
+          },
+          {
+            "band_1based": 89,
+            "energy_relative_Fermi_eV": -8.515338978114874,
+            "weight": 0.00047373672329152763
+          },
+          {
+            "band_1based": 90,
+            "energy_relative_Fermi_eV": -8.515338978114874,
+            "weight": 0.00047373671750924277
+          },
+          {
+            "band_1based": 88,
+            "energy_relative_Fermi_eV": -8.515339028597912,
+            "weight": 0.0004737363526835603
+          },
+          {
+            "band_1based": 87,
+            "energy_relative_Fermi_eV": -8.515339028597912,
+            "weight": 0.00047373634579131143
+          }
+        ],
+        "omitted_probability": 0.001147388662904758,
+        "retained_weight_sum": 0.9988526113370952
+      }
+    },
+    "host": {
+      "Gamma6": {
+        "Gaussian_centroid_relative_Fermi_eV": -0.9791735124724853,
+        "Gaussian_mass": 0.8870556172925271,
+        "conditional_arithmetic_bound_eV": 1.9307896886967196e-07,
+        "conditional_nearby_projector_bound_eV": 0.00041691044554359176,
+        "conditional_omitted_spectrum_bound_eV": 4.115643154123986e-15,
+        "full_retained_band_centroid_relative_Fermi_eV": -0.9791735124724852,
+        "full_unbounded_centroid_tail_bound": null,
+        "largest_projected_bands": [
+          {
+            "band_1based": 140,
+            "energy_relative_Fermi_eV": -0.9791735124723644,
+            "weight": 0.49999999999999944
+          },
+          {
+            "band_1based": 139,
+            "energy_relative_Fermi_eV": -0.979173512472606,
+            "weight": 0.4999999999999989
+          },
+          {
+            "band_1based": 145,
+            "energy_relative_Fermi_eV": 8.977456467107459e-08,
+            "weight": 2.3717322567435686e-31
+          },
+          {
+            "band_1based": 164,
+            "energy_relative_Fermi_eV": 4.278886512755806,
+            "weight": 1.9922357781564188e-31
+          },
+          {
+            "band_1based": 73,
+            "energy_relative_Fermi_eV": -12.218551993148012,
+            "weight": 1.556848518622949e-31
+          },
+          {
+            "band_1based": 141,
+            "energy_relative_Fermi_eV": -0.7759187913585865,
+            "weight": 1.1719540508111398e-31
+          },
+          {
+            "band_1based": 142,
+            "energy_relative_Fermi_eV": -0.7759187913585865,
+            "weight": 8.740811224800592e-32
+          },
+          {
+            "band_1based": 161,
+            "energy_relative_Fermi_eV": 4.278886378550924,
+            "weight": 8.698616117606397e-32
+          }
+        ],
+        "omitted_probability": 1.6653345369377348e-15,
+        "retained_weight_sum": 0.9999999999999983
+      },
+      "Gamma8": {
+        "Gaussian_centroid_relative_Fermi_eV": 4.1477932184444903e-13,
+        "Gaussian_mass": 0.9999999999999988,
+        "conditional_arithmetic_bound_eV": 9.477231685623893e-08,
+        "conditional_nearby_projector_bound_eV": 0.00028951753695040833,
+        "conditional_omitted_spectrum_bound_eV": 2.6935372142171303e-16,
+        "full_retained_band_centroid_relative_Fermi_eV": 4.1477932184444863e-13,
+        "full_unbounded_centroid_tail_bound": null,
+        "largest_projected_bands": [
+          {
+            "band_1based": 143,
+            "energy_relative_Fermi_eV": -8.977373511243059e-08,
+            "weight": 0.25000000000000067
+          },
+          {
+            "band_1based": 144,
+            "energy_relative_Fermi_eV": -8.977373511243059e-08,
+            "weight": 0.2500000000000001
+          },
+          {
+            "band_1based": 145,
+            "energy_relative_Fermi_eV": 8.977456467107459e-08,
+            "weight": 0.24999999999999956
+          },
+          {
+            "band_1based": 146,
+            "energy_relative_Fermi_eV": 8.977456467107459e-08,
+            "weight": 0.2499999999999995
+          },
+          {
+            "band_1based": 152,
+            "energy_relative_Fermi_eV": 1.6551023952577957,
+            "weight": 2.7865065591108734e-31
+          },
+          {
+            "band_1based": 139,
+            "energy_relative_Fermi_eV": -0.979173512472606,
+            "weight": 8.868289504214076e-32
+          },
+          {
+            "band_1based": 147,
+            "energy_relative_Fermi_eV": 1.655101738308817,
+            "weight": 7.74556467120295e-32
+          },
+          {
+            "band_1based": 142,
+            "energy_relative_Fermi_eV": -0.7759187913585865,
+            "weight": 7.634360676958116e-32
+          }
+        ],
+        "omitted_probability": 2.220446049250313e-16,
+        "retained_weight_sum": 0.9999999999999998
+      }
+    }
+  },
+  "cd": {
+    "all176_Gram_defect_op": 5.826424126961082e-15,
+    "charge_residual_e": -8.952838470577262e-12,
+    "fermi_eV": 9.485775571167865,
+    "hashes": {
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/cd/out/r07pbe.save/data-file-schema.xml": "9b0167260e320d9000462af94e1e9973762f9a394f2864e98ec0deeb9caef44f",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/cd/out/r07pbe.save/wfc1.hdf5": "3ee71fa5696b20071d7bd7d6292dfde1c7f3270259a2ba926d5c14dda40b9ca7",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/cd/pw.in": "9af3427770fbbe293eb5278a176da86b0395df1fd08a5eff84a8d1a348a550fb",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/cd/pw.out": "098a92a81ea9f8454b1c17623779f0cff88e76fde0038225afbf8170a1fb5e83"
+    },
+    "lattice_bohr": [
+      [
+        12.20763076508248,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        12.20763076508248,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        12.20763076508248
+      ]
+    ],
+    "native_plane_waves": 7809,
+    "occupation_reconstruction_max": 2.8310687127941492e-14,
+    "scf_error_Ry": 2.1087882026465e-10,
+    "scf_iterations": 12,
+    "total_energy_Ry": -1939.1482102613622
+  },
+  "cell_cations": 4,
+  "delta_Gaussian_ordering_eV": 0.4010050707100894,
+  "delta_bound_terms_eV": {
+    "conditional_arithmetic_bound_eV": 5.318613041164121e-07,
+    "conditional_nearby_projector_bound_eV": 0.001318781890033846,
+    "conditional_omitted_spectrum_bound_eV": 0.002514999885443789
+  },
+  "delta_conditional_completion_and_projector_interval_eV": [
+    0.3971707570733076,
+    0.40483938434687117
+  ],
+  "host": {
+    "all176_Gram_defect_op": 5.6808639543663805e-15,
+    "charge_residual_e": -3.0468072509393096e-11,
+    "fermi_eV": 9.632877017879556,
+    "hashes": {
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/host/out/r07pbe.save/data-file-schema.xml": "80d0383cf7ab5cad455c61930d077f4bdb93fb559b55dd29a493fbcf602cc9a7",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/host/out/r07pbe.save/wfc1.hdf5": "88a6e575396c1a6edeb20ca80f199691a68cb127c759f9f5a8d63c1414a30ab7",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/host/pw.in": "9b8090a14b7c4bc661e88f5acb49ea7280e681cee08b67dd6cd48ea80090f20a",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/host/pw.out": "ac340ab7cce418ec9671f740f941504a96a0718ae2a6b9119f1e232fd0ff2265"
+    },
+    "lattice_bohr": [
+      [
+        12.20763076508248,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        12.20763076508248,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        12.20763076508248
+      ]
+    ],
+    "native_plane_waves": 7809,
+    "occupation_reconstruction_max": 3.086420008457935e-14,
+    "scf_error_Ry": 3.367827603850604e-10,
+    "scf_iterations": 11,
+    "total_energy_Ry": -1938.9907148864581
+  },
+  "host_sector_selection": {
+    "Gamma6": {
+      "HSE_reference_used_only_for_candidate_selection": true,
+      "native_host_bands_1based": [
+        139,
+        140
+      ],
+      "native_host_eigenvalues_eV": [
+        8.65370350540695,
+        8.653703505407192
+      ],
+      "native_host_multiplet_spread_eV": 2.4158453015843406e-13,
+      "primitive_Gamma_translation_probabilities": [
+        0.9999999999997314,
+        0.9999999999997257
+      ],
+      "restricted_HSE_reference_norm_eigenvalues": [
+        0.999983703270109,
+        0.9999837032704926
+      ],
+      "restricted_reference_max_missing_norm": 1.6296729891007722e-05,
+      "restricted_reference_weight_in_selected_host_states": [
+        0.9996374875917973,
+        0.9996374873915499
+      ]
+    },
+    "Gamma8": {
+      "HSE_reference_used_only_for_candidate_selection": true,
+      "native_host_bands_1based": [
+        143,
+        144,
+        145,
+        146
+      ],
+      "native_host_eigenvalues_eV": [
+        9.632876928105821,
+        9.632876928105821,
+        9.63287710765412,
+        9.63287710765412
+      ],
+      "native_host_multiplet_spread_eV": 1.7954829978350517e-07,
+      "primitive_Gamma_translation_probabilities": [
+        0.999999999998815,
+        0.9999999999988135,
+        0.9999999999992114,
+        0.9999999999992121
+      ],
+      "restricted_HSE_reference_norm_eigenvalues": [
+        0.999992516398071,
+        0.9999925164002464,
+        0.99999251640136,
+        0.999992516403473
+      ],
+      "restricted_reference_max_missing_norm": 7.483601929036965e-06,
+      "restricted_reference_weight_in_selected_host_states": [
+        0.9996189980984099,
+        0.9996189980590504,
+        0.9996189987063909,
+        0.9996189987417852
+      ]
+    }
+  },
+  "host_sector_symmetry": {
+    "Gamma6": {
+      "Gram_defect_frobenius": 2.1713020504169304e-15,
+      "Gram_error_upper_model": 4.4389598192440883e-10,
+      "character_complex": [
+        [
+          5.64436254309477e-18,
+          -2.1094237467877974e-15
+        ],
+        [
+          2.2574248322655494e-16,
+          4.385380947269368e-15
+        ],
+        [
+          -1.1462830854803583e-17,
+          2.4424906541753444e-15
+        ],
+        [
+          1.9999999999999971,
+          -2.8253901997884874e-18
+        ],
+        [
+          -1.4142135623718364,
+          -1.2212453270876722e-15
+        ],
+        [
+          1.4142135623718364,
+          -1.7763568394002505e-15
+        ],
+        [
+          4.1586723029738567e-16,
+          4.551914400963142e-15
+        ],
+        [
+          -2.264711863619012e-16,
+          -4.996003610813204e-16
+        ],
+        [
+          3.56351866907908e-16,
+          2.7200464103316335e-15
+        ],
+        [
+          -1.4142135623718586,
+          2.220446049250313e-16
+        ],
+        [
+          1.4142135623718595,
+          1.1102230246251565e-16
+        ],
+        [
+          -3.741958373697711e-17,
+          -6.217248937900877e-15
+        ],
+        [
+          0.9999999999996534,
+          -2.525757381022231e-15
+        ],
+        [
+          -0.9999999999996884,
+          1.1102230246251565e-16
+        ],
+        [
+          0.9999999999996001,
+          3.552713678800501e-15
+        ],
+        [
+          -0.9999999999997018,
+          1.7486012637846216e-15
+        ],
+        [
+          0.9999999999996882,
+          -7.771561172376096e-16
+        ],
+        [
+          -0.9999999999995992,
+          3.219646771412954e-15
+        ],
+        [
+          -0.9999999999996534,
+          -2.345346139520643e-15
+        ],
+        [
+          0.9999999999997023,
+          2.0261570199409107e-15
+        ],
+        [
+          1.414213562371814,
+          3.552713678800501e-15
+        ],
+        [
+          -1.5129732965002733e-16,
+          -2.3869795029440866e-15
+        ],
+        [
+          -1.414213562371815,
+          3.4416913763379853e-15
+        ],
+        [
+          1.903848884798477e-17,
+          -2.886579864025407e-15
+        ]
+      ],
+      "dot_entry_error_model": 2.219469053111792e-10,
+      "maximum_span_leakage_defect_frobenius": 2.3337914714543775e-12,
+      "multiplicity_complex": [
+        [
+          0.9999999999994416,
+          -5.2027666974972576e-17
+        ],
+        [
+          3.3162361745553426e-13,
+          1.3392852136851384e-17
+        ],
+        [
+          1.1235311889873843e-13,
+          1.8611059869113473e-17
+        ]
+      ],
+      "multiplicity_error_upper_model": [
+        0.0006746619943200918,
+        0.0006746619943200918,
+        0.0013493239884696533
+      ],
+      "nearby_invariant_projector_distance_upper_model": 8.433230537379872e-05,
+      "nearest_integer_classification_admitted_under_model": true,
+      "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+        1,
+        0,
+        0
+      ],
+      "twirl_projector_distance_tau_upper_model": 4.216615268689936e-05
+    },
+    "Gamma8": {
+      "Gram_defect_frobenius": 2.222572637803654e-15,
+      "Gram_error_upper_model": 8.877898438173546e-10,
+      "character_complex": [
+        [
+          -1.0182332005022324e-17,
+          4.6351811278100286e-15
+        ],
+        [
+          1.543198998746729e-16,
+          -2.6922908347160046e-15
+        ],
+        [
+          3.6487015965595056e-17,
+          9.658940314238862e-15
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          4.4364512064021255e-13,
+          3.2612801348363973e-15
+        ],
+        [
+          -4.440892098500626e-13,
+          3.247402347028583e-15
+        ],
+        [
+          7.997396412510768e-17,
+          -5.662137425588298e-15
+        ],
+        [
+          2.5335635116294623e-17,
+          4.440892098500626e-15
+        ],
+        [
+          2.9638102644417366e-17,
+          1.304512053934559e-15
+        ],
+        [
+          2.1682655670929307e-13,
+          4.6074255521944e-15
+        ],
+        [
+          -2.1671553440683056e-13,
+          4.218847493575595e-15
+        ],
+        [
+          1.4873642190087072e-16,
+          3.219646771412954e-15
+        ],
+        [
+          -0.9999999999983589,
+          -2.220446049250313e-15
+        ],
+        [
+          0.9999999999996906,
+          -9.992007221626409e-16
+        ],
+        [
+          -0.99999999999938,
+          2.9568361648024677e-15
+        ],
+        [
+          0.9999999999985921,
+          -2.831068712794149e-15
+        ],
+        [
+          -0.9999999999996908,
+          -1.1102230246251565e-15
+        ],
+        [
+          0.9999999999993807,
+          3.0826036168107862e-15
+        ],
+        [
+          0.9999999999983588,
+          -1.887379141862766e-15
+        ],
+        [
+          -0.9999999999985928,
+          -2.609024107869118e-15
+        ],
+        [
+          1.2999601395335958e-12,
+          5.6066262743570405e-15
+        ],
+        [
+          1.2128320406564996e-16,
+          -1.1379786002407855e-15
+        ],
+        [
+          -1.3001821841385208e-12,
+          5.440092820663267e-15
+        ],
+        [
+          -1.3798339466408404e-17,
+          1.942890293094024e-15
+        ]
+      ],
+      "dot_entry_error_model": 2.219469053111792e-10,
+      "maximum_span_leakage_defect_frobenius": 6.978990740859888e-12,
+      "multiplicity_complex": [
+        [
+          4.0684067980623944e-13,
+          -2.839402935015218e-17
+        ],
+        [
+          2.5617525864136543e-13,
+          -5.903087276269377e-19
+        ],
+        [
+          0.9999999999996685,
+          1.4492169038889572e-17
+        ]
+      ],
+      "multiplicity_error_upper_model": [
+        0.0019088935042031459,
+        0.0019088935042031459,
+        0.0038177870082357615
+      ],
+      "nearby_invariant_projector_distance_upper_model": 0.00011930495621330516,
+      "nearest_integer_classification_admitted_under_model": true,
+      "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+        0,
+        0,
+        1
+      ],
+      "twirl_projector_distance_tau_upper_model": 5.965247810665258e-05
+    }
+  },
+  "native_host_Gamma_signed_eigenvalue_gap_eV": -0.9791735124728991,
+  "observables": {
+    "cd": {
+      "Gaussian_projected_ordering_eV": -0.5781684417628107,
+      "conditional_arithmetic_bound_eV": 2.440100183905013e-07,
+      "conditional_nearby_projector_bound_eV": 0.000612353907539846,
+      "conditional_omitted_spectrum_bound_eV": 0.002514999885439404
+    },
+    "host": {
+      "Gaussian_projected_ordering_eV": -0.9791735124729001,
+      "conditional_arithmetic_bound_eV": 2.8785128572591086e-07,
+      "conditional_nearby_projector_bound_eV": 0.0007064279824940001,
+      "conditional_omitted_spectrum_bound_eV": 4.384996875545699e-15
+    }
+  },
+  "physical_xc": null,
+  "rigorous_material_error_bar": false,
+  "source_hashes": {
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/gamma/signed_gap.json": "5912c08289910bf552e6d69978911b847eb0a51e2369a03c4b10d58ae8b4b50c",
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07_open.save/wfc1.hdf5": "58a4beb14445d822463ab4a6cc874c9a9e7130b01d3695198c5512f2c51facc1",
+    "/home/User/opencode_workspace/DFT/src/mct_dft/qe_wavefunctions.py": "b49ad16fff8f4b2f8967b0c10aa2e6ced2edad94a7b571e90f1295c785c71a9b",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe_pilot_2026-10-14/analysis_protocol.md": "66e4ce95d5a933ee0e93174c6fc4c33c6b31af6574ed037f5d4c40c53f35fd3b",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe_pilot_2026-10-14/analyze.py": "71b1298c314ca33c13146b593acca7fbffa75616620275cba61924547c25dfc5",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/reference_irrep_check.py": "74e63f8f130110412ea9ab47bc416657823fd34e44b2733bc0ae5c52ea3595fe"
+  },
+  "status": "CALCULATED native exploratory PBE+SOC periodic CdHg3Te4 response; bounds PROVEN UNDER ASSUMPTIONS, no material validation",
+  "unquantified_errors": [
+    "40Ry cutoff/160Ry density",
+    "single supercell Gamma grid",
+    "x=.25 periodic finite cell, not dilute",
+    "PBE functional vs HSE/quasiparticles",
+    "fixed lattice/no ionic relaxation",
+    "finite FD occupation regulator",
+    "native eigenpair/operator residual norms unavailable",
+    "many-body/zero point conventions",
+    "unknown thermodynamic/random alloy mapping"
+  ],
+  "x": 0.25
+}

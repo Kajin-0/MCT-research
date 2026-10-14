@@ -1,9 +1,39 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 16:50 UTC
-**Status:** PHYSICS-FIRST EXISTING-DATA HOST PROBE CALCULATED; SSH PUBLICATION RESTORED; NATIVE CHEMICAL TARGET NOT ADMITTED BY THE 48-BAND ROOT/OWNER DOMAIN; ORIGINAL ROOTED CONTROL12/OWNER FAIL PRESERVED
+**Last verified update:** 2026-10-14 17:42 UTC
+**Status:** FIRST EXPLORATORY MATCHED PBE+SOC HOST/CD CHEMICAL SPECTRA CALCULATED; ORIGINAL HSE16/352 TARGET AND HISTORICAL GOAL REMAIN BLOCKED; OLD OWNER/OCCUPATION/NEUTRALITY FAILS PRESERVED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## NEW separately authorized chemical alternative — 2026-10-14 17:42 UTC
+
+From e6d48d9, user explicitly authorized affordable smaller/lower-accuracy
+chemistry, separate from original16atom352band HSE. Read
+[measured decision](../chemical_pbe_pilot_2026-10-14/decision.md) and
+[context-reset handoff](../chemical_pbe_pilot_2026-10-14/handoff_ledger.md).
+ONE native sequential2rank stockPBE+SOC Hg4Te4/CdHg3Te4 pair,x.25,40/160Ry,
+176bands144e,FDsigma.001Ry,Gamma sampling. Both SCFs actually converge11/12
+iterations42.16/43.35s,charge3.05e-11/8.95e-12e. No HSE/source/PP/stock changes,
+no original full-target downgrade, CdTe substitution fiction or dry-init claim.
+
+Full complex matched native Γ projection/translation/Td checks yield specified
+Gaussian ordering response+.4010050707eV; conditional joint interval
+[.3971702205,.4048399209]eV, excluding unknown material/method errors. Dominant
+host-character response+.3812465558eV; spectral redistribution independently
+recorded. Both resource guards pass caps/floors and sampled aggregate budget.
+Original host wrapper failed terminal RECORD serialization after computation;
+accepted=false/terminalunknown retained. Native host science/guard/exits and
+independently empty group/lock admit NEW prospective Cd acquisition with all
+resource/science thresholds; Cd exact final manager state passes. No false
+original host-wide exclusion or bridge phase10 assertion for unmodified stock.
+
+Raw/compact actual source/ELF/input/PP/schema/wave pins,complex overlaps,logs,
+telemetry and six focused independent math/native checks archived. Initial
+before-QE setup refusals and tiny joint-denominator correction preserved.
+Protected stock/dirtyDFT/ledger/history/supervisors/Calcura/other sessions match
+before/after. No full-sized HSE, new supervisor/session, historicalgoal change,
+physical x_c, HSE convergence or whole-SCF streaming-memory gain. STOP native
+pair; next independent input is method/cell/grid-qualified matched chemistry.
 
 ## Physics-first existing-data milestone — 2026-10-14
 

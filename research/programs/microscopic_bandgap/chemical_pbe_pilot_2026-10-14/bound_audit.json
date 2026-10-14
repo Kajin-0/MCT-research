@@ -1,0 +1,12 @@
+{
+  "final_interval_eV": [
+    0.3971702205221427,
+    0.4048399208980361
+  ],
+  "issue": "separate denominators omitted a tail/projector cross term; final uses joint positive mass lower",
+  "native_spectra_or_weights_changed": false,
+  "preaudit_interval_eV": [
+    0.3971707570733076,
+    0.40483938434687117
+  ]
+}

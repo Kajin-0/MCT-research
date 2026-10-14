@@ -1,0 +1,13 @@
+{
+  "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/CURRENT_FAMILY.json",
+  "sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "record": {
+    "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jw7adqol/job",
+    "members": [],
+    "phase": "FINISHED",
+    "version": 1
+  },
+  "preserved": true,
+  "owned_groups_absent": true,
+  "exclusive_lock_available": true
+}

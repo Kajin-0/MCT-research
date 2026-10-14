@@ -2,9 +2,44 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; native HgTe finite-q reference probe calculated with conditional tail bounds; Cd-substitution packet absent and native chemical solver/profile unqualified; fixed-Fock success/rooted control12 and owner FAIL preserved; SSH publication restored; full SCF/restart/material x_c OPEN
+**State:** historical physical goal BLOCKED; first matched self-consistent exploratory PBE+SOC host/Cd spectrum and physical host Γ6/Γ8 complex projections CALCULATED; HSE-grade/dilute material input and physical x_c OPEN; original native failures and full target gates preserved
 
 **Updated:** 2026-10-14
+
+## First chemistry-bearing native pair — 2026-10-14 17:42 UTC
+
+[Decision and actual evidence](chemical_pbe_pilot_2026-10-14/decision.md): new
+explicit user scope authorizes a separate affordable exploratory PBE+SOC cell,
+not a downgrade of original16atom352band HSE. ONE fresh sequential stock-QE
+two-rank pair,8atom cubicHg4Te4/CdHg3Te4 atx.25,a6.46A,40/160Ry,176bands,
+144electrons,FDsigma.001Ry,supercellGamma. Native SCF11/12 converge in42.16/
+43.35s,charge residuals3.05e-11/8.95e-12electron. Both7809PW spaces agree;
+full complex NC overlaps and fcc-translation/Td characters identify host
+Gamma6/8, then measure substituted spectral weight. No CdTe/dry-init shortcut.
+
+Specified W2eV Gaussian projected ordering changes+.4010050707eV, conditional
+completion/nearby-projector/arithmetic interval[.3971702205,.4048399209]eV.
+Dominant host-character levels shift+.3812465558eV;Gamma6/8 dominant weight
+.97634757/.99199916. These are periodic exploratory chemical responses, not
+material gap/linewidth/T-matrix/x_c. Unknown cutoff/grid/functional/finite-cell/
+eigenpair errors are outside the interval. First genuinely chemical input now
+exists; earlier absence statements below refer to earlier datasets/scopes.
+
+Both local resource guards pass:12GiB/swap0/tasks12/600s,host4GiB/disk10GiB
+floors,sampled aggregate14GiB output;peaksRSS<.6GB/kernel<.52GB,owned groups
+empty/lockfree. Original host terminal-manager recording is UNCERTIFIED after
+post-computation NumPy serialization error,accepted=false retained. New Cd
+scope accepts independently scientific host+guard/kernel-exit/cleanup evidence;
+Cd manager/exit0 fully recorded and passes. No old owner FAIL override.
+Two setup refusals and a prepublication joint-bound cross-term correction are
+retained. Six focused independent mathematical/native-data checks pass.
+
+STOP this finite pair at material uncertainty boundary; rank next input as
+controlled matched chemical functional/cell/grid qualification. Original48band
+root still rejects352band/288e, original HSE memory/numerical/owner failures
+remain, no new HSE convergence/restart/streaming RAM gain. Stock/dirtyDFT/old
+ledger/supervisors/Calcura/sessions/historicalgoal preserved. See scoped
+[handoff](chemical_pbe_pilot_2026-10-14/handoff_ledger.md); no manuscript/novelty claim.
 
 ## Physics-first native existing-data checkpoint — 2026-10-14
 
