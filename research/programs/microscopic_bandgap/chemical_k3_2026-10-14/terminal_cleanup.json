@@ -1,0 +1,26 @@
+{
+  "timestamp_UTC": "2026-10-14T22:13:03.636972+00:00",
+  "members": [
+    {
+      "member": "host",
+      "unit": "r07-owned-7025ca0e34f64d93ab1767ac68cb50fc.service",
+      "invocation": "17ccf751fb1940cebc79bcabe42b8be1",
+      "owned_group_absent": true
+    },
+    {
+      "member": "cd",
+      "unit": "r07-owned-f334653eb089490b80205e381fd8df7a.service",
+      "invocation": "ec1621faadd9400bab7448eef35ead28",
+      "owned_group_absent": true
+    }
+  ],
+  "exclusive_lock_available": true,
+  "old_ledger": {
+    "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jw7adqol/job",
+    "members": [],
+    "phase": "FINISHED",
+    "version": 1
+  },
+  "old_ledger_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "protected_state_unchanged": true
+}

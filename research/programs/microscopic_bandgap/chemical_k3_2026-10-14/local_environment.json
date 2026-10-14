@@ -1,0 +1,29 @@
+{
+  "status": "CALCULATED exact geometry from actual native schemas",
+  "members": {
+    "host": {
+      "Te_neighbor_Cd_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "Te_total": 4,
+      "nearest_distance_div_lattice_a": 0.4330127018922193,
+      "source_sha256": "336a1847691cf6763d52f0bf48dac09a2deeb459f16aec611207940260167669"
+    },
+    "cd": {
+      "Te_neighbor_Cd_counts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "Te_total": 4,
+      "nearest_distance_div_lattice_a": 0.4330127018922193,
+      "source_sha256": "cec7b1ad0a41a492521ff9671379a067ad076a332ecf43103c0e2319df751a05"
+    }
+  },
+  "periodic_N1_environment_not_Bernoulli_random_alloy": true,
+  "does_not_establish_transferable_fixed_background_F1_or_dilute_T_matrix": true
+}

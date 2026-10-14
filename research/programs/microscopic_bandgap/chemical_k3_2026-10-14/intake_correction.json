@@ -1,0 +1,10 @@
+{
+  "stage": "read-only host physical-frame precheck, before Cd launch",
+  "original_error": "TypeError on missing fractional_translation of a lattice_symmetry",
+  "cause": "QE exports nrot48 lattice rotations but nsym24 crystal symmetries; only crystal symmetry has atom translations",
+  "correction": "explicit info=crystal_symmetry filter, require24 and all translations/matrices; do not substitute absent translation with zero",
+  "source_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/qexsd_init.f90",
+  "source_sha256": "aa4d0cab034ec79d39a55afa1ae5f6b78fb08c5864789a05e16eae69dd59231d",
+  "native_retry": false,
+  "scientific_threshold_changed": false
+}

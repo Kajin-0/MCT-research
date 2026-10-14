@@ -1,9 +1,60 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 20:34 UTC
-**Status:** ONE MATCHED 50/200 RY PBE CUTOFF PAIR COMPLETED; RESPONSE CHANGE −2.015 MEV; BOTH NATIVE SCF/TERMINAL GATES PASS; HSE ASSESSED ONLY, FULL 600-S HSE UNQUALIFIED; MATERIAL ACCURACY/PHYSICAL XC OPEN; ORIGINAL TARGET/GOAL/FAILURES UNCHANGED
+**Last verified update:** 2026-10-14 22:20 UTC
+**Status:** ONE SAME-CUTOFF MATCHED PBE K3 PAIR COMPLETED; W2 RESPONSE +.392177 EV / GRID CHANGE −1.160 MEV; BOTH NATIVE SCF/TERMINAL/FRAME GATES PASS; NO BZ CONVERGENCE/MATERIAL XC; HSE FIRST-ACE RECOMMENDED ONLY; ORIGINAL TARGET/GOAL/FAILURES UNCHANGED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## NEW finite same-cutoff k3 physics milestone — 2026-10-14 22:20 UTC
+
+Starting clean pushed3fe5ef2, read[decision](../chemical_k3_2026-10-14/decision.md),
+[reset handoff](../chemical_k3_2026-10-14/handoff_ledger.md) and
+[next physics](../chemical_k3_2026-10-14/next_experiment.md). ONE new sequential
+stock PBE+SOC8atomHg4Te4/CdHg3Te4 pair changes only unshifted2x2x2→3x3x3
+and private paths. Same50/200Ry,SG15FR NC,176bands144e,FD.001Ry,6.46A,
+nativeTd,conv_thr1e-9/solver. Both11-step SCFs/native243.78/225.01s converge,
+weighted charge<9.2e-11e and actual two-rank kernel/terminal gates PASS.
+No retry/NSCF/HSE/other composition/source arithmetic/fulltarget change.
+
+Native24crystal operations and fourstars(1,6,12,8)/27/uniqueGamma verify
+the Td+TR proof; withoutTR laststar splits4+4. Corrected one read-only XML
+parser that included24lattice-only rotations; require actual24crystal matrices/
+translations, no absent-zero substitution or threshold relaxation. Host physical
+frame gate passes before Cd. Original40Ry projectors physically embed7809→10827
+vectors, no discarded norm/renormalization, all24maps and complex overlaps PASS.
+
+W2DeltaOmega+.392177486293eV versus+.393337031960eV k2, measured−1.159546meV;
+conditional difference[−8.78763,+6.46854]meV includeszero. W1–3 changes
+−1.34394…−1.08657meV. Primary member orderings bothnegative; response is not
+positive gap. Newhostframe sensitivity+.099038meV (k2+.087142), separate
+from fixed-projector comparison. Five focused scientific checks PASS; unknown
+material/operator/eigenpair/finite-cell/BZ errors remain. Two meshes do not
+prove BZ convergence. No fitting or physical x_c/HSE/RAMgain claim.
+
+MaxsampledRSS1.037GB/kernel.953GB, caps12GiB/swap0/tasks12/600s and host
+4GiB/disk10GiB floors held. Final aggregate500674560B under sampled14GiB;
+both owned groups absent,knownlockfree,oldledger unchanged. Exact archived
+inputs/schema/stdout/telemetry/owner/wave/source pins and protected stock/
+dirtyDFT snapshots preserved; all previousFAILs/oldhost uncertainty unchanged.
+
+Recommend next a separately qualified matched8atomGamma/q1 HSE FIRST-ACE
+pilot, same176bands50/200/Fock200/FD, conditional2.230GB buffer+xi+PBEpeak
+subtotal and heuristic320–365s/pair. These are NOT native resource/time bounds
+or fullHSE convergence. Need176-band stop/diagnostics/state/descriptor/owner
+admission plus separate authorization. No pilot or source build is launched.
+STOP this finite k3 assignment after validated research commit/push.
+
+## Current context-reset handoff — 2026-10-14 22:20 UTC
+
+New checkpoint starts3fe5ef2, existing research branch/session. Read chemical_k3
+handoff/decision/preregistration/verification/methods/next-experiment and DFT
+AGENTS. Both native jobs finished/accepted; exact data root is DFT
+`.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/`. Compact evidence
+and all-wave/source pins are in MCT. Read-only5test command in verification;
+never rerun a completed pair or fixedFock success. Both owned cgroups absent,
+knownflock available; no supervisor/session/goal operation. HSE recommendation
+is NOT launch authority. Preserve old failures and dirtyDFT. Commit/push this
+measured result on research branch, then stop this finite native phase.
 
 ## NEW finite chemistry cutoff milestone — 2026-10-14 20:34 UTC
 
@@ -37,7 +88,7 @@ descriptor under separately scoped acquisition; Gamma/q1 14-rebuild heuristic
 cost scale is matched PBE50/200 unshifted3x3x3, fourTd/TRstars, estimated220–260s
 permember; proposal only, no queue/launch. STOP completed finite cutoff phase.
 
-## Current context-reset handoff — 2026-10-14 20:34 UTC
+## Previous context-reset handoff — 2026-10-14 20:34 UTC (retained)
 
 This checkpoint starts31e872e on the existing research branch/session. Read the
 new cutoff handoff/decision/preregistration/verification, then DFT AGENTS. Both
@@ -641,6 +692,8 @@ state replay/readback design, not another infrastructure campaign.
 - **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.
 
 ## Finite checkpoint change log — 2026-10-14 00:01 UTC
+
+- **2026-10-14 22:20 UTC | k3 checkpoint (this commit; starts `3fe5ef2`) | physics | NATIVE PAIR/SCF/SYMMETRY/FRAMES/OWNER PASS |** ONE identical-cutoff50/200Ry matched k3 pair11/11steps243.78/225.01s; W2+.392177eV /−1.160meV grid sensitivity, conditional difference includeszero. Five focused checks; raw/complex/provenance evidence archived, aggregate500674560B, protected state and old failures exact. Recommend unlaunched separately qualified matchedGamma HSE firstACE; no BZ/material convergence. STOP finite completed pair.
 
 - **2026-10-14 20:34 UTC | cutoff checkpoint (this commit; starts `31e872e`) | physics | NATIVE PAIR/FRAMES/SCF/OWNER PASS; HSE FULL600S UNQUALIFIED |** ONE50/200Ry matched8atom PBE pair11/11steps226.27/212.73s; original-frame W2+.393337eV and−2.015meV cutoff sensitivity, conditional difference includeszero. Seven focused checks, native wave/provenance/telemetry archived, aggregate499945472B, protected state/old negatives unchanged. HSE source/timing assessment only; no HSE launch. Next proposed physics PBE3x3x3 or separately scoped8atomACE resource acquisition. STOP finite completed pair.
 

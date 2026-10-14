@@ -1,0 +1,2278 @@
+{
+  "status": "CALCULATED ONE same-cutoff matched native K3 sampling test; conditional spectral bounds, no full convergence/material claim",
+  "parent": "3fe5ef2",
+  "cutoffs_Ry": [
+    50,
+    200
+  ],
+  "baseline_grid": [
+    2,
+    2,
+    2
+  ],
+  "new_grid": [
+    3,
+    3,
+    3
+  ],
+  "members": {
+    "host": {
+      "accepted": true,
+      "Gamma_index_1based": 1,
+      "k_weights": [
+        0.037037037037037035,
+        0.2222222222222222,
+        0.4444444444444444,
+        0.2962962962962963
+      ],
+      "k_XML_vectors": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.3333333333333333
+        ],
+        [
+          0.0,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      ],
+      "fermi_eV": 9.535748894461896,
+      "charge_residual_e": 3.888089850079268e-11,
+      "occupation_max_error": 8.881784197001252e-15,
+      "all176_Gamma_Gram_defect_op": 3.407998156755777e-14,
+      "native_Gamma_PW": 10827,
+      "lattice_bohr": [
+        [
+          12.20763076508248,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          12.20763076508248,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          12.20763076508248
+        ]
+      ],
+      "scf_iterations": 11,
+      "scf_error_Ry": 4.915789695451552e-10,
+      "total_energy_Ry": -1939.342780123225,
+      "source_hashes": {
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/data-file-schema.xml": "336a1847691cf6763d52f0bf48dac09a2deeb459f16aec611207940260167669",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc1.hdf5": "a0d96357734dfef33f1a158420c213ef2688d38341cf5c3eebd54ad8186b4cc5",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc2.hdf5": "7f4fa4eca4d4b21d615ace1a1032da4848854a36d5b59a66ea4c1c9c3b29f8d4",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc3.hdf5": "e1d116fc7ddf7c13ab6fe40cfa847c70b264aafbdbee685c4bf2610aa4f19cfb",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc4.hdf5": "39c031e3fe1c7ddff3bc819c877b0bae4ddd7c46199f141245739e95a82eaa01",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/pw.in": "3b0e16d55d6f2d226eb573dc6c1b7bd22b24aa2d0c309af7aa3e60fa58435f3e",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/pw.out": "5fe71da0fbe855f467a8e849fff94ff50da98d1781c9b7d3a7fd3e07fed54118"
+      },
+      "guard": {
+        "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-7025ca0e34f64d93ab1767ac68cb50fc.service",
+        "elapsed_s": 245.81514905113727,
+        "error": null,
+        "invocation": "17ccf751fb1940cebc79bcabe42b8be1",
+        "launcher_returncode": 0,
+        "max_aggregate_output_B": 182169600,
+        "min_free_disk_B": 65159901184,
+        "min_host_available_B": 28878573568,
+        "pass_guard": true,
+        "peak_kernel_memory_B": 952119296,
+        "peak_sampled_RSS_B": 1036648448,
+        "rank_kernel_exits": {
+          "0": true,
+          "1": true
+        },
+        "sampled_not_continuous": true,
+        "samples": 954
+      },
+      "actual_cutoffs_Ry": [
+        50.0,
+        200.0
+      ]
+    },
+    "cd": {
+      "accepted": true,
+      "Gamma_index_1based": 1,
+      "k_weights": [
+        0.037037037037037035,
+        0.2222222222222222,
+        0.4444444444444444,
+        0.2962962962962963
+      ],
+      "k_XML_vectors": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.3333333333333333
+        ],
+        [
+          0.0,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      ],
+      "fermi_eV": 9.401160479799627,
+      "charge_residual_e": -9.100631359615363e-11,
+      "occupation_max_error": 5.5067062021407764e-14,
+      "all176_Gamma_Gram_defect_op": 5.469376497982865e-15,
+      "native_Gamma_PW": 10827,
+      "lattice_bohr": [
+        [
+          12.20763076508248,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          12.20763076508248,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          12.20763076508248
+        ]
+      ],
+      "scf_iterations": 11,
+      "scf_error_Ry": 3.718447769945482e-10,
+      "total_energy_Ry": -1939.5204366385724,
+      "source_hashes": {
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/out/r07pbe.save/data-file-schema.xml": "cec7b1ad0a41a492521ff9671379a067ad076a332ecf43103c0e2319df751a05",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/out/r07pbe.save/wfc1.hdf5": "ffb6a90fba0fe291fc265b2150edf8198a14fa4d9eeb0f408f6f87fb8a4fb66c",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/out/r07pbe.save/wfc2.hdf5": "70e553fbe36f66eb2d95d23dd4191904885cd57831569d8e09194d5c68675fc6",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/out/r07pbe.save/wfc3.hdf5": "2a7bd5f4cc985bce59df563395fef01c5ac617e32e79801efa5c2e70059a0cae",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/out/r07pbe.save/wfc4.hdf5": "a8d754c3c6bd66e0ad628292d24aecdc6687fbe221b03c3031083e40a55ce0de",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/pw.in": "de3433f5d183aea0d790677b2c0dd75d2833cc49f4f2b3f40954b2fa50b0da1a",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/cd/pw.out": "8e31fa5d9636377827479fb610b70e046169c3d71666bcd13fddaea55cf3494f"
+      },
+      "guard": {
+        "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-f334653eb089490b80205e381fd8df7a.service",
+        "elapsed_s": 226.68080208357424,
+        "error": null,
+        "invocation": "ec1621faadd9400bab7448eef35ead28",
+        "launcher_returncode": 0,
+        "max_aggregate_output_B": 500879360,
+        "min_free_disk_B": 64770048000,
+        "min_host_available_B": 28873519104,
+        "pass_guard": true,
+        "peak_kernel_memory_B": 946941952,
+        "peak_sampled_RSS_B": 1030868992,
+        "rank_kernel_exits": {
+          "0": true,
+          "1": true
+        },
+        "sampled_not_continuous": true,
+        "samples": 878
+      },
+      "actual_cutoffs_Ry": [
+        50.0,
+        200.0
+      ]
+    }
+  },
+  "physical_transport": {
+    "host": {
+      "Gamma6": {
+        "source_PW": 7809,
+        "target_PW": 10827,
+        "new_only_PW": 3018,
+        "all_source_labels_present": true,
+        "max_Gram_change": 7.771561172558134e-16,
+        "source_Gram_defect_op": 1.966790392076292e-15,
+        "new_only_coefficient_max": 0.0,
+        "physical_axes_match": true,
+        "source_norm_discarded": 0.0,
+        "renormalization_used": false
+      },
+      "Gamma8": {
+        "source_PW": 7809,
+        "target_PW": 10827,
+        "new_only_PW": 3018,
+        "all_source_labels_present": true,
+        "max_Gram_change": 6.661338147750939e-16,
+        "source_Gram_defect_op": 1.6183276445368726e-15,
+        "new_only_coefficient_max": 0.0,
+        "physical_axes_match": true,
+        "source_norm_discarded": 0.0,
+        "renormalization_used": false
+      }
+    },
+    "cd": {
+      "Gamma6": {
+        "source_PW": 7809,
+        "target_PW": 10827,
+        "new_only_PW": 3018,
+        "all_source_labels_present": true,
+        "max_Gram_change": 7.771561172558134e-16,
+        "source_Gram_defect_op": 1.966790392076292e-15,
+        "new_only_coefficient_max": 0.0,
+        "physical_axes_match": true,
+        "source_norm_discarded": 0.0,
+        "renormalization_used": false
+      },
+      "Gamma8": {
+        "source_PW": 7809,
+        "target_PW": 10827,
+        "new_only_PW": 3018,
+        "all_source_labels_present": true,
+        "max_Gram_change": 6.661338147750939e-16,
+        "source_Gram_defect_op": 1.6183276445368726e-15,
+        "new_only_coefficient_max": 0.0,
+        "physical_axes_match": true,
+        "source_norm_discarded": 0.0,
+        "renormalization_used": false
+      }
+    }
+  },
+  "Td_isometry_all24_intertwining_pass": true,
+  "host_frame_checks": {
+    "Gamma6": {
+      "native_bands_1based": [
+        139,
+        140
+      ],
+      "native_energies_eV": [
+        8.577035768800336,
+        8.577035768800336
+      ],
+      "primitive_Gamma_probabilities": [
+        0.9999999999999889,
+        0.9999999999999957
+      ],
+      "Td_check": {
+        "Gram_defect_frobenius": 4.051618816481947e-14,
+        "maximum_span_leakage_defect_frobenius": 8.172803352661628e-14,
+        "character_complex": [
+          [
+            -1.5539045583615637e-18,
+            2.5202062658991053e-14
+          ],
+          [
+            -1.8827491009543965e-18,
+            1.5210055437364645e-14
+          ],
+          [
+            -1.421774977515089e-16,
+            5.032085859113522e-14
+          ],
+          [
+            1.9999999999999973,
+            1.5147512157266238e-18
+          ],
+          [
+            -1.4142135623730858,
+            3.665123760043798e-14
+          ],
+          [
+            1.4142135623730856,
+            3.664429870653407e-14
+          ],
+          [
+            3.9579740314631445e-17,
+            2.8144153674247718e-14
+          ],
+          [
+            -4.392481253889287e-17,
+            -6.106226635438361e-15
+          ],
+          [
+            -2.4080749643745733e-18,
+            4.651834473179406e-14
+          ],
+          [
+            -1.414213562373086,
+            1.637578961322106e-14
+          ],
+          [
+            1.4142135623730852,
+            1.609823385706477e-14
+          ],
+          [
+            -1.688174118615957e-16,
+            2.531308496145357e-14
+          ],
+          [
+            0.9999999999999938,
+            2.986499936241671e-14
+          ],
+          [
+            -0.9999999999999938,
+            5.051514762044462e-15
+          ],
+          [
+            0.9999999999999932,
+            1.9095836023552692e-14
+          ],
+          [
+            -0.9999999999999936,
+            4.4075854077618715e-14
+          ],
+          [
+            0.9999999999999937,
+            5.9396931817445875e-15
+          ],
+          [
+            -0.9999999999999936,
+            1.965094753586527e-14
+          ],
+          [
+            -0.9999999999999946,
+            3.064215547965432e-14
+          ],
+          [
+            0.9999999999999938,
+            4.418687638008123e-14
+          ],
+          [
+            1.414213562373087,
+            1.0880185641326534e-14
+          ],
+          [
+            -3.006808276424054e-16,
+            5.218048215738236e-14
+          ],
+          [
+            -1.4142135623730856,
+            1.099120794378905e-14
+          ],
+          [
+            3.46089562495549e-16,
+            1.865174681370263e-14
+          ]
+        ],
+        "dot_entry_error_model": 3.0772362438349677e-10,
+        "Gram_error_upper_model": 6.154877649551584e-10,
+        "twirl_projector_distance_tau_upper_model": 4.9618774801297826e-05,
+        "nearby_invariant_projector_distance_upper_model": 9.923754960259565e-05,
+        "multiplicity_complex": [
+          [
+            0.9999999999999942,
+            -3.705761847342453e-17
+          ],
+          [
+            9.25185853854297e-16,
+            9.554501393750019e-18
+          ],
+          [
+            1.4279609508774163e-15,
+            1.4130246343768857e-17
+          ]
+        ],
+        "multiplicity_error_upper_model": [
+          0.0007939053207313534,
+          0.0007939053207313534,
+          0.0015878106412921765
+        ],
+        "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+          1,
+          0,
+          0
+        ],
+        "nearest_integer_classification_admitted_under_model": true
+      },
+      "original40_to_native50_overlap_singular_values": [
+        0.9999608830598397,
+        0.9999608829736314
+      ],
+      "principal_projector_distance": 0.008844915069994895,
+      "native50_highG_probability_outside40_by_state": [
+        1.3776062070434562e-05,
+        1.377606117194751e-05
+      ],
+      "primary_original_frame_replaced": false,
+      "native50K2_to_native50K3_host_overlap_singular_values": [
+        0.9999992885868892,
+        0.9999992885657554
+      ],
+      "native50K2_to_native50K3_host_projector_distance": 0.0011928403007540373
+    },
+    "Gamma8": {
+      "native_bands_1based": [
+        143,
+        144,
+        145,
+        146
+      ],
+      "native_energies_eV": [
+        9.535748894447341,
+        9.535748894447341,
+        9.535748894447561,
+        9.535748894448222
+      ],
+      "primitive_Gamma_probabilities": [
+        0.9999999999999948,
+        0.9999999999999961,
+        0.9999999999999916,
+        0.9999999999999831
+      ],
+      "Td_check": {
+        "Gram_defect_frobenius": 5.818443239334341e-15,
+        "maximum_span_leakage_defect_frobenius": 3.708020184439697e-14,
+        "character_complex": [
+          [
+            -1.5291811088644207e-17,
+            3.469446951953614e-16
+          ],
+          [
+            2.8057868563691264e-16,
+            -8.104628079763643e-15
+          ],
+          [
+            -5.626274030542421e-17,
+            1.1102230246251565e-16
+          ],
+          [
+            3.999999999999999,
+            0.0
+          ],
+          [
+            -3.608224830031759e-15,
+            2.3037127760972e-15
+          ],
+          [
+            3.7192471324942744e-15,
+            2.3869795029440866e-15
+          ],
+          [
+            -1.832418469402995e-16,
+            1.0436096431476471e-14
+          ],
+          [
+            4.451580465222845e-17,
+            3.608224830031759e-15
+          ],
+          [
+            -7.543749068000831e-17,
+            -1.199040866595169e-14
+          ],
+          [
+            9.325873406851315e-15,
+            -4.135580766728708e-15
+          ],
+          [
+            -8.770761894538737e-15,
+            -4.135580766728708e-15
+          ],
+          [
+            3.77513830538819e-16,
+            -1.3322676295501878e-15
+          ],
+          [
+            -0.9999999999999992,
+            -6.661338147750939e-16
+          ],
+          [
+            0.999999999999987,
+            -2.220446049250313e-15
+          ],
+          [
+            -0.9999999999999908,
+            3.83026943495679e-15
+          ],
+          [
+            0.9999999999999982,
+            -5.551115123125783e-16
+          ],
+          [
+            -0.9999999999999873,
+            -2.275957200481571e-15
+          ],
+          [
+            0.9999999999999911,
+            3.3306690738754696e-15
+          ],
+          [
+            0.9999999999999999,
+            -9.71445146547012e-16
+          ],
+          [
+            -0.9999999999999987,
+            -4.440892098500626e-16
+          ],
+          [
+            7.771561172376096e-16,
+            -1.124100812432971e-15
+          ],
+          [
+            -1.0870086200110288e-16,
+            7.605027718682322e-15
+          ],
+          [
+            -8.881784197001252e-16,
+            -1.2628786905111156e-15
+          ],
+          [
+            -8.718671344892467e-17,
+            2.6853519408120974e-15
+          ]
+        ],
+        "dot_entry_error_model": 3.0772362438349677e-10,
+        "Gram_error_upper_model": 1.2309003159772264e-09,
+        "twirl_projector_distance_tau_upper_model": 7.017058455249942e-05,
+        "nearby_invariant_projector_distance_upper_model": 0.00014034116910499885,
+        "multiplicity_complex": [
+          [
+            1.374887256986666e-15,
+            4.8935055659218817e-17
+          ],
+          [
+            2.3998710267388663e-15,
+            2.2766848014489214e-17
+          ],
+          [
+            0.9999999999999979,
+            -3.5850951836854015e-17
+          ]
+        ],
+        "multiplicity_error_upper_model": [
+          0.0022454784002090443,
+          0.0022454784002090443,
+          0.004490956800247558
+        ],
+        "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+          0,
+          0,
+          1
+        ],
+        "nearest_integer_classification_admitted_under_model": true
+      },
+      "original40_to_native50_overlap_singular_values": [
+        0.9999845971018281,
+        0.9999845970955541,
+        0.9999845970787835,
+        0.9999845970717215
+      ],
+      "principal_projector_distance": 0.005550281011516007,
+      "native50_highG_probability_outside40_by_state": [
+        7.553683053947602e-06,
+        7.553682570362117e-06,
+        7.553680877883975e-06,
+        7.5536816983591535e-06
+      ],
+      "primary_original_frame_replaced": false,
+      "native50K2_to_native50K3_host_overlap_singular_values": [
+        0.9999996496601522,
+        0.9999996496538403,
+        0.9999996496516503,
+        0.9999996496458338
+      ],
+      "native50K2_to_native50K3_host_projector_distance": 0.0008370831557723007
+    }
+  },
+  "rows": [
+    {
+      "reference_kind": "own_Fermi",
+      "W_eV": 1.0,
+      "k3": {
+        "W_eV": 1.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.37462422101366366,
+        "conditional_bound_eV": 0.002519646386839428,
+        "conditional_interval_eV": [
+          0.3721045746268242,
+          0.3771438674005031
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.6315086345821956,
+                "centroid_relative_reference_eV": -0.958713125660762,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.2921418433364194e-05,
+                "conditional_projector_eV": 0.00041816024905273,
+                "conditional_arithmetic_eV": 2.685513215105901e-07,
+                "conditional_total_eV": 0.0004713502188076048,
+                "joint_denominator": 0.6313398616514817
+              },
+              "Gamma8": {
+                "mass": 0.999969194414221,
+                "centroid_relative_reference_eV": -1.7201536119087445e-12,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 9.087438660601075e-06,
+                "conditional_projector_eV": 0.00014476324474094963,
+                "conditional_arithmetic_eV": 6.57170929752749e-08,
+                "conditional_total_eV": 0.00015391640049452595,
+                "joint_denominator": 0.9997304761818281
+              }
+            },
+            "ordering_eV": -0.9587131256590418
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8212591856280145,
+                "centroid_relative_reference_eV": -0.5838101624891034,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0008328102127036283,
+                "conditional_projector_eV": 0.00024451432915177076,
+                "conditional_arithmetic_eV": 1.5703225347396217e-07,
+                "conditional_total_eV": 0.001077481574108873,
+                "joint_denominator": 0.8210904126973005
+              },
+              "Gamma8": {
+                "mass": 0.9927416399299601,
+                "centroid_relative_reference_eV": 0.0002787421562746179,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.000670947522002876,
+                "conditional_projector_eV": 0.00014588444534947595,
+                "conditional_arithmetic_eV": 6.62260760722365e-08,
+                "conditional_total_eV": 0.0008168981934284241,
+                "joint_denominator": 0.9925029216975672
+              }
+            },
+            "ordering_eV": -0.5840889046453781
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 1.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.37596816532991884,
+        "conditional_bound_eV": 0.0025330680069161468,
+        "conditional_interval_eV": [
+          0.3734350973230027,
+          0.378501233336835
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.6280472578479646,
+                "centroid_relative_reference_eV": -0.9644466194951195,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 4.816845904419318e-05,
+                "conditional_projector_eV": 0.00042200565500475154,
+                "conditional_arithmetic_eV": 2.7102092222586484e-07,
+                "conditional_total_eV": 0.0004704451349711706,
+                "joint_denominator": 0.6278784849172506
+              },
+              "Gamma8": {
+                "mass": 0.9999763728247841,
+                "centroid_relative_reference_eV": 1.103972959050828e-12,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 7.710487079630814e-06,
+                "conditional_projector_eV": 0.00014476220529810436,
+                "conditional_arithmetic_eV": 6.571662110714134e-08,
+                "conditional_total_eV": 0.0001525384089988423,
+                "joint_denominator": 0.9997376545923912
+              }
+            },
+            "ordering_eV": -0.9644466194962235
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8193755058441868,
+                "centroid_relative_reference_eV": -0.5881875306843907,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0008415597299165868,
+                "conditional_projector_eV": 0.000245977810533537,
+                "conditional_arithmetic_eV": 1.5797213204914904e-07,
+                "conditional_total_eV": 0.001087695512582173,
+                "joint_denominator": 0.8192067329134729
+              },
+              "Gamma8": {
+                "mass": 0.9926771350629877,
+                "centroid_relative_reference_eV": 0.00029092348191400193,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0006764258626182052,
+                "conditional_projector_eV": 0.00014589685603569666,
+                "conditional_arithmetic_eV": 6.623171005910736e-08,
+                "conditional_total_eV": 0.0008223889503639609,
+                "joint_denominator": 0.9924384168305947
+              }
+            },
+            "ordering_eV": -0.5884784541663046
+          }
+        }
+      },
+      "grid_change_eV": -0.0013439443162551745,
+      "conditional_grid_difference_interval_eV": [
+        -0.006396658710010749,
+        0.0037087700775004003
+      ]
+    },
+    {
+      "reference_kind": "own_Fermi",
+      "W_eV": 1.5,
+      "k3": {
+        "W_eV": 1.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.3849645954717461,
+        "conditional_bound_eV": 0.0031061974921325905,
+        "conditional_interval_eV": [
+          0.3818583979796135,
+          0.3880707929638787
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8151936936877542,
+                "centroid_relative_reference_eV": -0.9587130958906457,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 4.893696417413138e-05,
+                "conditional_projector_eV": 0.00038667695864399087,
+                "conditional_arithmetic_eV": 2.483320891375426e-07,
+                "conditional_total_eV": 0.00043586225490725976,
+                "joint_denominator": 0.8150249207570402
+              },
+              "Gamma8": {
+                "mass": 0.9999691954764368,
+                "centroid_relative_reference_eV": -1.2601972692865086e-09,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 1.363115799526092e-05,
+                "conditional_projector_eV": 0.00021714486718086835,
+                "conditional_arithmetic_eV": 9.85756394944373e-08,
+                "conditional_total_eV": 0.0002308746008156237,
+                "joint_denominator": 0.9997304772440438
+              }
+            },
+            "ordering_eV": -0.9587130946304484
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9075132068739338,
+                "centroid_relative_reference_eV": -0.5732202816227304,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0009389434404467955,
+                "conditional_projector_eV": 0.00027567520420646686,
+                "conditional_arithmetic_eV": 1.7704442391417487e-07,
+                "conditional_total_eV": 0.0012147956890771767,
+                "joint_denominator": 0.9073444339432198
+              },
+              "Gamma8": {
+                "mass": 0.9934147550207082,
+                "centroid_relative_reference_eV": 0.0005282175359718968,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.001005860850601256,
+                "conditional_projector_eV": 0.00021870481293481447,
+                "conditional_arithmetic_eV": 9.928379646019135e-08,
+                "conditional_total_eV": 0.0012246649473325307,
+                "joint_denominator": 0.9931760367883152
+              }
+            },
+            "ordering_eV": -0.5737484991587023
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 1.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.38620786006072516,
+        "conditional_bound_eV": 0.0031189214730518097,
+        "conditional_interval_eV": [
+          0.38308893858767334,
+          0.389326781533777
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8132124901346399,
+                "centroid_relative_reference_eV": -0.9644465966387031,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 4.437929043683054e-05,
+                "conditional_projector_eV": 0.0003888086083936812,
+                "conditional_arithmetic_eV": 2.497010795152121e-07,
+                "conditional_total_eV": 0.000433437599910027,
+                "joint_denominator": 0.813043717203926
+              },
+              "Gamma8": {
+                "mass": 0.9999763732085907,
+                "centroid_relative_reference_eV": -2.138440801700894e-09,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 1.156573064216981e-05,
+                "conditional_projector_eV": 0.00021714330837378546,
+                "conditional_arithmetic_eV": 9.857493185438556e-08,
+                "conditional_total_eV": 0.00022880761394780964,
+                "joint_denominator": 0.9997376549761977
+              }
+            },
+            "ordering_eV": -0.9644465945002624
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9066996947254626,
+                "centroid_relative_reference_eV": -0.5776799361384961,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0009468480857580951,
+                "conditional_projector_eV": 0.00027675233351022124,
+                "conditional_arithmetic_eV": 1.7773617904541053e-07,
+                "conditional_total_eV": 0.0012237781554473618,
+                "joint_denominator": 0.9065309217947487
+              },
+              "Gamma8": {
+                "mass": 0.9933623371350817,
+                "centroid_relative_reference_eV": 0.0005587983010410798,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0010140751076216034,
+                "conditional_projector_eV": 0.00021872370375282385,
+                "conditional_arithmetic_eV": 9.929237218426912e-08,
+                "conditional_total_eV": 0.0012328981037466112,
+                "joint_denominator": 0.9931236189026887
+              }
+            },
+            "ordering_eV": -0.5782387344395372
+          }
+        }
+      },
+      "grid_change_eV": -0.001243264588979054,
+      "conditional_grid_difference_interval_eV": [
+        -0.007468383554163454,
+        0.004981854376205346
+      ]
+    },
+    {
+      "reference_kind": "own_Fermi",
+      "W_eV": 2.0,
+      "k3": {
+        "W_eV": 2.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.39217748629340066,
+        "conditional_bound_eV": 0.003807035371609769,
+        "conditional_interval_eV": [
+          0.3883704509217909,
+          0.3959845216650104
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8913934041569531,
+                "centroid_relative_reference_eV": -0.9587118600528126,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.201636303052176e-05,
+                "conditional_projector_eV": 0.0004110089253758024,
+                "conditional_arithmetic_eV": 2.6395859078513396e-07,
+                "conditional_total_eV": 0.00046328924699710926,
+                "joint_denominator": 0.8912246312262392
+              },
+              "Gamma8": {
+                "mass": 0.9999692339388417,
+                "centroid_relative_reference_eV": -2.2582139421355677e-07,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 1.8174879986005386e-05,
+                "conditional_projector_eV": 0.00028952653193231646,
+                "conditional_arithmetic_eV": 1.3143420522144984e-07,
+                "conditional_total_eV": 0.0003078328461235433,
+                "joint_denominator": 0.9997305157064488
+              }
+            },
+            "ordering_eV": -0.9587116342314184
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9417892214836912,
+                "centroid_relative_reference_eV": -0.5660237730363726,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0010853917970958893,
+                "conditional_projector_eV": 0.0003186726616526037,
+                "conditional_arithmetic_eV": 2.046582969327442e-07,
+                "conditional_total_eV": 0.0014042691170454257,
+                "joint_denominator": 0.9416204485529772
+              },
+              "Gamma8": {
+                "mass": 0.9940122269543978,
+                "centroid_relative_reference_eV": 0.0005103749016450334,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.0013401273447754606,
+                "conditional_projector_eV": 0.0002913845389973673,
+                "conditional_arithmetic_eV": 1.3227767086261558e-07,
+                "conditional_total_eV": 0.0016316441614436903,
+                "joint_denominator": 0.9937735087220049
+              }
+            },
+            "ordering_eV": -0.5665341479380177
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 2.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.3933370319603723,
+        "conditional_bound_eV": 0.003821052710998544,
+        "conditional_interval_eV": [
+          0.38951597924937376,
+          0.3971580846713708
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8901807482993561,
+                "centroid_relative_reference_eV": -0.9644456448611337,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 4.71012196674672e-05,
+                "conditional_projector_eV": 0.0004126555312690328,
+                "conditional_arithmetic_eV": 2.6501607577954907e-07,
+                "conditional_total_eV": 0.0004600217670122795,
+                "joint_denominator": 0.8900119753686422
+              },
+              "Gamma8": {
+                "mass": 0.9999763969809178,
+                "centroid_relative_reference_eV": -1.5785656778423747e-07,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 1.5420975793367442e-05,
+                "conditional_projector_eV": 0.0002895244412760813,
+                "conditional_arithmetic_eV": 1.3143325614179613e-07,
+                "conditional_total_eV": 0.0003050768503255906,
+                "joint_denominator": 0.9997376787485248
+              }
+            },
+            "ordering_eV": -0.9644454870045659
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9413775464689691,
+                "centroid_relative_reference_eV": -0.5705581253842243,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0010935262531100618,
+                "conditional_projector_eV": 0.00031962460172329816,
+                "conditional_arithmetic_eV": 2.0526965290109124e-07,
+                "conditional_total_eV": 0.001413356124486261,
+                "joint_denominator": 0.9412087735382552
+              },
+              "Gamma8": {
+                "mass": 0.9939684171216223,
+                "centroid_relative_reference_eV": 0.0005503296599693098,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0013510587025056472,
+                "conditional_projector_eV": 0.0002914069788110677,
+                "conditional_arithmetic_eV": 1.3228785769785775e-07,
+                "conditional_total_eV": 0.0016425979691744126,
+                "joint_denominator": 0.9937296988892294
+              }
+            },
+            "ordering_eV": -0.5711084550441936
+          }
+        }
+      },
+      "grid_change_eV": -0.0011595456669716286,
+      "conditional_grid_difference_interval_eV": [
+        -0.008787633749579941,
+        0.006468542415636684
+      ]
+    },
+    {
+      "reference_kind": "own_Fermi",
+      "W_eV": 2.5,
+      "k3": {
+        "W_eV": 2.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.3949517090668617,
+        "conditional_bound_eV": 0.004541387738472237,
+        "conditional_interval_eV": [
+          0.3904103213283895,
+          0.39949309680533396
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9290360714787584,
+                "centroid_relative_reference_eV": -0.9587059491974893,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.6877427875474944e-05,
+                "conditional_projector_eV": 0.00044941878184604357,
+                "conditional_arithmetic_eV": 2.886262098079422e-07,
+                "conditional_total_eV": 0.0005065848359313265,
+                "joint_denominator": 0.9288672985480445
+              },
+              "Gamma8": {
+                "mass": 0.9999694732424016,
+                "centroid_relative_reference_eV": -1.7982540189346266e-06,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 2.2718617257756476e-05,
+                "conditional_projector_eV": 0.0003619084401107835,
+                "conditional_arithmetic_eV": 1.642928814552147e-07,
+                "conditional_total_eV": 0.0003847913502499952,
+                "joint_denominator": 0.9997307550100086
+              }
+            },
+            "ordering_eV": -0.9587041509434704
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9592247117661843,
+                "centroid_relative_reference_eV": -0.5634326616969839,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0012457612963673054,
+                "conditional_projector_eV": 0.00036575738747921926,
+                "conditional_arithmetic_eV": 2.3489709981356734e-07,
+                "conditional_total_eV": 0.0016117535809463384,
+                "joint_denominator": 0.9590559388354704
+              },
+              "Gamma8": {
+                "mass": 0.9944361249140805,
+                "centroid_relative_reference_eV": 0.00031978017962474534,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.0016740937194838807,
+                "conditional_projector_eV": 0.0003639990099388134,
+                "conditional_arithmetic_eV": 1.6524192188329985e-07,
+                "conditional_total_eV": 0.002038257971344577,
+                "joint_denominator": 0.9941974066816875
+              }
+            },
+            "ordering_eV": -0.5637524418766087
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 2.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.39606683205734616,
+        "conditional_bound_eV": 0.004557172293267962,
+        "conditional_interval_eV": [
+          0.3915096597640782,
+          0.4006240043506141
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9282324970050164,
+                "centroid_relative_reference_eV": -0.9644410850801379,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 5.146082661611992e-05,
+                "conditional_projector_eV": 0.0004508502093309054,
+                "conditional_arithmetic_eV": 2.895455026952433e-07,
+                "conditional_total_eV": 0.0005026005814497206,
+                "joint_denominator": 0.9280637240743025
+              },
+              "Gamma8": {
+                "mass": 0.9999765544153997,
+                "centroid_relative_reference_eV": -1.2241863485024092e-06,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 1.9276229760141437e-05,
+                "conditional_projector_eV": 0.00036190573968831997,
+                "conditional_arithmetic_eV": 1.6429165556452381e-07,
+                "conditional_total_eV": 0.00038134626110402595,
+                "joint_denominator": 0.9997378361830067
+              }
+            },
+            "ordering_eV": -0.9644398608937894
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9589938230423063,
+                "centroid_relative_reference_eV": -0.5680069926611009,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0012544138744266155,
+                "conditional_projector_eV": 0.00036665012282008027,
+                "conditional_arithmetic_eV": 2.3547043325712287e-07,
+                "conditional_total_eV": 0.0016212994676799532,
+                "joint_denominator": 0.9588250501115924
+              },
+              "Gamma8": {
+                "mass": 0.9943974149267718,
+                "centroid_relative_reference_eV": 0.00036603617534233855,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0016877364445234693,
+                "conditional_projector_eV": 0.0003640242851149257,
+                "conditional_arithmetic_eV": 1.652533958669171e-07,
+                "conditional_total_eV": 0.0020519259830342616,
+                "joint_denominator": 0.9941586966943788
+              }
+            },
+            "ordering_eV": -0.5683730288364433
+          }
+        }
+      },
+      "grid_change_eV": -0.0011151229904844406,
+      "conditional_grid_difference_interval_eV": [
+        -0.01021368302222464,
+        0.007983437041255759
+      ]
+    },
+    {
+      "reference_kind": "own_Fermi",
+      "W_eV": 3.0,
+      "k3": {
+        "W_eV": 3.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.3956614856466174,
+        "conditional_bound_eV": 0.005289594494240816,
+        "conditional_interval_eV": [
+          0.3903718911523766,
+          0.40095108014085823
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9501470589731595,
+                "centroid_relative_reference_eV": -0.9586947956459566,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 6.242752130256397e-05,
+                "conditional_projector_eV": 0.0004932730192879166,
+                "conditional_arithmetic_eV": 3.167903249899405e-07,
+                "conditional_total_eV": 0.0005560173309154704,
+                "joint_denominator": 0.9499782860424456
+              },
+              "Gamma8": {
+                "mass": 0.9999700611722051,
+                "centroid_relative_reference_eV": -5.849885016487281e-06,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 2.7262379992269574e-05,
+                "conditional_projector_eV": 0.0004342907539120212,
+                "conditional_arithmetic_eV": 1.9715174182653036e-07,
+                "conditional_total_eV": 0.0004617502856461173,
+                "joint_denominator": 0.9997313429398121
+              }
+            },
+            "ordering_eV": -0.9586889457609401
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9695619030042314,
+                "centroid_relative_reference_eV": -0.5632518751145564,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0014120866343876998,
+                "conditional_projector_eV": 0.00041459075650692487,
+                "conditional_arithmetic_eV": 2.662589181975787e-07,
+                "conditional_total_eV": 0.0018269436498128226,
+                "joint_denominator": 0.9693931300735175
+              },
+              "Gamma8": {
+                "mass": 0.9947664102596857,
+                "centroid_relative_reference_eV": -0.00022441500023376786,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.002008069495708938,
+                "conditional_projector_eV": 0.00043661552505658486,
+                "conditional_arithmetic_eV": 1.9820710088349897e-07,
+                "conditional_total_eV": 0.0024448832278664056,
+                "joint_denominator": 0.9945276920272927
+              }
+            },
+            "ordering_eV": -0.5630274601143227
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 3.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.39674805695946813,
+        "conditional_bound_eV": 0.005307189394539932,
+        "conditional_interval_eV": [
+          0.3914408675649282,
+          0.4020552463540081
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9495807953000784,
+                "centroid_relative_reference_eV": -0.9644324679245194,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 5.645296652456448e-05,
+                "conditional_projector_eV": 0.0004945865320977529,
+                "conditional_arithmetic_eV": 3.1763389058877906e-07,
+                "conditional_total_eV": 0.0005513571325129062,
+                "joint_denominator": 0.9494120223693645
+              },
+              "Gamma8": {
+                "mass": 0.9999769489432062,
+                "centroid_relative_reference_eV": -3.984049299733331e-06,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 2.3131498555874667e-05,
+                "conditional_projector_eV": 0.00043428731651005715,
+                "conditional_arithmetic_eV": 1.9715018137473977e-07,
+                "conditional_total_eV": 0.00045761596524730654,
+                "joint_denominator": 0.9997382307108132
+              }
+            },
+            "ordering_eV": -0.9644284838752197
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9694235259853146,
+                "centroid_relative_reference_eV": -0.5678524724056971,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.00142137384201889,
+                "conditional_projector_eV": 0.00041545051786651214,
+                "conditional_arithmetic_eV": 2.668110750556826e-07,
+                "conditional_total_eV": 0.001837091170960458,
+                "joint_denominator": 0.9692547530546006
+              },
+              "Gamma8": {
+                "mass": 0.9947304928974404,
+                "centroid_relative_reference_eV": -0.00017204548994558322,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.002024308188366179,
+                "conditional_projector_eV": 0.0004366187288977758,
+                "conditional_arithmetic_eV": 1.982085553074434e-07,
+                "conditional_total_eV": 0.002461125125819262,
+                "joint_denominator": 0.9944917746650475
+              }
+            },
+            "ordering_eV": -0.5676804269157516
+          }
+        }
+      },
+      "grid_change_eV": -0.001086571312850726,
+      "conditional_grid_difference_interval_eV": [
+        -0.011683355201631475,
+        0.009510212575930023
+      ]
+    },
+    {
+      "reference_kind": "own_dominant_Gamma8_quartet",
+      "W_eV": 1.0,
+      "k3": {
+        "W_eV": 1.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.3746242210140013,
+        "conditional_bound_eV": 0.0025196463868374193,
+        "conditional_interval_eV": [
+          0.37210457462716384,
+          0.3771438674008387
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.6315086345908413,
+                "centroid_relative_reference_eV": -0.9587131256464817,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.2921418432156664e-05,
+                "conditional_projector_eV": 0.0004181602490431887,
+                "conditional_arithmetic_eV": 2.6855132150446247e-07,
+                "conditional_total_eV": 0.00047135021879684977,
+                "joint_denominator": 0.6313398616601273
+              },
+              "Gamma8": {
+                "mass": 0.999969194414221,
+                "centroid_relative_reference_eV": 1.2559979019251078e-11,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 9.087438660763485e-06,
+                "conditional_projector_eV": 0.0001447632447435368,
+                "conditional_arithmetic_eV": 6.571709297644939e-08,
+                "conditional_total_eV": 0.00015391640049727674,
+                "joint_denominator": 0.9997304761818281
+              }
+            },
+            "ordering_eV": -0.9587131256590417
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8212591856119786,
+                "centroid_relative_reference_eV": -0.5838101625221745,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0008328102127430309,
+                "conditional_projector_eV": 0.0002445143291633394,
+                "conditional_arithmetic_eV": 1.5703225348139182e-07,
+                "conditional_total_eV": 0.0010774815741598517,
+                "joint_denominator": 0.8210904126812647
+              },
+              "Gamma8": {
+                "mass": 0.9927416399299696,
+                "centroid_relative_reference_eV": 0.00027874212286586734,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.0006709475219659297,
+                "conditional_projector_eV": 0.00014588444534144267,
+                "conditional_arithmetic_eV": 6.622607606858971e-08,
+                "conditional_total_eV": 0.0008168981933834409,
+                "joint_denominator": 0.9925029216975766
+              }
+            },
+            "ordering_eV": -0.5840889046450404
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 1.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 1.3589129821411916e-13,
+          "cd": -1.3593570713510417e-12
+        },
+        "delta_eV": 0.3759681653299055,
+        "conditional_bound_eV": 0.0025330680069159616,
+        "conditional_interval_eV": [
+          0.3734350973229896,
+          0.37850123333682145
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.6280472578478823,
+                "centroid_relative_reference_eV": -0.9644466194952557,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 4.816845904420366e-05,
+                "conditional_projector_eV": 0.00042200565500484337,
+                "conditional_arithmetic_eV": 2.710209222259238e-07,
+                "conditional_total_eV": 0.00047044513497127293,
+                "joint_denominator": 0.6278784849171684
+              },
+              "Gamma8": {
+                "mass": 0.9999763728247841,
+                "centroid_relative_reference_eV": 9.68081660837284e-13,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 7.710487079629086e-06,
+                "conditional_projector_eV": 0.0001447622052980719,
+                "conditional_arithmetic_eV": 6.571662110712662e-08,
+                "conditional_total_eV": 0.00015253840899880812,
+                "joint_denominator": 0.9997376545923912
+              }
+            },
+            "ordering_eV": -0.9644466194962238
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8193755058448421,
+                "centroid_relative_reference_eV": -0.5881875306830464,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0008415597299149667,
+                "conditional_projector_eV": 0.00024597781053306344,
+                "conditional_arithmetic_eV": 1.5797213204884493e-07,
+                "conditional_total_eV": 0.0010876955125800791,
+                "joint_denominator": 0.8192067329141282
+              },
+              "Gamma8": {
+                "mass": 0.9926771350629873,
+                "centroid_relative_reference_eV": 0.00029092348327182475,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0006764258626197191,
+                "conditional_projector_eV": 0.00014589685603602317,
+                "conditional_arithmetic_eV": 6.623171005925559e-08,
+                "conditional_total_eV": 0.0008223889503658015,
+                "joint_denominator": 0.9924384168305943
+              }
+            },
+            "ordering_eV": -0.5884784541663183
+          }
+        }
+      },
+      "grid_change_eV": -0.001343944315904233,
+      "conditional_grid_difference_interval_eV": [
+        -0.0063966587096576134,
+        0.0037087700778491474
+      ]
+    },
+    {
+      "reference_kind": "own_dominant_Gamma8_quartet",
+      "W_eV": 1.5,
+      "k3": {
+        "W_eV": 1.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.38496459547231787,
+        "conditional_bound_eV": 0.003106197492115297,
+        "conditional_interval_eV": [
+          0.3818583979802026,
+          0.38807079296443314
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8151936936927143,
+                "centroid_relative_reference_eV": -0.9587130958763657,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 4.893696417345955e-05,
+                "conditional_projector_eV": 0.0003866769586386824,
+                "conditional_arithmetic_eV": 2.483320891341334e-07,
+                "conditional_total_eV": 0.00043586225490127605,
+                "joint_denominator": 0.8150249207620004
+              },
+              "Gamma8": {
+                "mass": 0.9999691954764368,
+                "centroid_relative_reference_eV": -1.2459171368643281e-09,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 1.3631157995046964e-05,
+                "conditional_projector_eV": 0.00021714486717746005,
+                "conditional_arithmetic_eV": 9.857563949289004e-08,
+                "conditional_total_eV": 0.0002308746008119999,
+                "joint_denominator": 0.9997304772440438
+              }
+            },
+            "ordering_eV": -0.9587130946304485
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9075132068662011,
+                "centroid_relative_reference_eV": -0.5732202816555352,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0009389434404755672,
+                "conditional_projector_eV": 0.00027567520421491426,
+                "conditional_arithmetic_eV": 1.7704442391959999e-07,
+                "conditional_total_eV": 0.0012147956891144012,
+                "joint_denominator": 0.9073444339354871
+              },
+              "Gamma8": {
+                "mass": 0.9934147550207161,
+                "centroid_relative_reference_eV": 0.0005282175025954735,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.0010058608505643689,
+                "conditional_projector_eV": 0.0002187048129267941,
+                "conditional_arithmetic_eV": 9.928379645655039e-08,
+                "conditional_total_eV": 0.0012246649472876195,
+                "joint_denominator": 0.9931760367883231
+              }
+            },
+            "ordering_eV": -0.5737484991581306
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 1.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 1.3589129821411916e-13,
+          "cd": -1.3593570713510417e-12
+        },
+        "delta_eV": 0.38620786006070196,
+        "conditional_bound_eV": 0.003118921473052214,
+        "conditional_interval_eV": [
+          0.38308893858764975,
+          0.38932678153375416
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8132124901345926,
+                "centroid_relative_reference_eV": -0.9644465966388389,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 4.437929043683634e-05,
+                "conditional_projector_eV": 0.0003888086083937321,
+                "conditional_arithmetic_eV": 2.4970107951524476e-07,
+                "conditional_total_eV": 0.0004334375999100837,
+                "joint_denominator": 0.8130437172038787
+              },
+              "Gamma8": {
+                "mass": 0.9999763732085907,
+                "centroid_relative_reference_eV": -2.138576692998159e-09,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 1.1565730642171536e-05,
+                "conditional_projector_eV": 0.0002171433083738179,
+                "conditional_arithmetic_eV": 9.857493185440029e-08,
+                "conditional_total_eV": 0.00022880761394784382,
+                "joint_denominator": 0.9997376549761977
+              }
+            },
+            "ordering_eV": -0.9644465945002623
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.906699694725779,
+                "centroid_relative_reference_eV": -0.5776799361371627,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.000946848085756916,
+                "conditional_projector_eV": 0.00027675233350987657,
+                "conditional_arithmetic_eV": 1.7773617904518922e-07,
+                "conditional_total_eV": 0.0012237781554458379,
+                "joint_denominator": 0.9065309217950651
+              },
+              "Gamma8": {
+                "mass": 0.9933623371350815,
+                "centroid_relative_reference_eV": 0.0005587983023975777,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0010140751076231145,
+                "conditional_projector_eV": 0.00021872370375314982,
+                "conditional_arithmetic_eV": 9.92923721844171e-08,
+                "conditional_total_eV": 0.0012328981037484487,
+                "joint_denominator": 0.9931236189026885
+              }
+            },
+            "ordering_eV": -0.5782387344395603
+          }
+        }
+      },
+      "grid_change_eV": -0.0012432645883840854,
+      "conditional_grid_difference_interval_eV": [
+        -0.007468383553551596,
+        0.004981854376783426
+      ]
+    },
+    {
+      "reference_kind": "own_dominant_Gamma8_quartet",
+      "W_eV": 2.0,
+      "k3": {
+        "W_eV": 2.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.3921774862939583,
+        "conditional_bound_eV": 0.003807035371589182,
+        "conditional_interval_eV": [
+          0.38837045092236916,
+          0.3959845216655475
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.891393404160004,
+                "centroid_relative_reference_eV": -0.9587118600385326,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.2016363030001674e-05,
+                "conditional_projector_eV": 0.0004110089253716929,
+                "conditional_arithmetic_eV": 2.639585907824947e-07,
+                "conditional_total_eV": 0.000463289246992477,
+                "joint_denominator": 0.8912246312292901
+              },
+              "Gamma8": {
+                "mass": 0.9999692339388417,
+                "centroid_relative_reference_eV": -2.2580711408682598e-07,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 1.8174879985791432e-05,
+                "conditional_projector_eV": 0.0002895265319289082,
+                "conditional_arithmetic_eV": 1.314342052199026e-07,
+                "conditional_total_eV": 0.00030783284611991953,
+                "joint_denominator": 0.9997305157064488
+              }
+            },
+            "ordering_eV": -0.9587116342314185
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9417892214792338,
+                "centroid_relative_reference_eV": -0.5660237730691933,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0010853917971210504,
+                "conditional_projector_eV": 0.00031867266165999105,
+                "conditional_arithmetic_eV": 2.0465829693748852e-07,
+                "conditional_total_eV": 0.0014042691170779791,
+                "joint_denominator": 0.9416204485485199
+              },
+              "Gamma8": {
+                "mass": 0.9940122269544021,
+                "centroid_relative_reference_eV": 0.0005103748682668725,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.001340127344738596,
+                "conditional_projector_eV": 0.0002913845389893518,
+                "conditional_arithmetic_eV": 1.3227767085897686e-07,
+                "conditional_total_eV": 0.0016316441613988064,
+                "joint_denominator": 0.9937735087220091
+              }
+            },
+            "ordering_eV": -0.5665341479374602
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 2.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 1.3589129821411916e-13,
+          "cd": -1.3593570713510417e-12
+        },
+        "delta_eV": 0.39333703196034986,
+        "conditional_bound_eV": 0.003821052710999127,
+        "conditional_interval_eV": [
+          0.3895159792493507,
+          0.397158084671349
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8901807482993269,
+                "centroid_relative_reference_eV": -0.9644456448612696,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 4.710121966747168e-05,
+                "conditional_projector_eV": 0.00041265553126907203,
+                "conditional_arithmetic_eV": 2.6501607577957427e-07,
+                "conditional_total_eV": 0.00046002176701232325,
+                "joint_denominator": 0.890011975368613
+              },
+              "Gamma8": {
+                "mass": 0.9999763969809178,
+                "centroid_relative_reference_eV": -1.5785670367549969e-07,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 1.542097579336917e-05,
+                "conditional_projector_eV": 0.0002895244412761138,
+                "conditional_arithmetic_eV": 1.3143325614181088e-07,
+                "conditional_total_eV": 0.00030507685032562474,
+                "joint_denominator": 0.9997376787485248
+              }
+            },
+            "ordering_eV": -0.9644454870045659
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9413775464691516,
+                "centroid_relative_reference_eV": -0.5705581253828902,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0010935262531090316,
+                "conditional_projector_eV": 0.0003196246017229971,
+                "conditional_arithmetic_eV": 2.0526965290089788e-07,
+                "conditional_total_eV": 0.00141335612448493,
+                "joint_denominator": 0.9412087735384377
+              },
+              "Gamma8": {
+                "mass": 0.9939684171216221,
+                "centroid_relative_reference_eV": 0.000550329661325886,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0013510587025071577,
+                "conditional_projector_eV": 0.0002914069788113935,
+                "conditional_arithmetic_eV": 1.3228785769800566e-07,
+                "conditional_total_eV": 0.001642597969176249,
+                "joint_denominator": 0.9937296988892291
+              }
+            },
+            "ordering_eV": -0.571108455044216
+          }
+        }
+      },
+      "grid_change_eV": -0.0011595456663915371,
+      "conditional_grid_difference_interval_eV": [
+        -0.008787633748979846,
+        0.006468542416196772
+      ]
+    },
+    {
+      "reference_kind": "own_dominant_Gamma8_quartet",
+      "W_eV": 2.5,
+      "k3": {
+        "W_eV": 2.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.394951709067372,
+        "conditional_bound_eV": 0.0045413877384500485,
+        "conditional_interval_eV": [
+          0.39041032132892195,
+          0.399493096805822
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9290360714807935,
+                "centroid_relative_reference_eV": -0.9587059491832093,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.687742787502218e-05,
+                "conditional_projector_eV": 0.000449418781842466,
+                "conditional_arithmetic_eV": 2.886262098056446e-07,
+                "conditional_total_eV": 0.0005065848359272938,
+                "joint_denominator": 0.9288672985500795
+              },
+              "Gamma8": {
+                "mass": 0.9999694732424016,
+                "centroid_relative_reference_eV": -1.798239738830765e-06,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 2.2718617257542525e-05,
+                "conditional_projector_eV": 0.0003619084401073752,
+                "conditional_arithmetic_eV": 1.6429288145366745e-07,
+                "conditional_total_eV": 0.0003847913502463714,
+                "joint_denominator": 0.9997307550100086
+              }
+            },
+            "ordering_eV": -0.9587041509434705
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9592247117632922,
+                "centroid_relative_reference_eV": -0.5634326617298586,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.001245761296390754,
+                "conditional_projector_eV": 0.0003657573874861037,
+                "conditional_arithmetic_eV": 2.348970998179887e-07,
+                "conditional_total_eV": 0.0016117535809766757,
+                "joint_denominator": 0.9590559388325782
+              },
+              "Gamma8": {
+                "mass": 0.9944361249140823,
+                "centroid_relative_reference_eV": 0.0003197801462399035,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.0016740937194470273,
+                "conditional_projector_eV": 0.00036399900993080037,
+                "conditional_arithmetic_eV": 1.6524192187966221e-07,
+                "conditional_total_eV": 0.0020382579712997072,
+                "joint_denominator": 0.9941974066816893
+              }
+            },
+            "ordering_eV": -0.5637524418760985
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 2.5,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 1.3589129821411916e-13,
+          "cd": -1.3593570713510417e-12
+        },
+        "delta_eV": 0.3960668320573256,
+        "conditional_bound_eV": 0.00455717229326863,
+        "conditional_interval_eV": [
+          0.391509659764057,
+          0.40062400435059425
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.928232497004997,
+                "centroid_relative_reference_eV": -0.9644410850802738,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 5.1460826616123815e-05,
+                "conditional_projector_eV": 0.00045085020933093955,
+                "conditional_arithmetic_eV": 2.895455026952652e-07,
+                "conditional_total_eV": 0.0005026005814497586,
+                "joint_denominator": 0.9280637240742831
+              },
+              "Gamma8": {
+                "mass": 0.9999765544153997,
+                "centroid_relative_reference_eV": -1.2241864843935255e-06,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 1.9276229760143165e-05,
+                "conditional_projector_eV": 0.0003619057396883524,
+                "conditional_arithmetic_eV": 1.6429165556453853e-07,
+                "conditional_total_eV": 0.0003813462611040601,
+                "joint_denominator": 0.9997378361830067
+              }
+            },
+            "ordering_eV": -0.9644398608937894
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9589938230424246,
+                "centroid_relative_reference_eV": -0.5680069926597646,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.0012544138744256567,
+                "conditional_projector_eV": 0.0003666501228198,
+                "conditional_arithmetic_eV": 2.3547043325694288e-07,
+                "conditional_total_eV": 0.0016212994676787138,
+                "joint_denominator": 0.9588250501117107
+              },
+              "Gamma8": {
+                "mass": 0.9943974149267718,
+                "centroid_relative_reference_eV": 0.000366036176699197,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.0016877364445249791,
+                "conditional_projector_eV": 0.0003640242851152514,
+                "conditional_arithmetic_eV": 1.6525339586706494e-07,
+                "conditional_total_eV": 0.0020519259830360974,
+                "joint_denominator": 0.9941586966943788
+              }
+            },
+            "ordering_eV": -0.5683730288364638
+          }
+        }
+      },
+      "grid_change_eV": -0.001115122989953643,
+      "conditional_grid_difference_interval_eV": [
+        -0.010213683021672321,
+        0.007983437041765035
+      ]
+    },
+    {
+      "reference_kind": "own_dominant_Gamma8_quartet",
+      "W_eV": 3.0,
+      "k3": {
+        "W_eV": 3.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.3956614856470698,
+        "conditional_bound_eV": 0.0052895944943074135,
+        "conditional_interval_eV": [
+          0.3903718911527624,
+          0.40095108014137726
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9501470589746048,
+                "centroid_relative_reference_eV": -0.9586947956316767,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 6.242752130214813e-05,
+                "conditional_projector_eV": 0.0004932730192846308,
+                "conditional_arithmetic_eV": 3.167903249878303e-07,
+                "conditional_total_eV": 0.0005560173309117666,
+                "joint_denominator": 0.9499782860438909
+              },
+              "Gamma8": {
+                "mass": 0.9999700611722051,
+                "centroid_relative_reference_eV": -5.84987073642038e-06,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 2.7262379992055624e-05,
+                "conditional_projector_eV": 0.0004342907539086129,
+                "conditional_arithmetic_eV": 1.9715174182498312e-07,
+                "conditional_total_eV": 0.0004617502856424935,
+                "joint_denominator": 0.9997313429398121
+              }
+            },
+            "ordering_eV": -0.9586889457609403
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9695619030022019,
+                "centroid_relative_reference_eV": -0.5632518751474872,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0014120866344101712,
+                "conditional_projector_eV": 0.00041459075651352245,
+                "conditional_arithmetic_eV": 2.662589182018158e-07,
+                "conditional_total_eV": 0.0018269436498418957,
+                "joint_denominator": 0.969393130071488
+              },
+              "Gamma8": {
+                "mass": 0.9947664102596848,
+                "centroid_relative_reference_eV": -0.000224415033616746,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.002008069495745776,
+                "conditional_projector_eV": 0.0004366155250645946,
+                "conditional_arithmetic_eV": 1.982071008871351e-07,
+                "conditional_total_eV": 0.0024448832279112577,
+                "joint_denominator": 0.9945276920272919
+              }
+            },
+            "ordering_eV": -0.5630274601138705
+          }
+        }
+      },
+      "k2": {
+        "W_eV": 3.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 1.3589129821411916e-13,
+          "cd": -1.3593570713510417e-12
+        },
+        "delta_eV": 0.3967480569594498,
+        "conditional_bound_eV": 0.005307189394536979,
+        "conditional_interval_eV": [
+          0.3914408675649128,
+          0.4020552463539868
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9495807953000647,
+                "centroid_relative_reference_eV": -0.9644324679246552,
+                "omitted_probability": 1.9251671864228825e-05,
+                "conditional_tail_eV": 5.6452966524568057e-05,
+                "conditional_projector_eV": 0.0004945865320977842,
+                "conditional_arithmetic_eV": 3.1763389058879917e-07,
+                "conditional_total_eV": 0.0005513571325129411,
+                "joint_denominator": 0.9494120223693507
+              },
+              "Gamma8": {
+                "mass": 0.9999769489432062,
+                "centroid_relative_reference_eV": -3.984049435624207e-06,
+                "omitted_probability": 1.2709109004305219e-05,
+                "conditional_tail_eV": 2.3131498555876395e-05,
+                "conditional_projector_eV": 0.00043428731651008957,
+                "conditional_arithmetic_eV": 1.971501813747545e-07,
+                "conditional_total_eV": 0.0004576159652473407,
+                "joint_denominator": 0.9997382307108132
+              }
+            },
+            "ordering_eV": -0.9644284838752196
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9694235259853977,
+                "centroid_relative_reference_eV": -0.5678524724043587,
+                "omitted_probability": 0.0005770493848992198,
+                "conditional_tail_eV": 0.001421373842017971,
+                "conditional_projector_eV": 0.00041545051786624353,
+                "conditional_arithmetic_eV": 2.668110750555101e-07,
+                "conditional_total_eV": 0.0018370911709592703,
+                "joint_denominator": 0.9692547530546838
+              },
+              "Gamma8": {
+                "mass": 0.9947304928974404,
+                "centroid_relative_reference_eV": -0.00017204548858879161,
+                "omitted_probability": 0.0011062741187715108,
+                "conditional_tail_eV": 0.002024308188364669,
+                "conditional_projector_eV": 0.0004366187288974502,
+                "conditional_arithmetic_eV": 1.982085553072956e-07,
+                "conditional_total_eV": 0.0024611251258174266,
+                "joint_denominator": 0.9944917746650475
+              }
+            },
+            "ordering_eV": -0.5676804269157698
+          }
+        }
+      },
+      "grid_change_eV": -0.0010865713123799914,
+      "conditional_grid_difference_interval_eV": [
+        -0.011683355201224384,
+        0.009510212576464401
+      ]
+    }
+  ],
+  "secondary_frame_choice_checks": [
+    {
+      "reference_kind": "own_Fermi",
+      "new_native50_host_frame": {
+        "W_eV": 2,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.39227652447211925,
+        "conditional_bound_eV": 0.0039868246953410165,
+        "conditional_interval_eV": [
+          0.38828969977677824,
+          0.39626334916746025
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8914629897129058,
+                "centroid_relative_reference_eV": -0.9587131256615606,
+                "omitted_probability": 1.4432899320127035e-15,
+                "conditional_tail_eV": 3.5169139136060775e-15,
+                "conditional_projector_eV": 0.0004836310587476197,
+                "conditional_arithmetic_eV": 2.6394696474016436e-07,
+                "conditional_total_eV": 0.00048389500571587675,
+                "joint_denominator": 0.8912644062937343
+              },
+              "Gamma8": {
+                "mass": 0.9999999999999996,
+                "centroid_relative_reference_eV": -1.4280132631938613e-11,
+                "omitted_probability": 4.440892098500626e-16,
+                "conditional_tail_eV": 5.388587493524778e-16,
+                "conditional_projector_eV": 0.0003405805193605904,
+                "conditional_arithmetic_eV": 1.3143566721559362e-07,
+                "conditional_total_eV": 0.00034071195502834487,
+                "joint_denominator": 0.9997192093418232
+              }
+            },
+            "ordering_eV": -0.9587131256472805
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9422032610218853,
+                "centroid_relative_reference_eV": -0.5659072240153615,
+                "omitted_probability": 0.0005691553048560172,
+                "conditional_tail_eV": 0.0010748453885047872,
+                "conditional_projector_eV": 0.00037481868884222644,
+                "conditional_arithmetic_eV": 2.0456141816859832e-07,
+                "conditional_total_eV": 0.0014498686387651822,
+                "joint_denominator": 0.9420046776027138
+              },
+              "Gamma8": {
+                "mass": 0.993792545189736,
+                "centroid_relative_reference_eV": 0.0005293771597997007,
+                "omitted_probability": 0.0011210320151164854,
+                "conditional_tail_eV": 0.0013693587598878878,
+                "conditional_projector_eV": 0.0003428580213507437,
+                "conditional_arithmetic_eV": 1.3231459298099746e-07,
+                "conditional_total_eV": 0.0017123490958316126,
+                "joint_denominator": 0.9935117545315597
+              }
+            },
+            "ordering_eV": -0.5664366011751613
+          }
+        }
+      },
+      "fixed_original40_embedded": {
+        "W_eV": 2.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": 0.0,
+          "cd": 0.0
+        },
+        "delta_eV": 0.39217748629340066,
+        "conditional_bound_eV": 0.003807035371609769,
+        "conditional_interval_eV": [
+          0.3883704509217909,
+          0.3959845216650104
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8913934041569531,
+                "centroid_relative_reference_eV": -0.9587118600528126,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.201636303052176e-05,
+                "conditional_projector_eV": 0.0004110089253758024,
+                "conditional_arithmetic_eV": 2.6395859078513396e-07,
+                "conditional_total_eV": 0.00046328924699710926,
+                "joint_denominator": 0.8912246312262392
+              },
+              "Gamma8": {
+                "mass": 0.9999692339388417,
+                "centroid_relative_reference_eV": -2.2582139421355677e-07,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 1.8174879986005386e-05,
+                "conditional_projector_eV": 0.00028952653193231646,
+                "conditional_arithmetic_eV": 1.3143420522144984e-07,
+                "conditional_total_eV": 0.0003078328461235433,
+                "joint_denominator": 0.9997305157064488
+              }
+            },
+            "ordering_eV": -0.9587116342314184
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9417892214836912,
+                "centroid_relative_reference_eV": -0.5660237730363726,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0010853917970958893,
+                "conditional_projector_eV": 0.0003186726616526037,
+                "conditional_arithmetic_eV": 2.046582969327442e-07,
+                "conditional_total_eV": 0.0014042691170454257,
+                "joint_denominator": 0.9416204485529772
+              },
+              "Gamma8": {
+                "mass": 0.9940122269543978,
+                "centroid_relative_reference_eV": 0.0005103749016450334,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.0013401273447754606,
+                "conditional_projector_eV": 0.0002913845389973673,
+                "conditional_arithmetic_eV": 1.3227767086261558e-07,
+                "conditional_total_eV": 0.0016316441614436903,
+                "joint_denominator": 0.9937735087220049
+              }
+            },
+            "ordering_eV": -0.5665341479380177
+          }
+        }
+      },
+      "frame_choice_effect_k3_eV": 9.903817871859122e-05,
+      "frame_choice_effect_k2_eV": 8.714185444791411e-05,
+      "following_host_frame_grid_change_eV": -0.0011476493427009515
+    },
+    {
+      "reference_kind": "own_dominant_Gamma8_quartet",
+      "new_native50_host_frame": {
+        "W_eV": 2,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.3922765244726789,
+        "conditional_bound_eV": 0.003986824695318673,
+        "conditional_interval_eV": [
+          0.3882896997773602,
+          0.3962633491679976
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.8914629897159569,
+                "centroid_relative_reference_eV": -0.9587131256472806,
+                "omitted_probability": 1.4432899320127035e-15,
+                "conditional_tail_eV": 3.5169139135709133e-15,
+                "conditional_projector_eV": 0.000483631058742784,
+                "conditional_arithmetic_eV": 2.639469647375252e-07,
+                "conditional_total_eV": 0.00048389500571103844,
+                "joint_denominator": 0.8912644062967854
+              },
+              "Gamma8": {
+                "mass": 0.9999999999999996,
+                "centroid_relative_reference_eV": -4.670056558908392e-28,
+                "omitted_probability": 4.440892098500626e-16,
+                "conditional_tail_eV": 5.388587493461344e-16,
+                "conditional_projector_eV": 0.0003405805193565811,
+                "conditional_arithmetic_eV": 1.3143566721404639e-07,
+                "conditional_total_eV": 0.000340711955024334,
+                "joint_denominator": 0.9997192093418232
+              }
+            },
+            "ordering_eV": -0.9587131256472806
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9422032610174269,
+                "centroid_relative_reference_eV": -0.5659072240481803,
+                "omitted_probability": 0.0005691553048560172,
+                "conditional_tail_eV": 0.0010748453885297033,
+                "conditional_projector_eV": 0.0003748186888509151,
+                "conditional_arithmetic_eV": 2.0456141817334027e-07,
+                "conditional_total_eV": 0.0014498686387987918,
+                "joint_denominator": 0.9420046775982553
+              },
+              "Gamma8": {
+                "mass": 0.9937925451897405,
+                "centroid_relative_reference_eV": 0.0005293771264214093,
+                "omitted_probability": 0.0011210320151164854,
+                "conditional_tail_eV": 0.0013693587598502194,
+                "conditional_projector_eV": 0.0003428580213413123,
+                "conditional_arithmetic_eV": 1.3231459297735773e-07,
+                "conditional_total_eV": 0.0017123490957845092,
+                "joint_denominator": 0.9935117545315642
+              }
+            },
+            "ordering_eV": -0.5664366011746017
+          }
+        }
+      },
+      "fixed_original40_embedded": {
+        "W_eV": 2.0,
+        "reference_offsets_from_own_Fermi_eV": {
+          "host": -1.4280132631938613e-11,
+          "cd": 3.3445690661437766e-11
+        },
+        "delta_eV": 0.3921774862939583,
+        "conditional_bound_eV": 0.003807035371589182,
+        "conditional_interval_eV": [
+          0.38837045092236916,
+          0.3959845216655475
+        ],
+        "members": {
+          "host": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.891393404160004,
+                "centroid_relative_reference_eV": -0.9587118600385326,
+                "omitted_probability": 2.134581290424986e-05,
+                "conditional_tail_eV": 5.2016363030001674e-05,
+                "conditional_projector_eV": 0.0004110089253716929,
+                "conditional_arithmetic_eV": 2.639585907824947e-07,
+                "conditional_total_eV": 0.000463289246992477,
+                "joint_denominator": 0.8912246312292901
+              },
+              "Gamma8": {
+                "mass": 0.9999692339388417,
+                "centroid_relative_reference_eV": -2.2580711408682598e-07,
+                "omitted_probability": 1.4978615233918191e-05,
+                "conditional_tail_eV": 1.8174879985791432e-05,
+                "conditional_projector_eV": 0.0002895265319289082,
+                "conditional_arithmetic_eV": 1.314342052199026e-07,
+                "conditional_total_eV": 0.00030783284611991953,
+                "joint_denominator": 0.9997305157064488
+              }
+            },
+            "ordering_eV": -0.9587116342314185
+          },
+          "cd": {
+            "branches": {
+              "Gamma6": {
+                "mass": 0.9417892214792338,
+                "centroid_relative_reference_eV": -0.5660237730691933,
+                "omitted_probability": 0.0005744678066089692,
+                "conditional_tail_eV": 0.0010853917971210504,
+                "conditional_projector_eV": 0.00031867266165999105,
+                "conditional_arithmetic_eV": 2.0465829693748852e-07,
+                "conditional_total_eV": 0.0014042691170779791,
+                "joint_denominator": 0.9416204485485199
+              },
+              "Gamma8": {
+                "mass": 0.9940122269544021,
+                "centroid_relative_reference_eV": 0.0005103748682668725,
+                "omitted_probability": 0.0010974078085188577,
+                "conditional_tail_eV": 0.001340127344738596,
+                "conditional_projector_eV": 0.0002913845389893518,
+                "conditional_arithmetic_eV": 1.3227767085897686e-07,
+                "conditional_total_eV": 0.0016316441613988064,
+                "joint_denominator": 0.9937735087220091
+              }
+            },
+            "ordering_eV": -0.5665341479374602
+          }
+        }
+      },
+      "frame_choice_effect_k3_eV": 9.903817872058962e-05,
+      "frame_choice_effect_k2_eV": 8.714185444791411e-05,
+      "following_host_frame_grid_change_eV": -0.0011476493421188616
+    }
+  ],
+  "baseline_reference_offsets_eV": {
+    "host": 1.3589129821411916e-13,
+    "cd": -1.3593570713510417e-12
+  },
+  "new_reference_offsets_eV": {
+    "host": -1.4280132631938613e-11,
+    "cd": 3.3445690661437766e-11
+  },
+  "poor_sampling_for_few_meV_goal_by_preregistered_10meV_change": false,
+  "full_cutoff_or_BZ_convergence_claim": false,
+  "material_error_bar": false,
+  "physical_xc": null,
+  "HSE_launched": false,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/host_Gamma6_e50_spectrum.csv": "3c8cd974a94366f3b62593d24887559cae5e2a2942b2a9094394506617ac2e00",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/host_Gamma8_e50_spectrum.csv": "9817c78ac4337e00f9c1ec3b4cd13d6c4b40bdb890e37af948a44666873775b8",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/cd_Gamma6_e50_spectrum.csv": "d73e1b7e895359bab6dd22b9535a4477dcac8d87a2123f568b992d6de97e1859",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/cd_Gamma8_e50_spectrum.csv": "726151e4d1706d44f833564235396c08fdce4cc87d04d4f2a32f9f5948e42bbf",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/cutoff_result.json": "c03db636ad5057f7f8d4c28bbdb01984faac99f6272b19c369ceae7927689bd2",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/e50_complex_overlaps.npz": "8f9b54b43f91e9603d1bd4461f99f34f38464555b81c9bdc43140863705a9870",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_20261014_v2/host/out/r07pbe.save/wfc1.hdf5": "88a6e575396c1a6edeb20ca80f199691a68cb127c759f9f5a8d63c1414a30ab7",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/analyze_k3.py": "4f5fafaf1275cec24c7aba6f3ac70251a81f600081e46953dbe30a71352779e5",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/embedding.py": "6516f3bd0aac5c34f6b64fe4a246f06af9eec822d9751b2f6d6cbc7e8074d472",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/preregistration.md": "9e0603e5bb962a902aaf497d9c19799433a613747d3ccd554b106177db6bee9a"
+  }
+}

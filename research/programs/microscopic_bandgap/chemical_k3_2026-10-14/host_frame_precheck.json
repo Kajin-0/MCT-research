@@ -1,0 +1,414 @@
+{
+  "admitted_for_Cd_acquisition": true,
+  "host_source_terminal_pass": true,
+  "actual_native_symmetry_matches_all24_Td": true,
+  "actual_cell_origin_matched": true,
+  "host": {
+    "accepted": true,
+    "Gamma_index_1based": 1,
+    "k_weights": [
+      0.037037037037037035,
+      0.2222222222222222,
+      0.4444444444444444,
+      0.2962962962962963
+    ],
+    "k_XML_vectors": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.3333333333333333
+      ],
+      [
+        0.0,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    ],
+    "fermi_eV": 9.535748894461896,
+    "charge_residual_e": 3.888089850079268e-11,
+    "occupation_max_error": 8.881784197001252e-15,
+    "all176_Gamma_Gram_defect_op": 3.407998156755777e-14,
+    "native_Gamma_PW": 10827,
+    "lattice_bohr": [
+      [
+        12.20763076508248,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        12.20763076508248,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        12.20763076508248
+      ]
+    ],
+    "scf_iterations": 11,
+    "scf_error_Ry": 4.915789695451552e-10,
+    "total_energy_Ry": -1939.342780123225,
+    "source_hashes": {
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/data-file-schema.xml": "336a1847691cf6763d52f0bf48dac09a2deeb459f16aec611207940260167669",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc1.hdf5": "a0d96357734dfef33f1a158420c213ef2688d38341cf5c3eebd54ad8186b4cc5",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc2.hdf5": "7f4fa4eca4d4b21d615ace1a1032da4848854a36d5b59a66ea4c1c9c3b29f8d4",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc3.hdf5": "e1d116fc7ddf7c13ab6fe40cfa847c70b264aafbdbee685c4bf2610aa4f19cfb",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/out/r07pbe.save/wfc4.hdf5": "39c031e3fe1c7ddff3bc819c877b0bae4ddd7c46199f141245739e95a82eaa01",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/pw.in": "3b0e16d55d6f2d226eb573dc6c1b7bd22b24aa2d0c309af7aa3e60fa58435f3e",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k3_e50_20261014/host/pw.out": "5fe71da0fbe855f467a8e849fff94ff50da98d1781c9b7d3a7fd3e07fed54118"
+    },
+    "guard": {
+      "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-7025ca0e34f64d93ab1767ac68cb50fc.service",
+      "elapsed_s": 245.81514905113727,
+      "error": null,
+      "invocation": "17ccf751fb1940cebc79bcabe42b8be1",
+      "launcher_returncode": 0,
+      "max_aggregate_output_B": 182169600,
+      "min_free_disk_B": 65159901184,
+      "min_host_available_B": 28878573568,
+      "pass_guard": true,
+      "peak_kernel_memory_B": 952119296,
+      "peak_sampled_RSS_B": 1036648448,
+      "rank_kernel_exits": {
+        "0": true,
+        "1": true
+      },
+      "sampled_not_continuous": true,
+      "samples": 954
+    }
+  },
+  "checks": {
+    "Gamma6": {
+      "mapping": {
+        "source_PW": 7809,
+        "target_PW": 10827,
+        "new_only_PW": 3018,
+        "all_source_labels_present": true,
+        "max_Gram_change": 7.771561172558134e-16,
+        "source_Gram_defect_op": 1.966790392076292e-15,
+        "new_only_coefficient_max": 0.0,
+        "physical_axes_match": true,
+        "source_norm_discarded": 0.0,
+        "renormalization_used": false
+      },
+      "native_bands_1based": [
+        139,
+        140
+      ],
+      "energies_relative_Fermi_eV": [
+        -0.9587131256615606,
+        -0.9587131256615606
+      ],
+      "primitive_Gamma_probabilities": [
+        0.9999999999999889,
+        0.9999999999999957
+      ],
+      "Td": {
+        "Gram_defect_frobenius": 4.051618816481947e-14,
+        "maximum_span_leakage_defect_frobenius": 8.172803352661628e-14,
+        "character_complex": [
+          [
+            -1.5539045583615637e-18,
+            2.5202062658991053e-14
+          ],
+          [
+            -1.8827491009543965e-18,
+            1.5210055437364645e-14
+          ],
+          [
+            -1.421774977515089e-16,
+            5.032085859113522e-14
+          ],
+          [
+            1.9999999999999973,
+            1.5147512157266238e-18
+          ],
+          [
+            -1.4142135623730858,
+            3.665123760043798e-14
+          ],
+          [
+            1.4142135623730856,
+            3.664429870653407e-14
+          ],
+          [
+            3.9579740314631445e-17,
+            2.8144153674247718e-14
+          ],
+          [
+            -4.392481253889287e-17,
+            -6.106226635438361e-15
+          ],
+          [
+            -2.4080749643745733e-18,
+            4.651834473179406e-14
+          ],
+          [
+            -1.414213562373086,
+            1.637578961322106e-14
+          ],
+          [
+            1.4142135623730852,
+            1.609823385706477e-14
+          ],
+          [
+            -1.688174118615957e-16,
+            2.531308496145357e-14
+          ],
+          [
+            0.9999999999999938,
+            2.986499936241671e-14
+          ],
+          [
+            -0.9999999999999938,
+            5.051514762044462e-15
+          ],
+          [
+            0.9999999999999932,
+            1.9095836023552692e-14
+          ],
+          [
+            -0.9999999999999936,
+            4.4075854077618715e-14
+          ],
+          [
+            0.9999999999999937,
+            5.9396931817445875e-15
+          ],
+          [
+            -0.9999999999999936,
+            1.965094753586527e-14
+          ],
+          [
+            -0.9999999999999946,
+            3.064215547965432e-14
+          ],
+          [
+            0.9999999999999938,
+            4.418687638008123e-14
+          ],
+          [
+            1.414213562373087,
+            1.0880185641326534e-14
+          ],
+          [
+            -3.006808276424054e-16,
+            5.218048215738236e-14
+          ],
+          [
+            -1.4142135623730856,
+            1.099120794378905e-14
+          ],
+          [
+            3.46089562495549e-16,
+            1.865174681370263e-14
+          ]
+        ],
+        "dot_entry_error_model": 3.0772362438349677e-10,
+        "Gram_error_upper_model": 6.154877649551584e-10,
+        "twirl_projector_distance_tau_upper_model": 4.9618774801297826e-05,
+        "nearby_invariant_projector_distance_upper_model": 9.923754960259565e-05,
+        "multiplicity_complex": [
+          [
+            0.9999999999999942,
+            -3.705761847342453e-17
+          ],
+          [
+            9.25185853854297e-16,
+            9.554501393750019e-18
+          ],
+          [
+            1.4279609508774163e-15,
+            1.4130246343768857e-17
+          ]
+        ],
+        "multiplicity_error_upper_model": [
+          0.0007939053207313534,
+          0.0007939053207313534,
+          0.0015878106412921765
+        ],
+        "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+          1,
+          0,
+          0
+        ],
+        "nearest_integer_classification_admitted_under_model": true
+      }
+    },
+    "Gamma8": {
+      "mapping": {
+        "source_PW": 7809,
+        "target_PW": 10827,
+        "new_only_PW": 3018,
+        "all_source_labels_present": true,
+        "max_Gram_change": 6.661338147750939e-16,
+        "source_Gram_defect_op": 1.6183276445368726e-15,
+        "new_only_coefficient_max": 0.0,
+        "physical_axes_match": true,
+        "source_norm_discarded": 0.0,
+        "renormalization_used": false
+      },
+      "native_bands_1based": [
+        143,
+        144,
+        145,
+        146
+      ],
+      "energies_relative_Fermi_eV": [
+        -1.4555467942045652e-11,
+        -1.4555467942045652e-11,
+        -1.4335199693960021e-11,
+        -1.3674394949703128e-11
+      ],
+      "primitive_Gamma_probabilities": [
+        0.9999999999999948,
+        0.9999999999999961,
+        0.9999999999999916,
+        0.9999999999999831
+      ],
+      "Td": {
+        "Gram_defect_frobenius": 5.818443239334341e-15,
+        "maximum_span_leakage_defect_frobenius": 3.708020184439697e-14,
+        "character_complex": [
+          [
+            -1.5291811088644207e-17,
+            3.469446951953614e-16
+          ],
+          [
+            2.8057868563691264e-16,
+            -8.104628079763643e-15
+          ],
+          [
+            -5.626274030542421e-17,
+            1.1102230246251565e-16
+          ],
+          [
+            3.999999999999999,
+            0.0
+          ],
+          [
+            -3.608224830031759e-15,
+            2.3037127760972e-15
+          ],
+          [
+            3.7192471324942744e-15,
+            2.3869795029440866e-15
+          ],
+          [
+            -1.832418469402995e-16,
+            1.0436096431476471e-14
+          ],
+          [
+            4.451580465222845e-17,
+            3.608224830031759e-15
+          ],
+          [
+            -7.543749068000831e-17,
+            -1.199040866595169e-14
+          ],
+          [
+            9.325873406851315e-15,
+            -4.135580766728708e-15
+          ],
+          [
+            -8.770761894538737e-15,
+            -4.135580766728708e-15
+          ],
+          [
+            3.77513830538819e-16,
+            -1.3322676295501878e-15
+          ],
+          [
+            -0.9999999999999992,
+            -6.661338147750939e-16
+          ],
+          [
+            0.999999999999987,
+            -2.220446049250313e-15
+          ],
+          [
+            -0.9999999999999908,
+            3.83026943495679e-15
+          ],
+          [
+            0.9999999999999982,
+            -5.551115123125783e-16
+          ],
+          [
+            -0.9999999999999873,
+            -2.275957200481571e-15
+          ],
+          [
+            0.9999999999999911,
+            3.3306690738754696e-15
+          ],
+          [
+            0.9999999999999999,
+            -9.71445146547012e-16
+          ],
+          [
+            -0.9999999999999987,
+            -4.440892098500626e-16
+          ],
+          [
+            7.771561172376096e-16,
+            -1.124100812432971e-15
+          ],
+          [
+            -1.0870086200110288e-16,
+            7.605027718682322e-15
+          ],
+          [
+            -8.881784197001252e-16,
+            -1.2628786905111156e-15
+          ],
+          [
+            -8.718671344892467e-17,
+            2.6853519408120974e-15
+          ]
+        ],
+        "dot_entry_error_model": 3.0772362438349677e-10,
+        "Gram_error_upper_model": 1.2309003159772264e-09,
+        "twirl_projector_distance_tau_upper_model": 7.017058455249942e-05,
+        "nearby_invariant_projector_distance_upper_model": 0.00014034116910499885,
+        "multiplicity_complex": [
+          [
+            1.374887256986666e-15,
+            4.8935055659218817e-17
+          ],
+          [
+            2.3998710267388663e-15,
+            2.2766848014489214e-17
+          ],
+          [
+            0.9999999999999979,
+            -3.5850951836854015e-17
+          ]
+        ],
+        "multiplicity_error_upper_model": [
+          0.0022454784002090443,
+          0.0022454784002090443,
+          0.004490956800247558
+        ],
+        "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+          0,
+          0,
+          1
+        ],
+        "nearest_integer_classification_admitted_under_model": true
+      }
+    }
+  },
+  "code_sha256": "ac235a0ae9e213c824d52b5fd84145a2c0a2e54d7090114c1958ce16af7ec8e2"
+}

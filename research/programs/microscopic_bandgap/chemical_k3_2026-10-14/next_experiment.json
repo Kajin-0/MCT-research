@@ -1,0 +1,80 @@
+{
+  "status": "RECOMMEND FUTURE matched Gamma/q1 FIRST-ACE pilot; NOT ADMITTED/NOT LAUNCHED",
+  "rationale": "current same-cutoff k2-to-k3 response sensitivity is1.16meV; functional uncertainty remains unconstrained. A new composition at the same PBE level does not resolve it.",
+  "physical": {
+    "nat": 8,
+    "nbnd": 176,
+    "nelec": 144,
+    "lattice_A": 6.46,
+    "PP": "same SG15 fully relativistic NC",
+    "functional": "HSE+SOC",
+    "sigma_Ry": 0.001,
+    "smearing": "FD",
+    "ecutwfc_Ry": 50,
+    "ecutrho_Ry": 200,
+    "ecutfock_Ry": 200,
+    "kgrid": [
+      1,
+      1,
+      1
+    ],
+    "qgrid": [
+      1,
+      1,
+      1
+    ],
+    "hybrid_fraction": 0.25,
+    "screening_Bohr_inverse": 0.106
+  },
+  "separately_labelled_k_q_approximation": true,
+  "no_full_SCF_convergence_target": true,
+  "measured_PBE_k3_member_wall_s": {
+    "host": 243.78,
+    "cd": 225.01
+  },
+  "measured_HSE_twoatom_mean_ACE_rebuild_s": 25.18857142857143,
+  "heuristic_firstACE_member_wall_s": {
+    "host": [
+      162.41263392857144,
+      184.96099702380954
+    ],
+    "cd": [
+      157.72013392857144,
+      180.26849702380952
+    ]
+  },
+  "heuristic_pair_wall_s": [
+    320.1327678571429,
+    365.229494047619
+  ],
+  "timing_range_is_not_error_or_completion_bound": true,
+  "source_occupied_band_range": [
+    144,
+    176
+  ],
+  "conditional_complex_EXX_buffer_B": 1216512000,
+  "conditional_xi_upper_B": 60977664,
+  "conditional_buffer_xi_plus_current_kernel_peak_B": 2229608960,
+  "subtotal_is_not_complete_RSS_bound": true,
+  "required_before_launch": [
+    "separately frozen176-band first-ACE stop/diagnostic path with unchanged exchange arithmetic",
+    "actual HSE Gamma/q1 FFT/output/resource admission, input/state and rank ownership qualification",
+    "explicit new user authorization for the matched pilot"
+  ],
+  "measure": [
+    "native full firstACE direct action/Gram/contractions and Fock energy on176 trial states",
+    "whole-family kernel/RSS peak, FFT descriptors, per-stage timing and charge",
+    "actual source complex Gamma spinors and physical frame matching; conditional projected response only if action coverage admits it"
+  ],
+  "abort": [
+    "any source/PP/layout/state/charge/scientific or resource refusal",
+    "incomplete firstACE capture",
+    "no retry or full-SCF continuation beyond the separately admitted scope"
+  ],
+  "alternative_not_chosen": "two Cd atoms in the8atom cell (x=.5): new symmetry and finite-cell/composition effects need requalification; no functional accuracy information",
+  "no_hardware_or_original16atom_change": true,
+  "physical_xc": null,
+  "additional_native_runs": 0,
+  "prior_assessment_path": "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_cutoff_2026-10-14/hse_feasibility.json",
+  "prior_assessment_sha256": "cff378c9d51058db4bf9bcbcdea13a3d9f67db219bc33c70277b77046af4f2a6"
+}

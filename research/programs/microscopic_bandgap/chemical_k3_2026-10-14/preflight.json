@@ -1,0 +1,101 @@
+{
+  "timestamp_UTC": "2026-10-14T21:59:51.753076+00:00",
+  "parent": "3fe5ef2",
+  "mesh": {
+    "full_points": 27,
+    "Td_operations": 24,
+    "atoms_both_invariant": true,
+    "star_sizes": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "expected_weights": {
+      "(0, 0, 0)": 0.037037037037037035,
+      "(0, 0, 1)": 0.2222222222222222,
+      "(0, 1, 1)": 0.4444444444444444,
+      "(1, 1, 1)": 0.2962962962962963
+    },
+    "without_TR_star_sizes": [
+      1,
+      4,
+      4,
+      6,
+      12
+    ],
+    "TR_is_required": true
+  },
+  "visible_native_names_empty": {
+    "pw.x": [],
+    "mpirun": [],
+    "prterun": []
+  },
+  "hostwide_absence_claim": false,
+  "exclusive_known_lock_available": true,
+  "old_registry": {
+    "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jw7adqol/job",
+    "members": [],
+    "phase": "FINISHED",
+    "version": 1
+  },
+  "old_registry_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "physical_RAM_available_B": 29797822464,
+  "storage": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 15968871,
+    "available_bytes": 65408495616,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15166603264,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "only_input_grid_and_private_paths_changed": true,
+  "conservative_4x_previous_kernel_B": 3814457344,
+  "two_times_previous_member_elapsed_s": {
+    "host": 455.21266975440085,
+    "cd": 427.878942200914
+  },
+  "not_a_convergence_guarantee": true,
+  "Td_TR_source_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/setup.f90",
+  "Td_TR_source_sha256": "0768adedf9691ceb0092a3bebf7f889cb436d60e5efc42c7a3c45f8e9e2be4dd"
+}

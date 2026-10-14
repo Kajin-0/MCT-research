@@ -2,9 +2,41 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; exploratory PBE+SOC host/Cd response has measured probe, k and cutoff sensitivity; full cutoff/BZ/material accuracy OPEN; small HSE assessed only, no admitted full 600-s HSE pair; HSE-grade/dilute input and physical x_c OPEN; original failures/full-target gates preserved
+**State:** historical physical goal BLOCKED; exploratory PBE+SOC host/Cd response measured at identical50/200Ry k2/k3 with fixed physical projectors, plus prior probe/cutoff sensitivities; full BZ/material accuracy OPEN; matched HSE first-ACE pilot recommended only; HSE-grade/dilute input and physical x_c OPEN; original failures/full-target gates preserved
 
 **Updated:** 2026-10-14
+
+## Same-cutoff k3 chemical pair — 2026-10-14 22:20 UTC
+
+[New finite decision](chemical_k3_2026-10-14/decision.md): from3fe5ef2, ONE
+sequential stock PBE+SOC8atomHg/Cd pair at176bands144e/50/200Ry/FD.001Ry/
+6.46A/nativeTd/unchangedsolver, onlyunshiftedk2→k3/privatepaths change. Native
+24crystal symmetries,four stars(1,6,12,8)/27 and uniqueGamma capture confirmed;
+withoutTR theoreticalstar splits4+4. BothSCFs converge11steps243.78/225.01s,
+independent charge<9.2e-11e. Host terminal/source/physical frame gates pass
+before Cd. Initial crystal/lattice XML parser error source-corrected and retained;
+no threshold relaxation or native retry.
+
+Original40Ry Gamma6/8 projectors physically embed7809→10827vectors with no
+source norm lost/renormalization/index overlap; all24maps pass. W2 response
++.392177486293eV versus+.393337031960eV k2: measured−1.159546meV; conditional
+grid difference[−8.78763,+6.46854]meV includeszero. All tested widths/references
+retain positive conditional response; primary host/Cd member orderings both
+negative, so no positive-gap claim. Newhostframe effect+.099038meV vs+.087142
+is separate. Five focused native-data/math checks PASS; material/operator/
+eigenpair/finite-cell/BZ errors OPEN. Two same-cutoff meshes do not prove convergence.
+
+Kernel/typedrank/managerexit0/emptygroup gates pass; maxRSS1.037GB/kernel.953GB
+under12GiB/swap0/tasks12/600s,host4GiB/disk10GiB floors; aggregate500674560B
+under sampled14GiB. Raw/complex/source pins archived; stock/dirtyDFT/oldledger
+exact, all historic host uncertainty/HSEFAILs preserved. No NSCF/retry/HSE/
+extra job/supervisor/Calcura/other session/historicalgoal changes. STOP finitepair.
+
+Recommend a separately qualified matched8atom HSE Gamma/q1 FIRST-ACE pilot,
+same176/50/200/Fock200/FD/PP/cell; source-conditioned2.230GB subtotal is not
+fullRSS bound,320–365s/pair is heuristic. Need actual176bandstop/diagnostics/
+state/FFT/output/resource/owner admission and separate authorization; no launch
+or source build here. FirstACE would not imply fullSCF or materialgap/x_c.
 
 ## One measured cutoff pair and separate HSE assessment — 2026-10-14 20:34 UTC
 
