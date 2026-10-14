@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-10-14T14:43:45.143126+00:00",
+  "all12_native_completed_outer_states_live_certified": true,
+  "trajectory": [
+    {
+      "outer": 1,
+      "total_Ry": -484.04828053471357,
+      "Fock_Ry": -8.942977230729865,
+      "dexx_Ry": 0.0,
+      "native_ef_Ry": 0.7147888426966938,
+      "charge_residual_electrons": 4.263256414560601e-12,
+      "slope_lower_electrons_per_Ry": 366.31465516147
+    },
+    {
+      "outer": 2,
+      "total_Ry": -484.05629175617577,
+      "Fock_Ry": -8.961975605876729,
+      "dexx_Ry": 0.0007125961557328253,
+      "native_ef_Ry": 0.6726297038275304,
+      "charge_residual_electrons": 7.679545888095163e-11,
+      "slope_lower_electrons_per_Ry": 366.31456327477
+    },
+    {
+      "outer": 3,
+      "total_Ry": -484.0563879988202,
+      "Fock_Ry": -8.966470423808017,
+      "dexx_Ry": 2.2767422688474426e-05,
+      "native_ef_Ry": 0.6698059367083817,
+      "charge_residual_electrons": -5.8051341511600185e-11,
+      "slope_lower_electrons_per_Ry": 366.2900526858723
+    },
+    {
+      "outer": 4,
+      "total_Ry": -484.0564679351051,
+      "Fock_Ry": -8.965583328966243,
+      "dexx_Ry": 7.024281868339699e-05,
+      "native_ef_Ry": 0.6710014125728196,
+      "charge_residual_electrons": 2.971489720948739e-11,
+      "slope_lower_electrons_per_Ry": 359.9360836884107
+    },
+    {
+      "outer": 5,
+      "total_Ry": -484.05790568205424,
+      "Fock_Ry": -8.967048154379324,
+      "dexx_Ry": 0.0011473736541134372,
+      "native_ef_Ry": 0.6699633646403063,
+      "charge_residual_electrons": -5.2025939112354536e-11,
+      "slope_lower_electrons_per_Ry": 89.51190717050007
+    },
+    {
+      "outer": 6,
+      "total_Ry": -484.0579940054668,
+      "Fock_Ry": -8.967212498315659,
+      "dexx_Ry": 2.922068315669435e-05,
+      "native_ef_Ry": 0.661012530300213,
+      "charge_residual_electrons": -4.8181902911892394e-11,
+      "slope_lower_electrons_per_Ry": 52.94513436032257
+    },
+    {
+      "outer": 7,
+      "total_Ry": -484.0580042750754,
+      "Fock_Ry": -8.967282795314972,
+      "dexx_Ry": 2.4763166251773328e-05,
+      "native_ef_Ry": 0.6618733679129187,
+      "charge_residual_electrons": -4.376943252282217e-12,
+      "slope_lower_electrons_per_Ry": 45.17432059453832
+    },
+    {
+      "outer": 8,
+      "total_Ry": -484.05799121243166,
+      "Fock_Ry": -8.967164253809392,
+      "dexx_Ry": 3.7214013914876887e-06,
+      "native_ef_Ry": 0.6601946247262548,
+      "charge_residual_electrons": 2.76543232757831e-11,
+      "slope_lower_electrons_per_Ry": 90.33222089623648
+    },
+    {
+      "outer": 9,
+      "total_Ry": -484.05799542560794,
+      "Fock_Ry": -8.967270915568914,
+      "dexx_Ry": 3.807815641465595e-06,
+      "native_ef_Ry": 0.660209375193836,
+      "charge_residual_electrons": 1.899991275422508e-11,
+      "slope_lower_electrons_per_Ry": 88.79865339974414
+    },
+    {
+      "outer": 10,
+      "total_Ry": -484.0579992675265,
+      "Fock_Ry": -8.967207218584106,
+      "dexx_Ry": 1.2061172505184459e-06,
+      "native_ef_Ry": 0.6607134994771233,
+      "charge_residual_electrons": -9.590905847289832e-11,
+      "slope_lower_electrons_per_Ry": 44.677059608218215
+    },
+    {
+      "outer": 11,
+      "total_Ry": -484.05799057762306,
+      "Fock_Ry": -8.967287768038519,
+      "dexx_Ry": 8.022478464653204e-06,
+      "native_ef_Ry": 0.6609797816962919,
+      "charge_residual_electrons": 9.350742402602918e-12,
+      "slope_lower_electrons_per_Ry": 43.760968574047794
+    },
+    {
+      "outer": 12,
+      "total_Ry": -484.05800703870875,
+      "Fock_Ry": -8.967178784294628,
+      "dexx_Ry": 2.2422123699072927e-05,
+      "native_ef_Ry": 0.6602562095356201,
+      "charge_residual_electrons": -3.5576874779508216e-11,
+      "slope_lower_electrons_per_Ry": 76.60102385285926
+    }
+  ],
+  "max_abs_charge_electrons": 9.590905847289832e-11,
+  "minimum_monotonic_slope_lower": 43.760968574047794,
+  "independent_final_native_HDF5_readback": {
+    "waves": [
+      {
+        "k": 1,
+        "native_wave_readback_bitwise": true
+      },
+      {
+        "k": 2,
+        "native_wave_readback_bitwise": true
+      },
+      {
+        "k": 3,
+        "native_wave_readback_bitwise": true
+      }
+    ],
+    "reciprocal_density_readback_bitwise": true,
+    "SCF_native_restart_semantics_not_qualified": true
+  },
+  "native_final_after_both_live_phase10": true,
+  "native_JOBDONE_zero": true,
+  "original_owner_ACCEPTED": false,
+  "original_owner_refusal_preserved": "[Errno 13] Permission denied: '/proc/1905562/fd'",
+  "refused_PID_is_real_registered_rank0": true,
+  "teardown_timing_cause_hypothesis_only": true,
+  "stream_attempted": false,
+  "converged_HSE": false,
+  "native_restart_qualified": false,
+  "physical_xc": false
+}

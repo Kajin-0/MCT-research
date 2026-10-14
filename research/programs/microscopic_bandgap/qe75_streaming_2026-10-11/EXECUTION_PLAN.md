@@ -1,9 +1,63 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 00:04 UTC
-**Status:** COLD-SMEARING HISTORICAL FAIL EXPLAINED/PRESERVED; ONE FRESH NATIVE CONTROL5 OUTERS REFUSED AT NONNEUTRAL FERMI STATIONARY POINT; STREAM UNLAUNCHED; STOP UNCHANGED-SOLVER BOUNDARY
+**Last verified update:** 2026-10-14 14:56 UTC
+**Status:** PRIVATE FERMI ROOT QUALIFIED; ONE NATIVE CONTROL COMPLETED 12 CHARGE-CERTIFIED OUTER UPDATES, HSE UNCONVERGED; TERMINAL OWNER FD REFUSAL PRESERVED; STREAM UNLAUNCHED; STOP, NO RETRY
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+**Current finite checkpoint starts at `7be091f`:** read the
+[Fermi-root decision](fermi_root_2026-10-14/decision.md),
+[actual numerical qualification](fermi_root_2026-10-14/control_numerical_qualification.json)
+and [final handoff](fermi_root_2026-10-14/handoff_ledger.md).
+The separately authorized private occupation solver changes the earlier
+unchanged-solver scope; old occupation and neutrality failures remain unchanged.
+
+## Safeguarded Fermi-root native checkpoint — 2026-10-14 14:56 UTC
+
+**CALCULATED / SOLVER PASS:** all 18 retained complete control snapshots were
+audited before launch, including every available old step beyond four. The
+bounded sign-bracket solver certifies a unique increasing cold-smearing root
+under explicit numerical-oracle assumptions; independent high-precision and
+actual native scalar-object checks pass. Ambiguous roots refuse. A failed
+non-PIC shared link was followed by a genuine passing standalone scalar check;
+it is not a native MPI experiment. Both private QE candidates link with EXX/ACE
+objects unchanged. Frozen input, source, ELF, seed and protected-state pins
+matched before the single new control launch.
+
+**ACTUAL NATIVE CONTROL:** twelve accepted outer updates, maximum charge error
+9.590905847289832e-11 electrons, minimum certified slope lower
+43.760968574047794 electrons/Ry. Step five now has charge residual
+−5.202593911235454e-11 electrons rather than the old nonneutral stationary
+point. Last total/Fock energies are −484.05800703870875/−8.967178784294628 Ry;
+dexx 2.2422123699072927e-5 Ry exceeds the 1e-10 target. Native softstop, not
+converged HSE. Final wave/rhoG readback, both live phase-10 rank receipts,
+native return zero and JOB DONE are independently recorded.
+
+**OWNER FAIL / PAIR NOT COMPLETED:** after both final receipts the frozen owner
+refused EACCES while listing registered rank zero's `/proc/1905562/fd`.
+Original failed RESULT remains unchanged. A terminal process race is only a
+hypothesis; unreadable live ownership is not accepted. Stream was never launched,
+there was no retry, and read-only numerical qualification does not override
+the owner failure. Own unit is collected, group empty and exclusive lock free.
+
+**MEASURED SAFETY:** elapsed 520.3520903 s; sampled family RSS 966787072 bytes
+(shared overcount included), last observed cgroup peak 1805807616 bytes including
+file cache. Sampled host RAM/disk minima 28984594432/65788416000 bytes; sampled
+aggregate output maximum 1212751872 bytes. Longest sample interval 7.077825 s;
+no continuous disk guarantee. Actual 12-GiB/swap-zero/tasks-12/600-s caps,
+4-GiB host RAM and 10-GiB disk floors, 14-GiB sampled budget held, no cap events.
+These are local-owned observations, not global foreign-MPI or network proof.
+
+**STOP / NEXT PRECISE GATE:** qualify a terminal owner transition using kernel
+identity/completion evidence without treating genuinely unreadable live ranks
+as clean. Start with a bounded non-MPI reproducer; this checkpoint authorizes
+no further SCF, stream or restart. Preserve the measured control and its pins.
+Native restart and the paired full-SCF comparison remain unqualified.
+The user's cache cleanup resolves the former disk-margin limitation only;
+full-size RAM/restart admission and original 16-atom/352-band physics remain
+unchanged. No Cd, physical x_c or unmatched whole-SCF memory-gain claim.
+Stock, dirty DFT, old ledger/failures, supervisors and other sessions preserved;
+no Calcura operation or historical-goal change.
 
 **Latest finite checkpoint starts clean `1b4c59b`:** read
 [smearing/neutrality decision](smearing_conditioning_2026-10-13/decision.md) and
@@ -85,6 +139,7 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 | M5-O | Fixed-orbital replay from actual control; complete source/q/kernel/basis fences and real EXX/ACE comparison | **NATIVE NUMERICS QUALIFIED / ORIGINAL OWNER TEARDOWN FAILED:** all active direct/Gram/ACE/energy fields bitwise identical; full SCF/restart not tested | `fixed_operator_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts682b5d5, 2026-10-13 21:01 UTC |
 | M5-S | Genuine full HSE SCF trajectory pair + final readback | **PARTIAL / SCIENTIFIC GATE FAILED:** control12outer/softstop/notconverged, stream4outer/occupationrefusal; paired1–3PASS, native control wave/rhoG readbackPASS, restartOPEN | `full_scf_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts7116be0, 2026-10-13 22:51 UTC |
 | M5-C | Cold-smearing-conditioned trajectory protocol + native Fermi diagnostic | **ANALYSIS PASS / NEW CONTROL NO-GO:** old occupation FAIL explained/preserved; fresh control5 updates/4accepted, nonneutral stationary Fermi point0.00559692e at5; stream unlaunched, restartOPEN | `smearing_conditioning_2026-10-13/{decision.md,retained_audit.json,numerical_result.json}`; starts1b4c59b |
+| M5-R | Separately scoped private sign-bracket Fermi solver and fresh native trajectory | **SOLVER PASS / OWNER FAIL / PAIR INCOMPLETE:** all18 historical spectra qualified; new control12 updates with charge ≤9.60e-11 electrons, final native readback; HSE unconverged. Late owned-rank FD EACCES after both final receipts; stream unlaunched, restart OPEN | `fermi_root_2026-10-14/{decision.md,control_numerical_qualification.json,numerical_result.json,protected_after.json}`; starts7be091f |
 | M6 | Admission of full-size host on actual RAM/disk/time using measured peak and sufficient scratch | **NO-GO**: ~31 GiB disk available versus nominal ~22 GiB stream + 10 GiB reserve + output | `checkpoint_phase/phase_outcomes.json` |
 | M7 | Accepted matched 16-atom HgTe host then Cd-substituted spectra, physically labelled Γ6/Γ8 overlaps | **NOT ACHIEVED** | Host termination; Cd stage absent |
 | M8 | Convergence/locality/finite-size/disorder and physical `x_c` error bounds | **NOT ACHIEVED** | `state.md`; physical input remains missing |
@@ -384,6 +439,8 @@ state replay/readback design, not another infrastructure campaign.
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-14 14:56 UTC | starts `7be091f` | ROOT SOLVER / REAL CONTROL12:** Preserved interrupted package; audited all18 historical snapshots and qualified private safeguarded cold root with independent high-precision and actual native scalar-object checks. One fresh two-rank control completed12 accepted outer updates, charge ≤9.60e-11 electrons, final readback and both terminal receipts; not converged. Original owner FAIL from owned-rank FD EACCES remains, stream never launched/no retry. Frozen physics/EXX objects and protected DFT/stock/history unchanged; own group collected/lock free. Stop at terminal-owner gate, no restart/material or memory-gain claim.
 
 - **2026-10-13 22:51 UTC | starts7116be0 | REAL FULL-SCF EVOLUTION / OCCUPATION FALSIFICATION:** Control12outer updates/486.471663s with exact native finalwave/rhoG readback/clean0; HSEnotconverged. Stream4generations/173.113413s, common1–3PASS then occupation1.469269e−8>prereg1e−8refusal; no toleranceadjustment/retry. Generation retirement/reservation advanced; observerfault + conservative resource refusal targeted fixes retained. No unmatched whole-SCF memorybenefit, native restart, physicalxc or protected-state changes. STOP at evidenced numerical/scientific gate, records pushed researchbranch only.
 

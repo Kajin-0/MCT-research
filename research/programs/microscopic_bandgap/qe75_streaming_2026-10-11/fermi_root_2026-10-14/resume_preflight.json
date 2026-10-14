@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-14T14:28:18.790625+00:00",
+  "frozen_files_ELFs_JOB_PROFILE_PP_seed_exact": true,
+  "retained_all18_states_rehashed": true,
+  "root_qualification_all18_verified": true,
+  "native_scalar_validation_verified": true,
+  "protected_DFT_stock_history_unchanged": true,
+  "same_seed_bytes_prelaunch": true,
+  "kernel_lock_free": true,
+  "resource": {
+    "admitted": true,
+    "rounded_reservation_bytes": 16443195392,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600,
+    "aggregate_retained_pair_charge_bytes": 65585152,
+    "remaining_pair_output_budget_bytes": 14966800384
+  },
+  "actual_live_initial_FFT_rank_lease_gates_still_required": true,
+  "no_Calcura_operation": true
+}

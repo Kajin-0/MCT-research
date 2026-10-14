@@ -1,0 +1,33 @@
+--- QE7.5/PW/src/efermig.f90
++++ PRIVATE/efermig.f90
+@@ -13,11 +13,12 @@
+   !! Improved bisection algorithm by Flaviano José dos Santos (EPFL)
+   !! Functions not passed as arguments (some compilers don't like it) 
+   !
+-  USE io_global, ONLY : stdout
++  USE r07_cold_root, ONLY:strict_root,last_certificate
++  USE io_global, ONLY : stdout,ionode
+   USE kinds,     ONLY : DP
+   USE constants, ONLY : rytoev
+   USE mp,        ONLY : mp_max, mp_min
+-  USE mp_pools,  ONLY : inter_pool_comm
++  USE mp_pools,  ONLY : inter_pool_comm,npool
+   !
+   IMPLICIT NONE
+   !
+@@ -61,6 +62,15 @@
+   !  Elw = lowest, Eup = highest energy among all k-points.
+   !  Works with distributed k-points, also if nks=0 on some processor
+   !
++  ! Private R07 cold-only change: certify sign root and refuse ambiguity.
++  IF(Ngauss == -1) THEN
++    IF(npool/=1) CALL errore('r07_cold_root','qualified one-pool fixture only',1)
++    CALL strict_root(et,nbnd,nks,nelec,wk,Degauss,is,isk,Ef,info)
++    IF(info/=0) CALL errore('r07_cold_root','untrusted or competing cold root',info)
++    efermig=Ef
++    IF(ionode) WRITE(stdout,'(A,12(ES26.17E3,1X))') 'R07_COLD_ROOT ',Ef,nelec,last_certificate
++    RETURN
++  ENDIF
+   Elw = 1.0E+8
+   Eup =-1.0E+8
+   DO kpoint = 1, nks

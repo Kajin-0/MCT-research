@@ -1,0 +1,4 @@
+# Preserve byte-exact native QE formatter output, including trailing spaces.
+raw/control/pw.out -whitespace
+efermig.f90 -whitespace
+solver.patch -whitespace

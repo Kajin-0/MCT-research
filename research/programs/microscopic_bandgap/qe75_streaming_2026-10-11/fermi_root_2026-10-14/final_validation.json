@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-10-14T15:00:04.832244+00:00",
+  "passed": true,
+  "scope": "read-only final provenance and saved numerical-verdict consistency; no native or repeated numerical suite",
+  "frozen_hashes_verified": true,
+  "ELFs_backends_JOBs_verified": true,
+  "retained_native_raw_hashes_checked": 157,
+  "python_AST_files": 11,
+  "JSON_files": 39,
+  "DFT_stock_historical_failures_preserved": true,
+  "original_owner_failed_and_stream_unlaunched": true,
+  "actual_control12_numerical_qualification_separate": true,
+  "no_new_MPI_QE": true
+}

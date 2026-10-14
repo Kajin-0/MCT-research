@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-14T01:41:09.051168+00:00",
+  "pins": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/preregistration.md": "a7502981b6610cea7d1ed2819f255b414e808ad5a4b5b82748d4aa1dcf7f782a",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/cold_root.f90": "6da2de0ec5afc9a90f5d079fcfb80c58e6c43fcb495af751b52cb65e8a25c9aa",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/efermig.f90": "5374da0509b3c575b1577caafa2302b3884481bec8255b8f282bcf7204eedd8e",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/full_state.f90": "e492612947154fd148d45a12dcf010df087d7dabaa4b9719187ff96098de4c23",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/conditioning.py": "6192f99b1bcb3d00b128202446c41471f88200ef99886e7bb05a155a4927e9b4",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/observables.py": "2e204a94761ef7495171a8b76308e4ca4c5f888f377a31694dd71a1ac1cbbc6d",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/owned_pair.py": "f32b39f5c01a1001199f7d2904ca8246128abe70d7880fe71da71c76eeb5039a",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/sampled_output.py": "55f37ecbd5ccfd3afee3b2ce69bc022eec703dfe35cf232effeca768f92a9779",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/build_results.json": "d4910a54180dac1f9aed0494c92759da8be5e83402adebd4c5cb4b7f9d25e267",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/root_qualification.json": "b1aa6d427888eb00620033990ae73238bebfc7899f10918238b0c5088cd8f6e5",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/validation.json": "d7ea8d35d7007fd011115ab81853f1b053233577095dddb515d8dc2c32bdc0b6"
+  },
+  "jobs": {
+    "control": "09ff066e2d7ffdea138eacaf365de66ab87818dbd49f5591f3daf27a6ba98885",
+    "stream": "e6b2f53058288cb66bd4d7c66100f853dce36af77fa8ac5aa7b975244f31410f"
+  },
+  "no_new_native_launch_yet": true
+}

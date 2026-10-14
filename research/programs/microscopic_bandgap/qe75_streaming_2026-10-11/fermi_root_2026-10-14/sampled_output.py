@@ -1,0 +1,148 @@
+"""Sampled retained allocation accounting; NOT a hard quota/continuous theorem.
+
+Count unique dev/inode allocated blocks, directories, symlinks (then refuse),
+retained generations regardless of filename, and owned deleted-but-open files.
+Add one filesystem block per observed inode as a stated metadata allowance:
+this is conservative bookkeeping, not a measurement of ext4 journal overhead.
+All filesystem free space is independently sampled. Races/bursts and external
+writers between observations remain an explicitly accepted local-pilot risk.
+"""
+import os
+import errno
+import time
+from pathlib import Path
+import re
+import stat
+
+class OutputRefusal(RuntimeError):pass
+
+class OutputAccount:
+    def __init__(self,root,budget,escrow,guard=None):
+        self.root=Path(root).resolve();self.budget=budget;self.escrow=escrow
+        self.guard=guard;self.dev=self.root.stat().st_dev;self.seen=set();self.generations=0
+        self.maximum=0;self.samples=0;self.last_sample=None;self.max_gap=0.;self.shmem_seen={}
+    def permitted(self,path,kind):
+        rel=path.relative_to(self.root);p=rel.parts
+        if not p:return kind=='directory'
+        if len(p)==1:
+            return p[0] in {'out','initial','fft','diag','tmp','pp','readback','kernel','trajectory'} if kind=='directory' else (p[0].endswith('.json') or p[0] in {'pw.in','pw.out','output.escrow','CRASH'})
+        if p[0]=='tmp':return kind in {'directory','regular','socket','fifo'}
+        if p[0]=='out':
+            if len(p)==2:return p[1].startswith('r07m4.') and kind in {'regular','directory'}
+            return p[1]=='r07m4.save' and kind in {'regular','directory'}
+        if len(p)!=2 or kind!='regular':return False
+        if p[0]=='pp':return p[1] in {'Hg_sg15_pbe_fr_v12.UPF','Te_sg15_pbe_fr_v12.UPF'}
+        if p[0]=='initial':return bool(re.fullmatch(r'rank[01]\.k[123]\.initial',p[1]))
+        if p[0]=='fft':return bool(re.fullmatch(r'rank[01]\.fft',p[1]))
+        if p[0]=='readback':return bool(re.fullmatch(r'rank[01]\.k[123]\.input',p[1]))
+        if p[0]=='kernel':return bool(re.fullmatch(r'rank[01]\.kernel',p[1]))
+        if p[0]=='trajectory':return bool(re.fullmatch(r'rank[01]\.step(?:[0-9]|1[0-9]|20)\.stage[12]\.(?:k[123]\.state|scalars)',p[1]))
+        if p[0]=='diag':return bool(re.fullmatch(r'rank[01]\.k[123]\.(before|after)',p[1]))
+        return False
+    def sample(self,pids=()):
+        entries={};paths=[];aliases=0;deleted=0;mpi_shmem=[]
+        block=os.statvfs(self.root).f_frsize
+        def add(path,s,open_deleted=False):
+            nonlocal aliases,deleted
+            if s.st_dev!=self.dev:raise OutputRefusal('foreign mounted output filesystem: '+str(path))
+            kind='directory' if stat.S_ISDIR(s.st_mode) else 'regular' if stat.S_ISREG(s.st_mode) else 'socket' if stat.S_ISSOCK(s.st_mode) else 'fifo' if stat.S_ISFIFO(s.st_mode) else 'unknown'
+            if stat.S_ISLNK(s.st_mode) or not self.permitted(path,kind):raise OutputRefusal('unknown output path/type: '+str(path))
+            key=(s.st_dev,s.st_ino)
+            if key in entries:aliases+=1;return
+            entries[key]=(s.st_blocks*512,s.st_size,kind,path==self.root/'output.escrow')
+            if key not in self.seen:self.seen.add(key);self.generations+=1
+            if open_deleted:deleted+=1
+        def walk(directory):
+            try:add(directory,directory.lstat())
+            except FileNotFoundError:return
+            for v in os.scandir(directory):
+                path=Path(v.path)
+                try:s=v.stat(follow_symlinks=False)
+                except FileNotFoundError:continue
+                if stat.S_ISDIR(s.st_mode):walk(path)
+                else:add(path,s)
+        walk(self.root)
+        for pid in pids:
+            fds=Path(f'/proc/{pid}/fd')
+            try:values=list(fds.iterdir())
+            except FileNotFoundError:continue
+            except PermissionError:
+                from process_identity import proc
+                try:row=proc(pid)
+                except (FileNotFoundError,ProcessLookupError):continue
+                if row['state']=='Z':continue # exit_files is complete for a zombie
+                raise # never treat an unreadable live owned peer as clean
+            for fd in values:
+                try:
+                    target=os.readlink(fd);s=fd.stat()
+                    if not stat.S_ISREG(s.st_mode):continue
+                    writable=False
+                    for line in Path(f'/proc/{pid}/fdinfo/{fd.name}').read_text().splitlines():
+                        if line.startswith('flags:'):writable=int(line.split()[1],8)&os.O_ACCMODE!=os.O_RDONLY
+                    path=Path(target.removesuffix(' (deleted)'))
+                    if path.is_relative_to(self.root):add(path,s,target.endswith(' (deleted)'))
+                    elif writable:
+                        # Narrow observed MPI bootstrap mapping, NOT stream/tmpfs
+                        # admission. Deleted inode is retained by this owned peer;
+                        # account its blocks and UID/type/size, plus kernel memory.
+                        if not (re.fullmatch(r'/dev/shm/open_mpi\.[0-9a-f]+ \(deleted\)',target)
+                                and s.st_uid==os.getuid() and s.st_nlink==0
+                                and 0<=s.st_size<=128*(1<<20) and self.guard is not None):
+                            raise OutputRefusal('unknown external writable regular file: '+target)
+                        opened=os.open(fd,os.O_RDONLY|os.O_CLOEXEC)
+                        try:observed=self.guard.probe_fd(opened)
+                        finally:os.close(opened)
+                        if observed['probe_errno']!=errno.ENODEV or observed['fs_type']!=0x01021994:
+                            raise OutputRefusal('MPI transient mapping not verified tmpfs')
+                        key=(s.st_dev,s.st_ino)
+                        if key not in entries:
+                            entries[key]=(s.st_blocks*512,s.st_size,'MPI_unlinked_tmpfs',False)
+                            if key not in self.seen:self.seen.add(key);self.generations+=1
+                            deleted+=1
+                        else:aliases+=1
+                        mpi_shmem.append(dict(pid=pid,dev=s.st_dev,inode=s.st_ino,
+                            logical_bytes=s.st_size,allocated_bytes=s.st_blocks*512,
+                            uid=s.st_uid,links=s.st_nlink,fs_type=observed['fs_type'],ext4_storage_guard_expected_refusal=observed['probe_errno']))
+                except (FileNotFoundError,ProcessLookupError):continue
+                except OSError as e:
+                    if e.errno!=errno.ENODEV:raise
+                    from process_identity import proc
+                    try:row=proc(pid)
+                    except (FileNotFoundError,ProcessLookupError):continue
+                    if row['state']=='Z':continue
+                    raise OutputRefusal('ENODEV owned fd during LIVE peer inventory: '+str(fd)) from e
+        allocation=sum(x[0] for x in entries.values());metadata=block*len(entries)
+        escrow=sum(x[0] for x in entries.values() if x[3])
+        charged=allocation+metadata-escrow
+        if not 0<=charged<2**63:raise OutputRefusal('output signed-64 accounting overflow')
+        if charged>self.budget:raise OutputRefusal('14-GiB sampled retained output/metadata budget crossed')
+        self.maximum=max(self.maximum,charged);self.samples+=1
+        now=time.monotonic()
+        if self.last_sample is not None:self.max_gap=max(self.max_gap,now-self.last_sample)
+        self.last_sample=now
+        for item in mpi_shmem:self.shmem_seen[str((item['dev'],item['inode']))]=item
+        return dict(allocated_unique_blocks_bytes=allocation,metadata_allowance_bytes=metadata,
+                    budget_charge_bytes=charged,escrow_blocks_bytes=escrow,
+                    observed_unique_inodes=len(entries),cumulative_distinct_observed_inode_ids=self.generations,
+                    inode_aliases_deduplicated=aliases,open_deleted_inodes=deleted,
+                    maximum_charge_bytes=self.maximum,sample_number=self.samples,
+                    observed_owned_MPI_unlinked_tmpfs=mpi_shmem,continuous_guarantee=False,metadata_is_allowance_not_exact_ext4_measurement=True)
+
+# NEW scope: one aggregate14GiB budget across BOTH retained pair members.
+# Each constituent preserves the old fail-closed path/inode/block/FD checks.
+SingleMemberAccount=OutputAccount
+PAIR=Path('/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_pair_20261014')
+class OutputAccount:
+    def __init__(self,root,budget,escrow,guard=None):
+        self.root=Path(root).resolve()
+        if self.root.parent!=PAIR or self.root.name not in ['control','stream']:raise OutputRefusal('conditioned pair account root')
+        self.active=SingleMemberAccount(self.root,budget,escrow,guard)
+        self.other=SingleMemberAccount(PAIR/('stream' if self.root.name=='control' else 'control'),budget,escrow,guard)
+        self.budget=budget;self.maximum=0;self.samples=0;self.max_gap=0.;self.shmem_seen=self.active.shmem_seen
+    def sample(self,pids=()):
+        a=self.active.sample(pids);b=self.other.sample()
+        total=a['budget_charge_bytes']+b['budget_charge_bytes']
+        if total>self.budget:raise OutputRefusal('aggregate retained control+stream14GiB budget')
+        self.maximum=max(self.maximum,total);self.samples+=1
+        self.max_gap=max(self.active.max_gap,self.other.max_gap)
+        return dict(a,budget_charge_bytes=total,pair_scope='aggregate retained control+stream',active_member_charge_bytes=a['budget_charge_bytes'],other_retained_member_charge_bytes=b['budget_charge_bytes'],maximum_charge_bytes=self.maximum)

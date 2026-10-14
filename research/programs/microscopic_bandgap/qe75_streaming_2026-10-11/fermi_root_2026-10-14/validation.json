@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "all_retained_independent_checks": [
+    {
+      "id": 0,
+      "independent_root_Ry": 0.7147888426998916,
+      "root_delta_Ry": 5.551115123125783e-16,
+      "certified_error_from_residual_over_slope_Ry": 3.007323753882622e-13,
+      "independent_derivative_min": 366.314655169892,
+      "independent_derivative_max": 370.35649490244
+    },
+    {
+      "id": 1,
+      "independent_root_Ry": 0.6726297038317579,
+      "root_delta_Ry": 1.5720758028692217e-13,
+      "certified_error_from_residual_over_slope_Ry": 3.007324507176139e-13,
+      "independent_derivative_min": 366.3145632774012,
+      "independent_derivative_max": 370.3563998750801
+    },
+    {
+      "id": 2,
+      "independent_root_Ry": 0.6698059367032678,
+      "root_delta_Ry": 6.52811138479592e-14,
+      "certified_error_from_residual_over_slope_Ry": 3.007525447371909e-13,
+      "independent_derivative_min": 366.2900527054537,
+      "independent_derivative_max": 370.3310545285109
+    },
+    {
+      "id": 3,
+      "independent_root_Ry": 0.6710014125647776,
+      "root_delta_Ry": 9.414691248821327e-14,
+      "certified_error_from_residual_over_slope_Ry": 3.060539051556575e-13,
+      "independent_derivative_min": 359.93608275514924,
+      "independent_derivative_max": 363.7603196854487
+    },
+    {
+      "id": 4,
+      "independent_root_Ry": 0.669963364989266,
+      "root_delta_Ry": 1.0277334538955074e-12,
+      "certified_error_from_residual_over_slope_Ry": 1.2293308675933124e-12,
+      "independent_derivative_min": 89.51270395637475,
+      "independent_derivative_max": 96.66138230234434
+    },
+    {
+      "id": 5,
+      "independent_root_Ry": 0.6726297038316034,
+      "root_delta_Ry": 1.907363156306019e-13,
+      "certified_error_from_residual_over_slope_Ry": 3.0073245071364944e-13,
+      "independent_derivative_min": 366.3145632822373,
+      "independent_derivative_max": 370.35639987895064
+    },
+    {
+      "id": 6,
+      "independent_root_Ry": 0.714788842699899,
+      "root_delta_Ry": 3.219646771412954e-15,
+      "certified_error_from_residual_over_slope_Ry": 3.0073237538794213e-13,
+      "independent_derivative_min": 366.3146551702825,
+      "independent_derivative_max": 370.3564949027525
+    },
+    {
+      "id": 7,
+      "independent_root_Ry": 0.6726297038318816,
+      "root_delta_Ry": 2.1005419625907962e-13,
+      "certified_error_from_residual_over_slope_Ry": 3.0073245071138666e-13,
+      "independent_derivative_min": 366.31456328499763,
+      "independent_derivative_max": 370.35639988116304
+    },
+    {
+      "id": 8,
+      "independent_root_Ry": 0.6698059367033262,
+      "root_delta_Ry": 4.3520742565306136e-14,
+      "certified_error_from_residual_over_slope_Ry": 3.0075254472055207e-13,
+      "independent_derivative_min": 366.29005272574824,
+      "independent_derivative_max": 370.3310545458437
+    },
+    {
+      "id": 9,
+      "independent_root_Ry": 0.6710014125649237,
+      "root_delta_Ry": 6.661338147750939e-14,
+      "certified_error_from_residual_over_slope_Ry": 3.060539041377882e-13,
+      "independent_derivative_min": 359.9360839539586,
+      "independent_derivative_max": 363.76032092584495
+    },
+    {
+      "id": 10,
+      "independent_root_Ry": 0.6699633651757946,
+      "root_delta_Ry": 4.0456527017340704e-13,
+      "certified_error_from_residual_over_slope_Ry": 1.229330883062214e-12,
+      "independent_derivative_min": 89.51270283179842,
+      "independent_derivative_max": 96.66138107085467
+    },
+    {
+      "id": 11,
+      "independent_root_Ry": 0.66086089111587,
+      "root_delta_Ry": 6.616929226765933e-14,
+      "certified_error_from_residual_over_slope_Ry": 1.2265020157061119e-12,
+      "independent_derivative_min": 89.71843632756448,
+      "independent_derivative_max": 96.88293716248964
+    },
+    {
+      "id": 12,
+      "independent_root_Ry": 0.6600075987419225,
+      "root_delta_Ry": 4.761746552617296e-13,
+      "certified_error_from_residual_over_slope_Ry": 1.2179040781473447e-12,
+      "independent_derivative_min": 90.35204525133852,
+      "independent_derivative_max": 97.56143325426241
+    },
+    {
+      "id": 13,
+      "independent_root_Ry": 0.6602090624232817,
+      "root_delta_Ry": 6.59472476627343e-14,
+      "certified_error_from_residual_over_slope_Ry": 1.2179045811924155e-12,
+      "independent_derivative_min": 90.35200791858618,
+      "independent_derivative_max": 97.56139327571465
+    },
+    {
+      "id": 14,
+      "independent_root_Ry": 0.6602142510021867,
+      "root_delta_Ry": 5.588862705963038e-13,
+      "certified_error_from_residual_over_slope_Ry": 1.2179027887473117e-12,
+      "independent_derivative_min": 90.3521409424122,
+      "independent_derivative_max": 97.56153568692372
+    },
+    {
+      "id": 15,
+      "independent_root_Ry": 0.6601844475767245,
+      "root_delta_Ry": 6.414868636284154e-13,
+      "certified_error_from_residual_over_slope_Ry": 1.2179005607901963e-12,
+      "independent_derivative_min": 90.35230628770378,
+      "independent_derivative_max": 97.5617127092464
+    },
+    {
+      "id": 16,
+      "independent_root_Ry": 0.660197766335278,
+      "root_delta_Ry": 1.312283615106935e-13,
+      "certified_error_from_residual_over_slope_Ry": 1.2178985437326862e-12,
+      "independent_derivative_min": 90.35245598184407,
+      "independent_derivative_max": 97.56187298475817
+    },
+    {
+      "id": 17,
+      "independent_root_Ry": 0.6601856104793375,
+      "root_delta_Ry": 1.1945999744966684e-13,
+      "certified_error_from_residual_over_slope_Ry": 1.217896717040078e-12,
+      "independent_derivative_min": 90.35259154864947,
+      "independent_derivative_max": 97.56201813081232
+    }
+  ],
+  "multiple_real_roots_refused_code": 6,
+  "nonfinite_refused_code": 1,
+  "energy_reference_shift_Ry": 1.0,
+  "reference_mu_error": 0.0,
+  "reference_wg_max_delta": 0.0,
+  "oracle_bounds_are_explicit_assumption_not_universal_libm_proof": true,
+  "no_MPI_QE": true
+}

@@ -2,9 +2,34 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; fixed-orbital HSE streaming bitwise qualified; old full-SCF occupation FAIL explained/preserved; fresh control refused at nonneutral cold-Fermi stationary point; full SCF/restart/material x_c OPEN
+**State:** historical physical goal BLOCKED; fixed-orbital HSE streaming bitwise qualified; private safeguarded Fermi root qualified through 12 native control steps; HSE unconverged; terminal owner FD refusal preserved, stream unlaunched; paired full SCF/restart/material x_c OPEN
 
 **Updated:** 2026-10-14
+
+## Safeguarded Fermi-root checkpoint — 2026-10-14 14:56 UTC
+
+**CALCULATED / SOLVER PASS, OWNER FAIL:** [decision](qe75_streaming_2026-10-11/fermi_root_2026-10-14/decision.md).
+All 18 complete historical control snapshots were audited first. The separately
+authorized private solver certifies increasing, unique cold-smearing roots under
+stated numerical evaluation bounds and refuses competing roots. Independent
+high-precision and actual native scalar-object checks pass; exchange/ACE objects
+and physical inputs are unchanged. Old occupation and neutrality FAILs remain.
+
+ONE fresh two-rank control completed 12 accepted outer updates. Maximum charge
+error 9.590905847289832e-11 electrons; step-five bias removed in this new solver
+scope. Last total/Fock energies −484.05800703870875/−8.967178784294628 Ry and
+dexx 2.2422123699072927e-5 Ry: HSE NOT CONVERGED. Exact final wave/rhoG readback,
+both final rank receipts and native return zero/JOB DONE are recorded separately
+from owner acceptance. After the receipts the owner refused EACCES on registered
+rank-zero `/proc/1905562/fd`; original failed RESULT preserved. Stream never
+launched, no retry/restart. Terminal race is only a hypothesis.
+
+Elapsed 520.352 s, sampled RSS 966787072 bytes, last observed cgroup peak
+1805807616 bytes including cache; RAM/disk floors and kernel caps held. Own unit
+collected, group empty, lock free; stock/dirty DFT/history/ledger/supervisors and
+other sessions preserved. User cache cleanup resolves old disk pressure only.
+Next exact gate is identity-safe terminal ownership, first with non-MPI evidence.
+No whole-SCF memory gain, Cd, 16-atom acquisition, physical x_c or goal change.
 
 ## Cold-smearing/strict-neutrality checkpoint — 2026-10-13 23:58 UTC
 

@@ -1,0 +1,58 @@
+&CONTROL
+ calculation = 'scf'
+ pseudo_dir = '/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_pair_20261014/control/pp'
+ outdir = '/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_pair_20261014/control/out'
+ verbosity = 'high'
+ tprnfor = .false.
+ tstress = .false.
+ wf_collect = .true.
+ prefix = 'r07m4'
+ nstep = 1
+ max_seconds = 480.0
+ restart_mode = 'from_scratch'
+/
+&SYSTEM
+ ibrav = 0
+ nat = 2
+ ntyp = 2
+ ecutwfc = 90
+ ecutrho = 360
+ ecutfock = 120
+ occupations = 'smearing'
+ smearing = 'mv'
+ degauss = 0.001
+ nbnd = 48
+ noncolin = .true.
+ lspinorb = .true.
+ input_dft = 'HSE'
+ exx_fraction = 0.25
+ screening_parameter = 0.106
+ nqx1 = 2
+ nqx2 = 2
+ nqx3 = 2
+/
+&ELECTRONS
+ startingwfc = 'file'
+ startingpot = 'file'
+ conv_thr = 1e-10
+ mixing_beta = 0.3
+ electron_maxstep = 100
+ exx_maxstep = 20
+ adaptive_thr = .true.
+ conv_thr_init = 1e-5
+ conv_thr_multi = 0.1
+ diagonalization = 'david'
+ diago_full_acc = .true.
+/
+ATOMIC_SPECIES
+ Hg 200.5920 Hg_sg15_pbe_fr_v12.UPF
+ Te 127.6000 Te_sg15_pbe_fr_v12.UPF
+CELL_PARAMETERS angstrom
+ 0.0 3.23 3.23
+ 3.23 0.0 3.23
+ 3.23 3.23 0.0
+ATOMIC_POSITIONS crystal
+ Hg 0.0 0.0 0.0
+ Te 0.25 0.25 0.25
+K_POINTS automatic
+ 2 2 2 0 0 0

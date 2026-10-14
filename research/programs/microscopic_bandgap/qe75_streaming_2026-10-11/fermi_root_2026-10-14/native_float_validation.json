@@ -1,0 +1,198 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "id": 0,
+      "native_helper_source_root_mu_Ry": 0.7147888426998922,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 2.1316282072803006e-13,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 1,
+      "native_helper_source_root_mu_Ry": 0.6726297038319151,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 5.7916338391805766e-11,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 2,
+      "native_helper_source_root_mu_Ry": 0.6698059367032025,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": -2.4058977032836992e-11,
+      "independent_f_error": 5.551115123125783e-17
+    },
+    {
+      "id": 3,
+      "native_helper_source_root_mu_Ry": 0.6710014125648718,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 3.4084735034412006e-11,
+      "independent_f_error": 5.551115123125783e-17
+    },
+    {
+      "id": 4,
+      "native_helper_source_root_mu_Ry": 0.6699633649902937,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 9.567457937009749e-11,
+      "independent_f_error": 2.220446049250313e-16
+    },
+    {
+      "id": 5,
+      "native_helper_source_root_mu_Ry": 0.6726297038317941,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 7.032241455817712e-11,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 6,
+      "native_helper_source_root_mu_Ry": 0.7147888426999022,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 1.2150280781497713e-12,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 7,
+      "native_helper_source_root_mu_Ry": 0.6726297038320916,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 7.736389306955971e-11,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 8,
+      "native_helper_source_root_mu_Ry": 0.6698059367033697,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 1.602984411874786e-11,
+      "independent_f_error": 2.220446049250313e-16
+    },
+    {
+      "id": 9,
+      "native_helper_source_root_mu_Ry": 0.6710014125649904,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 2.4130031306413002e-11,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 10,
+      "native_helper_source_root_mu_Ry": 0.66996336517539,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": -3.765876499528531e-11,
+      "independent_f_error": 1.013220811505594e-17
+    },
+    {
+      "id": 11,
+      "native_helper_source_root_mu_Ry": 0.6608608911159362,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 6.16751094639767e-12,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 12,
+      "native_helper_source_root_mu_Ry": 0.6600075987423987,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 4.474287607081351e-11,
+      "independent_f_error": 5.520948362159764e-88
+    },
+    {
+      "id": 13,
+      "native_helper_source_root_mu_Ry": 0.6602090624232158,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": -6.203038083185675e-12,
+      "independent_f_error": 5.520948362159764e-88
+    },
+    {
+      "id": 14,
+      "native_helper_source_root_mu_Ry": 0.6602142510016278,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": -5.2509108172671404e-11,
+      "independent_f_error": 5.520948362159764e-88
+    },
+    {
+      "id": 15,
+      "native_helper_source_root_mu_Ry": 0.660184447576083,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": -6.02682348471717e-11,
+      "independent_f_error": 5.520948362159764e-88
+    },
+    {
+      "id": 16,
+      "native_helper_source_root_mu_Ry": 0.6601977663351468,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": -1.2320811038080137e-11,
+      "independent_f_error": 1.1102230246251565e-16
+    },
+    {
+      "id": 17,
+      "native_helper_source_root_mu_Ry": 0.660185610479457,
+      "pure_source_mu_delta": 0.0,
+      "certificate_max_delta": 0.0,
+      "charge_residual": 1.1240786079724785e-11,
+      "independent_f_error": 5.520948362159764e-88
+    }
+  ],
+  "build": [
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+        "-cpp",
+        "-O2",
+        "-fno-fast-math",
+        "-fcheck=all",
+        "-no-pie",
+        "-J",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_build_20261014/control",
+        "-I",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/serial_only.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/constants.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/sumkg.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/efermig.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/gweights.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/driver.f90",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_build_20261014/control/cold_root.f90.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/wgauss.f90.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/w0gauss.f90.o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/w1gauss.f90.o",
+        "-o",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/native_scalar"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe-env/lib/libqe_modules.a": "fbf2f2976dd1668cb9f6a90b5749add0d7890484bc0c8d1141e79c6dcf573224",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/wgauss.f90.o": "b4c925b197cca02b6e79c0ad4076e52f62608c6cdd102f83223fba674a99de45",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/w0gauss.f90.o": "c56957da75df928cc26cede0de0c302501ce14b79dd54a07cf4d6b089f78eb3b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/w1gauss.f90.o": "04a9442f1633eed4d8b6a4783a54ee852c22a7eaac0bbc9ebd36e61713610278",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/serial_only.f90": "d27c0291c479ec3b4c81a0f4231b285e740c5f805b136c62788cb34b8969b8a4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/constants.f90": "56c39e90c6f0592aff13972cd090292024a3d4e9e86d0ce4fdfdb5643f1ac1c0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/sumkg.f90": "26b937cef67fee45c3b40a998f019992bcb29634e69252ff2135ba3daf0fc46f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/efermig.f90": "24097d64cb4607630a0e700b83a0c6d966dd58327938a8dfcb547fd6dc6badaa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/gweights.f90": "f8d66fba43afeb2eea2daa6633db583e6137c021864d5404c2d75179dfc44bee",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/fermi_root_native_float_20261014/driver.f90": "4505f36d77b5882a826c7b52fb0a1d7b600fe4baa6d2381770f51936e08f804c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_build_20261014/control/cold_root.f90.o": "4f577f40df03f2fe005b2c25b06a89df245aa2c6d84d69c192702d7bd4fdc308"
+  },
+  "binary_sha256": "45439c5a8e168508f335c84f3959696209337e6166ca6c5e442b7846ca38b0ad",
+  "actual_native_helper_and_stock_QE_function_objects": true,
+  "serial_sumkg_single_pool_no_MPI": true
+}
