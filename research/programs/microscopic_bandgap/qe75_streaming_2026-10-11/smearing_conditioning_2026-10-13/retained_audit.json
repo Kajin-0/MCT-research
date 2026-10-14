@@ -1,0 +1,642 @@
+{
+  "records": [
+    {
+      "step": 1,
+      "mu_delta_Ry": 5.995204332975845e-15,
+      "eigen_max_Ry": 2.930988785010413e-14,
+      "eigen_max_location": {
+        "band": 2,
+        "k": 3
+      },
+      "occupation_max": 5.8903992794512305e-12,
+      "occupation_max_location": {
+        "band": 38,
+        "k": 1
+      },
+      "global_MVT_upper": 2.6626077282446885e-11,
+      "band_MVT_upper_at_max": 6.0285457997992946e-12,
+      "max_df_minus_band_bound": -1.3814652034806405e-13,
+      "member": {
+        "control": {
+          "mu_Ry": 0.7147888426998988,
+          "charge_weighted": 35.999999999999986,
+          "charge_residual_electrons": -1.4210854715202004e-14,
+          "replay_charge_residual": -7.105427357601002e-15,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 368.44763927853467,
+          "negative_charge_response": -8.943476707722787e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.71464951960413,
+              "occupation": 0.5000001861232416,
+              "weighted": 0.0625000232654052,
+              "slope_per_Ry": 736.8953439211137
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.7146495197336082,
+              "occupation": 0.5000000907113566,
+              "weighted": 0.06250001133891958,
+              "slope_per_Ry": 736.8953104137546
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.7146495198684399,
+              "occupation": 0.49999999135451056,
+              "weighted": 0.06249999891931382,
+              "slope_per_Ry": 736.8952755209442
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.7146495202206524,
+              "occupation": 0.4999997318108131,
+              "weighted": 0.062499966476351636,
+              "slope_per_Ry": 736.8951843724647
+            }
+          ],
+          "k1_bands35_36_split_Ry": 1.294782059346744e-10,
+          "k1_bands37_38_split_Ry": 3.5221248140260286e-10
+        },
+        "stream": {
+          "mu_Ry": 0.7147888426998928,
+          "charge_weighted": 36.000000000000014,
+          "charge_residual_electrons": 1.4210854715202004e-14,
+          "replay_charge_residual": 1.4210854715202004e-14,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 368.4476392785419,
+          "negative_charge_response": -8.943476707722778e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.7146495196041167,
+              "occupation": 0.5000001861286412,
+              "weighted": 0.06250002326608015,
+              "slope_per_Ry": 736.89534392301
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.7146495197336076,
+              "occupation": 0.5000000907074298,
+              "weighted": 0.06250001133842872,
+              "slope_per_Ry": 736.8953104123756
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.7146495198684277,
+              "occupation": 0.49999999135909207,
+              "weighted": 0.06249999891988651,
+              "slope_per_Ry": 736.8952755225533
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.7146495202206544,
+              "occupation": 0.4999997318049227,
+              "weighted": 0.062499966475615336,
+              "slope_per_Ry": 736.8951843703961
+            }
+          ],
+          "k1_bands35_36_split_Ry": 1.2949086247715513e-10,
+          "k1_bands37_38_split_Ry": 3.5222669225731806e-10
+        }
+      },
+      "independent_orbital_density_and_charge_comparison": {
+        "1": {
+          "eigenvalue_Ry": 2.930988785010413e-14,
+          "occupation": 5.8903992794512305e-12,
+          "orbital_density_relative_F": 1.0041536947504177e-11,
+          "NC_Gram_control": 1.837510241041481e-15,
+          "NC_Gram_stream": 2.1094237467877974e-15,
+          "rhoR": 8.459899447643693e-14,
+          "rhoG": 7.1817552577574e-16,
+          "vrs": 1.666222715357435e-12
+        },
+        "2": {
+          "eigenvalue_Ry": 2.930988785010413e-14,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 9.072082216832643e-13,
+          "NC_Gram_control": 1.3322676295501878e-15,
+          "NC_Gram_stream": 1.3322676295501878e-15,
+          "rhoR": 8.459899447643693e-14,
+          "rhoG": 7.1817552577574e-16,
+          "vrs": 1.666222715357435e-12
+        },
+        "3": {
+          "eigenvalue_Ry": 2.930988785010413e-14,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 3.956996688134991e-12,
+          "NC_Gram_control": 6.112237367581594e-15,
+          "NC_Gram_stream": 1.9834651193931908e-15,
+          "rhoR": 8.459899447643693e-14,
+          "rhoG": 7.1817552577574e-16,
+          "vrs": 1.666222715357435e-12
+        }
+      }
+    },
+    {
+      "step": 2,
+      "mu_delta_Ry": 1.9306778398231472e-13,
+      "eigen_max_Ry": 4.241051954068098e-13,
+      "eigen_max_location": {
+        "band": 5,
+        "k": 3
+      },
+      "occupation_max": 5.474032338526058e-11,
+      "occupation_max_location": {
+        "band": 36,
+        "k": 1
+      },
+      "global_MVT_upper": 4.654539736261705e-10,
+      "band_MVT_upper_at_max": 3.472274921078844e-10,
+      "max_df_minus_band_bound": -1.469458038701078e-10,
+      "member": {
+        "control": {
+          "mu_Ry": 0.6726297038318817,
+          "charge_weighted": 36.000000000000014,
+          "charge_residual_electrons": 1.4210854715202004e-14,
+          "replay_charge_residual": 1.4210854715202004e-14,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 368.4475457273962,
+          "negative_charge_response": -9.303746454124421e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.6724899283035792,
+              "occupation": 0.5003336080086671,
+              "weighted": 0.06254170100108339,
+              "slope_per_Ry": 737.0122398332629
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.6724899530567987,
+              "occupation": 0.5003153646619718,
+              "weighted": 0.06253942058274647,
+              "slope_per_Ry": 737.005854017768
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.6724908016040889,
+              "occupation": 0.4996900734136125,
+              "weighted": 0.06246125917670156,
+              "slope_per_Ry": 736.7862659444982
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.6724908411266776,
+              "occupation": 0.49966095391584325,
+              "weighted": 0.06245761923948041,
+              "slope_per_Ry": 736.7760060236403
+            }
+          ],
+          "k1_bands35_36_split_Ry": 2.4753219474149546e-08,
+          "k1_bands37_38_split_Ry": 3.9522588646256906e-08
+        },
+        "stream": {
+          "mu_Ry": 0.6726297038316886,
+          "charge_weighted": 35.99999999999999,
+          "charge_residual_electrons": -7.105427357601002e-15,
+          "replay_charge_residual": -7.105427357601002e-15,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 368.4475457273844,
+          "negative_charge_response": -9.303746454124482e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.6724899283034352,
+              "occupation": 0.5003336079725005,
+              "weighted": 0.06254170099656256,
+              "slope_per_Ry": 737.0122398206042
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.6724899530565314,
+              "occupation": 0.5003153647167121,
+              "weighted": 0.06253942058958901,
+              "slope_per_Ry": 737.0058540369305
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.6724908016039357,
+              "occupation": 0.4996900733842464,
+              "weighted": 0.0624612591730308,
+              "slope_per_Ry": 736.7862659341529
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.6724908411264701,
+              "occupation": 0.4996609539264771,
+              "weighted": 0.062457619240809635,
+              "slope_per_Ry": 736.7760060273877
+            }
+          ],
+          "k1_bands35_36_split_Ry": 2.475309612837151e-08,
+          "k1_bands37_38_split_Ry": 3.9522534356351e-08
+        }
+      },
+      "independent_orbital_density_and_charge_comparison": {
+        "1": {
+          "eigenvalue_Ry": 4.241051954068098e-13,
+          "occupation": 5.474032338526058e-11,
+          "orbital_density_relative_F": 3.45007033651432e-11,
+          "NC_Gram_control": 1.8387838403513e-15,
+          "NC_Gram_stream": 2.564271085478577e-15,
+          "rhoR": 2.1294077612310502e-13,
+          "rhoG": 1.5112070258407884e-15,
+          "vrs": 7.0885519676266995e-12
+        },
+        "2": {
+          "eigenvalue_Ry": 4.241051954068098e-13,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 3.084835016492535e-12,
+          "NC_Gram_control": 2.4424906541753444e-15,
+          "NC_Gram_stream": 1.7763568394002505e-15,
+          "rhoR": 2.1294077612310502e-13,
+          "rhoG": 1.5112070258407884e-15,
+          "vrs": 7.0885519676266995e-12
+        },
+        "3": {
+          "eigenvalue_Ry": 4.241051954068098e-13,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 4.9669107577215496e-12,
+          "NC_Gram_control": 1.7763568394002505e-15,
+          "NC_Gram_stream": 1.7241885445160884e-15,
+          "rhoR": 2.1294077612310502e-13,
+          "rhoG": 1.5112070258407884e-15,
+          "vrs": 7.0885519676266995e-12
+        }
+      }
+    },
+    {
+      "step": 3,
+      "mu_delta_Ry": 1.5121237595394632e-13,
+      "eigen_max_Ry": 1.362021606610142e-12,
+      "eigen_max_location": {
+        "band": 36,
+        "k": 1
+      },
+      "occupation_max": 8.943746854228607e-10,
+      "occupation_max_location": {
+        "band": 36,
+        "k": 1
+      },
+      "global_MVT_upper": 1.1412372118231165e-09,
+      "band_MVT_upper_at_max": 1.1412372118231165e-09,
+      "max_df_minus_band_bound": -1.0570749775289177e-11,
+      "member": {
+        "control": {
+          "mu_Ry": 0.6698059367033262,
+          "charge_weighted": 35.99999999999999,
+          "charge_residual_electrons": -7.105427357601002e-15,
+          "replay_charge_residual": -7.105427357601002e-15,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 368.4225988685928,
+          "negative_charge_response": -9.295257186622953e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.6696592106798723,
+              "occupation": 0.5054623357736333,
+              "weighted": 0.06318279197170416,
+              "slope_per_Ry": 738.7606300887428
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.6696596265095577,
+              "occupation": 0.5051551583879035,
+              "weighted": 0.06314439479848794,
+              "slope_per_Ry": 738.6585414257588
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.6696735090713161,
+              "occupation": 0.49492520340938345,
+              "weighted": 0.06186565042617293,
+              "slope_per_Ry": 735.0673777347372
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.6696741456878578,
+              "occupation": 0.49445730242902686,
+              "weighted": 0.06180716280362836,
+              "slope_per_Ry": 734.8942416995031
+            }
+          ],
+          "k1_bands35_36_split_Ry": 4.1582968535180953e-07,
+          "k1_bands37_38_split_Ry": 6.366165417048819e-07
+        },
+        "stream": {
+          "mu_Ry": 0.669805936703175,
+          "charge_weighted": 36.000000000000014,
+          "charge_residual_electrons": 1.4210854715202004e-14,
+          "replay_charge_residual": 1.4210854715202004e-14,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 368.4225988675446,
+          "negative_charge_response": -9.295257186622947e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.669659210680582,
+              "occupation": 0.5054623351376587,
+              "weighted": 0.06318279189220734,
+              "slope_per_Ry": 738.7606298777271
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.6696596265081957,
+              "occupation": 0.5051551592822782,
+              "weighted": 0.06314439491028477,
+              "slope_per_Ry": 738.6585417234867
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.6696735090717182,
+              "occupation": 0.49492520300264486,
+              "weighted": 0.06186565037533061,
+              "slope_per_Ry": 735.0673775845705
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.6696741456875045,
+              "occupation": 0.4944573025775201,
+              "weighted": 0.06180716282219001,
+              "slope_per_Ry": 734.8942417545728
+            }
+          ],
+          "k1_bands35_36_split_Ry": 4.158276136756456e-07,
+          "k1_bands37_38_split_Ry": 6.36615786309136e-07
+        }
+      },
+      "independent_orbital_density_and_charge_comparison": {
+        "1": {
+          "eigenvalue_Ry": 1.362021606610142e-12,
+          "occupation": 8.943746854228607e-10,
+          "orbital_density_relative_F": 4.94449442065675e-10,
+          "NC_Gram_control": 2.6645352591003757e-15,
+          "NC_Gram_stream": 1.9984014443252818e-15,
+          "rhoR": 4.736211423050918e-13,
+          "rhoG": 2.636779685091279e-15,
+          "vrs": 3.0606628342866316e-12
+        },
+        "2": {
+          "eigenvalue_Ry": 1.362021606610142e-12,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 3.730772754188883e-12,
+          "NC_Gram_control": 1.9984014443252818e-15,
+          "NC_Gram_stream": 1.6653345369377348e-15,
+          "rhoR": 4.736211423050918e-13,
+          "rhoG": 2.636779685091279e-15,
+          "vrs": 3.0606628342866316e-12
+        },
+        "3": {
+          "eigenvalue_Ry": 1.362021606610142e-12,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 4.88009415777431e-12,
+          "NC_Gram_control": 2.4424906541753444e-15,
+          "NC_Gram_stream": 2.886579864025407e-15,
+          "rhoR": 4.736211423050918e-13,
+          "rhoG": 2.636779685091279e-15,
+          "vrs": 3.0606628342866316e-12
+        }
+      }
+    },
+    {
+      "step": 4,
+      "mu_delta_Ry": 2.984279490192421e-13,
+      "eigen_max_Ry": 1.919420178353448e-11,
+      "eigen_max_location": {
+        "band": 36,
+        "k": 1
+      },
+      "occupation_max": 1.4692691729933927e-08,
+      "occupation_max_location": {
+        "band": 36,
+        "k": 1
+      },
+      "global_MVT_upper": 1.470077639241613e-08,
+      "band_MVT_upper_at_max": 1.470077639241613e-08,
+      "max_df_minus_band_bound": -8.084662482203906e-12,
+      "member": {
+        "control": {
+          "mu_Ry": 0.6710014125649236,
+          "charge_weighted": 35.999999999999986,
+          "charge_residual_electrons": -1.4210854715202004e-14,
+          "replay_charge_residual": -1.4210854715202004e-14,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 361.9553687629952,
+          "negative_charge_response": -9.29458235435152e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.6707445926548393,
+              "occupation": 0.5878536093885159,
+              "weighted": 0.07348170117356449,
+              "slope_per_Ry": 753.9878740639524
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.6707513048991327,
+              "occupation": 0.5827933838418274,
+              "weighted": 0.07284917298022843,
+              "slope_per_Ry": 753.7562625126178
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.670975922494496,
+              "occupation": 0.41822466801059416,
+              "weighted": 0.05227808350132427,
+              "slope_per_Ry": 696.2769932943975
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.6709861483125333,
+              "occupation": 0.4111283387589183,
+              "weighted": 0.05139104234486479,
+              "slope_per_Ry": 691.6218202329935
+            }
+          ],
+          "k1_bands35_36_split_Ry": 6.7122442933831294e-06,
+          "k1_bands37_38_split_Ry": 1.022581803733491e-05
+        },
+        "stream": {
+          "mu_Ry": 0.671001412565222,
+          "charge_weighted": 36.00000000000001,
+          "charge_residual_electrons": 7.105427357601002e-15,
+          "replay_charge_residual": 7.105427357601002e-15,
+          "replay_weighted_max": 0.0,
+          "replay_occupation_max": 0.0,
+          "charge_response_electrons_per_Ry": 361.9553684952041,
+          "negative_charge_response": -9.294582354351101e-80,
+          "partial": [
+            {
+              "k": 1,
+              "band": 35,
+              "eps_Ry": 0.6707445926692239,
+              "occupation": 0.5878535987677095,
+              "weighted": 0.07348169984596369,
+              "slope_per_Ry": 753.9878736756187
+            },
+            {
+              "k": 1,
+              "band": 36,
+              "eps_Ry": 0.6707513048799385,
+              "occupation": 0.5827933985345192,
+              "weighted": 0.0728491748168149,
+              "slope_per_Ry": 753.7562633202725
+            },
+            {
+              "k": 1,
+              "band": 37,
+              "eps_Ry": 0.6709759225038279,
+              "occupation": 0.41822466172081735,
+              "weighted": 0.05227808271510217,
+              "slope_per_Ry": 696.2769892491422
+            },
+            {
+              "k": 1,
+              "band": 38,
+              "eps_Ry": 0.6709861483096247,
+              "occupation": 0.4111283409770195,
+              "weighted": 0.05139104262212744,
+              "slope_per_Ry": 691.6218217165991
+            }
+          ],
+          "k1_bands35_36_split_Ry": 6.712210714576727e-06,
+          "k1_bands37_38_split_Ry": 1.0225805796792997e-05
+        }
+      },
+      "independent_orbital_density_and_charge_comparison": {
+        "1": {
+          "eigenvalue_Ry": 1.919420178353448e-11,
+          "occupation": 1.4692691729933927e-08,
+          "orbital_density_relative_F": 7.776699230049112e-09,
+          "NC_Gram_control": 1.9965560144834115e-15,
+          "NC_Gram_stream": 1.3322676295501878e-15,
+          "rhoR": 4.732880753977042e-13,
+          "rhoG": 4.063752195989359e-15,
+          "vrs": 4.67803573656056e-12
+        },
+        "2": {
+          "eigenvalue_Ry": 1.919420178353448e-11,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 1.4111764799988587e-11,
+          "NC_Gram_control": 2.3460965684386343e-15,
+          "NC_Gram_stream": 2.9005756790095696e-15,
+          "rhoR": 4.732880753977042e-13,
+          "rhoG": 4.063752195989359e-15,
+          "vrs": 4.67803573656056e-12
+        },
+        "3": {
+          "eigenvalue_Ry": 1.919420178353448e-11,
+          "occupation": 0.0,
+          "orbital_density_relative_F": 1.1571277010981571e-11,
+          "NC_Gram_control": 1.7763568394002505e-15,
+          "NC_Gram_stream": 1.7763568394002505e-15,
+          "rhoR": 4.732880753977042e-13,
+          "rhoG": 4.063752195989359e-15,
+          "vrs": 4.67803573656056e-12
+        }
+      }
+    }
+  ],
+  "source_hashes": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/serial_only.f90": "d27c0291c479ec3b4c81a0f4231b285e740c5f805b136c62788cb34b8969b8a4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/constants.f90": "56c39e90c6f0592aff13972cd090292024a3d4e9e86d0ce4fdfdb5643f1ac1c0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/wgauss.f90": "78145ca2423a14f3a761737f9eb54ed6e52755c441bd79997da3a138f5d42a8c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/w0gauss.f90": "a2fd9cc385eb81b582f869898f03ec10eebc6f7aa2d3906f4c4494059c80a572",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/w1gauss.f90": "05b26a47181e8cacfe02f40b4e34bde594708a97966a947f863165c5b5c8bd6f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/sumkg.f90": "26b937cef67fee45c3b40a998f019992bcb29634e69252ff2135ba3daf0fc46f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/efermig.f90": "24097d64cb4607630a0e700b83a0c6d966dd58327938a8dfcb547fd6dc6badaa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/gweights.f90": "f8d66fba43afeb2eea2daa6633db583e6137c021864d5404c2d75179dfc44bee",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/wrap.f90": "e5caad3bff935eddb5ad19e2f20f01e91d49348ff63e4a5cb3b7f6c5e4c6025b"
+  },
+  "retained_packet_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step1.stage1.k1.state": "43562257e4e2219eae70b6ff14aa174c0f696141a05398c7c19c6e308ac6f23d",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step1.stage1.k2.state": "b67cd09b52cda2db0506d66b90f7cd74c37772c122af8d55f96701e4bf353281",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step1.stage1.k3.state": "ce7fa2c4f5f7ba9fcddb0d3e34fc585368c01a91dc29f6a6353668d7a0fe8c53",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step1.stage1.k1.state": "61c61fac663d5b234098afc5477f7b4dcac41ddb501c00e6df40f32c244253e4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step1.stage1.k2.state": "08f66de4545fa60467d45287f051ed2ca2198c5d1fb20eade9c1c279f20c3917",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step1.stage1.k3.state": "9f2a6fa4f3727a16f1c24ebc21112cbe28f4fa8d770c22118699c402b11f5b2e",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step1.stage1.k1.state": "383777fc82fc91ee6a9db5cb22da97705005c55e1598dd350d1f28f2403b393b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step1.stage1.k2.state": "7e570e26bdb915eb5d7c1465d43719877769fd9e00c22a97bea430eeaf2dd67c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step1.stage1.k3.state": "10bd1f045c4f1eac5471e8f2091f5ad71b0f2f83f38157b04875ca189f888a1d",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step1.stage1.k1.state": "5b8bbded79b23ea06e68221e64363b37271ffdf5f9a56396113c7b2f0716d273",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step1.stage1.k2.state": "1cf4d5d7982785c5fa6280fce5ed9a08ede719653868d304649596f5178ba71c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step1.stage1.k3.state": "e1207eb23ebd33d129478d53f6e9666e93783fe05b255cacca9356559721ca9c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step2.stage1.k1.state": "b6b99734d410ccde8f738605b5151b07b8e9fb3e225065a92662d50fa194d857",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step2.stage1.k2.state": "183870c677e05b5fac73490bd3c993afa603a1036c235e8781065e79cffa0714",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step2.stage1.k3.state": "d9b81a460c5553082249528037222549e939a95b9f869d2c4d9b7f697aa264cd",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step2.stage1.k1.state": "972d2f501fa8d3164b3ba0a5de32663f6ad85a0243a15b5f0e9ebb08bd123f54",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step2.stage1.k2.state": "390f7eb9ca1b365703c9364f9ec2cffbea4dfae4d18b26596099a913040ca8f2",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step2.stage1.k3.state": "e1a9cfc27383dcf6bab4abbea962d7a6ad95bbef6c9c17f9e359ef91a27f0a8e",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step2.stage1.k1.state": "6ee5b64585a7ad97fe3a4a0eed08a54046446d8e11953dce14fd14e0aaad8af7",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step2.stage1.k2.state": "1a4f49ed0df4e5db3a1e571f1d82eaaf4c3d441adb860641a0bfb222f7dffa30",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step2.stage1.k3.state": "f62898f31a904c0bdc337410506779669cabb945368aeed03c93c953a665fa02",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step2.stage1.k1.state": "3e56936395334b7c04eba55942fb45330eb5031c5a8c9418d4c9c3d8d929b710",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step2.stage1.k2.state": "17870e82317ae37d448c199384ebeb99de388e196ebdf77e4d112ee7b18a0d23",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step2.stage1.k3.state": "93a9262ecfb8ebf4b1c5cb88d0f810566f8be868a23828361891caabb2bdb89f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step3.stage1.k1.state": "2e65a02caf3cb4baeb0b2acc930fab29a9585c1c908727eb45ea4adab8f38b06",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step3.stage1.k2.state": "9cc4bfce5e2bce4b7a53de94db70a56806342d7ddfd496a1a4652da8044211c8",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step3.stage1.k3.state": "339f53ff309fc3194a0163a5177825acd526969d9cc7933a9481dafa55e5e458",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step3.stage1.k1.state": "df37e7802e1f8b371574cb4776feb272c6aa4a94503292f83eb649b4dd2e5417",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step3.stage1.k2.state": "08dc06452be822aa0e3e8116f0d5039aa512c149fa2b3ec7ff6eb9d363074dc4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step3.stage1.k3.state": "70c9c721e1452d1f72c2486b65493a865c54dfd32bdb3e929d7c8b44a152ec82",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step3.stage1.k1.state": "690393ea90ca6a8db1e8b1977ce14883c098acc32b92ba060aab13b63fd6ad02",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step3.stage1.k2.state": "1d5e23f0b021121ec74ab4d6c9efbf915da756b1b38799f953b8fa0252c7ab4f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step3.stage1.k3.state": "20ec9bb808899a40c30bb8affb3c20192751c1db0cf66a124595348bb083e84c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step3.stage1.k1.state": "05d53ec39696e2e21c98e839736cdf02162670acef3c07baa39864cb29071386",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step3.stage1.k2.state": "349453156f4823369aea3bf62471632280f79ca0ab6e6e368f4d5b4629657eb3",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step3.stage1.k3.state": "8e2d857c0fa81111fbcdba30c0787ae0052f331d181c8743499d10298a3aed44",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step4.stage1.k1.state": "28f366c92e87b2525ae9334cd6e2b74c1b658462c058bda1297e85384e57cde4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step4.stage1.k2.state": "8ffd69472fd5ce89bfde71a11da2ae832864e4d48efb31c688fa25cfdade1a15",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank0.step4.stage1.k3.state": "fe7e21bd7cbc5f8fd48ae865022e905653f3ccc153f6bde6e46f53b314b17147",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step4.stage1.k1.state": "0641607e00bfb348a2f29e4a9ae33e4dd1ae5d6cd8c7423d87482a0002239135",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step4.stage1.k2.state": "fc720534c4a7355eaa1215815655cd1f42e49787518168d10a516f409dcc7733",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/control/trajectory/rank1.step4.stage1.k3.state": "e3cc88396bc698ac5669fbb1e877ee07ef9558c3b4ea1af92783bc7a27bf4dbc",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step4.stage1.k1.state": "9ca167adc1c8ce01d160da88e4aeea31c0011f27e77eeafd5eb810a20568675f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step4.stage1.k2.state": "e81d118df558313070f1c18bf4be191ce6f6cbaeb87b4325e5bc64677a82a804",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank0.step4.stage1.k3.state": "5d5b5b73977271b591bf3ec2889e4e101c7b0ff7be7c216d2e024b2e4186c9cf",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step4.stage1.k1.state": "55d9b446f122a4ecb30b0dc7c03e4690701f74abb0e4e7f82426b63ca21c5edc",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step4.stage1.k2.state": "e26813f7a137fd79dccfd73402c1962d56a110b20213cf45be88ad400264a412",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/full_scf_pair_v2_20261013/stream/trajectory/rank1.step4.stage1.k3.state": "4dc86bdeba90a5de20b11901513bb7aac9a43906bbfe5a932e0338d5415cf2c3"
+  },
+  "exact_QE_source_serial_one_pool_replay": true,
+  "not_native_MPI_reexecution": true,
+  "old_occupation_verdict": "FAIL step4 preserved",
+  "chemical_potential_observation": "replayed from et using actual efermig, independent of wg; no high-precision native ef capture existed",
+  "no_new_SCF": true
+}

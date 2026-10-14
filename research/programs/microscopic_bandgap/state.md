@@ -2,9 +2,24 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; original16atom host failed/Cd not admitted; real fixed-orbital streamed HSE bitwise qualified; full-SCF control12outer unconverged/stream4outer occupation-gate failure; full native restart/material x_c OPEN
+**State:** historical physical goal BLOCKED; fixed-orbital HSE streaming bitwise qualified; old full-SCF occupation FAIL explained/preserved; fresh control refused at nonneutral cold-Fermi stationary point; full SCF/restart/material x_c OPEN
 
-**Updated:** 2026-10-13
+**Updated:** 2026-10-14
+
+## Cold-smearing/strict-neutrality checkpoint — 2026-10-13 23:58 UTC
+
+**CALCULATED / STOP:** [finite decision](qe75_streaming_2026-10-11/smearing_conditioning_2026-10-13/decision.md).
+All retained old4steps/allk occupations reproduce bitwise with the exact source
+Fermi replay; MVT upper1.470077639e−8 explains old1.469269173e−8 mismatch. Historical
+old1e−8 FAIL unchanged. Separate prospective eigen/ef energy/density gates frozen.
+Only ef observer changes native objects. ONE fresh control5outer/202.288781s,
+4accepted, refuses5: charge36.00559692012919, native ef.6714859435488899Ry,
+N'~2e−12/N''60967; nonneutral squared-error minimum accepted by QE0.01e cold
+fallback. Samebias in old control5. Stream never launched, no retry or final
+restart capture. LastE−484.0541752300362/Fock−8.968516026300037Ry, unconverged.
+RAM/disk/kernel/lease gates held; ownfamilyempty/stock/dirtyDFT/oldledger/sessions
+preserved. Next minimum proof is strict charge-root acceptance at SAME smearing;
+solver behavior change requires new scope. No physicalxc/Cd/16atom/RAMgain claim.
 
 ## Full-SCF numerical/scientific checkpoint — 2026-10-13 22:51 UTC
 

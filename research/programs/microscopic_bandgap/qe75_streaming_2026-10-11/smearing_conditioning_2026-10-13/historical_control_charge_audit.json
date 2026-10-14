@@ -1,0 +1,65 @@
+{
+  "unchanged_historical_verdict": true,
+  "records": [
+    {
+      "outer": 1,
+      "charge_electrons": 35.999999999999986,
+      "residual_electrons": -1.4210854715202004e-14
+    },
+    {
+      "outer": 2,
+      "charge_electrons": 36.000000000000014,
+      "residual_electrons": 1.4210854715202004e-14
+    },
+    {
+      "outer": 3,
+      "charge_electrons": 35.99999999999999,
+      "residual_electrons": -7.105427357601002e-15
+    },
+    {
+      "outer": 4,
+      "charge_electrons": 35.999999999999986,
+      "residual_electrons": -1.4210854715202004e-14
+    },
+    {
+      "outer": 5,
+      "charge_electrons": 36.00559692416757,
+      "residual_electrons": 0.005596924167569739
+    },
+    {
+      "outer": 6,
+      "charge_electrons": 36.000000000570694,
+      "residual_electrons": 5.706937145077973e-10
+    },
+    {
+      "outer": 7,
+      "charge_electrons": 36.00000000009297,
+      "residual_electrons": 9.296741154685151e-11
+    },
+    {
+      "outer": 8,
+      "charge_electrons": 36.00000000013953,
+      "residual_electrons": 1.3952927702121087e-10
+    },
+    {
+      "outer": 9,
+      "charge_electrons": 36.00000000014214,
+      "residual_electrons": 1.4213696886145044e-10
+    },
+    {
+      "outer": 10,
+      "charge_electrons": 36.0000000001229,
+      "residual_electrons": 1.2290257700442453e-10
+    },
+    {
+      "outer": 11,
+      "charge_electrons": 36.00000000012403,
+      "residual_electrons": 1.240323399542831e-10
+    },
+    {
+      "outer": 12,
+      "charge_electrons": 36.000000000118526,
+      "residual_electrons": 1.185256337521423e-10
+    }
+  ]
+}

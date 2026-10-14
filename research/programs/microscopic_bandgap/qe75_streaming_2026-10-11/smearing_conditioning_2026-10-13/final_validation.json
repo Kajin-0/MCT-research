@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-10-14T00:00:46.271324+00:00",
+  "frozen_launch_source_and_policy_hashes_unchanged": true,
+  "all_package_python_parse": true,
+  "all_package_JSON_parse": true,
+  "own_cleanup_protected_state_pass": true,
+  "one_new_control_attempt_no_stream_retry_restart": true,
+  "historical_verdict_unchanged": true,
+  "native_failure_reproduced_readonly": true
+}

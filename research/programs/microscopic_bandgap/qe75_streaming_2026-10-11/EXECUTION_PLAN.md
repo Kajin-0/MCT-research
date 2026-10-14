@@ -1,9 +1,14 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-13 22:51 UTC
-**Status:** REAL FULL-SCF CONTROL12 OUTERS/SOFT STOP; STREAM4 OUTERS/SCIENTIFIC OCCUPATION GATE FAIL AT STEP4; PAIRED STEPS1–3 PASS; NO CONVERGENCE/RESTART CLAIM; PRIOR FIXED-OPERATOR BITWISE SUCCESS RETAINED
+**Last verified update:** 2026-10-14 00:01 UTC
+**Status:** COLD-SMEARING HISTORICAL FAIL EXPLAINED/PRESERVED; ONE FRESH NATIVE CONTROL5 OUTERS REFUSED AT NONNEUTRAL FERMI STATIONARY POINT; STREAM UNLAUNCHED; STOP UNCHANGED-SOLVER BOUNDARY
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+**Latest finite checkpoint starts clean `1b4c59b`:** read
+[smearing/neutrality decision](smearing_conditioning_2026-10-13/decision.md) and
+[reset handoff](smearing_conditioning_2026-10-13/handoff_ledger.md). Old FAIL
+explained/preserved; new control refused at charge, stream unlaunched.
 
 **Latest full-SCF checkpoint starts clean `7116be0`:** read
 [full-SCF decision](full_scf_2026-10-13/decision.md),
@@ -24,6 +29,36 @@ history and remain valid for their respective experiment domains.
 Stock native output is now real; it is not the yet-unexecuted private streamed
 comparison. Historical no-native statements below refer to their dated phases.
 **Starting verified revision:** `b1a4772`. **Latest native bridge revision:** `6b21779`. **Latest M4 checkpoint:** `1d74a0d`. **Latest readiness checkpoint:** `m5_readiness` artifacts starting `1d74a0d`. **Latest finite checkpoint:** `native_pair_2026-10-13`, starts clean `3713045`. **Latest user scope:** ONE conditional fresh two-atom control/stream first-ACE numerical pair under the explicitly revised LOCAL-OWNED contract; no admission issued, no full-sized run or goal resume.
+
+## Cold-smearing/native neutrality checkpoint — 2026-10-13 23:58 UTC
+
+Read [decision](smearing_conditioning_2026-10-13/decision.md),
+[prospective frozen gates](smearing_conditioning_2026-10-13/preregistration.md),
+[actual native trajectory](smearing_conditioning_2026-10-13/numerical_result.json)
+and [reset handoff](smearing_conditioning_2026-10-13/handoff_ledger.md).
+Starts clean1b4c59b. Exact QE source/all-k replay verifies old step4 occupation
+conditioning1.470077639e−8 upper vs1.469269173e−8 actual; oldFAIL/threshold unchanged.
+Native ef observer only; every exchange/solver/lease archive member byte-equal.
+Prospective independent eigen/ef energy caps plus MVT and QR density frozen first.
+
+ONE fresh real control:5outer updates/202.288781s,4accepted; step5 charge
+36.00559692012919 violates1e−8-electron budget. Native ef.6714859435488899 and WG
+reproduce bitwise; N'~2e−12/N''60967 identify a positive-residual squared-charge
+stationary minimum, allowed by QE's0.01e cold fallback. Old control5 has samebias.
+No stream ATTEMPT/retry/restart. LastE−484.0541752300362Ry/Fock−8.968516026300037Ry/
+dexx.00115588335; not converged. No finalpunch/native old-ACE import qualification.
+RSS907923456B/cgrouppeak1102028800B incl.cache; RAMmin30136680448B/diskmin25987809280B;
+all12GiB/swap0/tasks12/600s/4GiB/10GiB guards held.14GiB sampled budget now covers
+retained native outputs of BOTH members; no continuous/global-exclusion claim.
+Own unit collected/groupempty/lockfree; only own escrow removed; stock/DFT dirty/
+old ledger/sessions/old failure files preserved. Historical goal unchanged.
+
+**STOP / NEXT EXACT REQUIREMENT:** independently qualify strict charge-root
+acceptance (not a nonzero stationary minimum) at SAME cold smearing. Changing
+Fermi solver behavior/accuracy is outside this unchanged-solver sprint. Do not
+relax the frozen neutrality budget, reuse aborted state or run new stream against
+this refused control. Fixed-operator bitwise success and old full-SCF evidence
+remain scoped successes/failures. No physicalxc, Cd,16atom or memory-gain claim.
 
 ## Objective and nonnegotiable boundaries
 
@@ -49,6 +84,7 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 | M5-F | Revised local fresh first-ACE numerical protocol and executable state fences | **COMPILE/COMPONENT PASS; QE UNADMITTED**: six real-QE objects/two links, scope4 initial/FFT/fresh-stream/terminal fences, independent strict action/Gram/ACE comparison and nine focused tests. Complete resource certificate, production issuer and actual wave/FFT/action observations remain unqualified; no launch | `native_pair_2026-10-13/{decision.md,protocol.md,build_results.json,test_results.json,preflight_results.json}` |
 | M5-O | Fixed-orbital replay from actual control; complete source/q/kernel/basis fences and real EXX/ACE comparison | **NATIVE NUMERICS QUALIFIED / ORIGINAL OWNER TEARDOWN FAILED:** all active direct/Gram/ACE/energy fields bitwise identical; full SCF/restart not tested | `fixed_operator_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts682b5d5, 2026-10-13 21:01 UTC |
 | M5-S | Genuine full HSE SCF trajectory pair + final readback | **PARTIAL / SCIENTIFIC GATE FAILED:** control12outer/softstop/notconverged, stream4outer/occupationrefusal; paired1–3PASS, native control wave/rhoG readbackPASS, restartOPEN | `full_scf_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts7116be0, 2026-10-13 22:51 UTC |
+| M5-C | Cold-smearing-conditioned trajectory protocol + native Fermi diagnostic | **ANALYSIS PASS / NEW CONTROL NO-GO:** old occupation FAIL explained/preserved; fresh control5 updates/4accepted, nonneutral stationary Fermi point0.00559692e at5; stream unlaunched, restartOPEN | `smearing_conditioning_2026-10-13/{decision.md,retained_audit.json,numerical_result.json}`; starts1b4c59b |
 | M6 | Admission of full-size host on actual RAM/disk/time using measured peak and sufficient scratch | **NO-GO**: ~31 GiB disk available versus nominal ~22 GiB stream + 10 GiB reserve + output | `checkpoint_phase/phase_outcomes.json` |
 | M7 | Accepted matched 16-atom HgTe host then Cd-substituted spectra, physically labelled Γ6/Γ8 overlaps | **NOT ACHIEVED** | Host termination; Cd stage absent |
 | M8 | Convergence/locality/finite-size/disorder and physical `x_c` error bounds | **NOT ACHIEVED** | `state.md`; physical input remains missing |
@@ -384,3 +420,12 @@ state replay/readback design, not another infrastructure campaign.
 - **2026-10-13 11:53 UTC | local strategy checkpoint (this commit; starts `ba48c97`) | narrow local-owned evaluation | COMPILE/SERIAL PASS / NATIVE LOCAL PATH BLOCKED |** Fixed non-MPI isolated-user probe cannot observe self netns inode (EACCES13); one diagnostic correction retained, own units closed. Built unexecuted standalone collective harness and R07C/scope3 client; ten serial C/Unix tests and twelve-pin read-only verification PASS. Conditional local correctness does not require proving absent foreign MPI, but does not guarantee host floors/timing or pass original strict exclusion. No MPI/QE/HSE, permission/global changes, new sessions or inventory fishing. Prior pins/dirty DFT/stock/candidates/sessions and ledger bytes preserved. Stop at accessible owned-namespace/rank evidence plus isolated owner/output integration prerequisites.
 
 - **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.
+
+## Finite checkpoint change log — 2026-10-14 00:01 UTC
+
+Starts clean1b4c59b. Added one scoped smearing-conditioning proof/audit package,
+prospectively frozen native ef/density/charge policy and observer-only private
+build; executed ONE fresh control, stopped at native charge refusal5, no stream.
+Independent exact scalar replay/root counterexample, cleanup/protected-state and
+frozen-source validations retained. Reset handoff and R07 state updated in this
+checkpoint. Historical failure files/goals/supervisors untouched; no further run.

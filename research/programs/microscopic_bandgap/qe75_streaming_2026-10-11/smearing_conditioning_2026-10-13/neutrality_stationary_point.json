@@ -1,0 +1,59 @@
+{
+  "native_ef_point": {
+    "N": 36.00559692012919,
+    "Nprime_electrons_per_Ry": 1.994931997373328e-12,
+    "Nsecond_electrons_per_Ry2": 60967.36169214839,
+    "squared_charge_gradient": 2.2330950104939936e-14,
+    "squared_charge_curvature": 682.4589077571504
+  },
+  "curve_points": [
+    {
+      "mu_Ry": 0.6634859435488899,
+      "charge_electrons": 35.75
+    },
+    {
+      "mu_Ry": 0.6674859435488899,
+      "charge_electrons": 35.750801876330755
+    },
+    {
+      "mu_Ry": 0.6694859435488899,
+      "charge_electrons": 35.93227374476494
+    },
+    {
+      "mu_Ry": 0.6704859435488899,
+      "charge_electrons": 36.02061206686687
+    },
+    {
+      "mu_Ry": 0.67098594354889,
+      "charge_electrons": 36.01176300839637
+    },
+    {
+      "mu_Ry": 0.6714859435488899,
+      "charge_electrons": 36.00559692012919
+    },
+    {
+      "mu_Ry": 0.6719859435488899,
+      "charge_electrons": 36.0153295081159
+    },
+    {
+      "mu_Ry": 0.6724859435488899,
+      "charge_electrons": 36.056246766535736
+    },
+    {
+      "mu_Ry": 0.6734859435488899,
+      "charge_electrons": 36.223364638016534
+    },
+    {
+      "mu_Ry": 0.6754859435488899,
+      "charge_electrons": 36.25131476879599
+    },
+    {
+      "mu_Ry": 0.6794859435488899,
+      "charge_electrons": 36.25
+    }
+  ],
+  "strict_neutral_roots_in_bounded_local_scan_Ry": [
+    0.669963364989266
+  ],
+  "not_a_native_solver_replacement": true
+}

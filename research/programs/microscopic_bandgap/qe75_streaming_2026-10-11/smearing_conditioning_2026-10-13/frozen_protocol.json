@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-10-13T23:47:06.570400+00:00",
+  "preregistration_sha256": "52698831a303a02f308f61d2c071a9780487499288ba2ae22718c63a933c662f",
+  "validation_sha256": "fbfbb44f9160e4aca3215ab6bc87628af97ea64fa41a855ac2e644c3561642fe",
+  "build_result_sha256": "a58e18e5c7915eeaa97b7c744f345b97cef6563980e691af026795cb933c7960",
+  "owner_sha256": "43a8225afb5201f1726b38756d5fd21a2cfe87441c445c2cd25713b5e5737aca",
+  "account_sha256": "a1b8746e90bb6631468b01dff61e44b45ae41f985b1c9413f5404476340d7e9b",
+  "profiles": {
+    "control": "ed3b4d4846131f33ffd6fcab23efab367a8fb0c2592b214c016b224b54880e38",
+    "stream": "eee38767f843f4f290cc58c882c1fe1b0acb417d0b17bda9bbe7966d5618dff7"
+  },
+  "no_new_native_launch_yet": true,
+  "conditioning_sha256": "6192f99b1bcb3d00b128202446c41471f88200ef99886e7bb05a155a4927e9b4",
+  "JOB_sha256": {
+    "control": "93e720a06620a1f5783d6ffa9f9e9c505e392316701925ec2994f20b9b2ecd6f",
+    "stream": "dd8c6e0883997f7e6bd6dcd4a613767b09d3058d630b556a2df4b5b61308adf2"
+  }
+}

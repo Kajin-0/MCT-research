@@ -1,0 +1,42 @@
+{
+  "command": [
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/toolchain/bin/x86_64-conda-linux-gnu-gfortran",
+    "-cpp",
+    "-O2",
+    "-fno-fast-math",
+    "-fcheck=all",
+    "-fPIC",
+    "-shared",
+    "-J",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013",
+    "-I",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/serial_only.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/constants.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/wgauss.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/w0gauss.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/w1gauss.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/sumkg.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/efermig.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/gweights.f90",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/wrap.f90",
+    "-o",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/replay.so"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "source_hashes": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/serial_only.f90": "d27c0291c479ec3b4c81a0f4231b285e740c5f805b136c62788cb34b8969b8a4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/constants.f90": "56c39e90c6f0592aff13972cd090292024a3d4e9e86d0ce4fdfdb5643f1ac1c0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/wgauss.f90": "78145ca2423a14f3a761737f9eb54ed6e52755c441bd79997da3a138f5d42a8c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/w0gauss.f90": "a2fd9cc385eb81b582f869898f03ec10eebc6f7aa2d3906f4c4494059c80a572",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/w1gauss.f90": "05b26a47181e8cacfe02f40b4e34bde594708a97966a947f863165c5b5c8bd6f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/sumkg.f90": "26b937cef67fee45c3b40a998f019992bcb29634e69252ff2135ba3daf0fc46f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/efermig.f90": "24097d64cb4607630a0e700b83a0c6d966dd58327938a8dfcb547fd6dc6badaa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/gweights.f90": "f8d66fba43afeb2eea2daa6633db583e6137c021864d5404c2d75179dfc44bee",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/smearing_conditioning_20261013/wrap.f90": "29afaa506f6549d11b3f7954d3695c8e2541c64848b1e0cbf30e19df62b9fc1d"
+  },
+  "serial_stubs_not_native_MPI": true,
+  "binary_sha256": "6589ee1c18a85159f84c08c6ac78af4dc1e941948c5d5227e239577d87fd74aa"
+}

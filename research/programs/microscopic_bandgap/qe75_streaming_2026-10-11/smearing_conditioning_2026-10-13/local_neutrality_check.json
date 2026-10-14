@@ -1,0 +1,62 @@
+{
+  "rows": [
+    {
+      "step": 1,
+      "signed_mu_delta_Ry": -5.995204332975845e-15,
+      "linear_neutrality_prediction_Ry": -6.050715838119309e-15,
+      "difference_Ry": -5.551150514346354e-17,
+      "conditional_local_response_lower_electrons_per_Ry": 368.43854836944377,
+      "active_quartet_eigen_deltas_Ry": [
+        -1.3322676295501878e-14,
+        -6.661338147750939e-16,
+        -1.2212453270876722e-14,
+        1.9984014443252818e-15
+      ],
+      "active_quartet_control_span_Ry": 6.165223886966942e-10
+    },
+    {
+      "step": 2,
+      "signed_mu_delta_Ry": -1.9306778398231472e-13,
+      "linear_neutrality_prediction_Ry": -1.9301400197554526e-13,
+      "difference_Ry": 5.3782006769459475e-17,
+      "conditional_local_response_lower_electrons_per_Ry": 368.4384548183053,
+      "active_quartet_eigen_deltas_Ry": [
+        -1.439959262938828e-13,
+        -2.673417043297377e-13,
+        -1.532107773982716e-13,
+        -2.0750068330244176e-13
+      ],
+      "active_quartet_control_span_Ry": 9.128230983312946e-07
+    },
+    {
+      "step": 3,
+      "signed_mu_delta_Ry": -1.5121237595394632e-13,
+      "linear_neutrality_prediction_Ry": -1.5126480381670452e-13,
+      "difference_Ry": -5.2427862758197267e-17,
+      "conditional_local_response_lower_electrons_per_Ry": 368.4135079595018,
+      "active_quartet_eigen_deltas_Ry": [
+        7.096545573404001e-13,
+        -1.362021606610142e-12,
+        4.021227795192317e-13,
+        -3.532729664357248e-13
+      ],
+      "active_quartet_control_span_Ry": 1.4935007985439341e-05
+    },
+    {
+      "step": 4,
+      "signed_mu_delta_Ry": 2.984279490192421e-13,
+      "linear_neutrality_prediction_Ry": 2.983555524229396e-13,
+      "difference_Ry": -7.239659630247402e-17,
+      "conditional_local_response_lower_electrons_per_Ry": 361.94627785390423,
+      "active_quartet_eigen_deltas_Ry": [
+        1.438460461855584e-11,
+        -1.919420178353448e-11,
+        9.33186861118429e-12,
+        -2.9086733022154476e-12
+      ],
+      "active_quartet_control_span_Ry": 0.00024155565769401477
+    }
+  ],
+  "ideal_cold_function_local_bound_only": true,
+  "not_SCFevolution_contraction_proof": true
+}
