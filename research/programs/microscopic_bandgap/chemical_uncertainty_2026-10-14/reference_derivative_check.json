@@ -1,0 +1,18 @@
+{
+  "host": {
+    "Gaussian_sector_variances_eV2": {
+      "Gamma6": 1.4594178647615816e-26,
+      "Gamma8": 8.059397988786865e-15
+    },
+    "reference_derivative_ordering": -2.0148494971930677e-15,
+    "independent_finite_difference": 0.0
+  },
+  "cd": {
+    "Gaussian_sector_variances_eV2": {
+      "Gamma6": 0.07075226132906454,
+      "Gamma8": 0.008973008163512645
+    },
+    "reference_derivative_ordering": 0.015444813291387973,
+    "independent_finite_difference": 0.015444813300513614
+  }
+}

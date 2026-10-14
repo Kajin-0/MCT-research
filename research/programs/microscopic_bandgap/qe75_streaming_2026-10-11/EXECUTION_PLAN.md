@@ -1,9 +1,37 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 17:42 UTC
-**Status:** FIRST EXPLORATORY MATCHED PBE+SOC HOST/CD CHEMICAL SPECTRA CALCULATED; ORIGINAL HSE16/352 TARGET AND HISTORICAL GOAL REMAIN BLOCKED; OLD OWNER/OCCUPATION/NEUTRALITY FAILS PRESERVED
+**Last verified update:** 2026-10-14 18:24 UTC
+**Status:** EXPLORATORY CHEMICAL RESPONSE HAS REAL PROBE CURVE AND ONE MATCHED K REFINEMENT; BOTH NEW SCF/TERMINAL GATES PASS; BZ/MATERIAL ACCURACY OPEN; ORIGINAL HSE16/352/GOAL AND HISTORICAL FAILS UNCHANGED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## NEW finite uncertainty experiment — 2026-10-14 18:24 UTC
+
+From b776a9e, read [decision](../chemical_uncertainty_2026-10-14/decision.md)
+and [reset handoff](../chemical_uncertainty_2026-10-14/handoff_ledger.md).
+Step1 retained complex spectra: all30 preregistered width/reference probes,
+response range.382321–.411168eV and positive conditional interval union.
+No original-pair rerun. Step2 ONE sequential new8atom176band stock PBE+SOC
+host/Cd pair, unchanged40/160Ry/FD.001Ry/geometry/PPs, actualGamma-containing
+2x2x2 mesh reduced by verifiedTd symmetry to4 weighted stars. Both nativeSCFs
+converge11steps162.92/158.32s, weighted charge<2.7e-11e, GammaHDF saved directly.
+No NSCF, retry, extra campaign, stock/full-target/source-exchange change.
+
+Original physical host frames are held fixed. W2 response+.395351851152eV
+versusoriginal+.401005070710eV, measured−5.65322meV; conditional difference
+interval[−13.22899,+1.92255]meV includeszero. This is method/grid sensitivity,
+including explicit native symmetrization route, not BZ convergence/material
+error. OwnEF/Γ8-reference recipes agree at stored precision. Newhost-frame
+choice is separate and changes response+.06218meV only. Six focused tests pass.
+
+Both NEW retained terminal managers/live leases/kernel exits/groups pass;
+RSS<.78GB/kernel<.70GB under12GiB/swap0/tasks12/600s, RAM/disk floors held.
+Final aggregate360718336B passes sampled14GiB. Old host terminal uncertainty
+and HSE owner/occupation/neutrality FAILs remain unchanged. Protected stock,
+dirtyDFT/history/oldledger/supervisors/Calcura/sessions/goal exact. Raw/compact
+input/schema/log/lease/telemetry and all-wave hashes retained. STOP this finite
+native pair; next accuracy input is matched cutoff qualification on samegrid.
+No physical x_c, HSE convergence, globalMPI-exclusion or RAM-gain claim.
 
 ## NEW separately authorized chemical alternative — 2026-10-14 17:42 UTC
 

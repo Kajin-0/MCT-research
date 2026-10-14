@@ -1,0 +1,12 @@
+{
+  "both_owned_groups_absent": true,
+  "exclusive_lock_available": true,
+  "old_ledger": {
+    "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jw7adqol/job",
+    "members": [],
+    "phase": "FINISHED",
+    "version": 1
+  },
+  "old_ledger_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "old_host_uncertainty_preserved": true
+}

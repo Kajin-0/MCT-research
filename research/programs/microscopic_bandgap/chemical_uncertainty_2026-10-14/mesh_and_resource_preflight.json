@@ -1,0 +1,67 @@
+{
+  "Td_operations": 24,
+  "stars": {
+    "(np.float64(0.0), np.float64(0.0), np.float64(0.0))": 1,
+    "(np.float64(0.0), np.float64(0.0), np.float64(0.5))": 3,
+    "(np.float64(0.0), np.float64(0.5), np.float64(0.5))": 3,
+    "(np.float64(0.5), np.float64(0.5), np.float64(0.5))": 1
+  },
+  "actual_atomic_patterns_Td_invariant": true,
+  "mesh_contains_Gamma": true,
+  "storage": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 16246844,
+    "available_bytes": 66547073024,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "memory_available_B": 29823913984,
+  "memory_heuristic_8x_old_kernel_peak_B": 4089020416,
+  "wall_heuristic_4x2p5_old_s": {
+    "host": 421.59999999999997,
+    "cd": 433.5
+  },
+  "global_foreign_MPI_absence_proved": false,
+  "old_namespace_gate_passed": false,
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "final_independent_aggregate_B": 360718336,
+  "member_accounts": [
+    {
+      "allocated_unique_blocks_bytes": 247345152,
+      "metadata_allowance_bytes": 126976,
+      "budget_charge_bytes": 180363264,
+      "escrow_blocks_bytes": 67108864,
+      "observed_unique_inodes": 31,
+      "cumulative_distinct_observed_inode_ids": 31,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 180363264,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    },
+    {
+      "allocated_unique_blocks_bytes": 247336960,
+      "metadata_allowance_bytes": 126976,
+      "budget_charge_bytes": 180355072,
+      "escrow_blocks_bytes": 67108864,
+      "observed_unique_inodes": 31,
+      "cumulative_distinct_observed_inode_ids": 31,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 180355072,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    }
+  ],
+  "passed": true,
+  "sampled_not_continuous": true
+}

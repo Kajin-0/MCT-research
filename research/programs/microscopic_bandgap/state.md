@@ -2,9 +2,39 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; first matched self-consistent exploratory PBE+SOC host/Cd spectrum and physical host Γ6/Γ8 complex projections CALCULATED; HSE-grade/dilute material input and physical x_c OPEN; original native failures and full target gates preserved
+**State:** historical physical goal BLOCKED; exploratory PBE+SOC host/Cd response tested against spectral probes and one matched k refinement; cutoff/BZ/material uncertainty OPEN; HSE-grade/dilute input and physical x_c OPEN; original failures/full-target gates preserved
 
 **Updated:** 2026-10-14
+
+## Probe sensitivity and one matched k refinement — 2026-10-14 18:24 UTC
+
+[New finite decision](chemical_uncertainty_2026-10-14/decision.md): retained native
+complex spectra give all30 preregistered W=1–3eV/reference-offset probes. Response
+range .382321–.411168eV (28.85meV probe sensitivity), conditional interval union
+[.379519,.417418]eV positive. This is a spectral-probe choice, not material error.
+
+ONE fresh sequential matched stock PBE+SOC pair keeps8atomx.25/a6.46A/SG15FR/
+176bands144e/40/160Ry/FD.001Ry and refines to Gamma-containing unshifted2x2x2.
+Both native SCFs converge11iterations,162.92/158.32s; weighted charge errors
+<2.7e-11e. Exact Td atomic/mesh proof permits4 native stars with weights1:3:3:1,
+native Gamma saved withoutNSCF. New nosym=false route is explicitly distinguished
+from oldnosym=true; measured difference is method/grid sensitivity, not a pure
+certified BZ error. Primary ORIGINAL physical host frames remain fixed.
+
+W2 DeltaOmega+.3953518512eV versusold+.4010050707eV: measured−5.65322meV,
+conditional grid-difference interval[−13.22899,+1.92255]meV includeszero. Both
+tested grids keep positive chemical response; no BZ convergence/material gap/x_c.
+Fermi/Gamma8-reference recipes agree at schema precision; separately usingnew
+host frame changes refined response only+.06218meV. Complex frame normalization,
+translation and Td labels independently checked. Six focused tests pass.
+
+Both NEW terminal owners/resource gates pass with real typed leases/managerexit0/
+kernel exits/empty groups. RSS<.78GB, kernel<.70GB under12GiB/swap0/tasks12/600s;
+hostRAM>27GiB/disk>61GiB; final retained aggregate360718336B under sampled14GiB.
+Original host terminal uncertainty and all olderFAILs unchanged. Stock/dirtyDFT/
+oldledger/supervisors/Calcura/sessions/goal protected; no NSCF/retry/other campaign.
+Stop this finite pair. Highest-information next input is matched cutoff
+qualification on the same frame/grid; HSE/cell/functional/ionic errors remainOPEN.
 
 ## First chemistry-bearing native pair — 2026-10-14 17:42 UTC
 

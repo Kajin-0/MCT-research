@@ -1,0 +1,137 @@
+{
+  "native_source": {
+    "accepted": true,
+    "Gamma_index_1based": 1,
+    "k_weights": [
+      0.125,
+      0.375,
+      0.375,
+      0.125
+    ],
+    "k_XML_vectors": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -0.5
+      ],
+      [
+        0.0,
+        -0.5,
+        -0.5
+      ],
+      [
+        -0.5,
+        -0.5,
+        -0.5
+      ]
+    ],
+    "fermi_eV": 9.55325792449668,
+    "charge_residual_e": -1.4154011296341196e-11,
+    "occupation_max_error": 2.248201624865942e-14,
+    "all176_Gamma_Gram_defect_op": 4.847110247315638e-15,
+    "native_Gamma_PW": 7809,
+    "lattice_bohr": [
+      [
+        12.20763076508248,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        12.20763076508248,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        12.20763076508248
+      ]
+    ],
+    "scf_iterations": 11,
+    "scf_error_Ry": 1.297515641506373e-10,
+    "total_energy_Ry": -1939.2511335858035,
+    "source_hashes": {
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/out/r07pbe.save/data-file-schema.xml": "cc517fa69263d09d1af3d60d9d245c706013af6991243b608cbedec78231068b",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/out/r07pbe.save/wfc1.hdf5": "53f9e782f5955043b9b4dd70c5f60b78128baa6cc0da17c9eab1b5a6833e3df6",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/out/r07pbe.save/wfc2.hdf5": "8159066e86ac5c2cc11399b0e6e52edecf9e9e1e1c6c73d8dbdae21f7a1608d4",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/out/r07pbe.save/wfc3.hdf5": "de01977d5f598c61bef4c2db44c426ae4bc2725079795b0ff8683ff67d52343e",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/out/r07pbe.save/wfc4.hdf5": "10801cc9dcb58ffd81aa73decd07e35e2d562d786801410c64e0fee71d10e49d",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/pw.in": "5592d11b98f87f202182920a692df2bcdb519f6c3780010b5f68f00433552773",
+      "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/chemical_pbe8_k2_20261014/host/pw.out": "f04b264009fd2966d9390ff855ee02516930bc097d99a08b0fb0c5b17c133e4f"
+    },
+    "guard": {
+      "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-049ee450a4534772bbbb8ed7d364774a.service",
+      "elapsed_s": 164.07915184739977,
+      "error": null,
+      "invocation": "16be42b569624c34b1ff31fc7daf6e5c",
+      "launcher_returncode": 0,
+      "max_aggregate_output_B": 109113344,
+      "min_free_disk_B": 66370629632,
+      "min_host_available_B": 29108191232,
+      "pass_guard": true,
+      "peak_kernel_memory_B": 693432320,
+      "peak_sampled_RSS_B": 778702848,
+      "rank_kernel_exits": {
+        "0": true,
+        "1": true
+      },
+      "sampled_not_continuous": true,
+      "samples": 637
+    }
+  },
+  "frames": {
+    "Gamma6": {
+      "selected_native_bands_1based": [
+        139,
+        140
+      ],
+      "energies_relative_Fermi_eV": [
+        -0.9634316022059117,
+        -0.9634316022052687
+      ],
+      "principal_overlap_singular_values": [
+        0.9999840056877917,
+        0.9999840056358218
+      ],
+      "Td_multiplicities": [
+        1,
+        0,
+        0
+      ],
+      "Td_classification": true,
+      "nearby_frame_bound": 8.427779931038839e-05
+    },
+    "Gamma8": {
+      "selected_native_bands_1based": [
+        143,
+        144,
+        145,
+        146
+      ],
+      "energies_relative_Fermi_eV": [
+        1.4352963262354024e-12,
+        1.4352963262354024e-12,
+        1.6502355038028327e-12,
+        1.6502355038028327e-12
+      ],
+      "principal_overlap_singular_values": [
+        0.9999903544828925,
+        0.9999903544747168,
+        0.9999903544634619,
+        0.9999903544372046
+      ],
+      "Td_multiplicities": [
+        0,
+        0,
+        1
+      ],
+      "Td_classification": true,
+      "nearby_frame_bound": 0.000119188250619072
+    }
+  }
+}
