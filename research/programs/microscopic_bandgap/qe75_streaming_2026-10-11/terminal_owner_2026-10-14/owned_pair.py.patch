@@ -1,0 +1,138 @@
+--- frozen-rooted/owned_pair.py
++++ prospective-terminal/owned_pair.py
+@@ -35,9 +35,10 @@
+ from compare_pair import compare as action_compare
+ from sampled_output import OutputAccount
+ import observables
++from retirement import Retirement,TerminalPending
+ 
+ DFT=Path('/home/User/opencode_workspace/DFT'); ROOT=DFT/'.local/qe75_lowram_20261011'
+-PRIVATE=ROOT/'rooted_full_scf_pair_20261014'
++PRIVATE=ROOT/'terminal_rooted_full_scf_pair_20261014'
+ SEED_CAPTURE_ROOT=ROOT/'first_ace_sampled_v6_20261013/control'
+ CONTROL_ROOT=PRIVATE/'control'; REFERENCE=ROOT/'hse_native_probe_20261013'
+ GIB=1<<30; MEMORY=12*GIB; AS=896*(1<<20); TASKS=12
+@@ -124,7 +125,7 @@
+     # NOT an adversarial continuous bound or quota; never pass the original gate.
+     if json.loads(OLD_REGISTRY.read_text())['phase']!='FINISHED':
+         raise Refusal('protected prior family not finished')
+-    return_local_scope = 'R07_LOCAL_ROOTED_FULL_SCF_SCOPE5_20261014'
++    return_local_scope = 'R07_LOCAL_ROOTED_TERMINAL_FULL_SCF_SCOPE5_20261014'
+     return dict(candidates=build['candidates'],seed_sha256=pins,reference_seed=str(seed),
+         PP=evidence['current_PP_sha256'],resource_policy=policy,
+         resident_mapping_upper_bytes=TASKS*AS+832*(1<<20),
+@@ -157,7 +158,7 @@
+         deck=deck.replace(str(DFT/'pseudopotentials'),str(root/'pp'))
+         deck=deck.replace('&ELECTRONS\n',"&ELECTRONS\n startingwfc = 'file'\n startingpot = 'file'\n")
+         (root/'pw.in').write_text(deck)
+-        profile=dict(kind='R07_LOCAL_QE_ROOTED_FULL_SCF_FRESH_V1',mode=mode,common_input_sha256=common,SCF_tolerances=observables.TOL,preregistration_sha256=sha(HERE/'preregistration.md'),
++        profile=dict(kind='R07_LOCAL_QE_ROOTED_TERMINAL_FULL_SCF_FRESH_V1',mode=mode,common_input_sha256=common,SCF_tolerances=observables.TOL,preregistration_sha256=sha(HERE/'preregistration.md'),
+             binary_sha256=cert['candidates'][key]['sha256'],input_sha256=sha(root/'pw.in'),seed=cert['seed_sha256'],
+             memory_max=MEMORY,swap_max=0,tasks_max=TASKS,per_process_AS=AS,wall_seconds=600,
+             file_max=GIB,output_max=OUTPUT,disk_contract='sampled-retained-inodes-blocks-metadata-open-deleted',compiler_backends=cert['candidates'][key]['backends'])
+@@ -248,6 +249,7 @@
+     started=time.monotonic(); child=subprocess.Popen(cmd,env=manager_env(),stdout=subprocess.PIPE,stderr=subprocess.STDOUT,close_fds=True)
+     client_identity=Identity(child.pid)
+     resource.prlimit(child.pid,resource.RLIMIT_AS,(64*(1<<20),64*(1<<20)))
++    retirement=None; terminal_proof=None
+     cg=None; invocation=None; ranks={};history=[];approved=set();identities={};pending=[];done=False;reason='';peak_rss=0;peak_pss=0;minmem=2**63;mindisk=2**63;last={}; reservations=[escrow];logged=0;kernel_samples=[]; account=OutputAccount(root,OUTPUT,ESCROW,guard)
+     log=(root/'pw.out').open('xb'); cancelled=[]
+     for sig in [signal.SIGTERM,signal.SIGINT]:signal.signal(sig,lambda s,f:cancelled.append(s))
+@@ -269,6 +271,8 @@
+                 raise Refusal('manager lifecycle')
+             atomic_json(root/'KERNEL_ADMISSION.json',dict(fields=fields,cgroup_inode=cg.stat().st_ino,kernel=last,lease_owner=owner.record()))
+             identities[pid]=Identity(pid)
++            retirement=Retirement(job['unit'],invocation,fields['ControlGroup'],jh,ph)
++            account.active.retirement=retirement
+             g.send(json.dumps(dict(action='EXECUTE_PINNED_FIRST_ACE',challenge=msg['challenge'],job=jh)).encode())
+         gate.close()
+         while child.poll() is None:
+@@ -299,7 +303,11 @@
+                 mem=memory()['MemAvailable'];info=guard.probe(root);minmem=min(minmem,mem);mindisk=min(mindisk,info['available_bytes'])
+                 if mem<4*GIB or info['available_bytes']<10*GIB or rss>MEMORY:raise Refusal('measured resource floor/cap')
+                 if any(last['memory_events'][k] for k in ['oom','oom_kill','max']) or last['pids_events'].get('max',0):raise Refusal('kernel pressure/limit event')
+-                usage=account.sample(rows)
++                try:usage=account.sample(rows)
++                except TerminalPending:
++                    terminal_proof=wait_terminal(retirement,child,account,guard,root,log,logged,started,cancelled)
++                    logged=log.tell()
++                    break
+                 total=usage['budget_charge_bytes']
+                 if not kernel_samples or time.monotonic()-started-kernel_samples[-1]['elapsed']>=.25:kernel_samples.append(dict(elapsed=time.monotonic()-started,RSS=rss,MemAvailable=mem,disk=info['available_bytes'],output=total,output_account=usage,charged=last['memory_current']))
+             ready,_,_=select.select([server,child.stdout],[],[],.02)
+@@ -381,6 +389,7 @@
+                         data['native_readback']=observables.final_readback(root,step)
+                         atomic_json(root/'FINAL_CERTIFICATE.json',data);done=True
+                     approved.add(key)
++                if action in [1,10]:retirement.receipt(c,rank,action,jh,ph)
+                 c.send(REPLY.pack(b'R07L',1,0,5,nonce));c.close();pending.remove(entry)
+                 history.append(dict(rank=rank,pid=pid,action=action,occurrence=occurrence,cgroup=fields['ControlGroup'],invocation=invocation,job_sha256=jh,profile_sha256=ph))
+         reason='FULL_SCF_NATIVE_RETURN' if done else 'native exited before complete post-punch evidence'
+@@ -400,6 +409,11 @@
+             tail=child.stdout.read(4*(1<<20)-logged+1)
+             if len(tail)+logged<=4*(1<<20):log.write(tail)
+             else:reason+='; terminal log cap exceeded'
++        if done and retirement is not None:
++            try:
++                terminal_proof=retirement.terminal(child)
++                account.sample() # complete retained tree at kernel-proven terminal group
++            except BaseException as error:reason+='; terminal proof refused: '+str(error)
+         terminal=show(job['unit']);empty=not cg or not cg.exists() or (not counters(cg)['cgroup_events']['populated'] and not members(cg))
+         if empty and child.poll() is not None:
+             if REGISTRY.exists() and json.loads(REGISTRY.read_text()).get('job_sha256')==jh:
+@@ -410,8 +424,8 @@
+         log.flush()
+         exact_stop='JOB DONE.' in (root/'pw.out').read_text()
+         terminal_match=child.returncode==0 and exact_stop
+-        result=dict(mode=mode,native_execution_complete=done and reason=='FULL_SCF_NATIVE_RETURN' and empty and completed_ranks=={0,1} and terminal_match,
+-            reason=reason,unit_returncode=child.returncode,manager_terminal=terminal,unit=job['unit'],invocation=invocation,
++        result=dict(mode=mode,native_execution_complete=done and terminal_proof is not None and reason=='FULL_SCF_NATIVE_RETURN' and empty and completed_ranks=={0,1} and terminal_match,
++            terminal_retirement_proof=terminal_proof,reason=reason,unit_returncode=child.returncode,manager_terminal=terminal,unit=job['unit'],invocation=invocation,
+             elapsed_seconds=time.monotonic()-started,peak_family_RSS_bytes=peak_rss,peak_PSS_diagnostic_bytes=peak_pss,
+             shared_RSS_overcount_included=True,minimum_MemAvailable_bytes=minmem,minimum_free_disk_bytes=mindisk,
+             final_kernel=last,real_rank_receipts=history,reservations=reservations,owned_cgroup_empty=empty,
+@@ -425,8 +439,38 @@
+         atomic_json(root/'RESULT.json',result);atomic_large_json(root/'SAMPLES.json',kernel_samples)
+         log.close();server.close();gate.close();owner.close();client_identity.close()
+         for i in identities.values():i.close()
++        if retirement is not None:retirement.close()
+         print(json.dumps(result,indent=2))
+     return result['native_execution_complete']
++
++
++def wait_terminal(retirement,child,account,guard,root,log,logged,started,cancelled):
++    """Bounded pending state; no resource/FD omission acceptance before terminal()."""
++    deadline=min(started+600,time.monotonic()+3)
++    while child.poll() is None:
++        if cancelled or time.monotonic()>=deadline:raise Refusal('terminal cancel/deadline')
++        if memory()['MemAvailable']<4*GIB or guard.probe(root)['available_bytes']<10*GIB:
++            raise Refusal('terminal host resource floor')
++        account.sample() # TREE ONLY; incomplete FD inventory is deferred, not passed.
++        if retirement.cg.exists():
++            k=counters(retirement.cg)
++            if int(k['memory_max'])!=MEMORY or int(k['swap_max'])!=0 or int(k['tasks_max'])!=TASKS:
++                raise Refusal('terminal kernel caps changed')
++            if any(k['memory_events'][v] for v in ['oom','oom_kill','max']) or k['pids_events'].get('max',0):
++                raise Refusal('terminal kernel cap event')
++            rows=members(retirement.cg);rss=proc(os.getpid())['rss_bytes']
++            rss+=proc(child.pid)['rss_bytes'] if child.poll() is None else 0
++            for pid,row in rows.items():
++                if row['state']!='Z':rss+=row['rss_bytes']
++            if rss>MEMORY:raise Refusal('terminal sampled RSS cap')
++        ready,_,_=select.select([child.stdout],[],[],.01)
++        if ready:
++            payload=os.read(child.stdout.fileno(),65536)
++            if logged+len(payload)>4*(1<<20):raise Refusal('terminal captured log cap')
++            log.write(payload);log.flush();logged+=len(payload)
++    proof=retirement.terminal(child)
++    account.sample() # complete final retained tree AFTER kernel/manager proof
++    return proof
+ 
+ 
+ def main():
+@@ -440,4 +484,4 @@
+     if not run_member('stream'):raise SystemExit(1)
+ 
+ 
+-if __name__=='__main__':main()
++if __name__=='__main__':raise Refusal('prospective source only: publication/integration/frozen native admission not issued')

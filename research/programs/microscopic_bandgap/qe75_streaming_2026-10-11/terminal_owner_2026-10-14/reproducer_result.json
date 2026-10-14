@@ -1,0 +1,452 @@
+{
+  "timestamp": "2026-10-14T15:11:01.722262+00:00",
+  "kernel": "6.17.0-41-generic",
+  "scope": "bounded actual Linux non-MPI two-child retirement proof; no native pair",
+  "cases": [
+    {
+      "unit": "r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+      "non_MPI": true,
+      "source_sha256": "c2bdd4216fc32343f132fb184d04a83987eb4c2f3918215d3d68dadf9b2bfe04",
+      "command": [
+        "/usr/bin/systemd-run",
+        "--user",
+        "--pipe",
+        "--wait",
+        "--quiet",
+        "--unit=r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+        "--property=Type=exec",
+        "--property=MemoryMax=134217728",
+        "--property=MemorySwapMax=0",
+        "--property=TasksMax=8",
+        "--property=LimitFSIZE=65536",
+        "--property=LimitCORE=0",
+        "--property=OOMPolicy=kill",
+        "--property=KillMode=control-group",
+        "--property=Delegate=no",
+        "--property=Restart=no",
+        "--property=RuntimeMaxSec=12s",
+        "--property=TimeoutStopSec=1s",
+        "--property=NoNewPrivileges=yes",
+        "--property=WorkingDirectory=/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/terminal_owner_repro_v2_20261014/exit0",
+        "/usr/bin/python3.13",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproducer_worker.py",
+        "parent",
+        "r07-retirement-ec86ad29bc9c49e4bd36507182cdd557",
+        "0"
+      ],
+      "negatives": {
+        "foreign_kernel_peer": {
+          "refused": true,
+          "reason": "foreign kernel peer cgroup"
+        },
+        "fake_binding_rank0": {
+          "refused": true,
+          "reason": "typed final receipt mismatch"
+        },
+        "incomplete_final_pair": {
+          "refused": true,
+          "reason": "FD inventory incomplete before authenticated final pair"
+        },
+        "fake_binding_rank1": {
+          "refused": true,
+          "reason": "typed final receipt mismatch"
+        },
+        "live_EACCES_after_both_final": {
+          "refused": true,
+          "reason": "FD inventory denied/missing for STILL LIVE registered task"
+        },
+        "missing_proc_while_live": {
+          "refused": true,
+          "reason": "FD inventory denied/missing for STILL LIVE registered task"
+        },
+        "unregistered_missing_task": {
+          "refused": true,
+          "reason": "FD inventory incomplete before authenticated final pair"
+        },
+        "incomplete_FDinfo": {
+          "refused": true,
+          "reason": "FD inventory denied/missing for STILL LIVE registered task"
+        },
+        "still_live_terminal": {
+          "refused": true,
+          "reason": "terminal ranks incomplete/still live"
+        },
+        "descriptor_retargeted_to_foreign_live_task": {
+          "refused": true,
+          "reason": "pidfd descriptor reused"
+        },
+        "exited_ranks_but_parent_group_live": {
+          "refused": true,
+          "reason": "terminal manager/foreground wait not matching clean exit0"
+        }
+      },
+      "injected_failures": {
+        "pidfd_open_denied": {
+          "refused": true,
+          "reason": "[Errno 13] injected pidfd permission"
+        },
+        "stale_reused_PID_identity": {
+          "refused": true,
+          "reason": "registered PID replaced/moved"
+        }
+      },
+      "samples": [
+        {
+          "MemAvailable": 29866782720,
+          "disk": 66848575488
+        },
+        {
+          "MemAvailable": 29866184704,
+          "disk": 66848575488
+        },
+        {
+          "MemAvailable": 29866184704,
+          "disk": 66848575488
+        }
+      ],
+      "kernel_initial": {
+        "memory_max": "134217728",
+        "swap_max": "0",
+        "tasks_max": "8",
+        "oom_group": "1",
+        "memory_current": 5681152,
+        "memory_peak": 5681152,
+        "pids_current": 1,
+        "pids_events": {
+          "max": 0
+        },
+        "memory_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        },
+        "cgroup_events": {
+          "populated": 1,
+          "frozen": 0
+        }
+      },
+      "actual_live_EACCES": {
+        "errno": 13,
+        "pid": 1907742,
+        "pidfd_exit": false
+      },
+      "actual_unreaped_exit": [
+        {
+          "pid": 1907742,
+          "poll_mask": 1,
+          "proc_state": "Z"
+        },
+        {
+          "pid": 1907743,
+          "poll_mask": 1,
+          "proc_state": "Z"
+        }
+      ],
+      "terminal_pending_is_not_omission": "kernel exit proved; complete terminal gate pending",
+      "wait_client_returncode": 0,
+      "terminal_manager_while_RefUnit_held": {
+        "Restart": "no",
+        "TimeoutStopUSec": "1s",
+        "RuntimeMaxUSec": "12s",
+        "MainPID": "0",
+        "Result": "success",
+        "OOMPolicy": "kill",
+        "ExecMainCode": "1",
+        "ExecMainStatus": "0",
+        "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproducer_worker.py parent r07-retirement-ec86ad29bc9c49e4bd36507182cdd557 0 ; ignore_errors=no ; start_time=[Wed 2026-10-14 15:11:01 UTC] ; stop_time=[Wed 2026-10-14 15:11:01 UTC] ; pid=1907739 ; code=exited ; status=0 }",
+        "ControlGroup": "",
+        "MemoryPeak": "17469440",
+        "Delegate": "no",
+        "MemoryMax": "134217728",
+        "MemorySwapMax": "0",
+        "TasksMax": "8",
+        "LimitFSIZE": "65536",
+        "LimitCORE": "0",
+        "NoNewPrivileges": "yes",
+        "KillMode": "control-group",
+        "SendSIGKILL": "yes",
+        "Id": "r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+        "LoadState": "loaded",
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+        "Transient": "yes",
+        "InvocationID": "223a8f8705ce4d97a7bebb3d9086fc23",
+        "CollectMode": "inactive"
+      },
+      "valid_terminal_certificate": {
+        "kernel_all_pinned_ranks_exited": true,
+        "final_receipts": [
+          {
+            "pid": 1907742,
+            "start_ticks": 651538344,
+            "invocation": "223a8f8705ce4d97a7bebb3d9086fc23",
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+            "job": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "profile": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "pid": 1907743,
+            "start_ticks": 651538344,
+            "invocation": "223a8f8705ce4d97a7bebb3d9086fc23",
+            "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+            "job": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "profile": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        ],
+        "manager": {
+          "Restart": "no",
+          "TimeoutStopUSec": "1s",
+          "RuntimeMaxUSec": "12s",
+          "MainPID": "0",
+          "Result": "success",
+          "OOMPolicy": "kill",
+          "ExecMainCode": "1",
+          "ExecMainStatus": "0",
+          "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproducer_worker.py parent r07-retirement-ec86ad29bc9c49e4bd36507182cdd557 0 ; ignore_errors=no ; start_time=[Wed 2026-10-14 15:11:01 UTC] ; stop_time=[Wed 2026-10-14 15:11:01 UTC] ; pid=1907739 ; code=exited ; status=0 }",
+          "ControlGroup": "",
+          "MemoryPeak": "17469440",
+          "Delegate": "no",
+          "MemoryMax": "134217728",
+          "MemorySwapMax": "0",
+          "TasksMax": "8",
+          "LimitFSIZE": "65536",
+          "LimitCORE": "0",
+          "NoNewPrivileges": "yes",
+          "KillMode": "control-group",
+          "SendSIGKILL": "yes",
+          "Id": "r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "SubState": "dead",
+          "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-6628bc54fcd549cbb17df68d732719be.service",
+          "Transient": "yes",
+          "InvocationID": "223a8f8705ce4d97a7bebb3d9086fc23",
+          "CollectMode": "inactive"
+        },
+        "cgroup_empty": true,
+        "kernel_cgroup_identity": [
+          28,
+          1275260
+        ],
+        "no_proc_status_or_missing_PID_authority": true,
+        "omission_eligible_only_after_final_gate": true
+      },
+      "pidfd_after_reap": [
+        {
+          "pid": 1907742,
+          "poll_mask": 17
+        },
+        {
+          "pid": 1907743,
+          "poll_mask": 17
+        }
+      ],
+      "log": "",
+      "elapsed_seconds": 0.2979796240106225,
+      "own_unit_collected": true
+    },
+    {
+      "unit": "r07-owned-26a33da2af704f9caa6c3046e45dcbde.service",
+      "non_MPI": true,
+      "source_sha256": "c2bdd4216fc32343f132fb184d04a83987eb4c2f3918215d3d68dadf9b2bfe04",
+      "command": [
+        "/usr/bin/systemd-run",
+        "--user",
+        "--pipe",
+        "--wait",
+        "--quiet",
+        "--unit=r07-owned-26a33da2af704f9caa6c3046e45dcbde.service",
+        "--property=Type=exec",
+        "--property=MemoryMax=134217728",
+        "--property=MemorySwapMax=0",
+        "--property=TasksMax=8",
+        "--property=LimitFSIZE=65536",
+        "--property=LimitCORE=0",
+        "--property=OOMPolicy=kill",
+        "--property=KillMode=control-group",
+        "--property=Delegate=no",
+        "--property=Restart=no",
+        "--property=RuntimeMaxSec=12s",
+        "--property=TimeoutStopSec=1s",
+        "--property=NoNewPrivileges=yes",
+        "--property=WorkingDirectory=/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/terminal_owner_repro_v2_20261014/exit2",
+        "/usr/bin/python3.13",
+        "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproducer_worker.py",
+        "parent",
+        "r07-retirement-92e3547b865d4ccfb87cc1b9294429e9",
+        "2"
+      ],
+      "negatives": {
+        "foreign_kernel_peer": {
+          "refused": true,
+          "reason": "foreign kernel peer cgroup"
+        },
+        "fake_binding_rank0": {
+          "refused": true,
+          "reason": "typed final receipt mismatch"
+        },
+        "incomplete_final_pair": {
+          "refused": true,
+          "reason": "FD inventory incomplete before authenticated final pair"
+        },
+        "fake_binding_rank1": {
+          "refused": true,
+          "reason": "typed final receipt mismatch"
+        },
+        "live_EACCES_after_both_final": {
+          "refused": true,
+          "reason": "FD inventory denied/missing for STILL LIVE registered task"
+        },
+        "missing_proc_while_live": {
+          "refused": true,
+          "reason": "FD inventory denied/missing for STILL LIVE registered task"
+        },
+        "unregistered_missing_task": {
+          "refused": true,
+          "reason": "FD inventory incomplete before authenticated final pair"
+        },
+        "incomplete_FDinfo": {
+          "refused": true,
+          "reason": "FD inventory denied/missing for STILL LIVE registered task"
+        },
+        "still_live_terminal": {
+          "refused": true,
+          "reason": "terminal ranks incomplete/still live"
+        },
+        "descriptor_retargeted_to_foreign_live_task": {
+          "refused": true,
+          "reason": "pidfd descriptor reused"
+        },
+        "exited_ranks_but_parent_group_live": {
+          "refused": true,
+          "reason": "terminal manager/foreground wait not matching clean exit0"
+        },
+        "actual_nonzero_manager_exit": {
+          "refused": true,
+          "reason": "terminal manager/foreground wait not matching clean exit0"
+        }
+      },
+      "injected_failures": {
+        "pidfd_open_denied": {
+          "refused": true,
+          "reason": "[Errno 13] injected pidfd permission"
+        },
+        "stale_reused_PID_identity": {
+          "refused": true,
+          "reason": "registered PID replaced/moved"
+        }
+      },
+      "samples": [
+        {
+          "MemAvailable": 29863849984,
+          "disk": 66848571392
+        },
+        {
+          "MemAvailable": 29863849984,
+          "disk": 66848571392
+        },
+        {
+          "MemAvailable": 29863849984,
+          "disk": 66848567296
+        }
+      ],
+      "kernel_initial": {
+        "memory_max": "134217728",
+        "swap_max": "0",
+        "tasks_max": "8",
+        "oom_group": "1",
+        "memory_current": 5689344,
+        "memory_peak": 5689344,
+        "pids_current": 1,
+        "pids_events": {
+          "max": 0
+        },
+        "memory_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        },
+        "cgroup_events": {
+          "populated": 1,
+          "frozen": 0
+        }
+      },
+      "actual_live_EACCES": {
+        "errno": 13,
+        "pid": 1907759,
+        "pidfd_exit": false
+      },
+      "actual_unreaped_exit": [
+        {
+          "pid": 1907759,
+          "poll_mask": 1,
+          "proc_state": "Z"
+        },
+        {
+          "pid": 1907760,
+          "poll_mask": 1,
+          "proc_state": "Z"
+        }
+      ],
+      "terminal_pending_is_not_omission": "kernel exit proved; complete terminal gate pending",
+      "wait_client_returncode": 2,
+      "terminal_manager_while_RefUnit_held": {
+        "Restart": "no",
+        "TimeoutStopUSec": "1s",
+        "RuntimeMaxUSec": "12s",
+        "MainPID": "0",
+        "Result": "exit-code",
+        "OOMPolicy": "kill",
+        "ExecMainCode": "1",
+        "ExecMainStatus": "2",
+        "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproducer_worker.py parent r07-retirement-92e3547b865d4ccfb87cc1b9294429e9 2 ; ignore_errors=no ; start_time=[Wed 2026-10-14 15:11:02 UTC] ; stop_time=[Wed 2026-10-14 15:11:02 UTC] ; pid=1907756 ; code=exited ; status=2 }",
+        "ControlGroup": "",
+        "MemoryPeak": "17596416",
+        "Delegate": "no",
+        "MemoryMax": "134217728",
+        "MemorySwapMax": "0",
+        "TasksMax": "8",
+        "LimitFSIZE": "65536",
+        "LimitCORE": "0",
+        "NoNewPrivileges": "yes",
+        "KillMode": "control-group",
+        "SendSIGKILL": "yes",
+        "Id": "r07-owned-26a33da2af704f9caa6c3046e45dcbde.service",
+        "LoadState": "loaded",
+        "ActiveState": "failed",
+        "SubState": "failed",
+        "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-26a33da2af704f9caa6c3046e45dcbde.service",
+        "Transient": "yes",
+        "InvocationID": "3ef096f7da174164ad4b82a3a9cf062a",
+        "CollectMode": "inactive"
+      },
+      "pidfd_after_reap": [
+        {
+          "pid": 1907759,
+          "poll_mask": 17
+        },
+        {
+          "pid": 1907760,
+          "poll_mask": 17
+        }
+      ],
+      "log": "",
+      "elapsed_seconds": 0.2578104389831424,
+      "own_unit_collected": true
+    }
+  ],
+  "passed": true,
+  "protected_old_registry_unchanged": true,
+  "source_sha256": {
+    "retirement.py": "731ad57e41a4be39fd562c401dc889717f9cce98da1a0317c1b5a3c646740d55",
+    "reproduce.py": "f2ec1f1e2832718da2e82ab424c43aeeb4ae993eb8877003e585602d183e9120",
+    "reproducer_worker.py": "c2bdd4216fc32343f132fb184d04a83987eb4c2f3918215d3d68dadf9b2bfe04"
+  }
+}

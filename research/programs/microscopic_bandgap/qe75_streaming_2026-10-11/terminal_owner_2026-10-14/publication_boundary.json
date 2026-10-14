@@ -1,0 +1,21 @@
+{
+  "scientific_commit": "89922a7",
+  "pushed": false,
+  "first_required_publication_gate_unpassed": true,
+  "ordinary_git_attempts": [
+    {
+      "transport": "SSH existing id_ed25519_kajin",
+      "result": "Permission denied (publickey)"
+    },
+    {
+      "transport": "existing HTTPS origin",
+      "result": "could not read Username; no credential"
+    },
+    {
+      "transport": "SSH existing agent_git_key",
+      "result": "repository permission denied to Brooks-Photonics"
+    }
+  ],
+  "no_force_credential_or_remote_change": true,
+  "native_pair_not_issued": true
+}

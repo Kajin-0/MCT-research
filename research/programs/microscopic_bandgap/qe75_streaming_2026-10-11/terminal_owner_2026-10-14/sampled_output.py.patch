@@ -1,0 +1,65 @@
+--- frozen-rooted/sampled_output.py
++++ prospective-terminal/sampled_output.py
+@@ -17,9 +17,9 @@
+ class OutputRefusal(RuntimeError):pass
+ 
+ class OutputAccount:
+-    def __init__(self,root,budget,escrow,guard=None):
++    def __init__(self,root,budget,escrow,guard=None,retirement=None):
+         self.root=Path(root).resolve();self.budget=budget;self.escrow=escrow
+-        self.guard=guard;self.dev=self.root.stat().st_dev;self.seen=set();self.generations=0
++        self.guard=guard;self.retirement=retirement;self.dev=self.root.stat().st_dev;self.seen=set();self.generations=0
+         self.maximum=0;self.samples=0;self.last_sample=None;self.max_gap=0.;self.shmem_seen={}
+     def permitted(self,path,kind):
+         rel=path.relative_to(self.root);p=rel.parts
+@@ -65,13 +65,10 @@
+         for pid in pids:
+             fds=Path(f'/proc/{pid}/fd')
+             try:values=list(fds.iterdir())
+-            except FileNotFoundError:continue
+-            except PermissionError:
+-                from process_identity import proc
+-                try:row=proc(pid)
+-                except (FileNotFoundError,ProcessLookupError):continue
+-                if row['state']=='Z':continue # exit_files is complete for a zombie
+-                raise # never treat an unreadable live owned peer as clean
++            except (FileNotFoundError,ProcessLookupError,PermissionError) as error:
++                if self.retirement is None:
++                    raise OutputRefusal('unbound/incomplete owned task FD inventory') from error
++                self.retirement.inventory_failure(pid,error) # refuses or raises TerminalPending; never returns omission
+             for fd in values:
+                 try:
+                     target=os.readlink(fd);s=fd.stat()
+@@ -105,12 +102,10 @@
+                             uid=s.st_uid,links=s.st_nlink,fs_type=observed['fs_type'],ext4_storage_guard_expected_refusal=observed['probe_errno']))
+                 except (FileNotFoundError,ProcessLookupError):continue
+                 except OSError as e:
+-                    if e.errno!=errno.ENODEV:raise
+-                    from process_identity import proc
+-                    try:row=proc(pid)
+-                    except (FileNotFoundError,ProcessLookupError):continue
+-                    if row['state']=='Z':continue
+-                    raise OutputRefusal('ENODEV owned fd during LIVE peer inventory: '+str(fd)) from e
++                    if e.errno not in [errno.ENODEV,errno.EACCES,errno.EPERM]:raise
++                    if self.retirement is None:
++                        raise OutputRefusal('unbound/incomplete owned fd inventory') from e
++                    self.retirement.inventory_failure(pid,e)
+         allocation=sum(x[0] for x in entries.values());metadata=block*len(entries)
+         escrow=sum(x[0] for x in entries.values() if x[3])
+         charged=allocation+metadata-escrow
+@@ -131,12 +126,12 @@
+ # NEW scope: one aggregate14GiB budget across BOTH retained pair members.
+ # Each constituent preserves the old fail-closed path/inode/block/FD checks.
+ SingleMemberAccount=OutputAccount
+-PAIR=Path('/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/rooted_full_scf_pair_20261014')
++PAIR=Path('/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/terminal_rooted_full_scf_pair_20261014')
+ class OutputAccount:
+-    def __init__(self,root,budget,escrow,guard=None):
++    def __init__(self,root,budget,escrow,guard=None,retirement=None):
+         self.root=Path(root).resolve()
+         if self.root.parent!=PAIR or self.root.name not in ['control','stream']:raise OutputRefusal('conditioned pair account root')
+-        self.active=SingleMemberAccount(self.root,budget,escrow,guard)
++        self.active=SingleMemberAccount(self.root,budget,escrow,guard,retirement)
+         self.other=SingleMemberAccount(PAIR/('stream' if self.root.name=='control' else 'control'),budget,escrow,guard)
+         self.budget=budget;self.maximum=0;self.samples=0;self.max_gap=0.;self.shmem_seen=self.active.shmem_seen
+     def sample(self,pids=()):

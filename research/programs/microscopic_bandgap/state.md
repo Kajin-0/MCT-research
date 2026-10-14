@@ -2,9 +2,23 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; fixed-orbital HSE streaming bitwise qualified; private safeguarded Fermi root qualified through 12 native control steps; HSE unconverged; terminal owner FD refusal preserved, stream unlaunched; paired full SCF/restart/material x_c OPEN
+**State:** historical physical goal BLOCKED; fixed-orbital HSE streaming bitwise qualified; private root qualified through 12 native control steps, HSE unconverged; original owner FAIL preserved; prospective terminal rule passes non-MPI kernel checks; new native pair unissued, publication blocked; full SCF/restart/material x_c OPEN
 
 **Updated:** 2026-10-14
+
+## Prospective terminal ownership — 2026-10-14 15:20 UTC
+
+[New finite decision](qe75_streaming_2026-10-11/terminal_owner_2026-10-14/decision.md):
+rooted native control12 checkpoint preserved in local commit89922a7; ordinary Git
+push fails authentication/access. Narrow non-MPI test distinguishes live rank FD
+EACCES (refuse) from pinned kernel task exit, with authenticated final receipts,
+retained clean manager invocation and empty cgroup. Two tiny actual user-service
+controls pass valid retirement/refuse nonzero exit; source/account wiring keeps
+all numerical/resource gates. Prospective native integration remains unissued.
+The historical native EACCES cause stays OPEN; original RESULT stays FAILED,
+stream never ran, no new native attempt/restart. Publication/final prospective
+freeze is the next gate. No Calcura, other session, supervisor, goal, stock or
+dirty DFT operation; no material x_c/convergence/memory-gain inference.
 
 ## Safeguarded Fermi-root checkpoint — 2026-10-14 14:56 UTC
 

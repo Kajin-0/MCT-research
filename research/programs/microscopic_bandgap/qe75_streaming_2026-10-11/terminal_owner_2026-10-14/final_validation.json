@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-14T15:22:19.954464+00:00",
+  "passed": true,
+  "scope": "final source/actual-evidence/protected-state consistency; no repeated live fixture",
+  "scientific_checkpoint_89922a7_immutable": true,
+  "original_native_owner_FAIL_immutable": true,
+  "no_new_MPI_QE": true,
+  "DFT_stock_dirty_history_registry_preserved": true,
+  "actual_nonMPI_units_collected_and_lock_free": true,
+  "production_source_native_release_unissued": true,
+  "original_numerical_tolerance_source_preserved": true,
+  "source_hashes": {
+    "sampled_output.py": "4771ec9ee77a5b37dc8b3a3c1aaad981c47cde73d0f1615d867de4bed8230710",
+    "reproduce.py": "f2ec1f1e2832718da2e82ab424c43aeeb4ae993eb8877003e585602d183e9120",
+    "retirement.py": "731ad57e41a4be39fd562c401dc889717f9cce98da1a0317c1b5a3c646740d55",
+    "owned_pair.py": "7b40f9f6a143c7e814d1f69467bab3a5360620dd3403e57c47331051ba969c20",
+    "reproducer_worker.py": "c2bdd4216fc32343f132fb184d04a83987eb4c2f3918215d3d68dadf9b2bfe04"
+  },
+  "post_wiring_amendment": "explicit pending-wait cancellation; AST/source verified, no new native or non-MPI fixture"
+}

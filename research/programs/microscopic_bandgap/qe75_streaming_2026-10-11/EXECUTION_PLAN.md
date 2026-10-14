@@ -1,8 +1,8 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 14:56 UTC
-**Status:** PRIVATE FERMI ROOT QUALIFIED; ONE NATIVE CONTROL COMPLETED 12 CHARGE-CERTIFIED OUTER UPDATES, HSE UNCONVERGED; TERMINAL OWNER FD REFUSAL PRESERVED; STREAM UNLAUNCHED; STOP, NO RETRY
+**Last verified update:** 2026-10-14 15:20 UTC
+**Status:** ROOTED CONTROL12 SCIENTIFIC CHECKPOINT LOCALLY COMMITTED; ORIGINAL OWNER FAIL PRESERVED; PROSPECTIVE TERMINAL OWNER PASSES NON-MPI KERNEL CHECKS; NO NEW NATIVE RUN; ORDINARY GIT PUSH BLOCKED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
 
 **Current finite checkpoint starts at `7be091f`:** read the
@@ -11,6 +11,38 @@
 and [final handoff](fermi_root_2026-10-14/handoff_ledger.md).
 The separately authorized private occupation solver changes the earlier
 unchanged-solver scope; old occupation and neutrality failures remain unchanged.
+
+## Prospective terminal owner — 2026-10-14 15:20 UTC
+
+The prior scientific checkpoint is locally committed as `89922a7`, including its
+immutable FAILED owner RESULT. Publication is currently blocked by Git
+authentication/repository access; no credential/permission/remote change or
+force operation is attempted. New user scope advances only the narrow non-MPI
+retirement rule. Read [decision](terminal_owner_2026-10-14/decision.md),
+[proof and prospective protocol](terminal_owner_2026-10-14/proof_and_protocol.md),
+[actual kernel evidence](terminal_owner_2026-10-14/reproducer_result.json) and
+[handoff](terminal_owner_2026-10-14/handoff_ledger.md).
+
+Two tiny owned user services (zero and nonzero exit) independently exercised real
+fresh Unix peer pidfds, numeric pidfd binding, live post-final EACCES refusal,
+POLLIN on unreaped exits and POLLIN/HUP after reaping. Zero-exit/empty-group
+terminal conjunction passes; real exit-two, foreign identity, incomplete finals,
+live disappearance claims and substituted descriptor refuse. Manager RefUnit
+retains actual invocation/exit evidence before release and collection. Peaks
+17.47/17.60 MB; each <0.3 s under 128-MiB/swap-zero/tasks-eight/12-second caps.
+First setup-only bus-discovery failure preserved; explicit user bus connection
+fixed without global configuration. No MPI/QE or broad infrastructure campaign.
+
+Prospective owner/account source patches replace Z/missing-PID omission with
+kernel exit plus live authenticated final receipts, bounded pending wait, actual
+matching manager exit zero and empty original cgroup. Pending is not successful
+FD accounting; all original pressure/tree/output/log/deadline checks continue.
+Focused account wiring and unchanged numerical tolerance checks pass. Native
+release deliberately unissued: final production assembly/freeze and publication
+gate remain. No old refused control reused, new pair, restart, convergence,
+whole-SCF RAM gain or physical x_c claim. Original native EACCES cause remains
+OPEN, not retrospectively proved by the reproducer. Calcura/other sessions,
+stock, dirty DFT, supervisors, original16atom352band/Cd and goal untouched.
 
 ## Safeguarded Fermi-root native checkpoint — 2026-10-14 14:56 UTC
 
@@ -140,6 +172,7 @@ Obtain qualified first-principles HgTe host and Cd-substituted HgTe Γ6/Γ8 spec
 | M5-S | Genuine full HSE SCF trajectory pair + final readback | **PARTIAL / SCIENTIFIC GATE FAILED:** control12outer/softstop/notconverged, stream4outer/occupationrefusal; paired1–3PASS, native control wave/rhoG readbackPASS, restartOPEN | `full_scf_2026-10-13/{decision.md,numerical_result.json,raw_provenance.json}`; starts7116be0, 2026-10-13 22:51 UTC |
 | M5-C | Cold-smearing-conditioned trajectory protocol + native Fermi diagnostic | **ANALYSIS PASS / NEW CONTROL NO-GO:** old occupation FAIL explained/preserved; fresh control5 updates/4accepted, nonneutral stationary Fermi point0.00559692e at5; stream unlaunched, restartOPEN | `smearing_conditioning_2026-10-13/{decision.md,retained_audit.json,numerical_result.json}`; starts1b4c59b |
 | M5-R | Separately scoped private sign-bracket Fermi solver and fresh native trajectory | **SOLVER PASS / OWNER FAIL / PAIR INCOMPLETE:** all18 historical spectra qualified; new control12 updates with charge ≤9.60e-11 electrons, final native readback; HSE unconverged. Late owned-rank FD EACCES after both final receipts; stream unlaunched, restart OPEN | `fermi_root_2026-10-14/{decision.md,control_numerical_qualification.json,numerical_result.json,protected_after.json}`; starts7be091f |
+| M5-T | Prospective identity-safe terminal FD transition | **ACTUAL NON-MPI KERNEL PASS / NATIVE UNISSUED:** live EACCES still refuses; pinned exit, authenticated finals, retained clean manager exit and empty group required. Two tiny zero/nonzero controls plus focused source/account wiring; prior native failure unchanged. Git publication blocked | `terminal_owner_2026-10-14/{decision.md,reproducer_result.json,wiring_validation.json,proof_and_protocol.md}`; follows local89922a7 |
 | M6 | Admission of full-size host on actual RAM/disk/time using measured peak and sufficient scratch | **NO-GO**: ~31 GiB disk available versus nominal ~22 GiB stream + 10 GiB reserve + output | `checkpoint_phase/phase_outcomes.json` |
 | M7 | Accepted matched 16-atom HgTe host then Cd-substituted spectra, physically labelled Γ6/Γ8 overlaps | **NOT ACHIEVED** | Host termination; Cd stage absent |
 | M8 | Convergence/locality/finite-size/disorder and physical `x_c` error bounds | **NOT ACHIEVED** | `state.md`; physical input remains missing |
@@ -439,6 +472,8 @@ state replay/readback design, not another infrastructure campaign.
 - **Reproduction:** DFT `source scripts/env.sh`; absolute paths to `cgroup_owned_2026-10-13/preservation.py` (read-only) and `test_owned.py` (finite tiny real user units, no MPI). Existing one-shot binaries preserved at `.local/qe75_lowram_20261011/cgroup_owned_20261013/`. Do not rerun unchanged suites without a new gate. Native launchers/binaries, full 16-atom/352-band HSE, altered physics, paid actions, agents/sessions/supervisors, main merge/DFT commit or goal resume remain excluded.
 
 ## Change log
+
+- **2026-10-14 15:20 UTC | follows local `89922a7` | TERMINAL OWNER NON-MPI:** Prior native control12 checkpoint committed with owner FAIL unchanged; ordinary-Git publication failed authentication/access. Narrow kernel retirement mechanism implemented/tested on two tiny owned services; live FD denial fails closed, true pidfd exit plus authentic finals/manager exit0/empty group distinguishes valid retirement. Prospective owner/account patches and focused guard/tolerance wiring checks retained; no native release or pair. Stop at publication/final integration freeze, protected scientific/DFT/Calcura state unchanged.
 
 - **2026-10-14 14:56 UTC | starts `7be091f` | ROOT SOLVER / REAL CONTROL12:** Preserved interrupted package; audited all18 historical snapshots and qualified private safeguarded cold root with independent high-precision and actual native scalar-object checks. One fresh two-rank control completed12 accepted outer updates, charge ≤9.60e-11 electrons, final readback and both terminal receipts; not converged. Original owner FAIL from owned-rank FD EACCES remains, stream never launched/no retry. Frozen physics/EXX objects and protected DFT/stock/history unchanged; own group collected/lock free. Stop at terminal-owner gate, no restart/material or memory-gain claim.
 

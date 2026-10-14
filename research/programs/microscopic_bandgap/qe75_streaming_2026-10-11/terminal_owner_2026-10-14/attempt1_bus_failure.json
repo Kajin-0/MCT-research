@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-10-14T15:10:27.005274+00:00",
+  "kernel": "6.17.0-41-generic",
+  "scope": "bounded actual Linux non-MPI two-child retirement proof; no native pair",
+  "cases": [],
+  "passed": false,
+  "first_failure": "Traceback (most recent call last):\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproduce.py\", line 212, in main\n    result['cases'].append(case(0))\n                           ~~~~^^^\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/reproduce.py\", line 78, in case\n    registry = rt.Retirement(unit, invocation, f['ControlGroup'], 'a'*64, 'b'*64)\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/retirement.py\", line 152, in __init__\n    self.reference = UnitReference(unit)\n                     ~~~~~~~~~~~~~^^^^^^\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/terminal_owner_2026-10-14/retirement.py\", line 118, in __init__\n    raise Refusal('user bus unavailable errno ' + str(-code))\ncheckpoint_capsule.Refusal: user bus unavailable errno 123\n",
+  "protected_old_registry_unchanged": true,
+  "source_sha256": {
+    "retirement.py": "1a759ce10ba5547441b886778b55d1564d4cea6d1d6a4aa4e265319aa6fd2633",
+    "reproduce.py": "359fa4328d7b6b5a1d045d82a8384fb721fcf0b663802fcc02f05e3981a8579d",
+    "reproducer_worker.py": "c2bdd4216fc32343f132fb184d04a83987eb4c2f3918215d3d68dadf9b2bfe04"
+  }
+}
