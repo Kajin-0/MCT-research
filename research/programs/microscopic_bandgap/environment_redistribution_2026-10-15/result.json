@@ -1,0 +1,130 @@
+{
+  "status": "CALCULATED exact post-acquisition decomposition; no new material model",
+  "members": {
+    "unshared": {
+      "Gamma6": {
+        "selected_bands_1based": [
+          285,
+          286
+        ],
+        "selected_measure_mass": 0.9766997338575232,
+        "rest_retained_measure_mass": 0.02225387968117579,
+        "Gaussian_full_eV": -0.645564678890163,
+        "Gaussian_selected_only_eV": -0.6670450855426697,
+        "Gaussian_rest_correction_eV": 0.021480406652506702,
+        "inverse_real_full_eV": 0.685188170905359,
+        "inverse_real_selected_only_eV": 0.6829581932086156,
+        "inverse_real_rest_correction_eV": 0.002229977696743506,
+        "not_complete_selected_measure": true,
+        "shared_split_energies_not_averaged": true
+      },
+      "Gamma8": {
+        "selected_bands_1based": [
+          287,
+          288,
+          289,
+          290
+        ],
+        "selected_measure_mass": 0.9922401147602937,
+        "rest_retained_measure_mass": 0.00660882719420576,
+        "Gaussian_full_eV": 0.0006666720197537015,
+        "Gaussian_selected_only_eV": -1.3580248037046554e-12,
+        "Gaussian_rest_correction_eV": 0.0006666720211117265,
+        "inverse_real_full_eV": -2.9381227485547734e-08,
+        "inverse_real_selected_only_eV": 1.3686453344337206e-12,
+        "inverse_real_rest_correction_eV": -2.9382596130882207e-08,
+        "not_complete_selected_measure": true,
+        "shared_split_energies_not_averaged": true
+      }
+    },
+    "shared": {
+      "Gamma6": {
+        "selected_bands_1based": [
+          285,
+          286
+        ],
+        "selected_measure_mass": 0.9504526851739745,
+        "rest_retained_measure_mass": 0.048417619353111965,
+        "Gaussian_full_eV": -0.6548385150856407,
+        "Gaussian_selected_only_eV": -0.7121200047062279,
+        "Gaussian_rest_correction_eV": 0.05728148962058729,
+        "inverse_real_full_eV": 0.7666693890822299,
+        "inverse_real_selected_only_eV": 0.7492429826487141,
+        "inverse_real_rest_correction_eV": 0.017426406433516235,
+        "not_complete_selected_measure": true,
+        "shared_split_energies_not_averaged": true
+      },
+      "Gamma8": {
+        "selected_bands_1based": [
+          287,
+          288,
+          289,
+          290
+        ],
+        "selected_measure_mass": 0.9825770488034942,
+        "rest_retained_measure_mass": 0.016294578929735633,
+        "Gaussian_full_eV": -0.006530515453133922,
+        "Gaussian_selected_only_eV": -1.6536177793345009e-06,
+        "Gaussian_rest_correction_eV": -0.006528861835354587,
+        "inverse_real_full_eV": 6.735143287579389e-06,
+        "inverse_real_selected_only_eV": 1.685697187589056e-06,
+        "inverse_real_rest_correction_eV": 5.049446099990489e-06,
+        "not_complete_selected_measure": true,
+        "shared_split_energies_not_averaged": true
+      }
+    }
+  },
+  "Gaussian_contrast_decomposition": {
+    "Gaussian_full_eV": -0.0020766487225901686,
+    "Gaussian_selected_only_eV": -0.045073265547136865,
+    "Gaussian_rest_correction_eV": 0.04299661682454689
+  },
+  "scalar_inverse_contrast_decomposition": {
+    "inverse_real_full_eV": -0.08147445365235595,
+    "inverse_real_selected_only_eV": -0.06628310374427959,
+    "inverse_real_rest_correction_eV": -0.015191349908076609
+  },
+  "center_sensitivity": [
+    {
+      "center_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.05,
+      "delta_eV": -0.07440412079723346,
+      "conditional_bound_eV": 0.022436218812037063,
+      "conditional_interval_eV": [
+        -0.09684033960927052,
+        -0.0519679019851964
+      ]
+    },
+    {
+      "center_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.05,
+      "delta_eV": -0.08147445365235617,
+      "conditional_bound_eV": 0.029968933471080216,
+      "conditional_interval_eV": [
+        -0.11144338712343639,
+        -0.05150552018127595
+      ]
+    },
+    {
+      "center_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.05,
+      "delta_eV": -0.09143047838524498,
+      "conditional_bound_eV": 0.04026667784984105,
+      "conditional_interval_eV": [
+        -0.13169715623508604,
+        -0.05116380053540393
+      ]
+    }
+  ],
+  "max_exact_identity_error_eV": 4.545381030238557e-16,
+  "new_native_jobs": 0,
+  "not_a_gap_or_N2operator": true,
+  "physical_xc": null,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/environment_redistribution_2026-10-15/decompose.py": "8257897a8b64504acafd2ad30896362fc56c73201e4edda444b217efd62dd6f8",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/environment_redistribution_2026-10-15/protocol.md": "8f57a05106689366343f2f20139f8556e405241d81cabfb99d7c23a9f4d079e1",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/numerical_result.json": "8cecbd394f43635dd074e2988bf00c89014968c265959d4495ae7a9a1b48d867",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/complex_overlaps.npz": "0309829633712562102528bbe687c38c7c1c62fcc0d731826bc8d334133f5d10",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe16_p2_2026-10-15/analyze_pair.py": "70b1077b8daee4b49cfba8e834f88537ef632b9369af1f865423211af22f3d35"
+  }
+}

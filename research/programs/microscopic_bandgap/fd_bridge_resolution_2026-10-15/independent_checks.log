@@ -1,0 +1,98 @@
+{
+  "status": "PASS finite-matrix proof checks only; no material validation",
+  "twirled_energy_entropy_derivative_errors": [
+    8.379630322963294e-12,
+    2.2257307108475288e-11,
+    7.300244853070126e-10
+  ],
+  "FD_two_basis_rows": [
+    {
+      "actual_F": 0.30165112970991165,
+      "bound_F": 0.46209286470496286,
+      "two_basis_identity_error": 1.6653345369377348e-16
+    },
+    {
+      "actual_F": 0.33057057655070055,
+      "bound_F": 0.47008152179343876,
+      "two_basis_identity_error": 1.6653345369377348e-16
+    },
+    {
+      "actual_F": 0.24945796109124582,
+      "bound_F": 0.39930655213639943,
+      "two_basis_identity_error": 2.7755575615628914e-17
+    },
+    {
+      "actual_F": 0.23577109679334368,
+      "bound_F": 0.4053880126180007,
+      "two_basis_identity_error": 2.7755575615628914e-17
+    },
+    {
+      "actual_F": 0.31037311151231656,
+      "bound_F": 0.4838306562024795,
+      "two_basis_identity_error": 1.6653345369377348e-16
+    },
+    {
+      "actual_F": 0.23430972204979453,
+      "bound_F": 0.39556410941785575,
+      "two_basis_identity_error": 1.3877787807814457e-16
+    },
+    {
+      "actual_F": 0.2531996019855908,
+      "bound_F": 0.4410569542015896,
+      "two_basis_identity_error": 2.220446049250313e-16
+    },
+    {
+      "actual_F": 0.2599181238907778,
+      "bound_F": 0.4290758883152781,
+      "two_basis_identity_error": 5.551115123125783e-17
+    },
+    {
+      "actual_F": 0.25932882198524476,
+      "bound_F": 0.47703559780203425,
+      "two_basis_identity_error": 1.6653345369377348e-16
+    },
+    {
+      "actual_F": 0.30559404640644494,
+      "bound_F": 0.46430374351347803,
+      "two_basis_identity_error": 0.0
+    },
+    {
+      "actual_F": 0.3392868599442491,
+      "bound_F": 0.4974532483493308,
+      "two_basis_identity_error": 1.1102230246251565e-16
+    },
+    {
+      "actual_F": 0.2176128328538554,
+      "bound_F": 0.4354104980960449,
+      "two_basis_identity_error": 1.1102230246251565e-16
+    }
+  ],
+  "offspace_bound": {
+    "actual_F": 0.009266323382895928,
+    "coupling_bound_F": 0.05707229009567495,
+    "tail_bound_F": 1.5125670490067743e-05,
+    "complement_lower_bound_Ry": 0.011792256842804178
+  },
+  "invariant_unknown_copy_counterexample": [
+    {
+      "unmeasured_copy_energy_Ry": -0.006,
+      "chemical_potential_Ry": -0.0025,
+      "known_copy_FD_charge": 0.11724892300542528,
+      "total_FD_charge": 4.0
+    },
+    {
+      "unmeasured_copy_energy_Ry": 0.008,
+      "chemical_potential_Ry": 0.0045000000000000005,
+      "known_copy_FD_charge": 3.8827510769945746,
+      "total_FD_charge": 4.0
+    }
+  ],
+  "saturated_logit_refused": true,
+  "new_native_jobs": 0,
+  "physical_xc": null,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/verify_bridge.py": "afd6f2dadf3aac3b747707def762948b07cbdfc70ed8df2a19ce12ea30a5c43a",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/theory.md": "167a516f22721cfcb4aea713ee1f6c8a7eb4ad8f8878f8af876be368f271d546",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/preregistration.md": "9cfced589b5f7f4a338bc3cf721cb6355f3d1c58f727bc21ecf1d1efd497a139"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS retained native hash/matrix and proof-source integrity",
+  "new_native_jobs": 0,
+  "all_original_native_pins_PASS": true,
+  "protected_DFT_exact": true,
+  "old_registry_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "current_research_commit": "a753cf5972f22d2fe04b9d4c5359a5a599444667",
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/audit_bridge.py": "cfc7783de024420bf4ef19b043ecd5505a90d910e9d538e4fefbcb0849cd518d",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/verify_bridge.py": "afd6f2dadf3aac3b747707def762948b07cbdfc70ed8df2a19ce12ea30a5c43a",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/theory.md": "167a516f22721cfcb4aea713ee1f6c8a7eb4ad8f8878f8af876be368f271d546",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/preregistration.md": "9cfced589b5f7f4a338bc3cf721cb6355f3d1c58f727bc21ecf1d1efd497a139",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/fd_bridge_resolution_2026-10-15/minimum_input.md": "d72a31c43415b0484eb26d17e466986a7f4c90d4eaa7d00a1f56533665157cac",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/antiunitary_closure_2026-10-15/audit_native.py": "6687bd7c25804d846bb85fe0b82925f38ed643f575f8a5e197eed9e54bffc36f",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hybrid_convergence_2026-10-15/packets.py": "b5697239259e1e4fa018e86190e229eb088ab6a15059d62d7e94a762a00c702c",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hybrid_convergence_2026-10-15/pilot_native.inc": "04a4fb12133e4578ebfc7888e5156ed35dbafb51e3b3d7460e6ff5acd1a3e02c",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/reference_irrep_check.py": "74e63f8f130110412ea9ab47bc416657823fd34e44b2733bc0ae5c52ea3595fe",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/h_psi.f90": "fce3265cac4ce68282831af4a4fb31e3dc0a8c01ee5e5cb891162f35c14a3bec"
+  },
+  "source_review_not_new_native_compile": true,
+  "full_same_D_Hamiltonian_available": false,
+  "HSE_release": false,
+  "physical_xc": null
+}

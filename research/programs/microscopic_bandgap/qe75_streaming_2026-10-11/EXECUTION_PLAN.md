@@ -1,9 +1,32 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 06:42 UTC
-**Status:** SAME-COMPOSITION PBE16 N2 ENVIRONMENT CONTRAST COMPLETE; HSE FD/STATE BRIDGE UNQUALIFIED; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 06:47 UTC
+**Status:** NATIVE PBE ENVIRONMENT + SPECTRAL REDISTRIBUTION + FD BRIDGE AUDIT COMPLETE; STOP AT SAME-D HAMILTONIAN INPUT; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Continuing science phases and concrete stop — 2026-10-15 06:47 UTC
+
+Nativechemistrya753cf5 committed/pushed; continued without approval pauses.
+[Read-only spectral decision](../environment_redistribution_2026-10-15/decision.md)
+explains Gaussian−2.07665meV as−45.07327central+42.99662rest, whereas causal
+inverse−81.47445=−66.28310central−15.19135rest. Exact4.55e-16eV reconstruction,
+no quartet averaging or empirical fit. Original Gaussian sign still unresolved.
+
+[New state/input decision](../fd_bridge_resolution_2026-10-15/decision.md) and
+[context reset](../fd_bridge_resolution_2026-10-15/handoff_ledger.md): retained
+joint152basis has six almost-orthogonal highGauxiliary directions~40Rykinetic,
+not six physical low-energy bands. New symmetry trial144e, covariance3.42e-15;
+not nativeFD. Complete same-DH/state/directexchange/eigenpair action still missing.
+New gap-free finite-FD residual/offspace/tail theorem and independent smallmatrix
+tests pass within their explicit assumptions. No newHSEjob admitted from them.
+
+STOP at the specific complete-Hamiltonian/FDbridge acquisition in minimum_input,
+not unreadableproc, permissions, source-space notation, generic infrastructure
+or resource speculation. No more defective HSEiterations or PBEgrid churn; no
+native job queued. Original source/frame/byte/owner FAILS, protectedDFT, stockQE,
+originalHSE16, all other sessions, main and historicalblockedgoal remain exact.
+Physicalrandomalloyxc and material uncertainty remain unresolved.
 
 ## Same-composition physics and continuing work — 2026-10-15 06:42 UTC
 

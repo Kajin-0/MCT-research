@@ -1,0 +1,74 @@
+{
+  "status": "CALCULATED retained native source and explicitly NEW constrained ensemble only",
+  "joint_basis": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/jg_20261015/joint_basis.npz",
+  "residual_ranks": {
+    "0.001": 6,
+    "1e-06": 6,
+    "1e-08": 136,
+    "1e-10": 152
+  },
+  "source_Gram_error": 3.623798899286163e-14,
+  "auxiliary_kinetic_Ritz_Ry": [
+    40.10233788409425,
+    40.10233788817535,
+    40.33005360691262,
+    40.33005361313152,
+    40.330053621268526,
+    40.33005362985208
+  ],
+  "complement_kinetic_Ritz_Ry": [
+    40.329924102335,
+    40.329924108724086,
+    40.329924116928574,
+    40.329924125687995,
+    41.8104898991427,
+    41.81048993555469
+  ],
+  "auxiliary_high_G_above40Ry_probability": [
+    0.9161056830322769,
+    0.9161056830912991,
+    0.9161056830833433,
+    0.9161056830478227,
+    0.8928390169310579,
+    0.8928390168903916
+  ],
+  "auxiliary_old_occupied_weight": [
+    5.9130676262973956e-21,
+    5.912433467818938e-21,
+    5.912636663231446e-21,
+    5.91390394264001e-21,
+    7.408632795135432e-17,
+    7.436088994182537e-17
+  ],
+  "auxiliary_reference_weight": [
+    8.15525511945832e-06,
+    8.15524009830555e-06,
+    8.15524619013525e-06,
+    8.155247926248088e-06,
+    1.5644573215157907e-05,
+    1.5644591324732484e-05
+  ],
+  "all152_kinetic_extrema_Ry": [
+    0.14849817560917228,
+    40.3474869284003
+  ],
+  "occupied146_kinetic_extrema_Ry": [
+    0.14955479911569092,
+    8.361584126316417
+  ],
+  "old_native_charge": 144.00000000000597,
+  "projected_charge": 144.00000000000438,
+  "new_twirl_charge": 144.0000000000045,
+  "old_entropy_kB": 2.772588722239781,
+  "projected_entropy_kB": 2.7725887222929964,
+  "new_twirl_entropy_kB": 2.7725887222910828,
+  "new_twirl_max_all_symmetry_covariance_op": 3.4190911260738814e-15,
+  "reduced_density_change_op": 9.901027248578059e-08,
+  "reduced_density_change_trace_norm": 9.907965894474747e-07,
+  "original_density_outside_joint_op_upper": 9.124264100787375e-07,
+  "charge_projection_loss_e": 1.5916157281026244e-12,
+  "native_full_Hamiltonian_exported": false,
+  "native_HSE_FD_qualified": false,
+  "new_native_jobs": 0,
+  "physical_xc": null
+}

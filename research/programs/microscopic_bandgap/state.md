@@ -4,7 +4,34 @@
 
 **State:** historical physical goal BLOCKED; two ordered PBE compositions plus a SAME-COMPOSITION x=.25 environment contrast now have real native spectra. Sharing changes spectral redistribution and lowers finite-cell PBE energy; Gaussian and causal contrasts differ. HSE source/FD-state qualification remains unpassed; physical x_c OPEN.
 
-**Updated:** 2026-10-15 06:42 UTC
+**Updated:** 2026-10-15 06:47 UTC
+
+## Follow-through: redistribution and exact HSE input boundary — 2026-10-15 06:47 UTC
+
+After publishing native chemistrya753cf5, continued two independent read-only
+science phases without another QE job. [Spectral decomposition](environment_redistribution_2026-10-15/decision.md):
+Gaussian contrast=−45.073266central+42.996617rest=−2.076649meV; inverse contrast
+=−66.283104central−15.191350rest=−81.474454meV. Exact identities agree4.55e-16eV.
+No averaged shared quartet or fictitious selected-only Hamiltonian. OwnEF
+center±.1eV inverse signs remain conditionally negative; Gaussian unresolved
+sign and all original numerical evidence unchanged. No new materialerrorbar.
+
+[State-bridge decision](fd_bridge_resolution_2026-10-15/decision.md),
+[proof](fd_bridge_resolution_2026-10-15/theory.md),
+[reset](fd_bridge_resolution_2026-10-15/handoff_ledger.md). Actual joint152basis
+has six near-unit directions beyond saved176states, mostly highG with~40Ry
+kinetic, NOT six established low-energy bands. A new twirled144e trial closes
+symmetry3.42e-15 but lacks same-DHSEHamiltonian/FD qualification. PROVEN finite-FD
+Hilbert-Schmidt residual/coupling/tail bounds require no gap aroundmu; independent
+matrix tests pass. No full-space tail/convergence guarantee is invented.
+
+STOP at precise rank1missing input: [complete same-Dnative H[D] action](fd_bridge_resolution_2026-10-15/minimum_input.md)
+with source natural weights, actual local charge/XC/SOC, independent direct
+exchange controls, FD/eigenstate/offspace residual. Old directFock/6local actions
+refer to different/incomplete states. No further HSEtrajectory can safely be
+released merely from space closure or a resource forecast. This is a scientific
+state/input boundary after multiple results, not an owner or permission block.
+No native job queued, historicblockedgoal unchanged; physicalxc remains OPEN.
 
 ## Same-composition N2-bearing PBE contrast — 2026-10-15 06:42 UTC
 
