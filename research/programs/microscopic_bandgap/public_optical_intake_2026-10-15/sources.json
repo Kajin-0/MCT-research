@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "audit_UTC": "2026-10-15T23:09:12.312026+00:00",
+  "baseline": "4affbd8",
+  "decision": "NO_GO_PUBLIC_RAW_CALIBRATION_ASSAY_NOT_LOCATED",
+  "scope": "one unchanged near-critical bulk-like HgCdTe specimen, low-temperature, >=3 fields, HH-to-electron response with raw/calibration/independent-assay package",
+  "search_limit_and_stop": "Eight targeted queries completed, then finite publisher/institutional links followed. Stop: no qualifying raw object; no repeated broad searches or challenge bypass. This is not exhaustive coverage of private/unindexed repositories.",
+  "sources": [
+    {
+      "id": "T1",
+      "url": "https://www.nature.com/articles/ncomms12576?error=cookies_not_supported",
+      "kind": "primary_publisher_article",
+      "access": "full_HTML_read",
+      "location": "Methods; Data availability; Corresponding author; Supplementary information; rights",
+      "finding": "Supporting data offered on request; sole listed supplement is PDF, not a numerical archive. Publication correspondence is F. Teppe. Nominal low-T specimens and setup documented; complete assay/calibration records not linked.",
+      "publication_date": "2016-08-30",
+      "rights": "Published article CC BY 4.0, subject to credit-line exceptions; unseen raw-record license unknown",
+      "contact": "Frederic.Teppe@umontpellier.fr",
+      "contact_status": "publication address verified; live delivery/current retention NOT verified"
+    },
+    {
+      "id": "T2",
+      "url": "https://media.springernature.com/original/springer-static/esm/art:10.1038%2Fncomms12576/MediaObjects/41467_2016_BFncomms12576_MOESM1399_ESM.pdf",
+      "kind": "primary_publisher_supplement",
+      "access": "six_page_PDF_text_read_via_article_link",
+      "location": "S1 p1; S2 p2; S3/S4 p3; S5/Note1 p4; Notes pp4-6",
+      "finding": "S1 absorption fits, S2 line/fan assignments, S3 Hall plot, S4 fitted series, S5 77K field-dependent plotted spectra, Notes analysis. No raw scan/calibration/assay numerical attachments in listed supplement.",
+      "pages": 6,
+      "article_link_label": "Supplementary Figures 1-5, Supplementary Notes 1-2 and Supplementary References",
+      "article_reported_size": "1772 kb",
+      "screenshot_status": "Screenshot call returned textual reference only; no independent image inspection claimed; availability inference uses full PDF text/captions and publisher attachment list",
+      "binary_downloaded": false
+    },
+    {
+      "id": "O1",
+      "url": "https://www.nature.com/articles/nphys2857?error=cookies_not_supported",
+      "kind": "primary_publisher_article",
+      "access": "preview_metadata_read",
+      "location": "Supplementary information; corresponding authors; article dates",
+      "finding": "One supplement PDF linked; no qualified raw deposit linked in inspected preview.",
+      "publication_date": "2014-01-19",
+      "rights": "Copyrighted publisher material; do not infer raw-data rights"
+    },
+    {
+      "id": "O2",
+      "url": "https://media.springernature.com/original/springer-static/esm/art:10.1038%2Fnphys2857/MediaObjects/41567_2014_BFnphys2857_MOESM1_ESM.pdf",
+      "kind": "primary_publisher_supplement",
+      "access": "six_page_PDF_text_read_via_article_link",
+      "location": "Sample structure p1; Kane/optical theory pp1-6",
+      "finding": "Graded profile with growth ellipsometry and theory, not raw experimental/metrology archive.",
+      "pages": 6,
+      "article_reported_size": "896 kb",
+      "binary_downloaded": false
+    },
+    {
+      "id": "O3",
+      "url": "https://arxiv.org/html/1310.0969",
+      "kind": "primary_author_manuscript",
+      "access": "full_HTML_read",
+      "location": "Methods; sample structure; discussion of Landau line shape/carrier blocking",
+      "finding": "Corroborates specimen/growth and optical normalization/line-shape limitations. Theoretical circular selection rules do not establish acquired raw polarizations.",
+      "raw_bundle_located": false
+    },
+    {
+      "id": "H1",
+      "url": "https://hal.science/hal-01391282",
+      "kind": "institutional_article_record",
+      "access": "landing_page_browser_challenge",
+      "location": "HAL record indexed by author CV",
+      "finding": "Article citation located; record/file inventory not accessible. No assertion of no attached data."
+    },
+    {
+      "id": "H2",
+      "url": "https://hal.science/hal-00973456",
+      "kind": "institutional_article_record",
+      "access": "inaccessible_to_web_tool",
+      "location": "HAL record indexed by author CV",
+      "finding": "Orlita article record identified; file inventory not verified."
+    },
+    {
+      "id": "H3",
+      "url": "https://cv.hal.science/frederic-teppe",
+      "kind": "institutional_author_bibliography",
+      "access": "HTML_read",
+      "location": "Article entries for both papers",
+      "finding": "Independent institutional link/citation trail, not a raw dataset or permission."
+    },
+    {
+      "id": "G1",
+      "url": "https://doi.org/10.1002/pssb.2220820115",
+      "kind": "historical_primary_paper",
+      "access": "inherited_Stage0_audit_only",
+      "location": "Part II Figs8-10; existing Stage0 matrix",
+      "finding": "Polarization/sample evidence inherited; no fresh Wiley/full-text or raw deposit access claimed.",
+      "local_evidence": "../evidence_acquisition_2026-10-11/stage0_availability_matrix.md"
+    },
+    {
+      "id": "W1",
+      "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.16.3603",
+      "kind": "historical_primary_paper",
+      "access": "inherited_Stage0_audit_only",
+      "location": "1977 series; existing Stage0 matrix",
+      "finding": "Warmer circular-reflection series; no newly recovered raw specimen records.",
+      "local_evidence": "../evidence_acquisition_2026-10-11/stage0_availability_matrix.md"
+    },
+    {
+      "id": "X1",
+      "url": "https://zenodo.org/records/14608362",
+      "kind": "public_repository_exclusion",
+      "access": "search_indexed_record_metadata_read",
+      "location": "Description/files",
+      "finding": "Public HgTe Josephson-junction admittance/I-V and simulation dataset, not bulk HgCdTe HH-to-electron spectra; archive not downloaded."
+    },
+    {
+      "id": "X2",
+      "url": "https://entrepot.recherche.data.gouv.fr/dataset.xhtml?persistentId=doi%3A10.57745%2FENJADK",
+      "kind": "public_repository_exclusion",
+      "access": "search_indexed_record_metadata_read",
+      "location": "Description/files/license",
+      "finding": "HgTe bilinear magnetoresistance figure dataset, different observable; archive not downloaded."
+    },
+    {
+      "id": "X3",
+      "url": "https://zenodo.org/records/17584847",
+      "kind": "public_repository_exclusion",
+      "access": "full_record_metadata_read",
+      "location": "Description/files",
+      "finding": "Numerical polarized field-dependent optical spectra, but neodymium gallate, not HgCdTe. Wrong-material exclusion; files not downloaded."
+    },
+    {
+      "id": "P1",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5013552/",
+      "kind": "public_article_mirror",
+      "access": "indexed_supplement_description_read_direct_page_recaptcha",
+      "location": "Supplementary material",
+      "finding": "Indexed listing names ncomms12576-s1.pdf; no independent complete live file inventory via challenged page."
+    },
+    {
+      "id": "I1",
+      "url": "https://mostwiedzy.pl/pl/publication/temperature-driven-massless-kane-fermions-in-hgcdte-crystals,20250203220344682482928-0",
+      "kind": "institutional_publication_record",
+      "access": "indexed_metadata_read_direct_page_browser_challenge",
+      "location": "Publication entry",
+      "finding": "Publication metadata/external article pointer, not a recovered raw deposit."
+    }
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "id": "Teppe_A_lowT",
+      "sources": [
+        "T1",
+        "T2"
+      ],
+      "public_complete_package": "NO",
+      "accepted": false,
+      "confidence": "high_publisher_and_local_classification_retention_unknown",
+      "criteria": {
+        "public_authentic_raw_profiles": "NOT_LOCATED",
+        "same_specimen_three_fields": "UNQUALIFIED",
+        "measured_polarization_calibrated": "UNQUALIFIED",
+        "signal_reference_dark_processing": "UNQUALIFIED",
+        "field_temperature_energy_errors": "UNQUALIFIED",
+        "window_background_tail_adapter": "UNQUALIFIED",
+        "independent_assay_spatial_errors": "UNQUALIFIED",
+        "provenance_reuse_permission": "UNQUALIFIED"
+      },
+      "retained_raw_existence": "UNKNOWN"
+    },
+    {
+      "rank": 2,
+      "id": "Orlita_graded",
+      "sources": [
+        "O1",
+        "O2",
+        "O3"
+      ],
+      "public_complete_package": "NO",
+      "accepted": false,
+      "confidence": "high_publisher_and_local_classification_retention_unknown",
+      "criteria": {
+        "public_authentic_raw_profiles": "NOT_LOCATED",
+        "same_specimen_three_fields": "UNQUALIFIED",
+        "measured_polarization_calibrated": "UNQUALIFIED",
+        "signal_reference_dark_processing": "UNQUALIFIED",
+        "field_temperature_energy_errors": "UNQUALIFIED",
+        "window_background_tail_adapter": "UNQUALIFIED",
+        "independent_assay_spatial_errors": "UNQUALIFIED",
+        "provenance_reuse_permission": "UNQUALIFIED"
+      },
+      "retained_raw_existence": "UNKNOWN"
+    },
+    {
+      "rank": 3,
+      "id": "Teppe_B_lowT",
+      "sources": [
+        "T1",
+        "T2"
+      ],
+      "public_complete_package": "NO",
+      "accepted": false,
+      "confidence": "high_publisher_and_local_classification_retention_unknown",
+      "criteria": {
+        "public_authentic_raw_profiles": "NOT_LOCATED",
+        "same_specimen_three_fields": "UNQUALIFIED",
+        "measured_polarization_calibrated": "UNQUALIFIED",
+        "signal_reference_dark_processing": "UNQUALIFIED",
+        "field_temperature_energy_errors": "UNQUALIFIED",
+        "window_background_tail_adapter": "UNQUALIFIED",
+        "independent_assay_spatial_errors": "UNQUALIFIED",
+        "provenance_reuse_permission": "UNQUALIFIED"
+      },
+      "retained_raw_existence": "UNKNOWN"
+    },
+    {
+      "rank": 4,
+      "id": "Guldner_II",
+      "sources": [
+        "G1"
+      ],
+      "public_complete_package": "NO",
+      "accepted": false,
+      "confidence": "moderate_inherited_only",
+      "criteria": {
+        "public_authentic_raw_profiles": "NOT_LOCATED",
+        "same_specimen_three_fields": "UNQUALIFIED",
+        "measured_polarization_calibrated": "UNQUALIFIED",
+        "signal_reference_dark_processing": "UNQUALIFIED",
+        "field_temperature_energy_errors": "UNQUALIFIED",
+        "window_background_tail_adapter": "UNQUALIFIED",
+        "independent_assay_spatial_errors": "UNQUALIFIED",
+        "provenance_reuse_permission": "UNQUALIFIED"
+      },
+      "retained_raw_existence": "UNKNOWN"
+    },
+    {
+      "rank": 5,
+      "id": "Weiler_1977",
+      "sources": [
+        "W1"
+      ],
+      "public_complete_package": "NO",
+      "accepted": false,
+      "confidence": "moderate_inherited_only",
+      "criteria": {
+        "public_authentic_raw_profiles": "NOT_LOCATED",
+        "same_specimen_three_fields": "UNQUALIFIED",
+        "measured_polarization_calibrated": "UNQUALIFIED",
+        "signal_reference_dark_processing": "UNQUALIFIED",
+        "field_temperature_energy_errors": "UNQUALIFIED",
+        "window_background_tail_adapter": "UNQUALIFIED",
+        "independent_assay_spatial_errors": "UNQUALIFIED",
+        "provenance_reuse_permission": "UNQUALIFIED"
+      },
+      "retained_raw_existence": "UNKNOWN"
+    }
+  ],
+  "queries": [
+    {
+      "query": "\"10.1038/ncomms12576\" data repository supplementary",
+      "batch": 1,
+      "domains": null
+    },
+    {
+      "query": "\"ncomms12576\" site:hal.science",
+      "batch": 1,
+      "domains": null
+    },
+    {
+      "query": "\"nphys2857\" data repository",
+      "batch": 1,
+      "domains": null
+    },
+    {
+      "query": "\"Temperature-driven massless Kane fermions\" site:figshare.com OR site:zenodo.org OR site:researchdata.springernature.com OR site:recherche.data.gouv.fr",
+      "batch": 1,
+      "domains": null
+    },
+    {
+      "query": "HgCdTe magnetotransmission raw spectra data repository polarization",
+      "batch": 2,
+      "domains": [
+        "zenodo.org",
+        "figshare.com",
+        "data.mendeley.com",
+        "recherche.data.gouv.fr"
+      ]
+    },
+    {
+      "query": "\"Orlita\" \"2014\" \"Kane\" site:hal.science",
+      "batch": 2,
+      "domains": null
+    },
+    {
+      "query": "\"Teppe\" \"magneto\" \"data\" site:magnet.fsu.edu",
+      "batch": 2,
+      "domains": null
+    },
+    {
+      "query": "\"ncomms12576\" \"data\" site:github.com OR site:osf.io OR site:datadryad.org",
+      "batch": 2,
+      "domains": null
+    }
+  ],
+  "merged_query_outcomes": {
+    "1": "Merged search results: primary articles/PDF/PMC, HAL article citation and institutional/secondary publication records; no qualifying raw record identified. No per-query zero-hit counts inferred from merged results.",
+    "2": "Merged results: HAL CV, HgTe transport/device deposits, wrong-material polarized optical deposit and unrelated records; no qualifying HgCdTe response record. Excluded using metadata; no large archives downloaded."
+  },
+  "access_limitations": [
+    "Direct encoded publisher supplement URLs initially failed; both PDFs recovered via authentic article links. Canonical redirected URLs recorded above.",
+    "Nature article ordinary URLs encountered redirects; cookies-not-supported publisher pages accessible.",
+    "HAL two record pages and two public API queries unavailable/challenged; no file-list absence claim. API requests are logged below.",
+    "PMC/MOST direct pages challenged; only indexed metadata used there."
+  ],
+  "blocked_API_URLs": [
+    "https://api.archives-ouvertes.fr/search/?q=halId_s%3Ahal-01391282&fl=halId_s,title_s,docType_s,fileMain_s,files_s,uri_s,doiId_s,submittedDate_s&wt=json",
+    "https://api.archives-ouvertes.fr/search/?q=halId_s%3Ahal-00973456&fl=halId_s,title_s,docType_s,fileMain_s,files_s,uri_s,doiId_s,submittedDate_s&wt=json"
+  ],
+  "source_chronology": [
+    {
+      "date": "2014-01-19",
+      "event": "Orlita publisher publication date (not data acquisition or deposit date)"
+    },
+    {
+      "date": "2016-08-30",
+      "event": "Teppe publisher publication date; on-request availability is a statement at publication, not current retention confirmation"
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Original Stage0 two-specimen audit NO-GO; unchanged inherited historical-source details"
+    },
+    {
+      "date": "2026-10-15",
+      "event": "Preceding competing-route analytical recommendation; new finite public one-specimen intake authorized; fresh primary/SI and bounded repository checks in this package"
+    }
+  ],
+  "binary_downloads": 0,
+  "new_raw_datasets_accepted": 0,
+  "new_spectral_analyses": 0,
+  "native_jobs": 0,
+  "outreach_sent": false,
+  "author_request": "UNSENT_DRAFT",
+  "physical_xc": null,
+  "original_Stage0_unchanged": true,
+  "limitations": "Tool access/indices are incomplete. No universal nonexistence, completeness, data retention, license for unseen raw data or current mailbox deliverability is asserted."
+}

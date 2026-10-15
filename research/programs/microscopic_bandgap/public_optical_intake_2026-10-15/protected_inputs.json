@@ -1,0 +1,96 @@
+{
+  "created_UTC": "2026-10-15T23:06:32.676283+00:00",
+  "baseline": "4affbd8489b5f426b1f8e47db18503a40c3a1d93",
+  "frozen_files": {
+    "AGENTS.md": {
+      "bytes": 3806,
+      "sha256": "d29d00192e7e46058b19f2e6291b924bc4eca39ed889861e429c31c14755bde1"
+    },
+    "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_report.md": {
+      "bytes": 6175,
+      "sha256": "f398d0a077b2a39ddac3d9dcc05a745bf8adbe367583ae66f2389d44e09fc586"
+    },
+    "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_sources.json": {
+      "bytes": 18128,
+      "sha256": "48e2f5e55331a61d486c043b558c1df313f27a1dabd4e004775f3cb5212cd626"
+    },
+    "research/programs/microscopic_bandgap/evidence_acquisition_2026-10-11/stage0_availability_matrix.md": {
+      "bytes": 5810,
+      "sha256": "4dff7e05b59544593eeddce96c0b86c2929bf7cf0586ea4262b9c75841997bcc"
+    },
+    "research/programs/microscopic_bandgap/competing_inversion_routes_2026-10-15/decision.md": {
+      "bytes": 5360,
+      "sha256": "529fb46d5f60a252d2a91b98023230fe31a1ee275ec0f9539809e379047acb8b"
+    },
+    "research/programs/microscopic_bandgap/competing_inversion_routes_2026-10-15/one_next_input.md": {
+      "bytes": 6062,
+      "sha256": "c936e3f2552a7d46d64204f9e5836cd6383c00ce23c5b622df90020dd0f6fe00"
+    },
+    "research/programs/microscopic_bandgap/competing_inversion_routes_2026-10-15/route_B_optical_mass.md": {
+      "bytes": 11523,
+      "sha256": "ec568e0e86d4ee7d2e95e4cf6fe80acb6533e7cec64279e6c3d1a431bcf31d9c"
+    },
+    "data/experimental/orlita2014_primary_near_critical_constraint.csv": {
+      "bytes": 724,
+      "sha256": "e6eedc0edea12493f623acf94ddf8c82f516eda84190428655be58d86963718c"
+    },
+    "data/experimental/teppe2016_primary_magneto_optical_gap_points.csv": {
+      "bytes": 1189,
+      "sha256": "2f6d1a052d75f2a783beaa0370bd828f1434748abbf878b5f6f1c0af9a733bf6"
+    },
+    "data/experimental/teppe2016_figure_annotated_signed_gaps.csv": {
+      "bytes": 1738,
+      "sha256": "eaceef49fd43d2c940648d07d398b75752cccc95498124103cec5764d548b1f4"
+    },
+    "data/experimental/teppe2016_kane_velocity_summary.csv": {
+      "bytes": 315,
+      "sha256": "dbc58333149e5f6bece0452c814eaebf53d6445b182bb3103480e80c7a073dc9"
+    },
+    "data/validation/teppe2016.md": {
+      "bytes": 6811,
+      "sha256": "a56e13f9bcc13f918cb8c6fb48f94c41a04fa23bfc18b261eef855032fe8c772"
+    },
+    "data/validation/teppe2016_explicit_points.csv": {
+      "bytes": 1296,
+      "sha256": "f3412c1404ce7e56725fe3263dfa93f648bc4400445a7ba233fabccbb50b1acc"
+    },
+    "data/validation/teppe2016_distributional_transition_screen.json": {
+      "bytes": 2606,
+      "sha256": "c1b218dc22ed70caeaa897711e310812b4e9ac7ab744afdaee7d869e2c6db1bb"
+    },
+    "literature/papers/README.md": {
+      "bytes": 5565,
+      "sha256": "8cd23f10ef13842afa35cbb0ecd0868d11031f791f3da56f0027ae3cf56a7b81"
+    },
+    "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": {
+      "bytes": 8517,
+      "sha256": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2"
+    },
+    "research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/GUARD_RESULT.json": {
+      "bytes": 564,
+      "sha256": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41"
+    },
+    "research/programs/microscopic_bandgap/single_state304_2026-10-15/native_result.json": {
+      "bytes": 19619,
+      "sha256": "a3eae387e5b89f1d78e8483e7bbea9c44e79895894b4b370c7a9dc26a5d03ab4"
+    },
+    "research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/verification.json": {
+      "bytes": 2116,
+      "sha256": "e551f25c6640b9e3a91d7fefdc59ae920804d3991477456f220d6585c1085dff"
+    },
+    "research/programs/microscopic_bandgap/physical_inversion_2026-10-15/verification.json": {
+      "bytes": 1797,
+      "sha256": "51749b36b3e888b71d1d59b0b3e3c8aadf206c0243e871f82f31f88efd09d09d"
+    }
+  },
+  "DFT_tracked_diff_sha256": "a716be79058b719e363f19b16fdacc228e4093b3f87bdd6b64ac96aa7e78b0f0",
+  "stock_QE_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "local_data_classification": {
+    "data/experimental/orlita2014_primary_near_critical_constraint.csv": "Published/model-assisted near-critical constraint; not raw spectra",
+    "data/experimental/teppe2016_primary_magneto_optical_gap_points.csv": "Published fit/intercept annotations; not raw spectra",
+    "data/experimental/teppe2016_figure_annotated_signed_gaps.csv": "Figure annotations; not raw spectra",
+    "data/experimental/teppe2016_kane_velocity_summary.csv": "Published fitted velocity summary; not raw spectra",
+    "data/validation/teppe2016_explicit_points.csv": "Published numerical summaries; not raw spectra",
+    "data/validation/teppe2016_distributional_transition_screen.json": "Calculated empirical-law screen; not a material measurement"
+  }
+}

@@ -2,9 +2,32 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED; analytical competing-route results accepted under assumptions. H304 remains FD nonstationary; all native refusals immutable. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED; analytical competing-route results accepted under assumptions. New public three-field optical intake NO-GO: complete raw/calibration/assay package not located. H304 remains FD nonstationary; all native refusals immutable. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 21:34 UTC
+**Updated:** 2026-10-15 23:09 UTC
+
+## Public one-specimen optical intake COMPLETE — 2026-10-15
+
+[Decision](public_optical_intake_2026-10-15/decision.md),
+[ranked availability](public_optical_intake_2026-10-15/availability_matrix.md),
+[source chronology](public_optical_intake_2026-10-15/sources.json),
+[unsent request](public_optical_intake_2026-10-15/draft_request.md),
+[test/intake gate](public_optical_intake_2026-10-15/three_field_test.md).
+From clean 4affbd8, fresh publisher-linked six-page Teppe/Orlita supplements and
+eight targeted public queries did not locate a complete independently calibrated
+raw three-field HH-to-electron package with polarization and independent assay.
+Teppe S5 is plotted 77 K data; on-request availability is not public raw access.
+HAL/API file inventories were inaccessible and remain UNKNOWN, not empty.
+Local extracted fits/annotations/calculated screens are not raw spectra.
+
+STOP at `NO_GO_PUBLIC_RAW_CALIBRATION_ASSAY_NOT_LOCATED`; no claim that records
+never existed. One practical next route is the UNSENT draft to Teppe's printed
+correspondence address for existing low-T sample-A records, permission and matched
+metrology. No contact, new measurement, spectrum analysis, synthetic rerun or
+native job. A qualified package could test the conditional optical adapter via
+held-out B3; it cannot alone identify microscopic mass/topology or physical x_c.
+Original two-specimen Stage0 NO-GO, old draft, AGENTS, native failures and all
+conditional physics remain unchanged. No novelty or new material coefficient.
 
 ## Competing inversion routes COMPLETE — 2026-10-15 21:34 UTC
 

@@ -1,0 +1,29 @@
+{
+  "status": "PASS_EVIDENCE_CONSISTENCY_AND_PRESERVATION_ONLY",
+  "timestamp_UTC": "2026-10-15T23:11:28.096483+00:00",
+  "baseline": "4affbd8489b5f426b1f8e47db18503a40c3a1d93",
+  "decision": "NO_GO_PUBLIC_RAW_CALIBRATION_ASSAY_NOT_LOCATED",
+  "public_raw_intake": "NO_GO",
+  "independently_qualified_material_dataset": false,
+  "physical_xc": null,
+  "frozen_files_checked": 20,
+  "source_routes_checked": 15,
+  "specimen_candidates": 5,
+  "targeted_queries": 8,
+  "local_links_checked": 10,
+  "prior_handoff_content_preserved": true,
+  "DFT_tracked_diff_sha256": "a716be79058b719e363f19b16fdacc228e4093b3f87bdd6b64ac96aa7e78b0f0",
+  "stock_QE_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "package_sha256": {
+    "availability_matrix.md": "e2f51088cd0427c101e822fed349958c93ffc4557a3b3719394968b8e1afd0ac",
+    "decision.md": "6a4d76d2fc275a3d0401a1aa3fbf7ecfa342ab763fb3fcc93ab4593612ea2843",
+    "draft_request.md": "44f69a899c7c9eb25f8c799c51a99db358c289507d6947bad60fa83a26b94bab",
+    "handoff_ledger.md": "db8b9f282b48b14150f4083f3673815dd8783767340b67ddc241464f4da36921",
+    "protected_inputs.json": "38426a459d703286c2f8f3ac3611bdd4a67c1f85bcaaab727240051682d8a88d",
+    "sources.json": "a40c40e38037f9d516bce865207b0e986a925f0013683a10ef05b2344e19acf0",
+    "three_field_test.md": "162884eab988e6888c791f4b435f430a02f268b9cec51e86bb3627322ee198b1",
+    "verification.md": "bd2e4349e1e0c2f0060e238972c33598a13c539b12fef0add9816a773d176075",
+    "verify_intake.py": "b53ddba286642a75fa3d248f200db714a1b607633666877e737e44dc4ab75bbf"
+  },
+  "limits": "Offline checks do not prove global archive absence or current retention, remote content immutability, calibration, raw-data rights or mailbox operation. Web evidence is the manually audited source chronology; no scientific test rerun."
+}

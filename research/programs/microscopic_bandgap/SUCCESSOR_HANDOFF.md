@@ -25,6 +25,26 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+## Latest finite public optical intake COMPLETE — 2026-10-15
+
+From clean pushed 4affbd8: `public_optical_intake_2026-10-15/decision.md`,
+`availability_matrix.md`, `sources.json`, `three_field_test.md`, `draft_request.md`
+and verification record the new bounded search. Both publisher-linked supplements
+were freshly read; eight targeted queries plus linked institutional routes found
+no complete publicly accessible raw/polarization/calibration/independent-assay
+three-field HgCdTe package. Teppe S5 is a plotted 77 K series, not raw low-T records;
+supporting data remain offered on request. HAL/API access was incomplete, so do
+not call those file inventories empty. Local fitted/figure/calculated summaries
+remain excluded. This is an availability boundary, not global nonexistence.
+
+STOP with a precise UNSENT sample-A request to Teppe's publication correspondence
+address; current mailbox, raw retention/rights and sample-assay mapping unconfirmed.
+No outreach, native job, new spectrum/model calculation or historical-goal change.
+Preserve the older Stage0 pair NO-GO and unsent Guldner draft. Qualified records
+could test the operational Kane adapter using held-out B3; still no microscopic
+mean/disorder determination or physical zero-T x_c. Do not repeat broad searches
+without a concrete new source lead. All earlier handoff content below is retained.
+
 ## Latest competing-route phase COMPLETE — 2026-10-15 21:34 UTC
 
 New assignment fromc80147f completed three analytical-only milestones in
