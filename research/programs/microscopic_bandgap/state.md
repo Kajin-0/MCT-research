@@ -2,9 +2,39 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; two ordered PBE compositions plus a SAME-COMPOSITION x=.25 environment contrast now have real native spectra. Sharing changes spectral redistribution and lowers finite-cell PBE energy; Gaussian and causal contrasts differ. HSE source/FD-state qualification remains unpassed; physical x_c OPEN.
+**State:** historical physical goal BLOCKED; ordered PBE composition/environment spectra established. NEW complete SAME-D native HSE operator passes joint symmetry and component checks; its trial is not FD-stationary. A304action space identifies152missing next queries. Converged HSE spectra/random-alloy x_c remain OPEN.
 
-**Updated:** 2026-10-15 06:47 UTC
+**Updated:** 2026-10-15 13:56 UTC
+
+## Complete SAME-D HSE operator, actual FD obstruction — 2026-10-15 13:56 UTC
+
+[Native decision](same_density_hamiltonian_2026-10-15/decision.md),
+[reset ledger](same_density_hamiltonian_2026-10-15/handoff_ledger.md).
+Fromb799d28, exactly ONE new8atom176capacity/144e/HSE+SOC50-200-200Ry/Gamma-q1
+host query. Explicit NEW positive trialP142+.5P4, not FD-of-HSE. Native fixed-
+occupation density path then exxinit->v_of_rho->set_vrs->newd reconstruct SAME-D
+kinetic/local/nonlocalSOC/DIRECT Fock. No oldACE, SCF, Cd, restart orHSE16.
+
+CALCULATED: charge144.00000000000006e, independentrho agreement2e-15, complete
+h_psi/component difference2.4e-16; all24Td/Theta~1e-14. Owner185.30s, kernel
+4.246GB; all12GiB/swap0/tasks12/600s/floors/live2rank/cleanup gates pass. Original
+physical8atom40Ry reference bytes fixed; projectedH ordering−.728387722eV and
+Gamma8spread4neV are operator expectations, NOT native/converged gap values.
+
+The missing completeH[D0] acquisition is REMOVED. Native operator symmetry
+does not supply FDstationarity: projected density mismatchop.0040404, Fermi
+Ritz quartet whole-space residual.02625424Ry. Conditional commutator lower
+bound gives full-space FDdensityerrorop>=1.2211e-7. No tiny useful upperbound
+or full-state convergence is invented. Old negative gates remain immutable.
+
+New read-only block-Krylov completion: occupied298/full304spaces retain joint
+symmetry2.1e-11 and capture existingHD/HQ actions. Next indispensable new native
+input is ONLY152H[D0] actions on residual directions, not a repeat of knownHQ.
+Unknown lower-right block and density-update/outer convergence still required.
+No second native query under this one-acquisition scope. Raw packets/source/
+ELF/PP/backend/owner hashes archived; protectedDFT/stock/oldledger exact. No
+queued family, sessions/main/blockedgoal unchanged. Continue independent matrix
+environment/N3identifiability analysis; no physicalxc or empirical fit.
 
 ## Follow-through: redistribution and exact HSE input boundary — 2026-10-15 06:47 UTC
 

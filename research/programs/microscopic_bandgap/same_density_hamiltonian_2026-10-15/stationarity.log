@@ -1,0 +1,28 @@
+{
+  "status": "CALCULATED complete same-D commutator witness and NEW residual-space audit",
+  "fullspace_commutator_op_Ry": 0.04852430510331807,
+  "fullspace_commutator_F_Ry": 0.5178336507279097,
+  "finite_model_roundoff_allowance_Ry": 6.079319282834042e-07,
+  "whole_space_FD_density_error_lower_op": 1.2211278132646932e-07,
+  "universal_whole_space_density_error_upper_op": 1.0,
+  "bound_is_conditional_on_captured_finite_operator_and_roundoff_model": true,
+  "excludes_1e8_operator_density_stationarity": true,
+  "residual_ranks_by_Ry_threshold": {
+    "0.001": 146,
+    "0.0001": 146,
+    "1e-05": 146,
+    "1e-06": 146,
+    "1e-07": 146,
+    "1e-08": 146
+  },
+  "next_space_dimension": 298,
+  "remaining_HD_offspace_operator_Ry": 1.2107460804679748e-16,
+  "max_all24_Theta_translation_new_space_leakage_F": 2.0454050181646555e-11,
+  "new_space_passes_UNCHANGED_1e8_symmetry_gate": true,
+  "basis_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/occupied_residual_basis.npz",
+  "basis_sha256": "47f9eb2746e7ffe660440a8ffbba18f3ca08bf0bc515c43f9608e18f26b8e8d2",
+  "old_space_or_FD_failure_not_reclassified": true,
+  "does_not_contain_unknown_H_on_new_directions": true,
+  "new_native_jobs": 0,
+  "physical_xc": null
+}

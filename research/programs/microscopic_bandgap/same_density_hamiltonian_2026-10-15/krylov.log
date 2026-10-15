@@ -1,0 +1,42 @@
+{
+  "status": "CALCULATED minimal one-step action completion; not FD/selfconsistent solution",
+  "dimension": 304,
+  "additional_action_directions": 152,
+  "smallest_residual_singular_Ry": 0.0072262751350126685,
+  "maximum_all_group_Theta_translation_leakage_F": 2.070231711697048e-11,
+  "full_HQ_outside_new_space_F_Ry": 7.314340931727263e-14,
+  "partial_Ritz_indices_1based": [
+    145,
+    144,
+    143,
+    146
+  ],
+  "old_Ritz_Gamma8_like_residuals_Ry": [
+    0.02625424167964428,
+    0.026254241679644023,
+    0.026254241679644064,
+    0.02625424167964382
+  ],
+  "after_occupied_only_completion_Ry": [
+    0.0007068803321796961,
+    0.0007068803321803852,
+    0.0007068803321805219,
+    0.0007068803321792351
+  ],
+  "after_full_action_completion_Ry": [
+    6.470407003338132e-16,
+    7.064458517704062e-16,
+    6.08031015338174e-16,
+    4.458908015920382e-16
+  ],
+  "actual_Ritz_eigenvectors_unchanged": true,
+  "new_304_Hamiltonian_lower_right_block_UNKNOWN": true,
+  "not_native_solved_bands": true,
+  "next_minimum_independent_native_action_columns": 152,
+  "new_query_forecast_same_D_using_measured170action185s": true,
+  "one_additional_query_needs_NEW_frozen_profile_and_complete_same_D_controls": true,
+  "new_native_jobs": 0,
+  "basis_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/full_action_basis.npz",
+  "basis_sha256": "c1b5c1a863d492860be148543dcfecf4886c95c7ed04d6ffd952edbcf46436e5",
+  "physical_xc": null
+}

@@ -1,9 +1,31 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 06:47 UTC
-**Status:** NATIVE PBE ENVIRONMENT + SPECTRAL REDISTRIBUTION + FD BRIDGE AUDIT COMPLETE; STOP AT SAME-D HAMILTONIAN INPUT; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 13:56 UTC
+**Status:** NATIVE SAME-D FULL HSE OPERATOR PASS; FD TRIAL NOT STATIONARY;304SPACE REQUIRES152APPEND ACTIONS; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Native same-D bridge breakthrough and next query — 2026-10-15 13:56 UTC
+
+Fromb799d28: [decision](../same_density_hamiltonian_2026-10-15/decision.md),
+[handoff](../same_density_hamiltonian_2026-10-15/handoff_ledger.md). ONE native
+fixed-trial8atomHSE+SOC host acquisition passes complete component/h_psi, source
+bytes, independentFFTcharge and allTd/Theta gates. Native185.3s/4.246GBkernel,
+12GiB/swap0/tasks12/600s and host/output/finalcleanup intact. No SCF/oldACE/Cd.
+Complete H[D0] is now MEASURED, no longer a missing-input blocker at that trial.
+
+FDstate remains false: densityop mismatch.00404 in152; actual full commutator
+gives conditional whole-space density lower1.221e-7. Quartet Ritz residual
+.02625Ry despite4neVprojectedblock spread. No eigenvalue/gap/xc or convergence
+claim. Next152new residual directions produce a304joint-symmetry action space
+(2.1e-11leakage); new lower-right Hblock still unknown. A future append query
+would reuse knownHQandactualD0, with NEW typed/state/owner admission, not restart
+or silently reuse incompatible state. No second native query issued here.
+
+Oldcompile/import andlink failures retained; b3links with unchanged nativeEXX
+arithmetic. Both original byte/source/ACE/symmetry/owner failures stand. Protected
+DFT/stock/library/legacyledger/HSE16/other sessions exact; historicalgoal unchanged.
+Continue the independent retained-matrix/N3phase, not another generic audit.
 
 ## Continuing science phases and concrete stop — 2026-10-15 06:47 UTC
 
