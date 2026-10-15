@@ -2,9 +2,25 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; a NEW native-direct TR-constrained exchange constructor passes, and actual old-ACE/direct off-span error is measured. Joint crystal/translation symmetry and a consistent native SCF state bridge remain unqualified. Cd is withheld; physical x_c remains OPEN.
+**State:** historical physical goal BLOCKED; a NEW native-direct TR-constrained exchange constructor passes, and actual old-ACE/direct off-span error is measured. A NEW nearby152space now closes joint Td/Theta/translations numerically, but changes old source coverage and lacks actual direct/Hamiltonian/FD state qualification. HSE Cd is withheld; physical x_c remains OPEN.
 
-**Updated:** 2026-10-15 04:32 UTC
+**Updated:** 2026-10-15 05:25 UTC
+
+## Joint crystal/Theta space, actual state still missing — 2026-10-15 05:25 UTC
+
+[New decision](joint_symmetry_2026-10-15/decision.md),
+[proof and state obstruction](joint_symmetry_2026-10-15/theory.md).
+CALCULATED new152space maxall24Td/Theta/primitive-translation leakage1.61e-14.
+Original occupied/reference coverage changes4.65e-7/9.30e-7: old1e-10source
+preservation gates still FAIL. No native occupations changed, no new HSE run,
+no inherited source-exact Fock or FD state claim. PROVEN separated twirled
+projectors have an invariant nearby rank-preserving cutoff with distance
+<=delta/(1-delta). PROVEN space closure alone does not imply D=f(H[D]); actual
+full Hamiltonian and off-space/FD/charge residual remain indispensable.
+
+Next independent acquisition is a separately preregistered PBE16 orderedx=.125
+host/Cd pair, not a repeat of the defective HSE host or old90Ry cold-smearing
+PBE16 attempt. No new numerical chemical result yet at this checkpoint.
 
 ## Retained PBE causal chemistry response — 2026-10-15 04:32 UTC
 

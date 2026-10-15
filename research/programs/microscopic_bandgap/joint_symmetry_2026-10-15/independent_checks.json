@@ -1,0 +1,8 @@
+{
+  "projector_twirl_error": 0.00999933334666654,
+  "spectral_rounding_distance": 0.00999983333416667,
+  "bound": 0.010100329912371652,
+  "FD_commutator_counterexample": 0.08485281374238572,
+  "all_joint_closure_metrics_below_1e_10": true,
+  "native_release": false
+}
