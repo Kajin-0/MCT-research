@@ -1,0 +1,115 @@
+{
+  "status": "PASS",
+  "physical_xc": null,
+  "material_validation": false,
+  "native_jobs": 0,
+  "R02_projector_equivalence_error": 3.3306690738754696e-16,
+  "Td_operation_count": 24,
+  "maximum_Kane_covariance_error": 2.3673005393605136e-16,
+  "maximum_local_vertex_covariance_error": 2.0659508952591495e-16,
+  "individual_site_inter_irrep_norm": 0.8164965809277261,
+  "pair_tensor_identity_error": 8.881784197001252e-16,
+  "Bernoulli_examples": [
+    {
+      "x": 0.125,
+      "mean_vector_norm": 1.0622968402425924e-18,
+      "exact_centered_identity_error": 2.220446049250313e-16,
+      "pair_covariance_error": 6.938893903907228e-18,
+      "one_pair_cross_error": 5.2523978534532e-19,
+      "cross_tetra_pair_error": 2.320320323513639e-19,
+      "Gamma6_to_HH_weights": [
+        0.03190104166666668,
+        0.03190104166666667,
+        0.031901041666666685
+      ],
+      "predicted_pair_IR_weight": 0.031901041666666664,
+      "isotropic_longitudinal_dark_norms": [
+        0.0,
+        1.7628294251700235e-17,
+        4.483306530494751e-17
+      ],
+      "nonanalytic_transverse_weights": [
+        0.0,
+        0.06596209912536445,
+        0.04166666666666673
+      ]
+    },
+    {
+      "x": 0.25,
+      "mean_vector_norm": 6.938893903907228e-18,
+      "exact_centered_identity_error": 1.1102230246251565e-16,
+      "pair_covariance_error": 1.3877787807814457e-17,
+      "one_pair_cross_error": 3.53015866104288e-18,
+      "cross_tetra_pair_error": 1.094931848638283e-18,
+      "Gamma6_to_HH_weights": [
+        0.09375000000000003,
+        0.09375000000000004,
+        0.09375000000000006
+      ],
+      "predicted_pair_IR_weight": 0.09375,
+      "isotropic_longitudinal_dark_norms": [
+        0.0,
+        1.7628294251700235e-17,
+        4.483306530494751e-17
+      ],
+      "nonanalytic_transverse_weights": [
+        0.0,
+        0.06596209912536445,
+        0.04166666666666673
+      ]
+    },
+    {
+      "x": 0.5,
+      "mean_vector_norm": 2.7755575615628914e-17,
+      "exact_centered_identity_error": 0.0,
+      "pair_covariance_error": 5.551115123125783e-17,
+      "one_pair_cross_error": 6.938893903907228e-18,
+      "cross_tetra_pair_error": 0.0,
+      "Gamma6_to_HH_weights": [
+        0.1666666666666667,
+        0.1666666666666667,
+        0.16666666666666677
+      ],
+      "predicted_pair_IR_weight": 0.16666666666666666,
+      "isotropic_longitudinal_dark_norms": [
+        0.0,
+        1.7628294251700235e-17,
+        4.483306530494751e-17
+      ],
+      "nonanalytic_transverse_weights": [
+        0.0,
+        0.06596209912536445,
+        0.04166666666666673
+      ]
+    }
+  ],
+  "anisotropic_exponent_checks": [
+    {
+      "epsilon": 0.01,
+      "mixed_quadratic_quartic_volume": 0.015895341225273762,
+      "exact_volume": 0.015895341225273762,
+      "DOS_power": 0.25
+    },
+    {
+      "epsilon": 0.04,
+      "mixed_quadratic_quartic_volume": 0.08991762855732131,
+      "exact_volume": 0.0899176285573213,
+      "DOS_power": 0.25
+    }
+  ],
+  "flat_limit_checks": [
+    {
+      "curvature": 0.01,
+      "error_to_flat_kernel": 0.13802391240773682
+    },
+    {
+      "curvature": 0.001,
+      "error_to_flat_kernel": 0.013405683718756153
+    },
+    {
+      "curvature": 0.0001,
+      "error_to_flat_kernel": 0.0013367282008658217
+    }
+  ],
+  "exact_alloy_IR_exponent_claim": false
+}

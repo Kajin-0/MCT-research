@@ -4,7 +4,22 @@
 
 **State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 20:51 UTC
+**Updated:** 2026-10-15 21:09 UTC
+
+## Competing inversion routes: cycle1 — 2026-10-15 21:09 UTC
+
+New analytical-only assignment fromc80147f;
+[scope](competing_inversion_routes_2026-10-15/scope.md),
+[routeA](competing_inversion_routes_2026-10-15/route_A_symmetry_and_IR.md),
+[ledger](competing_inversion_routes_2026-10-15/cycles_and_decisions.md).
+Exact fixed-local Bernoulli pair counterexample: zero coherent Gamma6/8mixing
+but nonzero HH Born covariance atq0. Ensemble Td is not individual-site Td;
+all24group/TR, R02projectors and covariance checksPASS. Uniform curvature and
+nonzero angular weight are necessary for the quoted exponent formula; flat,
+nonanalytic and dark-channel cases separated. No material coupling/exponent.
+Continue competing no-atom Kane/optical criterion and selection of ONE input;
+do not automatically request more HSE or the earlier IR certificate. No native
+job, old-goal change or reinterpretation of any historical failure.
 
 ## Analytical physical-inversion assignment COMPLETE — 2026-10-15 20:51 UTC
 
