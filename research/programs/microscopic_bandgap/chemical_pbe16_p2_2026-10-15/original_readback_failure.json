@@ -1,0 +1,62 @@
+{
+  "status": "ORIGINAL readback assertion FAILED, preserved; native owner/SCF success separate",
+  "error": "science.py:76 compares absolute HDF5 reciprocal B/alat to inverse physical cell; incorrect units",
+  "source_sha256": "419b91f90afe947eabf6327578645e8c0fd9a5bfda272de4409ceecd4101990b",
+  "source_unchanged": true,
+  "original_scientific_gate_pass": false,
+  "native_rerun": false,
+  "terminal": {
+    "client_returncode": 0,
+    "manager": {
+      "ActiveState": "inactive",
+      "CollectMode": "inactive",
+      "ControlGroup": "",
+      "Delegate": "no",
+      "ExecMainCode": "1",
+      "ExecMainStatus": "0",
+      "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe16_p2_2026-10-15/run_pair.py guard host ; ignore_errors=no ; start_time=[Thu 2026-10-15 05:24:47 UTC] ; stop_time=[Thu 2026-10-15 05:30:27 UTC] ; pid=1932941 ; code=exited ; status=0 }",
+      "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-e7c74d4cc47347df865b3b4efbf378bf.service",
+      "Id": "r07-owned-e7c74d4cc47347df865b3b4efbf378bf.service",
+      "InvocationID": "c7ee3542b52c43b89c433e3657c98392",
+      "KillMode": "control-group",
+      "LimitCORE": "0",
+      "LimitFSIZE": "1073741824",
+      "LoadState": "loaded",
+      "MainPID": "0",
+      "MemoryMax": "12884901888",
+      "MemoryPeak": "2114387968",
+      "MemorySwapMax": "0",
+      "NoNewPrivileges": "yes",
+      "OOMPolicy": "kill",
+      "Restart": "no",
+      "Result": "success",
+      "RuntimeMaxUSec": "15min",
+      "SendSIGKILL": "yes",
+      "SubState": "dead",
+      "TasksMax": "12",
+      "TimeoutStopUSec": "3s",
+      "Transient": "yes"
+    },
+    "stderr": "",
+    "terminal": true
+  },
+  "guard": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-e7c74d4cc47347df865b3b4efbf378bf.service",
+    "elapsed_s": 340.12305026408285,
+    "error": null,
+    "invocation": "c7ee3542b52c43b89c433e3657c98392",
+    "launcher_returncode": 0,
+    "max_aggregate_output_B": 160354304,
+    "min_free_disk_B": 57161568256,
+    "min_host_available_B": 27675512832,
+    "pass_guard": true,
+    "peak_kernel_memory_B": 2114387968,
+    "peak_sampled_RSS_B": 2195808256,
+    "rank_kernel_exits": {
+      "0": true,
+      "1": true
+    },
+    "sampled_not_continuous": true,
+    "samples": 1321
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "actual_original_coefficients_embedded_exactly": true,
+  "independent_random_point_realspace_volume_normalization_error": 2.870119781147311e-15,
+  "actual_matrix_block_unitary_invariance_error_eV": {
+    "host": 2.220446049250313e-16,
+    "cd": 2.220446049250313e-16
+  },
+  "not_material_validation": true
+}

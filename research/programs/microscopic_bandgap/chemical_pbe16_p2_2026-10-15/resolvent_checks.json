@@ -1,0 +1,10 @@
+{
+  "status": "independent exact synthetic bath only",
+  "positive_omitted_measure": true,
+  "delta_G_bound": 0.011993372016331346,
+  "actual_delta_G": 0.00015979079064027874,
+  "inverse_error": 0.001009474811451436,
+  "inverse_bound": 0.20181474331458016,
+  "block_gauge_ordering_error_eV": 1.3322676295501878e-15,
+  "native_material_validation": false
+}

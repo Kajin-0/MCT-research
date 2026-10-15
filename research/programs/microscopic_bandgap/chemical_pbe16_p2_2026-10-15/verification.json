@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "conditions": "focused offline native-data science/provenance checks; not a substitute for the two actual SCFs",
+  "immutable_source_pin_checks": 106,
+  "independent_python_Gaussian_delta_eV": 0.20145826138166223,
+  "independent_python_inverse_delta_eV": 0.1351364678125152,
+  "old_owner_and_readback_failures_still_failed": true,
+  "no_HSE_or_material_gap_claim": true
+}

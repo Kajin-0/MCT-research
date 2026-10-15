@@ -1,9 +1,34 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 04:32 UTC
-**Status:** NEW NATIVE DIRECT TR-CONSTRAINED OPERATOR CONSTRUCTOR PASS; OLD ACE/DIRECT OFF-SPAN ERROR 2.82%; FULL CRYSTAL/STATE BRIDGE UNQUALIFIED; NO HSE SCF/CD RELEASE
+**Last verified update:** 2026-10-15 05:52 UTC
+**Status:** NEW PBE16 MATCHED CHEMISTRY COMPLETE; JOINT152SPACE CLOSES SYMMETRY BUT HSE STATE UNQUALIFIED; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## New bounded physics milestones — 2026-10-15 05:52 UTC
+
+Starting60894e0; [joint-space result](../joint_symmetry_2026-10-15/decision.md)
+pushed6fc699e. New152nearbyspace closesTd/Theta/translations~1.6e-14, but changes
+old coverage>1e-10 and has no nativeFD/fullH bridge. All old ACE/source failures
+remain. No defective hybrid iteration repeated, no HSE16 target changed.
+
+[Real PBE16 decision](../chemical_pbe16_p2_2026-10-15/decision.md),
+[context reset](../chemical_pbe16_p2_2026-10-15/handoff_ledger.md): one stock
+16atom host/Cd pair at50/200Ry/352bands288e/Gamma/FD.001 converges in11/12steps.
+Actual340.1/345.4s, kernel2.114/2.105GB, live2rank leases and terminal cleanup,
+12GiB/swap0/tasks12 and host/disk/output floors intact. Independent source
+units corrected READ-ONLY after preserving original wrong-unit assertionFAIL;
+first pre-QE socket ownerFAIL remains immutable. Exactly two nativeSCFs, no
+host rerun or numerical retry. Stock/DFT/legacyledger exact; no queued job.
+
+TrackedTd multiplet response+169.033meV, GaussianW2+201.458meV and causaleta.05
++135.136meV are DIFFERENT observables. No sharp alloygap/xc or fullHSEclaim.
+Actual FD nonlocal density defects4.53e-7/1.64e-7 do NOT qualify1e-8HSEsource.
+Next indispensable operator/state andN2/N3environment inputs are ranked in
+[minimum input](../ordered_environment_2026-10-15/minimum_input.md).
+This is newPBEphysics, not a whole-SCF streaming memory comparison, hostwideMPI
+absence or a native checkpoint/restart qualification. Original blockedgoal and
+all historical negative gates remain unchanged.
 
 ## Read-only causal chemistry supplement — 2026-10-15 04:32 UTC
 

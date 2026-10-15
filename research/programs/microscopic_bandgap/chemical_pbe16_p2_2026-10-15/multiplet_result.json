@@ -1,0 +1,264 @@
+{
+  "status": "CALCULATED independently Td/Theta-qualified frame-dominant ORDERED-CELL PBE multiplets",
+  "members": {
+    "host": {
+      "Gamma6": {
+        "bands_1based": [
+          275,
+          276
+        ],
+        "energies_minus_own_Fermi_eV": [
+          -1.0443864878156166,
+          -1.0443864878107814
+        ],
+        "multiplet_spread_eV": 4.835243316847482e-12,
+        "Td": {
+          "Gram_defect_F": 3.056657753114613e-15,
+          "max_span_defect_F": 3.370258884349829e-13,
+          "dot_entry_error_model": 6.137685916005913e-10,
+          "Gram_error_upper_model": 1.2275402398589358e-09,
+          "twirl_projector_distance_tau_upper_model": 7.007540894163283e-05,
+          "nearby_invariant_projector_distance_upper_model": 0.00014015081788326566,
+          "multiplicity_complex": [
+            [
+              0.9999999999999162,
+              7.526647956157081e-17
+            ],
+            [
+              1.3961054534661343e-14,
+              -2.2864299106165395e-17
+            ],
+            [
+              3.365681016989186e-14,
+              -2.5660375963550912e-17
+            ]
+          ],
+          "multiplicity_error_upper_model": [
+            0.0011212163635463599,
+            0.0011212163635463599,
+            0.0022424327269221895
+          ],
+          "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+            1,
+            0,
+            0
+          ],
+          "nearest_integer_classification_admitted_under_model": true
+        },
+        "Theta_overlap_singular_values": [
+          0.9999999999998926,
+          0.9999999999998924
+        ],
+        "primitive_Gamma_probabilities": [
+          0.9999999999988355,
+          0.9999999999987661
+        ],
+        "fixed_frame_weight_in_multiplet": 0.999921600453785,
+        "other_retained_weight": 5.749289893375285e-05,
+        "minimum_state_weight_dominance_margin": 0.49994055604293175,
+        "mean_minus_own_Fermi_eV": -1.044386487813199,
+        "mean_taken_only_AFTER_symmetry_and_degeneracy_pass": true
+      },
+      "Gamma8": {
+        "bands_1based": [
+          287,
+          288,
+          289,
+          290
+        ],
+        "energies_minus_own_Fermi_eV": [
+          -9.823253321883385e-12,
+          -2.3288038164537284e-12,
+          5.163869332136528e-12,
+          1.1690204360093048e-11
+        ],
+        "multiplet_spread_eV": 2.1513457681976433e-11,
+        "Td": {
+          "Gram_defect_F": 3.0347713469487207e-15,
+          "max_span_defect_F": 1.2472388417703165e-12,
+          "dot_entry_error_model": 6.137685916005913e-10,
+          "Gram_error_upper_model": 2.4550774011737124e-09,
+          "twirl_projector_distance_tau_upper_model": 9.910517160727507e-05,
+          "nearby_invariant_projector_distance_upper_model": 0.00019821034321455014,
+          "multiplicity_complex": [
+            [
+              8.486946512166774e-14,
+              -2.5364552501870045e-17
+            ],
+            [
+              7.818528976161358e-14,
+              1.2019610252193548e-16
+            ],
+            [
+              0.9999999999999171,
+              -4.7415775010032725e-17
+            ]
+          ],
+          "multiplicity_error_upper_model": [
+            0.0031714047728175696,
+            0.0031714047728175696,
+            0.006342809545464609
+          ],
+          "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+            0,
+            0,
+            1
+          ],
+          "nearest_integer_classification_admitted_under_model": true
+        },
+        "Theta_overlap_singular_values": [
+          0.9999999999997592,
+          0.9999999999997587,
+          0.9999999999996637,
+          0.9999999999996635
+        ],
+        "primitive_Gamma_probabilities": [
+          0.9999999999982301,
+          0.9999999999980815,
+          0.9999999999979485,
+          0.9999999999978273
+        ],
+        "fixed_frame_weight_in_multiplet": 0.9999235847904279,
+        "other_retained_weight": 5.576547088006475e-05,
+        "minimum_state_weight_dominance_margin": 0.24997488672246157,
+        "mean_minus_own_Fermi_eV": 1.1755041384731157e-12,
+        "mean_taken_only_AFTER_symmetry_and_degeneracy_pass": true
+      },
+      "tracked_multiplet_ordering_eV": -1.0443864878143745
+    },
+    "cd": {
+      "Gamma6": {
+        "bands_1based": [
+          283,
+          284
+        ],
+        "energies_minus_own_Fermi_eV": [
+          -0.8753532025773101,
+          -0.8753532025761039
+        ],
+        "multiplet_spread_eV": 1.20614629395277e-12,
+        "Td": {
+          "Gram_defect_F": 1.970623506549781e-15,
+          "max_span_defect_F": 1.6822938146656754e-13,
+          "dot_entry_error_model": 6.137685916005913e-10,
+          "Gram_error_upper_model": 1.2275391538246892e-09,
+          "twirl_projector_distance_tau_upper_model": 7.007418904105559e-05,
+          "nearby_invariant_projector_distance_upper_model": 0.00014014837808211118,
+          "multiplicity_complex": [
+            [
+              0.9999999999999553,
+              4.719123990593234e-17
+            ],
+            [
+              8.474702421305361e-15,
+              2.756508417238486e-17
+            ],
+            [
+              1.8331106500795426e-14,
+              -3.62659783841986e-17
+            ]
+          ],
+          "multiplicity_error_upper_model": [
+            0.0011211968451327798,
+            0.0011211968451327798,
+            0.0022423936900950294
+          ],
+          "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+            1,
+            0,
+            0
+          ],
+          "nearest_integer_classification_admitted_under_model": true
+        },
+        "Theta_overlap_singular_values": [
+          0.9999999999999492,
+          0.9999999999999483
+        ],
+        "primitive_Gamma_probabilities": [
+          0.9781042302747673,
+          0.9781042300550375
+        ],
+        "fixed_frame_weight_in_multiplet": 0.9780046914512471,
+        "other_retained_weight": 0.02141236278078826,
+        "minimum_state_weight_dominance_margin": 0.4832171189146171,
+        "mean_minus_own_Fermi_eV": -0.875353202576707,
+        "mean_taken_only_AFTER_symmetry_and_degeneracy_pass": true
+      },
+      "Gamma8": {
+        "bands_1based": [
+          287,
+          288,
+          289,
+          290
+        ],
+        "energies_minus_own_Fermi_eV": [
+          -1.1795009413617663e-12,
+          -3.694822225952521e-13,
+          3.197442310920451e-14,
+          8.402167850363185e-13
+        ],
+        "multiplet_spread_eV": 2.0197177263980848e-12,
+        "Td": {
+          "Gram_defect_F": 2.0767281056355534e-15,
+          "max_span_defect_F": 1.1172381933865235e-13,
+          "dot_entry_error_model": 6.137685916005913e-10,
+          "Gram_error_upper_model": 2.455076443130471e-09,
+          "twirl_projector_distance_tau_upper_model": 9.909943293580694e-05,
+          "nearby_invariant_projector_distance_upper_model": 0.00019819886587161387,
+          "multiplicity_complex": [
+            [
+              6.758140221493459e-15,
+              -8.798894612995082e-17
+            ],
+            [
+              9.24757505018588e-15,
+              2.322593636015002e-17
+            ],
+            [
+              0.999999999999992,
+              3.2381504884900395e-17
+            ]
+          ],
+          "multiplicity_error_upper_model": [
+            0.003171221135322925,
+            0.003171221135322925,
+            0.0063424422704753194
+          ],
+          "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+            0,
+            0,
+            1
+          ],
+          "nearest_integer_classification_admitted_under_model": true
+        },
+        "Theta_overlap_singular_values": [
+          0.9999999999999777,
+          0.9999999999999774,
+          0.9999999999999714,
+          0.999999999999971
+        ],
+        "primitive_Gamma_probabilities": [
+          0.9909432724627205,
+          0.9909432725380067,
+          0.9909432723117232,
+          0.9909432717465251
+        ],
+        "fixed_frame_weight_in_multiplet": 0.9904794494300735,
+        "other_retained_weight": 0.008885889230573027,
+        "minimum_state_weight_dominance_margin": 0.2469225089740863,
+        "mean_minus_own_Fermi_eV": -1.6919798895287386e-13,
+        "mean_taken_only_AFTER_symmetry_and_degeneracy_pass": true
+      },
+      "tracked_multiplet_ordering_eV": -0.8753532025765378
+    }
+  },
+  "delta_tracked_multiplet_ordering_eV": 0.16903328523783667,
+  "Gaussian_W2_delta_eV": 0.20145826138166223,
+  "inverse_eta005_delta_eV": 0.13513646781251554,
+  "Gaussian_minus_tracked_eV": 0.03242497614382556,
+  "inverse_minus_tracked_eV": -0.033896817425321135,
+  "not_a_disordered_quasiparticle_gap": true,
+  "not_a_material_error_bar": true,
+  "no_branch_tracking_claim_between_unsampled_configurations": true,
+  "physical_xc": null
+}

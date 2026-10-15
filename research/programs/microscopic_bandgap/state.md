@@ -2,9 +2,39 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; a NEW native-direct TR-constrained exchange constructor passes, and actual old-ACE/direct off-span error is measured. A NEW nearby152space now closes joint Td/Theta/translations numerically, but changes old source coverage and lacks actual direct/Hamiltonian/FD state qualification. HSE Cd is withheld; physical x_c remains OPEN.
+**State:** historical physical goal BLOCKED; TWO ordered PBE compositions now have real matched spectra. New x=.125 pair converged and three distinct responses are measured. Joint nearby152space closes Td/Theta, but HSE source/FD-state qualification remains unpassed; physical x_c OPEN.
 
-**Updated:** 2026-10-15 05:25 UTC
+**Updated:** 2026-10-15 05:52 UTC
+
+## Real16atom x=.125 chemical response — 2026-10-15 05:52 UTC
+
+[Native physics decision](chemical_pbe16_p2_2026-10-15/decision.md),
+[completed reset ledger](chemical_pbe16_p2_2026-10-15/handoff_ledger.md).
+ONE native stock-PBE16 host11steps and ONE Cd12steps converge at50/200Ry,
+352spinor bands288e, fixedSG15FR/a6.46/Gamma/FD.001. Charge errors<6.4e-11e;
+340.123/345.365s, kernel peaks2.114/2.105GB, all owner/resource cleanup gates pass.
+Exact physicalG cell embedding preserves ORIGINAL Gamma6/8 frame. Both actual
+native multiplets passTd/Theta/degeneracy BEFORE means. Tracked ordered-cell
+multiplet response+169.033285meV; GaussianW2+201.458261meV conditional interval
+[197.871355,205.045167]meV; causaleta.05+135.136468meV, conditional scalar
+[118.253626,152.019310]meV. Distinct observables, NOT three estimates of one gap.
+Both absolute orderings negative. No dilute slope, random-alloy gap orxc.
+Cell/composition/BZ differ fromx=.25k3; no bowing or convergence inferred.
+
+Native full nonlocal densityTheta defects4.53e-7/1.64e-7 remain above1e-8HSE
+source requirement despite tiny ordered-cell quartet spreads. No HSE release.
+Old pre-QE socket owner failure and wrong-unit readback assertion remainFAILED;
+independent corrected-unit read-only host qualification did NOT rerun the host.
+Stock/dirtyDFT/all old evidence exact; no other sessions touched. Historicalgoal
+unchanged. This finite chemical acquisition is complete; no further job queued.
+
+Next boundary: [exact unseen-environment kernel](ordered_environment_2026-10-15/theorem.md)
+and [ranked independent input](ordered_environment_2026-10-15/minimum_input.md).
+Both ordered geometries contain onlyN0/N1; they cannot determineN2/N3local
+operators even from full Hamiltonians. First useful missing chemistry is a
+same-cell/same-composition Cd-Cd sharing contrast; HSE first requires actual
+full Hamiltonian/FD-state qualification. Conditional finite-eta resolvent bounds
+relax support-freeD, not missing material input. All previous no-go results stand.
 
 ## Joint crystal/Theta space, actual state still missing — 2026-10-15 05:25 UTC
 

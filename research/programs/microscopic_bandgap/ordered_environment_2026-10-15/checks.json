@@ -1,0 +1,31 @@
+{
+  "status": "exact algebra/enumeration plus synthetic causal counterexample, not material validation",
+  "unseen_environment_matrix_dimension": 2,
+  "rows": [
+    {
+      "x": 0.125,
+      "P2": 0.07177734375,
+      "P3": 0.0068359375,
+      "P2_over_P3": 10.5,
+      "causal_g_change_abs": 0.11447800464438328,
+      "inverse_real_change_eV": -0.010216593072769398
+    },
+    {
+      "x": 0.17,
+      "P2": 0.11945526000000001,
+      "P3": 0.01631116,
+      "P2_over_P3": 7.323529411764706,
+      "causal_g_change_abs": 0.1905197252312084,
+      "inverse_real_change_eV": -0.016646751805372284
+    },
+    {
+      "x": 0.25,
+      "P2": 0.2109375,
+      "P3": 0.046875,
+      "P2_over_P3": 4.5,
+      "causal_g_change_abs": 0.33642515650594235,
+      "inverse_real_change_eV": -0.028255627487082047
+    }
+  ],
+  "physical_xc": null
+}

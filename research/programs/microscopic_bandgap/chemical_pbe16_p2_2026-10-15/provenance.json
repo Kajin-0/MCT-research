@@ -1,0 +1,40 @@
+{
+  "timestamp_UTC": "2026-10-15T05:47:48.833084+00:00",
+  "MCT_parent": "6fc699e9df8776a3e8983682e345261b20569e04",
+  "stock_QE_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "MPI_sha256": "9647aa90368686758b66cb2984cda4f552ac170851f34ff07e35f9bdbf54e625",
+  "archived_files": {
+    "raw/host_TERMINAL.json": "6385e2a92afd8cdac81395b35ab3c02d5ef32290e4e574fa22a1da58cebdcf29",
+    "raw/host_READY.json": "e768437bc45a8ed0717f1212491b648519568f434e69973d207d431762c10745",
+    "raw/host_RANKS.json": "3a3f029425b61a34ebcda55d4712d7f7b14e9a7d6c46edc925a6ab96b5492ee8",
+    "raw/cd_schema.xml": "9c1b63790a855d5f7f4f9d3a90e73155ad0958dcd89c359bb524c250fe654920",
+    "raw/cd_JOB.json": "85c89c235728dd205c44dc239223a8f7e8851bcd2464376b6416bf7ef5991648",
+    "raw/host_pw.in.txt": "8e97aa2e4e66c72a65b5f6d9aee4b5b6d53b9fdf2f420a34c8c464350a20c0d8",
+    "raw/host_JOB.json": "cd27cc1b65073b56d60a51d76e616823e2fbaa71daf8ba6e7ebcc8b13de7606f",
+    "raw/cd_pw.out.txt": "ff8d680d0ff60f7f0b738ed0c5936bbb58579f020cd9aed7c0e9bc5dd9837a8d",
+    "raw/host_pw.out.txt": "34f3d92c43b773a548531153851e8a405778aaf1f9cd4659ab0e1a47435ad61e",
+    "raw/cd_RANKS.json": "7a025791073e2af6dfeb1cc413eba0561aeac4964111355ae1d91e9ea2b36b79",
+    "raw/host_schema.xml": "50671ba742d4ac7ed3c3bdc627af7f28c23528a3a2ae4d2b1ab6133d08871875",
+    "raw/cd_READY.json": "7ea4c633237a6fa818f1a192fdca60f45aa0a3461c841d28c0fafdf4467e747d",
+    "raw/host_GUARD_RESULT.json": "d32f97ec3fda299f0a388a07455311c96196a6b76b9211a058d719394f7a160d",
+    "raw/cd_GUARD_RESULT.json": "ead92961474d5bad86687fe3d3413c909e57ae95ea518f4febfa615b176d5c47",
+    "raw/cd_pw.in.txt": "264b28d47044ac7ea37885ee841a8be69eb9ef9b267531f84ba0583e7c763345",
+    "raw/cd_TERMINAL.json": "37567f09c2160be6aa759154df419475f9a61f40c47a3a5567041169e62ac0ed"
+  },
+  "raw_spinors_retained_privately": {
+    "host": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/out/r07pbe.save/wfc1.hdf5",
+      "sha256": "e58f1ade954f23c7e393745b6e8b97c07ac3daa8049476e6412f0173080ccdb3"
+    },
+    "cd": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16cd_20261015/cd/out/r07pbe.save/wfc1.hdf5",
+      "sha256": "dbc27e18d48e2e102abc8a71d3b02fd4acb39164502f78ee9881fcac8cb036ad"
+    }
+  },
+  "scientific_profiles": [
+    "frozen_protocol.json",
+    "frozen_cd_protocol.json"
+  ],
+  "HSE_run": false,
+  "original_failed_scopes_unchanged": true
+}

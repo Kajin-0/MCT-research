@@ -1,0 +1,229 @@
+{
+  "status": "NEW corrected-unit read-only qualification of retained native host; old assertion failure immutable",
+  "scientific_pass": true,
+  "science": {
+    "scientific_pass": true,
+    "SCF_converged": true,
+    "charge_e": 287.99999999993634,
+    "charge_residual_e": -6.366462912410498e-11,
+    "occupation_error_max": 2.781108676686017e-14,
+    "scf_error_Ry": 9.01114820025596e-10,
+    "scf_iterations": 11,
+    "total_energy_Ry": -3877.90244128129,
+    "fermi_Ry": 0.7146718249629476,
+    "cutoffs_Ry": [
+      50.0,
+      200.0
+    ],
+    "nsym": 24,
+    "all352_Gram_defect_op": 5.003602010421388e-15,
+    "native_Gamma_PW": 21595,
+    "physical_HDF5_basis_check": true,
+    "frame_transport": {
+      "integer_repeat": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "volume_ratio": 2,
+      "source_PW": 7809,
+      "target_PW": 21595,
+      "coefficient_rescale": 1.0,
+      "physical_wavevector_error_max": 2.7755575615628914e-16,
+      "original_projectors_replaced": false
+    },
+    "host_checks": {
+      "Gamma6": {
+        "native_bands_1based": [
+          275,
+          276
+        ],
+        "eigenvalues_eV": [
+          8.67921904628033,
+          8.679219046285166
+        ],
+        "spread_eV": 4.835223742139382e-12,
+        "primitive_Gamma_weights": [
+          0.9999999999988355,
+          0.9999999999987661
+        ],
+        "Theta_overlap_singular_values": [
+          0.9999999999998926,
+          0.9999999999998924
+        ],
+        "Td": {
+          "Gram_defect_F": 3.056657753114613e-15,
+          "max_span_defect_F": 3.370258884349829e-13,
+          "dot_entry_error_model": 6.137685916005913e-10,
+          "Gram_error_upper_model": 1.2275402398589358e-09,
+          "twirl_projector_distance_tau_upper_model": 7.007540894163283e-05,
+          "nearby_invariant_projector_distance_upper_model": 0.00014015081788326566,
+          "multiplicity_complex": [
+            [
+              0.9999999999999162,
+              7.526647956157081e-17
+            ],
+            [
+              1.3961054534661343e-14,
+              -2.2864299106165395e-17
+            ],
+            [
+              3.365681016989186e-14,
+              -2.5660375963550912e-17
+            ]
+          ],
+          "multiplicity_error_upper_model": [
+            0.0011212163635463599,
+            0.0011212163635463599,
+            0.0022424327269221895
+          ],
+          "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+            1,
+            0,
+            0
+          ],
+          "nearest_integer_classification_admitted_under_model": true
+        },
+        "original_frame_weight_in_selected": 0.999921600453785
+      },
+      "Gamma8": {
+        "native_bands_1based": [
+          287,
+          288,
+          289,
+          290
+        ],
+        "eigenvalues_eV": [
+          9.723605534086124,
+          9.723605534093618,
+          9.723605534101111,
+          9.723605534107637
+        ],
+        "spread_eV": 2.1513044840846323e-11,
+        "primitive_Gamma_weights": [
+          0.9999999999982301,
+          0.9999999999980815,
+          0.9999999999979485,
+          0.9999999999978273
+        ],
+        "Theta_overlap_singular_values": [
+          0.9999999999997592,
+          0.9999999999997587,
+          0.9999999999996637,
+          0.9999999999996635
+        ],
+        "Td": {
+          "Gram_defect_F": 3.0347713469487207e-15,
+          "max_span_defect_F": 1.2472388417703165e-12,
+          "dot_entry_error_model": 6.137685916005913e-10,
+          "Gram_error_upper_model": 2.4550774011737124e-09,
+          "twirl_projector_distance_tau_upper_model": 9.910517160727507e-05,
+          "nearby_invariant_projector_distance_upper_model": 0.00019821034321455014,
+          "multiplicity_complex": [
+            [
+              8.486946512166774e-14,
+              -2.5364552501870045e-17
+            ],
+            [
+              7.818528976161358e-14,
+              1.2019610252193548e-16
+            ],
+            [
+              0.9999999999999171,
+              -4.7415775010032725e-17
+            ]
+          ],
+          "multiplicity_error_upper_model": [
+            0.0031714047728175696,
+            0.0031714047728175696,
+            0.006342809545464609
+          ],
+          "rounded_Gamma6_Gamma7_Gamma8_multiplicities": [
+            0,
+            0,
+            1
+          ],
+          "nearest_integer_classification_admitted_under_model": true
+        },
+        "original_frame_weight_in_selected": 0.9999235847904279
+      }
+    }
+  },
+  "terminal": {
+    "client_returncode": 0,
+    "manager": {
+      "ActiveState": "inactive",
+      "CollectMode": "inactive",
+      "ControlGroup": "",
+      "Delegate": "no",
+      "ExecMainCode": "1",
+      "ExecMainStatus": "0",
+      "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe16_p2_2026-10-15/run_pair.py guard host ; ignore_errors=no ; start_time=[Thu 2026-10-15 05:24:47 UTC] ; stop_time=[Thu 2026-10-15 05:30:27 UTC] ; pid=1932941 ; code=exited ; status=0 }",
+      "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-e7c74d4cc47347df865b3b4efbf378bf.service",
+      "Id": "r07-owned-e7c74d4cc47347df865b3b4efbf378bf.service",
+      "InvocationID": "c7ee3542b52c43b89c433e3657c98392",
+      "KillMode": "control-group",
+      "LimitCORE": "0",
+      "LimitFSIZE": "1073741824",
+      "LoadState": "loaded",
+      "MainPID": "0",
+      "MemoryMax": "12884901888",
+      "MemoryPeak": "2114387968",
+      "MemorySwapMax": "0",
+      "NoNewPrivileges": "yes",
+      "OOMPolicy": "kill",
+      "Restart": "no",
+      "Result": "success",
+      "RuntimeMaxUSec": "15min",
+      "SendSIGKILL": "yes",
+      "SubState": "dead",
+      "TasksMax": "12",
+      "TimeoutStopUSec": "3s",
+      "Transient": "yes"
+    },
+    "stderr": "",
+    "terminal": true
+  },
+  "guard": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-e7c74d4cc47347df865b3b4efbf378bf.service",
+    "elapsed_s": 340.12305026408285,
+    "error": null,
+    "invocation": "c7ee3542b52c43b89c433e3657c98392",
+    "launcher_returncode": 0,
+    "max_aggregate_output_B": 160354304,
+    "min_free_disk_B": 57161568256,
+    "min_host_available_B": 27675512832,
+    "pass_guard": true,
+    "peak_kernel_memory_B": 2114387968,
+    "peak_sampled_RSS_B": 2195808256,
+    "rank_kernel_exits": {
+      "0": true,
+      "1": true
+    },
+    "sampled_not_continuous": true,
+    "samples": 1321
+  },
+  "source_hashes": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/pw.in": "8e97aa2e4e66c72a65b5f6d9aee4b5b6d53b9fdf2f420a34c8c464350a20c0d8",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/pw.out": "34f3d92c43b773a548531153851e8a405778aaf1f9cd4659ab0e1a47435ad61e",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/out/r07pbe.save/data-file-schema.xml": "50671ba742d4ac7ed3c3bdc627af7f28c23528a3a2ae4d2b1ab6133d08871875",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/out/r07pbe.save/wfc1.hdf5": "e58f1ade954f23c7e393745b6e8b97c07ac3daa8049476e6412f0173080ccdb3",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/GUARD_RESULT.json": "d32f97ec3fda299f0a388a07455311c96196a6b76b9211a058d719394f7a160d",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/TERMINAL.json": "6385e2a92afd8cdac81395b35ab3c02d5ef32290e4e574fa22a1da58cebdcf29",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe16_p2_2026-10-15/science_units_v2.py": "fbacb43ab0322c8d5b6bce8fd2833e6b1815dad1e022374445145d5bb01b1682",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe16_p2_2026-10-15/readback_addendum.md": "fa7ca7b792cbeefd909cb82fbc7a03fd72c73bb69b1c24a51aa87640d9eee1f1"
+  },
+  "native_rerun": false
+}

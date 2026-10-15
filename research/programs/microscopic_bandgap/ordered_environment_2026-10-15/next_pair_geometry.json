@@ -1,0 +1,291 @@
+{
+  "status": "exact local geometry only; no additional native run",
+  "cell_repeat": [
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "cation_fractional": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.5
+    ],
+    [
+      0.0,
+      0.5,
+      0.0
+    ],
+    [
+      0.0,
+      0.5,
+      0.5
+    ],
+    [
+      0.5,
+      0.0,
+      0.0
+    ],
+    [
+      0.5,
+      0.0,
+      0.5
+    ],
+    [
+      0.5,
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.5,
+      0.5
+    ]
+  ],
+  "nearest_neighbor_cation_indices": [
+    [
+      0,
+      1,
+      2,
+      4
+    ],
+    [
+      0,
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      2,
+      3,
+      6
+    ],
+    [
+      1,
+      2,
+      3,
+      7
+    ],
+    [
+      0,
+      4,
+      5,
+      6
+    ],
+    [
+      1,
+      4,
+      5,
+      7
+    ],
+    [
+      2,
+      4,
+      6,
+      7
+    ],
+    [
+      3,
+      5,
+      6,
+      7
+    ]
+  ],
+  "two_Cd_candidates": [
+    {
+      "second_Cd_cation_index_0based": 1,
+      "second_Cd_fractional": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "Te_N_counts": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "second_Cd_cation_index_0based": 2,
+      "second_Cd_fractional": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "Te_N_counts": [
+        2,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "second_Cd_cation_index_0based": 3,
+      "second_Cd_fractional": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "Te_N_counts": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "second_Cd_cation_index_0based": 4,
+      "second_Cd_fractional": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "Te_N_counts": [
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0
+      ],
+      "histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "second_Cd_cation_index_0based": 5,
+      "second_Cd_fractional": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "Te_N_counts": [
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "second_Cd_cation_index_0based": 6,
+      "second_Cd_fractional": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "Te_N_counts": [
+        1,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "second_Cd_cation_index_0based": 7,
+      "second_Cd_fractional": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "Te_N_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "histogram": {
+        "0": 0,
+        "1": 8,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      }
+    }
+  ],
+  "preferred_sharing_second_Cd_index": 1,
+  "preferred_nonsharing_second_Cd_index": 7
+}

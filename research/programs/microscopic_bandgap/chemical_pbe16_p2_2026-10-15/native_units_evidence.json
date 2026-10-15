@@ -1,0 +1,64 @@
+{
+  "absolute_HDF5_B_2pi_per_bohr": [
+    [
+      -0.2573466313034058,
+      0.2573466313034058,
+      0.2573466313034058
+    ],
+    [
+      0.2573466313034058,
+      -0.2573466313034058,
+      0.2573466313034058
+    ],
+    [
+      0.2573466313034058,
+      0.2573466313034058,
+      -0.2573466313034058
+    ]
+  ],
+  "XML_dimensionless_B": [
+    [
+      -0.7071067811865476,
+      0.7071067811865476,
+      0.7071067811865476
+    ],
+    [
+      0.7071067811865476,
+      -0.7071067811865476,
+      0.7071067811865476
+    ],
+    [
+      0.7071067811865476,
+      0.7071067811865476,
+      -0.7071067811865476
+    ]
+  ],
+  "alat_bohr": 17.26419699242268,
+  "direct_cell_bohr": [
+    [
+      0.0,
+      12.20763076508248,
+      12.20763076508248
+    ],
+    [
+      12.20763076508248,
+      0.0,
+      12.20763076508248
+    ],
+    [
+      12.20763076508248,
+      12.20763076508248,
+      0.0
+    ]
+  ],
+  "absolute_vs_direct_cell_error": 2.7755575615628914e-17,
+  "absolute_vs_XML_error": 0.0,
+  "source_conditioned_write_call": "write_wfc(...tpiba*xk...,tpiba*bg(:,1),tpiba*bg(:,2),tpiba*bg(:,3),...)",
+  "source_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/pw_restart_new.f90": "82dfdef8ded7f853b705762036fda7a7694e3a4af6e00e1bfeffa50d35cc46ef",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/io_base.f90": "f7953c8f0952d9cb22f48b6291252a36a9f8c14bbcff923d9b75adabcdea4755"
+  },
+  "stock_source_build_identity_not_claimed": true,
+  "independent_actual_HDF5_XML_cell_check": true,
+  "original_wrong_unit_assertion_still_failed": true
+}

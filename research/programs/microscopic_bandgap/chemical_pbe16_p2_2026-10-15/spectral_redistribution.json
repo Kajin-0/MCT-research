@@ -1,0 +1,37 @@
+{
+  "status": "exact algebra on retained actual spectra; no new native run",
+  "members": {
+    "host": {
+      "Gamma6": {
+        "centroid_eV": -1.0443854481112411,
+        "dominant_multiplet_eV": -1.044386487813199,
+        "exact_centroid_minus_multiplet_eV": 1.039701957907671e-06,
+        "captured_weight_outside_multiplet": 5.749289893375285e-05
+      },
+      "Gamma8": {
+        "centroid_eV": 5.820888248997546e-06,
+        "dominant_multiplet_eV": 1.1755041384731157e-12,
+        "exact_centroid_minus_multiplet_eV": 5.8208870734934065e-06,
+        "captured_weight_outside_multiplet": 5.576547088006475e-05
+      }
+    },
+    "cd": {
+      "Gamma6": {
+        "centroid_eV": -0.8454556436624725,
+        "dominant_multiplet_eV": -0.875353202576707,
+        "exact_centroid_minus_multiplet_eV": 0.029897558914234488,
+        "captured_weight_outside_multiplet": 0.02141236278078826
+      },
+      "Gamma8": {
+        "centroid_eV": -0.00252263604464449,
+        "dominant_multiplet_eV": -1.6919798895287386e-13,
+        "exact_centroid_minus_multiplet_eV": -0.0025226360444752923,
+        "captured_weight_outside_multiplet": 0.008885889230573027
+      }
+    }
+  },
+  "chemical_Gaussian_minus_tracked_eV": 0.03242497614382536,
+  "conditional_missing_spectrum_bounds_in_main_result": true,
+  "no_static_vs_dynamic_self_energy_identification": true,
+  "physical_xc": null
+}

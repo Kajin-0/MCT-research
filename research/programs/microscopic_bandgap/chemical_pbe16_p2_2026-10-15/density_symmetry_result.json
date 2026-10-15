@@ -1,0 +1,64 @@
+{
+  "host": {
+    "occupation_cutoff": 1e-12,
+    "retained_positive_rank": 298,
+    "dropped_charge_e": 3.023785541891828e-51,
+    "full_FD_charge_e": 287.99999999993634,
+    "density_HS_norm": 16.941074346094865,
+    "orthonormalization_Gram_error_F": 5.821468124387968e-14,
+    "symmetry": {
+      "Theta": {
+        "relative_density_HS_defect": 4.529862202916369e-07,
+        "basis_leakage_F": 5.655801779319474e-06,
+        "omitted_charge_density_defect_upper": 3.569768339501856e-52,
+        "roundoff_not_interval_certified": true
+      },
+      "S4": {
+        "relative_density_HS_defect": 4.4537227739204213e-07,
+        "basis_leakage_F": 5.559817129689524e-06,
+        "omitted_charge_density_defect_upper": 3.569768339501856e-52,
+        "roundoff_not_interval_certified": true
+      },
+      "C3": {
+        "relative_density_HS_defect": 4.4473187124472433e-07,
+        "basis_leakage_F": 5.556068972717376e-06,
+        "omitted_charge_density_defect_upper": 3.569768339501856e-52,
+        "roundoff_not_interval_certified": true
+      }
+    },
+    "not_just_local_spin": true,
+    "native_FD_occupations_preserved": true,
+    "not_HSE_state_qualification": true
+  },
+  "cd": {
+    "occupation_cutoff": 1e-12,
+    "retained_positive_rank": 290,
+    "dropped_charge_e": 7.77643422694094e-13,
+    "full_FD_charge_e": 288.0000000000133,
+    "density_HS_norm": 16.941074346097782,
+    "orthonormalization_Gram_error_F": 5.710738588561221e-14,
+    "symmetry": {
+      "Theta": {
+        "relative_density_HS_defect": 1.6393086757909333e-07,
+        "basis_leakage_F": 2.0019328473977142e-06,
+        "omitted_charge_density_defect_upper": 9.180567971159596e-14,
+        "roundoff_not_interval_certified": true
+      },
+      "S4": {
+        "relative_density_HS_defect": 1.6068668889751105e-07,
+        "basis_leakage_F": 1.9641428490374646e-06,
+        "omitted_charge_density_defect_upper": 9.180567971159596e-14,
+        "roundoff_not_interval_certified": true
+      },
+      "C3": {
+        "relative_density_HS_defect": 1.6005430640906708e-07,
+        "basis_leakage_F": 1.955238962876371e-06,
+        "omitted_charge_density_defect_upper": 9.180567971159596e-14,
+        "roundoff_not_interval_certified": true
+      }
+    },
+    "not_just_local_spin": true,
+    "native_FD_occupations_preserved": true,
+    "not_HSE_state_qualification": true
+  }
+}
