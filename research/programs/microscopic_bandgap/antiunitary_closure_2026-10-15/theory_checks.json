@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": 3,
+  "source_exact_complete_ACE_error": 9.878333750094545e-15,
+  "complete_ACE_TR_error": 8.78219483448744e-15,
+  "naive_ACE_average_source_failure": 13.460826174951587,
+  "constrained_exchange_derivative_error": 1.0580147868921586e-12,
+  "positive_old_Gram_singular_augmented_counterexample": true,
+  "unequal_paired_weights_counterexample": true,
+  "material_validation": false
+}

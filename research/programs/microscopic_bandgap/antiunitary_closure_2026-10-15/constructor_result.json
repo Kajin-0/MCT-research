@@ -1,0 +1,132 @@
+{
+  "status": "CALCULATED constructive actual-source cover, not a new SCF state",
+  "dimension": 352,
+  "tolerance": 1e-10,
+  "source_cover_op": 1.1094425234121194e-14,
+  "Gram_defect_op": 1.0355213351973037e-14,
+  "forward_Kramers_pair_error": 0.0,
+  "reverse_Kramers_pair_error": 0.0,
+  "TR_closure_op": 1.0363021766918337e-14,
+  "history": [
+    {
+      "pairs": 0,
+      "dimension": 0,
+      "source_cover_op": 1.0000000000000766
+    },
+    {
+      "pairs": 8,
+      "dimension": 16,
+      "source_cover_op": 1.0000000000000557
+    },
+    {
+      "pairs": 16,
+      "dimension": 32,
+      "source_cover_op": 1.0000000000000526
+    },
+    {
+      "pairs": 24,
+      "dimension": 48,
+      "source_cover_op": 1.0000000000000488
+    },
+    {
+      "pairs": 32,
+      "dimension": 64,
+      "source_cover_op": 1.000000000000044
+    },
+    {
+      "pairs": 40,
+      "dimension": 80,
+      "source_cover_op": 1.0000000000000409
+    },
+    {
+      "pairs": 48,
+      "dimension": 96,
+      "source_cover_op": 1.0000000000000306
+    },
+    {
+      "pairs": 56,
+      "dimension": 112,
+      "source_cover_op": 1.0000000000000266
+    },
+    {
+      "pairs": 64,
+      "dimension": 128,
+      "source_cover_op": 1.0000000000000209
+    },
+    {
+      "pairs": 72,
+      "dimension": 144,
+      "source_cover_op": 1.0000000000000142
+    },
+    {
+      "pairs": 80,
+      "dimension": 160,
+      "source_cover_op": 1.0000000000000036
+    },
+    {
+      "pairs": 88,
+      "dimension": 176,
+      "source_cover_op": 0.8818328104503289
+    },
+    {
+      "pairs": 96,
+      "dimension": 192,
+      "source_cover_op": 3.9423843479278986e-07
+    },
+    {
+      "pairs": 104,
+      "dimension": 208,
+      "source_cover_op": 2.985965452616371e-07
+    },
+    {
+      "pairs": 112,
+      "dimension": 224,
+      "source_cover_op": 2.2428818394975131e-07
+    },
+    {
+      "pairs": 120,
+      "dimension": 240,
+      "source_cover_op": 1.4224554573055991e-07
+    },
+    {
+      "pairs": 128,
+      "dimension": 256,
+      "source_cover_op": 9.779266738606183e-08
+    },
+    {
+      "pairs": 136,
+      "dimension": 272,
+      "source_cover_op": 6.410918477509092e-08
+    },
+    {
+      "pairs": 144,
+      "dimension": 288,
+      "source_cover_op": 5.091263559333292e-08
+    },
+    {
+      "pairs": 152,
+      "dimension": 304,
+      "source_cover_op": 3.735488361677784e-08
+    },
+    {
+      "pairs": 160,
+      "dimension": 320,
+      "source_cover_op": 1.930187883048196e-08
+    },
+    {
+      "pairs": 168,
+      "dimension": 336,
+      "source_cover_op": 1.3272070549420879e-08
+    },
+    {
+      "pairs": 176,
+      "dimension": 352,
+      "source_cover_op": 1.112859743866154e-14
+    }
+  ],
+  "source_charge_e": 144.00000000000597,
+  "density_or_occupations_modified": false,
+  "basis_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/analysis/paired_basis.npz",
+  "basis_sha256": "cdd4922e72555c95f61b6c89bc70412834b7ab512d2ad579502d30e58a59baa9",
+  "native_actions_on_new_directions_unknown": true
+}
