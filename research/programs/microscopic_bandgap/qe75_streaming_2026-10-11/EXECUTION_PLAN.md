@@ -872,3 +872,17 @@ Next independent meaningful work: smallest canonical-source DIRECT Fock/TR
 covariance probe, fresh state and all existing safety gates; not anotherSCF
 or an assumption that ACE source action equality implies symmetry. No current
 probe launch authority from a boolean or old save; close inputs before native.
+
+## Direct exchange symmetry discriminator — 2026-10-15 03:38 UTC
+
+Parent63b8d75 pushed. ONE fresh canonicalD/ThetaD nativefixedFocktwo-rankprobe
+complete27.064s; noSCF/ACEbuild/restart. Owner/kernel/sourcebyte/readback/resource
+gatesPASS; strictold-directactionBYTEgateREFUSED(max1.402e-17Ry). Immutable
+refusalpreserved/noacceptedFINAL/noretry. Post-refusalDIAGNOSTICinternalTR
+covariance1.65e-16 relative; notretrospectivePASS. Kernelpeak1.847GB, alloriginal
+600s/12GiB/swap0/tasks12/hostfloors/sampledoutputheld; combinedphaseoutputs3.038GB.
+Protectedstate/oldledgerexact, nofamilylive. Packageexchange_symmetry_2026-10-15
+retainsproofs/raw/native/failure/independentchecksandrankedminimuminput.
+STOPthismission'snativework atsymmetry-qualifiedhostinputboundary, Cdunrun.
+Noautomaticrestart/bandcount/occupation/ACEconstructorrepair. Physicalx_cOPEN;
+alloldnegativeandpositiveevidenceunchanged. Historicalblockedgoaluntouched.

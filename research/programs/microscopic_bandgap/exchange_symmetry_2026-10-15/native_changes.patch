@@ -1,0 +1,111 @@
+--- accepted/exx.f90
++++ fixedTR/exx.f90
+@@ -122,6 +122,78 @@
+  INTEGER,SAVE::pilot_cycle=0
+  COMPLEX(DP),ALLOCATABLE,PRIVATE::pilot_probe(:,:)
+  CONTAINS
++  SUBROUTINE r07_fixed_TR_probe()
++    USE wavefunctions,ONLY:evc
++    USE wvfct,ONLY:npwx,nbnd,current_k,et,wg
++    USE klist,ONLY:ngk,igk_k,xk,wk
++    USE gvect,ONLY:mill
++    USE cell_base,ONLY:bg,tpiba
++    USE xc_lib,ONLY:get_screening_parameter
++    USE mp_world,ONLY:mpime
++    USE mp,ONLY:mp_barrier
++    USE mp_bands,ONLY:intra_bgrp_comm
++    USE exx_base,ONLY:nkqs,index_xk,index_sym,index_xkq,xkq_collect
++    USE becmod,ONLY:bec_type
++    INTEGER::u,ios,n,source
++    INTEGER(8)::h(8),extent(10)
++    INTEGER(8),ALLOCATABLE::labels(:,:)
++    REAL(DP)::B0(3,3),k0(3),en
++    COMPLEX(DP),ALLOCATABLE::reversed(:,:),trial(:,:),action(:,:)
++    TYPE(bec_type)::dummy
++    CHARACTER(1024)::root
++    CHARACTER(16)::rank,sid
++    CHARACTER::tail
++    current_k=1
++    CALL pilot_guard()
++    n=ngk(1)
++    ALLOCATE(labels(3,n),reversed(npwx*2,nbnd),trial(npwx*2,12),action(npwx*2,12))
++    CALL get_environment_variable('R07_FIRSTACE_ROOT',root)
++    WRITE(rank,'(I0)')mpime
++    OPEN(NEWUNIT=u,FILE=TRIM(root)//'/pilot/input.rank'//TRIM(rank),STATUS='OLD', &
++         ACCESS='STREAM',FORM='UNFORMATTED',ACTION='READ',IOSTAT=ios)
++    CALL pilot_check_io(ios)
++    READ(u,IOSTAT=ios)h
++    CALL pilot_check_io(ios)
++    IF(ANY(h/=[70251501_8,1_8,INT(mpime,8),INT(npwx,8),INT(n,8),176_8,2_8,12_8])) &
++       CALL errore('TRprobe','canonical input dimensions/rank refused',1)
++    READ(u,IOSTAT=ios)B0,k0,labels,et(:,1),wg(:,1),evc,reversed,trial
++    CALL pilot_check_io(ios)
++    READ(u,IOSTAT=ios)tail
++    IF(ios>=0)CALL errore('TRprobe','canonical input trailing bytes',1)
++    CLOSE(u)
++    IF(ANY(labels/=INT(mill(:,igk_k(1:n,1)),8)).OR.MAXVAL(ABS(B0-bg*tpiba))>1.e-12_DP.OR. &
++       MAXVAL(ABS(k0-xk(:,1)))>1.e-12_DP.OR.ABS(wk(1)-1._DP)>1.e-12_DP) &
++       CALL errore('TRprobe','canonical physical frame refused',1)
++    IF(ABS(SUM(wg(:,1))-144._DP)>1.e-8_DP.OR.ANY(wg(:,1)<0._DP))CALL errore('TRprobe','source charge refused',1)
++    DO source=1,2
++       IF(source==2)evc=reversed
++       CALL exxinit(.FALSE.)
++       IF(nkqs/=1.OR.ANY(index_xk/=1).OR.ANY(index_sym/=1).OR.ANY(index_xkq/=1).OR. &
++          MAXVAL(ABS(xkq_collect))>1.e-12_DP)CALL errore('TRprobe','unique Gamma/q1 mapping refused',1)
++       IF(ANY([dfftt%nr1,dfftt%nr2,dfftt%nr3]/=[60,60,60]).OR. &
++          ABS(exxalfa-.25_DP)>1.e-12_DP.OR.ABS(ecutfock-200._DP)>1.e-10_DP.OR. &
++          ABS(get_screening_parameter()-.106_DP)>1.e-12_DP)CALL errore('TRprobe','kernel domain refused',1)
++       action=(0._DP,0._DP)
++       CALL vexx(npwx,n,6,trial(:,1:6),action(:,1:6),dummy)
++       CALL vexx(npwx,n,6,trial(:,7:12),action(:,7:12),dummy)
++       WRITE(sid,'(I0)')source
++       OPEN(NEWUNIT=u,FILE=TRIM(root)//'/pilot/s'//TRIM(sid)//'.rank'//TRIM(rank),STATUS='NEW', &
++            ACCESS='STREAM',FORM='UNFORMATTED',ACTION='WRITE',IOSTAT=ios)
++       CALL pilot_check_io(ios)
++       h=[70251502_8,1_8,INT(mpime,8),INT(getpid(),8),INT(npwx,8),INT(n,8),INT(source,8),176_8]
++       extent=[INT(dfftt%nr1,8),INT(dfftt%nr2,8),INT(dfftt%nr3,8),INT(dfftt%nnr,8), &
++         INT(SIZE(exxbuff,1),8),INT(SIZE(exxbuff,2),8),INT(SIZE(exxbuff,3),8),INT(x_nbnd_occ,8),INT(nbndproj,8),1_8]
++       WRITE(u,IOSTAT=ios)h,extent,bg*tpiba,xk(:,1),wk(1),exxalfa,ecutfock,get_screening_parameter(), &
++         INT(mill(:,igk_k(1:n,1)),8),et(:,1),wg(:,1),evc,trial,action
++       CALL pilot_check_io(ios)
++       CLOSE(u)
++       CALL mp_barrier(intra_bgrp_comm)
++       WRITE(stdout,'(A,I0)')'R07_FIXED_FOCK_SOURCE_COMPLETE ',source
++    ENDDO
++    WRITE(stdout,'(A)')'R07_FIXED_FOCK_TR_DONE'
++    DEALLOCATE(labels,reversed,trial,action)
++  END SUBROUTINE r07_fixed_TR_probe
++
+ ! Exactly two source updates: preliminary and one hybrid inner solve.
+   SUBROUTINE pilot_begin()
+     USE control_flags,ONLY:conv_elec,restart
+@@ -141,7 +213,7 @@
+     INTEGER::status
+     CHARACTER(1024)::root
+     CALL get_environment_variable('R07_FIRSTACE_ROOT',root,STATUS=status)
+-    IF(status/=0.OR.INDEX(TRIM(root),'/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8c_20261015/')/=1) &
++    IF(status/=0.OR.INDEX(TRIM(root),'/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8t_20261015/')/=1) &
+       CALL errore('pilot','private owned root absent',1)
+     IF(nat/=8.OR.nbnd/=176.OR.npol/=2.OR.nks/=1.OR.nproc/=2.OR.okvan.OR.gamma_only.OR.use_gpu) &
+       CALL errore('pilot','unsupported fixed native domain',1)
+--- accepted/run_pwscf.f90
++++ fixedTR/run_pwscf.f90
+@@ -36,6 +36,7 @@
+   !! @endnote
+   !!
+   !
++  USE exx, ONLY:r07_fixed_TR_probe
+   USE kinds,                ONLY : DP
+   USE mp,                   ONLY : mp_bcast, mp_sum
+   USE io_global,            ONLY : stdout, ionode, ionode_id
+@@ -158,6 +159,10 @@
+   ENDIF
+   !
+   CALL init_run()
++  CALL r07_fixed_TR_probe()
++  exit_status=0
++  CALL qexsd_set_status(exit_status)
++  RETURN ! fixed operator only; NO electrons or SCF punch
+   !
+   !  read external force fields parameters
+   ! 

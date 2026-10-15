@@ -1,0 +1,87 @@
+{
+  "verdict": "REFUSED_REFERENCE_BYTE_MISMATCH_UNCHANGED",
+  "preregistered_qualification_pass": false,
+  "new_native_invocations": 0,
+  "original_refusal_log_sha256": "08e8474e8f51887d34237e51aebac439dbf01eb66e4b482929a08f9c4db6f4ae",
+  "all_actual_source_trial_and_basis_bytes_match": true,
+  "control_differences": [
+    {
+      "rank": 0,
+      "byte_equal": false,
+      "max_abs_Ry": 1.3985787785349405e-17,
+      "relative": 1.1201743895492808e-16,
+      "numeric_elements_unequal": 64421,
+      "active_max_Ry": 1.3985787785349405e-17,
+      "padding_max_Ry": 0.0
+    },
+    {
+      "rank": 1,
+      "byte_equal": false,
+      "max_abs_Ry": 1.4018135586123108e-17,
+      "relative": 1.068881915770229e-16,
+      "numeric_elements_unequal": 64330,
+      "active_max_Ry": 1.4018135586123108e-17,
+      "padding_max_Ry": 0.0
+    }
+  ],
+  "diagnostic_internal_kernel_TR_covariance_relative": 1.645019529209163e-16,
+  "diagnostic_second_covariance_relative": 1.6604872985249954e-16,
+  "diagnostic_internal_covariance_absolute_max_Ry": 1.3985787785349405e-17,
+  "diagnostic_within_original_source_TR_relative": 3.4114352563422146e-08,
+  "diagnostic_only_no_retroactive_byte_gate_relaxation": true,
+  "guard": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-43eb7f4851954ae699c0b2cdcf4a618c.service",
+    "elapsed_s": 27.063639571890235,
+    "error": null,
+    "invocation": "807e509b39324927b4181665ce4dc472",
+    "launcher_returncode": 0,
+    "max_aggregate_output_B": 268746752,
+    "min_free_disk_B": 58713894912,
+    "min_host_available_B": 27657150464,
+    "pass_guard": true,
+    "peak_kernel_memory_B": 1847107584,
+    "peak_sampled_RSS_B": 1859604480,
+    "rank_kernel_exits": {
+      "0": true,
+      "1": true
+    },
+    "sampled_not_continuous": true,
+    "samples": 105
+  },
+  "terminal": {
+    "client_returncode": 0,
+    "manager": {
+      "ActiveState": "inactive",
+      "CollectMode": "inactive",
+      "ControlGroup": "",
+      "Delegate": "no",
+      "ExecMainCode": "1",
+      "ExecMainStatus": "0",
+      "ExecStart": "{ path=/usr/bin/python3.13 ; argv[]=/usr/bin/python3.13 /home/User/repos/MCT-research/research/programs/microscopic_bandgap/exchange_symmetry_2026-10-15/run_probe.py guard host ; ignore_errors=no ; start_time=[Thu 2026-10-15 03:27:51 UTC] ; stop_time=[Thu 2026-10-15 03:28:19 UTC] ; pid=1929126 ; code=exited ; status=0 }",
+      "FragmentPath": "/run/user/1001/systemd/transient/r07-owned-43eb7f4851954ae699c0b2cdcf4a618c.service",
+      "Id": "r07-owned-43eb7f4851954ae699c0b2cdcf4a618c.service",
+      "InvocationID": "807e509b39324927b4181665ce4dc472",
+      "KillMode": "control-group",
+      "LimitCORE": "0",
+      "LimitFSIZE": "1073741824",
+      "LoadState": "loaded",
+      "MainPID": "0",
+      "MemoryMax": "12884901888",
+      "MemoryPeak": "1847107584",
+      "MemorySwapMax": "0",
+      "NoNewPrivileges": "yes",
+      "OOMPolicy": "kill",
+      "Restart": "no",
+      "Result": "success",
+      "RuntimeMaxUSec": "10min",
+      "SendSIGKILL": "yes",
+      "SubState": "dead",
+      "TasksMax": "12",
+      "TimeoutStopUSec": "3s",
+      "Transient": "yes"
+    },
+    "stderr": "",
+    "terminal": true
+  },
+  "physical_xc": null
+}

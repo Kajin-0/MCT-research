@@ -1,0 +1,33 @@
+{
+  "timestamp_UTC": "2026-10-15T03:36:04.247980+00:00",
+  "all_frozen_pins_match": true,
+  "protected_DFT_exact": true,
+  "old_native_evidence_exact": true,
+  "known_lock_free": true,
+  "old_ledger_exact": true,
+  "own_cgroup_absent": true,
+  "no_live_visible_native_names": true,
+  "hostwide_absence_claim": false,
+  "original_byte_refusal_unchanged": true,
+  "no_accepted_FINAL": true,
+  "new_output_charge_B": 268505088,
+  "preceding_host_output_charge_B": 2769248256,
+  "combined_phase_output_B": 3037753344,
+  "below14GiB": true,
+  "account": {
+    "allocated_unique_blocks_bytes": 335503360,
+    "metadata_allowance_bytes": 110592,
+    "budget_charge_bytes": 268505088,
+    "escrow_blocks_bytes": 67108864,
+    "observed_unique_inodes": 27,
+    "cumulative_distinct_observed_inode_ids": 27,
+    "inode_aliases_deduplicated": 0,
+    "open_deleted_inodes": 0,
+    "maximum_charge_bytes": 268505088,
+    "sample_number": 1,
+    "observed_owned_MPI_unlinked_tmpfs": [],
+    "continuous_guarantee": false,
+    "metadata_is_allowance_not_exact_ext4_measurement": true
+  },
+  "no_new_native_invocation": true
+}

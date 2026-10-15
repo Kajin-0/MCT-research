@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/exchange_symmetry_2026-10-15/run_probe.py", line 241, in <module>
+    elif action=='launch': launch(sys.argv[2])
+                           ~~~~~~^^^^^^^^^^^^^
+  File "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/exchange_symmetry_2026-10-15/run_probe.py", line 218, in launch
+    science=validate_native(root)
+  File "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/exchange_symmetry_2026-10-15/compare.py", line 43, in validate_native
+    assert v['action'][:,:6].tobytes()==prior['direct_probe'].tobytes(),'retained canonical direct action byte mismatch'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: retained canonical direct action byte mismatch

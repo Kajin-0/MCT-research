@@ -1,0 +1,1 @@
+{"native_invocations":0,"retained_b1":"empty source-precheck refusal: two init_run callsites; uniquely anchored main-loop init","retained_b2":"two private objects linked, unexecuted","b3_reason":"preserve exact six-column batch size of retained direct-control call; use two six-column calls, not one twelve-column call"}

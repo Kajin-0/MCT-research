@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": 3,
+  "local_spin_density_difference_max": 0.0,
+  "nonlocal_TR_density_difference_op": 1.0,
+  "minimal_completion_dimension": 4,
+  "source_columns": 2,
+  "additional_columns": 2,
+  "kernel_source_test_values": [
+    -1.0,
+    -0.25
+  ],
+  "synthetic_only": true,
+  "no_material_parameter_fit": true,
+  "new_native_invocations": 0
+}

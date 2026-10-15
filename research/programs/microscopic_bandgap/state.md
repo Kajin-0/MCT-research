@@ -2,9 +2,38 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; new eight-source HSE host has a measured nonlocal TR/ACE symmetry obstruction and remains unconverged; Cd withheld; earlier PBE/finite HSE activations and all FAILs preserved
+**State:** historical physical goal BLOCKED; the eight-build HSE host exposes a nonlocal time-reversal/ACE obstruction. Direct-kernel covariance was measured, but strict replay qualification was REFUSED. Cd is withheld; a symmetry-qualified nonmagnetic host is indispensable. Physical x_c remains OPEN.
 
-**Updated:** 2026-10-15 03:16 UTC
+**Updated:** 2026-10-15 03:40 UTC
+
+## Independent direct-kernel discriminator — 2026-10-15 03:40 UTC
+
+[Decision](exchange_symmetry_2026-10-15/decision.md): from pushed63b8d75, one
+fresh two-rank fixed-source/Theta-source Fock probe completed in27.064s, with no
+SCF, ACE rebuild or restart. Actual source, trial, G, et and wg bytes match.
+Owner, kernel-resource and terminal gates passed. The retained direct-action
+BYTE gate refused at1.402e-17Ry maximum difference (~1.1e-16 relative). The
+original traceback is preserved; there is no accepted FINAL and no retry.
+
+CALCULATED DIAGNOSTIC: within the new run, direct-kernel time-reversal covariance
+has1.645e-16 relative residual, and its second identity has1.660e-16. This
+disfavors a gross covariance failure for these tested fresh-kernel inputs. It
+does not pass the refused replay or establish the cause of the old SCF instability.
+Peak kernel memory was1.847GB; all limits held. Both phases' combined native
+outputs are3.038GB<14GiB. Protected DFT, stock, earlier evidence and the old
+ledger are unchanged; no owned MPI family remains live.
+
+PROVEN: the smallest invariant source superspace is S+ThetaS. Equal local charge
+and zero local spin density do not determine the nonlocal exchange operator.
+Three tiny independent checks pass. The frozen176-column ACE/source contract
+does not certify the required nonmagnetic host. Stop native/Cd work at this
+scientific boundary. The next independent input is a symmetry-qualified,
+self-consistent host operator/density, with a complete constructor or direct
+control before matched chemistry. Do not average the split Gamma8 energies into
+a gap or silently change occupations/bands. See the
+[ranked minimum input](exchange_symmetry_2026-10-15/minimum_input.md).
+All prior finite activation/PBE results retain their original scope. No converged
+HSE or physical x_c is claimed; the historical blocked goal is unchanged.
 
 ## Eight-source hybrid host and symmetry falsification — 2026-10-15 03:16 UTC
 
