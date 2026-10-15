@@ -1,0 +1,109 @@
+{
+  "timestamp_UTC": "2026-10-15T04:20:06.622476+00:00",
+  "parent": "3ce4dc0",
+  "verdict": "PASS_NEW_CONSTRAINED_OPERATOR_ONLY",
+  "QE_ELF": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/b1/pw.hse8.symmetry",
+  "QE_ELF_sha256": "d0c4fedf465853bee7a6abe9594f976a755115915e0fa340031113c4245d280f",
+  "files": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pw.in": {
+      "sha256": "5b33b69ffd75b84017af93bdbb7c6c140aab63f78aa669322cd509fa63310a27",
+      "bytes": 1135,
+      "archive_relative": "evidence/pw.in"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pw.out": {
+      "sha256": "d8c087239843e8aff68d54b5ce287b82107a7fb6edb77f0a88a49fe44e2520e5",
+      "bytes": 21811,
+      "archive_relative": "evidence/pw.out"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/JOB.json": {
+      "sha256": "9a8546940d33105fab8c4d6107cc1f94d9e095edae4072f6a109eb87a148e19e",
+      "bytes": 346,
+      "archive_relative": "evidence/JOB.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/READY.json": {
+      "sha256": "794869fbe772b19c3443464828aa9f62b15ba98403805da5f87dfd0e264fda92",
+      "bytes": 1864,
+      "archive_relative": "evidence/READY.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/REFERENCED.json": {
+      "sha256": "85901bc500d15b3ab4fe7b7b17d04d367f74e926d26617b41bf1b7060d6fe5ca",
+      "bytes": 19,
+      "archive_relative": "evidence/REFERENCED.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/LAUNCH.json": {
+      "sha256": "eff1318bf08e6e5edd258910396d432df18ca3c29ae7f2a603f46db41fd5352d",
+      "bytes": 403,
+      "archive_relative": "evidence/LAUNCH.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/RANKS.json": {
+      "sha256": "a158dab4827f107b03ba9082da93f6d9e9320dc50b239214efa03dd60a63dce3",
+      "bytes": 326,
+      "archive_relative": "evidence/RANKS.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/GUARD_RESULT.json": {
+      "sha256": "d639828ab6b687651676ba28a646d444c850c5d05b73f806b92de01b62482c40",
+      "bytes": 504,
+      "archive_relative": "evidence/GUARD_RESULT.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/TERMINAL.json": {
+      "sha256": "6102ce9262e79feee51b9426b03c2ff74e40168bb4f8db6c75f3eee1bb4f1feb",
+      "bytes": 1109,
+      "archive_relative": "evidence/TERMINAL.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/FINAL.json": {
+      "sha256": "bbf2dbf060a6d2e3e58f76ec5937577ed7b2157c46df73d4ce48cf708a55ab0e",
+      "bytes": 5598,
+      "archive_relative": "evidence/FINAL.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/telemetry.jsonl": {
+      "sha256": "20a71c201dcf45f8244be391f4fa1f54f1a1f9ec74adfc61de440d65c1ce4095",
+      "bytes": 1301201,
+      "archive_relative": "evidence/telemetry.jsonl"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pilot/input.rank0": {
+      "sha256": "21f327d2a96216c14b1f1e4d5c848a4e0611cd67796c5f53ca28e513818a1eeb",
+      "bytes": 126280776,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pilot/input.rank1": {
+      "sha256": "70dcae257c4320226947ff460d623e215d3a11ec87284ddef7723916611374ac",
+      "bytes": 126210816,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pilot/s1.rank0": {
+      "sha256": "1a2bc5745210aa93c51b13025732d4a21340ca4e123bd39371349aa513a5e21b",
+      "bytes": 160936920,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pilot/s1.rank1": {
+      "sha256": "7e5b5d609bf069e155be6547a239b45fb31864dc3cff0ebfbbe378a8b8f5f3ce",
+      "bytes": 160847760,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pilot/s2.rank0": {
+      "sha256": "251cdee5361ae28f351e77a3803074c85874afdb2b6f597efedd32b92bced345",
+      "bytes": 160936920,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pilot/s2.rank1": {
+      "sha256": "5983d7309500d33c5fb3595dfb437fa1ce24663464a144924d84df6692a17d1d",
+      "bytes": 160847760,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pp/Hg_sg15_pbe_fr_v12.UPF": {
+      "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "bytes": 374986,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pp/Cd_sg15_pbe_fr_v12.UPF": {
+      "sha256": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "bytes": 355177,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host/pp/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714,
+      "retained_private": true
+    }
+  }
+}

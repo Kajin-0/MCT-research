@@ -1,0 +1,89 @@
+{
+  "scientific_pass": true,
+  "status": "CALCULATED native direct actions and OFFLINE TR-constrained ensemble compression",
+  "source_checks": [
+    {
+      "source": 1,
+      "rank": 0,
+      "canonical_actual_input_byte_exact": true
+    },
+    {
+      "source": 2,
+      "rank": 0,
+      "canonical_actual_input_byte_exact": true
+    },
+    {
+      "source": 1,
+      "rank": 1,
+      "canonical_actual_input_byte_exact": true
+    },
+    {
+      "source": 2,
+      "rank": 1,
+      "canonical_actual_input_byte_exact": true
+    }
+  ],
+  "auxiliary_dimension": 364,
+  "physical_solved_bands_unchanged": 176,
+  "native_ACE_built": false,
+  "offline_ACE_constructor": true,
+  "SCF_performed": false,
+  "HSE_converged": false,
+  "source_cover_op": 1.1092327936093497e-14,
+  "reference_cover_op": 7.676546518259489e-15,
+  "auxiliary_Gram_error_op": 1.035526566655817e-14,
+  "actual_native_kernel_bounds": [
+    [
+      0.0,
+      293.30566555576206,
+      3171.657155791681,
+      127.83581398932685
+    ],
+    [
+      0.0,
+      293.30566555576206,
+      3171.657155791681,
+      127.83581398932685
+    ],
+    [
+      0.0,
+      293.30566555576206,
+      3171.657155791681,
+      127.83581398932685
+    ],
+    [
+      0.0,
+      293.30566555576206,
+      3171.657155791681,
+      127.83581398932685
+    ]
+  ],
+  "operator_norm_upper_Ry": 127.83581398932685,
+  "source_projection_action_upper_Ry": 1.417996770747062e-12,
+  "reference_projection_action_upper_Ry": 9.813375727886348e-13,
+  "direct_covariance_all_trials_relative": 2.3186264468117043e-16,
+  "direct_covariance_second_identity_relative": 2.318626446811722e-16,
+  "enlarged_positive_Gram_min_Ry": 0.012319384965109816,
+  "enlarged_positive_Gram_max_Ry": 0.9289178318492092,
+  "enlarged_Gram_condition": 75.40293890320268,
+  "enlarged_Gram_Hermiticity_relative": 4.091401701766963e-16,
+  "offline_ACE_source_action_relative": 6.657363822401553e-16,
+  "independent_factorization_relative": 3.355199854023603e-15,
+  "offline_ACE_direct_reference_action_relative": 6.169856262428849e-16,
+  "offline_ACE_TR_commutator_relative": 9.596870275892696e-16,
+  "new_retained_source_norm_control_relative": 3.050987743360481e-15,
+  "old_BYTE_refusal_unchanged": true,
+  "TR_constrained_density_charge_e": 144.0000000000063,
+  "TR_constrained_density_TR_op": 1.8920025686444474e-15,
+  "natural_occupation_min": -1.3049025121119466e-15,
+  "natural_occupation_max": 1.0000000000000093,
+  "exchange_Gram_pair_split_max_Ry": 1.6653345369377348e-15,
+  "not_a_HSE_Kramers_band_splitting": true,
+  "constrained_ensemble_half_Fock_Ry": -35.7308441641996,
+  "independent_weighted_energy_Ry": -35.73084416419937,
+  "original_half_Fock_Ry": -35.730844164199354,
+  "half_Fock_change_Ry": -2.4868995751603507e-13,
+  "projected_Gamma6_minus8_exchange_change_meV": 3.7763384427830227e-13,
+  "physical_xc": null,
+  "qualified_self_consistent_nonmagnetic_host": false
+}

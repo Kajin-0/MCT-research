@@ -2,9 +2,43 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; the eight-build HSE host exposes a nonlocal time-reversal/ACE obstruction. Direct-kernel covariance was measured, but strict replay qualification was REFUSED. Cd is withheld; a symmetry-qualified nonmagnetic host is indispensable. Physical x_c remains OPEN.
+**State:** historical physical goal BLOCKED; a NEW native-direct TR-constrained exchange constructor passes, and actual old-ACE/direct off-span error is measured. Joint crystal/translation symmetry and a consistent native SCF state bridge remain unqualified. Cd is withheld; physical x_c remains OPEN.
 
-**Updated:** 2026-10-15 03:40 UTC
+**Updated:** 2026-10-15 04:24 UTC
+
+## Native TR constructor and full-symmetry boundary — 2026-10-15 04:24 UTC
+
+[Native decision](symmetry_constructor_2026-10-15/decision.md),
+[read-only proof/audit](antiunitary_closure_2026-10-15/decision.md),
+[precise next input](symmetry_constructor_2026-10-15/next_input.md).
+Direct residual SVD resolves166missing directions at1e-8 in the old176source,
+not merely2. Full source density TR defect grows5.198e-7→.001428→.007883→.999987
+at sources1/2/3/8. A density-preserving basis repair is mathematically impossible.
+
+ONE fresh native two-rank D/TD fixed-source test,658.09s, NEW900s hard cap,
+unchanged176physicalbands/HSE kernel/PP/cell/kq; noSCF/nativeACE/restart/Cd/retry.
+Canonical inputs pass byte readback. CALCULATED direct covariance2.32e-16;
+new364auxiliary Gram positive(min.012319Ry/cond75.4), OFFLINE compression exact
+source/reference~6e-16 andTRcomm9.60e-16. This is the explicitly NEW ensemble
+Dbar=(D+TD)/2, not nativeFD of a convergedHSE Hamiltonian. Old BYTE replay remains
+REFUSED. Actual kernel4.780GB, sampledRSS4.524GB, host/diskfloors and cleanup pass;
+old raw/stock/dirtyDFT/ledger exact, no live ownedfamily, combined output3.938GB.
+
+Direct actions now resolve the old ACE/offspan error at SAME originalD:
+2.8179%relative onTPhi, op.131652Ry/maxcolumn.100545Ry, versus3.11e-15 own-source
+interpolation; occupiedweightederror6.72e-8Ry. These are actionnorms, not gapshifts
+or proof of the old instability's cause. Naturaloccupied rank146ofDbar isTRclosed
+and positive/wellconditioned with6.98e-13e dropped, but independent reference
+error4.03e-4 andTdselfcomm2.97e-8>1e-8 REFUSE it as a fullsolver replacement.
+
+PROVEN/CALCULATED: TR protects doublets, not aGamma8quartet. Both oldsource and
+new364cover have largeTd-generator leakage; native joint crystal/translation/
+TR state, occupations/entropy and Hamiltonian residual remain missing. No further
+identicalHSE/Cd run is admitted. No prior gates/FAILs weakened, physicalmagnetism,
+fullHSE convergence, wholeSCFmemoryadvantage or physicalx_c claimed. Historical
+goal and other programs/sessions unchanged. Underlying algebra established;
+noveltyUNVERIFIED. This is a substantive native/mathematical milestone and a
+precise next scientific boundary, not an originalgoal resume.
 
 ## Independent direct-kernel discriminator — 2026-10-15 03:40 UTC
 

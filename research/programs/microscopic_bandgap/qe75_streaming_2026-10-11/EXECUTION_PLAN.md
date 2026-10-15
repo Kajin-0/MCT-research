@@ -1,9 +1,42 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 00:30 UTC
-**Status:** MATCHED ONE-RELAXATION/SECOND-ACE HSE PAIR PASS; CHEMICAL OPERATOR TRACE +44.1841 → +39.8115 MEV (−4.3726 MEV); 410/409 S, KERNEL ~4.55 GB; OUTER HSE UNCONVERGED; ORIGINAL FAILURES/TARGET/GOAL PRESERVED
+**Last verified update:** 2026-10-15 04:24 UTC
+**Status:** NEW NATIVE DIRECT TR-CONSTRAINED OPERATOR CONSTRUCTOR PASS; OLD ACE/DIRECT OFF-SPAN ERROR 2.82%; FULL CRYSTAL/STATE BRIDGE UNQUALIFIED; NO HSE SCF/CD RELEASE
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Current native physics checkpoint — 2026-10-15 04:24 UTC
+
+See [new operator decision](../symmetry_constructor_2026-10-15/decision.md),
+[handoff](../symmetry_constructor_2026-10-15/handoff_ledger.md), and
+[next input](../symmetry_constructor_2026-10-15/next_input.md).
+From d6b95cc/readonly3ce4dc0, actual source audit resolves166leakage directions
+at1e-8 and proves the existing density cannot be repaired by a basis rotation.
+New private h8s_20261015/b1 and fresh p1/host execute TWO fixed-source orders
+D/TD,376trials each, one native2rank family, notSCF/nativeACE/restart/Cd.
+Canonicalbytes pass; direct covariance2.32e-16, positive364Gram(cond75.4),
+OFFLINE TR-safe compression source/reference~6e-16/TRcomm9.60e-16.
+Old BYTE refusal and unconverged8sourcehost remain immutable.
+
+Finite900s cap prospectively justified/frozen from actual direct action cost;
+actual658.09s, kernelMemoryPeak4,780,109,824B/RSS4,524,322,816B. Same12GiB/
+swap0/tasks12 and host4GiB/disk10GiB/output14GiB safeguards hold, including
+actual84byte socket, liveleases/pidfd/terminalmanagerexit0. Own groupgone/lockfree,
+legacyledger/DFT/stock/oldrawexact. Finalnewoutput.900GB, combined3.938GB.
+No originalhostwideMPIabsence/netns or continuousaggregatequota claim.
+
+READ-ONLY discriminator: oldACE vs direct atSAME D onTPhi differs2.82%, occupied
+weighted6.72e-8Ry. Newnatural146occupied compression is TRsafe but FAILS fixed
+reference(4.03e-4relative) and strictcrystalselfcomm(2.97e-8>1e-8) qualification.
+TR does not protect cubicGamma8quartet; sourceTdclosure and consistent native
+variational/FD/state/Hamiltonian residual bridge remain unqualified. No additional
+native job, repeatedHSE trajectory, Cd, original16atom, force or restart admitted.
+No physicalx_c, convergedHSE, cause-of-instability or wholeSCFmemory claim.
+
+Context reset: retain all old source/FAILs. Source copies are PRIVATE; direct/
+ACE arithmetic and stock unchanged. Natural states are NOT eigenpairs of oldH.
+Current decision is advance constructor but stop at precise jointsymmetry/state
+boundary, under continuing user mandate without changing blocked historicalgoal.
 
 ## One HSE relaxation / second-ACE physics milestone — 2026-10-15 00:30 UTC
 

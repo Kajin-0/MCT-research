@@ -1,0 +1,33 @@
+{
+  "timestamp_UTC": "2026-10-15T04:04:10.175386+00:00",
+  "native_executed": false,
+  "source_and_backend_pins_pass": true,
+  "protected_state_exact": true,
+  "known_owner_lock_free": true,
+  "visible_native_names_absent": true,
+  "hostwide_absence_claim": false,
+  "source_domain_proof": "operator_input_proof.md",
+  "socket_bytes": 84,
+  "socket_actual_bind_and_identity_cleanup": true,
+  "fresh_job": {
+    "kind": "R07_PAIRED_CONSTRAINED_ENSEMBLE_FOCK_V1",
+    "member": "host",
+    "nonce": "82d37318e2d9450e8454b190e06b703d",
+    "profile_sha256": "00fd4e9d4b82335ef61739c6063dc322b00c30950cdeced56340337a382b0959",
+    "root": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8s_20261015/p1/host",
+    "unit": "r07-owned-2ed34eec393643d6bcb6e76de89a629a.service"
+  },
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 900
+  },
+  "available_RAM_B": 29826367488,
+  "disk_available_B": 58293489664,
+  "wall_cap_s": 900,
+  "forecast_s": 630,
+  "forecast_not_bound": true,
+  "auxiliary_completion_not_extra_physical_bands": true
+}

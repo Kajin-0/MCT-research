@@ -1,0 +1,27 @@
+{
+  "status": "CALCULATED post-acquisition physical occupied-compression diagnostic",
+  "physical_occupied_source_action_relative": 6.552312640980065e-16,
+  "physical_occupied_TR_commutator_relative": 9.860509475725322e-16,
+  "fixed_reference_ACE_direct_action_relative": 0.0004033230191488473,
+  "fixed_reference_ACE_direct_action_op_Ry": 0.00017900651091468878,
+  "fixed_reference_cover_by_occupied_support_op": 0.003955323945548081,
+  "crystal_generators": [
+    {
+      "generator": "C3",
+      "occupied_support_leakage_op": 3.1582293597924387e-07,
+      "occupied_ACE_self_commutator_relative": 2.9699578502193876e-08,
+      "not_direct_Fock_crystal_covariance_measurement": true
+    },
+    {
+      "generator": "S4",
+      "occupied_support_leakage_op": 3.0339070551986354e-07,
+      "occupied_ACE_self_commutator_relative": 2.8867956598295816e-08,
+      "not_direct_Fock_crystal_covariance_measurement": true
+    }
+  ],
+  "original_reference_not_changed": true,
+  "native_ACE_not_integrated": true,
+  "no_replacement_of364constructor_acceptance": true,
+  "physical_xc": null,
+  "HSE_converged": false
+}

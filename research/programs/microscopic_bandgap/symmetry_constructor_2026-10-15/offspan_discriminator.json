@@ -1,0 +1,20 @@
+{
+  "status": "CALCULATED post-preregistration diagnostic, not a changed acceptance gate",
+  "same_original_D_operator": true,
+  "direct_ThetaPhi_action_reconstruction_upper_Ry": 1.417996770747062e-12,
+  "original_ACE_vs_direct_on_ThetaPhi_relative": 0.02817895529132536,
+  "original_ACE_vs_direct_on_ThetaPhi_error_op_Ry": 0.1316523183744832,
+  "original_ACE_vs_direct_on_ThetaPhi_max_column_Ry": 0.1005452297128113,
+  "occupied_weighted_error_op_Ry": 6.721550560343383e-08,
+  "bands143_146_error_column_Ry": [
+    2.2930707594501573e-08,
+    2.5128318128211642e-08,
+    2.558530365882286e-08,
+    2.6794428998845143e-08
+  ],
+  "empty147_176_error_max_column_Ry": 0.1005452297128113,
+  "original_ACE_source_interpolation_control_relative": 3.1098018791614576e-15,
+  "no_material_instability_causation_proven": true,
+  "HSE_converged": false,
+  "physical_xc": null
+}
