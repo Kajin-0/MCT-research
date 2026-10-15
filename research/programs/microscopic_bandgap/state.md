@@ -4,9 +4,9 @@
 
 **State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 20:33 UTC
+**Updated:** 2026-10-15 20:40 UTC
 
-## Analytical physical-inversion assignment: phase1 — 2026-10-15 20:33 UTC
+## Analytical physical-inversion assignment: phases1–2 — 2026-10-15 20:40 UTC
 
 From89ef0f1. [Scope](physical_inversion_2026-10-15/scope.md),
 [accounting](physical_inversion_2026-10-15/chemical_disorder.md),
@@ -17,8 +17,13 @@ need not be causal and separate scalar/mass variances omit a mass-relevant
 cross-covariance. Dense/exact polynomial checksPASS; no nativeDFT/HSE job.
 Earlier full/residualT, host-invariant, threshold and identifiability results
 retained. Physical sharp/real-root/resonance/Green-zero/topological definitions
-are separated; no physicalxc. Continue support-gap-free pole/root proof and
-minimum-input decision. Alowa comparison limited to publisher preview; novelty
+are separated; no physicalxc. [Sharp-atom certificate](physical_inversion_2026-10-15/sharp_atom_certificate.md)
+proves a gap-free local inverse-root enclosure if independently known Z>=3/4.
+[Threshold obstruction](physical_inversion_2026-10-15/threshold_eligibility.md)
+shows a positive coupling density with exponent<=1 rules out a target atom at
+threshold; it is established Friedrichs mathematics, not a HgCdTe measurement.
+Independent continuum/bath/counterexample checksPASS. Continue the actual-data
+minimum-input decision. Phase1 actual checkpoint20:31; Alowa limited to preview; novelty
 UNVERIFIED. All prior native failures and protected state unchanged.
 
 ## Read-only continuum response and true physical moments — 2026-10-15 19:22 UTC

@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "native_jobs": 0,
+  "material_validation": false,
+  "physical_xc": null,
+  "theorem_constants_sufficient_not_optimal": true,
+  "continuum_atom_checks": [
+    {
+      "Z": 0.75,
+      "eta": 0.02,
+      "sharp_atom": 0.17,
+      "inverse_root": 0.17001110387572496,
+      "atom_root_distance": 1.1103875724949308e-05,
+      "guaranteed_radius": 0.013333333333333332,
+      "numerator_derivative_min": 0.7500696487650044,
+      "certified_derivative_lower": 0.05555555555555558,
+      "quadrature_error": 4.163336342344337e-17,
+      "identity_error": 2.0816681711721685e-17,
+      "perturbed_root": 0.1700111038394642,
+      "perturbation_root_bound": 2.946951695337382e-07,
+      "actual_perturbed_root_error": 3.626077216267731e-11
+    },
+    {
+      "Z": 0.75,
+      "eta": 0.1,
+      "sharp_atom": 0.17,
+      "inverse_root": 0.17026804781657637,
+      "atom_root_distance": 0.00026804781657635557,
+      "guaranteed_radius": 0.06666666666666667,
+      "numerator_derivative_min": 0.7565605526952512,
+      "certified_derivative_lower": 0.05555555555555558,
+      "quadrature_error": 5.311767472816653e-16,
+      "identity_error": 2.7755575615628914e-17,
+      "perturbed_root": 0.17026804692194566,
+      "perturbation_root_bound": 1.4734758476686918e-06,
+      "actual_perturbed_root_error": 8.946307028523393e-10
+    },
+    {
+      "Z": 0.8,
+      "eta": 0.02,
+      "sharp_atom": 0.17,
+      "inverse_root": 0.17000832867762172,
+      "atom_root_distance": 8.328677621710634e-06,
+      "guaranteed_radius": 0.009999999999999998,
+      "numerator_derivative_min": 0.8000557190120035,
+      "certified_derivative_lower": 0.35000000000000014,
+      "quadrature_error": 4.163336342344337e-17,
+      "identity_error": 1.3877787807814457e-17,
+      "perturbed_root": 0.17000832864362406,
+      "perturbation_root_bound": 2.923468760682107e-08,
+      "actual_perturbed_root_error": 3.399766579370578e-11
+    },
+    {
+      "Z": 0.8,
+      "eta": 0.1,
+      "sharp_atom": 0.17,
+      "inverse_root": 0.1702014859406387,
+      "atom_root_distance": 0.0002014859406386793,
+      "guaranteed_radius": 0.04999999999999999,
+      "numerator_derivative_min": 0.8052484421562011,
+      "certified_derivative_lower": 0.3500000000000002,
+      "quadrature_error": 5.311767472816653e-16,
+      "identity_error": 3.469446951953614e-17,
+      "perturbed_root": 0.17020148510001223,
+      "perturbation_root_bound": 1.4617343803410527e-07,
+      "actual_perturbed_root_error": 8.406264573324052e-10
+    },
+    {
+      "Z": 0.95,
+      "eta": 0.02,
+      "sharp_atom": 0.17,
+      "inverse_root": 0.170001753790551,
+      "atom_root_distance": 1.7537905509790175e-06,
+      "guaranteed_radius": 0.002105263157894739,
+      "numerator_derivative_min": 0.9500399233518371,
+      "certified_derivative_lower": 0.8889196675900276,
+      "quadrature_error": 4.163336342344337e-17,
+      "identity_error": 1.4040418133687282e-17,
+      "perturbed_root": 0.17000175376191498,
+      "perturbation_root_bound": 5.0998992139544595e-09,
+      "actual_perturbed_root_error": 2.8636010229732278e-11
+    },
+    {
+      "Z": 0.95,
+      "eta": 0.1,
+      "sharp_atom": 0.17,
+      "inverse_root": 0.17004264436362077,
+      "atom_root_distance": 4.264436362075297e-05,
+      "guaranteed_radius": 0.010526315789473696,
+      "numerator_derivative_min": 0.9513121105390502,
+      "certified_derivative_lower": 0.8889196675900276,
+      "quadrature_error": 5.311767472816653e-16,
+      "identity_error": 1.3877787807814457e-17,
+      "perturbed_root": 0.17004264365187804,
+      "perturbation_root_bound": 2.5499496069772302e-08,
+      "actual_perturbed_root_error": 7.117427203162663e-10
+    }
+  ],
+  "threshold_spectral_background_root": 0.001190245033103485,
+  "threshold_spectral_background_radius": 0.015,
+  "independent_Hermitian_bath_max_error": 6.4047456679787536e-15,
+  "continuous_no_atom_equal_real_roots": [
+    0.19999999999999996,
+    0.19999999999999996
+  ],
+  "resonance_widths": [
+    0.03,
+    0.17
+  ],
+  "coincident_atom_common_inverse_difference": 0.0030769230769230774,
+  "synthetic_composition": {
+    "true_root": 0.43,
+    "approximate_root": 0.43000051285389396,
+    "uniform_ordering_error": 0.0028758169934640526,
+    "root_error_bound": 0.0035947712418300656,
+    "actual_error": 5.128538939636051e-07
+  },
+  "coupling_measure_IR_checks": [
+    {
+      "p": 0.5,
+      "integrals": [
+        {
+          "IR_cutoff": 0.01,
+          "S": 18.0
+        },
+        {
+          "IR_cutoff": 0.0001,
+          "S": 198.0
+        }
+      ],
+      "finite_at_zero": false
+    },
+    {
+      "p": 1.0,
+      "integrals": [
+        {
+          "IR_cutoff": 0.01,
+          "S": 4.605170185988091
+        },
+        {
+          "IR_cutoff": 0.0001,
+          "S": 9.210340371976182
+        }
+      ],
+      "finite_at_zero": false
+    },
+    {
+      "p": 1.5,
+      "integrals": [
+        {
+          "IR_cutoff": 0.01,
+          "S": 1.8
+        },
+        {
+          "IR_cutoff": 0.0001,
+          "S": 1.98
+        }
+      ],
+      "finite_at_zero": true
+    }
+  ],
+  "synthetic_threshold_atom": {
+    "p": 1.5,
+    "c": 0.1,
+    "epsilon0": 0.06666666666666667,
+    "S": 0.2,
+    "Z": 0.8333333333333334,
+    "scalar_equation_residual": 0.0
+  }
+}

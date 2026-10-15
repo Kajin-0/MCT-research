@@ -25,12 +25,15 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
-## Active analytical continuation — 2026-10-15 20:33 UTC
+## Active analytical continuation — 2026-10-15 20:40 UTC
 
 User's NEW no-native assignment starts89ef0f1. The original session is working
 in `physical_inversion_2026-10-15/`: observable/accounting phase1 passed exact
-counterexamples; phase2 pole/root certificate and phase3 minimum-input decision
-continue. Read its `scope.md`, `decision_ledger.md`, and final decision if later
+counterexamples (checkpoint20:31). Phase2 sharp-atom/inverse-root certificate
+also passes without a support gap, but needs independently known atom weight;
+threshold normalization can exclude that atom. These are conditional theorems,
+not material xc. Phase3 minimum-input decision continues. Read `scope.md`,
+`decision_ledger.md`, and final decision if later
 present. No new native work is authorized in this assignment. No physicalxc or
 newly stationaryHSE has been obtained. Preserve all earlier handoff history.
 

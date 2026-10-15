@@ -33,8 +33,21 @@ remains an explicit barrier to strong novelty language.
   fermion literature. The exact covariance/own-reference counterexample and
   restricted two-contraction input quotient supply a concrete HgCdTe closure
   rejection test. Historical originality is UNVERIFIED.
-- A support-gap-free **sufficient pole-to-root certificate**, if it passes the
-  next proof/tests, could strengthen this repository's continuum framework.
+- B1's support-gap-free **sufficient atom-to-root certificate** passed proof
+  and independent causal tests and strengthens this repository's framework.
   General Stieltjes/atom and inverse perturbation mathematics are not new.
   A bounded targeted search did not establish priority for the specific constants;
   it also does not establish their novelty. No publication claim is made.
+- B2's threshold normalization/atom obstruction is established Friedrichs
+  mathematics: [Albeverio–Lakaev–Muminov](https://arxiv.org/html/math/0604277v1),
+  Lemmas3.2–3.3, explicitly distinguish a resonance from an eigenstate by form
+  factor/square-integrability; [Gadella–Pronko](https://arxiv.org/html/1106.5782v1),
+  section2, supplies the discrete/continuum model. Both full author texts were
+  inspected here. B2 connects this existing obstruction to R07's *choice* of
+  signed inversion observable, not an original threshold law.
+
+Bounded additional searches of "spectral atom Stieltjes reciprocal real zero"
+and "HgCdTe heavy hole self energy correlated mass scalar disorder" found no
+specific B1 constant statement, but are inadequate to establish priority.
+Functional inverse Stieltjes transforms are different from 1/g and were not
+treated as matching prior art. No negative search result is a novelty proof.
