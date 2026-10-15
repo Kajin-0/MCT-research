@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "symbolic_projected_difference_identity": true,
+  "full_self_energy_causality_min": 0.00010723120723697411,
+  "full_augmented_dense_identity_error": 1.1015366573854468e-16,
+  "projected_difference_positive_Im": 17.268865680460237,
+  "projected_Schur_formula_error": 1.4221692604176232e-14,
+  "own_reference_responses_identical": true,
+  "aligned_counterexamples": [
+    {
+      "correlation_sign": -1,
+      "aligned_mass_kernel": [
+        -0.16729735112527386,
+        0.02628958374825731
+      ],
+      "variance_scalar": 0.09,
+      "variance_mass": 0.04000000000000001
+    },
+    {
+      "correlation_sign": 1,
+      "aligned_mass_kernel": [
+        0.16729735112527386,
+        -0.02628958374825731
+      ],
+      "variance_scalar": 0.09,
+      "variance_mass": 0.04000000000000001
+    }
+  ],
+  "covariance_quotient_trace_errors": [
+    2.7755575615628914e-17,
+    1.5515838457795457e-17
+  ],
+  "Fano_zero_not_eigenvalue": true,
+  "full_residual_T_identity": true,
+  "material_validation": false,
+  "physical_xc": null
+}

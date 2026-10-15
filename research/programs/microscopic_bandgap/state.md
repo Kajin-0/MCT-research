@@ -4,7 +4,22 @@
 
 **State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 19:22 UTC
+**Updated:** 2026-10-15 20:33 UTC
+
+## Analytical physical-inversion assignment: phase1 — 2026-10-15 20:33 UTC
+
+From89ef0f1. [Scope](physical_inversion_2026-10-15/scope.md),
+[accounting](physical_inversion_2026-10-15/chemical_disorder.md),
+[observable definitions](physical_inversion_2026-10-15/observables.md),
+[prior-art matrix](physical_inversion_2026-10-15/prior_art_matrix.md).
+Exact static counterexamples establish projected chemical-subtracted kernels
+need not be causal and separate scalar/mass variances omit a mass-relevant
+cross-covariance. Dense/exact polynomial checksPASS; no nativeDFT/HSE job.
+Earlier full/residualT, host-invariant, threshold and identifiability results
+retained. Physical sharp/real-root/resonance/Green-zero/topological definitions
+are separated; no physicalxc. Continue support-gap-free pole/root proof and
+minimum-input decision. Alowa comparison limited to publisher preview; novelty
+UNVERIFIED. All prior native failures and protected state unchanged.
 
 ## Read-only continuum response and true physical moments — 2026-10-15 19:22 UTC
 
