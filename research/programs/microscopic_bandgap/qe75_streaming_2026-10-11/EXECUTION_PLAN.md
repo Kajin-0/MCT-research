@@ -1,9 +1,61 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-14 23:57 UTC
-**Status:** FRESH MATCHED 8-ATOM HSE FIRST-ACE PAIR PASS; CHEMICAL ACTIVATION TRACE +44.1841 MEV; ACTUAL KERNEL PEAK ~4.23 GB / WALL 216 AND 201 S; HSE UNCONVERGED; ORIGINAL OWNER FAIL/TARGET/GOAL PRESERVED
+**Last verified update:** 2026-10-15 00:30 UTC
+**Status:** MATCHED ONE-RELAXATION/SECOND-ACE HSE PAIR PASS; CHEMICAL OPERATOR TRACE +44.1841 → +39.8115 MEV (−4.3726 MEV); 410/409 S, KERNEL ~4.55 GB; OUTER HSE UNCONVERGED; ORIGINAL FAILURES/TARGET/GOAL PRESERVED
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## One HSE relaxation / second-ACE physics milestone — 2026-10-15 00:30 UTC
+
+Starts clean pushed bce98cc, new bounded explicit authorization. Read
+[decision](../chemical_hse_relax_2026-10-15/decision.md),
+[methods and limits](../chemical_hse_relax_2026-10-15/methods_and_limits.md),
+[native result](../chemical_hse_relax_2026-10-15/numerical_result.json), and
+[completed handoff](../chemical_hse_relax_2026-10-15/handoff_ledger.md).
+Fresh private h8r_20261015/p1 roots; actual84/82-byte sockets bind before service.
+Same frozen physical8atom/176band144e/SG15FR/a6.46/HSE.25/.106/50-200-Fock200/
+Γq1/FD.001; diagnostic outer budget2. Minimal private3object observer/counter/
+post-punch stop, exchange/ACE/solver arithmetic unchanged. No old state/restart.
+
+ONE host then ONE Cd native two-rank member, no retries. Both preliminary SCFs
+11steps and exactly one hybrid inner solve9steps followed by second direct/ACE
+rebuild. All owner/source/science/readback/resource gates PASS. Final source
+HDF5 byte-exact; within-rebuild rhoR/rhoG/G/probe byte-exact; four-source direct/
+ACE residuals about6e-16, original thresholds unchanged. Independent charge,
+complex contractions and distributed old-xi/new-Phi fock1/dexx bridge pass.
+
+CALCULATED fixed original Γ6−Γ8 chemical activation +44.184097247meV, after
+one relaxation +39.811503589meV, step−4.372593659meV. Exchange step+1.239720012,
+local density/potential step−5.612313671meV. Updated is HSE[rho1] relative to
+PBE[rho0], not HSE−PBE[rho1], Gaussian response or converged gap. Final eigenvalues
+solve first ACE, not the rebuilt second operator. Positive finite trace is not
+certified asymptotic sign. Native dexx .00251875/.00254897Ry remains far above
+1e-9; it is extensive and not a Γ-gap error bound. No physical x_c.
+
+Guard walls410.333/409.315s; kernel peaks4,548,526,080/4,541,669,376B; sampled
+RSS4,290,301,952/4,284,145,664B (shared overcount). Hybrid inner residuals
+7.77e-11/4.42e-10Ry. Native second half-Fock −35.798735450445/−35.849732444501Ry;
+corrected totals −1936.319184664065/−1936.463322257280Ry. Measured density G
+coefficient changes .00421477/.00426263. All caps/floors held; final pair output
+1,465,839,616B<14GiB. Own cgroups absent, lock free, old ledger/protected DFT/
+stock and prior accepted/failed evidence exact. Source/large raw/waves retained
+and SHA-pinned. Original host-wide absence/private-network proof unpassed;
+sampled output contract unchanged. No whole-SCF memory or restart claim.
+
+Current finite scope COMPLETE: commit/push then STOP; no third update, fullHSE,
+other job, main/DFT commit, Calcura/session/supervisor or historical goal change.
+Further outer relaxation is missing physical/numerical information; its cost,
+convergence and bounded projected remainder are not qualified by this pair.
+
+## Current context-reset handoff — 2026-10-15 00:30 UTC
+
+Read current relaxation package handoff/decision/preregistration/verification and
+DFT AGENTS. Private build1/pw.hse8.relax stops after second ACE; all data under
+h8r_20261015/p1 host/Cd are accepted finite evidence and must not be rerun/reused.
+Old first-ACE p2 and pre-MPI failure immutable. Final waves solve old first ACE;
+no full HSE, gap/x_c or restart semantics inferred. Independent checks and all
+raw/compiled/input/protected pins pass. Finish publication only; any later native
+outer update needs new finite scope and admission. No agents or sessions.
 
 ## Fresh p2 HSE first-ACE physics milestone — 2026-10-14 23:57 UTC
 
@@ -45,7 +97,7 @@ one hybrid orbital/density relaxation plus second operator rebuild. First-ACE
 cost does not bound outer count or full-SCF convergence within 600 s; no new
 native work launched. Commit/push this measured milestone then STOP.
 
-## Current context reset — 2026-10-14 23:57 UTC
+## Previous context reset — 2026-10-14 23:57 UTC (retained)
 
 Read the p2 package handoff, decision, methods, next experiment and DFT AGENTS.
 Private job root: DFT .local/qe75_lowram_20261011/chemical_hse8_firstace_20261014/p2;
@@ -783,6 +835,8 @@ state replay/readback design, not another infrastructure campaign.
 - **2026-10-13 12:44 UTC | namespace-cookie checkpoint (this commit; starts `9fdfdaa`) | NON-MPI observation | GETTER WORKS / EFFECTIVE NETWORK FAIL / NATIVE NO-GO |** Fresh service/host cookies all1; five interfaces despite requested PrivateNetwork=yes. Exact own-unit journal confirms unsupported/privilege fallback. Live identity/cgroup caps measured, receipt withheld and unit/lease clean. Seven source tests + one refusal replay + five final budget tests PASS; complete reported-RSS/retained-producer envelope unqualified. No MPI/QE/HSE, global changes, foreign inventory, extra units or physical x_c. Preserve all prior negatives. Next input: actually segregated permitted local domain, then cross-namespace owner/runtime bounds.
 
 ## Finite checkpoint change log — 2026-10-14 00:01 UTC
+
+- **2026-10-15 00:30 UTC | one-relaxation checkpoint (this commit; starts `bce98cc`) | physics | NATIVE PAIR/SECOND REBUILD/READBACK PASS |** Exactly one hybrid inner solve plus second ACE per member, both9steps/410and409s/kernel4.55GB. Chemical fixed-frame trace44.1841→39.8115meV, relaxation−4.3726meV (exchange+1.2397/local−5.6123); independent old-xi/newPhi fock1 bridge/deXX pass. Native outer residual~.0025Ry, HSEfalse; no material/gap/x_c/restart/full-SCF RAM claim. Frozen caps/protected state and all old FAILs preserved. STOP native work.
 
 - **2026-10-14 23:57 UTC | p2 first-ACE checkpoint (this commit; starts `c50f466`) | physics | REAL NATIVE PAIR/OWNER/READBACK PASS |** Fresh reviewed socket patch; host/Cd 215.601/200.986 s, kernel peaks ~4.23 GB, direct/ACE <6e-16, byte-exact source/density. Fixed-frame chemical activation +44.1841 meV (exchange +55.9563/local −11.7722); HSE deliberately unconverged. Three independent scientific checks; raw evidence pinned, caps/protected state and old FAIL exact. Next: one HSE relaxation/rebuild, not launched; no full-SCF/x_c claim.
 

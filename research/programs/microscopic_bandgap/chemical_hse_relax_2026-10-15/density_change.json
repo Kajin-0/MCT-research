@@ -1,0 +1,16 @@
+{
+  "host": {
+    "relative_charge_density_G_coefficient_norm": 0.004214768473506895,
+    "relative_stored_charge_density_R_array_norm": 0.004214768473506932,
+    "unique_density_G_labels": 86791,
+    "max_source_occupation_change": 7.109869915034039e-07,
+    "interpretation": "native stored-array/coefficient relative changes, not gap error bounds or a physical linewidth"
+  },
+  "cd": {
+    "relative_charge_density_G_coefficient_norm": 0.004262625119135653,
+    "relative_stored_charge_density_R_array_norm": 0.004262625119135641,
+    "unique_density_G_labels": 86791,
+    "max_source_occupation_change": 2.6233704103484357e-07,
+    "interpretation": "native stored-array/coefficient relative changes, not gap error bounds or a physical linewidth"
+  }
+}

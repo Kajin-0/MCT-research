@@ -1,0 +1,92 @@
+{
+  "scientific_pass": true,
+  "source_cycles": {
+    "1": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 1,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": 6.889422365929931e-11,
+      "source_scf_error_Ry": 2.6161066350387983e-10,
+      "source_scf_steps": 11,
+      "reconstructed_consistency_fermi_Ry": 0.6971276150243728,
+      "occupation_max_consistency_error": 1.7208456881689926e-11,
+      "direct_ACE_action_relative": 5.299523376783482e-16,
+      "direct_ACE_Gram_relative": 5.864945917415303e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 6.949569847358637e-15,
+      "native_unhalved_Fock_Ry": -71.56432133503102,
+      "native_half_Fock_Ry": -35.78216066751551,
+      "native_first_activation_total_Ry": -1936.435500483908,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.21311614652088834,
+          -0.2506870167316003
+        ],
+        "local": [
+          0.19203691750248258,
+          0.2080857175323237
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "2": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": true,
+      "source_cycle": 2,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": -1.6001422409317456e-11,
+      "source_scf_error_Ry": 4.4205217231872125e-10,
+      "source_scf_steps": 9,
+      "reconstructed_consistency_fermi_Ry": 0.6617020227046346,
+      "occupation_max_consistency_error": 3.941291737419306e-12,
+      "direct_ACE_action_relative": 5.178173690155793e-16,
+      "direct_ACE_Gram_relative": 5.538834824107856e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 5.052920956967529e-15,
+      "native_unhalved_Fock_Ry": -71.699464889003,
+      "native_half_Fock_Ry": -35.84973244450149,
+      "native_first_activation_total_Ry": -1936.4633222572797,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.2119059159601256,
+          -0.2529220480789927
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    }
+  },
+  "one_hybrid_inner_update": true,
+  "Fock_old_old_Ry": -71.56432133503102,
+  "Fock_old_new_Ry": -71.62934414313665,
+  "Fock_new_new_Ry": -71.69946488900298,
+  "native_dexx_Ry": 0.002548968880347502,
+  "raw_dexx_Ry": 0.002548968880347502,
+  "HSE_converged": false,
+  "final_orbitals_solve_first_ACE_not_rebuilt_second_operator": true,
+  "physical_xc": null
+}

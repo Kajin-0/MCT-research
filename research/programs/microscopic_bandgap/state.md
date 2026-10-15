@@ -2,9 +2,32 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; accepted PBE+SOC chemical response +0.392177 eV and real matched HSE first-ACE chemical activation trace +44.1841 meV; native first-ACE owner/readback/resource gates PASS; HSE relaxation/material accuracy/physical x_c OPEN; original owner FAIL and full-target gates preserved
+**State:** historical physical goal BLOCKED; accepted PBE response and real HSE activation +44.1841 meV followed by one-relaxation trace +39.8115 meV (−4.3726 meV); native second-ACE pair gates PASS, outer HSE unconverged; material/x_c and further outer response OPEN; all old failures/full-target gates preserved
 
-**Updated:** 2026-10-14 23:57 UTC
+**Updated:** 2026-10-15 00:30 UTC
+
+## One hybrid relaxation and second ACE — 2026-10-15 00:30 UTC
+
+[Measured decision](chemical_hse_relax_2026-10-15/decision.md): new scope from
+bce98cc, fresh private build/jobs and84/82-byte checked sockets. Same HSE physical
+inputs, exactly one hybrid inner solve and second Fock/ACE per member, no retry.
+Both native members pass all source/owner/readback/resource gates in410.333/
+409.315s with kernel peaks4.549/4.542GB; preliminary11/hybrid9steps, inner residuals
+7.77e-11/4.42e-10Ry. Final source HDF5 and within-rebuild density bytes pass;
+direct/ACE~6e-16; independent old-xi/new-Phi Fock/dexx bridge <=2.85e-14Ry.
+
+CALCULATED same physical Γ6−Γ8 chemical trace +44.184097→+39.811504meV;
+relaxation−4.372594meV = exchange+1.239720 + local−5.612314. It compares updated
+HSE[rho1] against preliminary PBE[rho0], not a Gaussian gap or HSE−PBE[rho1].
+Final eigenvalues solve first ACE, not rebuilt second operator. Native dexx
+.00251875/.00254897Ry; HSE outer convergence false and limiting/material error
+unknown. Positive finite trace does not certify full-gap/inversion or physicalx_c.
+
+Raw/source/matrices/provenance retained; all caps/floors and1.466GB final output
+pass, own cgroups absent, lock free, stock/dirtyDFT/old FAILs/accepted data and
+original16atom352band/Calcura/sessions/supervisors/goal unchanged. No DFT/main
+commit, restart or whole-SCF memory saving claim. Current finite scope complete;
+no more native work. Further outer relaxation/remainder is the next missing input.
 
 ## Real matched HSE first-ACE activation — 2026-10-14 23:57 UTC
 

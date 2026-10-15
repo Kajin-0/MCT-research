@@ -1,0 +1,56 @@
+{
+  "scope": "actual preliminary plus ONE hybrid inner solve and second ACE; not full convergence",
+  "legacy_field_note": "source-cycle native_first_activation_total_Ry denotes the captured native total at that cycle; cycle2 is the corrected rebuilt-operator total",
+  "members": {
+    "host": {
+      "guard_wall_s": 410.3326763967052,
+      "QE_wall_s": 408.54,
+      "kernel_peak_B": 4548526080,
+      "sampled_RSS_shared_overcount_B": 4290301952,
+      "native_dexx_Ry": 0.002518748846938479,
+      "final_native_Fock_half_Ry": -35.79873545044503,
+      "native_corrected_totals_Ry": {
+        "1": -1936.2918960467673,
+        "2": -1936.3191846640648
+      },
+      "inner_steps": {
+        "1": 11,
+        "2": 9
+      },
+      "inner_error_Ry": {
+        "1": 6.793156274972969e-10,
+        "2": 7.766699047415145e-11
+      },
+      "inner_SCF_total_wall_s": 119.49,
+      "ACE_total_wall_s": 282.52,
+      "EXX_init_total_wall_s": 3.33,
+      "min_host_available_B": 25619632128,
+      "min_free_disk_B": 62807736320
+    },
+    "cd": {
+      "guard_wall_s": 409.3146513989195,
+      "QE_wall_s": 407.63,
+      "kernel_peak_B": 4541669376,
+      "sampled_RSS_shared_overcount_B": 4284145664,
+      "native_dexx_Ry": 0.002548968880347502,
+      "final_native_Fock_half_Ry": -35.84973244450149,
+      "native_corrected_totals_Ry": {
+        "1": -1936.435500483908,
+        "2": -1936.4633222572797
+      },
+      "inner_steps": {
+        "1": 11,
+        "2": 9
+      },
+      "inner_error_Ry": {
+        "1": 2.6161066350387983e-10,
+        "2": 4.4205217231872125e-10
+      },
+      "inner_SCF_total_wall_s": 111.89,
+      "ACE_total_wall_s": 289.38,
+      "EXX_init_total_wall_s": 3.44,
+      "min_host_available_B": 25239678976,
+      "min_free_disk_B": 62094520320
+    }
+  }
+}

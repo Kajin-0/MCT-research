@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": 3,
+  "native_invocations": 0,
+  "scope": "actual source charge; per-column direct reference/Fock contractions; distributed old-xi/new-Phi ACE bridge and dexx",
+  "members": {
+    "host": {
+      "cycles": {
+        "1": {
+          "independent_Fock_Ry": -71.46168832496906,
+          "Fock_difference_Ry": 2.842170943040401e-14,
+          "reference_matrix_max_Ry": 5.551428734501278e-16,
+          "charge_from_actual_occupations_e": "143.999999999957728240000000000000000000000000000000000079964",
+          "source_Gram_opnorm": 7.85628846477483e-15
+        },
+        "2": {
+          "independent_Fock_Ry": -71.59747090089006,
+          "Fock_difference_Ry": -1.4210854715202004e-14,
+          "reference_matrix_max_Ry": 2.232507086773621e-16,
+          "charge_from_actual_occupations_e": "144.000000000058175740000000000000000000000000000000000000000",
+          "source_Gram_opnorm": 4.424191830475487e-15
+        }
+      },
+      "old_ACE_new_orbitals_contraction_Ry": -71.52706086408261,
+      "old_ACE_bridge_residual_Ry": 2.842170943040401e-14,
+      "reconstructed_signed_dexx_Ry": 0.002518748846938479
+    }
+  }
+}

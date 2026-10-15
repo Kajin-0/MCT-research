@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "first_cycle_continues": true,
+  "one_hybrid_solve_then_second_rebuild_stop": true,
+  "stop_before_outer_convergence_or_budget_branch": true,
+  "native_arithmetic_unchanged": [
+    "vexx_k",
+    "aceupdate_k",
+    "vexxace_k"
+  ],
+  "native_executed": false,
+  "compiled_source_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_exx.f90": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_electrons.f90": "e62ea5f6c65039481f5fa5b580765dac5e3074e9e2d40c0c7ab9d7acd3be8175",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_run_pwscf.f90": "3783fee67652c4d220f94d6a59a16ae5a0c2f8d34589551e35177419861ce8ae",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/electrons.f90": "5f7ca732aaac97c5b96ea1bbe8f3d2391642a4fd76da0b723fc83485b214263b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/run_pwscf.f90": "5a4d42807e7c6442994f07f8f081627a7cc3de99d8cb9a0964f51ed73d756189",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/exx.f90": "98c70651174659009bf97b1b6385cff0ffbc71a986bb2a5f5efe0a833cf58940"
+  }
+}

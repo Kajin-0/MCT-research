@@ -1,0 +1,1 @@
+{"0":{"cgroup":"/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-191b4d8412294b9bb062f26e590bd577.service","pid":1922944,"start_ticks":654791429},"1":{"cgroup":"/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-191b4d8412294b9bb062f26e590bd577.service","pid":1922945,"start_ticks":654791429}}

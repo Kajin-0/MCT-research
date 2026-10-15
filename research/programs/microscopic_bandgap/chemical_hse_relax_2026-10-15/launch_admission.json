@@ -1,0 +1,32 @@
+{
+  "timestamp_UTC": "2026-10-15T00:12:28.221152+00:00",
+  "parent": "bce98cc",
+  "both_socket_checks": {
+    "host": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/s",
+      "payload_bytes": 84,
+      "including_NUL": 85,
+      "actual_bind_pass": true,
+      "own_inode_removed": true,
+      "fresh_attempt": true,
+      "unique_unit_absent": true
+    },
+    "cd": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/s",
+      "payload_bytes": 82,
+      "including_NUL": 83,
+      "actual_bind_pass": true,
+      "own_inode_removed": true,
+      "fresh_attempt": true,
+      "unique_unit_absent": true
+    }
+  },
+  "physics_identical_except_outer_budget": true,
+  "reference_exact_prior": true,
+  "old_native_evidence_unchanged": true,
+  "tiny_reader_layout_checks_pass": true,
+  "source_stop_checks_pass": true,
+  "service_started": false,
+  "native_invocations": 0,
+  "frozen_protocol_sha256": "24398452449836d624f7efbe3859b50309dbed4a3cc1f879f9868bc8aad2da01"
+}
