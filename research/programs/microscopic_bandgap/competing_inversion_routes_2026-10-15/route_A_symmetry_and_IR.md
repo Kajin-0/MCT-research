@@ -159,6 +159,46 @@ claim at a specified order; it does not prove no physical atom in HgCdTe.
   weight in the spherical model. Substituting l=1 with a positive coefficient
   is invalid until a nonzero angular norm is established.
 
+## A5. A missing atom can hide below a parametrically small energy scale
+
+This exact critical Friedrichs example sharpens the acquisition decision.
+For the UPWARD bath density c sqrt(epsilon) on[0,Lambda], c>0, choose the
+bare level epsilon0=2c sqrt(Lambda) so the real inverse vanishes at threshold.
+At E=-delta<0 exactly
+
+    D(-delta)=-delta-2c sqrt(delta) arctan sqrt(Lambda/delta),
+    (-delta)g(-delta)=[1+2c arctan sqrt(Lambda/delta)/sqrt(delta)]^-1.
+
+There is no target atom for ANY c>0. Yet for every fixed delta>=delta_min>0
+the relative difference from the free threshold pole is bounded by
+
+    |g(-delta)+1/delta|/(1/delta) <= pi c/sqrt(delta_min).   (A5.1)
+
+There is also a positive-eta bound without a real support gap. At z=i eta,
+write I(z)=integral_0^sqrt(Lambda) du/(z-u^2), so
+g(z)=z^-1/[1-2c I(z)]. Scaling u=sqrt(eta)t and splitting at t=1 gives
+|I(i eta)|<=2/sqrt(eta). If a_eta=4c/sqrt(eta)<1,
+
+    |g(i eta)-1/(i eta)| / |1/(i eta)| <= a_eta/(1-a_eta).  (A5.2)
+
+The bound is uniform for eta>=eta_min with a_eta_min<1. Arbitrarily close
+finite-resolution transforms therefore do not certify a nonzero atom.
+
+Thus finite-resolution/finite-offset response can look arbitrarily pole-like
+while the exact atom is absent. The gap-side crossover scale for delta<<Lambda
+is delta_IR~(pi c)^2; this is an asymptotic scale, not a new measured linewidth.
+The static threshold shift2c sqrt(Lambda) tends to0 continuously while the
+atom hypothesis is lost discontinuously. This is why a yes/no atom certificate
+can be logically decisive but a poor first acquisition for a bounded operational
+mass prediction. It does not show the physical mass or optical response is zero.
+
+If one inserts the pair BORN weight c proportional to lambda^2 k^2 into this
+particular fixed-bath closure, its singular scale is proportional to lambda^4
+k^4. This is NOT an exact HgCdTe concentration exponent, a scattering-order
+identification or a self-consistent SCBA prediction. Different resummations
+can change it; the older CPA/host nonanalyticity warnings remain intact.
+Downward HH edges are obtained by reflection with the same norm conclusion.
+
 ## RouteA decision-changing status
 
 A true material infrared lower certificate would still decide sharp-branch

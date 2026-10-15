@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "material_validation": false,
+  "physical_xc": null,
+  "native_jobs": 0,
+  "values_are_synthetic": true,
+  "critical_IR_checks": [
+    {
+      "c": 0.01,
+      "Lambda": 1.0,
+      "exact_atom_weight": 0,
+      "tuned_static_shift": 0.02,
+      "gap_side_crossover_scale": 0.0009869604401089359,
+      "checks": [
+        {
+          "delta": 9.869604401089359e-06,
+          "atom_indicator_at_finite_offset": 0.09107468069285626,
+          "relative_free_pole_error": 0.9089253193071437,
+          "error_bound": 10.0
+        },
+        {
+          "delta": 0.0009869604401089359,
+          "atom_indicator_at_finite_offset": 0.5050488277163532,
+          "relative_free_pole_error": 0.4949511722836468,
+          "error_bound": 1.0
+        },
+        {
+          "delta": 0.09869604401089359,
+          "atom_indicator_at_finite_offset": 0.9253933434827285,
+          "relative_free_pole_error": 0.0746066565172715,
+          "error_bound": 0.1
+        }
+      ]
+    },
+    {
+      "c": 0.001,
+      "Lambda": 1.0,
+      "exact_atom_weight": 0,
+      "tuned_static_shift": 0.002,
+      "gap_side_crossover_scale": 9.869604401089359e-06,
+      "checks": [
+        {
+          "delta": 9.86960440108936e-08,
+          "atom_indicator_at_finite_offset": 0.09092562283997248,
+          "relative_free_pole_error": 0.9090743771600275,
+          "error_bound": 9.999999999999998
+        },
+        {
+          "delta": 9.869604401089359e-06,
+          "atom_indicator_at_finite_offset": 0.5005004988522813,
+          "relative_free_pole_error": 0.4994995011477187,
+          "error_bound": 1.0
+        },
+        {
+          "delta": 0.0009869604401089359,
+          "atom_indicator_at_finite_offset": 0.9107462669467992,
+          "relative_free_pole_error": 0.08925373305320083,
+          "error_bound": 0.09999999999999999
+        }
+      ]
+    }
+  ],
+  "arbitrarily_pole_like_without_atom": {
+    "c": 1.5915494309189534e-05,
+    "delta_min": 0.01,
+    "required_relative_tolerance": 0.001,
+    "actual_relative_error": 0.0004680553042140517,
+    "eta": 0.01,
+    "actual_relative_eta_error": 0.00047779049929293037,
+    "relative_eta_error_bound": 0.0006370253152787865,
+    "exact_atom_weight": 0
+  },
+  "source_contracted_closure": {
+    "actual_error": 4.1456739013154095e-05,
+    "remainder_bound": 0.0012481817512187366,
+    "source_change_error": 6.788002090177644e-05,
+    "source_change_bound": 0.010005
+  },
+  "finite_gap_perturbation_check": {
+    "minimum_measured_gap": 0.8883617871494338,
+    "uniform_lower_bound": 0.8,
+    "not_topological_validation": true
+  }
+}

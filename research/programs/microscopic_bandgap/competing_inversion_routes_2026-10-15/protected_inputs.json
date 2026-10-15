@@ -1,6 +1,6 @@
 {
   "baseline": "c80147f",
-  "created_UTC": "2026-10-15 20:31",
+  "created_UTC": "2026-10-15 21:09",
   "prior_files": {
     "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
     "research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/GUARD_RESULT.json": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41",
@@ -12,5 +12,6 @@
   "no_native_jobs_authorized": true,
   "previous_package": "physical_inversion_2026-10-15",
   "R02_readonly_source_sha256": "dec6950a41b1a93eea65137162dfd7346043bdbc373e5bec55662923d78765e7",
-  "native_jobs_authorized": false
+  "native_jobs_authorized": false,
+  "inherited_created_UTC": "2026-10-15 20:31"
 }

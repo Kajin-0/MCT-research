@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "timestamp_UTC": "2026-10-15T21:35:38.724761+00:00",
+  "baseline": "c80147f",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "focused_checks": [
+    "route_A",
+    "route_B",
+    "resolution"
+  ],
+  "source_sha256": {
+    "check_route_A.py": "d4fa3f39ed7fc3552b0bc4997f6e2b4a1c341127657b911571e3f830cdc42e3c",
+    "check_resolution_and_quotient.py": "2df1304105ca2f0b3d5c8baccbc3b9b805ad073985e804b84b498834aa7a383d",
+    "verify_package.py": "e2bda0eb5c263aff5dfd47144a1af623b58d98c151e152b10b0ad3bd870f9b32",
+    "check_route_B.py": "66ae0525a4b95e7f6cdca2c55ab3ac870f88b68c316b3b2970a234290b6f146d"
+  },
+  "prior_frozen_sha256": {
+    "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
+    "research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/GUARD_RESULT.json": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41",
+    "research/programs/microscopic_bandgap/single_state304_2026-10-15/native_result.json": "a3eae387e5b89f1d78e8483e7bbea9c44e79895894b4b370c7a9dc26a5d03ab4",
+    "research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/verification.json": "e551f25c6640b9e3a91d7fefdc59ae920804d3991477456f220d6585c1085dff",
+    "research/programs/microscopic_bandgap/physical_inversion_2026-10-15/verification.json": "51749b36b3e888b71d1d59b0b3e3c8aadf206c0243e871f82f31f88efd09d09d"
+  },
+  "R02_source_sha256": "dec6950a41b1a93eea65137162dfd7346043bdbc373e5bec55662923d78765e7",
+  "DFT_tracked_diff_sha256": "a716be79058b719e363f19b16fdacc228e4093b3f87bdd6b64ac96aa7e78b0f0",
+  "stock_QE_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "local_links_checked": 12,
+  "native_jobs": 0,
+  "material_validation": false,
+  "physical_xc": null,
+  "novelty": "UNVERIFIED",
+  "raw_optical_package_accessible": false,
+  "original_Stage0_NO_GO_preserved": true,
+  "old_goal_unchanged": true,
+  "synthetic_model_values_not_material_coefficients": true
+}

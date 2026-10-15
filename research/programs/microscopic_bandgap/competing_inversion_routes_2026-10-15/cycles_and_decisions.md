@@ -43,3 +43,25 @@ Full primary Orlita/Teppe/Krishtopenko/Wei and independent Malcolm–Nicol
 comparison recorded. General principles are established; specific synthesis
 novelty UNVERIFIED. CONTINUE cross-route input ranking and actual-data boundary;
 no physical gap/x_c or native acquisition is claimed.
+
+## 2026-10-15 21:34 UTC — cycle3: singular-scale test and cross-route input decision
+
+ACCEPT exact critical-IR resolution boundA5: no atom for c>0, but finite-eta
+relative response arbitrarily close to a free pole as c->0, with a small
+O(c^2) singular scale. This does not imply a material linewidth/concentration
+law. The source-only L3 contraction and explicit source-error bound PASS
+independent dense tests; no full disorder tomography is required if that
+physical response contraction and its errors can be supplied directly.
+
+ACCEPT only a CONDITIONAL global-gap/TR homotopy phase statement. A tiny gap
+perturbation check is not topology validation; unstrained inverted HH and the
+actual inputs fail the prerequisites. Real-inverse/optical/sharp/mobility/
+topological crossings remain distinct, not forced equivalents.
+
+REPRIORITIZE one future input: one unchanged specimen's calibrated three-field
+HH-transition response to discriminate routeB's physical line adapter. The
+old IR certificate remains valuable for routeA but is not universally first.
+No raw package is available in accepted inputs; original Stage0NO-GO remains.
+No new search campaign/outreach/measurement or native acquisition occurred.
+STOP at that physical-input boundary after three distinct analytical cycles.
+All focused model checks and protection verifier PASS; physical x_c OPEN.

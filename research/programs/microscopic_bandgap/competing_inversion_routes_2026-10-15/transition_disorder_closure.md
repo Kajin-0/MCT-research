@@ -17,6 +17,10 @@ For optical prediction the exact positive transition measure is
 Finite temperature uses the corresponding occupation factors. The retarded
 Kubo response includes the positive/negative frequency pair and known optical
 prefactors. S is not the DOS or a product of averaged single-particle spectra.
+The current must include the nonlocal terms of the chosen Hamiltonian and
+transform with its physical basis. A static HSE band current is not automatically
+the interacting optical response: time-dependent screening, excitonic/carrier
+effects and zero-point/functional errors need a separately bounded adapter.
 The full disorder law and state determine it, but one-particle Sigma alone
 generally does not: optical vertex correlations are additional information.
 
@@ -79,6 +83,24 @@ one-particle Born traces. They do not close this two-particle kernel or a
 self-consistent finite-k SCBA matrix. A2's pair s-p term lies outside I,J
 entirely. Once the full microscopic operators/statistical law are supplied,
 mean, covariance and higher clusters are linked, not independent fit parameters.
+
+### Minimum source contraction at controlled second order
+
+If only one fixed transition source A0 is needed, the truncated prediction
+requires R0 and the scalar FUNCTION
+
+    c_A(z)=<A0,R0 E[L_W R0 L_W] R0 A0>_HS,
+    <A0,E R_L A0>=<A0,R0 A0>+c_A(z)+remainder,
+    |remainder|<=||A0||^2 eta^-1 r^3/(1-r).              (L3)
+
+Thus full disorder tensor tomography is not logically indispensable when this
+source-resolved contraction and the omitted-order/source errors can be supplied
+independently. It is a frequency/field-dependent physical function, not another
+free constant. A truncated scalar expression need not preserve positivity by
+itself; the bound encloses the exact positive spectral response. The full B_L
+Dyson candidate retains causal structure with the additional L2 error term.
+Neither c_A nor w_L/eA is present in the retained Gamma data. This reduction
+specifies what NOT to compute unnecessarily; it does not infer missing input.
 
 ## Exact counterexample: identical one-particle Green functions, different optics
 

@@ -2,9 +2,37 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED; analytical competing-route results accepted under assumptions. H304 remains FD nonstationary; all native refusals immutable. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 21:19 UTC
+**Updated:** 2026-10-15 21:34 UTC
+
+## Competing inversion routes COMPLETE — 2026-10-15 21:34 UTC
+
+[Decision](competing_inversion_routes_2026-10-15/decision.md),
+[comparison](competing_inversion_routes_2026-10-15/comparison_and_phase_boundary.md),
+[ONE input](competing_inversion_routes_2026-10-15/one_next_input.md),
+[handoff](competing_inversion_routes_2026-10-15/handoff_ledger.md).
+Three analytical-only cycles fromc80147f complete, milestones4462514/c2ba548
+published. Ensemble Td does not forbid a fixed Bernoulli pair Gamma6-HH Born
+channel; actual local/finite-q covariance and angular/dispersion gates matter.
+Exact criticalsqrt model loses atom for anyc>0 but is arbitrarily pole-like at
+finiteeta, with O(c^2) singularscale; not a material exponent/linewidth.
+
+Alternative no-atom signed optical Kane witnessQ/(2D), explicit error and
+held-out thirdfield test accepted under model hypotheses. Actual circular
+current confirms positive opticalbias from zero-mean symmetricmass mixture.
+Canonical[H,.] cancels globalCI disorder; a bounded Liouvillian/source-contracted
+closure is possible without atoms, but oneparticleG alone cannot predict optics.
+Global phaseequivalence needs separate hypotheses; no physicalxc/M activation.
+
+ONE recommended next input is a calibrated three-field single-specimen HH
+transitionresponse, to test the observable adapter rather than fit microscopic
+coefficients. Earlier IR input is conditionally deprioritized, not disproven.
+Accepted PBE/H304 lack both physicalIR and finiteB/source/vertex data; Stage0
+raw/metrology NO-GO remains. No new archive outreach, data fit or nativejob.
+R02/R05 status, stationarity, N3 and every priornegative/failure retained.
+Focused model/proof/source/oldpin/stock/DFTdiff checksPASS. Stop at material
+input boundary; specific synthesis noveltyUNVERIFIED against primary papers.
 
 ## Competing inversion routes: cycle2 — 2026-10-15 21:19 UTC
 

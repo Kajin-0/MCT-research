@@ -25,7 +25,42 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
-## Latest completed analytical phase — 2026-10-15 20:51 UTC
+## Latest competing-route phase COMPLETE — 2026-10-15 21:34 UTC
+
+New assignment fromc80147f completed three analytical-only milestones in
+`competing_inversion_routes_2026-10-15/`. Read its `decision.md`,
+`comparison_and_phase_boundary.md`, `one_next_input.md`, `verification.json`
+and `handoff_ledger.md` first. Milestones4462514/c2ba548 published en route;
+completion commit is in the latest Git log. No native job or physical x_c.
+
+RouteA now distinguishes actual local-site Td from ensemble symmetry: a
+fixed Bernoulli directional pair interaction has zero coherent cross-irrep
+mean but a positive Gamma6-HH constant Born covariance. The p formula needs
+nonzero angular norm, positive uniform curvature and a controlled continuum
+limit; exact flatness/nonanalytic vertices/warping can defeat a naive exponent.
+Born is not exact eliminated response. Exact sqrt-threshold normalization can
+lose its atom below an O(c^2) scale while finiteeta looks pole-like.
+
+RouteB gives a meaningful conditional signed optical Kane witnessQ/(2D) from
+one HH family at two fields, with an independent third-field/error test and
+no atom premise. A symmetric zero-mean mass mixture gives positive optical
+bias even with ACTUAL circular-current weights. [H,.] removes global scalar
+disorder at canonical filling; an exact-G counterexample proves optical
+vertex/source information is still needed. A source-resolved second-order
+contraction can suffice with explicit errors; it is a function, not a fitted
+constant. No real-mass/topology/mobility equivalence is assumed.
+
+ONE next input is a calibrated three-field one-specimen transitionresponse
+to discriminate the observation adapter. It is not an empirical microscopic
+coefficient or a substitute for the failed Stage0 endpoint-pair pilot. Raw
+records/calibration are not currently accessible. Earlier IR certificate is
+conditionally deprioritized for routeB, but remains decisive for routeA.
+Stop at this genuine data/physical-source boundary; no new job/outreach/goal
+resume. Keep prior H304 nonstationarity, N3 and all old mathematical/native
+refusals intact. Broad Kane/SCBA/optical/environment principles are established;
+specific synthesis novelty UNVERIFIED. R02/R05 remain unchanged.
+
+## Previous completed analytical phase — 2026-10-15 20:51 UTC
 
 User's NEW no-native assignment starts89ef0f1. Three phases in
 `physical_inversion_2026-10-15/` are now COMPLETE. Read `decision.md`,
@@ -72,7 +107,7 @@ The `research` tmux session was **idle due to model five-hour usage limit** when
 ## Scientific next steps (ranked; only after reviewing current state)
 
 1. **Completed:** the residual/moment audit89ef0f1 and the new analytical physical-inversion package are accepted in their explicit conditional domains. Do not redo them or relabel their observables as physical mass.
-2. **Analytical-first inversion framework**: choose a physically and experimentally meaningful zero-temperature signed Gamma6/Gamma8 inversion criterion in a disordered alloy; define reference and chemical mean/disorder self-energy with no double counting; specify a *minimal set* of independent causal response/environment moments and transversality/disorder controls needed for x_c. Derive falsifiable consequences and strict assumptions; compare claim-level to Kane/SCBA prior art. A zero of an arbitrary projected scalar does not certify topology or a real bandgap.
+2. **Cross-route physics input:** the analytical framework and competing sharp/optical criteria are now defined/tested under assumptions. Follow the latest package's ONE-input decision; do not repeat the derivations or treat an optical/finite-eta zero as a physical/topological x_c. Actual raw response or independently qualified microscopic source/disorder data are still missing.
 3. **Self-consistent HSE only if decision-changing**: H304 reveals that projecting into larger finite subspace does not make the trial FD stationary. The missing scientific inputs are occupied-state full-H relaxation/complement-tail control and nonlinear SAME-D1 H[D1] consistency; formulate the smallest justified native experiment *if* it would resolve an explicit inversion-theory unknown. Do not rerun known symmetry-defective ACE or claim fixed-state H304 as a converged HSE gap.
 4. **Independent alloy statistics**: N3-bearing and N3-free same-composition controls, cluster response operators, finite-size and disorder-distribution identification require new physical data and valid reference gauges. Additional small-supercell spectra alone may be prior-art repetition and are not automatically high priority.
 5. **Validation**: only after the inversion criterion is defined, compare predicted mass/crossing and uncertainty to established first-principles, Kane/SCBA and experimentally justified magneto-optical/optical probes. No manuscript or novelty status is yet authorized.
@@ -81,7 +116,7 @@ The `research` tmux session was **idle due to model five-hour usage limit** when
 
 1. `cd /home/User/repos/MCT-research`; read `AGENTS.md`, this handoff, the first ~100 lines of `research/programs/microscopic_bandgap/state.md`, `research/contribution_registry.md`, and the latest decision/verification files.
 2. Run `git status --short --branch`, `git log -5 --oneline`, and check `origin/research/hgcdte-impurity-tmatrix-20261010`; inspect `tmux capture-pane -pt research -S -80` and owned native processes. **Do not assume that a dated snapshot describes the live task.**
-3. Read the latest accepted `physical_inversion_2026-10-15/decision.md` and `hse_residual_response_2026-10-15/decision.md`. The older uncommitted-work warning is a historical snapshot, superseded by their verified completion; their material limitations and original native refusals remain.
+3. Read the latest `competing_inversion_routes_2026-10-15/decision.md`, then the accepted physical-inversion/residual packages. The older uncommitted-work warning is historical, superseded by verified completion; all material limitations and original native refusals remain.
 4. Respect dedicated repo portfolio programs R01-R06, other tmux sessions, old failed/accepted outputs, private DFT worktree, stock QE and the original16atom352band HSE target.
 5. Every next milestone must answer: **which new physical prediction or theoretical criterion became possible, and does it materially advance signed inversion gap/x_c?** Record assumptions, closest prior art, exact derivation/native provenance, quantitative numerical/material uncertainty, falsification, NO-GO and proof of what is still missing. Commit/push validated work only to existing research branch.
 
