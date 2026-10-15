@@ -44,3 +44,25 @@ Literature comparison uses full Friedrichs primary sources; no novelty claim.
 physical input, retaining earlier N3/directional/self-consistency no-go results.
 No native work. Phase1 timestamps corrected from an anticipatory20:33 to actual
 precommit20:31; no historical numerical protocol/result changed.
+
+## 2026-10-15 20:51 UTC — milestone3: actual-data no-go and ONE input
+
+**ACCEPT C1–C5 in their stated model/observable domains.** Independent intake
+of accepted16cell neighbor geometry verifies N2 present and N3 absent; an exact
+fixed-local N3 term preserves all sampled operators but changes the causal
+alloy response. This does not prove that every physical sharp root moves.
+The positive Friedrichs threshold counterexample independently confirms zero
+inverse/zero damping with zero spectral-atom weight. No old failure is relabeled.
+
+**STOP physical prediction:** no stationary HSE host, physically qualified alloy
+sector functions/atom certificate, sign bracket or composition modulus. Current
+PBE/H304 constrain their accepted ordered/fixed-D observables only. Earlier
+same-IR/moments/different-roots and full-spectrum-support no-gos remain valid.
+
+**ONE prioritized input:** controlled physical Gamma8/heavy-hole IR coupling
+certificate in the intended crossing domain, with a bounded adapter from any
+endpoint impurity/model data. It decides whether the sharp-atom route can apply;
+it is not sufficient by itself for x_c. Numerical accuracy is set by coefficient
+sign/remainder, residue and root-error inequalities; material values/cost are
+unknown. No new native acquisition or outreach is admitted. Three distinct
+analytical phases completed; no repeated proof/synthetic search campaign.

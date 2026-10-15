@@ -4,6 +4,7 @@ Run with the existing DFT venv's NumPy/SciPy, BLAS threads=1.
 Complex quadrature and analytic Stieltjes transforms are compared independently.
 """
 import json
+from fractions import Fraction as F
 from pathlib import Path
 import numpy as np
 from scipy.integrate import quad
@@ -41,6 +42,10 @@ def certificate(Z, eta):
 
 
 def main():
+    # Exact rational boundary constants, independent of floating examples.
+    Z0, W0, rho0 = F(3, 4), F(1, 4), F(1, 3)
+    assert Z0-W0*(1+2*rho0)**2 == 2*Z0/27 == F(1, 18)
+    assert W0*(1-4*rho0**2) == F(5, 36)
     records = []
     # The background has continuum through e; there is no support-free box.
     e = .17
@@ -108,6 +113,12 @@ def main():
         gs = sum(weights/(z-energies))
         bath_errors.append(abs(gd-gs))
     assert max(bath_errors) < 1e-12
+    z = .15+.07j
+    energy_shift = 2.4
+    bath_gauge_error = np.linalg.norm(
+        np.linalg.inv((z+energy_shift)*np.eye(3)-(H+energy_shift*np.eye(3)))
+        - np.linalg.inv(z*np.eye(3)-H))
+    assert bath_gauge_error < 1e-11 and abs(sum(weights)-1) < 1e-15
 
     # Missing atom hypothesis: exact continuous Lorentzian measure.
     eta, ee = .04, .2
@@ -119,6 +130,8 @@ def main():
         roots.append(rt)
         assert abs(rt-ee) < 1e-14
     assert gamma6 != gamma8  # different resonance poles, equal real roots
+    bounded_continuous_center = (1/bg(ee+1j*eta, ee-.3, ee+.3)).real
+    assert abs(bounded_continuous_center) < 1e-14
 
     # Equal sharp atoms, unequal finite-eta inverse values at common E=0.
     eta = .1
@@ -176,6 +189,8 @@ def main():
         threshold_spectral_background_root=threshold_root,
         threshold_spectral_background_radius=2*.2/.8*.03,
         independent_Hermitian_bath_max_error=max(bath_errors),
+        independent_bath_reference_invariance_error=float(bath_gauge_error),
+        bounded_no_atom_center_inverse=bounded_continuous_center,
         continuous_no_atom_equal_real_roots=roots,
         resonance_widths=[gamma6, gamma8],
         coincident_atom_common_inverse_difference=common_inverse_difference,

@@ -4,7 +4,33 @@
 
 **State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 20:40 UTC
+**Updated:** 2026-10-15 20:51 UTC
+
+## Analytical physical-inversion assignment COMPLETE — 2026-10-15 20:51 UTC
+
+[Decision](physical_inversion_2026-10-15/decision.md),
+[claim registry](physical_inversion_2026-10-15/discovery_registry.md),
+[minimum input](physical_inversion_2026-10-15/one_next_input.md),
+[handoff](physical_inversion_2026-10-15/handoff_ledger.md).
+Three no-native analytical phases from89ef0f1 completed. Exact chemical/disorder
+projection accounting, common/mass covariance and sharp-atom/inverse-root
+certificate accepted under assumptions. Z>=3/4 gives localrooterror<=2(1-Z)eta/Z
+without D; physical atom eligibility/uniform errors/transversality are required.
+A positive p<=1 eliminated threshold weight excludes a target atom; even
+zero real inverse and zero damping do not suffice. These are established
+Friedrichs/Stieltjes territory; specific synthesis/constants novelty UNVERIFIED.
+
+Actual16cell geometry confirms N2 sampled, N3 invisible. Current PBE ordered
+and nonstationaryH304 do not identify physical alloy mass/x_c; no opposite
+completeH304 completion/sign was fabricated. Prior endpoint/moment/directional,
+full-support Bernoulli, host-invariant/full-residualT, retarded/PV and all native
+refusals retained. ONE future input is a controlled physical Gamma8/heavy-hole
+infrared certificate on the crossing domain; endpoint impurity needs bounded
+background adapter and a stationary host. It can falsify sharp eligibility,
+not close x_c alone. No honest new nativecost/admission or materialerror exists.
+Focused symbolic/dense/continuum/geometry checksPASS; protected hashes/DFTdiff
+verified. Claim-level primary comparison done; Alowa fulltext incomplete.
+STOP at physical information boundary, no native jobs or historical goal change.
 
 ## Analytical physical-inversion assignment: phases1–2 — 2026-10-15 20:40 UTC
 

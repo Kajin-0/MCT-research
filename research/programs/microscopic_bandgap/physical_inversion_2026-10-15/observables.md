@@ -91,3 +91,12 @@ The existing Gamma-identical/different-global-topology counterexample in
 `continuum_spectral_2026-10-11/observables_and_failures.md` N7 remains decisive.
 Even perfect knowledge of both Gamma functions cannot exclude a transition
 elsewhere in momentum space. No Gamma scalar alone proves a topological x_c.
+
+An almost-sure full-spectrum support edge is another distinct candidate. The
+existing I6 theorem (`analytical_first_2026-10-11/identifiability.md`) makes that
+support independent of x for bounded fixed finite-range, finite-local-dependence
+full-support Bernoulli operators. Rare pure patches remain spectrally present.
+Thus a smoothly moving observed alloy edge cannot automatically be that support
+edge; weight, mobility/localization and optical selection matter. The theorem
+does not identify a particular Gamma-projected support and is not extended to
+globally self-consistent/nonlocal physical HSE without a separate proof.

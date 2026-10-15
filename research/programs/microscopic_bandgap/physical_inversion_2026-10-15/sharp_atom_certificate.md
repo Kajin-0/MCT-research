@@ -76,7 +76,7 @@ disorder-limit interchange has been made.
 
 ## Independent input and numerical error
 
-Suppose a supplied approximation g_tilde obeys a uniform |g_tilde-g|<=delta_g
+Suppose a supplied continuous approximation g_tilde obeys a uniform |g_tilde-g|<=delta_g
 on the same box, with
 
     ell = Z eta/(h^2+eta^2),   delta_g < ell.
@@ -136,6 +136,8 @@ plane. Re(1/g(E+i eta))=E-e at every eta, but it has **no spectral atom**.
 Two such sectors can share every real inverse root while having different
 complex resonance poles e-i gamma. Thus precise inverse roots, stable peaks,
 or the sign of a smoothed ordering cannot establish the atom hypothesis.
+Even a bounded continuous uniform measure on[e-d,e+d] has a real inverse
+root exactly at e at every eta by symmetry, with no atom and finite moments.
 The pre-existing narrow-continuum/atom finite-eta indistinguishability result
 also applies. Neither B1 nor a real mass-zero equation proves bulk topology,
 an absorption threshold or a transport boundary.

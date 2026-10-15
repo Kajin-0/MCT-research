@@ -35,6 +35,8 @@ At a one-sided threshold t0, a certified lower density
     c>0,  -1<p<=1,   0<epsilon<Lambda
 
 makes (B2.1) infinite at E=t0. p=1 diverges logarithmically; p<1 by a power.
+For a downward heavy-hole edge use t0-epsilon instead; the squared denominator
+and the conclusion are unchanged. The physical side must be specified.
 For p>1 this particular infrared obstruction is absent, not the whole
 eigenvalue problem solved. If the inverse exists on v in the Hilbert/domain
 sense, the scalar equation and kernel compatibility hold, and no bath-only
@@ -47,6 +49,24 @@ c epsilon^p with p>1 is c Lambda^(p-1)/(p-1); remote weight must still be
 bounded. Units: dnu has energy^2, its density energy, c energy^(1-p), S
 dimensionless. No off-continuum T' positivity is being extended to a retarded
 principal value inside a continuum.
+
+### Explicit zero-width inverse zero with NO spectral atom
+
+Let A multiply t on L2([0,1],dt), |v(t)|^2=c sqrt(t), c>0, and
+epsilon0=2c. The scalar inverse denominator tends to D(0)=0 from below the
+threshold and its boundary damping tends to0. Nevertheless at E=-delta<0,
+
+    (-delta) g(-delta)
+       = [1+2c arctan(1/sqrt(delta))/sqrt(delta)]^-1 -> 0.  (B2.4)
+
+The Hamiltonian is nonnegative by weighted Cauchy–Schwarz,
+|<v,chi>|^2<=epsilon0 <chi,A chi>; its spectrum is supported on[0,infinity).
+The left side therefore tends to the spectral atom weight at0 by dominated
+convergence. Thus the formal inverse zero
+and even zero limiting linewidth do not imply a nonzero-residue sharp state.
+For the comparison |v(t)|^2=c t^(3/2), epsilon0=2c/3, the analogous limit is
+1/(1+2c)>0. These are exactly specified causal Friedrichs models, not material
+fits. Tests compare their independent integral/closed-form denominators.
 
 ## Channel exponent and symmetry
 

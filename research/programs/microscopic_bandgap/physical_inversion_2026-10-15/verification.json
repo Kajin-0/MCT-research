@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "timestamp_UTC": "2026-10-15T20:52:29.666209+00:00",
+  "baseline": "89ef0f1",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "focused_checks": [
+    "accounting",
+    "sharp_atom",
+    "identifiability"
+  ],
+  "source_sha256": {
+    "check_sharp_atoms.py": "bc5ea80137460eb9693b493971f7e96f9705e9faaafe62d95db0c90d9b8de73a",
+    "check_accounting.py": "70ab4051602e0d4d5954e41f9eac604c0662e7249eb87d76cce3ebb05c66bcae",
+    "verify_package.py": "683f9d40477e07e368c814bfee991f4c567732a518405b149895e417f09ee207",
+    "check_identifiability.py": "788d84a70091d8a82dffa2b5474539045bfa4152962e8f6530e0905df4508396"
+  },
+  "local_markdown_links_checked": 21,
+  "prior_frozen_files_verified": {
+    "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
+    "research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/GUARD_RESULT.json": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41",
+    "research/programs/microscopic_bandgap/single_state304_2026-10-15/native_result.json": "a3eae387e5b89f1d78e8483e7bbea9c44e79895894b4b370c7a9dc26a5d03ab4",
+    "research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/verification.json": "e551f25c6640b9e3a91d7fefdc59ae920804d3991477456f220d6585c1085dff"
+  },
+  "DFT_tracked_diff_sha256": "a716be79058b719e363f19b16fdacc228e4093b3f87bdd6b64ac96aa7e78b0f0",
+  "stock_QE_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "native_jobs_launched": 0,
+  "protected_state_preserved": true,
+  "material_validation": false,
+  "physical_xc": null,
+  "paper_novelty": "UNVERIFIED",
+  "Alowa_full_text_comparison": "INCOMPLETE; publisher preview only"
+}

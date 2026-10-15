@@ -111,6 +111,14 @@ on top of already-counted effects. Irreducible pair/cluster channels require
 their own established centered-cluster accounting, not a fictitious new kappa3
 noise field. At higher scattering orders more information can be required.
 
+The quotient(A5) assumes a specified coherent Gc at SECOND Born order. It
+does not determine a self-consistent finite-k SCBA matrix: off-diagonal
+propagation also involves C_ss-C_mm and, for general complex cross covariance,
+its imaginary part. Changing these while holding S_+/- fixed can change the
+self-consistent G fed into the Gamma integral. In particular A5 is not the
+W_+/- notation of Krishtopenko2022 Eq16. No two-function universal SCBA closure
+or new exact alloy reduction is claimed.
+
 **Scientific consequence:** the independent scalar/mass SCBA closure cannot be
 activated from separate fluctuation strengths or own-Fermi-relative spectra
 alone. The minimum at this order is the two surviving S_+/- contractions (or

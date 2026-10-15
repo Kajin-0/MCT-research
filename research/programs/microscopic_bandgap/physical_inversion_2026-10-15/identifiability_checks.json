@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "native_jobs": 0,
+  "physical_xc": null,
+  "actual_retained16_geometry_histograms": {
+    "host": [
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Cd_x125": [
+      4,
+      4,
+      0,
+      0,
+      0
+    ],
+    "unshared_x25": [
+      0,
+      8,
+      0,
+      0,
+      0
+    ],
+    "shared_x25": [
+      2,
+      4,
+      2,
+      0,
+      0
+    ]
+  },
+  "N3_invisible_on_all_sampled_environments": true,
+  "Bernoulli_x25_P3_exact": "3/64",
+  "causal_N3_synthetic_green_difference": [
+    0.10565197276329208,
+    0.20240693729388592
+  ],
+  "N3_identity_error": 5.003707553108401e-17,
+  "threshold_inverse_zero_atom_counterexamples": [
+    {
+      "p": 0.5,
+      "epsilon0": 0.2,
+      "c": 0.1,
+      "sharp_weight": 0.0,
+      "formal_threshold_inverse_zero": true,
+      "zero_boundary_damping": true,
+      "finite_delta_checks": [
+        {
+          "delta": 0.01,
+          "minus_delta_g": 0.2536619045626337,
+          "inverse_identity_error": 4.163336342344337e-17
+        },
+        {
+          "delta": 0.0001,
+          "minus_delta_g": 0.031040541142319248,
+          "inverse_identity_error": 4.336808689942018e-18
+        },
+        {
+          "delta": 1e-08,
+          "minus_delta_g": 0.00031822884987253643,
+          "inverse_identity_error": 2.935477382004503e-17
+        }
+      ]
+    },
+    {
+      "p": 1.5,
+      "epsilon0": 0.06666666666666667,
+      "c": 0.1,
+      "sharp_weight": 0.8333333333333334,
+      "formal_threshold_inverse_zero": true,
+      "zero_boundary_damping": true,
+      "finite_delta_checks": [
+        {
+          "delta": 0.01,
+          "minus_delta_g": 0.8542792302876511,
+          "inverse_identity_error": 3.469446951953614e-18
+        },
+        {
+          "delta": 0.0001,
+          "minus_delta_g": 0.8355067602682075,
+          "inverse_identity_error": 8.524539581167279e-18
+        },
+        {
+          "delta": 1e-08,
+          "minus_delta_g": 0.8333551491311942,
+          "inverse_identity_error": 1.3172330614194535e-13
+        }
+      ]
+    }
+  ],
+  "no_transversality_counterexample": {
+    "uniform_perturbation": 1e-09,
+    "root_displacement": 0.0010000000000000005
+  },
+  "material_validation": false
+}

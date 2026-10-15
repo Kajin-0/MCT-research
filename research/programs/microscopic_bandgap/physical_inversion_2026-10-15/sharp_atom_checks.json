@@ -99,6 +99,8 @@
   "threshold_spectral_background_root": 0.001190245033103485,
   "threshold_spectral_background_radius": 0.015,
   "independent_Hermitian_bath_max_error": 6.4047456679787536e-15,
+  "independent_bath_reference_invariance_error": 2.6299395159213128e-14,
+  "bounded_no_atom_center_inverse": -0.0,
   "continuous_no_atom_equal_real_roots": [
     0.19999999999999996,
     0.19999999999999996
