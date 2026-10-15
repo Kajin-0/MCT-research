@@ -1,0 +1,11 @@
+--- frozen/readback.py
++++ prospective/readback.py
+@@ -4,7 +4,7 @@
+ import numpy as np
+ import h5py
+ HERE=Path(__file__).resolve().parent;BASE=HERE.parent;PRIVATE=Path('/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015')
+-sys.path.insert(0,str(BASE/'native_matched_pilot_2026-10-11'))
++sys.path.insert(0,str(BASE/'hybrid_convergence_2026-10-15'))
+ from packets import Reader
+ 
+ 

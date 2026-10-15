@@ -1,0 +1,19 @@
+{
+  "status": "CALCULATED new152query self-block only; strict304splice remains REFUSED",
+  "new_query_H_RR_Hermiticity_relative": 1.2038356239565213e-15,
+  "new_query_projected_Theta_relative": 9.870865065223734e-13,
+  "new_query_H_RR_min_max_Ry": [
+    3.371486028343558,
+    52.57565995417279
+  ],
+  "new_query_kinetic_RR_min_max_Ry": [
+    4.58318229740981,
+    36.44089810128488
+  ],
+  "cross_DIFFERENT_native_operator_reciprocity_norm_Ry": 9.863733495623617e-15,
+  "cross_DIFFERENT_native_operator_reciprocity_F_Ry": 1.8589954505067843e-14,
+  "small_cross_defect_NOT_operator_identity_certificate": true,
+  "no304matrix_constructed": true,
+  "no_FD_or_HSE_convergence_or_xc": true,
+  "auxiliary_directions_NOT_solved_bands": true
+}

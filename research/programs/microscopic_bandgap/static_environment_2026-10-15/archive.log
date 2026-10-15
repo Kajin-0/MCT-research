@@ -1,0 +1,14 @@
+{
+  "status": "PASS evidence/source/protected checks; native OWNER FAIL remains; shared NOT RUN",
+  "all_frozen_source_input_PP_ELF_pins_unchanged": true,
+  "DFT_protected_exact": true,
+  "copied_saves_and_originals_unchanged": true,
+  "stock_archive_unchanged": true,
+  "owned_cgroup_gone_and_known_MPI_absent": true,
+  "all_private_output_block_metadata_charge_B": 724185088,
+  "readback_import_defect_preserved_and_manual_diagnostic_only": true,
+  "no_pair_or_material_validation": true,
+  "HSE_converged": false,
+  "physical_xc": null,
+  "source_sha256": "8cca9da56fdd78b4c8c5dde226ef11a8d79e7310cf65090c943fad53b7768106"
+}

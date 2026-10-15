@@ -1,0 +1,74 @@
+{
+  "status": "PASS evidence/source/protected checks; native OWNER FAIL remains; shared NOT RUN",
+  "raw": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/pw.in": {
+      "sha256": "829cc6c63d710791bb41de011dbf9fc2a148cdf5b2e26e4e2e010f64fb8eb41e",
+      "archived": "evidence/pw.in"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/pw.out": {
+      "sha256": "204882b1b6fcd9efe61b72df3738f704bc41500741200517055e90acbf4bd2de",
+      "archived": "evidence/pw.out"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/JOB.json": {
+      "sha256": "d6d3989d21bb9a618685c62007a5ef00444a2404c2efe2e5643d19f06195b10a",
+      "archived": "evidence/JOB.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/READY.json": {
+      "sha256": "dd44bfdf9463b4f81dc13337cdbc045609a17c1297fee2d2234f7c96745349d6",
+      "archived": "evidence/READY.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/RANKS.json": {
+      "sha256": "9b270e856dc242d3f2cdbcc37dff110325e23bea390c4b50a7784f89125f4c1c",
+      "archived": "evidence/RANKS.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/LAUNCH.json": {
+      "sha256": "eff2a2218ede604e7ddd22f303bcb2c81e083d0c05b6a11de11c60b546639b72",
+      "archived": "evidence/LAUNCH.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/REFERENCED.json": {
+      "sha256": "85901bc500d15b3ab4fe7b7b17d04d367f74e926d26617b41bf1b7060d6fe5ca",
+      "archived": "evidence/REFERENCED.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/GUARD_RESULT.json": {
+      "sha256": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41",
+      "archived": "evidence/GUARD_RESULT.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/TERMINAL.json": {
+      "sha256": "66391bb57c28bb7c5e0679a7078bbfbfc1a2655e5dd011c8ad55d5dd498f7fe8",
+      "archived": "evidence/TERMINAL.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/launch_stderr.json": {
+      "sha256": "5f438547290ae3cb1dad31fc4474a81483304575a85d5f88063874a22b10680b",
+      "archived": "evidence/launch_stderr.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/launch_stdout.json": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": "evidence/launch_stdout.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/telemetry.jsonl": {
+      "sha256": "9cd2cab218c74a3c6b396a458d2f823cc59c73ac37f0a149d9bfe78b4f19125f",
+      "archived": "evidence/telemetry.jsonl"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/pilot/H.rank0": {
+      "sha256": "1b4d4891d6527692a0ab4da39978a2bccdd0db09900fd510a33d17f7041a36eb",
+      "bytes": 45017560,
+      "private_raw_retained": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared/pilot/H.rank1": {
+      "sha256": "046bcb28348a3cc14b540b784ccd45675a4f004c41c2bf1ea884ef01b808258b",
+      "bytes": 45011640,
+      "private_raw_retained": true
+    }
+  },
+  "all_frozen_source_input_PP_ELF_pins_unchanged": true,
+  "DFT_protected_exact": true,
+  "copied_saves_and_originals_unchanged": true,
+  "stock_archive_unchanged": true,
+  "owned_cgroup_gone_and_known_MPI_absent": true,
+  "all_private_output_block_metadata_charge_B": 724185088,
+  "readback_import_defect_preserved_and_manual_diagnostic_only": true,
+  "no_pair_or_material_validation": true,
+  "HSE_converged": false,
+  "physical_xc": null,
+  "source_sha256": "8cca9da56fdd78b4c8c5dde226ef11a8d79e7310cf65090c943fad53b7768106"
+}

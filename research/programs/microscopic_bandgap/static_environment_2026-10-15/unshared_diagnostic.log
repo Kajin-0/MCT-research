@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/static_environment_2026-10-15/readback.py", line 8, in <module>
+    from packets import Reader
+ModuleNotFoundError: No module named 'packets'

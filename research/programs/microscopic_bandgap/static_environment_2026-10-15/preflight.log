@@ -1,0 +1,32 @@
+{
+  "status": "PASS saved-state/static-probe admission; native NOT RUN",
+  "addresses": {
+    "unshared": {
+      "socket_bytes": 91,
+      "actual_bind_connect": true
+    },
+    "shared": {
+      "socket_bytes": 89,
+      "actual_bind_connect": true
+    }
+  },
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "host_available_B": 29633081344,
+  "disk_available_B": 53935087616,
+  "original_frame_Gram_op": 2.6700354783013193e-15,
+  "original_Theta_amplitude_outside_frame_F": 1.6548532185015762e-06,
+  "exact_Theta_controls_added_NOT_projector_symmetrization": true,
+  "all_retained_raw_and_copied_source_hashes_pass": true,
+  "source_and_Hamiltonian_component_review_PASS": true,
+  "output_rank_upper_B": 734750592,
+  "persistent_copied_save_charge_B": 518782976,
+  "memory_forecast_B_NOT_bound": 4242483648,
+  "wall_forecast_s_NOT_bound": 180,
+  "old_registry_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "CALCULATED conditional diagnostic ONLY; owner failure preserved",
+  "unshared_native_saved_charge_static_trace_eV": -0.6856446985704444,
+  "accepted_retained_inverse_trace_eta05_eV": -0.6851882002865866,
+  "accepted_retained_first_moment_trace_eV": -0.6246139210984514,
+  "inverse_minus_UNQUALIFIED_native_static_eV": 0.0004564982838578535,
+  "UNQUALIFIED_native_minus_partial_firstmoment_eV": -0.061030777471993036,
+  "not_a_matched_configuration_difference": true,
+  "not_pure_exact_Feshbach_without_eigenpair_bound": true,
+  "not_accepted_new_material_result": true
+}

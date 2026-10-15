@@ -1,0 +1,54 @@
+{
+  "status": "CALCULATED new152query self-block only; strict304splice remains REFUSED",
+  "new_query_H_RR_Hermiticity_relative": 1.2038356239565213e-15,
+  "new_query_all24_projected_Td_relative": [
+    1.2573622096974156e-12,
+    1.2402980910243163e-12,
+    1.2445988716255491e-12,
+    1.3218659909839264e-14,
+    1.2365585998341193e-12,
+    1.236565125424972e-12,
+    1.2632615660761557e-12,
+    9.715711897466627e-13,
+    1.2416528713521863e-12,
+    1.2392801381925071e-12,
+    1.2392490909984292e-12,
+    9.641141501975576e-13,
+    1.2576291267397832e-12,
+    1.2494213567906755e-12,
+    1.2471227730887413e-12,
+    9.746082721330742e-13,
+    1.2495316796247924e-12,
+    1.2472083914934165e-12,
+    1.2577788154020711e-12,
+    9.745943430909062e-13,
+    1.2556059843368214e-12,
+    1.244103465524142e-12,
+    1.2555927970676844e-12,
+    9.577095517180318e-13
+  ],
+  "new_query_projected_Theta_relative": 9.870865065223734e-13,
+  "new_query_H_RR_min_max_Ry": [
+    3.371486028343558,
+    52.57565995417279
+  ],
+  "new_query_kinetic_RR_min_max_Ry": [
+    4.58318229740981,
+    36.44089810128488
+  ],
+  "cross_DIFFERENT_native_operator_reciprocity_norm_Ry": 9.863733495623617e-15,
+  "cross_DIFFERENT_native_operator_reciprocity_F_Ry": 1.8589954505067843e-14,
+  "small_cross_defect_NOT_operator_identity_certificate": true,
+  "no304matrix_constructed": true,
+  "no_FD_or_HSE_convergence_or_xc": true,
+  "auxiliary_directions_NOT_solved_bands": true,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/query_only_audit.py": "911d6af7e608364aecb4b544923fabc19986783d0d0917ec47dc025593a20088",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/full_action_basis.npz": "c1b5c1a863d492860be148543dcfecf4886c95c7ed04d6ffd952edbcf46436e5",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/input.rank1": "6df4d75275dae0c47ecb48b384f4b32968ea12c260e75f2925f3b8ff6c2f2bf4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/H.rank0": "c3fa8e47f959f43a79ba986c0f8fd380a4b66e3c5bbd1295a21068bf13963969",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/input.rank0": "d6edf0d6cbbfdf736c964de0f95eb6f008f9898b6ee803ce7a27854b3e13b121",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/H.rank1": "6bed0fac156d6eef006ffdf452d3c224c15717ed06870a17c30b17176a69c68e"
+  }
+}

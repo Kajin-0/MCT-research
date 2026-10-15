@@ -1,9 +1,31 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 15:08 UTC
-**Status:** NEW152NATIVE ACTIONS ACQUIRED; STRICT APPEND REFUSED; NO304FDRESULT; CONTINUE INDEPENDENT STATIC PBE INPUT; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 15:28 UTC
+**Status:** HSE APPEND STRICT REFUSAL; INDEPENDENT STATIC PBE OWNER FAILURE; SHARED WITHHELD; NO304FD OR MATCHED STATIC RESULT; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Continued independent physics; two precise native boundaries — 2026-10-15 15:28 UTC
+
+After c16f9af, [static PBE query](../static_environment_2026-10-15/decision.md)
+compiled stock-H driver without changing any Hamiltonian object. Source/copy/
+physicalframe/probes/shortsockets frozen. ExactlyONEunshared native execution
+2.36s, ownerFAILincompleteFDinventory4.0203s/.956GBkernel. SharedNOTRUN; no retry.
+Reader import defect also recorded: prospective correction testedinmemory,
+frozen failedsource unchanged. Postprocessconditionalstatictrace-.685644699eV
+andcomponent/Theta~1e-15 are UNQUALIFIEDdiagnostics, not an accepted pairedresult.
+
+[HSEquery-only](../append_hamiltonian_2026-10-15/completion_boundary.md) retains
+actual152Rselfblock3.37..52.58Ry andcrossreciprocity~1e-14Ry; no304splice/FD.
+Next exact jointstate acquisition needs canonical nativeoperator replay or a
+NEWsingle-state full304batch; no admission from forecast~319s/~4.5GB alone.
+Restricted-block errorcertificate could support a NEWbounded mathematicalmodel;
+no value is assumed and oldstrictFAILremains. StaticPBE still needs proven
+terminalownership/import readiness before an independently fresh acceptedpair.
+
+All new native jobs stopped/owned cgroups gone; no service/queue remains.
+Raw/frozen/sourcepins/protectedDFT/stock/HSE16/main/oldfailures/other sessions/
+blockedgoal preserved. Finite trajectoriesSTOP, no safety or acceptance bypass.
 
 ## Exact append gate failed; no retry — 2026-10-15 15:08 UTC
 

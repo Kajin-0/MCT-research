@@ -50,3 +50,18 @@ six physical probes at each retained configuration's saved SCFcharge would
 separate static P H P from the finite-eta inverse kernel without another SCF.
 Source/charge/frame/native/resource admission must pass separately. No repeats
 of PBE grids or defective HSE176ACE. No physicalxc or materialerrorbar claimed.
+
+## Read-only follow-through after preserving the refusal
+
+query_only_result.json reports the NEW operator's own152Rcompression, without
+using oldHQto build304. Hermiticity1.20e-15, Theta9.88e-13; Rayleigh range
+3.371486..52.575660Ry. Cross-query reciprocity defect9.864e-15Ry is small but
+NOT operator identity. [Completion boundary](completion_boundary.md) derives
+the restricted-block uncertainty needed for a NEW bounded Ritz claim and
+forecasts a future single-state304batch alternative; neither is launched.
+
+The independent PBEstatic attempt subsequently produced unshared native packets
+but failed its owner gate; shared withheld. See
+[decision](../static_environment_2026-10-15/decision.md). No accepted matched
+static contrast or new HSEstate is claimed. Both trajectories stop at their
+specific independent gates; no known failed native unit was retried.

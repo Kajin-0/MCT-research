@@ -1,0 +1,13 @@
+{
+  "status": "PASS focused checks; owner/native pair remains FAILED/NOT RUN",
+  "prospective_Reader_patch_import_and_native_decode_PASS": true,
+  "frozen_production_source_NOT_modified": true,
+  "original_import_failure_preserved": true,
+  "independent_FD_HS_actual": 0.000287869118017128,
+  "independent_FD_HS_upper_bound": 0.2963911163846407,
+  "accepted_inverse_trace_reconstruction_eV": -0.6851882002865866,
+  "no_304splice_or_native_retry": true,
+  "no_accepted_matched_static_result": true,
+  "source_sha256": "8cdca197c665d31726ffc4fe21346b07f2ac1205494932cbc1473582b296ae9c",
+  "production_readback_sha256": "930e9c41093dcb3b706e23eb884eb35317b0355cad6d5c3577705243997200b3"
+}

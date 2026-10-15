@@ -2,9 +2,37 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; ordered PBE environment matrix contrast conditionally resolved. Accepted same-D152HSE operator remains non-FD. NEW152append actions acquired but STRICT splice REFUSED after reconstructed rho/potential/action byte differences; no304FDresult. Static environment input and converged HSE/random-alloy x_c remain OPEN.
+**State:** historical physical goal BLOCKED; accepted ordered PBE causal contrast retained. New HSE152append STRICT splice REFUSED; new staticPBE unshared owner FAILED, shared withheld. No304FDstate or accepted matched static response. Converged HSE/random-alloy x_c remain OPEN.
 
-**Updated:** 2026-10-15 15:08 UTC
+**Updated:** 2026-10-15 15:28 UTC
+
+## Independent native static input and finite stop — 2026-10-15 15:28 UTC
+
+After publishing c16f9af, continued the distinct PBE saved-charge6physical+
+6Theta-control question. [Decision](static_environment_2026-10-15/decision.md),
+[reset](static_environment_2026-10-15/handoff_ledger.md). ExactlyONEunshared
+operator-only native job, no SCF,2.36sPW. OwnerFAILED4.0203s on incomplete
+taskFDinventory, kernel.956GB. Not proven benign race. Ownedcleanup verified,
+no retry, sharedWITHHELD. Original frozen source also had a Reader import
+defect missed by ASTpreflight; original log/source retained, prospective
+one-line import remedy tested IN MEMORY only. No production retropass.
+
+UNQUALIFIED packet diagnostic: native savedrhoGexact, charge288.0000000001002e,
+H/component/Theta~1e-15; static original-frame trace-.685644699eV. Accepted
+unshared finiteeta.05trace-.685188200eV andpartialfirstmoment-.624613921eV
+differ by.4565meV/61.03meV respectively. No sharedstaticcontrast/gap/eigenpair
+accuracy or materialerrorbar inferred from this refused experiment.
+
+Read-only HSEnew-query selfblock spans3.371486..52.575660Ry, Hermiticity1.2e-15;
+not wholecomplement gap or304FD. Crossoperatorreciprocity9.86e-15Ry is NOT
+identity. Restricted lower-block delta_C would suffice for a SEPARATE bounded
+Ritz/HSFD claim, but it is unproved. A future unified304single-state batch
+forecast~319s avoids splicing; no new build/job admitted under failedscope.
+
+STOP native trajectories at strict state identity and terminal inventory/import
+gates. No genericinfra campaign, repeatedfailedunit or unsafeworkaround. Exact
+source/raw/protectedDFT/stock/cgroupcleanup checks pass; both nativefailures
+preserved, no activefamily/queue, HSE16/main/other sessions/blockedgoal unchanged.
 
 ## Native append acquisition and strict scientific refusal — 2026-10-15 15:08 UTC
 

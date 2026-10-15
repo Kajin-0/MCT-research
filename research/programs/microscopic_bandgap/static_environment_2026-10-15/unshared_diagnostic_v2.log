@@ -1,0 +1,34 @@
+{
+  "status": "UNQUALIFIED native numerical diagnostic; OWNER FAILED; no matched pair",
+  "science": {
+    "scientific_pass": true,
+    "member": "unshared",
+    "saved_rhoG_bitwise": true,
+    "saved_source_files_unchanged": true,
+    "native_charge_e": [
+      288.0000000001002,
+      288.0000000001002
+    ],
+    "original_reference_probe_byte_readback": true,
+    "full_native_vs_components_relative": 3.1845165666244836e-16,
+    "Hermiticity_relative": 7.399212500849308e-16,
+    "independent_Theta_kernel_relative": 2.2581753656955055e-15,
+    "kinetic_max_abs_Ry": 1.4946834900704541e-16,
+    "zero_native_local_magnetic_potential": true,
+    "native_chemical_group_order": 24,
+    "static_trace_ordering_eV": -0.6856446985704444,
+    "component_orderings_eV": {
+      "kin": -7.476395463072869,
+      "loc": 0.9419686835065543,
+      "nl": 5.848782080995842
+    },
+    "static_physical_probe_outside_frame_F_Ry": 0.5828447288534562,
+    "not_a_material_gap": true,
+    "no_SCF_or_HSE_run": true,
+    "physical_xc": null
+  },
+  "owner_accepted": false,
+  "shared_withheld": true,
+  "production_readback_import_failed_before_manual_path_correction": true,
+  "source": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/unshared"
+}
