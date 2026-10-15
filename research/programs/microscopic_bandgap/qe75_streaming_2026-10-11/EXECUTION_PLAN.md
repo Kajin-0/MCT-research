@@ -1,9 +1,26 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 15:28 UTC
-**Status:** HSE APPEND STRICT REFUSAL; INDEPENDENT STATIC PBE OWNER FAILURE; SHARED WITHHELD; NO304FD OR MATCHED STATIC RESULT; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 15:55 UTC
+**Status:** ONE-STATE H304 ACQUISITION PASS; FD304 NOT STATIONARY; OLD APPEND/STATIC PBE FAILURES IMMUTABLE; HSE CONVERGENCE/PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## New complete operator; measured FD boundary — 2026-10-15 15:55 UTC
+
+[Native decision](../single_state304_2026-10-15/decision.md),
+[reset](../single_state304_2026-10-15/handoff_ledger.md). Parent406b6b0. Exactly
+ONE fresh HSE8sameD304+12control acquisition, no oldactionsplice. Before/after
+operatorstatebyteequalityPASS, source/charge/fullH/Td/Theta/terminalPASS.
+Critical nativebandtable restriction fixed by TWO legal158querycalls within
+one frozenstate, source176unchanged, exchangebodyarithmeticidentical.
+Owner329.213751s/kernel5,557,587,968B/sampledRSS4,505,862,144B; output3.005GB;
+all12GiB/swap0/tasks12/600s/hostfloors/14GiBbudget hold, cgroupgone/leasefree.
+
+FD304notwholeFD: quartetresidual.02378468Ry, commutator.50357023RyF,
+D0densityerrorop.0094243; noSCF/Cd/materialgap/xc. Fixed-H energy lowering is
+not nonlinearenergyconsistency. OldstrictappendandstaticPBEownerFAILunchanged.
+NEXT distinct read-only residualcausalbound test on actualHV/physicalframe;
+no newnativework merely fromoperatorPASS. Protectedstate/main/goals unchanged.
 
 ## Continued independent physics; two precise native boundaries — 2026-10-15 15:28 UTC
 
@@ -1081,3 +1098,5 @@ retainsproofs/raw/native/failure/independentchecksandrankedminimuminput.
 STOPthismission'snativework atsymmetry-qualifiedhostinputboundary, Cdunrun.
 Noautomaticrestart/bandcount/occupation/ACEconstructorrepair. Physicalx_cOPEN;
 alloldnegativeandpositiveevidenceunchanged. Historicalblockedgoaluntouched.
+
+- **2026-10-15 15:55 UTC | starts406b6b0 | ONE-STATE304 | OPERATOR PASS / FD BRIDGE BLOCKED:** measured304columns+12controls, strict within-job statebytes, owner329.21s/kernel5.56GB. FDcommutator.50357RyF; no fullSCF/Cd/xc. Preserve oldrefusals; continue independent finite-eta residualphysics.

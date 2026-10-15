@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "independent_eigh_max_Ry": 4.689582056016661e-13,
+  "independent_commutator_Gram_identity": true,
+  "offspace_Gram_min_eigen_Ry2": -4.301479295465099e-13,
+  "zero_residual_missing_complement_counterexample_FD_op_error": 0.9999999979388463,
+  "full_native_state_snapshots_BITWISE": true,
+  "frozen_pins_PASS": true,
+  "protected_DFT_stock_registry_exact": true,
+  "old_negative_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/GUARD_RESULT.json": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/TERMINAL.json": "66391bb57c28bb7c5e0679a7078bbfbfc1a2655e5dd011c8ad55d5dd498f7fe8"
+  },
+  "terminal_cgroup_gone": true,
+  "postanalysis_owned_charge_B": 3596341248,
+  "HSE_converged": false,
+  "physical_xc": null
+}

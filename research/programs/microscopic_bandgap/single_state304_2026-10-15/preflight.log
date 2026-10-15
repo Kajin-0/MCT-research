@@ -1,0 +1,48 @@
+{
+  "status": "PASS prospective single-state304admission; nativeNOTRUN",
+  "source_trialD0_bytes_unchanged": true,
+  "old304basis_SHA_pass": true,
+  "query_Gram_op": 1.318427453172487e-15,
+  "source_outside304_F": 1.0554972669021868e-14,
+  "Reader_and_owner_actual_import_PASS": true,
+  "source_build_arithmetic_PASS": true,
+  "unsafe_m316_direct_call_REJECTED": true,
+  "two158calls_same_frozen_operator": true,
+  "socket_bytes": 84,
+  "actual_bind_connect_pass": true,
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "host_available_B": 28985098240,
+  "disk_available_B": 53284388864,
+  "rank_extents": {
+    "0": {
+      "npwx": 5415,
+      "nnpw": 5415,
+      "nkb": 384,
+      "nhm": 62,
+      "input_B": 85385352,
+      "action_file_upper_B": 338297704,
+      "EACH_snapshot_file_upper_B": 551233728
+    },
+    "1": {
+      "npwx": 5412,
+      "nnpw": 5412,
+      "nkb": 384,
+      "nhm": 62,
+      "input_B": 85338048,
+      "action_file_upper_B": 338128480,
+      "EACH_snapshot_file_upper_B": 551215360
+    }
+  },
+  "fixed_prepared_charge_B": 318218240,
+  "forecast_family_memory_B_NOT_bound": 6656546048,
+  "forecast_wall_s_NOT_bound": 410.9873131882353,
+  "hard_cgroup_caps": true,
+  "old_registry_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "protected_DFT_exact": true
+}

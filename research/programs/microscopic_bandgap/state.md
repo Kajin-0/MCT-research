@@ -2,9 +2,29 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; accepted ordered PBE causal contrast retained. New HSE152append STRICT splice REFUSED; new staticPBE unshared owner FAILED, shared withheld. No304FDstate or accepted matched static response. Converged HSE/random-alloy x_c remain OPEN.
+**State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 15:28 UTC
+**Updated:** 2026-10-15 15:55 UTC
+
+## Complete native H304 and an actual state obstruction — 2026-10-15 15:55 UTC
+
+[Decision](single_state304_2026-10-15/decision.md),
+[reset](single_state304_2026-10-15/handoff_ledger.md). ONE fresh native HSE8
+trialD0 query,304columns+12controls from ONE state, not oldsplice. Source review
+rejected unsafe m316vexx at cached176capacity; two legal158calls and explicit
+SOCworkspace preserve arithmetic. Actual local/SOC/source/kernel before/after
+snapshot bytes equal on bothranks; allTd/Theta1.7e-11, Hermiticity1.3e-15,
+charge144e and completehpsi/component2.4e-16 pass. Owner329.21s/kernel5.56GB,
+12GiB/swap0/tasks12/600s/floors/14GiBbudget and terminalcleanupPASS.
+
+The304FDstate is NOT stationary: μshift−1.4723meV, Fermi quartet whole-H
+residual.02378468Ry, fullcommutator.50357023RyF, densityD0mismatchop.0094243.
+Finite-H freeenergy−163.092meV/cell is not a nonlinearHSE energy decrease.
+Missing lower-right operatorblock is removed; occupied fullspace/coupled-tail
+and H[D1]/outerconsistency are NOT closed. NoCd/SCF/gap/xc release.
+Continue distinct read-only finite-resolution resolvent qualification with
+measured R=HV−VA; no anothernativejob, presumedcomplementgap or oldFAILretropass.
+ProtectedDFT/stock/oldledger/HSE16/main/sessions/blockedgoal unchanged.
 
 ## Independent native static input and finite stop — 2026-10-15 15:28 UTC
 

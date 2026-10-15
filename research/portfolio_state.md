@@ -30,7 +30,7 @@ A decision in one program does not automatically:
 | Measurement-kernel-aware spatial disorder | Active research program | Determine how spatial covariance and finite probes control apparent disorder widths and cutoffs | `research/programs/spatial_disorder/state.md` | #196 |
 | Correlated random-mass Kane regime | Method benchmark complete; HgCdTe activation blocked | Retain the matched correlated-versus-scalar DOS oracle and reopen material physics only with source-qualified covariance and matched spectroscopy | `research/programs/correlated_random_mass_kane/state.md` | #390 |
 | Stochastic transport and finite-size noise | Gated active research program; Phase 1 only | Define and test a finite-device drift-diffusion-Poisson-Langevin theory for terminal noise in HgCdTe photoconductors | `research/programs/stochastic_transport_noise/state.md` | #339 |
-| Microscopic zero-temperature bandgap | Accepted PBE causal contrast/HSE152operator retained; new append state gate and staticPBE owner gate failed; no304FD/matchedstatic release | Derive nonempirical inversion criteria from symmetry-qualified spectra and microscopic environment/disorder response | `research/programs/microscopic_bandgap/state.md` | User continuation 2026-10-10; related endpoint issue #4 |
+| Microscopic zero-temperature bandgap | Accepted PBE contrast and NEW one-state H304; FD304 nonstationary, old append/staticPBE failures preserved; no HSESCF/xc | Derive nonempirical inversion criteria from symmetry-qualified spectra and microscopic environment/disorder response | `research/programs/microscopic_bandgap/state.md` | User continuation 2026-10-10; related endpoint issue #4 |
 
 ## Repository-wide publication state
 
