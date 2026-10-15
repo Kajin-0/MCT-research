@@ -1,9 +1,21 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 04:24 UTC
+**Last verified update:** 2026-10-15 04:32 UTC
 **Status:** NEW NATIVE DIRECT TR-CONSTRAINED OPERATOR CONSTRUCTOR PASS; OLD ACE/DIRECT OFF-SPAN ERROR 2.82%; FULL CRYSTAL/STATE BRIDGE UNQUALIFIED; NO HSE SCF/CD RELEASE
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Read-only causal chemistry supplement — 2026-10-15 04:32 UTC
+
+[Decision](../pbe_causal_response_2026-10-15/decision.md): accepted PBE k3 complex
+spectra give own-Fermi eta .05eV inverse-resolvent chemical response +.354050668eV,
+conditional [.344926560,.363174775]eV; all9 frozen probes positive. No native job,
+new frame/grid/empirical fit. The difference from Gaussian W2 is observable
+choice, not a new functional correction or gap. Physical x_c remains OPEN.
+Native constructor checkpoint below remains PASS in its finite TR scope;
+rank146 reference/crystal negative gates and joint-state bridge block SCF/Cd.
+All raw/Frozen source files remain exact; one blank EOF in pinned address code
+is preserved rather than changing historical source hashes for whitespace.
 
 ## Current native physics checkpoint — 2026-10-15 04:24 UTC
 

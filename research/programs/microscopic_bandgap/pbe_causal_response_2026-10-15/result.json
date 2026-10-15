@@ -1,0 +1,773 @@
+{
+  "status": "CALCULATED actual retained accepted PBE spectra; conditional causal bounds",
+  "rows": [
+    {
+      "t_relative_own_Fermi_eV": -0.05,
+      "eta_eV": 0.025,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.9087846684727123,
+              0.025001996617291695
+            ],
+            "g_eV_inverse": [
+              1.0995384566372206,
+              -0.03024991257788959
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0076047497447280865,
+            "inversion_margin_eV_inverse": 1.0923497378751603,
+            "inverse_error_upper_eV": 0.0063291953780899085,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              -0.05000154429734113,
+              0.025000775515168095
+            ],
+            "g_eV_inverse": [
+              -15.999504978343289,
+              -7.9997535663842525
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.010147873905075334,
+            "inversion_margin_eV_inverse": 17.87784297680002,
+            "inverse_error_upper_eV": 3.173206824057012e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.5531105935587338,
+              0.025811533975676988
+            ],
+            "g_eV_inverse": [
+              1.8040280110354414,
+              -0.0841870158376738
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.029729629492916864,
+            "inversion_margin_eV_inverse": 1.776261654604585,
+            "inverse_error_upper_eV": 0.009267592006607291,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              -0.05037836277540417,
+              0.025189446210150523
+            ],
+            "g_eV_inverse": [
+              -15.879766464304051,
+              -7.939966706850369
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.05344504163647291,
+            "inversion_margin_eV_inverse": 17.70071093004317,
+            "inverse_error_upper_eV": 0.0001700656797120978,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587862127700535,
+      "cd_ordering_functional_eV": -0.603488956334138,
+      "chemical_response_eV": 0.3552972564359155,
+      "conditional_bound_eV": 0.015798585132649867,
+      "conditional_interval_eV": [
+        0.3394986713032656,
+        0.37109584156856534
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": -0.05,
+      "eta_eV": 0.05,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.9087846647074903,
+              0.05000399314923648
+            ],
+            "g_eV_inverse": [
+              1.0970493389048204,
+              -0.060362866757470844
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0038023748723640433,
+            "inversion_margin_eV_inverse": 1.0949063798368552,
+            "inverse_error_upper_eV": 0.0031607879419969175,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              -0.05000154023821643,
+              0.05000155100205246
+            ],
+            "g_eV_inverse": [
+              -9.999689809211405,
+              -9.999691961845523
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.005073936952537667,
+            "inversion_margin_eV_inverse": 14.136624532900523,
+            "inverse_error_upper_eV": 2.5380359548286747e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.5530935132888415,
+              0.051622616120768586
+            ],
+            "g_eV_inverse": [
+              1.7923984085076525,
+              -0.16729231631676386
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.014864814746458432,
+            "inversion_margin_eV_inverse": 1.7853237236903892,
+            "inverse_error_upper_eV": 0.004625136270322246,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              -0.05037798532803844,
+              0.050378833649240694
+            ],
+            "g_eV_inverse": [
+              -9.924803011723718,
+              -9.924970136724216
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.026722520818236454,
+            "inversion_margin_eV_inverse": 14.00918667796143,
+            "inverse_error_upper_eV": 0.0001359014065465909,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587862049457068,
+      "cd_ordering_functional_eV": -0.6034714986168799,
+      "chemical_response_eV": 0.3553147063288269,
+      "conditional_bound_eV": 0.00794720597841404,
+      "conditional_interval_eV": [
+        0.34736750035041286,
+        0.3632619123072409
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": -0.05,
+      "eta_eV": 0.1,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.9087846496536379,
+              0.10000798561654442
+            ],
+            "g_eV_inverse": [
+              1.0872045531121157,
+              -0.1196423568018206
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0019011874361820216,
+            "inversion_margin_eV_inverse": 1.0918666278924687,
+            "inverse_error_upper_eV": 0.0015919528597633122,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              -0.05000152400464616,
+              0.10000310177787788
+            ],
+            "g_eV_inverse": [
+              -3.9998746423666627,
+              -7.999753585954263
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0025369684762688335,
+            "inversion_margin_eV_inverse": 8.941458480462417,
+            "inverse_error_upper_eV": 3.172306470345833e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.5530253258697096,
+              0.10324162377862199
+            ],
+            "g_eV_inverse": [
+              1.7473383504697124,
+              -0.32620214690792115
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.007432407373229216,
+            "inversion_margin_eV_inverse": 1.7700937251124658,
+            "inverse_error_upper_eV": 0.0023622031738229792,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              -0.05037646947933274,
+              0.1007571979904832
+            ],
+            "g_eV_inverse": [
+              -3.969839007071409,
+              -7.9400136404941115
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.013361260409118227,
+            "inversion_margin_eV_inverse": 8.86376881373637,
+            "inverse_error_upper_eV": 0.00016980732663121219,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587861736582841,
+      "cd_ordering_functional_eV": -0.6034017953490424,
+      "chemical_response_eV": 0.35538437830924174,
+      "conditional_bound_eV": 0.004155686424920962,
+      "conditional_interval_eV": [
+        0.35122869188432077,
+        0.3595400647341627
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": 0.0,
+      "eta_eV": 0.025,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.9587886667840593,
+              0.025002001810170944
+            ],
+            "g_eV_inverse": [
+              1.0422739699896721,
+              -0.02717901930545545
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0076047497447280865,
+            "inversion_margin_eV_inverse": 1.0350235289857304,
+            "inverse_error_upper_eV": 0.007047015137729879,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              1.3394881852439016e-09,
+              0.025000770158859174
+            ],
+            "g_eV_inverse": [
+              2.143049055299169e-06,
+              -39.9987677837853
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.010147873905075334,
+            "inversion_margin_eV_inverse": 39.98861990988028,
+            "inverse_error_upper_eV": 6.344421579780223e-06,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.6047567451662139,
+              0.025835244943677272
+            ],
+            "g_eV_inverse": [
+              1.6505451637397062,
+              -0.07051138980532949
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.029729629492916864,
+            "inversion_margin_eV_inverse": 1.6223209731330477,
+            "inverse_error_upper_eV": 0.011092498237735605,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              6.594275657770829e-08,
+              0.02518906209693671
+            ],
+            "g_eV_inverse": [
+              0.00010393052083985816,
+              -39.699771120686485
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.05344504163647291,
+            "inversion_margin_eV_inverse": 39.64632607918605,
+            "inverse_error_upper_eV": 3.3955995566152984e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587886654445711,
+      "cd_ordering_functional_eV": -0.6047566792234573,
+      "chemical_response_eV": 0.35403198622111376,
+      "conditional_bound_eV": 0.018179813792611417,
+      "conditional_interval_eV": [
+        0.33585217242850235,
+        0.37221180001372517
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": 0.0,
+      "eta_eV": 0.05,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.9587886627605664,
+              0.050004003532098336
+            ],
+            "g_eV_inverse": [
+              1.0401535281125254,
+              -0.05424745067793102
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0038023748723640433,
+            "inversion_margin_eV_inverse": 1.0377647847241684,
+            "inverse_error_upper_eV": 0.0035177803911149944,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              5.314922720415389e-09,
+              0.05000154029020165
+            ],
+            "g_eV_inverse": [
+              2.125838109844281e-06,
+              -19.99938390289848
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.005073936952537667,
+            "inversion_margin_eV_inverse": 19.994309965946055,
+            "inverse_error_upper_eV": 1.2688843145593007e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.6047382542716946,
+              0.051670000200316285
+            ],
+            "g_eV_inverse": [
+              1.6416235933515457,
+              -0.14026347894838068
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.014864814746458432,
+            "inversion_margin_eV_inverse": 1.6327400728935193,
+            "inverse_error_upper_eV": 0.005525726401177399,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              2.644274582606311e-07,
+              0.05037806350669545
+            ],
+            "g_eV_inverse": [
+              0.00010418941783329685,
+              -19.849909471799076
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.026722520818236454,
+            "inversion_margin_eV_inverse": 19.82318695125428,
+            "inverse_error_upper_eV": 6.791182740540474e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587886574456437,
+      "cd_ordering_functional_eV": -0.6047379898442363,
+      "chemical_response_eV": 0.35405066760140735,
+      "conditional_bound_eV": 0.009124107462843391,
+      "conditional_interval_eV": [
+        0.344926560138564,
+        0.3631747750642507
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": 0.0,
+      "eta_eV": 0.1,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.9587886466736145,
+              0.10000800636730513
+            ],
+            "g_eV_inverse": [
+              1.0317573422789312,
+              -0.10761912462577426
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0019011874361820216,
+            "inversion_margin_eV_inverse": 1.0354536647391483,
+            "inverse_error_upper_eV": 0.0017699741491070584,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              2.1213836877361383e-08,
+              0.10000308036031076
+            ],
+            "g_eV_inverse": [
+              2.1212530012521837e-06,
+              -9.999691973456802
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0025369684762688335,
+            "inversion_margin_eV_inverse": 9.997155004980758,
+            "inverse_error_upper_eV": 2.5377686179467346e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.6046644408283455,
+              0.10333608994175315
+            ],
+            "g_eV_inverse": [
+              1.6068789925714644,
+              -0.2746127949485574
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.007432407373229216,
+            "inversion_margin_eV_inverse": 1.622743130388561,
+            "inverse_error_upper_eV": 0.0028096055642767757,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              1.0666664111337098e-06,
+              0.10075564245429093
+            ],
+            "g_eV_inverse": [
+              0.00010507269373424372,
+              -9.925002466651783
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.013361260409118227,
+            "inversion_margin_eV_inverse": 9.91164120679885,
+            "inverse_error_upper_eV": 0.00013582234753128412,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587886254597776,
+      "cd_ordering_functional_eV": -0.6046633741619344,
+      "chemical_response_eV": 0.3541252512978432,
+      "conditional_bound_eV": 0.0047407797470945855,
+      "conditional_interval_eV": [
+        0.34938447155074864,
+        0.3588660310449378
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": 0.05,
+      "eta_eV": 0.025,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              1.0087926758256567,
+              0.02500200735003871
+            ],
+            "g_eV_inverse": [
+              0.9906754380355168,
+              -0.024552988118192346
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0076047497447280865,
+            "inversion_margin_eV_inverse": 0.9833749033018898,
+            "inverse_error_upper_eV": 0.007803709048895103,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              0.050001536374782204,
+              0.025000764912628384
+            ],
+            "g_eV_inverse": [
+              15.999509213463822,
+              -7.999753558872184
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.010147873905075334,
+            "inversion_margin_eV_inverse": 17.877846761447483,
+            "inverse_error_upper_eV": 3.173205480935377e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.6564522258547222,
+              0.025860916615794437
+            ],
+            "g_eV_inverse": [
+              1.520979595725069,
+              -0.059918947564168414
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.029729629492916864,
+            "inversion_margin_eV_inverse": 1.4924297612704789,
+            "inverse_error_upper_eV": 0.013086860243420524,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              0.05037796647613052,
+              0.025188920993826195
+            ],
+            "g_eV_inverse": [
+              15.879973859754367,
+              -7.939967309456622
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.05344504163647291,
+            "inversion_margin_eV_inverse": 17.700896699518616,
+            "inverse_error_upper_eV": 0.00017006211545251255,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587911394508745,
+      "cd_ordering_functional_eV": -0.6060742593785917,
+      "chemical_response_eV": 0.35271688007228275,
+      "conditional_bound_eV": 0.021092363462577493,
+      "conditional_interval_eV": [
+        0.33162451660970527,
+        0.3738092435348602
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": 0.05,
+      "eta_eV": 0.05,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              1.0087926715382753,
+              0.05000401461098462
+            ],
+            "g_eV_inverse": [
+              0.9888543463463421,
+              -0.049015708160764566
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0038023748723640433,
+            "inversion_margin_eV_inverse": 0.9862660358622442,
+            "inverse_error_upper_eV": 0.0038939973326006703,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              0.050001540268786275,
+              0.0500015297984798
+            ],
+            "g_eV_inverse": [
+              9.999694049664667,
+              -9.999691955731944
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.005073936952537667,
+            "inversion_margin_eV_inverse": 14.136627527030821,
+            "inverse_error_upper_eV": 2.53803487991229e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.6564322039433861,
+              0.05172130098530927
+            ],
+            "g_eV_inverse": [
+              1.513987569213001,
+              -0.11928940457960197
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.014864814746458432,
+            "inversion_margin_eV_inverse": 1.5038149809235988,
+            "inverse_error_upper_eV": 0.006508769308608245,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              0.05037797933040807,
+              0.05037777875639614
+            ],
+            "g_eV_inverse": [
+              9.925010834912117,
+              -9.924971319646358
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.026722520818236454,
+            "inversion_margin_eV_inverse": 14.009334467129829,
+            "inverse_error_upper_eV": 0.00013589854195213016,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587911312694891,
+      "cd_ordering_functional_eV": -0.606054224612978,
+      "chemical_response_eV": 0.35273690665651114,
+      "conditional_bound_eV": 0.010564045531960168,
+      "conditional_interval_eV": [
+        0.342172861124551,
+        0.3633009521884713
+      ],
+      "positive_response_certified": true
+    },
+    {
+      "t_relative_own_Fermi_eV": 0.05,
+      "eta_eV": 0.1,
+      "member": {
+        "host": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              1.0087926543957701,
+              0.10000802851008582
+            ],
+            "g_eV_inverse": [
+              0.9816364426546814,
+              -0.09731586061394325
+            ],
+            "retained_probability": 0.9999786541870958,
+            "omitted_probability": 2.134581290424986e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0019011874361820216,
+            "inversion_margin_eV_inverse": 0.984547231020034,
+            "inverse_error_upper_eV": 0.0019575551205082333,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              0.05000155584207892,
+              0.10000305938278316
+            ],
+            "g_eV_inverse": [
+              3.999878883588198,
+              -7.999753583323301
+            ],
+            "retained_probability": 0.9999850213847661,
+            "omitted_probability": 1.4978615233918191e-05,
+            "complex_resolvent_error_upper_eV_inverse": 0.0025369684762688335,
+            "inversion_margin_eV_inverse": 8.941460374841133,
+            "inverse_error_upper_eV": 3.172305126337883e-05,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        },
+        "cd": {
+          "Gamma6": {
+            "g_inverse_eV": [
+              0.6563522852136645,
+              0.10343835203440165
+            ],
+            "g_eV_inverse": [
+              1.4866490001726647,
+              -0.2342896125994167
+            ],
+            "retained_probability": 0.999425532193391,
+            "omitted_probability": 0.0005744678066089692,
+            "complex_resolvent_error_upper_eV_inverse": 0.007432407373229216,
+            "inversion_margin_eV_inverse": 1.4975648923872613,
+            "inverse_error_upper_eV": 0.00329767714613551,
+            "certified_under_tail_frame_IEEE_model": true
+          },
+          "Gamma8": {
+            "g_inverse_eV": [
+              0.05037804151279573,
+              0.10075505270372793
+            ],
+            "g_eV_inverse": [
+              3.9700485830667422,
+              -7.9400159714754235
+            ],
+            "retained_probability": 0.9989025921914811,
+            "omitted_probability": 0.0010974078085188577,
+            "complex_resolvent_error_upper_eV_inverse": 0.013361260409118227,
+            "inversion_margin_eV_inverse": 8.863864622669169,
+            "inverse_error_upper_eV": 0.00016980365854099883,
+            "certified_under_tail_frame_IEEE_model": true
+          }
+        }
+      },
+      "host_ordering_functional_eV": -0.9587910985536913,
+      "cd_ordering_functional_eV": -0.6059742437008688,
+      "chemical_response_eV": 0.35281685485282244,
+      "conditional_bound_eV": 0.005456758976448121,
+      "conditional_interval_eV": [
+        0.34736009587637434,
+        0.35827361382927053
+      ],
+      "positive_response_certified": true
+    }
+  ],
+  "original_frame_error_epsilon": {
+    "Gamma6": 8.433230537379872e-05,
+    "Gamma8": 0.00011930495621330516
+  },
+  "weight_L1_rounding_budget": 1.0831996635487192e-07,
+  "all_tested_response_signs_certified": true,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/host_Gamma6_k3_spectrum.csv": "bfd5215e2aa5f0dd40a8251f3d99899347fa2cf8cd779e0becbc10173cad3a97",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/host_Gamma8_k3_spectrum.csv": "37d335eec838b0a43e201ab0ef06a70c5886ef75616ffaf4620e568e81762744",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/cd_Gamma6_k3_spectrum.csv": "487d42821e908f65d595ccbac15485e84c45d461eda709ac38cff63253a4331b",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/cd_Gamma8_k3_spectrum.csv": "0a9f811d250fa1da4d47129499961c6476f83a17b690cd1f0dfba55b1d717b10",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_k3_2026-10-14/k3_complex_overlaps.npz": "96de816486a5e2e955589f4e9b037e1d1bcff3c29a8de0264b910a8f203cd952",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_pbe_pilot_2026-10-14/numerical_result.json": "1f1b3ca61a11e2d3a20fe2085df7f78bd560760ee0c3146c86c94bc70959307f",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_causal_response_2026-10-15/analyze.py": "9933a3bfe576bea07d5083995ae3690d2b92afda3e54b2a6a84f246b350d0f33",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_causal_response_2026-10-15/preregistration.md": "4580c09948f77e7e8778c9e6a56316618cf87d7766f52e551f8bbf257991ee7f"
+  },
+  "new_native_jobs": 0,
+  "HSE_result": false,
+  "inverse_resolvent_ordering_is_not_general_signed_gap": true,
+  "physical_xc": null,
+  "conditional_bounds_do_not_include_Hamiltonian_material_or_SCF_eigenpair_errors": true
+}

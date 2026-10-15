@@ -4,7 +4,25 @@
 
 **State:** historical physical goal BLOCKED; a NEW native-direct TR-constrained exchange constructor passes, and actual old-ACE/direct off-span error is measured. Joint crystal/translation symmetry and a consistent native SCF state bridge remain unqualified. Cd is withheld; physical x_c remains OPEN.
 
-**Updated:** 2026-10-15 04:24 UTC
+**Updated:** 2026-10-15 04:32 UTC
+
+## Retained PBE causal chemistry response — 2026-10-15 04:32 UTC
+
+[Decision](pbe_causal_response_2026-10-15/decision.md): independent read-only
+causal contraction of accepted k3/50-200Ry ordered x=.25 host/Cd complex spectra,
+original fixed physical Gamma6/8 projectors. At each own Fermi and eta=.05eV,
+CALCULATED inverse-resolvent ordering response +.354050668eV with conditional
+positive-tail/frame/IEEE interval [.344926560,.363174775]eV. All9 preregistered
+t/eta choices have positive conditional sign; no new native run or grid.
+
+It differs from Gaussian W2 +.392177486eV by38.1268meV on the SAME operator:
+observable dependence, not HSE/material error. Both absolute inverse orderings
+are negative. Eta is analytical resolution, not linewidth. Unknown functional,
+SCF eigenpair, BZ, cell/random-alloy and material errors remain outside these
+intervals. No sharp gap, topology or physical x_c. These additional contractions
+do not identify composition dependence; previous continuum and endpoint/local
+identifiability no-go results remain. The native joint-symmetry/state bridge
+below remains the precise next boundary; no further SCF/Cd released.
 
 ## Native TR constructor and full-symmetry boundary — 2026-10-15 04:24 UTC
 
