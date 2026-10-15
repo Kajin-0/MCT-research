@@ -4,7 +4,22 @@
 
 **State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 21:09 UTC
+**Updated:** 2026-10-15 21:19 UTC
+
+## Competing inversion routes: cycle2 — 2026-10-15 21:19 UTC
+
+[RouteB](competing_inversion_routes_2026-10-15/route_B_optical_mass.md),
+[closure](competing_inversion_routes_2026-10-15/transition_disorder_closure.md),
+[literature](competing_inversion_routes_2026-10-15/literature.md).
+Conditional two-field Kane signed-mass statistic and third-field falsification
+with explicit error budget accepted; no atom needed in canonical global-scalar
+disorder model. Actual small Landau/circular-current checksPASS. Symmetric
+zero-mean mass mixtures produce positive optical bias even with actual current
+weights: no general equality to mean/mass-zero/topology. An identical-oneparticleG
+counterexample has different optics; a bounded Liouvillian closure depends on
+commutator-active disorder and source/occupation errors. This is a conditional
+forward theory, not a material activation or empirical fit. Continue ONEinput
+ranking/retained-data audit; old H304 and all native refusals unchanged. Nojobs.
 
 ## Competing inversion routes: cycle1 — 2026-10-15 21:09 UTC
 

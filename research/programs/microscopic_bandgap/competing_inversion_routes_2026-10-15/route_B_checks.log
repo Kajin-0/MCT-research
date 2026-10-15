@@ -1,0 +1,140 @@
+{
+  "status": "PASS",
+  "native_jobs": 0,
+  "material_validation": false,
+  "physical_xc": null,
+  "all_values_synthetic_model_units": true,
+  "Landau_checks": [
+    {
+      "synthetic_M": -0.2,
+      "fields": [
+        1.0,
+        4.0,
+        9.0
+      ],
+      "transition_energies": [
+        1.393737745050923,
+        2.968595903550973,
+        4.547630988187685
+      ],
+      "actual_circular_current_strengths": [
+        0.4372544194861828,
+        0.46844027984510933,
+        0.4789368634064428
+      ],
+      "extracted_M": -0.20000000000000057,
+      "third_field_error": 4.440892098500626e-15,
+      "maximum_actual_noisy_mass_error": 0.004808921743489708,
+      "maximum_fraction_of_bound": 0.9996026988626586,
+      "maximum_third_field_fraction_of_bound": 0.17658080721675262,
+      "certified_signs": [
+        -1
+      ]
+    },
+    {
+      "synthetic_M": 0.0,
+      "fields": [
+        1.0,
+        4.0,
+        9.0
+      ],
+      "transition_energies": [
+        1.58113883008419,
+        3.16227766016838,
+        4.743416490252572
+      ],
+      "actual_circular_current_strengths": [
+        0.49999999999999944,
+        0.49999999999999944,
+        0.49999999999999944
+      ],
+      "extracted_M": 0.0,
+      "third_field_error": 1.7763568394002505e-15,
+      "maximum_actual_noisy_mass_error": 0.003942924362986089,
+      "maximum_fraction_of_bound": 0.9954898840425157,
+      "maximum_third_field_fraction_of_bound": 0.18779633406581342,
+      "certified_signs": []
+    },
+    {
+      "synthetic_M": 0.2,
+      "fields": [
+        1.0,
+        4.0,
+        9.0
+      ],
+      "transition_energies": [
+        1.7937377450509202,
+        3.3685959035509714,
+        4.947630988187684
+      ],
+      "actual_circular_current_strengths": [
+        0.5627455805138152,
+        0.53155972015489,
+        0.5210631365935556
+      ],
+      "extracted_M": 0.19999999999999607,
+      "third_field_error": 5.329070518200751e-15,
+      "maximum_actual_noisy_mass_error": 0.0032904254139040634,
+      "maximum_fraction_of_bound": 0.8227277470871898,
+      "maximum_third_field_fraction_of_bound": 0.16351584594037066,
+      "certified_signs": [
+        1
+      ]
+    }
+  ],
+  "zero_mean_mass_mixture": {
+    "m": 0.4,
+    "a": 2.5,
+    "fields": [
+      1.0,
+      4.0,
+      9.0
+    ],
+    "equal_weight_centers": [
+      1.6309506430300091,
+      3.1874754901018454,
+      4.760252094164762
+    ],
+    "actual_current_centers": [
+      1.7290529373476033,
+      3.2376719545128965,
+      4.793863759436889
+    ],
+    "equal_weight_Mopt": 0.07193539305349547,
+    "actual_current_Mopt": 0.20061989782161463,
+    "current_geometry_factor_range": [
+      0.999999999999997,
+      1.0000000000000007
+    ],
+    "equal_weight_third_field_discrepancy": -0.015698661859192775,
+    "actual_current_third_field_discrepancy": -0.04319097625050894
+  },
+  "finite_tail_centroid_error": 0.21111111111111125,
+  "finite_tail_centroid_bound": 0.23456790123456792,
+  "same_G_different_optics": {
+    "g_difference": 0.0,
+    "optical_transitions_A": [
+      {
+        "energy": 1.4,
+        "strength": 1.0
+      },
+      {
+        "energy": 1.4,
+        "strength": 1.0
+      }
+    ],
+    "optical_transitions_B": [],
+    "continuous_scalar_distribution": [
+      -0.4,
+      0.4
+    ]
+  },
+  "Liouvillian": {
+    "active_contrast": 0.012328828005937953,
+    "centered_noncommuting_configurations": 3,
+    "r": 0.061644140029689765,
+    "exact_resolvent_error": 4.792780134087783e-05,
+    "certified_bound": 0.0013206571577636071,
+    "common_scalar_shift_annihilated": true
+  }
+}
