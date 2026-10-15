@@ -1,0 +1,331 @@
+{
+  "status": "CALCULATED actual reciprocal valence density and exact periodic geometry",
+  "members": {
+    "host": {
+      "cycles": {
+        "1": {
+          "valence_charge_e": 144.0000000000061,
+          "Fourier_imaginary_max": 2.964351084085129e-16,
+          "local_spin_density": {
+            "max_stored_rhoR_magnetization": 0.0,
+            "max_stored_rhoG_magnetization": 0.0
+          },
+          "minimum_valence_density_Bohr_minus3": 0.0004637029832480513,
+          "periodic_window_charges_e": {
+            "0.5": [
+              20.202880083377284,
+              20.20287878381202,
+              20.20287878381202,
+              20.20287878381202,
+              15.797120891298185,
+              15.79712089129819,
+              15.797120891298196,
+              15.79712089129819
+            ],
+            "0.75": [
+              20.10581039659631,
+              20.10580913789741,
+              20.10580913789741,
+              20.10580913789742,
+              15.894190547429385,
+              15.894190547429385,
+              15.894190547429389,
+              15.894190547429389
+            ],
+            "1.0": [
+              19.470147714621344,
+              19.470146722685115,
+              19.4701467226851,
+              19.47014672268511,
+              16.529853029332347,
+              16.529853029332358,
+              16.529853029332358,
+              16.529853029332358
+            ]
+          }
+        },
+        "8": {
+          "valence_charge_e": 143.9999999999864,
+          "Fourier_imaginary_max": 2.7536163481181916e-16,
+          "local_spin_density": {
+            "max_stored_rhoR_magnetization": 0.0,
+            "max_stored_rhoG_magnetization": 0.0
+          },
+          "minimum_valence_density_Bohr_minus3": 0.0004597073868060713,
+          "periodic_window_charges_e": {
+            "0.5": [
+              20.16158798614209,
+              20.161588982093807,
+              20.161588982093782,
+              20.161588982093793,
+              15.838411266890722,
+              15.838411266890722,
+              15.838411266890722,
+              15.838411266890718
+            ],
+            "0.75": [
+              20.079979305898025,
+              20.079980036262917,
+              20.079980036262917,
+              20.079980036262928,
+              15.920020146324898,
+              15.920020146324905,
+              15.920020146324894,
+              15.920020146324893
+            ],
+            "1.0": [
+              19.4599097112403,
+              19.45991016536941,
+              19.459910165369415,
+              19.45991016536941,
+              16.54008994815946,
+              16.54008994815946,
+              16.54008994815947,
+              16.54008994815946
+            ]
+          }
+        }
+      },
+      "last_source": 8,
+      "coordination": [
+        {
+          "Te_atom_1based": 5,
+          "N_Cd": 0,
+          "nearest_cations": [
+            {
+              "atom_1based": 1,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290943
+            },
+            {
+              "atom_1based": 2,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290943
+            },
+            {
+              "atom_1based": 3,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290943
+            },
+            {
+              "atom_1based": 4,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290943
+            }
+          ]
+        },
+        {
+          "Te_atom_1based": 6,
+          "N_Cd": 0,
+          "nearest_cations": [
+            {
+              "atom_1based": 2,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290942
+            },
+            {
+              "atom_1based": 3,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                1,
+                0
+              ],
+              "distance_Bohr": 5.286059181290946
+            },
+            {
+              "atom_1based": 4,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                1
+              ],
+              "distance_Bohr": 5.286059181290946
+            },
+            {
+              "atom_1based": 1,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                1,
+                1
+              ],
+              "distance_Bohr": 5.286059181290949
+            }
+          ]
+        },
+        {
+          "Te_atom_1based": 7,
+          "N_Cd": 0,
+          "nearest_cations": [
+            {
+              "atom_1based": 3,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290941
+            },
+            {
+              "atom_1based": 2,
+              "species": "Hg",
+              "cell_image": [
+                1,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290946
+            },
+            {
+              "atom_1based": 4,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                1
+              ],
+              "distance_Bohr": 5.286059181290946
+            },
+            {
+              "atom_1based": 1,
+              "species": "Hg",
+              "cell_image": [
+                1,
+                0,
+                1
+              ],
+              "distance_Bohr": 5.286059181290949
+            }
+          ]
+        },
+        {
+          "Te_atom_1based": 8,
+          "N_Cd": 0,
+          "nearest_cations": [
+            {
+              "atom_1based": 4,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290941
+            },
+            {
+              "atom_1based": 2,
+              "species": "Hg",
+              "cell_image": [
+                1,
+                0,
+                0
+              ],
+              "distance_Bohr": 5.286059181290946
+            },
+            {
+              "atom_1based": 3,
+              "species": "Hg",
+              "cell_image": [
+                0,
+                1,
+                0
+              ],
+              "distance_Bohr": 5.286059181290946
+            },
+            {
+              "atom_1based": 1,
+              "species": "Hg",
+              "cell_image": [
+                1,
+                1,
+                0
+              ],
+              "distance_Bohr": 5.286059181290948
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "density_partition_contrasts": {},
+  "widths_A": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "windows": "positive smooth periodic von-Mises site partition; near-site length parameter, sum to one on actual60^3 density grid",
+  "pseudovalence_density_only": true,
+  "not_Bader_or_unique_atomic_charge": true,
+  "no_continuum_quadrature_or_material_error_claim": true,
+  "random_x025_N_probabilities": [
+    0.31640625,
+    0.421875,
+    0.2109375,
+    0.046875,
+    0.00390625
+  ],
+  "relaxation_window_charge_e": {
+    "host": {
+      "0.5": [
+        -0.04129209723519267,
+        -0.04128980171821439,
+        -0.04128980171823926,
+        -0.0412898017182286,
+        0.04129037559253668,
+        0.04129037559253135,
+        0.04129037559252602,
+        0.041290375592527795
+      ],
+      "0.75": [
+        -0.025831090698286374,
+        -0.0258291016344927,
+        -0.0258291016344927,
+        -0.0258291016344927,
+        0.025829598895512618,
+        0.025829598895519723,
+        0.025829598895505512,
+        0.025829598895503736
+      ],
+      "1.0": [
+        -0.01023800338104408,
+        -0.01023655731570372,
+        -0.010236557315685957,
+        -0.010236557315700168,
+        0.010236918827111197,
+        0.010236918827100538,
+        0.010236918827111197,
+        0.010236918827100538
+      ]
+    }
+  },
+  "physical_xc": null,
+  "not_random_alloy_or_dilute_impurity": true
+}

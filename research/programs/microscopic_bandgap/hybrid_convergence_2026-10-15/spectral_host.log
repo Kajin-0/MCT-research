@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "host": {
+      "physical_G_spin_embedding": true,
+      "amplitudes_summed_before_square": true,
+      "independent_column_trace": true,
+      "within_sector_unitary_invariance": true,
+      "energy_gauge_check": true
+    }
+  },
+  "chemical_W2": []
+}

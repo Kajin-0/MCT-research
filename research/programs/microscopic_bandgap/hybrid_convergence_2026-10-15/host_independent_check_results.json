@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "checks": 3,
+  "native_invocations": 0,
+  "members": {
+    "host": {
+      "1": {
+        "independent_Fock_Ry": -71.461688328399,
+        "Fock_difference_Ry": 1.4210854715202004e-14,
+        "reference_matrix_max_Ry": 6.661460574871105e-16,
+        "charge_from_actual_occupations_e": "144.000000000005995230000000000000000000000000000000000079964"
+      },
+      "2": {
+        "independent_Fock_Ry": -71.59747091046444,
+        "Fock_difference_Ry": 0.0,
+        "reference_matrix_max_Ry": 1.6814664422377482e-16,
+        "charge_from_actual_occupations_e": "144.000000000062838740000000000000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.52706087022801,
+        "old_ACE_bridge_residual_Ry": 8.526512829121202e-14,
+        "reconstructed_signed_dexx_Ry": 0.0025187492037161974
+      },
+      "3": {
+        "independent_Fock_Ry": -71.61873318248453,
+        "Fock_difference_Ry": 1.4210854715202004e-14,
+        "reference_matrix_max_Ry": 3.3709351614697524e-16,
+        "charge_from_actual_occupations_e": "143.999999999922050550000000000000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.60805442192846,
+        "old_ACE_bridge_residual_Ry": 1.4210854715202004e-14,
+        "reconstructed_signed_dexx_Ry": 4.7624546027691395e-05
+      },
+      "4": {
+        "independent_Fock_Ry": -71.62223786862567,
+        "Fock_difference_Ry": 1.4210854715202004e-14,
+        "reference_matrix_max_Ry": 3.333955396265611e-16,
+        "charge_from_actual_occupations_e": "144.000000000002025850000000000000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.62035471845022,
+        "old_ACE_bridge_residual_Ry": 4.263256414560601e-14,
+        "reconstructed_signed_dexx_Ry": 0.00013080710488111436
+      },
+      "5": {
+        "independent_Fock_Ry": -71.64711284463608,
+        "Fock_difference_Ry": 4.263256414560601e-14,
+        "reference_matrix_max_Ry": 4.996263478468639e-16,
+        "charge_from_actual_occupations_e": "144.000000000052327870000000000000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.62495526753818,
+        "old_ACE_bridge_residual_Ry": 1.4210854715202004e-14,
+        "reconstructed_signed_dexx_Ry": 0.009720089092695616
+      },
+      "6": {
+        "independent_Fock_Ry": -71.67170843151713,
+        "Fock_difference_Ry": -1.4210854715202004e-14,
+        "reference_matrix_max_Ry": 1.1293863210409267e-16,
+        "charge_from_actual_occupations_e": "144.000000000095912545595169000000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.65716926325662,
+        "old_ACE_bridge_residual_Ry": 1.4210854715202004e-14,
+        "reconstructed_signed_dexx_Ry": 0.0022413748199880956
+      },
+      "7": {
+        "independent_Fock_Ry": -71.67334020663046,
+        "Fock_difference_Ry": 0.0,
+        "reference_matrix_max_Ry": 2.262401324646644e-16,
+        "charge_from_actual_occupations_e": "143.999999999966256222193137990000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.67250068010343,
+        "old_ACE_bridge_residual_Ry": 1.4210854715202004e-14,
+        "reconstructed_signed_dexx_Ry": 2.363897037582774e-05
+      },
+      "8": {
+        "independent_Fock_Ry": -71.673600302031,
+        "Fock_difference_Ry": 4.263256414560601e-14,
+        "reference_matrix_max_Ry": 3.8857830062814293e-16,
+        "charge_from_actual_occupations_e": "143.999999999986316373294467860000000000000000000000000000000",
+        "old_ACE_new_orbitals_contraction_Ry": -71.67346845029235,
+        "old_ACE_bridge_residual_Ry": 2.842170943040401e-14,
+        "reconstructed_signed_dexx_Ry": 1.8040383906736679e-06
+      }
+    }
+  }
+}

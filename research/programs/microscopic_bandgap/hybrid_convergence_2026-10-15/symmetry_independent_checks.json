@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "actual_native_scalar_witness": 0.9997652598260852,
+  "stored_compressed_eigenvalue": 0.9997652598260823,
+  "scalar_witness_error": 2.886579864025407e-15,
+  "test_vector_norm": 0.9999999999999984,
+  "full_native_TR_defect_operator_lower_bound": 0.9997652598260868,
+  "synthetic_nonclosed_projector_identity_error": 1.111954873557675e-16,
+  "synthetic_not_material_validation": true,
+  "new_native_invocations": 0
+}

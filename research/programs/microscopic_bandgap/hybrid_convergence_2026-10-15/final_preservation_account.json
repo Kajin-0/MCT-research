@@ -1,0 +1,46 @@
+{
+  "timestamp_UTC": "2026-10-15T03:13:47.275485+00:00",
+  "all_frozen_pins_match": true,
+  "old_accepted_native_evidence_unchanged": true,
+  "protected_DFT_exact": true,
+  "known_lock_free": true,
+  "old_ledger_exact": true,
+  "host_own_cgroup_absent": true,
+  "Cd_never_launched": true,
+  "visible_native_names_empty": true,
+  "hostwide_absence_claim": false,
+  "final_pair_output_charge_B": 2769248256,
+  "accounts": [
+    {
+      "allocated_unique_blocks_bytes": 2833018880,
+      "metadata_allowance_bytes": 520192,
+      "budget_charge_bytes": 2766430208,
+      "escrow_blocks_bytes": 67108864,
+      "observed_unique_inodes": 127,
+      "cumulative_distinct_observed_inode_ids": 127,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 2766430208,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    },
+    {
+      "allocated_unique_blocks_bytes": 2772992,
+      "metadata_allowance_bytes": 45056,
+      "budget_charge_bytes": 2818048,
+      "escrow_blocks_bytes": 0,
+      "observed_unique_inodes": 11,
+      "cumulative_distinct_observed_inode_ids": 11,
+      "inode_aliases_deduplicated": 0,
+      "open_deleted_inodes": 0,
+      "maximum_charge_bytes": 2818048,
+      "sample_number": 1,
+      "observed_owned_MPI_unlinked_tmpfs": [],
+      "continuous_guarantee": false,
+      "metadata_is_allowance_not_exact_ext4_measurement": true
+    }
+  ],
+  "checks": "native/source/archive hash, JSON/Python syntax and owned closure; no new native run"
+}

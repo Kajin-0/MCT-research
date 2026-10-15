@@ -1,0 +1,140 @@
+{
+  "host": {
+    "cycle": 8,
+    "dominant_character_clusters": {
+      "Gamma6": {
+        "native_bands_1based": [
+          142,
+          141
+        ],
+        "retained_dominant_character": 0.9997606875541676,
+        "leakage_outside_dominant_cluster": 0.00023931244583241806,
+        "energy_mean_relative_reference_eV": -0.7551137840134804,
+        "energy_spread_eV": 0.005084717259385149,
+        "nearest_other_eigenvalue_separation_eV": 0.4202455940367373,
+        "dominant_trace_weight_gap": 0.49980060154161426
+      },
+      "Gamma8": {
+        "native_bands_1based": [
+          144,
+          143,
+          145,
+          146
+        ],
+        "retained_dominant_character": 0.9997582458874386,
+        "leakage_outside_dominant_cluster": 0.00024175411256144308,
+        "energy_mean_relative_reference_eV": 8.286217652577758e-07,
+        "energy_spread_eV": 0.6552551756689856,
+        "nearest_other_eigenvalue_separation_eV": 0.4249033621607052,
+        "dominant_trace_weight_gap": 0.24991432440574643
+      }
+    },
+    "filtered_dispersion": {
+      "Gamma6": {
+        "1.0": {
+          "variance_eV2": 1.5190832734601756e-05,
+          "dispersion_eV": 0.0038975418836237996,
+          "conditional_variance_error_eV2": 0.0009488844218469932,
+          "conditional_interval_eV2": [
+            0,
+            0.000964075254581595
+          ],
+          "mass": 0.7517711814927246
+        },
+        "1.5": {
+          "variance_eV2": 1.475916819826395e-05,
+          "dispersion_eV": 0.0038417662862626025,
+          "conditional_variance_error_eV2": 0.0011416857842540256,
+          "conditional_interval_eV2": [
+            0,
+            0.0011564449524522895
+          ],
+          "mass": 0.8807893458497987
+        },
+        "2.0": {
+          "variance_eV2": 3.467746102903124e-05,
+          "dispersion_eV": 0.005888757171851395,
+          "conditional_variance_error_eV2": 0.0014778629794412702,
+          "conditional_interval_eV2": [
+            0,
+            0.0015125404404703014
+          ],
+          "mass": 0.9309955223088613
+        },
+        "2.5": {
+          "variance_eV2": 0.00018882671768483128,
+          "dispersion_eV": 0.013741423422805633,
+          "conditional_variance_error_eV2": 0.0019097963240766653,
+          "conditional_interval_eV2": [
+            0,
+            0.0020986230417614966
+          ],
+          "mass": 0.9551953391284869
+        },
+        "3.0": {
+          "variance_eV2": 0.0006026872239403014,
+          "dispersion_eV": 0.02454968887664977,
+          "conditional_variance_error_eV2": 0.0024267890831137892,
+          "conditional_interval_eV2": [
+            0,
+            0.0030294763070540906
+          ],
+          "mass": 0.968608700860905
+        }
+      },
+      "Gamma8": {
+        "1.0": {
+          "variance_eV2": 0.1071122969749944,
+          "dispersion_eV": 0.32728015059730464,
+          "conditional_variance_error_eV2": 0.0002640418885383161,
+          "conditional_interval_eV2": [
+            0.10684825508645608,
+            0.10737633886353272
+          ],
+          "mass": 0.9476633625698384
+        },
+        "1.5": {
+          "variance_eV2": 0.10712848122488632,
+          "dispersion_eV": 0.3273048750399027,
+          "conditional_variance_error_eV2": 0.0005359663151833779,
+          "conditional_interval_eV2": [
+            0.10659251490970294,
+            0.1076644475400697
+          ],
+          "mass": 0.9762849776294058
+        },
+        "2.0": {
+          "variance_eV2": 0.10718059427195115,
+          "dispersion_eV": 0.32738447469596227,
+          "conditional_variance_error_eV2": 0.0009178846147084793,
+          "conditional_interval_eV2": [
+            0.10626270965724266,
+            0.10809847888665963
+          ],
+          "mass": 0.9865079802011866
+        },
+        "2.5": {
+          "variance_eV2": 0.10732534424714003,
+          "dispersion_eV": 0.32760547041699417,
+          "conditional_variance_error_eV2": 0.0014092569995135204,
+          "conditional_interval_eV2": [
+            0.10591608724762651,
+            0.10873460124665356
+          ],
+          "mass": 0.9912799914304721
+        },
+        "3.0": {
+          "variance_eV2": 0.10758689733667168,
+          "dispersion_eV": 0.32800441664201974,
+          "conditional_variance_error_eV2": 0.002009963281010245,
+          "conditional_interval_eV2": [
+            0.10557693405566143,
+            0.10959686061768192
+          ],
+          "mass": 0.9938866857827352
+        }
+      }
+    },
+    "dominant_cluster_ordering_eV": -0.7551146126352456
+  }
+}

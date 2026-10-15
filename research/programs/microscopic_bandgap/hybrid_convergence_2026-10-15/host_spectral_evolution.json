@@ -1,0 +1,1057 @@
+{
+  "status": "CALCULATED actual native source spectra; conditional positive-tail/frame/IEEE estimates",
+  "members": {
+    "host": [
+      {
+        "cycle": 1,
+        "FD_reference_Ry": 0.7078841018710351,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.6185238255520586,
+              "centroid_eV": -0.9802072506676288,
+              "retained_probability": 0.9999850293474952,
+              "missing_probability": 1.4970652504775472e-05,
+              "conditional_tail_eV": 3.841563479065279e-05,
+              "conditional_frame_eV": 0.0004328039867681434,
+              "conditional_roundoff_eV": 2.7795583837759826e-07,
+              "conditional_bound_eV": 0.0004714975773971737
+            },
+            "1.5": {
+              "mass": 0.8077287840699997,
+              "centroid_eV": -0.9802072498453328,
+              "retained_probability": 0.9999850293474952,
+              "missing_probability": 1.4970652504775472e-05,
+              "conditional_tail_eV": 3.503712583570587e-05,
+              "conditional_frame_eV": 0.00039474052242604977,
+              "conditional_roundoff_eV": 2.5351067967708423e-07,
+              "conditional_bound_eV": 0.0004300311589414327
+            },
+            "2.0": {
+              "mass": 0.8868164815598699,
+              "centroid_eV": -0.9802072137058598,
+              "retained_probability": 0.9999850293474952,
+              "missing_probability": 1.4970652504775472e-05,
+              "conditional_tail_eV": 3.703236442118631e-05,
+              "conditional_frame_eV": 0.0004172195786503057,
+              "conditional_roundoff_eV": 2.679472031606293e-07,
+              "conditional_bound_eV": 0.0004545198902746526
+            },
+            "2.5": {
+              "mass": 0.9260001242386262,
+              "centroid_eV": -0.9802070355791216,
+              "retained_probability": 0.9999850293474952,
+              "missing_probability": 1.4970652504775472e-05,
+              "conditional_tail_eV": 4.0368840620613405e-05,
+              "conditional_frame_eV": 0.00045480948725752803,
+              "conditional_roundoff_eV": 2.9208823439159865e-07,
+              "conditional_bound_eV": 0.000495470416112533
+            },
+            "3.0": {
+              "mass": 0.9480059620234393,
+              "centroid_eV": -0.9802066928322409,
+              "retained_probability": 0.9999850293474952,
+              "missing_probability": 1.4970652504775472e-05,
+              "conditional_tail_eV": 4.4221532435879534e-05,
+              "conditional_frame_eV": 0.0004982152616648248,
+              "conditional_roundoff_eV": 3.199643371648208e-07,
+              "conditional_bound_eV": 0.0005427567584378691
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9999916218181409,
+              "centroid_eV": 1.4018946447249853e-13,
+              "retained_probability": 0.9999918447704986,
+              "missing_probability": 8.155229501372041e-06,
+              "conditional_tail_eV": 4.947619268556603e-06,
+              "conditional_frame_eV": 0.00014475999727437273,
+              "conditional_roundoff_eV": 6.571561874703866e-08,
+              "conditional_bound_eV": 0.00014977333216167638
+            },
+            "1.5": {
+              "mass": 0.9999916218284793,
+              "centroid_eV": -6.370971298986412e-11,
+              "retained_probability": 0.9999918447704986,
+              "missing_probability": 8.155229501372041e-06,
+              "conditional_tail_eV": 7.42142890327614e-06,
+              "conditional_frame_eV": 0.000217139995924469,
+              "conditional_roundoff_eV": 9.857342812641859e-08,
+              "conditional_bound_eV": 0.00022465999825587154
+            },
+            "2.0": {
+              "mass": 0.9999916225405444,
+              "centroid_eV": -4.7856970963313126e-09,
+              "retained_probability": 0.9999918447704986,
+              "missing_probability": 8.155229501372041e-06,
+              "conditional_tail_eV": 9.8952385689989e-06,
+              "conditional_frame_eV": 0.0002895199954816736,
+              "conditional_roundoff_eV": 1.3143123791759176e-07,
+              "conditional_bound_eV": 0.0002995466652885901
+            },
+            "2.5": {
+              "mass": 0.9999916271621481,
+              "centroid_eV": -3.5692574146105994e-08,
+              "retained_probability": 0.9999918447704986,
+              "missing_probability": 8.155229501372041e-06,
+              "conditional_tail_eV": 1.2369048396425105e-05,
+              "conditional_frame_eV": 0.00036189999977008096,
+              "conditional_roundoff_eV": 1.6428904985655382e-07,
+              "conditional_bound_eV": 0.00037443333721636255
+            },
+            "3.0": {
+              "mass": 0.9999916379051453,
+              "centroid_eV": -1.0820323339618496e-07,
+              "retained_probability": 0.9999918447704986,
+              "missing_probability": 8.155229501372041e-06,
+              "conditional_tail_eV": 1.484285844947053e-05,
+              "conditional_frame_eV": 0.0004342800106597719,
+              "conditional_roundoff_eV": 1.9714686479225148e-07,
+              "conditional_bound_eV": 0.00044932001597403466
+            }
+          }
+        },
+        "source_scf_error_Ry": 6.792852932845434e-10,
+        "outer_dexx_Ry": null,
+        "ordering_eV": {
+          "1.0": -0.980207250667769,
+          "1.5": -0.9802072497816231,
+          "2.0": -0.9802072089201628,
+          "2.5": -0.9802069998865475,
+          "3.0": -0.9802065846290076
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999850293232279,
+          0.9999850293717624,
+          0.9999918447388283,
+          0.9999918447515154,
+          0.9999918447786676,
+          0.9999918448129822
+        ]
+      },
+      {
+        "cycle": 2,
+        "FD_reference_Ry": 0.6726889580589339,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.7300868118160799,
+              "centroid_eV": -0.7930170477869705,
+              "retained_probability": 0.9999657238495615,
+              "missing_probability": 3.4276150438494746e-05,
+              "conditional_tail_eV": 6.572122514106102e-05,
+              "conditional_frame_eV": 0.00032339818545734764,
+              "conditional_roundoff_eV": 2.0769312787487353e-07,
+              "conditional_bound_eV": 0.0003893271037262835
+            },
+            "1.5": {
+              "mass": 0.8694416613216465,
+              "centroid_eV": -0.793017037470215,
+              "retained_probability": 0.9999657238495615,
+              "missing_probability": 3.4276150438494746e-05,
+              "conditional_tail_eV": 6.71433289395016e-05,
+              "conditional_frame_eV": 0.0003303960128253032,
+              "conditional_roundoff_eV": 2.121872800369325e-07,
+              "conditional_bound_eV": 0.0003977515290448417
+            },
+            "2.0": {
+              "mass": 0.9242588234583232,
+              "centroid_eV": -0.7930155905947793,
+              "retained_probability": 0.9999657238495615,
+              "missing_probability": 3.4276150438494746e-05,
+              "conditional_tail_eV": 7.440897553196133e-05,
+              "conditional_frame_eV": 0.00036614849490597894,
+              "conditional_roundoff_eV": 2.3514827724266743e-07,
+              "conditional_bound_eV": 0.0004407926187151829
+            },
+            "2.5": {
+              "mass": 0.9507899762786414,
+              "centroid_eV": -0.7930026156805019,
+              "retained_probability": 0.9999657238495615,
+              "missing_probability": 3.4276150438494746e-05,
+              "conditional_tail_eV": 8.326651774554224e-05,
+              "conditional_frame_eV": 0.00040973430867216577,
+              "conditional_roundoff_eV": 2.6314000508513854e-07,
+              "conditional_bound_eV": 0.0004932639664227931
+            },
+            "3.0": {
+              "mass": 0.9655232646018926,
+              "centroid_eV": -0.7929669028687406,
+              "retained_probability": 0.9999657238495615,
+              "missing_probability": 3.4276150438494746e-05,
+              "conditional_tail_eV": 9.276225680999626e-05,
+              "conditional_frame_eV": 0.0004564605341256571,
+              "conditional_roundoff_eV": 2.931485714736537e-07,
+              "conditional_bound_eV": 0.000549515939507127
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9998319937009443,
+              "centroid_eV": 5.14525872482813e-10,
+              "retained_probability": 0.9999539949217764,
+              "missing_probability": 4.6005078223609885e-05,
+              "conditional_tail_eV": 2.791484412066365e-05,
+              "conditional_frame_eV": 0.00014478311456528984,
+              "conditional_roundoff_eV": 6.572611313157152e-08,
+              "conditional_bound_eV": 0.00017276368479908507
+            },
+            "1.5": {
+              "mass": 0.9998321389414595,
+              "centroid_eV": 7.42121964054282e-07,
+              "retained_probability": 0.9999539949217764,
+              "missing_probability": 4.6005078223609885e-05,
+              "conditional_tail_eV": 4.187229421671751e-05,
+              "conditional_frame_eV": 0.0002171748172579947,
+              "conditional_roundoff_eV": 9.858923570808013e-08,
+              "conditional_bound_eV": 0.00025914570071042026
+            },
+            "2.0": {
+              "mass": 0.9998338838385743,
+              "centroid_eV": 9.197509118214406e-06,
+              "retained_probability": 0.9999539949217764,
+              "missing_probability": 4.6005078223609885e-05,
+              "conditional_tail_eV": 5.5830005928928395e-05,
+              "conditional_frame_eV": 0.00028956787684891,
+              "conditional_roundoff_eV": 1.3145297426557214e-07,
+              "conditional_bound_eV": 0.000345529335752104
+            },
+            "2.5": {
+              "mass": 0.9998385230640028,
+              "centroid_eV": 2.692930134808068e-05,
+              "retained_probability": 0.9999539949217764,
+              "missing_probability": 4.6005078223609885e-05,
+              "conditional_tail_eV": 6.978789377525953e-05,
+              "conditional_frame_eV": 0.0003619618499769528,
+              "conditional_roundoff_eV": 1.6431712753471592e-07,
+              "conditional_bound_eV": 0.00043191406087974703
+            },
+            "3.0": {
+              "mass": 0.9998455655075356,
+              "centroid_eV": 4.186018404486916e-05,
+              "retained_probability": 0.9999539949217764,
+              "missing_probability": 4.6005078223609885e-05,
+              "conditional_tail_eV": 8.374532181780039e-05,
+              "conditional_frame_eV": 0.0004343534382869197,
+              "conditional_roundoff_eV": 1.9718019818574416e-07,
+              "conditional_bound_eV": 0.0005182959403029058
+            }
+          }
+        },
+        "source_scf_error_Ry": 7.683309297857401e-11,
+        "outer_dexx_Ry": 0.0025187492036309322,
+        "ordering_eV": {
+          "1.0": -0.7930170483014963,
+          "1.5": -0.7930177795921791,
+          "2.0": -0.7930247881038975,
+          "2.5": -0.79302954498185,
+          "3.0": -0.7930087630527854
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999539948439413,
+          0.9999539948802438,
+          0.9999539949616546,
+          0.9999539950012619,
+          0.999965723736437,
+          0.9999657239626862
+        ]
+      },
+      {
+        "cycle": 3,
+        "FD_reference_Ry": 0.6717735790966428,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.7490459415646127,
+              "centroid_eV": -0.759929364732948,
+              "retained_probability": 0.9999600860857448,
+              "missing_probability": 3.99139142551741e-05,
+              "conditional_tail_eV": 7.283005883105941e-05,
+              "conditional_frame_eV": 0.0003077586789642633,
+              "conditional_roundoff_eV": 1.9764910732053902e-07,
+              "conditional_bound_eV": 0.0003807863869026432
+            },
+            "1.5": {
+              "mass": 0.8793780908080437,
+              "centroid_eV": -0.7599293515663582,
+              "retained_probability": 0.9999600860857448,
+              "missing_probability": 3.99139142551741e-05,
+              "conditional_tail_eV": 7.580137373505929e-05,
+              "conditional_frame_eV": 0.0003203145928866045,
+              "conditional_roundoff_eV": 2.0571277976251891e-07,
+              "conditional_bound_eV": 0.0003963216794014263
+            },
+            "2.0": {
+              "mass": 0.9301634254617048,
+              "centroid_eV": -0.7599274680794748,
+              "retained_probability": 0.9999600860857448,
+              "missing_probability": 3.99139142551741e-05,
+              "conditional_tail_eV": 8.467758935663335e-05,
+              "conditional_frame_eV": 0.0003578229024739174,
+              "conditional_roundoff_eV": 2.2980140638381937e-07,
+              "conditional_bound_eV": 0.0004427302932369346
+            },
+            "2.5": {
+              "mass": 0.9546546206126314,
+              "centroid_eV": -0.7599103091081081,
+              "retained_probability": 0.9999600860857448,
+              "missing_probability": 3.99139142551741e-05,
+              "conditional_tail_eV": 9.518582910608162e-05,
+              "conditional_frame_eV": 0.0004022276720901514,
+              "conditional_roundoff_eV": 2.583190849264998e-07,
+              "conditional_bound_eV": 0.0004976718202811595
+            },
+            "3.0": {
+              "mass": 0.9682323588137021,
+              "centroid_eV": -0.759862638314341,
+              "retained_probability": 0.9999600860857448,
+              "missing_probability": 3.99139142551741e-05,
+              "conditional_tail_eV": 0.00010635265278798143,
+              "conditional_frame_eV": 0.0004494154261538995,
+              "conditional_roundoff_eV": 2.886240547117514e-07,
+              "conditional_bound_eV": 0.0005560567029965927
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9998116586329503,
+              "centroid_eV": 8.013228225964821e-10,
+              "retained_probability": 0.9999453411326406,
+              "missing_probability": 5.465886735944725e-05,
+              "conditional_tail_eV": 3.316644297032011e-05,
+              "conditional_frame_eV": 0.00014478606006610592,
+              "conditional_roundoff_eV": 6.572745027865838e-08,
+              "conditional_bound_eV": 0.00017801823048670468
+            },
+            "1.5": {
+              "mass": 0.999811805788481,
+              "centroid_eV": 7.02281448604186e-07,
+              "retained_probability": 0.9999453411326406,
+              "missing_probability": 5.465886735944725e-05,
+              "conditional_tail_eV": 4.9749695467990964e-05,
+              "conditional_frame_eV": 0.000217179225482361,
+              "conditional_roundoff_eV": 9.859123687689239e-08,
+              "conditional_bound_eV": 0.00026702751218722886
+            },
+            "2.0": {
+              "mass": 0.9998135149458034,
+              "centroid_eV": 8.937961034252413e-06,
+              "retained_probability": 0.9999453411326406,
+              "missing_probability": 5.465886735944725e-05,
+              "conditional_tail_eV": 6.633325141267921e-05,
+              "conditional_frame_eV": 0.0002895737155778446,
+              "conditional_roundoff_eV": 1.314556248298983e-07,
+              "conditional_bound_eV": 0.0003560384226153537
+            },
+            "2.5": {
+              "mass": 0.9998181937987638,
+              "centroid_eV": 2.6117699753548848e-05,
+              "retained_probability": 0.9999453411326406,
+              "missing_probability": 5.465886735944725e-05,
+              "conditional_tail_eV": 8.291699338224403e-05,
+              "conditional_frame_eV": 0.00036196901775344717,
+              "conditional_roundoff_eV": 1.6432038143687284e-07,
+              "conditional_bound_eV": 0.00044505033151712804
+            },
+            "3.0": {
+              "mass": 0.9998254964403637,
+              "centroid_eV": 3.9447921888575566e-05,
+              "retained_probability": 0.9999453411326406,
+              "missing_probability": 5.465886735944725e-05,
+              "conditional_tail_eV": 9.950010842785437e-05,
+              "conditional_frame_eV": 0.00043436158313121435,
+              "conditional_roundoff_eV": 1.971838956400996e-07,
+              "conditional_bound_eV": 0.0005340588754547087
+            }
+          }
+        },
+        "source_scf_error_Ry": 9.462974495776992e-10,
+        "outer_dexx_Ry": 4.7624545999269685e-05,
+        "ordering_eV": {
+          "1.0": -0.7599293655342708,
+          "1.5": -0.7599300538478068,
+          "2.0": -0.759936406040509,
+          "2.5": -0.7599364268078617,
+          "3.0": -0.7599020862362296
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999453164375419,
+          0.9999453224570066,
+          0.9999453595068323,
+          0.9999453661271734,
+          0.9999600855980978,
+          0.9999600865753988
+        ]
+      },
+      {
+        "cycle": 4,
+        "FD_reference_Ry": 0.671663486503032,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.7515581156627644,
+              "centroid_eV": -0.7554976879808133,
+              "retained_probability": 0.9999591316765118,
+              "missing_probability": 4.086832348815239e-05,
+              "conditional_tail_eV": 7.40811879380348e-05,
+              "conditional_frame_eV": 0.0003057349472852851,
+              "conditional_roundoff_eV": 1.9634942420143916e-07,
+              "conditional_bound_eV": 0.0003800124846475213
+            },
+            "1.5": {
+              "mass": 0.8806829096128613,
+              "centroid_eV": -0.7554976747692644,
+              "retained_probability": 0.9999591316765118,
+              "missing_probability": 4.086832348815239e-05,
+              "conditional_tail_eV": 7.729320557349855e-05,
+              "conditional_frame_eV": 0.0003189910257822894,
+              "conditional_roundoff_eV": 2.048627570839478e-07,
+              "conditional_bound_eV": 0.0003964890941128719
+            },
+            "2.0": {
+              "mass": 0.9309355717393778,
+              "centroid_eV": -0.7554957122035341,
+              "retained_probability": 0.9999591316765118,
+              "missing_probability": 4.086832348815239e-05,
+              "conditional_tail_eV": 8.64358566253728e-05,
+              "conditional_frame_eV": 0.00035672297926730366,
+              "conditional_roundoff_eV": 2.2909501252795806e-07,
+              "conditional_bound_eV": 0.0004433879309052044
+            },
+            "2.5": {
+              "mass": 0.9551584822915837,
+              "centroid_eV": -0.7554777973220026,
+              "retained_probability": 0.9999591316765118,
+              "missing_probability": 4.086832348815239e-05,
+              "conditional_tail_eV": 9.722077433457908e-05,
+              "conditional_frame_eV": 0.00040123260902726873,
+              "conditional_roundoff_eV": 2.576800344640781e-07,
+              "conditional_bound_eV": 0.0004987110633963118
+            },
+            "3.0": {
+              "mass": 0.9685846292261366,
+              "centroid_eV": -0.7554279714278678,
+              "retained_probability": 0.9999591316765118,
+              "missing_probability": 4.086832348815239e-05,
+              "conditional_tail_eV": 0.0001086689645197886,
+              "conditional_frame_eV": 0.0004484795811697055,
+              "conditional_roundoff_eV": 2.8802303534703734e-07,
+              "conditional_bound_eV": 0.0005574365687248411
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9998076169146795,
+              "centroid_eV": 1.5398075793430615e-08,
+              "retained_probability": 0.9999442725543662,
+              "missing_probability": 5.572744563375753e-05,
+              "conditional_tail_eV": 3.3814982906127595e-05,
+              "conditional_frame_eV": 0.00014478664898738496,
+              "conditional_roundoff_eV": 6.572771762686902e-08,
+              "conditional_bound_eV": 0.0001786673596111394
+            },
+            "1.5": {
+              "mass": 0.9998091333382096,
+              "centroid_eV": 6.943704291672525e-07,
+              "retained_probability": 0.9999442725543662,
+              "missing_probability": 5.572744563375753e-05,
+              "conditional_tail_eV": 5.0722434833805444e-05,
+              "conditional_frame_eV": 0.00021717980424402068,
+              "conditional_roundoff_eV": 9.859149961301623e-08,
+              "conditional_bound_eV": 0.00026800083057743914
+            },
+            "2.0": {
+              "mass": 0.9998112797248335,
+              "centroid_eV": 8.705977950824663e-06,
+              "retained_probability": 0.9999442725543662,
+              "missing_probability": 5.572744563375753e-05,
+              "conditional_tail_eV": 6.763020164305493e-05,
+              "conditional_frame_eV": 0.00028957430773873506,
+              "conditional_roundoff_eV": 1.3145589364877127e-07,
+              "conditional_bound_eV": 0.00035733596527543876
+            },
+            "2.5": {
+              "mass": 0.9998160919338541,
+              "centroid_eV": 2.5330371569969444e-05,
+              "retained_probability": 0.9999442725543662,
+              "missing_probability": 5.572744563375753e-05,
+              "conditional_tail_eV": 8.453815055341543e-05,
+              "conditional_frame_eV": 0.00036196959094135934,
+              "conditional_roundoff_eV": 1.6432064164272402e-07,
+              "conditional_bound_eV": 0.0004466720621364175
+            },
+            "3.0": {
+              "mass": 0.9998234273116843,
+              "centroid_eV": 3.781635241865233e-05,
+              "retained_probability": 0.9999442725543662,
+              "missing_probability": 5.572744563375753e-05,
+              "conditional_tail_eV": 0.00010144544987603282,
+              "conditional_frame_eV": 0.0004343620927842292,
+              "conditional_roundoff_eV": 1.9718412700348624e-07,
+              "conditional_bound_eV": 0.0005360047267872654
+            }
+          }
+        },
+        "source_scf_error_Ry": 2.739733285716968e-10,
+        "outer_dexx_Ry": 0.0001308071048384818,
+        "ordering_eV": {
+          "1.0": -0.7554977033788891,
+          "1.5": -0.7554983691396936,
+          "2.0": -0.7555044181814848,
+          "2.5": -0.7555031276935725,
+          "3.0": -0.7554657877802864
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999441997675881,
+          0.9999442175550113,
+          0.99994432726833,
+          0.9999443456220055,
+          0.9999591296412271,
+          0.999959133716325
+        ]
+      },
+      {
+        "cycle": 5,
+        "FD_reference_Ry": 0.6716498579237911,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.75192515039248,
+              "centroid_eV": -0.7548490027047265,
+              "retained_probability": 0.9999589584627628,
+              "missing_probability": 4.1041537237163084e-05,
+              "conditional_tail_eV": 7.432343214389327e-05,
+              "conditional_frame_eV": 0.0003054401368919518,
+              "conditional_roundoff_eV": 1.9616009075593814e-07,
+              "conditional_bound_eV": 0.000379959729126601
+            },
+            "1.5": {
+              "mass": 0.880873294838514,
+              "centroid_eV": -0.7548490512070493,
+              "retained_probability": 0.9999589584627628,
+              "missing_probability": 4.1041537237163084e-05,
+              "conditional_tail_eV": 7.757379430693935e-05,
+              "conditional_frame_eV": 0.00031879784973421035,
+              "conditional_roundoff_eV": 2.0473869535614527e-07,
+              "conditional_bound_eV": 0.00039657638273650584
+            },
+            "2.0": {
+              "mass": 0.9310481581468071,
+              "centroid_eV": -0.7548470960306508,
+              "retained_probability": 0.9999589584627628,
+              "missing_probability": 4.1041537237163084e-05,
+              "conditional_tail_eV": 8.676310572020212e-05,
+              "conditional_frame_eV": 0.000356562313175238,
+              "conditional_roundoff_eV": 2.289918293788091e-07,
+              "conditional_bound_eV": 0.00044355441072481893
+            },
+            "2.5": {
+              "mass": 0.9552319103693805,
+              "centroid_eV": -0.7548290687257407,
+              "retained_probability": 0.9999589584627628,
+              "missing_probability": 4.1041537237163084e-05,
+              "conditional_tail_eV": 9.759744494167481e-05,
+              "conditional_frame_eV": 0.00040108719529496613,
+              "conditional_roundoff_eV": 2.5758664670169726e-07,
+              "conditional_bound_eV": 0.0004989422268833427
+            },
+            "3.0": {
+              "mass": 0.9686359405087188,
+              "centroid_eV": -0.7547789065148852,
+              "retained_probability": 0.9999589584627628,
+              "missing_probability": 4.1041537237163084e-05,
+              "conditional_tail_eV": 0.00010909625241092879,
+              "conditional_frame_eV": 0.0004483427811336741,
+              "conditional_roundoff_eV": 2.8793517948187043e-07,
+              "conditional_bound_eV": 0.0005577269687240847
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9994784898004586,
+              "centroid_eV": 1.7963434091938695e-05,
+              "retained_probability": 0.9999441499244489,
+              "missing_probability": 5.585007555108934e-05,
+              "conditional_tail_eV": 3.390155935746428e-05,
+              "conditional_frame_eV": 0.00014483862429175005,
+              "conditional_roundoff_eV": 6.575131246902313e-08,
+              "conditional_bound_eV": 0.00017880593496168333
+            },
+            "1.5": {
+              "mass": 0.9996627569587466,
+              "centroid_eV": 1.860959075580191e-05,
+              "retained_probability": 0.9999441499244489,
+              "missing_probability": 5.585007555108934e-05,
+              "conditional_tail_eV": 5.084249741011733e-05,
+              "conditional_frame_eV": 0.00021721588977047744,
+              "conditional_roundoff_eV": 9.860788109093534e-08,
+              "conditional_bound_eV": 0.0002681569950616857
+            },
+            "2.0": {
+              "mass": 0.9997288682302716,
+              "centroid_eV": 2.6549665182418495e-05,
+              "retained_probability": 0.9999441499244489,
+              "missing_probability": 5.585007555108934e-05,
+              "conditional_tail_eV": 6.778560963202625e-05,
+              "conditional_frame_eV": 0.0002896024440161514,
+              "conditional_roundoff_eV": 1.3146866646525694e-07,
+              "conditional_bound_eV": 0.0003575195223146429
+            },
+            "2.5": {
+              "mass": 0.9997632700280381,
+              "centroid_eV": 4.302063785681309e-05,
+              "retained_probability": 0.9999441499244489,
+              "missing_probability": 5.585007555108934e-05,
+              "conditional_tail_eV": 8.472964518604047e-05,
+              "conditional_frame_eV": 0.0003619929430406034,
+              "conditional_roundoff_eV": 1.6433124262144578e-07,
+              "conditional_bound_eV": 0.00044688691946926534
+            },
+            "3.0": {
+              "mass": 0.9997866657737647,
+              "centroid_eV": 5.528500759903999e-05,
+              "retained_probability": 0.9999441499244489,
+              "missing_probability": 5.585007555108934e-05,
+              "conditional_tail_eV": 0.00010167339888880392,
+              "conditional_frame_eV": 0.00043438223790370745,
+              "conditional_roundoff_eV": 1.9719327213346808e-07,
+              "conditional_bound_eV": 0.0005362528300646448
+            }
+          }
+        },
+        "source_scf_error_Ry": 1.1216282911346924e-10,
+        "outer_dexx_Ry": 0.009720089092695616,
+        "ordering_eV": {
+          "1.0": -0.7548669661388184,
+          "1.5": -0.7548676607978051,
+          "2.0": -0.7548736456958333,
+          "2.5": -0.7548720893635975,
+          "3.0": -0.7548341915224842
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.999943391952682,
+          0.9999435756997699,
+          0.9999447230681913,
+          0.9999449086381634,
+          0.9999589316783403,
+          0.9999589855861748
+        ]
+      },
+      {
+        "cycle": 6,
+        "FD_reference_Ry": 0.6716531381804323,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.7520346693095625,
+              "centroid_eV": -0.754642629873592,
+              "retained_probability": 0.9999582664536535,
+              "missing_probability": 4.173354634651183e-05,
+              "conditional_tail_eV": 7.555414980274238e-05,
+              "conditional_frame_eV": 0.0003053493504011868,
+              "conditional_roundoff_eV": 1.9610178575892924e-07,
+              "conditional_bound_eV": 0.00038109960198968806
+            },
+            "1.5": {
+              "mass": 0.8809290230167368,
+              "centroid_eV": -0.7546468721580988,
+              "retained_probability": 0.9999582664536535,
+              "missing_probability": 4.173354634651183e-05,
+              "conditional_tail_eV": 7.886720966826352e-05,
+              "conditional_frame_eV": 0.00031873896143404636,
+              "conditional_roundoff_eV": 2.047008760491538e-07,
+              "conditional_bound_eV": 0.000397810871978359
+            },
+            "2.0": {
+              "mass": 0.9310805906164948,
+              "centroid_eV": -0.7546462460569554,
+              "retained_probability": 0.9999582664536535,
+              "missing_probability": 4.173354634651183e-05,
+              "conditional_tail_eV": 8.821395681126995e-05,
+              "conditional_frame_eV": 0.00035651350030361845,
+              "conditional_roundoff_eV": 2.2896048072429242e-07,
+              "conditional_bound_eV": 0.00044495641759561264
+            },
+            "2.5": {
+              "mass": 0.9552527182100948,
+              "centroid_eV": -0.75462859417433,
+              "retained_probability": 0.9999582664536535,
+              "missing_probability": 4.173354634651183e-05,
+              "conditional_tail_eV": 9.923213176397586e-05,
+              "conditional_frame_eV": 0.00040104305391780334,
+              "conditional_roundoff_eV": 2.5755829817933716e-07,
+              "conditional_bound_eV": 0.0005005327439799585
+            },
+            "3.0": {
+              "mass": 0.9686502298882482,
+              "centroid_eV": -0.7545784044032706,
+              "retained_probability": 0.9999582664536535,
+              "missing_probability": 4.173354634651183e-05,
+              "conditional_tail_eV": 0.00011092546814765099,
+              "conditional_frame_eV": 0.0004483012479164097,
+              "conditional_roundoff_eV": 2.8790850597474436e-07,
+              "conditional_bound_eV": 0.0005595146245700353
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9738798968792087,
+              "centroid_eV": 0.0003374079148989041,
+              "retained_probability": 0.9999435110352877,
+              "missing_probability": 5.6488964712331224e-05,
+              "conditional_tail_eV": 3.520942787659942e-05,
+              "conditional_frame_eV": 0.0001487249508821761,
+              "conditional_roundoff_eV": 6.751555923160669e-08,
+              "conditional_bound_eV": 0.00018400189431800712
+            },
+            "1.5": {
+              "mass": 0.9881970165755909,
+              "centroid_eV": 0.00034838459406893335,
+              "retained_probability": 0.9999435110352877,
+              "missing_probability": 5.6488964712331224e-05,
+              "conditional_tail_eV": 5.2039760707958174e-05,
+              "conditional_frame_eV": 0.0002198164333239595,
+              "conditional_roundoff_eV": 9.978843049625056e-08,
+              "conditional_bound_eV": 0.0002719559824624139
+            },
+            "2.0": {
+              "mass": 0.9932613674826472,
+              "centroid_eV": 0.0003597056586012496,
+              "retained_probability": 0.9999435110352877,
+              "missing_probability": 5.6488964712331224e-05,
+              "conditional_tail_eV": 6.902651970618773e-05,
+              "conditional_frame_eV": 0.0002915686613497405,
+              "conditional_roundoff_eV": 1.3236125551679622e-07,
+              "conditional_bound_eV": 0.00036072754231144497
+            },
+            "2.5": {
+              "mass": 0.9956184315829035,
+              "centroid_eV": 0.00037781365317797764,
+              "retained_probability": 0.9999435110352877,
+              "missing_probability": 5.6488964712331224e-05,
+              "conditional_tail_eV": 8.60747549268034e-05,
+              "conditional_frame_eV": 0.00036358056551075564,
+              "conditional_roundoff_eV": 1.6505196378010267e-07,
+              "conditional_bound_eV": 0.0004498203724013391
+            },
+            "3.0": {
+              "mass": 0.9969059914258034,
+              "centroid_eV": 0.00039101504208577,
+              "retained_probability": 0.9999435110352877,
+              "missing_probability": 5.6488964712331224e-05,
+              "conditional_tail_eV": 0.00010315273502045184,
+              "conditional_frame_eV": 0.0004357181122921592,
+              "conditional_roundoff_eV": 1.977997090888311e-07,
+              "conditional_bound_eV": 0.0005390686470216999
+            }
+          }
+        },
+        "source_scf_error_Ry": 2.16780386372314e-10,
+        "outer_dexx_Ry": 0.0022413748199880956,
+        "ordering_eV": {
+          "1.0": -0.7549800377884909,
+          "1.5": -0.7549952567521677,
+          "2.0": -0.7550059517155566,
+          "2.5": -0.755006407827508,
+          "3.0": -0.7549694194453563
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999369530938137,
+          0.9999381374558757,
+          0.9999490492645637,
+          0.9999498721426172,
+          0.9999580605707094,
+          0.9999585045208776
+        ]
+      },
+      {
+        "cycle": 7,
+        "FD_reference_Ry": 0.67168792514513,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.7518010449728492,
+              "centroid_eV": -0.7550470722247788,
+              "retained_probability": 0.9999571332611098,
+              "missing_probability": 4.286673889020154e-05,
+              "conditional_tail_eV": 7.765286202400042e-05,
+              "conditional_frame_eV": 0.00030553501586071656,
+              "conditional_roundoff_eV": 1.9622102402853652e-07,
+              "conditional_bound_eV": 0.0003833840989087455
+            },
+            "1.5": {
+              "mass": 0.8808056967214872,
+              "centroid_eV": -0.7550516853110013,
+              "retained_probability": 0.9999571332611098,
+              "missing_probability": 4.286673889020154e-05,
+              "conditional_tail_eV": 8.103974367079082e-05,
+              "conditional_frame_eV": 0.0003188611304519681,
+              "conditional_roundoff_eV": 2.047793355662525e-07,
+              "conditional_bound_eV": 0.0004001056534583252
+            },
+            "2.0": {
+              "mass": 0.9310059333352925,
+              "centroid_eV": -0.755050809740835,
+              "retained_probability": 0.9999571332611098,
+              "missing_probability": 4.286673889020154e-05,
+              "conditional_tail_eV": 9.063513183222388e-05,
+              "conditional_frame_eV": 0.00035661539987203226,
+              "conditional_roundoff_eV": 2.2902592277389153e-07,
+              "conditional_bound_eV": 0.00044747955762703
+            },
+            "2.5": {
+              "mass": 0.9552026878619497,
+              "centroid_eV": -0.755032335251831,
+              "retained_probability": 0.9999571332611098,
+              "missing_probability": 4.286673889020154e-05,
+              "conditional_tail_eV": 0.00010195004700217135,
+              "conditional_frame_eV": 0.0004011353659853748,
+              "conditional_roundoff_eV": 2.576175829339112e-07,
+              "conditional_bound_eV": 0.00050334303057048
+            },
+            "3.0": {
+              "mass": 0.9686142441372361,
+              "centroid_eV": -0.7549810443760954,
+              "retained_probability": 0.9999571332611098,
+              "missing_probability": 4.286673889020154e-05,
+              "conditional_tail_eV": 0.00011395948748176448,
+              "conditional_frame_eV": 0.000448388029850832,
+              "conditional_roundoff_eV": 2.879642391613042e-07,
+              "conditional_bound_eV": 0.0005626354815717578
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9491215319275133,
+              "centroid_eV": -2.4265162213159984e-05,
+              "retained_probability": 0.9999423692870828,
+              "missing_probability": 5.7630712917200455e-05,
+              "conditional_tail_eV": 3.6839314865289506e-05,
+              "conditional_frame_eV": 0.00015252675611513255,
+              "conditional_roundoff_eV": 6.924143646249616e-08,
+              "conditional_bound_eV": 0.00018943531241688455
+            },
+            "1.5": {
+              "mass": 0.97695299765143,
+              "centroid_eV": -3.307284496592963e-05,
+              "retained_probability": 0.9999423692870828,
+              "missing_probability": 5.7630712917200455e-05,
+              "conditional_tail_eV": 5.368417213157831e-05,
+              "conditional_frame_eV": 0.00022226994882771663,
+              "conditional_roundoff_eV": 1.0090223467192526e-07,
+              "conditional_bound_eV": 0.00027605502319396686
+            },
+            "2.0": {
+              "mass": 0.9868879682919234,
+              "centroid_eV": -2.905872813221484e-05,
+              "retained_probability": 0.9999423692870828,
+              "missing_probability": 5.7630712917200455e-05,
+              "conditional_tail_eV": 7.085726089768833e-05,
+              "conditional_frame_eV": 0.00029337212680117234,
+              "conditional_roundoff_eV": 1.3317996130749278e-07,
+              "conditional_bound_eV": 0.00036436256766016813
+            },
+            "2.5": {
+              "mass": 0.9915245867155487,
+              "centroid_eV": -1.423834046122966e-05,
+              "retained_probability": 0.9999423692870828,
+              "missing_probability": 5.7630712917200455e-05,
+              "conditional_tail_eV": 8.81560094394142e-05,
+              "conditional_frame_eV": 0.00036499457715262766,
+              "conditional_roundoff_eV": 1.6569387212295108e-07,
+              "conditional_bound_eV": 0.0004533162804641648
+            },
+            "3.0": {
+              "mass": 0.9940571695013928,
+              "centroid_eV": -2.713084923382888e-06,
+              "retained_probability": 0.9999423692870828,
+              "missing_probability": 5.7630712917200455e-05,
+              "conditional_tail_eV": 0.00010551679655298659,
+              "conditional_frame_eV": 0.00043687388738739957,
+              "conditional_roundoff_eV": 1.9832438770824406e-07,
+              "conditional_bound_eV": 0.0005425890083280944
+            }
+          }
+        },
+        "source_scf_error_Ry": 5.495934302467745e-10,
+        "outer_dexx_Ry": 2.3638970361616884e-05,
+        "ordering_eV": {
+          "1.0": -0.7550228070625656,
+          "1.5": -0.7550186124660354,
+          "2.0": -0.7550217510127029,
+          "2.5": -0.7550180969113698,
+          "3.0": -0.754978331291172
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999327507299363,
+          0.9999332172174165,
+          0.9999516133245678,
+          0.9999517416207064,
+          0.9999569961523128,
+          0.9999574246256138
+        ]
+      },
+      {
+        "cycle": 8,
+        "FD_reference_Ry": 0.6716894285053265,
+        "FD_reference_kind": "independently reconstructed monotone root; native XML separately verified at final source",
+        "spectral": {
+          "Gamma6": {
+            "1.0": {
+              "mass": 0.7517711814927246,
+              "centroid_eV": -0.7550984036877538,
+              "retained_probability": 0.999956704710128,
+              "missing_probability": 4.329528987201403e-05,
+              "conditional_tail_eV": 7.843525290301796e-05,
+              "conditional_frame_eV": 0.00030555867483239194,
+              "conditional_roundoff_eV": 1.962362183185806e-07,
+              "conditional_bound_eV": 0.0003841901639537285
+            },
+            "1.5": {
+              "mass": 0.8807893458497987,
+              "centroid_eV": -0.7551023051022774,
+              "retained_probability": 0.999956704710128,
+              "missing_probability": 4.329528987201403e-05,
+              "conditional_tail_eV": 8.18539294809728e-05,
+              "conditional_frame_eV": 0.0003188767460590128,
+              "conditional_roundoff_eV": 2.0478936423807755e-07,
+              "conditional_bound_eV": 0.0004009354649042237
+            },
+            "2.0": {
+              "mass": 0.9309955223088613,
+              "centroid_eV": -0.755100911875927,
+              "retained_probability": 0.999956704710128,
+              "missing_probability": 4.329528987201403e-05,
+              "conditional_tail_eV": 9.154459127465165e-05,
+              "conditional_frame_eV": 0.0003566284669540374,
+              "conditional_roundoff_eV": 2.2903431472924533e-07,
+              "conditional_bound_eV": 0.00044840209254341833
+            },
+            "2.5": {
+              "mass": 0.9551953391284869,
+              "centroid_eV": -0.7550817085084316,
+              "retained_probability": 0.999956704710128,
+              "missing_probability": 4.329528987201403e-05,
+              "conditional_tail_eV": 0.00010297230124158549,
+              "conditional_frame_eV": 0.0004011471723145305,
+              "conditional_roundoff_eV": 2.576251652072242e-07,
+              "conditional_bound_eV": 0.0005043770987213232
+            },
+            "3.0": {
+              "mass": 0.968608700860905,
+              "centroid_eV": -0.7550295793565119,
+              "retained_probability": 0.999956704710128,
+              "missing_probability": 4.329528987201403e-05,
+              "conditional_tail_eV": 0.00011510160152523908,
+              "conditional_frame_eV": 0.00044839904929770203,
+              "conditional_roundoff_eV": 2.8797131608223574e-07,
+              "conditional_bound_eV": 0.0005637886221390233
+            }
+          },
+          "Gamma8": {
+            "1.0": {
+              "mass": 0.9476633625698384,
+              "centroid_eV": -3.0951916054759e-05,
+              "retained_probability": 0.9999419953780366,
+              "missing_probability": 5.8004621963370084e-05,
+              "conditional_tail_eV": 3.7135805143235485e-05,
+              "conditional_frame_eV": 0.00015276319219380117,
+              "conditional_roundoff_eV": 6.934876958971627e-08,
+              "conditional_bound_eV": 0.00018996834610662637
+            },
+            "1.5": {
+              "mass": 0.9762849776294058,
+              "centroid_eV": -4.187928295486368e-05,
+              "retained_probability": 0.9999419953780366,
+              "missing_probability": 5.8004621963370084e-05,
+              "conditional_tail_eV": 5.406997990373585e-05,
+              "conditional_frame_eV": 0.00022242422643296207,
+              "conditional_roundoff_eV": 1.0097227092833869e-07,
+              "conditional_bound_eV": 0.0002765951786076262
+            },
+            "2.0": {
+              "mass": 0.9865079802011866,
+              "centroid_eV": -3.87911537421433e-05,
+              "retained_probability": 0.9999419953780366,
+              "missing_probability": 5.8004621963370084e-05,
+              "conditional_tail_eV": 7.134503327964842e-05,
+              "conditional_frame_eV": 0.0002934875112828238,
+              "conditional_roundoff_eV": 1.3323234154200718e-07,
+              "conditional_bound_eV": 0.00036496577690401424
+            },
+            "2.5": {
+              "mass": 0.9912799914304721,
+              "centroid_eV": -2.441184590761613e-05,
+              "retained_probability": 0.9999419953780366,
+              "missing_probability": 5.8004621963370084e-05,
+              "conditional_tail_eV": 8.875046119988949e-05,
+              "conditional_frame_eV": 0.0003650871095772337,
+              "conditional_roundoff_eV": 1.6573587837917962e-07,
+              "conditional_bound_eV": 0.0004540033066555023
+            },
+            "3.0": {
+              "mass": 0.9938866857827352,
+              "centroid_eV": -1.3128655539789232e-05,
+              "retained_probability": 0.9999419953780366,
+              "missing_probability": 5.8004621963370084e-05,
+              "conditional_tail_eV": 0.00010622022068880083,
+              "conditional_frame_eV": 0.0004369513445410519,
+              "conditional_roundoff_eV": 1.983595503558987e-07,
+              "conditional_bound_eV": 0.0005433699247802086
+            }
+          }
+        },
+        "source_scf_error_Ry": 6.029126768437291e-10,
+        "outer_dexx_Ry": 1.8040383906736679e-06,
+        "ordering_eV": {
+          "1.0": -0.7550674517716991,
+          "1.5": -0.7550604258193225,
+          "2.0": -0.7550621207221848,
+          "2.5": -0.755057296662524,
+          "3.0": -0.7550164507009721
+        },
+        "retained_frame_mass_eigenvalues": [
+          0.9999317238328194,
+          0.9999320347371828,
+          0.9999518971446305,
+          0.9999520781400278,
+          0.9999566303650399,
+          0.9999570267127034
+        ]
+      }
+    ]
+  },
+  "chemical": [],
+  "widths_eV": [
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "round_budget": 1.0831996635487192e-07,
+  "original_frame_envelopes": {
+    "Gamma6": 8.433230537379872e-05,
+    "Gamma8": 0.00011930495621330516
+  },
+  "checks": {
+    "host": {
+      "physical_G_spin_embedding": true,
+      "amplitudes_summed_before_square": true,
+      "independent_column_trace": true,
+      "within_sector_unitary_invariance": true,
+      "energy_gauge_check": true
+    }
+  },
+  "source_eigenvalues_solve_previous_ACE": true,
+  "does_not_bound_outer_limit_or_material_error": true,
+  "HSE_converged": false,
+  "physical_xc": null
+}

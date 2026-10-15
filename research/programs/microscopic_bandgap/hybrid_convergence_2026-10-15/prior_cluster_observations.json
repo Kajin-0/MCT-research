@@ -1,0 +1,147 @@
+{
+  "scope": "read-only accepted04d767c sources; cycle2 not outer-converged HSE",
+  "sources": {
+    "host": {
+      "1": {
+        "Gamma6": {
+          "dominant_native_bands_1based": [
+            139,
+            140
+          ],
+          "dominant_energies_Ry": [
+            0.635840197763651,
+            0.6358401977637034
+          ],
+          "dominant_weight": 0.9999835608812018,
+          "dominant_energy_mean_relative_Fermi_eV": -0.9802072507396037,
+          "retained_probability": 0.9999850293476196,
+          "next_weight": 3.9129552632390533e-07
+        },
+        "Gamma8": {
+          "dominant_native_bands_1based": [
+            144,
+            143,
+            145,
+            146
+          ],
+          "dominant_energies_Ry": [
+            0.7078841018763234,
+            0.707884101876306,
+            0.7078841018763933,
+            0.7078841018764281
+          ],
+          "dominant_weight": 0.9999916218196652,
+          "dominant_energy_mean_relative_Fermi_eV": 1.1329015328349068e-15,
+          "retained_probability": 0.9999918447721781,
+          "next_weight": 4.445529564699314e-08
+        }
+      },
+      "2": {
+        "Gamma6": {
+          "dominant_native_bands_1based": [
+            142,
+            141
+          ],
+          "dominant_energies_Ry": [
+            0.6144032806991662,
+            0.6144032804140562
+          ],
+          "dominant_weight": 0.9998461991783527,
+          "dominant_energy_mean_relative_Fermi_eV": -0.793017027660902,
+          "retained_probability": 0.9999657238578101,
+          "next_weight": 5.331617446249932e-05
+        },
+        "Gamma8": {
+          "dominant_native_bands_1based": [
+            145,
+            144,
+            143,
+            146
+          ],
+          "dominant_energies_Ry": [
+            0.6726889588624623,
+            0.6726889549191517,
+            0.6726889544858505,
+            0.6726889598813066
+          ],
+          "dominant_weight": 0.9998319937184241,
+          "dominant_energy_mean_relative_Fermi_eV": 0.0,
+          "retained_probability": 0.9999539949154135,
+          "next_weight": 1.2232537595130678e-05
+        }
+      }
+    },
+    "cd": {
+      "1": {
+        "Gamma6": {
+          "dominant_native_bands_1based": [
+            142,
+            141
+          ],
+          "dominant_energies_Ry": [
+            0.6529665851831072,
+            0.6529665851830935
+          ],
+          "dominant_weight": 0.9764784294449181,
+          "dominant_energy_mean_relative_Fermi_eV": -0.6008414200157335,
+          "retained_probability": 0.9994024297778934,
+          "next_weight": 0.006895723413431063
+        },
+        "Gamma8": {
+          "dominant_native_bands_1based": [
+            145,
+            143,
+            146,
+            144
+          ],
+          "dominant_energies_Ry": [
+            0.6971276150243797,
+            0.6971276150243242,
+            0.6971276150244352,
+            0.6971276150243519
+          ],
+          "dominant_weight": 0.9920278081245544,
+          "dominant_energy_mean_relative_Fermi_eV": -7.552676885566045e-16,
+          "retained_probability": 0.9988461220648384,
+          "next_weight": 0.00047456646154267446
+        }
+      },
+      "2": {
+        "Gamma6": {
+          "dominant_native_bands_1based": [
+            142,
+            141
+          ],
+          "dominant_energies_Ry": [
+            0.632005282009443,
+            0.6320052819131915
+          ],
+          "dominant_weight": 0.9755999840610987,
+          "dominant_energy_mean_relative_Fermi_eV": -0.4040447413066894,
+          "retained_probability": 0.9993127954913955,
+          "next_weight": 0.007639420409627347
+        },
+        "Gamma8": {
+          "dominant_native_bands_1based": [
+            143,
+            145,
+            146,
+            144
+          ],
+          "dominant_energies_Ry": [
+            0.6617020219159314,
+            0.6617020231054239,
+            0.6617020237539606,
+            0.661702022043222
+          ],
+          "dominant_weight": 0.9917970203573847,
+          "dominant_energy_mean_relative_Fermi_eV": -1.8881692213915114e-15,
+          "retained_probability": 0.9988476403374612,
+          "next_weight": 0.0005783001195998744
+        }
+      }
+    }
+  },
+  "physical_xc": null,
+  "new_native_job": false
+}

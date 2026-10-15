@@ -1,0 +1,18 @@
+{
+  "status": "CALCULATED actual first-source ACE operator and full176-column symmetry",
+  "source_Gram_error_op": 3.623798899286163e-14,
+  "source_span_TR_leakage_squared_op": 0.8194776926991728,
+  "ACE_source_action_reconstruction_relative": 5.433624989778806e-16,
+  "ACE_TR_commutator_on_source_relative": 0.028178955274072527,
+  "ACE_TR_commutator_on_source_max_column_Ry": 0.10054523024447905,
+  "ACE_TR_commutator_on_bands143_146_Ry": [
+    3.074826741809956e-08,
+    3.2789251149803673e-08,
+    3.291921390476472e-08,
+    3.3990258131396566e-08
+  ],
+  "direct_TR_action_on_Theta_source_not_measured": true,
+  "not_an_offspan_direct_ACE_equivalence_claim": true,
+  "physical_xc": null,
+  "new_native_invocations": 0
+}

@@ -858,3 +858,17 @@ the same charge bias. Checking only paired1–4 missed this available-data refus
 the fresh202s control was avoidable under the new neutrality gate. All future
 prospective native policies must first be checked against EVERY available old
 control step. Native ef/cleanup evidence is retained; no further run or gate change.
+
+## Physics-first bounded host — 2026-10-15 03:16 UTC
+
+Parent04d767c, current long-horizon authorization. One fresh8source HSE host
+complete1628s under separately justified1800s/12GiB/swap0/tasks12/lowpriority
+cap. Native owner/packet/readback PASS, outerdexx1.804e-6Ry notconverged. Exact
+nonlocal density TR defect0.999765 and firstACE source-span covariance failure
+measured; local spin remainszero/chargepasses. Cd withheld, no retry/restart.
+Raw/source/proofs/conditional spectral and density evidence in
+`../hybrid_convergence_2026-10-15/`. Old protocols/results/goal unchanged.
+Next independent meaningful work: smallest canonical-source DIRECT Fock/TR
+covariance probe, fresh state and all existing safety gates; not anotherSCF
+or an assumption that ACE source action equality implies symmetry. No current
+probe launch authority from a boolean or old save; close inputs before native.

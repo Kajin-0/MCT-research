@@ -2,9 +2,34 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; accepted PBE response and real HSE activation +44.1841 meV followed by one-relaxation trace +39.8115 meV (−4.3726 meV); native second-ACE pair gates PASS, outer HSE unconverged; material/x_c and further outer response OPEN; all old failures/full-target gates preserved
+**State:** historical physical goal BLOCKED; new eight-source HSE host has a measured nonlocal TR/ACE symmetry obstruction and remains unconverged; Cd withheld; earlier PBE/finite HSE activations and all FAILs preserved
 
-**Updated:** 2026-10-15 00:30 UTC
+**Updated:** 2026-10-15 03:16 UTC
+
+## Eight-source hybrid host and symmetry falsification — 2026-10-15 03:16 UTC
+
+[Decision](hybrid_convergence_2026-10-15/decision.md): one fresh host,1628.053s,
+8source builds; final E−1936.340914771158Ry, half-Fock−35.836800151016Ry,
+dexx1.804e-6Ry>1e-9. Native owner/packet/science acquisition/readback gates PASS,
+outer convergence=false.12GiB/swap0/tasks12 and preregistered1800s low-priority
+bound held; kernel6.645GB includes output cache, sampledRSS4.329GB. Cd notrun.
+
+CALCULATED exact native density TR witness grows to0.999765; central quartet
+spread0.655255eV, despite charge error<1e-10e and exactly zero LOCAL spin density.
+First176-column ACE span is non-TR-closed (leakage².81948), ACE antiunitary action
+commutator relative.02818, while source action reconstructs5.44e-16. Independent
+native scalar witness agrees2.89e-15. Thus crystal-symmetry metadata/source-space
+ACE equality do not qualify the intended nonmagnetic host. No physical magnetic
+phase or exact-HSE instability cause inferred. Earlier finite activation numbers
+remain valid for their scope; no updated chemical HSE pair/gap/x_c is claimed.
+
+STOP this trajectory/Cd release, not the long-horizon mandate. Next smallest
+independent discriminator is fixed-source direct Fock time-reversal covariance
+with canonical retained data; no SCF/restart or changed physics. Fresh input,
+source/FFT/kernel and owned-resource gates required before any native probe.
+Source/matrices/causal-window and density analyses/proofs/raw evidence retained;
+protected DFT/stock/history/16atom/main/sessions/goal unchanged. Restart remains
+unqualified. See new decision/verification/handoff before further action.
 
 ## One hybrid relaxation and second ACE — 2026-10-15 00:30 UTC
 

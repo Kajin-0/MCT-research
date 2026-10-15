@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "cycles": {
+    "host": 8
+  },
+  "max_bridge_error_Ry": 8.526512829121202e-14
+}

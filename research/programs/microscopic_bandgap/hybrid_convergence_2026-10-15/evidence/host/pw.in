@@ -1,0 +1,34 @@
+&CONTROL
+ calculation='scf', prefix='r07hse8', outdir='/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8c_20261015/p1/host/out',
+ pseudo_dir='/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8c_20261015/p1/host/pp', verbosity='high', disk_io='low', max_seconds=1700,
+/
+&SYSTEM
+ ibrav=0, nat=8, ntyp=3, nbnd=176, ecutwfc=50, ecutrho=200,
+ occupations='smearing', smearing='fd', degauss=0.001,
+ noncolin=.true., lspinorb=.true., nosym=.false., input_dft='HSE', ecutfock=200, exx_fraction=0.25, screening_parameter=0.106,
+ nqx1=1, nqx2=1, nqx3=1, ace=.true.,
+/
+&ELECTRONS
+ conv_thr=1d-9, adaptive_thr=.false., exx_maxstep=8, mixing_beta=0.3, electron_maxstep=100,
+ diagonalization='david', diago_full_acc=.true.,
+ startingpot='atomic', startingwfc='atomic+random',
+/
+ATOMIC_SPECIES
+Hg 200.59 Hg_sg15_pbe_fr_v12.UPF
+Cd 112.411 Cd_sg15_pbe_fr_v12.UPF
+Te 127.60 Te_sg15_pbe_fr_v12.UPF
+CELL_PARAMETERS angstrom
+6.46 0 0
+0 6.46 0
+0 0 6.46
+ATOMIC_POSITIONS crystal
+Hg 0 0 0
+Hg 0 0.5 0.5
+Hg 0.5 0 0.5
+Hg 0.5 0.5 0
+Te 0.25 0.25 0.25
+Te 0.25 0.75 0.75
+Te 0.75 0.25 0.75
+Te 0.75 0.75 0.25
+K_POINTS automatic
+1 1 1 0 0 0

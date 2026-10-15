@@ -1,0 +1,61 @@
+{
+  "status": "CALCULATED actual complex symmetry witnesses; physical instability mechanism is a HYPOTHESIS",
+  "member": "host",
+  "rows": [
+    {
+      "cycle": 1,
+      "total_charge_e": 144.00000000000597,
+      "FD_charge_residual_e": 2.842170943040401e-14,
+      "Gamma8_projected_density_eigenvalues": [
+        0.49999603381548036,
+        0.4999960338350776,
+        0.4999960338548716,
+        0.4999960338731323
+      ],
+      "projected_density_TR_defect_op": 6.940113095421809e-11,
+      "Gamma8_density_Schur_defect_op": 2.9159945865798625e-11,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 2.796736353439953e-09,
+      "Gamma8_local_scalar_defect_Ry": 2.20555549101397e-08,
+      "source_bands143_146_spread_eV": 1.691799622366794e-12,
+      "source_bands143_146_occupations": [
+        0.5000000000148215,
+        0.5000000000103806,
+        0.4999999999970579,
+        0.49999999998373523
+      ]
+    },
+    {
+      "cycle": 5,
+      "total_charge_e": 144.0000000000523,
+      "FD_charge_residual_e": 0.0,
+      "Gamma8_projected_density_eigenvalues": [
+        0.10194475352763994,
+        0.17324281435591032,
+        0.8281205034207691,
+        0.8966566402823918
+      ],
+      "projected_density_TR_defect_op": 0.7931451218284372,
+      "Gamma8_density_Schur_defect_op": 0.3980464243690376,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.018417005706823895,
+      "Gamma8_local_scalar_defect_Ry": 2.2053080253696573e-08,
+      "source_bands143_146_spread_eV": 0.059022400165824204,
+      "source_bands143_146_occupations": [
+        0.8967413438554206,
+        0.8281920646081445,
+        0.17318914995943804,
+        0.10187744162932473
+      ]
+    }
+  ],
+  "frame": {
+    "TR_frame_residual_op": 1.286399231470604e-07,
+    "TR_square_minus_identity_error": 1.7019127180792747e-14,
+    "reference_Gram_error": 1.8646337859808387e-15,
+    "TR_invariant_frame_assumed": false
+  },
+  "reference_matrix_convention": "Theta(up(G),down(G))=(down*(-G),-up*(-G)); exact compressed Theta-density=[(Theta P)dagger D(Theta P)]star; J only describes approximate frame closure",
+  "no_native_or_Fermi_gate_retroactively_changed": true,
+  "native_crystal_symmetry_flag_is_not_Fock_state_symmetry_proof": true,
+  "physical_magnetism_or_material_phase_claim": false,
+  "physical_xc": null
+}

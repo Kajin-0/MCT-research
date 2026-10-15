@@ -1,0 +1,373 @@
+{
+  "scientific_pass": true,
+  "source_cycles": {
+    "1": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 1,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": 5.9685589803848416e-12,
+      "source_scf_error_Ry": 6.792852932845434e-10,
+      "source_scf_steps": 11,
+      "reconstructed_consistency_fermi_Ry": 0.7078841018710351,
+      "occupation_max_consistency_error": 1.4988010832439613e-12,
+      "direct_ACE_action_relative": 5.394803194725115e-16,
+      "direct_ACE_Gram_relative": 5.627193163536399e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 3.520813465200106e-14,
+      "native_unhalved_Fock_Ry": -71.46168832839902,
+      "native_half_Fock_Ry": -35.73084416419952,
+      "native_first_activation_total_Ry": -1936.2918960468878,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.2161442710874504,
+          -0.24960242714347286
+        ],
+        "local": [
+          0.1926636538226043,
+          0.20784721093843303
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "2": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 2,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": 6.284039955062326e-11,
+      "source_scf_error_Ry": 7.683309297857401e-11,
+      "source_scf_steps": 9,
+      "reconstructed_consistency_fermi_Ry": 0.6726889580589339,
+      "occupation_max_consistency_error": 1.5709711309597196e-11,
+      "direct_ACE_action_relative": 5.712166486603583e-16,
+      "direct_ACE_Gram_relative": 6.216593200407066e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 4.579489638833556e-15,
+      "native_unhalved_Fock_Ry": -71.59747091046444,
+      "native_half_Fock_Ry": -35.798735455232205,
+      "native_first_activation_total_Ry": -1936.319184664425,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.21497360611491817,
+          -0.25178590642638177
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "3": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 3,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": -7.793232725816779e-11,
+      "source_scf_error_Ry": 9.462974495776992e-10,
+      "source_scf_steps": 6,
+      "reconstructed_consistency_fermi_Ry": 0.6717735790966428,
+      "occupation_max_consistency_error": 1.9483858970659185e-11,
+      "direct_ACE_action_relative": 5.133965045423948e-16,
+      "direct_ACE_Gram_relative": 5.526606745617496e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 8.504384586585887e-15,
+      "native_unhalved_Fock_Ry": -71.61873318248455,
+      "native_half_Fock_Ry": -35.80936659124227,
+      "native_first_activation_total_Ry": -1936.3195581581274,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.21480375598087723,
+          -0.2520950652228132
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "4": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 4,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": 2.0179413695586845e-12,
+      "source_scf_error_Ry": 2.739733285716968e-10,
+      "source_scf_steps": 5,
+      "reconstructed_consistency_fermi_Ry": 0.671663486503032,
+      "occupation_max_consistency_error": 4.974354261833014e-13,
+      "direct_ACE_action_relative": 5.337438591083597e-16,
+      "direct_ACE_Gram_relative": 5.675376284565974e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 7.945785503123195e-15,
+      "native_unhalved_Fock_Ry": -71.62223786862569,
+      "native_half_Fock_Ry": -35.81111893431282,
+      "native_first_activation_total_Ry": -1936.3197073195838,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.2147765367268513,
+          -0.2521410533980031
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "5": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 5,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": 5.2295945351943374e-11,
+      "source_scf_error_Ry": 1.1216282911346924e-10,
+      "source_scf_steps": 4,
+      "reconstructed_consistency_fermi_Ry": 0.6716498579237911,
+      "occupation_max_consistency_error": 1.5961426624855335e-11,
+      "direct_ACE_action_relative": 5.3555678440143e-16,
+      "direct_ACE_Gram_relative": 5.655884469245565e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 4.293567420678942e-15,
+      "native_unhalved_Fock_Ry": -71.64711284463613,
+      "native_half_Fock_Ry": -35.82355642231807,
+      "native_first_activation_total_Ry": -1936.330695950823,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.2147721791634305,
+          -0.2521486508652134
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "6": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 6,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": 9.592326932761353e-11,
+      "source_scf_error_Ry": 2.16780386372314e-10,
+      "source_scf_steps": 4,
+      "reconstructed_consistency_fermi_Ry": 0.6716531382222353,
+      "occupation_max_consistency_error": 4.629690001529579e-11,
+      "direct_ACE_action_relative": 5.208963988625247e-16,
+      "direct_ACE_Gram_relative": 5.400170202854639e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 5.184455708679194e-15,
+      "native_unhalved_Fock_Ry": -71.67170843151712,
+      "native_half_Fock_Ry": -35.83585421575856,
+      "native_first_activation_total_Ry": -1936.3407477917688,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.2147747597046561,
+          -0.25215284641130836
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "7": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": false,
+      "source_cycle": 7,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": -3.373656909388956e-11,
+      "source_scf_error_Ry": 5.495934302467745e-10,
+      "source_scf_steps": 3,
+      "reconstructed_consistency_fermi_Ry": 0.6716879159782609,
+      "occupation_max_consistency_error": 9.585221505403752e-12,
+      "direct_ACE_action_relative": 5.413603751844436e-16,
+      "direct_ACE_Gram_relative": 5.672104293415329e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 4.0414761811441886e-15,
+      "native_unhalved_Fock_Ry": -71.67334020663046,
+      "native_half_Fock_Ry": -35.83667010331525,
+      "native_first_activation_total_Ry": -1936.3409077183517,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.21477789663751093,
+          -0.252151312013521
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    },
+    "8": {
+      "scientific_pass": true,
+      "source_wave_bitwise_readback": true,
+      "source_cycle": 8,
+      "fixed_reference_exact": true,
+      "frozen_rhoR_rhoG_bitwise": true,
+      "charge_residual_e": -1.3670842236024328e-11,
+      "source_scf_error_Ry": 6.029126768437291e-10,
+      "source_scf_steps": 2,
+      "reconstructed_consistency_fermi_Ry": 0.6716893769135541,
+      "occupation_max_consistency_error": 3.69082542306387e-12,
+      "direct_ACE_action_relative": 5.360352160268542e-16,
+      "direct_ACE_Gram_relative": 5.586181395236183e-16,
+      "source_wave_max_error": 0.0,
+      "source_Gram_defect_op": 4.5387714383932575e-15,
+      "native_unhalved_Fock_Ry": -71.67360030203105,
+      "native_half_Fock_Ry": -35.83680015101552,
+      "native_first_activation_total_Ry": -1936.3409147711575,
+      "source_mean_operator_change_Ry": {
+        "exchange": [
+          -0.2147788728476872,
+          -0.2521494277775129
+        ],
+        "local": [
+          0.0,
+          0.0
+        ]
+      },
+      "global_plane_waves": 10827,
+      "native_EXX_FFT": [
+        60,
+        60,
+        60
+      ],
+      "aggregate_EXX_buffer_B": 1216512000,
+      "HSE_converged": false,
+      "source_spectra_not_rebuilt_self_consistent_HSE_quasiparticles": true,
+      "physical_xc": null
+    }
+  },
+  "residuals": {
+    "2": {
+      "fock0_Ry": -71.46168832839903,
+      "fock1_Ry": -71.5270608702281,
+      "fock2_Ry": -71.59747091046441,
+      "dexx_Ry": 0.0025187492036309322,
+      "raw_Ry": 0.0025187492036309322
+    },
+    "3": {
+      "fock0_Ry": -71.59747091046441,
+      "fock1_Ry": -71.60805442192847,
+      "fock2_Ry": -71.61873318248453,
+      "dexx_Ry": 4.7624545999269685e-05,
+      "raw_Ry": 4.7624545999269685e-05
+    },
+    "4": {
+      "fock0_Ry": -71.61873318248453,
+      "fock1_Ry": -71.62035471845026,
+      "fock2_Ry": -71.62223786862565,
+      "dexx_Ry": 0.0001308071048384818,
+      "raw_Ry": 0.0001308071048384818
+    },
+    "5": {
+      "fock0_Ry": -71.62223786862565,
+      "fock1_Ry": -71.6249552675382,
+      "fock2_Ry": -71.64711284463614,
+      "dexx_Ry": 0.009720089092695616,
+      "raw_Ry": 0.009720089092695616
+    },
+    "6": {
+      "fock0_Ry": -71.64711284463614,
+      "fock1_Ry": -71.65716926325663,
+      "fock2_Ry": -71.67170843151712,
+      "dexx_Ry": 0.0022413748199880956,
+      "raw_Ry": 0.0022413748199880956
+    },
+    "7": {
+      "fock0_Ry": -71.67170843151712,
+      "fock1_Ry": -71.67250068010344,
+      "fock2_Ry": -71.6733402066305,
+      "dexx_Ry": 2.3638970361616884e-05,
+      "raw_Ry": 2.3638970361616884e-05
+    },
+    "8": {
+      "fock0_Ry": -71.6733402066305,
+      "fock1_Ry": -71.67346845029238,
+      "fock2_Ry": -71.67360030203103,
+      "dexx_Ry": 1.8040383906736679e-06,
+      "raw_Ry": 1.8040383906736679e-06
+    }
+  },
+  "last_cycle": 8,
+  "outer_converged": false,
+  "HSE_converged": false,
+  "checkpoint_restart_qualified": false,
+  "physical_xc": null
+}

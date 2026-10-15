@@ -1,0 +1,77 @@
+{
+  "timestamp_UTC": "2026-10-15T02:39:23.660189+00:00",
+  "parent": "04d767c",
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15166603264,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 1800
+  },
+  "storage": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 15126748,
+    "available_bytes": 61959159808,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "available_RAM_B": 29414100992,
+  "known_lock_available": true,
+  "old_registry": {
+    "job": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/runtime_admission/test-jw7adqol/job",
+    "members": [],
+    "phase": "FINISHED",
+    "version": 1
+  },
+  "old_registry_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf",
+  "visible_native_names_empty": true,
+  "hostwide_absence_claim": false,
+  "reference_exact_both_members": true,
+  "source_arithmetic_unchanged": [
+    "vexx_k",
+    "aceupdate_k",
+    "vexxace_k"
+  ],
+  "unchanged_static_matcalc_library": true,
+  "diagnostic_stop_does_not_set_HSE_convergence": true,
+  "binary_sha256": "80f0768f8caee15b993ec0c52dcd6c0cc926ceaec0bfb302a289c8b1c4b6c492",
+  "estimated_subtotal_is_not_bound": true,
+  "timing_estimate_is_not_bound": true,
+  "output_per_packet_source_payload_upper_B": 123499520,
+  "XML_numeric_export_tolerance_Ry": 2e-14,
+  "wave_rho_packet_readback_is_byte_exact": true
+}

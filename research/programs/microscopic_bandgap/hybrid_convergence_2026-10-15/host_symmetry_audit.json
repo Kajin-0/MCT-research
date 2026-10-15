@@ -1,0 +1,193 @@
+{
+  "status": "CALCULATED actual complex symmetry witnesses; physical instability mechanism is a HYPOTHESIS",
+  "member": "host",
+  "rows": [
+    {
+      "cycle": 1,
+      "total_charge_e": 144.00000000000597,
+      "FD_charge_residual_e": 2.842170943040401e-14,
+      "Gamma8_projected_density_eigenvalues": [
+        0.49999603381548036,
+        0.4999960338350776,
+        0.4999960338548716,
+        0.4999960338731323
+      ],
+      "projected_density_TR_defect_op": 6.940113095421809e-11,
+      "Gamma8_density_Schur_defect_op": 2.9159945865798625e-11,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 2.796736353439953e-09,
+      "Gamma8_local_scalar_defect_Ry": 2.20555549101397e-08,
+      "source_bands143_146_spread_eV": 1.691799622366794e-12,
+      "source_bands143_146_occupations": [
+        0.5000000000148215,
+        0.5000000000103806,
+        0.4999999999970579,
+        0.49999999998373523
+      ]
+    },
+    {
+      "cycle": 2,
+      "total_charge_e": 144.00000000006284,
+      "FD_charge_residual_e": 0.0,
+      "Gamma8_projected_density_eigenvalues": [
+        0.49998835805397596,
+        0.49998861534609335,
+        0.49998959374811913,
+        0.4999897055276335
+      ],
+      "projected_density_TR_defect_op": 1.2915597212976465e-06,
+      "Gamma8_density_Schur_defect_op": 7.101149795688549e-07,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 1.578832260495084e-05,
+      "Gamma8_local_scalar_defect_Ry": 2.2050651301590774e-08,
+      "source_bands143_146_spread_eV": 7.33430528139891e-08,
+      "source_bands143_146_occupations": [
+        0.5000006375156791,
+        0.5000005256570457,
+        0.49999954702817334,
+        0.4999992898619406
+      ]
+    },
+    {
+      "cycle": 3,
+      "total_charge_e": 143.99999999992207,
+      "FD_charge_residual_e": -5.684341886080802e-14,
+      "Gamma8_projected_density_eigenvalues": [
+        0.4960224326356277,
+        0.4971318563500457,
+        0.502872603684696,
+        0.5039328262895008
+      ],
+      "projected_density_TR_defect_op": 0.007880830714966333,
+      "Gamma8_density_Schur_defect_op": 0.003967497104339824,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.0001883047616831903,
+      "Gamma8_local_scalar_defect_Ry": 2.205251263653171e-08,
+      "source_bands143_146_spread_eV": 0.00043059524425794046,
+      "source_bands143_146_occupations": [
+        0.5039436353358997,
+        0.5028832141687926,
+        0.49714139166107135,
+        0.4960317587562869
+      ]
+    },
+    {
+      "cycle": 4,
+      "total_charge_e": 144.00000000000202,
+      "FD_charge_residual_e": 5.684341886080802e-14,
+      "Gamma8_projected_density_eigenvalues": [
+        0.45300904158380534,
+        0.46618266838777933,
+        0.5340776508082217,
+        0.5466933705951798
+      ],
+      "projected_density_TR_defect_op": 0.09336634189764123,
+      "Gamma8_density_Schur_defect_op": 0.046981641259941004,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.0021729916853216874,
+      "Gamma8_local_scalar_defect_Ry": 2.2052979500583097e-08,
+      "source_bands143_146_spread_eV": 0.00511453737808221,
+      "source_bands143_146_occupations": [
+        0.5467115915674396,
+        0.5340934642385983,
+        0.4661855440962218,
+        0.45300940009976615
+      ]
+    },
+    {
+      "cycle": 5,
+      "total_charge_e": 144.0000000000523,
+      "FD_charge_residual_e": 0.0,
+      "Gamma8_projected_density_eigenvalues": [
+        0.10194475352763994,
+        0.17324281435591032,
+        0.8281205034207691,
+        0.8966566402823918
+      ],
+      "projected_density_TR_defect_op": 0.7931451218284372,
+      "Gamma8_density_Schur_defect_op": 0.3980464243690376,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.018417005706823895,
+      "Gamma8_local_scalar_defect_Ry": 2.2053080253696573e-08,
+      "source_bands143_146_spread_eV": 0.059022400165824204,
+      "source_bands143_146_occupations": [
+        0.8967413438554206,
+        0.8281920646081445,
+        0.17318914995943804,
+        0.10187744162932473
+      ]
+    },
+    {
+      "cycle": 6,
+      "total_charge_e": 144.00000000009592,
+      "FD_charge_residual_e": -2.842170943040401e-14,
+      "Gamma8_projected_density_eigenvalues": [
+        9.656232902617069e-05,
+        0.00010796177991661225,
+        0.9998930912875007,
+        0.9998937268465363
+      ],
+      "projected_density_TR_defect_op": 0.9997821742448008,
+      "Gamma8_density_Schur_defect_op": 0.4999012732317191,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.023727282419133976,
+      "Gamma8_local_scalar_defect_Ry": 2.205325505158404e-08,
+      "source_bands143_146_spread_eV": 0.5008329502667475,
+      "source_bands143_146_occupations": [
+        0.9999999892518628,
+        0.9999997339835948,
+        2.6726531892097754e-07,
+        9.595136024617629e-09
+      ]
+    },
+    {
+      "cycle": 7,
+      "total_charge_e": 143.99999999996626,
+      "FD_charge_residual_e": 0.0,
+      "Gamma8_projected_density_eigenvalues": [
+        0.00011035308004441564,
+        0.00013928042517092525,
+        0.9998929976490026,
+        0.9998938663542146
+      ],
+      "projected_density_TR_defect_op": 0.9997713168617928,
+      "Gamma8_density_Schur_defect_op": 0.4998987712970638,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.024056371207446182,
+      "Gamma8_local_scalar_defect_Ry": 2.2053218010865374e-08,
+      "source_bands143_146_spread_eV": 0.646342472147945,
+      "source_bands143_146_occupations": [
+        0.9999999999430866,
+        0.9999999999370555,
+        4.5046575566675145e-11,
+        4.1067546626462845e-11
+      ]
+    },
+    {
+      "cycle": 8,
+      "total_charge_e": 143.99999999998633,
+      "FD_charge_residual_e": 0.0,
+      "Gamma8_projected_density_eigenvalues": [
+        0.00011888745522167915,
+        0.00015948993962846975,
+        0.9998938451735576,
+        0.999894919421667
+      ],
+      "projected_density_TR_defect_op": 0.9997652598260829,
+      "Gamma8_density_Schur_defect_op": 0.4998978980422968,
+      "Gamma8_direct_EXX_scalar_defect_Ry": 0.024121836406836964,
+      "Gamma8_local_scalar_defect_Ry": 2.2053110349742234e-08,
+      "source_bands143_146_spread_eV": 0.6552551756689856,
+      "source_bands143_146_occupations": [
+        0.9999999999617972,
+        0.9999999999592715,
+        3.346986035518156e-11,
+        3.17778129392863e-11
+      ]
+    }
+  ],
+  "frame": {
+    "TR_frame_residual_op": 1.286399231470604e-07,
+    "TR_square_minus_identity_error": 1.7019127180792747e-14,
+    "reference_Gram_error": 1.8646337859808387e-15,
+    "TR_invariant_frame_assumed": false
+  },
+  "reference_matrix_convention": "Theta(up(G),down(G))=(down*(-G),-up*(-G)); exact compressed Theta-density=[(Theta P)dagger D(Theta P)]star; J only describes approximate frame closure",
+  "no_native_or_Fermi_gate_retroactively_changed": true,
+  "native_crystal_symmetry_flag_is_not_Fock_state_symmetry_proof": true,
+  "physical_magnetism_or_material_phase_claim": false,
+  "physical_xc": null
+}

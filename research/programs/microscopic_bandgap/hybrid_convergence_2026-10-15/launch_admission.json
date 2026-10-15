@@ -1,0 +1,24 @@
+{
+  "timestamp_UTC": "2026-10-15T02:39:24.719510+00:00",
+  "source_layout_checks": true,
+  "cpu_controller_available": true,
+  "binds": {
+    "host": {
+      "bytes": 84,
+      "bound_and_identity_safe_removed": true,
+      "fresh_unit": "r07-owned-342137c0dd5c47c8b6f82944bcbc75fc.service",
+      "input_exact_except_paths_outer_budget_deadline": true
+    },
+    "cd": {
+      "bytes": 82,
+      "bound_and_identity_safe_removed": true,
+      "fresh_unit": "r07-owned-e2e1b17be67444a3bb0e252223258fbe.service",
+      "input_exact_except_paths_outer_budget_deadline": true
+    }
+  },
+  "all_pins_verified": true,
+  "native_executed": false,
+  "original_600s_protocol_unmodified": true,
+  "extended_deadline_justification": "preregistration.md",
+  "prelaunch_source_check_correction": "initial spacing-only assertion refused before root creation; corrected against actual create_scf_type allocation"
+}

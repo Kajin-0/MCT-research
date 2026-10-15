@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": 3,
+  "rational_superoperator_counterexample": "-1",
+  "direct_outer_counterexample_Ry": "-1/2",
+  "ACE_remainder_min_eigenvalue": 2.9038550105410236e-16,
+  "synthetic_only": true,
+  "new_native_invocations": 0,
+  "novelty_claim": false
+}
