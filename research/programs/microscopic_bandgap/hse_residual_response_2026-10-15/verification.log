@@ -1,0 +1,23 @@
+{
+  "status": "PASS_READ_ONLY_PROOFS_AND_NATIVE_INPUT_CHECKS",
+  "independent608_dense_vs_Schur_error": 6.920659782499788e-10,
+  "independent_moment_unknown_block_error": 9.233845142346178,
+  "independent_moment_bound": 122.94042856714628,
+  "physical_sector_gauge_error": 7.944109290391274e-15,
+  "all_native_pins_and_protected_DFT_stock_old_failures_PASS": true,
+  "no_new_native_job": true,
+  "old_owner_and_splice_failures_NOT_reclassified": true,
+  "finite_arithmetic_condition_NOT_interval_proven": true,
+  "sources": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/analyze.py": "44076b10c556901cf4af40581e853117ade2ac1c5591e7da6e7de7ca590b1df8",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/moment_reduction.py": "1e914d65c3514c205b945781df27ab2089a9bd90a266b4a610773b3637d94c34",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/completion_check.py": "12ac7445d8d4d9b9d70431793fca119792d64db9e138e7bd3fe48fce59022ec3",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/directed_completion.py": "1067bd6e675200de9705e1b423a6544be52757bed7ae7c7c2624b27fb392fef1",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/theory.md": "91891e613ce47c67f9846b6bc9a229883e15ef8c8f988cac32fd841e4769d29f",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/single_state304_2026-10-15/native_result.json": "a3eae387e5b89f1d78e8483e7bbea9c44e79895894b4b370c7a9dc26a5d03ab4",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/result.json": "631a648f0a6ab089dfa5ae7144ab19a9cd544373754551a7718ce30065a6d07b",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/moment_result.json": "3227ea7c20f8a9431996e89415454ef5d49ef773788b4e7e7fc657e36370a15c"
+  },
+  "HSE_converged": false,
+  "physical_xc": null
+}

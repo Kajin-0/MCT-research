@@ -1,0 +1,341 @@
+{
+  "status": "CALCULATED_SYMMETRY_COMPATIBLE_DATA_COMPLETIONS_NOT_HSE_MODELS",
+  "all304_basis_HV_retained": true,
+  "independent_12_physical_probe_actions_NOT_imposed": true,
+  "no_specific_material_complement_asserted": true,
+  "no_PHYSICAL_nonidentifiability_when_full_HSE_operator_is_known_claim": true,
+  "assumptions": [
+    "finiteHermiticity",
+    "sameA and fullR",
+    "exactjointTdTheta representation up to captured roundoff",
+    "captured coarseHnorm bound"
+  ],
+  "rows": [
+    {
+      "dc_Ry": -1.0,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.730859933713799,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2719658570459291
+    },
+    {
+      "dc_Ry": -1.0,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7308584339450662,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.695454598381557
+    },
+    {
+      "dc_Ry": -1.0,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.730837408105298,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003508012849408
+    },
+    {
+      "dc_Ry": -0.5,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7309430425495086,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2720625303746056
+    },
+    {
+      "dc_Ry": -0.5,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7309415457840425,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.695901554878922
+    },
+    {
+      "dc_Ry": -0.5,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.730920564034183,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003552676540984
+    },
+    {
+      "dc_Ry": -0.1,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310136641736478,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2721821279948113
+    },
+    {
+      "dc_Ry": -0.1,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310121980680758,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696451700988941
+    },
+    {
+      "dc_Ry": -0.1,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7309916678775195,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003602801170657
+    },
+    {
+      "dc_Ry": -0.05,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310224223749374,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722016538317953
+    },
+    {
+      "dc_Ry": -0.05,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.731020964943816,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.69654120565224
+    },
+    {
+      "dc_Ry": -0.05,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310005620067878,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003610419072446
+    },
+    {
+      "dc_Ry": -0.01,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.731029360349489,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722182949144185
+    },
+    {
+      "dc_Ry": -0.01,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310279112373284,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696617415082569
+    },
+    {
+      "dc_Ry": -0.01,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310076301550844,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003616783820881
+    },
+    {
+      "dc_Ry": -0.001,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310309108620096,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722221742105806
+    },
+    {
+      "dc_Ry": -0.001,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310294638152848,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696635171129278
+    },
+    {
+      "dc_Ry": -0.001,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310092129604522,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003618250601441
+    },
+    {
+      "dc_Ry": 0.0,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310310828756601,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722226084304709
+    },
+    {
+      "dc_Ry": 0.0,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310296360631381,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696637158384831
+    },
+    {
+      "dc_Ry": 0.0,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310093886351757,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.0036184143828635
+    },
+    {
+      "dc_Ry": 0.001,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310312548349764,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722230432934523
+    },
+    {
+      "dc_Ry": 0.001,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310298082576133,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696639148538049
+    },
+    {
+      "dc_Ry": 0.001,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310095642703888,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003618578326278
+    },
+    {
+      "dc_Ry": 0.01,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310327999673105,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722269862614668
+    },
+    {
+      "dc_Ry": 0.01,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310313555501278,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696657191471783
+    },
+    {
+      "dc_Ry": 0.01,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310111431633343,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003620061144434
+    },
+    {
+      "dc_Ry": 0.05,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310396068805795,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722451734851528
+    },
+    {
+      "dc_Ry": 0.05,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310381730893662,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696740367033625
+    },
+    {
+      "dc_Ry": 0.05,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.73101811598513,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.00362681479605
+    },
+    {
+      "dc_Ry": 0.1,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310479476315689,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2722695631809864
+    },
+    {
+      "dc_Ry": 0.1,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310465298516292,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.696851781602103
+    },
+    {
+      "dc_Ry": 0.1,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310267062466387,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003635649389876
+    },
+    {
+      "dc_Ry": 0.5,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7310976322554369,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2725757488157674
+    },
+    {
+      "dc_Ry": 0.5,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7310966234359304,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.698237578417183
+    },
+    {
+      "dc_Ry": 0.5,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310826225877763,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.003724909717687
+    },
+    {
+      "dc_Ry": 1.0,
+      "eta_eV": 0.05,
+      "ordering_eV": -0.7308409948042817,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 1.2744318117163411
+    },
+    {
+      "dc_Ry": 1.0,
+      "eta_eV": 0.5,
+      "ordering_eV": -0.7308571531899911,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 8.706057293896807
+    },
+    {
+      "dc_Ry": 1.0,
+      "eta_eV": 2.0,
+      "ordering_eV": -0.7310199064197163,
+      "coarse_completion_H_norm_bound_Ry": 88.23137668243567,
+      "compatible_with_captured_coarse_H_norm_bound": true,
+      "causal_min_eigen_minus_Im_g": 6.0036356500815184
+    }
+  ],
+  "ranges": {
+    "0.05": [
+      -0.7310976322554369,
+      -0.7308409948042817
+    ],
+    "0.5": [
+      -0.7310966234359304,
+      -0.7308571531899911
+    ],
+    "2.0": [
+      -0.7310826225877763,
+      -0.730837408105298
+    ]
+  }
+}

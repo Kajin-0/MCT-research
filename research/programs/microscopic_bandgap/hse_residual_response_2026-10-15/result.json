@@ -1,0 +1,406 @@
+{
+  "status": "CALCULATED_CONDITIONAL_FINITE_NATIVE_MODEL",
+  "source_native_sha256": "a3eae387e5b89f1d78e8483e7bbea9c44e79895894b4b370c7a9dc26a5d03ab4",
+  "source_full_action_sha256": "1452dd0b9130e16e52a8641cb9b95563adcc95485c24fd1137b366ddc3d291ff",
+  "original_physical_P_frame_projection_error_op": 5.813525252041479e-07,
+  "P_Gram_defect": 1.8738892812883837e-15,
+  "fullspace_FD304_commutator_op_lower_Ry": 0.05211828361293965,
+  "FD304_inspace_commutator_roundoff_Ry": 3.34642396943895e-13,
+  "fullspace_FD304_error_op_lower": 1.311537396232761e-07,
+  "assumed_WHOLE_query_action_error_op_Ry": 1e-06,
+  "assumed_frame_input_error_op": 1e-11,
+  "arithmetic_allowances_NOT_interval_native_proven": true,
+  "fullspace_FD1e8_stationarity_EXCLUDED_conditionally": true,
+  "unknown_complement_no_gap_assumed": true,
+  "rows": [
+    {
+      "max_independent_query_action_error_for_sign_Ry": null,
+      "eta_eV": 0.05,
+      "energy_Ry": 0.6660486411450275,
+      "irrep": [
+        {
+          "action_error_zero_g_bound_Ry_inverse": 31.071807416559036,
+          "action_residual_factors": [
+            0.3379136330903171,
+            0.33791363302898964,
+            18.59708467720096,
+            18.59708467720096
+          ],
+          "g_Ry_inverse": [
+            18.55302097551788,
+            -1.270981034784453
+          ],
+          "g152_Ry_inverse": [
+            18.56201337786976,
+            -1.2722114647137301
+          ],
+          "spectral_density_per_eV": 0.029735039947378222,
+          "spectral_density_error_per_eV": 0.727023764499778,
+          "g_error_Ry_inverse": 31.07557340269488,
+          "nonzero_margin_Ry_inverse": -12.479068889513155,
+          "inverse_error_eV": null,
+          "K_eV": 8.332137780353213
+        },
+        {
+          "action_error_zero_g_bound_Ry_inverse": 11397.35076580753,
+          "action_residual_factors": [
+            6.471822800279111,
+            6.471822800771139,
+            272.10056540921335,
+            272.10056540921346
+          ],
+          "g_Ry_inverse": [
+            0.0001159615739547184,
+            -272.08726899280714
+          ],
+          "g152_Ry_inverse": [
+            -8.004690443023241,
+            -271.85604385502995
+          ],
+          "spectral_density_per_eV": 6.365575560335757,
+          "spectral_density_error_per_eV": 266.6691088094492,
+          "g_error_Ry_inverse": 11398.38320242666,
+          "nonzero_margin_Ry_inverse": -11126.295933433828,
+          "inverse_error_eV": null,
+          "K_eV": 9.062053395094686
+        }
+      ],
+      "ordering_eV": -0.7299156147414738,
+      "ordering_error_eV": null,
+      "ordering_interval_eV": null,
+      "ordering_sign_conditional_on_action_error": false,
+      "projected_G_omission_first_order_upper_Ry_inverse": 1761.072699473759,
+      "projected_G_omission_second_order_upper_Ry_inverse": 11397.350449403395,
+      "frame_error_Ry_inverse": 0.0003163882541347347,
+      "conditional_arithmetic_error_Ry_inverse": 5.442277249224815e-09,
+      "same_H152_304_G_difference_Ry_inverse": 8.008145268848322,
+      "causal_min_eigen_minus_Im_g_Ry_inverse": 1.2709810347692907
+    },
+    {
+      "max_independent_query_action_error_for_sign_Ry": null,
+      "eta_eV": 0.1,
+      "energy_Ry": 0.6660486411450275,
+      "irrep": [
+        {
+          "action_error_zero_g_bound_Ry_inverse": 15.321171955837794,
+          "action_residual_factors": [
+            0.3355702224241852,
+            0.3355702223031415,
+            18.468135670283903,
+            18.468135670283914
+          ],
+          "g_Ry_inverse": [
+            18.29662653884632,
+            -2.5068332208455875
+          ],
+          "g152_Ry_inverse": [
+            18.30525127010136,
+            -2.5092267042631082
+          ],
+          "spectral_density_per_eV": 0.05864822835527188,
+          "spectral_density_error_per_eV": 0.3584915397008188,
+          "g_error_Ry_inverse": 15.323199460863428,
+          "nonzero_margin_Ry_inverse": 3.1443600828107314,
+          "inverse_error_eV": 3.590280197554181,
+          "K_eV": 8.332137760570268
+        },
+        {
+          "action_error_zero_g_bound_Ry_inverse": 1424.6669184919342,
+          "action_residual_factors": [
+            3.235909076564685,
+            3.2359090770597803,
+            136.0502832589938,
+            136.0502832589939
+          ],
+          "g_Ry_inverse": [
+            0.00011594774120738999,
+            -136.04363560512405
+          ],
+          "g152_Ry_inverse": [
+            -2.0023835628595377,
+            -136.01639211196306
+          ],
+          "spectral_density_per_eV": 3.182787806106777,
+          "spectral_density_error_per_eV": 33.33381003104806,
+          "g_error_Ry_inverse": 1424.8052278236594,
+          "nonzero_margin_Ry_inverse": -1288.761592218486,
+          "inverse_error_eV": null,
+          "K_eV": 9.062053331169723
+        }
+      ],
+      "ordering_eV": -0.7299155705994558,
+      "ordering_error_eV": null,
+      "ordering_interval_eV": null,
+      "ordering_sign_conditional_on_action_error": false,
+      "projected_G_omission_first_order_upper_Ry_inverse": 440.26785876386253,
+      "projected_G_omission_second_order_upper_Ry_inverse": 1424.666760293686,
+      "frame_error_Ry_inverse": 0.00015819412706736735,
+      "conditional_arithmetic_error_Ry_inverse": 2.7211386246124075e-09,
+      "same_H152_304_G_difference_Ry_inverse": 2.0026848225190363,
+      "causal_min_eigen_minus_Im_g_Ry_inverse": 2.5068332208243813
+    },
+    {
+      "max_independent_query_action_error_for_sign_Ry": null,
+      "eta_eV": 0.2,
+      "energy_Ry": 0.6660486411450275,
+      "irrep": [
+        {
+          "action_error_zero_g_bound_Ry_inverse": 7.259243045391283,
+          "action_residual_factors": [
+            0.3266615097007831,
+            0.3266615094712967,
+            17.97792433525221,
+            17.977924335252208
+          ],
+          "g_Ry_inverse": [
+            17.33820195566647,
+            -4.751037091310877
+          ],
+          "g152_Ry_inverse": [
+            17.345512772039978,
+            -4.755336918737458
+          ],
+          "spectral_density_per_eV": 0.11115215242024684,
+          "spectral_density_error_per_eV": 0.16985875173972284,
+          "g_error_Ry_inverse": 7.260365294124432,
+          "nonzero_margin_Ry_inverse": 10.716998263930689,
+          "inverse_error_eV": 0.5127196730775542,
+          "K_eV": 8.332137681455837
+        },
+        {
+          "action_error_zero_g_bound_Ry_inverse": 178.08240106842388,
+          "action_residual_factors": [
+            1.6179498906751262,
+            1.617949891173973,
+            68.02514273761366,
+            68.02514273761366
+          ],
+          "g_Ry_inverse": [
+            0.00011589233724322995,
+            -68.0218200186882
+          ],
+          "g152_Ry_inverse": [
+            -0.5005872597578318,
+            -68.01925340184175
+          ],
+          "spectral_density_per_eV": 1.591393954900425,
+          "spectral_density_error_per_eV": 4.16675783582495,
+          "g_error_Ry_inverse": 178.1020034022173,
+          "nonzero_margin_Ry_inverse": -110.08018338343037,
+          "inverse_error_eV": null,
+          "K_eV": 9.062053075622632
+        }
+      ],
+      "ordering_eV": -0.7299153941667953,
+      "ordering_error_eV": null,
+      "ordering_interval_eV": null,
+      "ordering_sign_conditional_on_action_error": false,
+      "projected_G_omission_first_order_upper_Ry_inverse": 110.06664853847343,
+      "projected_G_omission_second_order_upper_Ry_inverse": 178.08232196980117,
+      "frame_error_Ry_inverse": 7.909706353368368e-05,
+      "conditional_arithmetic_error_Ry_inverse": 1.3605693123062038e-09,
+      "same_H152_304_G_difference_Ry_inverse": 0.5007097303522513,
+      "causal_min_eigen_minus_Im_g_Ry_inverse": 4.751037091274748
+    },
+    {
+      "max_independent_query_action_error_for_sign_Ry": 0.0014992408631550557,
+      "eta_eV": 0.5,
+      "energy_Ry": 0.6660486411450275,
+      "irrep": [
+        {
+          "action_error_zero_g_bound_Ry_inverse": 2.1245130072174576,
+          "action_residual_factors": [
+            0.27941590927273313,
+            0.27941590887308265,
+            15.378228671856695,
+            15.378228671856697
+          ],
+          "g_Ry_inverse": [
+            12.686386492041184,
+            -8.690844154147166
+          ],
+          "g152_Ry_inverse": [
+            12.688675125437403,
+            -8.696611492622964
+          ],
+          "spectral_density_per_eV": 0.2033252983541416,
+          "spectral_density_error_per_eV": 0.04971471893627196,
+          "g_error_Ry_inverse": 2.124983353964265,
+          "nonzero_margin_Ry_inverse": 13.252765972160121,
+          "inverse_error_eV": 0.14186553411342226,
+          "K_eV": 8.332137128431322
+        },
+        {
+          "action_error_zero_g_bound_Ry_inverse": 11.396842307566288,
+          "action_residual_factors": [
+            0.6471669542627424,
+            0.6471669547728888,
+            27.210060186037943,
+            27.21006018603792
+          ],
+          "g_Ry_inverse": [
+            0.00011550595851704006,
+            -27.20873418916124
+          ],
+          "g152_Ry_inverse": [
+            -0.07999717125595977,
+            -27.208946023708904
+          ],
+          "spectral_density_per_eV": 0.6365577265828465,
+          "spectral_density_error_per_eV": 0.2666728021822832,
+          "g_error_Ry_inverse": 11.398541070276666,
+          "nonzero_margin_Ry_inverse": 15.810193119129748,
+          "inverse_error_eV": 0.3605159029078567,
+          "K_eV": 9.062051293609796
+        }
+      ],
+      "ordering_eV": -0.7299141651784744,
+      "ordering_error_eV": 0.5023814370212789,
+      "ordering_interval_eV": [
+        -1.2322956021997533,
+        -0.2275327281571955
+      ],
+      "ordering_sign_conditional_on_action_error": true,
+      "projected_G_omission_first_order_upper_Ry_inverse": 17.61030997196497,
+      "projected_G_omission_second_order_upper_Ry_inverse": 11.396810668179393,
+      "frame_error_Ry_inverse": 3.163882541347347e-05,
+      "conditional_arithmetic_error_Ry_inverse": 5.442277249224815e-10,
+      "same_H152_304_G_difference_Ry_inverse": 0.08011295728630717,
+      "causal_min_eigen_minus_Im_g_Ry_inverse": 8.690844154083205
+    },
+    {
+      "max_independent_query_action_error_for_sign_Ry": 0.00821448797164011,
+      "eta_eV": 1.0,
+      "energy_Ry": 0.6660486411450275,
+      "irrep": [
+        {
+          "action_error_zero_g_bound_Ry_inverse": 0.5423490719795032,
+          "action_residual_factors": [
+            0.19965159369975702,
+            0.1996515935159777,
+            10.989464984026426,
+            10.989464984026428
+          ],
+          "g_Ry_inverse": [
+            6.478577301470629,
+            -8.876309317175318
+          ],
+          "g152_Ry_inverse": [
+            6.477662003460653,
+            -8.879341643550474
+          ],
+          "spectral_density_per_eV": 0.20766431985057512,
+          "spectral_density_error_per_eV": 0.012692665953557024,
+          "g_error_Ry_inverse": 0.5425295454915874,
+          "nonzero_margin_Ry_inverse": 10.446593756451284,
+          "inverse_error_eV": 0.06429931004618883,
+          "K_eV": 8.332135164375426
+        },
+        {
+          "action_error_zero_g_bound_Ry_inverse": 1.4244135316654964,
+          "action_residual_factors": [
+            0.3235603509027224,
+            0.32356035143173106,
+            13.605035530167608,
+            13.605035530167612
+          ],
+          "g_Ry_inverse": [
+            0.00011414706005791268,
+            -13.604377968354777
+          ],
+          "g152_Ry_inverse": [
+            -0.019911065111491218,
+            -13.604572439176803
+          ],
+          "spectral_density_per_eV": 0.31827911768712236,
+          "spectral_density_error_per_eV": 0.03333177906328347,
+          "g_error_Ry_inverse": 1.4247184170604783,
+          "nonzero_margin_Ry_inverse": 12.179659551773172,
+          "inverse_error_eV": 0.11698653320454509,
+          "K_eV": 9.06204502513007
+        }
+      ],
+      "ordering_eV": -0.7299098607546437,
+      "ordering_error_eV": 0.18128584325073394,
+      "ordering_interval_eV": [
+        -0.9111957040053776,
+        -0.5486240175039098
+      ],
+      "ordering_sign_conditional_on_action_error": true,
+      "projected_G_omission_first_order_upper_Ry_inverse": 4.402262848348233,
+      "projected_G_omission_second_order_upper_Ry_inverse": 1.4243977119775741,
+      "frame_error_Ry_inverse": 1.5819412706736735e-05,
+      "conditional_arithmetic_error_Ry_inverse": 2.7211386246124074e-10,
+      "same_H152_304_G_difference_Ry_inverse": 0.020026156434988247,
+      "causal_min_eigen_minus_Im_g_Ry_inverse": 8.876309317110307
+    },
+    {
+      "max_independent_query_action_error_for_sign_Ry": 0.014262288050253057,
+      "eta_eV": 2.0,
+      "energy_Ry": 0.6660486411450275,
+      "irrep": [
+        {
+          "action_error_zero_g_bound_Ry_inverse": 0.09161926860497052,
+          "action_residual_factors": [
+            0.11604577238273359,
+            0.11604577293835817,
+            6.390392818506301,
+            6.3903928185063
+          ],
+          "g_Ry_inverse": [
+            2.190718107497788,
+            -6.002945973476753
+          ],
+          "g152_Ry_inverse": [
+            2.189923203594736,
+            -6.003662301171024
+          ],
+          "spectral_density_per_eV": 0.14044099277496783,
+          "spectral_density_error_per_eV": 0.0021446558651397876,
+          "g_error_Ry_inverse": 0.09167019568683149,
+          "nonzero_margin_Ry_inverse": 6.298525903573304,
+          "inverse_error_eV": 0.03098815531797549,
+          "K_eV": 8.332127476797595
+        },
+        {
+          "action_error_zero_g_bound_Ry_inverse": 0.17795733884335524,
+          "action_residual_factors": [
+            0.16173460822539537,
+            0.16173460879054613,
+            6.802528034152322,
+            6.8025280341523215
+          ],
+          "g_Ry_inverse": [
+            0.00010901988452646941,
+            -6.802209521345988
+          ],
+          "g152_Ry_inverse": [
+            -0.004894255928702009,
+            -6.802317981455042
+          ],
+          "spectral_density_per_eV": 0.15914003931770832,
+          "spectral_density_error_per_eV": 0.0041648061770545135,
+          "g_error_Ry_inverse": 0.17801858258664127,
+          "nonzero_margin_Ry_inverse": 6.624190939632985,
+          "inverse_error_eV": 0.053753056327244024,
+          "K_eV": 9.06202135914792
+        }
+      ],
+      "ordering_eV": -0.7298938823503249,
+      "ordering_error_eV": 0.08474121164521951,
+      "ordering_interval_eV": [
+        -0.8146350939955445,
+        -0.6451526707051054
+      ],
+      "ordering_sign_conditional_on_action_error": true,
+      "projected_G_omission_first_order_upper_Ry_inverse": 1.1002557272858327,
+      "projected_G_omission_second_order_upper_Ry_inverse": 0.17794942900032218,
+      "frame_error_Ry_inverse": 7.909706353368367e-06,
+      "conditional_arithmetic_error_Ry_inverse": 1.3605693123062037e-10,
+      "same_H152_304_G_difference_Ry_inverse": 0.005004451268365303,
+      "causal_min_eigen_minus_Im_g_Ry_inverse": 6.002945973432882
+    }
+  ],
+  "HSE_converged": false,
+  "physical_xc": null
+}

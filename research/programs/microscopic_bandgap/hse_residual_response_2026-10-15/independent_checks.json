@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "bath_tests": [
+    {
+      "eta": 0.001,
+      "second_order_identity_error": 6.89739514895692e-16,
+      "actual_error": 1.57653805304747,
+      "bound": 52420.23936803637
+    },
+    {
+      "eta": 0.05,
+      "second_order_identity_error": 9.88713015787408e-16,
+      "actual_error": 1.5541954869408254,
+      "bound": 1015.9182197194593
+    },
+    {
+      "eta": 1.0,
+      "second_order_identity_error": 1.3416301148866478e-16,
+      "actual_error": 0.5582071880870989,
+      "bound": 6.201850969428472
+    },
+    {
+      "eta": 2.0,
+      "second_order_identity_error": 5.810332420354672e-17,
+      "actual_error": 0.2674342211133357,
+      "bound": 1.0938086132304574
+    }
+  ],
+  "action_error_tests": [
+    {
+      "eta": 0.001,
+      "actual_error": 1.5765773897584763,
+      "action_only_bound": 52425.62173771471,
+      "known_whole_query_error": 6.357548543977323e-05
+    },
+    {
+      "eta": 0.05,
+      "actual_error": 1.5541900085967306,
+      "action_only_bound": 1015.9512909897383,
+      "known_whole_query_error": 5.336975014938692e-05
+    },
+    {
+      "eta": 1.0,
+      "actual_error": 0.5582130645165215,
+      "action_only_bound": 6.2021164393820145,
+      "known_whole_query_error": 5.803403136525031e-05
+    },
+    {
+      "eta": 2.0,
+      "actual_error": 0.2674337514182574,
+      "action_only_bound": 1.0938665151146834,
+      "known_whole_query_error": 6.007788987199478e-05
+    }
+  ],
+  "gauge_shift_invariant": true,
+  "no_positive_complement_or_gap_used": true
+}

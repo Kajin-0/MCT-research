@@ -27,6 +27,18 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 
 ## Latest in-flight/unfinished work at time of writing
 
+**Completion update — 2026-10-15 19:22 UTC, original session resumed:** the
+previously untracked `hse_residual_response_2026-10-15/` has now been audited,
+independently checked and prepared as a scoped accepted READ-ONLY milestone.
+Consult its `decision.md`, `verification.json`, `minimum_input.md` and reset
+ledger; the dated unfinished snapshot below is historical. No further native
+job was launched. Gap-free residual bounds give conditionally negative broad
+finite-resolution inverseordering, not a physical inversionmass/gap/xc.
+Actionerror allowance is explicitly unproved as an interval enclosure. Original
+P leakage and true nativeHP matter:4moment shortcut refused; first2moments and
+boundedthird only. FD304 remains nonstationary (conditionalerrorlower1.31e-7);
+noHSESCF/Cdrelease. The19b6679guardrails, oldFAILs and native283aad5 remain intact.
+
 At snapshot 2026-10-15 16:42 UTC the research branch points to **283aad5** on `research/hgcdte-impurity-tmatrix-20261010`, pushed to GitHub. The worktree also contains a **separate UNTRACKED** `research/programs/microscopic_bandgap/hse_residual_response_2026-10-15/` directory from Codex's interrupted read-only resolvent/moment analysis. **Preserve it. Do not stage, edit, erase or claim it accepted until the original work has been audited and independently checked.** The original Gamma reference has an estimated ~5.8e-7 component outside H304, so do not assert spectral moments beyond what actual full-H actions and explicit leakage bounds determine.
 
 The `research` tmux session was **idle due to model five-hour usage limit** when this handoff was created. No current native MPI family was seen. Usage state may change; verify live before sending any prompt. Do not replace Codex's in-flight session with a new, unrelated program.

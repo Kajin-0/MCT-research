@@ -4,7 +4,34 @@
 
 **State:** historical physical goal BLOCKED; NEW single-native-state H304 acquisition ACCEPTED. FD304 remains nonstationary; old append/staticPBE refusals immutable. Converged HSE/random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 15:55 UTC
+**Updated:** 2026-10-15 19:22 UTC
+
+## Read-only continuum response and true physical moments — 2026-10-15 19:22 UTC
+
+Continued accepted native283aad5; retained successorguardrails19b6679.
+[Decision](hse_residual_response_2026-10-15/decision.md),
+[reset](hse_residual_response_2026-10-15/handoff_ledger.md),
+[minimum inputs](hse_residual_response_2026-10-15/minimum_input.md).
+Second-order residualGreen bound needs no common spectralgap and only a query-
+actionerror certificate. At eta.5eV original-frame inverseordering−.729914eV
+has conditional finite-native interval[−1.232296,−.227533]eV; eta1/2also negative.
+Small eta.05/.1/.2 uncertified. The1e-6Rywholequeryerror is an explicit unproved
+intervalassumption, not material uncertainty; signcapacity.00149924Ry. Noη->0,
+realpole/topology/physicalgap/xc inference. Counterexample searches found NO
+opposite sign; limitedcompletions preserve304basis butnot12extra controls.
+
+True nativephysicalHP controls expose5.8135e-7frame leakageoutside304 and
+1.3912e-5Ryactiondifference; four-moment shortcutREJECTED. Actual Γ6/8spectral
+standarddeviations2.02504/1.68314eV are notlinewidths. Squaredleakage bounds
+unmeasuredthirdmoment1.213e-7Ry³; fourthnotclosed. All316query geometry still
+misses6next directions at1e-8/1e-10. FD304commutatorop.0521183Ry gives conditional
+fullFDdistance>=1.3115e-7; no SCF/Cdrelease despite symmetry/charge.
+
+Independent bath/action/608dense-Schur/gauge/moment checksPASS; allnativepins,
+stock/dirtyDFT/oldrefusals/registry/cgroupcleanup exact. No additional native
+job, ownerchange, queue, other-session/main/goal edit. STOPnativeat actual
+stationarity/nonlinearH[D1] boundary. Nextphysicstheory: qualifiedinversion
+criterion and minimal causal chemical/disorder input, not anotherproxyasgap.
 
 ## Complete native H304 and an actual state obstruction — 2026-10-15 15:55 UTC
 

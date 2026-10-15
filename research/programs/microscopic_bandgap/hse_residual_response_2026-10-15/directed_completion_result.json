@@ -1,0 +1,202 @@
+{
+  "status": "CALCULATED_FINITE_COMPLEMENT_FALSIFICATION_ONLY",
+  "eta_eV": 0.05,
+  "selected_real_roots": [
+    [
+      0.9999979611853629,
+      0.6660486411450277
+    ],
+    [
+      0.9993218475253189,
+      17.495463582942786
+    ],
+    [
+      0.9991118205405138,
+      9.435373756219361
+    ],
+    [
+      0.998678951157076,
+      3.456614810483422
+    ],
+    [
+      0.9985990716136869,
+      19.236735805619762
+    ],
+    [
+      0.9983024468552182,
+      14.445509175110272
+    ]
+  ],
+  "rows": [
+    {
+      "c_Ry": 0.6623737089274622,
+      "root_Ry": 0.6660486411450277,
+      "offset_Ry": -0.003674932217565499,
+      "original_probe_weight": 0.9999979611853629,
+      "ordering_eV": -0.7310304504726792,
+      "causal_min_eigen_minus_Im_g": 1.272221015850767,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 0.6660486411450277,
+      "root_Ry": 0.6660486411450277,
+      "offset_Ry": 0.0,
+      "original_probe_weight": 0.9999979611853629,
+      "ordering_eV": -0.7310310828756601,
+      "causal_min_eigen_minus_Im_g": 1.2722226084304693,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 0.6697235733625932,
+      "root_Ry": 0.6660486411450277,
+      "offset_Ry": 0.003674932217565499,
+      "original_probe_weight": 0.9999979611853629,
+      "ordering_eV": -0.7310317145448253,
+      "causal_min_eigen_minus_Im_g": 1.2722242096955148,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 17.491788650725223,
+      "root_Ry": 17.495463582942786,
+      "offset_Ry": -0.003674932217565499,
+      "original_probe_weight": 0.9993218475253189,
+      "ordering_eV": -0.7296365912667896,
+      "causal_min_eigen_minus_Im_g": 1.2719282642963703,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 17.495463582942786,
+      "root_Ry": 17.495463582942786,
+      "offset_Ry": 0.0,
+      "original_probe_weight": 0.9993218475253189,
+      "ordering_eV": -0.7296426646497745,
+      "causal_min_eigen_minus_Im_g": 1.271929274082367,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 17.49913851516035,
+      "root_Ry": 17.495463582942786,
+      "offset_Ry": 0.003674932217565499,
+      "original_probe_weight": 0.9993218475253189,
+      "ordering_eV": -0.7296488608143847,
+      "causal_min_eigen_minus_Im_g": 1.2719302841711424,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 9.431698824001796,
+      "root_Ry": 9.435373756219361,
+      "offset_Ry": -0.003674932217565499,
+      "original_probe_weight": 0.9991118205405138,
+      "ordering_eV": -0.7290828324100515,
+      "causal_min_eigen_minus_Im_g": 1.27378340570221,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 9.435373756219361,
+      "root_Ry": 9.435373756219361,
+      "offset_Ry": 0.0,
+      "original_probe_weight": 0.9991118205405138,
+      "ordering_eV": -0.7291292553240833,
+      "causal_min_eigen_minus_Im_g": 1.273790523483211,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 9.439048688436927,
+      "root_Ry": 9.435373756219361,
+      "offset_Ry": 0.003674932217565499,
+      "original_probe_weight": 0.9991118205405138,
+      "ordering_eV": -0.7291781216811017,
+      "causal_min_eigen_minus_Im_g": 1.2737976965754858,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 3.4529398782658562,
+      "root_Ry": 3.456614810483422,
+      "offset_Ry": -0.003674932217565499,
+      "original_probe_weight": 0.998678951157076,
+      "ordering_eV": -0.7293621832961277,
+      "causal_min_eigen_minus_Im_g": 1.271559099816115,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 3.456614810483422,
+      "root_Ry": 3.456614810483422,
+      "offset_Ry": 0.0,
+      "original_probe_weight": 0.998678951157076,
+      "ordering_eV": -0.7298234411037369,
+      "causal_min_eigen_minus_Im_g": 1.271560230882988,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 3.4602897427009873,
+      "root_Ry": 3.456614810483422,
+      "offset_Ry": 0.003674932217565499,
+      "original_probe_weight": 0.998678951157076,
+      "ordering_eV": -0.7301834080975352,
+      "causal_min_eigen_minus_Im_g": 1.271561358245038,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 19.2330608734022,
+      "root_Ry": 19.236735805619762,
+      "offset_Ry": -0.003674932217565499,
+      "original_probe_weight": 0.9985990716136869,
+      "ordering_eV": -0.7294554674202921,
+      "causal_min_eigen_minus_Im_g": 1.2724706679272662,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 19.236735805619762,
+      "root_Ry": 19.236735805619762,
+      "offset_Ry": 0.0,
+      "original_probe_weight": 0.9985990716136869,
+      "ordering_eV": -0.7294792371586768,
+      "causal_min_eigen_minus_Im_g": 1.2724720209505274,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 19.240410737837326,
+      "root_Ry": 19.236735805619762,
+      "offset_Ry": 0.003674932217565499,
+      "original_probe_weight": 0.9985990716136869,
+      "ordering_eV": -0.729504647028861,
+      "causal_min_eigen_minus_Im_g": 1.2724733752158799,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 14.441834242892707,
+      "root_Ry": 14.445509175110272,
+      "offset_Ry": -0.003674932217565499,
+      "original_probe_weight": 0.9983024468552182,
+      "ordering_eV": -0.7298578459074706,
+      "causal_min_eigen_minus_Im_g": 1.2710076380610482,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 14.445509175110272,
+      "root_Ry": 14.445509175110272,
+      "offset_Ry": 0.0,
+      "original_probe_weight": 0.9983024468552182,
+      "ordering_eV": -0.7298950369899924,
+      "causal_min_eigen_minus_Im_g": 1.2710091966139594,
+      "norm_upper_Ry": 88.23137668243567
+    },
+    {
+      "c_Ry": 14.449184107327838,
+      "root_Ry": 14.445509175110272,
+      "offset_Ry": 0.003674932217565499,
+      "original_probe_weight": 0.9983024468552182,
+      "ordering_eV": -0.7299361046128824,
+      "causal_min_eigen_minus_Im_g": 1.2710107525648513,
+      "norm_upper_Ry": 88.23137668243567
+    }
+  ],
+  "range_eV": [
+    -0.7310317145448253,
+    -0.7290828324100515
+  ],
+  "opposite_ordering_found": false,
+  "not_a_material_HSE_alternative": true,
+  "all304_basis_A_and_R_preserved": true,
+  "independent_12_physical_probe_actions_NOT_imposed": true
+}

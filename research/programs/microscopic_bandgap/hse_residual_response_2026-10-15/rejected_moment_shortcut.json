@@ -1,0 +1,82 @@
+{
+  "status": "FALSIFIED_UNQUALIFIED_PROJECTED_MOMENT_SHORTCUT",
+  "same_physical_frame": true,
+  "physical_frame_Gram_normalization_op": 1.0784219474856198e-15,
+  "first_H_action_coverage_in304_op_Ry": 1.1471020069790594e-05,
+  "propagated_missing_H_action_bound_Ry": 18.423226881330272,
+  "orthonormal_12block_error": 8.176168672584305e-15,
+  "branches_Gamma6_Gamma8": [
+    {
+      "first_moment_Ry": 0.6129073455434713,
+      "central_variance_Ry2": 0.022152751491143197,
+      "spectral_standard_deviation_eV": 2.025044210042584,
+      "second_Lanczos_diagonal_Ry": 40.18753721672866,
+      "next_residual_variance_Ry2": 53.77983487282484
+    },
+    {
+      "first_moment_Ry": 0.6664428557035751,
+      "central_variance_Ry2": 0.015303770306835978,
+      "spectral_standard_deviation_eV": 1.6831386413130447,
+      "second_Lanczos_diagonal_Ry": 46.334178103854114,
+      "next_residual_variance_Ry2": 241.14995976277362
+    }
+  ],
+  "next_residual_singular_values_Ry": [
+    15.529017991025839,
+    15.529014807160538,
+    15.528992724718876,
+    15.528989772687597,
+    7.33347497068898,
+    7.333472206247175
+  ],
+  "next_residual_rank_at_1e8": 6,
+  "all_physical_moments_up_to4_from_existing_actions_conditionally": false,
+  "new_native_action_needed_for_next_block_only": 6,
+  "no_full_source_FD_stationarity_claim": true,
+  "rows": [
+    {
+      "eta_eV": 0.05,
+      "two_block_ordering_eV": -0.7314546619007455,
+      "conditional_ordering_error_eV": null,
+      "interval_eV": null,
+      "sign_qualified": false
+    },
+    {
+      "eta_eV": 0.1,
+      "two_block_ordering_eV": -0.7314546617914959,
+      "conditional_ordering_error_eV": null,
+      "interval_eV": null,
+      "sign_qualified": false
+    },
+    {
+      "eta_eV": 0.2,
+      "two_block_ordering_eV": -0.7314546613545087,
+      "conditional_ordering_error_eV": null,
+      "interval_eV": null,
+      "sign_qualified": false
+    },
+    {
+      "eta_eV": 0.5,
+      "two_block_ordering_eV": -0.7314546582956061,
+      "conditional_ordering_error_eV": null,
+      "interval_eV": null,
+      "sign_qualified": false
+    },
+    {
+      "eta_eV": 1.0,
+      "two_block_ordering_eV": -0.7314546473710019,
+      "conditional_ordering_error_eV": null,
+      "interval_eV": null,
+      "sign_qualified": false
+    },
+    {
+      "eta_eV": 2.0,
+      "two_block_ordering_eV": -0.7314546036732764,
+      "conditional_ordering_error_eV": null,
+      "interval_eV": null,
+      "sign_qualified": false
+    }
+  ],
+  "physical_xc": null,
+  "reason": "Original physicalP outside304 is nonzero; projected H^2P shortcut has 18.42Ry coarse propagated action uncertainty; not a certified four-moment closure."
+}

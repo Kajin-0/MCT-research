@@ -1,9 +1,24 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 15:55 UTC
+**Last verified update:** 2026-10-15 19:22 UTC
 **Status:** ONE-STATE H304 ACQUISITION PASS; FD304 NOT STATIONARY; OLD APPEND/STATIC PBE FAILURES IMMUTABLE; HSE CONVERGENCE/PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Same-state residual response audited; native state gate remains — 2026-10-15 19:22 UTC
+
+[Read-only decision](../hse_residual_response_2026-10-15/decision.md),
+[context](../hse_residual_response_2026-10-15/handoff_ledger.md). Continues
+283aad5 and preserves19b6679guardrails. No extra native execution. Full-action
+residual theorem bounds finiteetaGreen withoutD/common gap; conditional eta.5
+inverseordering interval[−1.232296,−.227533]eV, eta1/2also negative. This requires
+independent query-action error; not physicalgap/xc/linewidth/topology.
+Originalphysicalprobe leakage5.8e-7included; actualHPcontrols rejectfourmoment
+shortcut, give conditionalthirdmomentbound1.213e-7Ry³. NativeFD304errorlower
+1.3115e-7 excludes1e-8stationarity; noH[D1]/SCF/Cd release. Independentchecks
+and originalprotectedpinsPASS, alloldFAILsimmutable, no jobs/queues/ownerchanges.
+STOPnative trajectory; next theory must define physical inversion/inputs,
+not claimzeroTmaterialtruth fromGamma/q1sigma.001Ryfinite trial.
 
 ## New complete operator; measured FD boundary — 2026-10-15 15:55 UTC
 
@@ -1100,3 +1115,5 @@ Noautomaticrestart/bandcount/occupation/ACEconstructorrepair. Physicalx_cOPEN;
 alloldnegativeandpositiveevidenceunchanged. Historicalblockedgoaluntouched.
 
 - **2026-10-15 15:55 UTC | starts406b6b0 | ONE-STATE304 | OPERATOR PASS / FD BRIDGE BLOCKED:** measured304columns+12controls, strict within-job statebytes, owner329.21s/kernel5.56GB. FDcommutator.50357RyF; no fullSCF/Cd/xc. Preserve oldrefusals; continue independent finite-eta residualphysics.
+
+- **2026-10-15 19:22 UTC | child283aad5/19b6679 | read-only residual/moments | CONDITIONAL RESPONSE PASS / FD STATE BLOCKED:** no extra QE; eta.5inverseordering boundednegative under queryerror assumption, originalHP4moment shortcutREFUSED, truefirst2moments and thirdmomentbudget retained. FullFDdistance lower1.31e-7; no physicalxc.

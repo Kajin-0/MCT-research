@@ -1,0 +1,66 @@
+{
+  "status": "CALCULATED_NATIVE_ORIGINAL_PROBE_MOMENTS",
+  "native_control_actions_USED": true,
+  "projected_control_error_op_Ry": 1.3911933778746117e-05,
+  "physical_frame_Gram_normalization_op": 1.0784219474856198e-15,
+  "physical_frame_coverage_error_op": 5.813525252041479e-07,
+  "first_two_moments_full_action_measured": true,
+  "third_moment_only_CONDITIONAL_bounded_unknown_block": true,
+  "fourth_moment_NOT_closed": true,
+  "outside304_physical_residual_directions_rank_at_1e8": 6,
+  "all_known_query_geometry": [
+    {
+      "threshold": 1e-08,
+      "known_query_span_dimension": 316,
+      "outside_singular_values": [
+        4.294011562474634e-06,
+        4.094265863753486e-06,
+        3.721115769771027e-06,
+        3.3760314303416976e-06,
+        2.983913630628988e-06,
+        2.787222592192535e-06
+      ],
+      "missing_query_rank": 6
+    },
+    {
+      "threshold": 1e-10,
+      "known_query_span_dimension": 316,
+      "outside_singular_values": [
+        4.294011562474634e-06,
+        4.094265863753486e-06,
+        3.721115769771027e-06,
+        3.3760314303416976e-06,
+        2.983913630628988e-06,
+        2.787222592192535e-06
+      ],
+      "missing_query_rank": 6
+    }
+  ],
+  "known_vs_query_next_block_coverage_op": 4.74791052400793e-06,
+  "second_block_diagonal_unknown_op_error_Ry": 4.478863395562305e-06,
+  "third_moment_unknown_op_error_Ry3": 1.2130156983284415e-07,
+  "branches_Gamma6_Gamma8": [
+    {
+      "first_moment_Ry": 0.6129073455435421,
+      "central_variance_Ry2": 0.022152751477659854,
+      "spectral_standard_deviation_eV": 2.0250442094263095,
+      "second_block_diagonal_estimate_Ry": 40.18753723184804,
+      "second_block_diagonal_unknown_complement_error_Ry": 4.478863395562305e-06,
+      "third_raw_moment_estimate_Ry3": 1.1476616557740318,
+      "third_raw_moment_unknown_complement_error_Ry3": 1.2130156983284415e-07
+    },
+    {
+      "first_moment_Ry": 0.666442855703768,
+      "central_variance_Ry2": 0.015303770197878095,
+      "spectral_standard_deviation_eV": 1.683138635321344,
+      "second_block_diagonal_estimate_Ry": 46.33417832037396,
+      "second_block_diagonal_unknown_complement_error_Ry": 4.478863395562305e-06,
+      "third_raw_moment_estimate_Ry3": 1.0254837757983208,
+      "third_raw_moment_unknown_complement_error_Ry3": 1.2130156983284415e-07
+    }
+  ],
+  "whole_H_coarse_norm_bound_Ry": 198683.9405518959,
+  "source_action_arithmetic_allowance_required_separately": true,
+  "HSE_converged": false,
+  "physical_xc": null
+}

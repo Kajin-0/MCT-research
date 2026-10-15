@@ -1,0 +1,38 @@
+"""Physical Gamma block-Lanczos moments from ONE-state measured H actions."""
+import json
+import numpy as np
+from analyze import HERE,SOURCE,PRIVATE,RYEV,norm
+
+def sqrt_pos(G):
+    e,U=np.linalg.eigh((G+G.conj().T)/2);assert min(e)>0
+    return (U*np.sqrt(e))@U.conj().T,(U/np.sqrt(e))@U.conj().T
+
+def main():
+    f=np.load(PRIVATE/'trial.npz');V=f['Q'];P=f['P'];a=np.load(PRIVATE/'full_actions.npz');HV=a['HV'];H0=(a['H']+a['H'].conj().T)/2;M=json.loads((SOURCE/'native_science.json').read_text())['H_operator_norm_upper_Ry']
+    _,ip=sqrt_pos(P.conj().T@P);Q1=P@ip;HQ1=HV@(V.conj().T@Q1);A1=Q1.conj().T@HQ1;L=HQ1-Q1@A1;B1,iB=sqrt_pos(L.conj().T@L);Q2=L@iB
+    # H Q1 lies in304 up to a MEASURED residual. Unknown H on that tiny
+    # residue is bounded by the captured coarse whole-H norm, explicitly.
+    inclusion=norm(HQ1-V@(V.conj().T@HQ1));H2P=HV@(V.conj().T@HQ1);HQ2=(H2P-HQ1@A1)@iB
+    missing_HQ2_bound=M*inclusion*norm(iB)
+    Q=np.c_[Q1,Q2];HQ=np.c_[HQ1,HQ2];T=Q.conj().T@HQ;T=(T+T.conj().T)/2;R=HQ-Q@T;B=Q.conj().T@P
+    assert norm(Q.conj().T@Q-np.eye(12))<1e-8
+    branch=[]
+    for sl in [slice(0,2),slice(2,6)]:
+        n=sl.stop-sl.start;aa=float(np.trace(A1[sl,sl]).real/n);bb=float(np.trace((B1@B1)[sl,sl]).real/n);aa2=float(np.trace((Q2.conj().T@HQ2)[sl,sl]).real/n);bb2=float(np.trace((R[:,6:].conj().T@R[:,6:])[sl,sl]).real/n)
+        branch.append(dict(first_moment_Ry=aa,central_variance_Ry2=bb,spectral_standard_deviation_eV=np.sqrt(bb)*RYEV,second_Lanczos_diagonal_Ry=aa2,next_residual_variance_Ry2=bb2))
+    mu=json.loads((SOURCE/'native_science.json').read_text())['projected_FD_mu_Ry'];rows=[]
+    for ee in [.05,.1,.2,.5,1.,2.]:
+        eta=ee/RYEV;z=mu+1j*eta;Z=np.linalg.solve(z*np.eye(12)-T,B);Zb=np.linalg.solve(z.conjugate()*np.eye(12)-T,B);g=B.conj().T@Z;gs=[np.trace(g[:2,:2])/2,np.trace(g[2:,2:])/4];errs=[]
+        # All actual two-block actions known only to the explicitly propagated
+        # coarse inclusion/action error; do not call H2P exact without it.
+        errH=missing_HQ2_bound+1e-6
+        for sl in [slice(0,2),slice(2,6)]:
+            za=Z[:,sl];zb=Zb[:,sl];errs.append(errH*norm(zb)*norm(za)+(norm(R@zb)+errH*norm(zb))*(norm(R@za)+errH*norm(za))/eta)
+        intervals=[]
+        for g0,er in zip(gs,errs):intervals.append(None if abs(g0)<=er else er/(abs(g0)*(abs(g0)-er))*RYEV)
+        order=float((1/gs[1]-1/gs[0]).real*RYEV);err=None if any(x is None for x in intervals) else sum(intervals)
+        rows.append(dict(eta_eV=ee,two_block_ordering_eV=order,conditional_ordering_error_eV=err,interval_eV=None if err is None else [order-err,order+err],sign_qualified=bool(err is not None and abs(order)>err)))
+    sv=np.linalg.svd(R[:,6:],compute_uv=False)
+    out=dict(status='CALCULATED_ONE_STATE_PHYSICAL_MOMENTS_NOT_SCF',same_physical_frame=True,physical_frame_Gram_normalization_op=norm(ip-np.eye(6)),first_H_action_coverage_in304_op_Ry=inclusion,propagated_missing_H_action_bound_Ry=missing_HQ2_bound,orthonormal_12block_error=norm(Q.conj().T@Q-np.eye(12)),branches_Gamma6_Gamma8=branch,next_residual_singular_values_Ry=sv.tolist(),next_residual_rank_at_1e8=int(sum(sv>1e-8)),all_physical_moments_up_to4_from_existing_actions_conditionally=True,new_native_action_needed_for_next_block_only=6,no_full_source_FD_stationarity_claim=True,rows=rows,physical_xc=None)
+    (HERE/'moment_result.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))
+if __name__=='__main__':main()
