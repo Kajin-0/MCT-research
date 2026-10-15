@@ -1,0 +1,32 @@
+{
+  "status": "PASS independent real-data checks, not material validation",
+  "independent_geometry": {
+    "unshared": {
+      "independent_nearest4_histogram": {
+        "0": 0,
+        "1": 8,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "all48_signed_permutations_linear_order": 24,
+      "affine_order": 48
+    },
+    "shared": {
+      "independent_nearest4_histogram": {
+        "0": 2,
+        "1": 4,
+        "2": 2,
+        "3": 0,
+        "4": 0
+      },
+      "all48_signed_permutations_linear_order": 4,
+      "affine_order": 8
+    }
+  },
+  "independent_W2_delta_eV": -0.0020766487225899466,
+  "independent_matrix_eta05_delta_eV": -0.08165835102304075,
+  "only_substitution_and_private_path_deck_difference": true,
+  "source_sha256": "2f440e02cc730a5dc5b8b70c4b799f853a1897355a866ca35465915c7752b97b",
+  "physical_xc": null
+}

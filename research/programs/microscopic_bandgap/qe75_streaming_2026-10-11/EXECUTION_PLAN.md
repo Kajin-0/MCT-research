@@ -1,9 +1,32 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 05:52 UTC
-**Status:** NEW PBE16 MATCHED CHEMISTRY COMPLETE; JOINT152SPACE CLOSES SYMMETRY BUT HSE STATE UNQUALIFIED; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 06:42 UTC
+**Status:** SAME-COMPOSITION PBE16 N2 ENVIRONMENT CONTRAST COMPLETE; HSE FD/STATE BRIDGE UNQUALIFIED; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Same-composition physics and continuing work — 2026-10-15 06:42 UTC
+
+From892079f: [new native decision](../pair_environment_2026-10-15/decision.md)
+and [reset handoff](../pair_environment_2026-10-15/handoff_ledger.md). Exactly
+two fresh PBE16Cd2Hg6Te8 SCFs, Cd(0,7)then(0,1),50/200Ry/Gamma/352bands288e,
+12/13steps converge365.3/374.7s, kernel2.095GB. Actual subgroups24/4, Kramers
+gates pass without false shared quartet. New native50Ryhost frame explicitly
+frozen, actualG overlap/unitary invariance independently checked. GaussianW2
+contrast−2.07665meV unresolved; scalar causaleta.05−81.47445meV conditionally
+negative. Same-composition finite-FD free energy−88.57143meV/cell; not a gap,
+isolatedpairbinding, HSEor random-alloyxc. No empirical fit or materialerrorbar.
+
+600s/12GiB/swap0/tasks12, host4GiB/disk10GiB floors,14GiB sampled output gates
+pass; finalrecursive503.35MB. Both live2rank leases, terminalcleanup/sourcepins,
+socket86/84bytes and protectedDFT/stock/oldledger exact. Nativewaves/charge and
+raw evidence preserved. Original hostwide/private-network gate still unpassed.
+No retries, HSE16/jobqueue/newsession/main/DFTcommit/other-session modification.
+
+CONTINUE to distinct read-only spectral redistribution and joint152FDstate
+diagnostics, already scoped; no newHSE release from space closure alone. Current
+hard input boundary is complete H[D]/FD/offspace qualification at SAME newD.
+Historical failures and blockedgoal untouched; this update changes no oldgate.
 
 ## New bounded physics milestones — 2026-10-15 05:52 UTC
 

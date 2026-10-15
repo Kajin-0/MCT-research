@@ -2,9 +2,35 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; TWO ordered PBE compositions now have real matched spectra. New x=.125 pair converged and three distinct responses are measured. Joint nearby152space closes Td/Theta, but HSE source/FD-state qualification remains unpassed; physical x_c OPEN.
+**State:** historical physical goal BLOCKED; two ordered PBE compositions plus a SAME-COMPOSITION x=.25 environment contrast now have real native spectra. Sharing changes spectral redistribution and lowers finite-cell PBE energy; Gaussian and causal contrasts differ. HSE source/FD-state qualification remains unpassed; physical x_c OPEN.
 
-**Updated:** 2026-10-15 05:52 UTC
+**Updated:** 2026-10-15 06:42 UTC
+
+## Same-composition N2-bearing PBE contrast — 2026-10-15 06:42 UTC
+
+[Decision](pair_environment_2026-10-15/decision.md),
+[reset ledger](pair_environment_2026-10-15/handoff_ledger.md). ONE fresh stock
+PBE16pair: Cd(0,7)unshared8N1 versus Cd(0,1)sharing2N0+4N1+2N2, SAME x=.25,
+cell/PP/50-200Ry/Gamma/352bands288e/FD.001. Both converge12/13steps under600s,
+owner365.3/374.7s, kernel peaks2.095GB; all livelease/charge/symmetry/cleanup
+gates pass. Native groups24/4; relevant shared clusters are Kramers doublets,
+not an enforced Gamma8quartet. Fixed native50Ry16host frame declared BEFORE
+acquisition. Original40frame/old failures unchanged, not silently requalified.
+
+CALCULATED sharing-minus-unshared GaussianW2−2.076649meV, conditional interval
+[−11.327833,+7.174536]meV unresolved. Scalar causaleta.05−81.474454meV,
+conditional[−111.443387,−51.505520]meV; full6matrix−81.658351meV. These are
+different observable responses, not material gap estimates. Physical sharing
+Gamma8derived doublets span4.04794meV; Gamma6/8weight redistributes. Same-cell
+finite-FD free energy−88.571432meV, not isolated pair binding or zeroTmaterial
+energy. Conditional bounds exclude functional/SCF-eigenpair/BZ/cell errors.
+
+N2geometry has now been sampled; this does NOT extract its local operator from
+nonlinear projected spectra. N3remains an exact unseen environment in the fixed
+local model, and random-alloy/HSE input remains missing. No physicalxc. Protected
+DFT/stock/oldledger hashes exact, raw evidence archived, no native family left.
+Continue read-only joint152FD/state and spectral-redistribution diagnostics;
+no defective HSEiteration or PBEgrid sweep is authorized by this result alone.
 
 ## Real16atom x=.125 chemical response — 2026-10-15 05:52 UTC
 
