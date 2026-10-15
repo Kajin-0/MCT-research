@@ -1,0 +1,79 @@
+{
+  "status": "VERIFIED original refusal preserved; NOT accepted splice",
+  "old_frozen_native_source_pins_PASS": true,
+  "protected_DFT_exact": true,
+  "cgroup_gone": true,
+  "all_shared_h8h_owned_bytes": 1587048448,
+  "no304splice_or_FDresult": true,
+  "raw": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pw.in": {
+      "sha256": "e05b08c9dac1b07e1e1640a026bf56daa236d0a099414e4575c71d2e224f6124",
+      "archived": "evidence/pw.in"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pw.out": {
+      "sha256": "bfe979d00f35e53f3a835aa0525fa4536011af1f441d6e9ae7d18fcec1729185",
+      "archived": "evidence/pw.out"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/JOB.json": {
+      "sha256": "60764c2162d869eec010a1b85535914e98e91b58acabc1a86d0273c940f9aafe",
+      "archived": "evidence/JOB.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/READY.json": {
+      "sha256": "d1ac9ec15facfb690c8b3faaa0bb2cae1f687f6eb72a45c419d00c36e4a35fb6",
+      "archived": "evidence/READY.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/RANKS.json": {
+      "sha256": "59e0968e9d461d003ccd2c20092f8e75db3ae0de202e36945ce0f49a9f171888",
+      "archived": "evidence/RANKS.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/LAUNCH.json": {
+      "sha256": "06a15be7547164908c17d23cb001015ffb23ce6a1a0ece48779b4c08386ac24a",
+      "archived": "evidence/LAUNCH.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/REFERENCED.json": {
+      "sha256": "85901bc500d15b3ab4fe7b7b17d04d367f74e926d26617b41bf1b7060d6fe5ca",
+      "archived": "evidence/REFERENCED.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/GUARD_RESULT.json": {
+      "sha256": "ba6059fd3460d0e761d4d79e30ad99d365b0e108028703dbbe6b6c87685bd9d5",
+      "archived": "evidence/GUARD_RESULT.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/TERMINAL.json": {
+      "sha256": "2cc64205328d2f96ae922383d56e625d8df160448f26e855bb6fb6aa0f7fd4c0",
+      "archived": "evidence/TERMINAL.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/launch_stderr.json": {
+      "sha256": "d960404b2637a8b212666266b0d2335c7f669aac1e84bac42e5ab33da4d16d6f",
+      "archived": "evidence/launch_stderr.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/launch_stdout.json": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": "evidence/launch_stdout.json"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/telemetry.jsonl": {
+      "sha256": "5c6b57a46fcb8748187512ad46b065b558c60338bdbdde7a753e3730997f9877",
+      "archived": "evidence/telemetry.jsonl"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/input.rank1": {
+      "sha256": "6df4d75275dae0c47ecb48b384f4b32968ea12c260e75f2925f3b8ff6c2f2bf4",
+      "bytes": 59014080,
+      "private_raw_retained": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/H.rank0": {
+      "sha256": "c3fa8e47f959f43a79ba986c0f8fd380a4b66e3c5bbd1295a21068bf13963969",
+      "bytes": 184489536,
+      "private_raw_retained": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/input.rank0": {
+      "sha256": "d6edf0d6cbbfdf736c964de0f95eb6f008f9898b6ee803ce7a27854b3e13b121",
+      "bytes": 59046792,
+      "private_raw_retained": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/H.rank1": {
+      "sha256": "6bed0fac156d6eef006ffdf452d3c224c15717ed06870a17c30b17176a69c68e",
+      "bytes": 184393360,
+      "private_raw_retained": true
+    }
+  },
+  "source_sha256": "9b80acd00611745e1be41355dade60c5ca22870d70b6f256c83d7c034f1187f6"
+}

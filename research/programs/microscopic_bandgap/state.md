@@ -2,9 +2,26 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; ordered PBE environment matrix contrast conditionally resolved. Complete SAME-D native HSE operator passes joint symmetry/component checks; its trial is not FD-stationary. A304action space identifies152missing next queries. Static environment operator/derivative and converged HSE/random-alloy x_c remain OPEN.
+**State:** historical physical goal BLOCKED; ordered PBE environment matrix contrast conditionally resolved. Accepted same-D152HSE operator remains non-FD. NEW152append actions acquired but STRICT splice REFUSED after reconstructed rho/potential/action byte differences; no304FDresult. Static environment input and converged HSE/random-alloy x_c remain OPEN.
 
-**Updated:** 2026-10-15 14:18 UTC
+**Updated:** 2026-10-15 15:08 UTC
+
+## Native append acquisition and strict scientific refusal — 2026-10-15 15:08 UTC
+
+From9401972, exactly ONE new residual152query using accepted b3ELF and exact
+oldsource/controls. [Decision](append_hamiltonian_2026-10-15/decision.md),
+[reset](append_hamiltonian_2026-10-15/handoff_ledger.md). Owner/terminal/resource
+PASS168.361s/4.244GBkernel;12GiB/swap0/tasks12/600s and all floors/cleanup pass.
+STRICT science FAIL: VXCcontraction1.42e-13Ry,rhoR5.55e-16,vrs8.01e-13Ry and
+directFockcontrols2.08e-17 differ in native reconstruction. Exact importedD0
+does not imply bitwise native state. No tolerance change, native retry,304splice,
+FDresult or manufactured convergence. Raw source/actions/refusal retained.
+
+Old152operator acceptance/nonstationarity remain. New exact append needs full
+canonical nativeoperator replay; a bounded-error contract would be SEPARATE,
+not a retropass. Cause of near-roundoff differences not established. Protected
+DFT/stock/oldledger/HSE16/other sessions/main/goal unchanged. Continue independent
+PBE staticH probe source qualification at retainedcharges, not HSE repetition.
 
 ## Follow-through: full matrix contrast and minimum tail information — 2026-10-15 14:18 UTC
 

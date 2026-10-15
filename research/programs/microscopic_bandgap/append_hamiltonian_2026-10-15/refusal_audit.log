@@ -1,0 +1,262 @@
+{
+  "status": "REFUSED original strict same-D energy-byte gate; NO304SPLICE/FD result",
+  "original_error": "SAME-D BYTE REFUSAL: energies",
+  "ranks": [
+    {
+      "rank": 0,
+      "state_fields": {
+        "dims": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "fft": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "B": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "k": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "scalars": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "bounds": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "energies": {
+          "bitwise": false,
+          "different_entries": 1,
+          "max_abs_delta": 1.4210854715202004e-13,
+          "old_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.13466522863894
+          ],
+          "new_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.1346652286388
+          ],
+          "delta_Ry": [
+            0.0,
+            0.0,
+            1.4210854715202004e-13
+          ]
+        },
+        "G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "density_G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "wg": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "source": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "rhoG": {
+          "bitwise": false,
+          "different_entries": 43250,
+          "max_abs_delta": 4.9065389333867974e-18
+        },
+        "rhoR": {
+          "bitwise": false,
+          "different_entries": 97930,
+          "max_abs_delta": 5.551115123125783e-16
+        },
+        "vrs": {
+          "bitwise": false,
+          "different_entries": 102992,
+          "max_abs_delta": 8.01136934569513e-13
+        }
+      },
+      "original_physical_controls": {
+        "trial": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "kin": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "loc": {
+          "bitwise": false,
+          "max_abs_delta": 1.716587549445839e-16
+        },
+        "nl": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "fock": {
+          "bitwise": false,
+          "max_abs_delta": 2.0816681711721685e-17
+        },
+        "h_psi": {
+          "bitwise": false,
+          "max_abs_delta": 1.7554167342883506e-16
+        }
+      }
+    },
+    {
+      "rank": 1,
+      "state_fields": {
+        "dims": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "fft": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "B": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "k": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "scalars": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "bounds": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "energies": {
+          "bitwise": false,
+          "different_entries": 1,
+          "max_abs_delta": 1.4210854715202004e-13,
+          "old_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.13466522863894
+          ],
+          "new_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.1346652286388
+          ],
+          "delta_Ry": [
+            0.0,
+            0.0,
+            1.4210854715202004e-13
+          ]
+        },
+        "G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "density_G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "wg": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "source": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "rhoG": {
+          "bitwise": false,
+          "different_entries": 43252,
+          "max_abs_delta": 4.9065389333867974e-18
+        },
+        "rhoR": {
+          "bitwise": false,
+          "different_entries": 96421,
+          "max_abs_delta": 5.551115123125783e-16
+        },
+        "vrs": {
+          "bitwise": false,
+          "different_entries": 102687,
+          "max_abs_delta": 6.794564910705958e-13
+        }
+      },
+      "original_physical_controls": {
+        "trial": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "kin": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "loc": {
+          "bitwise": false,
+          "max_abs_delta": 1.9478403400799705e-16
+        },
+        "nl": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "fock": {
+          "bitwise": false,
+          "max_abs_delta": 1.0444418402013022e-17
+        },
+        "h_psi": {
+          "bitwise": false,
+          "max_abs_delta": 1.7554167342883506e-16
+        }
+      }
+    }
+  ],
+  "native_execution_terminal_and_owner_PASS": true,
+  "strict_append_science_PASS": false,
+  "no_native_retry": true,
+  "no_splice_performed": true,
+  "no_HSE_or_xc_claim": true,
+  "resources": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-1a53898ff18d4c8895d5eb51f006a2b0.service",
+    "elapsed_s": 168.36114329099655,
+    "error": null,
+    "invocation": "ea1d6dd0f147463e847013b9c5f08275",
+    "launcher_returncode": 0,
+    "max_aggregate_output_B": 488775680,
+    "min_free_disk_B": 54506987520,
+    "min_host_available_B": 25546182656,
+    "pass_guard": true,
+    "peak_kernel_memory_B": 4244094976,
+    "peak_sampled_RSS_B": 4321738752,
+    "rank_kernel_exits": {
+      "0": true,
+      "1": true
+    },
+    "sampled_not_continuous": true,
+    "samples": 649
+  }
+}

@@ -1,9 +1,22 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 14:18 UTC
-**Status:** NATIVE SAME-D FULL HSE OPERATOR PASS; FDSTATE FAIL; RETAINED MATRIX CONTRAST BOUNDED; NEXT152H ACTIONS / STATIC-MOMENT INPUT REQUIRED; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 15:08 UTC
+**Status:** NEW152NATIVE ACTIONS ACQUIRED; STRICT APPEND REFUSED; NO304FDRESULT; CONTINUE INDEPENDENT STATIC PBE INPUT; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Exact append gate failed; no retry — 2026-10-15 15:08 UTC
+
+[Measured decision](../append_hamiltonian_2026-10-15/decision.md),
+[reset](../append_hamiltonian_2026-10-15/handoff_ledger.md): ONE new same-b3ELF
+152residual action acquisition passes owner/resources168.36s/4.244GBkernel.
+Byte-exact source/prefix and physical probes, but native reconstructionrho/vrs
+and local/Fockactions differ~1e-16..1e-13. Original strict gate REFUSED; no304
+splice or FDanalysis, no retry, no relaxed tolerance. Old152PASS remains.
+All rawnegative/source/frozen evidence protected and archived. Next exactHSE
+query requires canonical FULLoperator state replay, not identical initialization.
+Continue independent PBEstatic-probe physics after separately qualified source/
+charge/frame/resource gates; no generic ownership or oldHSE176ACEcampaign.
 
 ## Continuing independent physics and finite stop — 2026-10-15 14:18 UTC
 

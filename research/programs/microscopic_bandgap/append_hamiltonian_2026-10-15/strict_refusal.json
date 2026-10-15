@@ -1,0 +1,274 @@
+{
+  "status": "REFUSED original strict same-D energy-byte gate; NO304SPLICE/FD result",
+  "original_error": "SAME-D BYTE REFUSAL: energies",
+  "ranks": [
+    {
+      "rank": 0,
+      "state_fields": {
+        "dims": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "fft": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "B": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "k": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "scalars": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "bounds": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "energies": {
+          "bitwise": false,
+          "different_entries": 1,
+          "max_abs_delta": 1.4210854715202004e-13,
+          "old_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.13466522863894
+          ],
+          "new_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.1346652286388
+          ],
+          "delta_Ry": [
+            0.0,
+            0.0,
+            1.4210854715202004e-13
+          ]
+        },
+        "G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "density_G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "wg": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "source": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "rhoG": {
+          "bitwise": false,
+          "different_entries": 43250,
+          "max_abs_delta": 4.9065389333867974e-18
+        },
+        "rhoR": {
+          "bitwise": false,
+          "different_entries": 97930,
+          "max_abs_delta": 5.551115123125783e-16
+        },
+        "vrs": {
+          "bitwise": false,
+          "different_entries": 102992,
+          "max_abs_delta": 8.01136934569513e-13
+        }
+      },
+      "original_physical_controls": {
+        "trial": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "kin": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "loc": {
+          "bitwise": false,
+          "max_abs_delta": 1.716587549445839e-16
+        },
+        "nl": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "fock": {
+          "bitwise": false,
+          "max_abs_delta": 2.0816681711721685e-17
+        },
+        "h_psi": {
+          "bitwise": false,
+          "max_abs_delta": 1.7554167342883506e-16
+        }
+      }
+    },
+    {
+      "rank": 1,
+      "state_fields": {
+        "dims": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "fft": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "B": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "k": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "scalars": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "bounds": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "energies": {
+          "bitwise": false,
+          "different_entries": 1,
+          "max_abs_delta": 1.4210854715202004e-13,
+          "old_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.13466522863894
+          ],
+          "new_ehart_etxc_vtxc_Ry": [
+            619.3386038113806,
+            -145.39108653177692,
+            -188.1346652286388
+          ],
+          "delta_Ry": [
+            0.0,
+            0.0,
+            1.4210854715202004e-13
+          ]
+        },
+        "G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "density_G": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "wg": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "source": {
+          "bitwise": true,
+          "different_entries": 0,
+          "max_abs_delta": 0.0
+        },
+        "rhoG": {
+          "bitwise": false,
+          "different_entries": 43252,
+          "max_abs_delta": 4.9065389333867974e-18
+        },
+        "rhoR": {
+          "bitwise": false,
+          "different_entries": 96421,
+          "max_abs_delta": 5.551115123125783e-16
+        },
+        "vrs": {
+          "bitwise": false,
+          "different_entries": 102687,
+          "max_abs_delta": 6.794564910705958e-13
+        }
+      },
+      "original_physical_controls": {
+        "trial": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "kin": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "loc": {
+          "bitwise": false,
+          "max_abs_delta": 1.9478403400799705e-16
+        },
+        "nl": {
+          "bitwise": true,
+          "max_abs_delta": 0.0
+        },
+        "fock": {
+          "bitwise": false,
+          "max_abs_delta": 1.0444418402013022e-17
+        },
+        "h_psi": {
+          "bitwise": false,
+          "max_abs_delta": 1.7554167342883506e-16
+        }
+      }
+    }
+  ],
+  "native_execution_terminal_and_owner_PASS": true,
+  "strict_append_science_PASS": false,
+  "no_native_retry": true,
+  "no_splice_performed": true,
+  "no_HSE_or_xc_claim": true,
+  "resources": {
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-1a53898ff18d4c8895d5eb51f006a2b0.service",
+    "elapsed_s": 168.36114329099655,
+    "error": null,
+    "invocation": "ea1d6dd0f147463e847013b9c5f08275",
+    "launcher_returncode": 0,
+    "max_aggregate_output_B": 488775680,
+    "min_free_disk_B": 54506987520,
+    "min_host_available_B": 25546182656,
+    "pass_guard": true,
+    "peak_kernel_memory_B": 4244094976,
+    "peak_sampled_RSS_B": 4321738752,
+    "rank_kernel_exits": {
+      "0": true,
+      "1": true
+    },
+    "sampled_not_continuous": true,
+    "samples": 649
+  },
+  "raw": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/launch_stderr.json": "d960404b2637a8b212666266b0d2335c7f669aac1e84bac42e5ab33da4d16d6f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/GUARD_RESULT.json": "ba6059fd3460d0e761d4d79e30ad99d365b0e108028703dbbe6b6c87685bd9d5",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/TERMINAL.json": "2cc64205328d2f96ae922383d56e625d8df160448f26e855bb6fb6aa0f7fd4c0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/input.rank1": "6df4d75275dae0c47ecb48b384f4b32968ea12c260e75f2925f3b8ff6c2f2bf4",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/H.rank0": "c3fa8e47f959f43a79ba986c0f8fd380a4b66e3c5bbd1295a21068bf13963969",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/input.rank0": "d6edf0d6cbbfdf736c964de0f95eb6f008f9898b6ee803ce7a27854b3e13b121",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8h_20261015/p2/host/pilot/H.rank1": "6bed0fac156d6eef006ffdf452d3c224c15717ed06870a17c30b17176a69c68e",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/frozen_protocol.json": "5c9ed8844fbad00ced0384ec57daa195b1236db72ea065240f8ec45457bc4849",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/readback.py": "761e1141687c1c72ebcf6afd7aab011bf55cfe1e47b7b3a97cf04a4eadc276e5",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/refusal_audit.py": "242f14f7a2db61efb89ffcf17d0ab097890d188ebc4a5d22f12e86b0587eae6d"
+  }
+}

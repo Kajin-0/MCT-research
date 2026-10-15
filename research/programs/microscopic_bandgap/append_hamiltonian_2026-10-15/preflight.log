@@ -1,0 +1,42 @@
+{
+  "status": "PASS prospective append admission; no native launch yet",
+  "old_native_and_source_hashes_verified": true,
+  "old_source_prefix_and_physical_controls_bitwise": true,
+  "query_Gram_op": 3.7054887002582737e-13,
+  "query_basis_reconstruction_F": 1.2827795725710995e-14,
+  "cached_HQ_outside304_F_Ry": 7.314340931727263e-14,
+  "query_singular_min": 0.9999999999998149,
+  "exact_old_ELF_reused": true,
+  "physical_input_equal_except_owned_paths": true,
+  "socket_bytes": 84,
+  "disposable_bind_connect": true,
+  "admission": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "host_available_B": 28488957952,
+  "disk_available_B": 54945329152,
+  "fixed_prepared_charge_B": 1039798272,
+  "native_rank_extents": {
+    "0": {
+      "npwx": 5415,
+      "nnpw": 5415,
+      "input_B": 59046792,
+      "old_prefix_sha256": "faa13c83a93cd5c61e7c90cb67b574f59805058d31a89eee68638d45792a7d75",
+      "output_upper_B": 206604904
+    },
+    "1": {
+      "npwx": 5412,
+      "nnpw": 5412,
+      "input_B": 59014080,
+      "old_prefix_sha256": "96117dee646b2872d563d6dd73f4d20d3895a434f79f94f20b01ad8d9694c0bd",
+      "output_upper_B": 206508640
+    }
+  },
+  "forecast_memory_B_NOT_bound": 6393233408,
+  "forecast_wall_s_NOT_bound": 430.607722,
+  "old_registry_sha256": "82b3e668eeea5dff015b444cf362f945f7a5791d5fa6fe666948b0ab29c31baf"
+}
