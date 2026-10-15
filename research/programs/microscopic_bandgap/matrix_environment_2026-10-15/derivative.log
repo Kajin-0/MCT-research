@@ -1,0 +1,19 @@
+{
+  "primary": {
+    "t_from_each_own_Fermi_eV": 0.0,
+    "eta_eV": 0.05,
+    "matrix_derivative_contrast_norm": 0.10233597933647165,
+    "fixed_frame_derivative_error_bound": 15.23962594100744,
+    "trace_ordering_derivative_contrast": -0.09024434925377384,
+    "trace_derivative_error_bound": 30.47925188201488,
+    "trace_derivative_interval": [
+      -30.56949623126865,
+      30.389007532761106
+    ],
+    "not_impurity_Tprime_or_alloy_A": true
+  },
+  "central_errors": [
+    9.659242172256643e-11,
+    3.5498296730901727e-10
+  ]
+}

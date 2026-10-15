@@ -1,0 +1,566 @@
+{
+  "status": "CALCULATED retained native matrix contrasts and exhaustive geometry; no newQE",
+  "rows": [
+    {
+      "t_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.025,
+      "deltaG_norm_per_eV": 0.3001025273340863,
+      "deltaG_fixed_frame_error_per_eV": 0.09318626374367245,
+      "deltaH_norm_eV": 0.0740536621300674,
+      "deltaH_fixed_frame_error_eV": 0.03697812866511855,
+      "trace_ordering_delta_eV": -0.07407528338555404,
+      "mass_delta_eV": -0.03703764169277702,
+      "common_delta_eV": -0.03605961828446363,
+      "ordering_error_bound_eV": 0.0739562573302371,
+      "ordering_interval_eV": [
+        -0.14803154071579114,
+        -0.00011902605531693977
+      ],
+      "deltaH_offblock_norm_eV": 0.008283106282636014,
+      "Gamma8_Hermitian_anisotropy_eV": 0.0022383467441350145,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.07402720540141171,
+        -0.07402720480639526,
+        -0.0005665421427080412,
+        -0.0005665417109883969,
+        0.0034525337779427383,
+        0.0034525339623329055
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9731124193415832,
+        "shared": 0.9691480175403433
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.00019597538659955918,
+        "shared": 0.00039993517650504346
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.05,
+      "deltaG_norm_per_eV": 0.2642297566278841,
+      "deltaG_fixed_frame_error_per_eV": 0.046593131871836224,
+      "deltaH_norm_eV": 0.07395077277955338,
+      "deltaH_fixed_frame_error_eV": 0.018311458973156593,
+      "trace_ordering_delta_eV": -0.07388102843643202,
+      "mass_delta_eV": -0.03694051421821601,
+      "common_delta_eV": -0.03597640287408174,
+      "ordering_error_bound_eV": 0.036622917946313185,
+      "ordering_interval_eV": [
+        -0.1105039463827452,
+        -0.03725811049011883
+      ],
+      "deltaH_offblock_norm_eV": 0.008273845691627443,
+      "Gamma8_Hermitian_anisotropy_eV": 0.002225978627953512,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.07384531166881388,
+        -0.07384531107333264,
+        -0.0005682744190726717,
+        -0.0005682739871136839,
+        0.0034248910776475175,
+        0.0034248912626269118
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9865172381863409,
+        "shared": 0.9845373864884723
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.0003918872369776316,
+        "shared": 0.0007983112375126476
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.1,
+      "deltaG_norm_per_eV": 0.22835621895402894,
+      "deltaG_fixed_frame_error_per_eV": 0.023296565935918112,
+      "deltaH_norm_eV": 0.07354287026549758,
+      "deltaH_fixed_frame_error_eV": 0.009277551421562323,
+      "trace_ordering_delta_eV": -0.0731130641703403,
+      "mass_delta_eV": -0.03655653208517015,
+      "common_delta_eV": -0.035647956821198284,
+      "ordering_error_bound_eV": 0.018555102843124647,
+      "ordering_interval_eV": [
+        -0.09166816701346495,
+        -0.05455796132721566
+      ],
+      "deltaH_offblock_norm_eV": 0.008237195240068282,
+      "Gamma8_Hermitian_anisotropy_eV": 0.0021774977049409195,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.07312679691175553,
+        -0.07312679631438082,
+        -0.0005760228403636594,
+        -0.0005760224074337807,
+        0.0033154807648778854,
+        0.0033154809522064742
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9931812379421674,
+        "shared": 0.9921959253554181
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.0007832671338560578,
+        "shared": 0.0015844038100988145
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.025,
+      "deltaG_norm_per_eV": 3.2784202087308114,
+      "deltaG_fixed_frame_error_per_eV": 0.09318626374367245,
+      "deltaH_norm_eV": 0.08306332838357348,
+      "deltaH_fixed_frame_error_eV": 0.05117731854978217,
+      "trace_ordering_delta_eV": -0.08192277968962797,
+      "mass_delta_eV": -0.040961389844813983,
+      "common_delta_eV": -0.041016693851125136,
+      "ordering_error_bound_eV": 0.10235463709956434,
+      "ordering_interval_eV": [
+        -0.1842774167891923,
+        0.020431857409936374
+      ],
+      "deltaH_offblock_norm_eV": 0.009254621841686728,
+      "Gamma8_Hermitian_anisotropy_eV": 0.0020838810889404857,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.08302368463041596,
+        -0.08302368393837153,
+        -0.0013860584162610728,
+        -0.0013860583099376469,
+        0.0023210509050713194,
+        0.002321050972791997
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9683579034273926,
+        "shared": 0.9638816471121809
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.00019550282407376638,
+        "shared": 0.00039791618906373315
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.05,
+      "deltaG_norm_per_eV": 0.8757142649393778,
+      "deltaG_fixed_frame_error_per_eV": 0.046593131871836224,
+      "deltaH_norm_eV": 0.08291797143794497,
+      "deltaH_fixed_frame_error_eV": 0.02523838629685227,
+      "trace_ordering_delta_eV": -0.08165835102304062,
+      "mass_delta_eV": -0.04082917551152031,
+      "common_delta_eV": -0.04088795580209233,
+      "ordering_error_bound_eV": 0.05047677259370454,
+      "ordering_interval_eV": [
+        -0.13213512361674515,
+        -0.031181578429336075
+      ],
+      "deltaH_offblock_norm_eV": 0.009240131571120828,
+      "Gamma8_Hermitian_anisotropy_eV": 0.00207006115013583,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.08276007908541223,
+        -0.0827600783929185,
+        -0.0013758838988484575,
+        -0.0013758837928040568,
+        0.00230127065654306,
+        0.002301270723926874
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9841458221446384,
+        "shared": 0.9819105592822607
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.0003909372702190061,
+        "shared": 0.000794012346298073
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.1,
+      "deltaG_norm_per_eV": 0.2916282722352615,
+      "deltaG_fixed_frame_error_per_eV": 0.023296565935918112,
+      "deltaH_norm_eV": 0.08234327791359078,
+      "deltaH_fixed_frame_error_eV": 0.012696640686190325,
+      "trace_ordering_delta_eV": -0.08061564071092993,
+      "mass_delta_eV": -0.040307820355464964,
+      "common_delta_eV": -0.04038199367756042,
+      "ordering_error_bound_eV": 0.02539328137238065,
+      "ordering_interval_eV": [
+        -0.10600892208331059,
+        -0.05522235933854928
+      ],
+      "deltaH_offblock_norm_eV": 0.009183134275887043,
+      "Gamma8_Hermitian_anisotropy_eV": 0.0020166646322504465,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.08172243580494873,
+        -0.08172243511061683,
+        -0.0013384723272666784,
+        -0.0013384722222032012,
+        0.0022227470222761967,
+        0.0022227470883267055
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.992006999870594,
+        "shared": 0.9908950208751832
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.000781328663529073,
+        "shared": 0.0015736943961751038
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.025,
+      "deltaG_norm_per_eV": 0.32460647720789476,
+      "deltaG_fixed_frame_error_per_eV": 0.09318626374367245,
+      "deltaH_norm_eV": 0.09494070872641441,
+      "deltaH_fixed_frame_error_eV": 0.06806070353422866,
+      "trace_ordering_delta_eV": -0.09263156860321324,
+      "mass_delta_eV": -0.04631578430160662,
+      "common_delta_eV": -0.04737163097632833,
+      "ordering_error_bound_eV": 0.13612140706845732,
+      "ordering_interval_eV": [
+        -0.22875297567167058,
+        0.04348983846524408
+      ],
+      "deltaH_offblock_norm_eV": 0.010520756074567341,
+      "Gamma8_Hermitian_anisotropy_eV": 0.0020835563592132463,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.0948783890020396,
+        -0.09487838821007091,
+        -0.0023329047731743225,
+        -0.0023329044048030845,
+        0.001412184441541464,
+        0.0014121846937897233
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9635929389401758,
+        "shared": 0.958471035395028
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.0001961286654031693,
+        "shared": 0.00038070295483529375
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.05,
+      "deltaG_norm_per_eV": 0.28728127014383875,
+      "deltaG_fixed_frame_error_per_eV": 0.046593131871836224,
+      "deltaH_norm_eV": 0.09472430311874298,
+      "deltaH_fixed_frame_error_eV": 0.03343945777556884,
+      "trace_ordering_delta_eV": -0.0922470410550297,
+      "mass_delta_eV": -0.04612352052751485,
+      "common_delta_eV": -0.04716669853115983,
+      "ordering_error_bound_eV": 0.06687891555113767,
+      "ordering_interval_eV": [
+        -0.15912595660616738,
+        -0.02536812550389203
+      ],
+      "deltaH_offblock_norm_eV": 0.01049670145373993,
+      "Gamma8_Hermitian_anisotropy_eV": 0.00206170629642659,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.09447642117842063,
+        -0.09447642038605499,
+        -0.002298263652249292,
+        -0.002298263284873587,
+        0.0013981090585865016,
+        0.0013981093110826993
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9817676786970826,
+        "shared": 0.9792112365187102
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.0003921810191983182,
+        "shared": 0.0007604255977669565
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.1,
+      "deltaG_norm_per_eV": 0.21192132641815112,
+      "deltaG_fixed_frame_error_per_eV": 0.023296565935918112,
+      "deltaH_norm_eV": 0.09387234597762938,
+      "deltaH_fixed_frame_error_eV": 0.016733137285255096,
+      "trace_ordering_delta_eV": -0.09073583733247917,
+      "mass_delta_eV": -0.045367918666239584,
+      "common_delta_eV": -0.04636676487039175,
+      "ordering_error_bound_eV": 0.03346627457051019,
+      "ordering_interval_eV": [
+        -0.12420211190298935,
+        -0.05726956276196898
+      ],
+      "deltaH_offblock_norm_eV": 0.010403136817128237,
+      "Gamma8_Hermitian_anisotropy_eV": 0.001980245835425794,
+      "Hermitian_deltaH_eigenvalues_eV": [
+        -0.0929026251410718,
+        -0.09290262434703415,
+        -0.0021717814693882503,
+        -0.0021717811059519345,
+        0.0013420299600607301,
+        0.0013420302135139614
+      ],
+      "member_inversion_margins": {
+        "unshared": 0.9908264880961473,
+        "shared": 0.9895571307865482
+      },
+      "member_min_causal_damping_eV": {
+        "unshared": 0.0007837530211458057,
+        "shared": 0.0015129645945665658
+      },
+      "physical_frame_fixed": true,
+      "nearby_projector_transport_error_included": false
+    }
+  ],
+  "primary": {
+    "t_from_each_own_Fermi_eV": 0.0,
+    "eta_eV": 0.05,
+    "deltaG_norm_per_eV": 0.8757142649393778,
+    "deltaG_fixed_frame_error_per_eV": 0.046593131871836224,
+    "deltaH_norm_eV": 0.08291797143794497,
+    "deltaH_fixed_frame_error_eV": 0.02523838629685227,
+    "trace_ordering_delta_eV": -0.08165835102304062,
+    "mass_delta_eV": -0.04082917551152031,
+    "common_delta_eV": -0.04088795580209233,
+    "ordering_error_bound_eV": 0.05047677259370454,
+    "ordering_interval_eV": [
+      -0.13213512361674515,
+      -0.031181578429336075
+    ],
+    "deltaH_offblock_norm_eV": 0.009240131571120828,
+    "Gamma8_Hermitian_anisotropy_eV": 0.00207006115013583,
+    "Hermitian_deltaH_eigenvalues_eV": [
+      -0.08276007908541223,
+      -0.0827600783929185,
+      -0.0013758838988484575,
+      -0.0013758837928040568,
+      0.00230127065654306,
+      0.002301270723926874
+    ],
+    "member_inversion_margins": {
+      "unshared": 0.9841458221446384,
+      "shared": 0.9819105592822607
+    },
+    "member_min_causal_damping_eV": {
+      "unshared": 0.0003909372702190061,
+      "shared": 0.000794012346298073
+    },
+    "physical_frame_fixed": true,
+    "nearby_projector_transport_error_included": false
+  },
+  "maximum_inverse_identity_and_blockunitary_error": 9.973274832105276e-16,
+  "triplet_total": 56,
+  "N3bearing_count": 32,
+  "triplet_histogram_multiplicities": {
+    "(1, 3, 3, 1, 0)": 32,
+    "(0, 4, 4, 0, 0)": 24
+  },
+  "chosen_N3_geometry": {
+    "Cd_indices_0based": [
+      0,
+      1,
+      2
+    ],
+    "Te_N_counts": [
+      3,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      0
+    ],
+    "histogram": {
+      "0": 1,
+      "1": 3,
+      "2": 3,
+      "3": 1,
+      "4": 0
+    },
+    "point_group_order": 6,
+    "operations": [
+      {
+        "cartesian": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "translations": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "cartesian": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "translations": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "cartesian": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "translations": [
+          [
+            0.0,
+            0.0,
+            0.5
+          ]
+        ]
+      },
+      {
+        "cartesian": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "translations": [
+          [
+            0.0,
+            0.5,
+            0.0
+          ]
+        ]
+      },
+      {
+        "cartesian": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "translations": [
+          [
+            0.0,
+            0.0,
+            0.5
+          ]
+        ]
+      },
+      {
+        "cartesian": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "translations": [
+          [
+            0.0,
+            0.5,
+            0.0
+          ]
+        ]
+      }
+    ],
+    "x": 0.375,
+    "native_not_launched": true
+  },
+  "physical_xc": null,
+  "not_random_alloy_self_energy": true,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/analyze.py": "84994c8d2bde003a7db6cff2f979c3c0816d561514c5ba3a776d5448e2548d92",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/protocol.md": "9593afc04be1f64ec4f6f8c88f39f5b877ae9d85665cd61f6b98368fe84a2d71",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/numerical_result.json": "8cecbd394f43635dd074e2988bf00c89014968c265959d4495ae7a9a1b48d867",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/complex_overlaps.npz": "0309829633712562102528bbe687c38c7c1c62fcc0d731826bc8d334133f5d10",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/geometry_result.json": "f7f61c17df9f276905e82610a98d8c5618fb2cd9d1e17ab25b23c29f45400429"
+  }
+}

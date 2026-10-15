@@ -1,9 +1,31 @@
 # HgCdTe / QE 7.5 low-RAM execution plan and reset handoff
 
 **Plan created:** 2026-10-11 23:56 UTC (2026-10-11 19:56 America/New_York)
-**Last verified update:** 2026-10-15 13:56 UTC
-**Status:** NATIVE SAME-D FULL HSE OPERATOR PASS; FD TRIAL NOT STATIONARY;304SPACE REQUIRES152APPEND ACTIONS; PHYSICAL XC OPEN
+**Last verified update:** 2026-10-15 14:18 UTC
+**Status:** NATIVE SAME-D FULL HSE OPERATOR PASS; FDSTATE FAIL; RETAINED MATRIX CONTRAST BOUNDED; NEXT152H ACTIONS / STATIC-MOMENT INPUT REQUIRED; PHYSICAL XC OPEN
 **Owner:** Original `research` Codex tmux session; existing MCT research branch `research/hgcdte-impurity-tmatrix-20261010`.
+
+## Continuing independent physics and finite stop — 2026-10-15 14:18 UTC
+
+Native same-D milestone f249885 pushed; then completed the distinct read-only
+[matrix environment](../matrix_environment_2026-10-15/decision.md) and
+[reset ledger](../matrix_environment_2026-10-15/handoff_ledger.md). Nine full6
+causal contrasts, exact inverse/block-frame identities and independent positive
+noncommuting tail tests pass. Primaryeta.05norm82.918meV with fixed-frame
+conditional lower57.680meV. No physical gap, disorderAor staticN2identification.
+
+Derivative-.09024435 remains unresolved: improved matrix error.589217, sufficient
+independent tail-support threshold>.206596eV. No assumption from printed bands.
+High-energy ordered completions change static trace20.93/22.59meV despite tiny
+Green differences: directH probe actions, not more precision of same rows, are
+the minimal remedy. Independent56triple geometry/orbit check qualifies anN3cell
+proposal but no new native run; same-x isolation requires two new configurations.
+
+Current science boundary: SAME-DH[D0] on152new residual directions for304FDspace;
+knownHQnotrepeated. A future query requires NEW typed identical-state/operator
+and owner/resource admission. CurrentONEhost acquisition completed exactly once;
+noSCF/Cd/appendjob released. Preserve all prior failures and source/frame domains.
+OriginalHSE16/stock/dirtyDFT/oldledger/other sessions/main/blockedgoal unchanged.
 
 ## Native same-D bridge breakthrough and next query — 2026-10-15 13:56 UTC
 

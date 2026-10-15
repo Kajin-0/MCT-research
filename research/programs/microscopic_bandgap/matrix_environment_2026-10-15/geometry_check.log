@@ -1,0 +1,91 @@
+{
+  "status": "PASS exact affine-orbit geometry; no native symmetry claim",
+  "host_affine_group_order": 192,
+  "orbits": [
+    {
+      "seed": [
+        0,
+        1,
+        2
+      ],
+      "size": 32,
+      "histogram": [
+        1,
+        3,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "seed": [
+        0,
+        1,
+        6
+      ],
+      "size": 24,
+      "histogram": [
+        0,
+        4,
+        4,
+        0,
+        0
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "Cd_indices": [
+        0,
+        1,
+        2
+      ],
+      "Te_N_counts": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "histogram": [
+        1,
+        3,
+        3,
+        1,
+        0
+      ],
+      "chemical_point_group_order": 6
+    },
+    {
+      "Cd_indices": [
+        0,
+        1,
+        7
+      ],
+      "Te_N_counts": [
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "histogram": [
+        0,
+        4,
+        4,
+        0,
+        0
+      ],
+      "chemical_point_group_order": 8
+    }
+  ],
+  "new_native_jobs": 0,
+  "input_sha256": "f7f61c17df9f276905e82610a98d8c5618fb2cd9d1e17ab25b23c29f45400429",
+  "source_sha256": "1fd3413f37a7a5a142d95eb315a15b75d63159b3725d50df131cf85fe7bd5e25"
+}

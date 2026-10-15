@@ -2,9 +2,40 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical physical goal BLOCKED; ordered PBE composition/environment spectra established. NEW complete SAME-D native HSE operator passes joint symmetry and component checks; its trial is not FD-stationary. A304action space identifies152missing next queries. Converged HSE spectra/random-alloy x_c remain OPEN.
+**State:** historical physical goal BLOCKED; ordered PBE environment matrix contrast conditionally resolved. Complete SAME-D native HSE operator passes joint symmetry/component checks; its trial is not FD-stationary. A304action space identifies152missing next queries. Static environment operator/derivative and converged HSE/random-alloy x_c remain OPEN.
 
-**Updated:** 2026-10-15 13:56 UTC
+**Updated:** 2026-10-15 14:18 UTC
+
+## Follow-through: full matrix contrast and minimum tail information — 2026-10-15 14:18 UTC
+
+After the native same-D checkpoint f249885, continued distinct retained-data
+physics without another native job. [Decision](matrix_environment_2026-10-15/decision.md),
+[proofs](matrix_environment_2026-10-15/theory.md),
+[reset ledger](matrix_environment_2026-10-15/handoff_ledger.md).
+Same-cell PBE16x=.25 sharing-minus-unshared full6matrix kernel at ownEF/eta.05:
+norm82.917971meV, conditional fixed-frame lower57.679585meV; trace-81.658351meV
+interval[-132.135124,-31.181578]meV. All nine prescribed matrix norms have
+positive lower bounds. No real-axis common gap assumed; no physical gap claim.
+
+Energy derivative -.09024435 remains unresolved even after a preconditioned
+resolvent bound reduces matrix error15.24->.5892. Independent omitted-support
+certificate L>.206596eV would settle its conditional sign; printed bands are
+not a completeness/eigenpair certificate. Ordered20/40eV positive tail examples
+alter static trace20.93/22.59meV while preserving all retained data. Thus inverse
+kernel cannot uniquely identify static localN2operator. Material errors excluded.
+
+Independent affine-orbit geometry:56three-Cd subsets split32N3-bearing/24N3-free.
+Candidate012x=.375 has group6 and histogram(1,3,3,1,0); candidate017N3-freegroup8.
+One new cell mixes composition/environment; a same-x contrast needs two new
+SCFs. Fixed-local count rank closes only with COMPLETEbackground-independent
+operators, absent here. No N3job admitted/queued or random-alloy inference.
+
+STOP at concrete next physical input:152newH[D0] residual-direction actions for
+the304joint-symmetry FDbridge; alternative static PBEinput is12completeH probe
+actions on the retained two SCFdensities. Coarse tail-order certificate suffices
+for the derivative alone. No further native work under the completedONEhost
+acquisition. Tests/pins pass, protectedDFT/stock/oldfailures unchanged; no main,
+other-session, historicalgoal or originalHSE16 changes. Physicalxc stillOPEN.
 
 ## Complete SAME-D HSE operator, actual FD obstruction — 2026-10-15 13:56 UTC
 

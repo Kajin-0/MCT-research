@@ -1,0 +1,149 @@
+{
+  "status": "CALCULATED derivatives of retained projected kernels only",
+  "rows": [
+    {
+      "t_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.025,
+      "matrix_derivative_contrast_norm": 0.07918574028555102,
+      "fixed_frame_derivative_error_bound": 5.9766407737825045,
+      "trace_ordering_derivative_contrast": -0.06704011065108151,
+      "trace_derivative_error_bound": 11.953281547565009,
+      "trace_derivative_interval": [
+        -12.02032165821609,
+        11.886241436913927
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.05,
+      "matrix_derivative_contrast_norm": 0.0789944710923653,
+      "fixed_frame_derivative_error_bound": 2.2299922006703445,
+      "trace_ordering_derivative_contrast": -0.06651047383972813,
+      "trace_derivative_error_bound": 4.459984401340689,
+      "trace_derivative_interval": [
+        -4.5264948751804175,
+        4.393473927500961
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": -0.1,
+      "eta_eV": 0.1,
+      "matrix_derivative_contrast_norm": 0.07823975986969518,
+      "fixed_frame_derivative_error_bound": 0.6812861256902825,
+      "trace_ordering_derivative_contrast": -0.06443196910432514,
+      "trace_derivative_error_bound": 1.362572251380565,
+      "trace_derivative_interval": [
+        -1.42700422048489,
+        1.2981402822762398
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.025,
+      "matrix_derivative_contrast_norm": 0.10265239074795016,
+      "fixed_frame_derivative_error_bound": 122.07500028563038,
+      "trace_ordering_derivative_contrast": -0.09114992912387898,
+      "trace_derivative_error_bound": 244.15000057126076,
+      "trace_derivative_interval": [
+        -244.24115050038463,
+        244.0588506421369
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.05,
+      "matrix_derivative_contrast_norm": 0.10233597933647165,
+      "fixed_frame_derivative_error_bound": 15.23962594100744,
+      "trace_ordering_derivative_contrast": -0.09024434925377384,
+      "trace_derivative_error_bound": 30.47925188201488,
+      "trace_derivative_interval": [
+        -30.56949623126865,
+        30.389007532761106
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.0,
+      "eta_eV": 0.1,
+      "matrix_derivative_contrast_norm": 0.1010917419229896,
+      "fixed_frame_derivative_error_bound": 1.9866112146415125,
+      "trace_ordering_derivative_contrast": -0.0867054661472833,
+      "trace_derivative_error_bound": 3.973222429283025,
+      "trace_derivative_interval": [
+        -4.059927895430309,
+        3.8865169631357417
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.025,
+      "matrix_derivative_contrast_norm": 0.13759094441154165,
+      "fixed_frame_derivative_error_bound": 13.936457961734035,
+      "trace_ordering_derivative_contrast": -0.12514612627157817,
+      "trace_derivative_error_bound": 27.87291592346807,
+      "trace_derivative_interval": [
+        -27.998062049739648,
+        27.747769797196494
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.05,
+      "matrix_derivative_contrast_norm": 0.1370221247359664,
+      "fixed_frame_derivative_error_bound": 5.260837706528033,
+      "trace_ordering_derivative_contrast": -0.12358626553882351,
+      "trace_derivative_error_bound": 10.521675413056066,
+      "trace_derivative_interval": [
+        -10.64526167859489,
+        10.398089147517242
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    },
+    {
+      "t_from_each_own_Fermi_eV": 0.1,
+      "eta_eV": 0.1,
+      "matrix_derivative_contrast_norm": 0.13480071802683288,
+      "fixed_frame_derivative_error_bound": 1.5906548139337144,
+      "trace_ordering_derivative_contrast": -0.11750697773471985,
+      "trace_derivative_error_bound": 3.181309627867429,
+      "trace_derivative_interval": [
+        -3.298816605602149,
+        3.063802650132709
+      ],
+      "not_impurity_Tprime_or_alloy_A": true
+    }
+  ],
+  "primary": {
+    "t_from_each_own_Fermi_eV": 0.0,
+    "eta_eV": 0.05,
+    "matrix_derivative_contrast_norm": 0.10233597933647165,
+    "fixed_frame_derivative_error_bound": 15.23962594100744,
+    "trace_ordering_derivative_contrast": -0.09024434925377384,
+    "trace_derivative_error_bound": 30.47925188201488,
+    "trace_derivative_interval": [
+      -30.56949623126865,
+      30.389007532761106
+    ],
+    "not_impurity_Tprime_or_alloy_A": true
+  },
+  "analytic_central_difference_errors": [
+    9.659242172256643e-11,
+    3.5498296730901727e-10
+  ],
+  "no_omitted_energy_support_certificate": true,
+  "no_material_A_prediction": true,
+  "physical_xc": null,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/derivative.py": "ddfe8f22f7dc8d6615c207423de15686b0b0ae817dc8eed5751e9206f7eb19f1",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/analyze.py": "84994c8d2bde003a7db6cff2f979c3c0816d561514c5ba3a776d5448e2548d92",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/derivative_protocol.md": "4203dbd996adbafb9c59e6f184fae42b99d674b8c17340dd1a45bb8e5cccd8f3",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/numerical_result.json": "8cecbd394f43635dd074e2988bf00c89014968c265959d4495ae7a9a1b48d867",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/complex_overlaps.npz": "0309829633712562102528bbe687c38c7c1c62fcc0d731826bc8d334133f5d10"
+  }
+}

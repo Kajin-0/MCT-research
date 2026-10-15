@@ -1,0 +1,58 @@
+{
+  "status": "PASS independent positive-matrix tail/bound/geometry checks; no material validation",
+  "noncommuting_derivative_actual_to_bound_ratios": [
+    0.6030843209972098,
+    0.472154123398811,
+    0.49848527426028283,
+    0.4040147050534195,
+    0.5354597986209864,
+    0.3056899377930424,
+    0.1364709651993059,
+    0.3712676626932163,
+    0.5624527101793344,
+    0.4489758324217414
+  ],
+  "high_energy_tail_static_moment_counterexamples": {
+    "unshared": {
+      "omitted_tail_energies_eV": [
+        20,
+        40
+      ],
+      "both_above_highest_retained": true,
+      "static_trace_ordering_change_eV": 0.020927729226011334,
+      "projected_green_change_norm_per_eV": 2.6159598232085683e-05,
+      "allowed_tail_G_bound_per_eV": 0.023073079734115324,
+      "completion_positive_normalized_and_preserves_all_retained_data": true,
+      "not_an_alternative_fixed_atomic_Coulomb_solution": true
+    },
+    "shared": {
+      "omitted_tail_energies_eV": [
+        20,
+        40
+      ],
+      "both_above_highest_retained": true,
+      "static_trace_ordering_change_eV": 0.022588212892090127,
+      "projected_green_change_norm_per_eV": 2.824227914285632e-05,
+      "allowed_tail_G_bound_per_eV": 0.023520052137720893,
+      "completion_positive_normalized_and_preserves_all_retained_data": true,
+      "not_an_alternative_fixed_atomic_Coulomb_solution": true
+    }
+  },
+  "N3_nearest4_independent_counts": [
+    3,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0
+  ],
+  "fixed_local_count_rank_before": 4,
+  "fixed_local_count_rank_after": 5,
+  "all_nine_matrix_contrast_norm_lower_bounds_positive": true,
+  "one_metadata_permission_label_corrected_with_original_draft_preserved": true,
+  "new_native_jobs": 0,
+  "physical_xc": null,
+  "source_sha256": "41914714044cc469c6dd9d10c8fe80209083dd0bcf81eb4bb38d746cee306a05"
+}

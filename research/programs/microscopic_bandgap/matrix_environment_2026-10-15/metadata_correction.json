@@ -1,0 +1,7 @@
+{
+  "scope": "correct one derived counterexample permission label; no native/numeric change",
+  "old_code_sha256": "51c6cba0cf57767ea58aecdb100b0b484c721227d330252b47d87f2e849bf4ef",
+  "preserved_code_snapshot": "tail_information_v0_metadata.py",
+  "correction": "far/far100eV completion DOES respect lowest352order; only zero-energy completions violate it",
+  "old_failed_metadata_preserved": true
+}

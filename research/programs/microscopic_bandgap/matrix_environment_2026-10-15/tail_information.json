@@ -1,0 +1,53 @@
+{
+  "status": "CALCULATED minimum tail-support information under explicit assumptions",
+  "primary_trace_derivative_delta": -0.09024434925377384,
+  "original_unstructured_matrix_derivative_bound": 15.23962594100744,
+  "improved_gapfree_matrix_derivative_bound": 0.5892171487621151,
+  "trace_derivative_gapfree_interval": [
+    -1.268678646778004,
+    1.0881899482704562
+  ],
+  "sufficient_common_omitted_support_lower_threshold_eV": 0.20659562378386143,
+  "threshold_is_measured_error_budget_NOT_material_fit": true,
+  "highest_printed_retained_energies_eV": {
+    "unshared": 7.965807954295679,
+    "shared": 7.962747790155143
+  },
+  "conditional_bound_IF_lowest_band_order_certified": 0.000482582098832734,
+  "exact_band_order_or_omitted_support_certificate_available": false,
+  "positive_measure_completion_counterexamples": [
+    {
+      "shared_omitted_energy_eV": 100.0,
+      "unshared_omitted_energy_eV": 100.0,
+      "trace_derivative_delta": -0.09024916433147562,
+      "trace_value_delta_eV": -0.0816600728417049,
+      "completion_positive_and_normalized": true,
+      "not_permitted_if_exact_lowest352_ordering_assumed": false
+    },
+    {
+      "shared_omitted_energy_eV": 0.0,
+      "unshared_omitted_energy_eV": 100.0,
+      "trace_derivative_delta": 0.17502342766679746,
+      "trace_value_delta_eV": -0.0794650514861138,
+      "completion_positive_and_normalized": true,
+      "not_permitted_if_exact_lowest352_ordering_assumed": true
+    },
+    {
+      "shared_omitted_energy_eV": 100.0,
+      "unshared_omitted_energy_eV": 0.0,
+      "trace_derivative_delta": -0.2859871414140491,
+      "trace_value_delta_eV": -0.08328284437713764,
+      "completion_positive_and_normalized": true,
+      "not_permitted_if_exact_lowest352_ordering_assumed": true
+    }
+  ],
+  "physical_Coulomb_Hamiltonian_nonuniqueness_NOT_claimed": true,
+  "no_new_native_job": true,
+  "no_material_A_or_xc": true,
+  "source_sha256": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/tail_information.py": "f53a7995022cee7425d5830c4d0ff87455c9cc8ea3275e1323e822eda0e0cd49",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/analyze.py": "84994c8d2bde003a7db6cff2f979c3c0816d561514c5ba3a776d5448e2548d92",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/matrix_environment_2026-10-15/derivative_result.json": "7efa856507756e4036a79b38f5c2faea3b6031c829f57822f39188e0500d3def",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pair_environment_2026-10-15/complex_overlaps.npz": "0309829633712562102528bbe687c38c7c1c62fcc0d731826bc8d334133f5d10"
+  }
+}

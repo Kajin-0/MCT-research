@@ -1,0 +1,15 @@
+{
+  "status": "PASS focused retained physics/provenance/protected-state validation",
+  "UTC": "2026-10-15T14:17:08.605776+00:00",
+  "retained_nine_matrix_arrays_match": true,
+  "all_primary_frozen_sources_match": true,
+  "geometry_two_orbits_and_independent_tail_checks_PASS": true,
+  "preserved_metadata_draft_matches": true,
+  "DFT_tracked_and_dirty_state_unchanged": true,
+  "stock_ELF_archive_unchanged": true,
+  "accepted_native_result_unchanged_and_cgroup_gone": true,
+  "new_native_jobs_in_this_package": 0,
+  "HSE_converged": false,
+  "physical_xc": null,
+  "source_sha256": "a779b2be70637f3e0b050746008b6b64bf77ae9c3f3f3035b26a1da04c695976"
+}
