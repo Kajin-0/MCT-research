@@ -25,6 +25,41 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- PBE_DENSITY_ONLY_FEASIBILITY_20261016_BEGIN -->
+## Latest density-only PBE path assessment — 2026-10-16 17:35 UTC
+
+From9a7dafa: read `pbe_density_only_feasibility_2026-10-16/{decision.md,
+preferred_path.md,acceptance_and_policy.md,audit_result.json,verification.json}`.
+Non-executing phase COMPLETE: conditional scientific design GO, execution NO-GO.
+ONE preferred NEW QE-linked postprocessor: needwf variable false on entry to
+read_file_new; post_xml_init rebuilds saved scalar-density PBE/ionic/NC-SOC,
+then explicit set_vrs and k/beta/probe-only setup for h_psi. No full init_run,
+wfcinit/openfil/electrons/read_collected_wfc needed. Keep352 XML band metadata;
+no352-band solve/load/evc is physically required for this static NC-PBE query.
+Actual UPFs have no NLCC/US/PAW; full relativistic projectors remain essential.
+Retain original50/200Ry cell/PP/rho/spin frame,6+6Theta per member=24pair actions.
+
+Input charge errors<=1.004e-10e; actual-density direct Fourier/FFT check<=5.60e-16.
+New rank1 G/FFT/packet reader needed, no naive reuse of two-rank headers/ELF.
+Selected439.69MB allocations NOT a total bound. No actual H actions, static
+chemical number,2meV certificate, build, service, native MPI or DFT write.
+read_file_new overwrites needwf; missing set_vrs and stop_run file side effects
+must be addressed explicitly. QE pp_example is a pattern, not a SOC-safe driver.
+
+Singleton MPI/no helper and kernel write/network containment are NOT proved.
+Read-only Landlock VERSION returned ABI7; no ruleset/mount enforcement applied.
+Separate prospective policy must prove staged RO inputs, finite scoped outputs,
+closed inherited write paths, all helper/shm/stdio/outside-reader bounds and
+terminal ownership under12GiB/swap0/tasks12/600s and original floors/budget.
+No profile/nonce/ELF release or generic owner continuation authorized. Gate A
+refusal remains immutable and cannot be bypassed by the one-rank proposal.
+Independent evaluator is higher-cost; two-rank fallback only after actual
+one-rank scientific-equivalence failure AND new review, never automatic.
+Static A/B still do not determine QHQ/N2/ensemble mass/gap/x_c. Registry/goal
+unchanged. STOP at separate implementation/admission authorization boundary;
+all prior handoff text is preserved exactly below.
+<!-- PBE_DENSITY_ONLY_FEASIBILITY_20261016_END -->
+
 <!-- PBE_STATIC_LIFECYCLE_20261016_BEGIN -->
 ## Latest Gate A lifecycle-only actual attempt — 2026-10-16 14:35 UTC
 

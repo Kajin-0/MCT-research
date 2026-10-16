@@ -1,0 +1,26 @@
+{
+  "status": "PASS_READ_ONLY_DATA_AND_FORMULA_CHECKS_NOT_NATIVE_EQUIVALENCE",
+  "members": {
+    "unshared": {
+      "direct_three_point_Fourier_vs_FFT_abs_errors": [
+        4.014111623293435e-19,
+        2.234093341997361e-16,
+        2.3058081021193117e-16
+      ],
+      "arbitrary_density_G_reordering_restores_exact_bytes": true,
+      "zero_frequency_Nyquist_alias_collisions": 0
+    },
+    "shared": {
+      "direct_three_point_Fourier_vs_FFT_abs_errors": [
+        2.224583228901991e-16,
+        2.681669027736814e-16,
+        5.594401044052161e-16
+      ],
+      "arbitrary_density_G_reordering_restores_exact_bytes": true,
+      "zero_frequency_Nyquist_alias_collisions": 0
+    }
+  },
+  "independent_single_rank_packet_formula_B": 90028704,
+  "native_H_action_count": 0,
+  "PBE_XC_SOC_or_singleton_runtime_NOT_validated": true
+}

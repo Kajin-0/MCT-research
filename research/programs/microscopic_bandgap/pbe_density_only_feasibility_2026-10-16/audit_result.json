@@ -1,0 +1,741 @@
+{
+  "status": "CONDITIONAL_SCIENTIFIC_DESIGN_GO_EXECUTION_NO_GO",
+  "UTC": "2026-10-16T17:25:23.945954+00:00",
+  "baseline": "9a7dafaca4e605b98adf200a6e463a936f748304",
+  "preferred": "QE read_file_new(false), explicit set_vrs and probe-only k/beta setup, ONE native MPI world rank if singleton qualified",
+  "static_source_assertions": {
+    "density_entry_calls_post_xml_before_needwf_branch": true,
+    "allocate_wfc_k_ONLY_in_needwf_branch": true,
+    "density_entry_no_wfcinit_or_saved_wfc_import": true,
+    "post_no_band_wave_allocation_or_openfil": true,
+    "post_rebuilds_density_Hartree_XC_ionic_SOC_coefficients": true,
+    "post_missing_set_vrs_MUST_be_added": true,
+    "needwf_is_overwritten_on_return": true,
+    "legacy_init_unconditionally_allocates_and_initializes_waves": true,
+    "NC_SOC_newd_is_bare_PP_not_occupied_density": true,
+    "hpsi_explicit_m_NOT_nbnd": true,
+    "old_native_probe_and_phase_BOTH_enforce_two_ranks": true,
+    "stock_stop_run_has_write_delete_side_effects": true,
+    "read_rhog_not_unconditional_Miller_validation": true
+  },
+  "source_map": {
+    "PW/src/read_file_new.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/read_file_new.f90",
+      "sha256": "3de8d57e17f934239fb44508d40d8a198e14313afb541eff44278cd59e1a36b8",
+      "lines": {
+        "SUBROUTINE read_file_new ( needwf )": [
+          158
+        ],
+        "CALL post_xml_init": [
+          108,
+          190
+        ],
+        "IF ( needwf ) THEN": [
+          192
+        ],
+        "CALL allocate_wfc_k()": [
+          122,
+          212
+        ],
+        "needwf = wfc_is_collected": [
+          215
+        ],
+        "SUBROUTINE post_xml_init": [
+          219,
+          454
+        ],
+        "CALL read_scf": [
+          338
+        ],
+        "CALL v_of_rho": [
+          402
+        ],
+        "CALL newd()": [
+          417
+        ]
+      }
+    },
+    "PW/src/init_run.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/init_run.f90",
+      "sha256": "c9dd8ae0a93d28715e06c80396afb4b5c51f2e5b7bd1847dc4906d367e4fbdee",
+      "lines": {
+        "CALL allocate_wfc_k()": [
+          159
+        ],
+        "CALL openfil()": [
+          160
+        ],
+        "CALL wfcinit()": [
+          177
+        ]
+      }
+    },
+    "PW/src/allocate_wfc.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/allocate_wfc.f90",
+      "sha256": "eb48056f04a279efaa6fb03c223bbe940e15ef085dcdfdce7097d7a89f6a5e9d",
+      "lines": {
+        "npwx = n_plane_waves": [
+          33
+        ],
+        "CALL init_igk": [
+          38
+        ],
+        "CALL allocate_wfc(": [
+          40
+        ],
+        "ALLOCATE( vkb": [
+          44
+        ],
+        "ALLOCATE( g2kin": [
+          49
+        ]
+      }
+    },
+    "PW/src/pw_restart_new.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/pw_restart_new.f90",
+      "sha256": "82dfdef8ded7f853b705762036fda7a7694e3a4af6e00e1bfeffa50d35cc46ef",
+      "lines": {
+        "SUBROUTINE read_xml_file": [
+          1137,
+          1461
+        ],
+        "qexsd_copy_band_structure": [
+          44,
+          1341,
+          1342
+        ],
+        "qexsd_copy_basis_set": [
+          43,
+          1285
+        ],
+        "ecutwfc = ecutwfc*e2": [
+          1288
+        ],
+        "qexsd_copy_magnetization": [
+          44,
+          1358
+        ]
+      }
+    },
+    "PW/src/io_rho_xml.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/io_rho_xml.f90",
+      "sha256": "400488ecf2e48d4ba04d2d7692ec0cfd5ca1d96003054ae40761ea2beb6f7a9d",
+      "lines": {
+        "SUBROUTINE read_scf": [
+          139,
+          326
+        ],
+        "nspin_=1": [
+          171
+        ],
+        "CALL read_rhog": [
+          176,
+          190
+        ],
+        "rho%of_g(:,nspin_+1:nspin)": [
+          179
+        ]
+      }
+    },
+    "Modules/io_base.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/io_base.f90",
+      "sha256": "f7953c8f0952d9cb22f48b6291252a36a9f8c14bbcff923d9b75adabcdea4755",
+      "lines": {
+        "SUBROUTINE read_rhog": [
+          600,
+          799
+        ],
+        "readmill =": [
+          716,
+          717
+        ],
+        "CALL splitwf": [
+          368,
+          376,
+          380,
+          779
+        ]
+      }
+    },
+    "Modules/recvec_subs.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/recvec_subs.f90",
+      "sha256": "8ee2e9177cc31173605ed51bcafad1c012e4eb39981e6867908d7e0d8c88f66c",
+      "lines": {
+        "SUBROUTINE ggen": [
+          29,
+          266,
+          269,
+          311
+        ],
+        "global_sort = .TRUE.": [
+          75
+        ],
+        "CALL hpsort_eps": [
+          198,
+          200
+        ],
+        "ig_l2g( ngm ) = ng": [
+          239,
+          241
+        ]
+      }
+    },
+    "PW/src/v_of_rho.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/v_of_rho.f90",
+      "sha256": "5111e47cf300f2cd6e71e5372dfd0e094b318b022c55e6ab5c506b66cec2b705",
+      "lines": {
+        "SUBROUTINE v_of_rho": [
+          9,
+          180
+        ],
+        "CALL v_xc(": [
+          75,
+          415
+        ],
+        "CALL gradcorr": [
+          601
+        ],
+        "SUBROUTINE v_h": [
+          623,
+          764,
+          767,
+          793,
+          796,
+          894,
+          898,
+          995,
+          998,
+          1076,
+          1080,
+          1213,
+          1217,
+          1404,
+          1408,
+          1593,
+          1596,
+          1731,
+          1734,
+          1903,
+          1905,
+          2078,
+          2081,
+          2126
+        ],
+        "V(G=0)=0": [
+          673
+        ],
+        "e2 * fpi / tpiba2": [
+          706
+        ]
+      }
+    },
+    "PW/src/gradcorr.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/gradcorr.f90",
+      "sha256": "200bef96c39e2e6e8716bd8346308fbbda9bfdccd31851ffe99a3c4cfeea5459",
+      "lines": {
+        "CALL fft_gradient_g2r": [
+          124
+        ],
+        "CALL xc_gcx": [
+          134,
+          158
+        ],
+        "CALL fft_graddot": [
+          203
+        ]
+      }
+    },
+    "PW/src/set_rhoc.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/set_rhoc.f90",
+      "sha256": "52c89c339cc182d416dc883f100cff32aea547a81f3561a7a479c1d593714851",
+      "lines": {
+        "rhog_core(:) = 0.0_DP": [
+          44
+        ],
+        "IF ( ANY( upf(1:ntyp)%nlcc ) )": [
+          47
+        ]
+      }
+    },
+    "PW/src/setlocal.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/setlocal.f90",
+      "sha256": "97f5822018cc4ac0e90667d43a93f53acb3653ff1f33e1a1c280d9cf4d7f6d89",
+      "lines": {
+        "vloc(igtongl": [
+          68
+        ],
+        "v_of_0": [
+          26,
+          89,
+          91,
+          92,
+          94
+        ],
+        "CALL rho_g2r": [
+          96,
+          121
+        ]
+      }
+    },
+    "PW/src/set_vrs.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/set_vrs.f90",
+      "sha256": "7ec81bc3130e42b208fb651e02f789f752d280c484f7c9850c93d328a6fc6ca3",
+      "lines": {
+        "SUBROUTINE set_vrs": [
+          9,
+          69
+        ],
+        "vrs(:,is) = vltot(:) + vr(:,is)": [
+          51
+        ],
+        "fft_interpolate": [
+          18,
+          59,
+          60
+        ]
+      }
+    },
+    "PW/src/newd_acc.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/newd_acc.f90",
+      "sha256": "535305b41743c83a72d0f356017aaaebb51bd2137b21c123b503bb1ee8e7fb5d",
+      "lines": {
+        "SUBROUTINE newd_nous": [
+          45,
+          123
+        ],
+        "dvan_so(ih,jh,is,nt)": [
+          74
+        ]
+      }
+    },
+    "upflib/init_us_1.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/upflib/init_us_1.f90",
+      "sha256": "2d626a69d54900888fe95f7c68e937d5d946a57d8896d12e3f80fc53d804ef7e",
+      "lines": {
+        "subroutine init_us_1": [
+          10,
+          269
+        ],
+        "fcoef(ih,kh": [
+          184
+        ],
+        "dvan_so(ih,jh": [
+          201
+        ]
+      }
+    },
+    "PW/src/init_us_2.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/init_us_2.f90",
+      "sha256": "f7905af75518bd946678aac2d74d989bcb6e36ef0ded3ab3440fbf2f148804e2",
+      "lines": {
+        "SUBROUTINE init_us_2": [
+          16,
+          66
+        ],
+        "CALL init_us_2_acc": [
+          54
+        ]
+      }
+    },
+    "PW/src/h_psi.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/h_psi.f90",
+      "sha256": "fce3265cac4ce68282831af4a4fb31e3dc0a8c01ee5e5cb891162f35c14a3bec",
+      "lines": {
+        "SUBROUTINE h_psi(": [
+          9
+        ],
+        "SUBROUTINE h_psi_(": [
+          83
+        ],
+        "CALL vloc_psi_nc_acc": [
+          189
+        ],
+        "CALL calbec": [
+          165,
+          204,
+          232
+        ],
+        "CALL add_vuspsi": [
+          234
+        ]
+      }
+    },
+    "PW/src/vloc_psi_acc.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/vloc_psi_acc.f90",
+      "sha256": "69485f3496c38bfff27665f462c8c9b4728b428d2621643aa3ecdd095e05eb0f",
+      "lines": {
+        "SUBROUTINE vloc_psi_nc_acc": [
+          269,
+          369
+        ],
+        "CALL wave_g2r": [
+          72,
+          116,
+          209,
+          240,
+          327
+        ],
+        "CALL wave_r2g": [
+          81,
+          123,
+          219,
+          247,
+          351
+        ]
+      }
+    },
+    "PW/src/add_vuspsi.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/add_vuspsi.f90",
+      "sha256": "0648c11b4c4cd350595d74fa09b8215bdc21eda24e996e1b70bb8222e0765e9a",
+      "lines": {
+        "SUBROUTINE add_vuspsi_nc": [
+          174,
+          234
+        ],
+        "deeq_nc(ih,jh": [
+          209,
+          210,
+          212,
+          213
+        ],
+        "CALL ZGEMM": [
+          153,
+          164,
+          227
+        ]
+      }
+    },
+    "Modules/mp_world.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/mp_world.f90",
+      "sha256": "83f1fb40e7d9bcb4b22596092e93baea445bc8904cc89ddef3b03c5510accab4",
+      "lines": {
+        "CALL MPI_Init": [
+          72,
+          76,
+          78
+        ],
+        "CALL mp_start": [
+          104
+        ],
+        "CALL mpi_finalize": [
+          129
+        ]
+      }
+    },
+    "Modules/mp_global.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/mp_global.f90",
+      "sha256": "fbfd495071542eff989e5b253be00bcf3d5c6e7956ee950af208cbc0848cc560",
+      "lines": {
+        "SUBROUTINE mp_startup": [
+          42,
+          115
+        ],
+        "CALL mp_start_pools": [
+          104
+        ],
+        "CALL mp_start_bands": [
+          108,
+          110
+        ]
+      }
+    },
+    "Modules/fft_wave.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/fft_wave.f90",
+      "sha256": "76cde35a46c4f17f0c4ee6af2aa0c0521cb8bcc6bc35eaee938b1e8b748ff64c",
+      "lines": {
+        "SUBROUTINE wave_r2g": [
+          31,
+          91
+        ],
+        "SUBROUTINE wave_g2r": [
+          95,
+          159
+        ]
+      }
+    },
+    "Modules/fft_rho.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/fft_rho.f90",
+      "sha256": "3ada593f9a44a18581e223d7007c387400709ab5284b51037325c4b0add342c7",
+      "lines": {
+        "SUBROUTINE rho_g2r_Nspin": [
+          260,
+          360
+        ],
+        "CALL invfft": [
+          239,
+          291,
+          314,
+          339,
+          394,
+          417,
+          443
+        ]
+      }
+    },
+    "FFTXlib/src/fft_scalar.FFTW3.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/FFTXlib/src/fft_scalar.FFTW3.f90",
+      "sha256": "48a2476bfb831406827656d6ad05184a4f24cfc6d05e6c10a592f2b46f2aa4fd",
+      "lines": {
+        "tscale = 1.0_DP / DBLE( nx * ny * nz )": [
+          434
+        ]
+      }
+    },
+    "PW/src/scf_mod.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/scf_mod.f90",
+      "sha256": "b38801ad53bd0c96e7a89e1774a96bb244ded9576204b06c5d0e0739afd3d9c2",
+      "lines": {
+        "SUBROUTINE create_scf_type": [
+          124,
+          179
+        ],
+        "ALLOCATE( rho%of_r": [
+          140,
+          192
+        ],
+        "ALLOCATE( rho%of_g": [
+          141,
+          193,
+          216,
+          284
+        ]
+      }
+    },
+    "PW/src/allocate_fft.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/allocate_fft.f90",
+      "sha256": "ab0128a8bdfd99f027a1e362a8bef66c7aecdd6a1ec546a36f2e8928301040a7",
+      "lines": {
+        "CALL create_scf_type": [
+          55,
+          56,
+          57
+        ],
+        "ALLOCATE( vrs": [
+          68
+        ]
+      }
+    },
+    "PW/src/stop_run.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/stop_run.f90",
+      "sha256": "f9f9cd335c8eded44ac845d219b44659dbbe80157cacc3708562354c236877b3",
+      "lines": {
+        "CALL seqopn": [
+          30,
+          34,
+          36
+        ],
+        "CALL close_files": [
+          42
+        ]
+      }
+    },
+    "Modules/read_pseudo.f90": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/read_pseudo.f90",
+      "sha256": "24e93b4fe7214d978034441dba42cbcc7407e2bff9b11c7c891ccb55f0c94fc4",
+      "lines": {
+        "pseudo_dir_cur": [
+          16,
+          92,
+          96,
+          97
+        ],
+        "CALL  read_ps_new": [
+          125
+        ]
+      }
+    }
+  },
+  "input_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/physical_frame.npz": "7f43140113c77c9a9fdbcfdd49500deac7164204356e34bbc77536e5f59002a3",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/data-file-schema.xml": "b53dec9b385a81ae7b180ddc15d17aa6d5b24f46ab7f126182fd2259ca362183",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/charge-density.hdf5": "8a1fa2dee94a8e6a4b6e9de83f55e0e1add95108fd878d00159ad250f02e96f1",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/data-file-schema.xml": "fbf74a67af2e80bbef275bd61289795c154584ce5988083b373bf0f3d2fe0571",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/charge-density.hdf5": "fe599ce8a29408e537ed0255a0e1185cfa41993251331fe51856922b288b779b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "frame": {
+    "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/physical_frame.npz",
+    "sha256": "7f43140113c77c9a9fdbcfdd49500deac7164204356e34bbc77536e5f59002a3",
+    "N": 21595,
+    "Gram_op": 2.6700354783013193e-15,
+    "Theta_explicit_byte_exact": true,
+    "rank_change_by_integer_G_lookup_required": true
+  },
+  "PP": {
+    "Hg": {
+      "header": {
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "author": "anonymous",
+        "date": "210904",
+        "comment": "",
+        "element": "Hg",
+        "pseudo_type": "NC",
+        "relativistic": "full",
+        "is_ultrasoft": "F",
+        "is_paw": "F",
+        "is_coulomb": "F",
+        "has_so": "T",
+        "has_wfc": "F",
+        "has_gipaw": "F",
+        "core_correction": "F",
+        "functional": "PBE",
+        "z_valence": "   20.00",
+        "total_psenergy": "  -3.10418642386E+02",
+        "rho_cutoff": "   1.24500000000E+01",
+        "l_max": "3",
+        "l_local": "-1",
+        "mesh_size": "  1246",
+        "number_of_wfc": "6",
+        "number_of_proj": "14"
+      },
+      "NLCC_dataset": false,
+      "augmentation_dataset": false,
+      "angular_projectors": 62
+    },
+    "Cd": {
+      "header": {
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "author": "anonymous",
+        "date": "210904",
+        "comment": "",
+        "element": "Cd",
+        "pseudo_type": "NC",
+        "relativistic": "full",
+        "is_ultrasoft": "F",
+        "is_paw": "F",
+        "is_coulomb": "F",
+        "has_so": "T",
+        "has_wfc": "F",
+        "has_gipaw": "F",
+        "core_correction": "F",
+        "functional": "PBE",
+        "z_valence": "   20.00",
+        "total_psenergy": "  -3.10522911562E+02",
+        "rho_cutoff": "   1.36700000000E+01",
+        "l_max": "2",
+        "l_local": "-1",
+        "mesh_size": "  1368",
+        "number_of_wfc": "6",
+        "number_of_proj": "10"
+      },
+      "NLCC_dataset": false,
+      "augmentation_dataset": false,
+      "angular_projectors": 34
+    },
+    "Te": {
+      "header": {
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "author": "anonymous",
+        "date": "210904",
+        "comment": "",
+        "element": "Te",
+        "pseudo_type": "NC",
+        "relativistic": "full",
+        "is_ultrasoft": "F",
+        "is_paw": "F",
+        "is_coulomb": "F",
+        "has_so": "T",
+        "has_wfc": "F",
+        "has_gipaw": "F",
+        "core_correction": "F",
+        "functional": "PBE",
+        "z_valence": "   16.00",
+        "total_psenergy": "  -1.74142190474E+02",
+        "rho_cutoff": "   1.32300000000E+01",
+        "l_max": "2",
+        "l_local": "-1",
+        "mesh_size": "  1324",
+        "number_of_wfc": "5",
+        "number_of_proj": "10"
+      },
+      "NLCC_dataset": false,
+      "augmentation_dataset": false,
+      "angular_projectors": 34
+    }
+  },
+  "members": {
+    "unshared": {
+      "save": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save",
+      "grid": [
+        80,
+        80,
+        80
+      ],
+      "logical_grid_points": 512000,
+      "ngm": 173631,
+      "charge_e": 288.00000000010033,
+      "charge_error_e": 1.0032863428932615e-10,
+      "rho_Theta_Fourier_max": 6.938893903907228e-18,
+      "independent_density_FFT_roundtrip_abs": 2.7755575615628914e-17,
+      "imaginary_rhoR_max": 4.0442137641764593e-16,
+      "rhoR_min": 0.0005573599296784666,
+      "minimal_XML_rho_PP_bytes": 5986142,
+      "excluded_member_wfc_bytes": 243509564,
+      "own_EF_NOT_alignment": true,
+      "nsym": 24
+    },
+    "shared": {
+      "save": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save",
+      "grid": [
+        80,
+        80,
+        80
+      ],
+      "logical_grid_points": 512000,
+      "ngm": 173631,
+      "charge_e": 287.9999999999583,
+      "charge_error_e": -4.172306944383308e-11,
+      "rho_Theta_Fourier_max": 1.4304896245381992e-17,
+      "independent_density_FFT_roundtrip_abs": 2.0977781908897658e-17,
+      "imaginary_rhoR_max": 5.202002198514768e-16,
+      "rhoR_min": 0.0005529463058522226,
+      "minimal_XML_rho_PP_bytes": 5977935,
+      "excluded_member_wfc_bytes": 243509564,
+      "own_EF_NOT_alignment": true,
+      "nsym": 4
+    }
+  },
+  "allocations_CONDITIONAL_selected_payload_NOT_complete_peak": {
+    "vkb_B": 246010240,
+    "g2kin_B": 172760,
+    "trial_plus_four_actions_B": 41462400,
+    "three_scf_objects_main_arrays_B": 82489152,
+    "fft_selected_B": 51930096,
+    "local_nc_work_B": 17075040,
+    "becp_nc_B": 273408,
+    "nonlocal_ps_B": 273408,
+    "excluded_evc_352_B": 243246080,
+    "excluded_wfcinit_becp_352_B": 8019968,
+    "listed_conditional_payload_sum_B": 439686504
+  },
+  "probe_bytes": 8810960,
+  "same_field_set_single_rank_packet_bytes_CONDITIONAL": 90028704,
+  "pair_packet_bytes_CONDITIONAL": 180057408,
+  "complete_peak_RAM_wall_output_bound": false,
+  "security": {
+    "kernel": "6.17.0-41-generic",
+    "Landlock_VERSION_query": 7,
+    "errno": 0,
+    "VERSION_query_only": true,
+    "ruleset_created": false,
+    "restrict_self_called": false,
+    "mount_or_user_namespace_created": false,
+    "actual_confinement_enforcement_proved": false,
+    "actual_singleton_MPI_proved": false,
+    "unprivileged_userns_clone": "1"
+  },
+  "old_profile_pins_unchanged": 126,
+  "old_refused_raw_pins_unchanged": 14,
+  "Gate_A_refusal_unchanged": true,
+  "DFT_dirty_and_protected_stock_unchanged": true,
+  "builds": 0,
+  "native_QE_MPI_SCF_or_H_actions": 0,
+  "new_services": 0,
+  "execution_release": false,
+  "physical_xc": null
+}

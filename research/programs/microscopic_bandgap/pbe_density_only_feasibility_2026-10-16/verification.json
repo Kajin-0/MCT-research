@@ -1,0 +1,33 @@
+{
+  "status": "VERIFIED_CONDITIONAL_SCIENTIFIC_DESIGN_GO_EXECUTION_NO_GO",
+  "UTC": "2026-10-16T17:35:47.437520+00:00",
+  "baseline": "9a7dafaca4e605b98adf200a6e463a936f748304",
+  "preferred_path_count": 1,
+  "source_assertions_passed": 13,
+  "pinned_primary_source_files": 37,
+  "read_only_source_and_actual_data_rechecks_passed": true,
+  "native_operator_equivalence_NOT_proven": true,
+  "singleton_MPI_NO_helper_NOT_proven": true,
+  "Landlock_ABI7_availability_NOT_enforcement": true,
+  "complete_resource_or_2meV_numerical_certificate": false,
+  "old_Gate_A_evidence_and_all_source_unchanged": true,
+  "old_handoff_and_state_history_exactly_preserved": true,
+  "registry_AGENTS_other_programs_unchanged": true,
+  "DFT_dirty_stock_and_old_input_pins_verified_unchanged_by_audit": true,
+  "builds": 0,
+  "native_QE_MPI_H_actions": 0,
+  "new_services": 0,
+  "execution_release": false,
+  "package_sha256": {
+    "acceptance_and_policy.md": "de42507214b2fbed228764ee2cc88fa136a683237d4c9c6879bc35aa98c437e6",
+    "additional_sources.json": "fa4af7f9c720b7bcd72ec0cbc8574f0f5b8e281f89b9693ae3831030b6fa682c",
+    "audit.py": "5418add7768d4aeca3eb20e3d99cfb56ae5c008ac445c5bc2ee92b8d486f5989",
+    "audit_result.json": "93d5831ea6d8e20306299c08568a611795b23c1830cb22da5a54cddef04755fc",
+    "decision.md": "ad7cefb69d8947270097a1435cd4c1ce0b2856313dc103e3e4ed0f040e1416e0",
+    "independent_checks.py": "58b8af502ec5ea04d90b88bb0af4d54c9950ccf908f16e4bd574110ce7061f8a",
+    "independent_results.json": "2a0c19f36914eddb56c68c6cf63c2b6c66b67e9d66bb7701e3aad7b6a156c1ed",
+    "preferred_path.md": "176e6a97a404ddec7f39d32799106d98a02e3cf2eaf7acab979d369e472bf93c"
+  },
+  "physical_xc": null,
+  "primary_source_reference_records": 38
+}

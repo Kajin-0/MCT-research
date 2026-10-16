@@ -1,0 +1,142 @@
+{
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/upflib/uspp.f90": {
+    "sha256": "940ba354fd8fb75c3501b7de4bf0c8ebda67a954c3e932779274311176fd6537",
+    "lines": {
+      "subroutine allocate_uspp": [
+        303,
+        349
+      ],
+      "is_spinorbit = lspinorb": [
+        329
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/upflib/beta_mod.f90": {
+    "sha256": "46cf4043e654f0eb78a65840314a05e035c4fe06e4628ae72bb1d86c70330c96",
+    "lines": {
+      "SUBROUTINE init_tab_beta": [
+        42,
+        127
+      ],
+      "pref = fpi / sqrt (omega)": [
+        100
+      ],
+      "call simpson": [
+        115
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/upflib/init_us_2_acc.f90": {
+    "sha256": "fb8714d6cca4896941c78e05ed0da11ecc56e7367f3f2655120dd02cdaa73fd9",
+    "lines": {
+      "factor (-i)^l": [
+        129
+      ],
+      "pref = (0.d0, -1.d0)": [
+        152
+      ],
+      "CMPLX(cos (arg), -sin (arg)": [
+        145
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/wfcinit.f90": {
+    "sha256": "b56086af259fa5f0c72df346d17b07bc905410d21b92cbc7a3c83e31fee75db0",
+    "lines": {
+      "CALL read_collected_wfc": [
+        112,
+        516
+      ],
+      "recomputing them from scratch": [
+        120
+      ],
+      "starting_wfc = 'atomic+random'": [
+        123,
+        133
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/g2_kin.f90": {
+    "sha256": "9a8e7759ad8f4ba5dc532084e96c96cc2b3ed6161ad85d6a0f1209c105ab2605",
+    "lines": {
+      "qcutz > 0.D0": [
+        45
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/control_flags.f90": {
+    "sha256": "033e9c50757eb9c31b8cb2f189db51f358a13798f9396bf295cc153a8b895730",
+    "lines": {
+      "smallmem      = .FALSE.": [
+        81
+      ],
+      "use_gpu = .FALSE.": [
+        269
+      ],
+      "tq_smoothing=.FALSE.": [
+        304
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/environment.f90": {
+    "sha256": "203d92bc8f13fb405c7d236af067cf8e77d96c32b07d2308087464ab17476c18",
+    "lines": {
+      "CALL initialize_hdf5()": [
+        131
+      ],
+      "#if defined(_HDF5)": [
+        145
+      ],
+      "CALL finalize_hdf5()": [
+        146
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PP/src/pp_example.f90": {
+    "sha256": "69cd6e207ba53975a719c77234815af952273970bae6f520d6d9e5427cf07dce",
+    "lines": {
+      "CALL read_file_new": [
+        69
+      ],
+      "CALL set_vrs": [
+        114
+      ],
+      "CALL h_psi": [
+        128
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/io_base.f90": {
+    "sha256": "f7953c8f0952d9cb22f48b6291252a36a9f8c14bbcff923d9b75adabcdea4755",
+    "lines": {
+      "scale factor, usually 1.0 for pw": [
+        59
+      ]
+    }
+  },
+  "/usr/include/linux/landlock.h": {
+    "sha256": "bc3ba1bf0af770caa0f030551c17b78b77529b913fe964c5aad8e1288e261bcd",
+    "lines": {
+      "opened before the sandboxing": [
+        204
+      ],
+      "LANDLOCK_ACCESS_FS_TRUNCATE": [
+        212,
+        215,
+        322
+      ],
+      "LANDLOCK_SCOPE_ABSTRACT_UNIX_SOCKET": [
+        362,
+        369
+      ]
+    }
+  },
+  "/home/User/opencode_workspace/DFT/.local/qe-env/share/openmpi/help-mpi-runtime.txt": {
+    "sha256": "ccd848ee6c51766f7b150de21ed48e62c7f111a75244465b7f637f4d46c91c4a",
+    "lines": {
+      "Open MPI requires access to a local PMIx server": [
+        118
+      ]
+    }
+  }
+}

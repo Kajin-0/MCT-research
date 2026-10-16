@@ -2,9 +2,39 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED. Gate A actual standalone MPI-launcher/systemd owner attempt REFUSED at startup FD inventory, before any authenticated rank. Cleanup verified; no retry/negative/QE action. Full owner/MPI lifecycle and Gate B resource/numerical qualification remain BLOCKED; no native pair release. Minimum24scientific actions, not12. HSE and all historical failures unchanged. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED. New saved-density-only QE-native PBE design is scientifically feasible CONDITIONAL on source/runtime equivalence;352 wavefunctions are not a physical input requirement. Execution remains NO-GO: singleton/confinement/resource/operator qualification absent. Gate A FD-refusal and all historical failures preserved; no native pair release. Minimum24scientific actions, not12. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 14:35 UTC
+**Updated:** 2026-10-16 17:35 UTC
+
+## Density-only static PBE path — conditional design GO, execution NO-GO
+
+[Decision](pbe_density_only_feasibility_2026-10-16/decision.md),
+[exact native path/observable](pbe_density_only_feasibility_2026-10-16/preferred_path.md),
+[prospective acceptance/policy](pbe_density_only_feasibility_2026-10-16/acceptance_and_policy.md),
+[source/input audit](pbe_density_only_feasibility_2026-10-16/audit_result.json),
+[independent read-only checks](pbe_density_only_feasibility_2026-10-16/independent_results.json).
+From9a7dafa, no build/native action/MPI/service/SCF/protected edit. Select ONE
+NEW standalone postprocessor: read_file_new with needwf initiallyfalse,
+explicit set_vrs, separate k-index/vkb/g2kin/becp12 allocation and unchanged
+h_psi components. post_xml_init already rebuilds density/PBE/ionic/FR-NC;
+no evc352/wfcinit/openfil/read_collected_wfc needed. Keep nbnd352 XML metadata,
+nelec288 and original6+6Theta probes; do not lower bands or redefine frame.
+Actual SG15 headers have no NLCC/US/PAW; this does not generalize to HSE.
+
+Both accepted scalar densities/physicalG checked: charge error<=1.004e-10e,
+independent direct-Fourier/FFT<=5.60e-16. Original24/4 groups and Theta leak
+unchanged. Remove243.5MB/member saved-wave input and243.25MB evc allocation;
+selected439.69MB buffers are NOT full peak/time/output bounds. No numerical
+2meV certificate or new static A/B obtained. PBE saved-density H is not SCF.
+
+One world rank is source-supported, but installed MPI singleton/no-helper
+behavior UNPROVED. Landlock VERSION ABI7 observed without applying rules;
+actual write/network confinement and complete owner/backend envelope UNPROVED.
+Execution NO-GO; no frozen ELF mutation, profile/nonce or launch authority.
+stop_run creates/deletes files; new read-only shutdown must avoid it. Existing
+two-rank reader/ELF cannot be implicitly used as a one-rank control. No generic
+owner redesign/fallback, Gate A retropass, physical mass/gap/N2/x_c or registry
+promotion. Stop at separate reviewed implementation/admission boundary.
 
 ## Gate A actual lifecycle attempt — NO-GO, STOP
 
