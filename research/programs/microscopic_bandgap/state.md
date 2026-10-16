@@ -2,9 +2,33 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED; no new native acquisition admitted. Source-conditioned bounds show retained matched HSE activation/leakage mostly Theta even; original reference is not exactly Kramers closed and source states remain nonstationary/symmetry-unqualified. Qualified screened Cd response still missing; original16atom resource restrictions and all prior host/optical/native boundaries retained. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED; native state update not admitted. A new FD-derived trial passes offline nonlocal symmetry/charge/transport, but the qualified native diagnostic enforces old fixed occupations and no full-space occupied-solve/nonlinear-rebuild bridge or<=2meV chemical error certificate exists. Original matched source failures, frozen-response bounds,16atom resource and host/optical/native boundaries remain. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 05:10 UTC
+**Updated:** 2026-10-16 11:38 UTC
+
+## Nonmagnetic electronic-state update qualification — STOP before native
+
+[Decision](state_update_2026-10-16/decision.md),
+[state-update theory](state_update_2026-10-16/theory.md),
+[ONE next input](state_update_2026-10-16/next_input.md),
+[retained-data trial](state_update_2026-10-16/result.json),
+[independent checks](state_update_2026-10-16/independent_results.json).
+Frombe13479: the known FD304 density is now a reproducible full-G trial source,
+with144e,Theta density upper6.98e-12/all96host operations<7.77e-12 and independent
+four-component FFT/actual rank-G packet roundtrip. No twirl or level averaging.
+Species geometry independently gives96host versus24Cd space operations;
+this Cd site keeps Td but loses host fcc translations. These OFFLINE inputs do
+not qualify a new native state. Full-H commutator still obstructs stationarity;
+new conditional uniform-H correction lower709.1054meV is not chemical error.
+
+Existing qualified source enforces the old weight template and exits before any occupied
+solve. New D1 cannot pass that reader; removing its guard alone is insufficient.
+One next protocol requires full-space direct occupied solve/tail/FD/symmetry,
+then same-D Fock/local-XC rebuild and full-H residual. New native implementation,
+total occupied-solver12GiB/600s resource and owner admission are absent. No native
+run/build/Cd/DFT write. Prospective2meV chemical numerical budget is defined,
+not achieved; unknown feedback stability remains. Old finite chemistry and all
+refusals unchanged; registry remains blocked/unverified. Stop this bounded phase.
 
 ## Frozen-response time-reversal decomposition COMPLETE — 2026-10-16
 

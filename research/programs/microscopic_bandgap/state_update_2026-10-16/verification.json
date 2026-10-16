@@ -1,0 +1,100 @@
+{
+  "status": "PASS_READ_ONLY_STATE_AND_PROSPECTIVE_PROTOCOL; NATIVE_NOT_ADMITTED",
+  "timestamp_UTC": "2026-10-16T11:42:27.236869+00:00",
+  "baseline": "be13479",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "immutable_input_source_ELF_PP_pins": 33,
+  "derived_trial_and_full_action_match_original_pins": true,
+  "original_geometry_independently_verified": {
+    "host": {
+      "path": "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/evidence/host/pw.in",
+      "sha256": "e5a1633cf7a1d5dd2483e8487169c7c1ab7fc8a5bfee92a5043e222b40ff7f3d",
+      "actual_species": [
+        "Hg",
+        "Hg",
+        "Hg",
+        "Hg",
+        "Te",
+        "Te",
+        "Te",
+        "Te"
+      ]
+    },
+    "cd": {
+      "path": "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/evidence/cd/pw.in",
+      "sha256": "531c92fdfc982373eaf0299c13a7b8118468cf8f4d1d1694a673a1350995e2a1",
+      "actual_species": [
+        "Cd",
+        "Hg",
+        "Hg",
+        "Hg",
+        "Te",
+        "Te",
+        "Te",
+        "Te"
+      ]
+    }
+  },
+  "native_source_paths": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/h_psi.f90": {
+      "sha256": "fce3265cac4ce68282831af4a4fb31e3dc0a8c01ee5e5cb891162f35c14a3bec",
+      "marker_lines": {
+        "IF ( use_ace ) THEN": 261,
+        "CALL vexx( lda, n, m, psi, hpsi, becp )": 268
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/sum_band.f90": {
+      "sha256": "ca9ff51e95abe2ef4913d9dd39d7b4627fed294dc10d22ae0050503e40f619cb",
+      "marker_lines": {
+        "CALL weights ( )": 113,
+        "CALL sym_rho( nspin_mag, rho%of_g )": 278
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/exx.f90": {
+      "sha256": "87f1f23a0333818e0979c2ca51b6bf00ebd224ee87fe5cc5600f9cd302ae1173",
+      "marker_lines": {
+        "occ(1:nbnd,ik) = wg(1:nbnd,ik) / wk(ik)": 500,
+        "CALL poolcollect( nbnd, nks, occ, nkstot, x_occupation )": 506
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/wgauss.f90": {
+      "sha256": "78145ca2423a14f3a761737f9eb54ed6e52755c441bd79997da3a138f5d42a8c",
+      "marker_lines": {
+        "if (n.eq. - 99) then": 48,
+        "maxarg = 200.d0": 44
+      }
+    }
+  },
+  "first_blocker": "Existing executable enforces the old fixed-occupation template and returns before any occupied solve/state update.",
+  "old_reader_refuses_D1": true,
+  "protected_pinned_DFT_files_and_stock_unchanged": true,
+  "all_old_MCT_files_except_requested_navigation_unchanged": true,
+  "entire_previous_successor_handoff_preserved": true,
+  "contribution_registry_status_unchanged": true,
+  "informational_host_capacity_NOT_admission": {
+    "MemTotal": 33651908608,
+    "MemAvailable": 29900017664,
+    "available_disk_B": 49677893632
+  },
+  "new_owner_or_resource_admission_attempted": false,
+  "native_jobs": 0,
+  "builds": 0,
+  "DFT_writes": 0,
+  "Cd_runs": 0,
+  "numeric_chemical_2meV_certified": false,
+  "physical_xc": null,
+  "new_package_source_sha256": {
+    "analyze.py": "ab8f646f205c435d6fdedc82233e8ed2b687c8a606f7510afb5e648403a90019",
+    "decision.md": "162838f55e9c973c805065e22f8cda59902f7e42702021d0ef9c8ac40bd929f2",
+    "expected_trial_density.npz": "4a0ef593eb02fae0128805f6179bafb2eee3ba00729e96135de8a95e3d600819",
+    "handoff_ledger.md": "87424e4d44f7999e113afb65fb67a0edf88e0fb2624e3af7fbd09d53e8849829",
+    "independent_checks.py": "6a717525f46805c37e6bc488375474fb5b0ebd37e823309e7c1e58874aba9b00",
+    "independent_results.json": "c975247f2a80956d035da97cade22e71f6d080341409c27265b8ffa92f10c995",
+    "next_input.md": "efe436c6985f04ca79fafffed213da6858810381526cfd9a1e77b92880d91e78",
+    "preregistration.md": "859bea91a9634c19e1c3b3b81239e28c721273ddbe352e8758248cb08182454d",
+    "result.json": "4849f4b8f2fd806c9024dcf690f594f9e8306fd2e060c5b8a22df77dd89c968b",
+    "theory.md": "c479ff8a1114a9074fe6ea9498471a90c54ce8e08eec2bdaca07563cd39d4987",
+    "trial_coordinates.npz": "c946a8b54e211bca7bf770e70a2e5d957dd1276e1f9222d4a08ca04590f12720",
+    "verify.py": "c1a5d1c7d01aae3e511f1722ba783f80636b5688d9fac5f493d2b67d4fcf70eb"
+  }
+}

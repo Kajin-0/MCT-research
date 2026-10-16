@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "actual_native_data_independent_FD_op_error": 4.4086495588233126e-12,
+  "independent_species_group_counts": {
+    "host": 96,
+    "Cd": 24
+  },
+  "actual_two_rank_packet_sizes_B": [
+    58006960,
+    57974824
+  ],
+  "canonical_source_and_158_query_roundtrip_bitwise": true,
+  "new_trial_independent_FFT": {
+    "charge_e": 144.00000000000009,
+    "max_spin_density_Bohr_minus3": 3.276112020555999e-14,
+    "charge_density_change_max_Bohr_minus3": 0.006850467602085297,
+    "charge_density_change_L2_Bohr_minus3_over2": 0.017108992548990433,
+    "rebuilt_native_H_of_new_density": false
+  },
+  "native_reader_implemented_or_compiled": false,
+  "small_complete_nonlinear_model": {
+    "stale_H_FD_residual": 0.0,
+    "rebuilt_H_FD_residual": 0.021404272671435035,
+    "iterations": 11,
+    "final_full_FD_residual": 5.418004736005003e-11,
+    "TR_charge_checks": true,
+    "establishes_native_or_material_convergence": false
+  },
+  "commutator_change_bound_saturated_in_small_block": true,
+  "numerical_chemical_2meV_certified": false,
+  "native_admission": false,
+  "native_jobs": 0,
+  "DFT_writes": 0
+}

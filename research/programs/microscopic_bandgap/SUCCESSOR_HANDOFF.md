@@ -25,6 +25,36 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- STATE_UPDATE_20261016_BEGIN -->
+## Latest nonmagnetic state-update qualification — 2026-10-16
+
+Frombe13479: read `state_update_2026-10-16/{decision.md,next_input.md,theory.md,
+handoff_ledger.md}` and verification before another native proposal. Known
+FD304 is now an actual176-capacity source INITIAL GUESS with full nonlocal
+Theta upper6.98e-12/all96host-space operations<7.77e-12,144e, independent4spin
+FFT density and bitwise actual2rank-G transport. It is NOT a native FD solution,
+SCF checkpoint or a reinterpretation of any old failed state. No twirling/level
+averaging. Actual species subgroup:96host,24Cd; this Cd keeps Td but loses fcc
+translations. Never impose host symmetry on arbitrary Cd configurations.
+
+New conditional necessary uniform-H correction709.1054meV for D1 stationarity
+is NOT a projected chemical error. Local nonlinear feedback/stability remain
+unknown; a defined<=2meV chemical budget is not achieved. Existing qualified
+reader enforces old fixed occupations and returns before occupied solve, so D1 is REFUSED at
+that source interface. A relaxed equality check would not implement SCF.
+The original profile pins D0 bytes; the weight predicate alone does not specify
+its orbitals. This is an executable-contract boundary, not an impossibility proof.
+
+ONE next-input protocol: direct-Fock full-space occupied solve initialized by
+the new trial, controlled omitted occupation/FD/nonlocal symmetry, THEN same-D
+native density/local-XC/Fock rebuild and full-H stationary/readback checks.
+Offline codec/complete small nonlinear logic tested; native implementation,
+complete resource and owner admission NOT established. No service/MPI/QE/build,
+DFT write or Cd attempted. Do not rerun old176ACE or304 actions to substitute
+for the missing solve. Physical gap/x_c and screened chemistry remain OPEN.
+Historical goal and registry status unchanged; all earlier handoff preserved.
+<!-- STATE_UPDATE_20261016_END -->
+
 ## Latest frozen-response Theta decomposition COMPLETE — 2026-10-16
 
 From4cfc16b: read `theta_response_2026-10-16/{decision.md,theory.md,
