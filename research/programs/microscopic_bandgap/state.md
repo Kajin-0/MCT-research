@@ -2,9 +2,42 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED. FINAL PBE static diagnostic TERMINATED after one named NON_SCIENCE holder-peak refusal; actual Landlock checks completed but singleton withheld. No further PBE infrastructure/acquisition scheduled. Priority is independently stationary matched HSE+SOC chemical mass across compositions; current scientific execution NO-GO, physical x_c OPEN. All original numerical acceptances and failures remain preserved.
+**State:** historical persistent goal BLOCKED, unchanged. One bounded stationary matched HSE8 admission audit is complete: pre-execution NO-GO; existing matched owner/binary is a fixed two-build diagnostic, rejected eight-build host is not a nonmagnetic stationary state, and stock direct full-SCF has no qualified exact-profile launch/time/resource/readback path under current limits. No new jobs/builds/infrastructure. PBE static diagnostic remains permanently TERMINATED. Independent stationary HSE chemical input and physical x_c remain OPEN; all prior acceptances/refusals preserved.
 
-**Updated:** 2026-10-16 19:27 UTC
+**Updated:** 2026-10-16 19:53 UTC
+
+<!-- HSE_PAIR_ADMISSION_20261016_BEGIN -->
+## Stationary matched HSE8 admission — terminal NO-GO before execution
+
+Read [decision](hse_pair_admission_2026-10-16/decision.md),
+[read-only source/input audit](hse_pair_admission_2026-10-16/audit.json) and
+[independent verification](hse_pair_admission_2026-10-16/verification.json).
+From clean bd71dea: stock QE7.5, three private ELFs, modules/58 backends,
+original SG15 PPs, archived inputs/XML/packet extents and fixed physical frame
+were inspected without executing any solver or service. Exact old pair model
+50/200/200Ry, Gamma/q1,176/144,FD.001Ry,HSE(.25,.106),6.46A is confirmed;
+no independent stationary input potential exists for this pair.
+
+Existing fixed owner pins the two-build private executable and used roots;
+native code returns with conv_elec=false after second ACE. Ordinary DFT runner
+does not supply required kernel/resource/output contract. Stock ace=false is
+an established direct-exchange alternative, NOT full-SCF admitted. Known old
+two-build members cost410.333/409.315s, kernel4.549/4.542GB; eight-build host
+1628.053s exceeds current600s, remains unconverged/symmetry rejected. These
+observations neither bound a direct full solve nor prove it impossible.
+Native EXX subtotal1,216,512,000B; selected direct payload1,594,965,696B is
+NOT complete peak. Host available29.915GB/disk49.537GB passed floors only.
+
+No fresh job/source/runner, no Cd release, no historical retry or retropass.
+822pins/76history and dirtyDFT/stock/PBE-final refusal remain unchanged.
+Minimum missing input: independently qualified stationary matched HSE state
+packet, rebuilt full H[D]/FD charge+entropy/eigenpair/symmetry and convergence
+logs, from an already-supported bounded native execution; qualified restart
+would be required for continuations if600s insufficient. Conventional numerical
+evidence is useful; no universal SCF proof is demanded. No hardware purchase,
+new infrastructure phase, projected activation->mass or physical xc claim.
+Current finite assignment STOPPED at this input/operational boundary.
+<!-- HSE_PAIR_ADMISSION_20261016_END -->
 
 <!-- PBE_FINAL_ADMISSION_BEGIN -->
 ## FINAL PBE diagnostic TERMINATED; stationary HSE chemistry priority — 2026-10-16 19:27 UTC

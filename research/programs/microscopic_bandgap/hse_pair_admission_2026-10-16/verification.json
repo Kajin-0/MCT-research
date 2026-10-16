@@ -1,0 +1,48 @@
+{
+  "UTC": "2026-10-16T19:53:33.866742+00:00",
+  "passed": true,
+  "baseline": "bd71deacf79e670419a80e8f4c9262dcaeed3274",
+  "audit_pin_count": 98,
+  "protected_pins_unchanged": 822,
+  "original_historical_files_unchanged": 76,
+  "final_PBE_package_byte_exact": true,
+  "DFT_dirty_diff_sha256": "a716be79058b719e363f19b16fdacc228e4093b3f87bdd6b64ac96aa7e78b0f0",
+  "old_Gate_A": "REFUSED_ABSORBING",
+  "independent_native_records": {
+    "host": {
+      "record_pins": {
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/GUARD_RESULT.json": "78647489c8030c25b55cd662ca9ad6af57b53e9e2cad30604e31d532a62e5c38",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/FINAL.json": "e32aea91d121c30432f8bfc74f699519cfb40028e5c531050d79e85fa1ceea91",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/READY.json": "9e4d28ed226266d28021c1f4dd174ef7cc0d32660c11549e01df05df27d3ab90"
+      },
+      "finite_acquisition_accepted": true,
+      "outer_converged": false,
+      "charge_residual_e": 5.81508174946066e-11,
+      "elapsed_s": 410.3326763967052,
+      "kernel_peak_B": 4548526080
+    },
+    "cd": {
+      "record_pins": {
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/GUARD_RESULT.json": "e260714337c612078ca52e89a6358d82d8842f879370a992e62147766389cbee",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/FINAL.json": "6e753d3156b93df69aaef13d34729a86690c49bf1b14758dd3f9fc5879a8ec49",
+        "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/READY.json": "b669d8bfedb87a431f558628cf115764499cc161074c305d5f12f912b349b795"
+      },
+      "finite_acquisition_accepted": true,
+      "outer_converged": false,
+      "charge_residual_e": -1.602984411874786e-11,
+      "elapsed_s": 409.3146513989195,
+      "kernel_peak_B": 4541669376
+    }
+  },
+  "eight_build_guard_sha256": "1a744f06343a9c66f1a95f6d0f1685388345910e6cfe3d80a3b9575e81ee19d9",
+  "eight_build_elapsed_s": 1628.0527153005823,
+  "eight_build_stationary": false,
+  "independent_EXX_bytes": 1216512000,
+  "new_native_executions": 0,
+  "evidence_pins": {
+    "audit.json": "7c09f86ed5d0e5fd5fc5619c34ef43998b3f3df18565e4dad29f32e3b88674b3",
+    "audit.py": "78a6c6132ba8b4bd3909c777034914d93253d246b9131115ec02af058c3bff84",
+    "decision.md": "681f13e495b4ea071f2b4fcf5113b762b76e5215355e687bd8f661fe38913e9a",
+    "verify.py": "4bfc6bb326091e0284deadf80b0b9c70cc8ad155d1a833b739273fd774bd2b10"
+  }
+}

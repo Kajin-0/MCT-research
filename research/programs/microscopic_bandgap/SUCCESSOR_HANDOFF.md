@@ -25,6 +25,45 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- HSE_PAIR_ADMISSION_20261016_BEGIN -->
+## Latest: stationary matched HSE8 pre-execution NO-GO — 2026-10-16 19:53 UTC
+
+Read `hse_pair_admission_2026-10-16/{decision.md,audit.json,verification.json}`.
+From bd71dea, ONE bounded source/native-archive assessment is COMPLETE. Zero
+native executions/services/builds/new runners; no pending job or retry. Stock
+QE7.5 exists (hash1d66c785...), direct exchange ace=false is source-supported.
+The exact intended matched8atom model is confirmed from native XML/PP/input:
+Hg4Te4 vsCdHg3Te4,176spinors/144e,6.46A,SG15 FR NC,50/200/200Ry,Gamma/q1,
+FD.001Ry,HSE(.25,.106),same original physically embedded six-probe frame.
+It does NOT provide a stationary material state or input potential.
+
+First concrete blocker: audited fixed HSE8 owner pins an already-used two-build
+diagnostic ELF/root; native code deliberately returns conv_elec=false. The
+ordinary DFT runner lacks the required kernel/resource/output contract. Stock
+direct fullSCF has no independently qualified exact fresh-profile launch,
+resource/time/readback/restart path under current12GiB/swap0/tasks12/600s,
+host4GiB/disk10GiB/output14GiB limits. No new owner or solver may be built as
+part of this completed scope. PBE static diagnostic remains permanently CLOSED.
+
+Old finite two-build host/Cd wall410.333/409.315s, kernel4.549/4.542GB;
+both dexx~.0025Ry. Rejected eight-build host1628.053s, dexx1.804e-6Ry,
+Theta witness.999765 and quartet.655255eV remains rejected. No extrapolation
+or restored nonmagnetism; Cd from that trajectory was withheld. Stock direct
+EXX buffer1.216512GB and selected payload1.594966GB are NOT complete peak.
+Current host RAM/disk floors pass; full direct-SCF peak/time/output unknown.
+This is neither proof of hardware impossibility nor of direct exchange cure.
+
+Next actual science deliverable requires an independently qualified stationary
+matched HSE material packet from established native production: rebuilt same-D
+H,FD charge/entropy,eigenpair+occupied residuals,actual symmetry and Gamma frame,
+convergence/resource evidence. Existing primitivee90 cold numerical SCFs remain
+accepted in their own domain; they are not e50FD substitutions. Conventional
+numerical SCF convergence is useful without a universal proof, but absent here.
+Only after stationary host may same-domain Cd be released; ordered0/.25 is not
+random-alloyxc.822protected pins/76historical files/DFTdirty/oldPBE refusals and
+blocked goal are unchanged. STOP; no queued work/infrastructure continuation.
+<!-- HSE_PAIR_ADMISSION_20261016_END -->
+
 <!-- PBE_FINAL_ADMISSION_BEGIN -->
 ## FINAL PBE diagnostic TERMINATED; stationary HSE chemistry priority — 2026-10-16 19:27 UTC
 
