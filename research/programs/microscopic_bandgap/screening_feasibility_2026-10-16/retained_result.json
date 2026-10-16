@@ -1,0 +1,300 @@
+{
+  "timestamp_UTC": "2026-10-16T03:31:22.739201+00:00",
+  "baseline": "5dc77a9",
+  "native_invocations": 0,
+  "new_source_edits": 0,
+  "state_status": "old finite acquisitions retained; NOT HSE stationary",
+  "observable": "Cd-minus-host HSE activation relative to each preliminary PBE operator; NOT total screened substitution",
+  "phases": {
+    "host_1": {
+      "source_Gram_error": 8.04421492886157e-15,
+      "corrected_source_Gram_error": 7.1048523190944435e-15,
+      "actual_density_Theta_compressed_lower_witness": 3.2766559143589884e-07,
+      "strict_1e_8_density_Theta_gate_falsified": true,
+      "source_charge_e": 143.99999999995774,
+      "FD_occupation_max_error": 1.0547118733938987e-11,
+      "recorded_source_mu_reconstructed_Ry": 0.7078841018763626,
+      "direct_matrix_reconstruction_max_Ry": 1.1137814927760355e-16,
+      "ACE_minus_direct_reference_action_opnorm_meV": 2.4355300126151307,
+      "ACE_minus_direct_reference_trace_meV": -0.0011887574715093348,
+      "reference_Gram_error": 1.8738892812883837e-15
+    },
+    "host_2": {
+      "source_Gram_error": 4.330098069779021e-15,
+      "corrected_source_Gram_error": 6.704359053983036e-15,
+      "actual_density_Theta_compressed_lower_witness": 0.0013957568948854886,
+      "strict_1e_8_density_Theta_gate_falsified": true,
+      "source_charge_e": 144.00000000005815,
+      "FD_occupation_max_error": 1.4543977133740782e-11,
+      "recorded_source_mu_reconstructed_Ry": 0.6726889570371928,
+      "direct_matrix_reconstruction_max_Ry": 1.6656042861788637e-16,
+      "ACE_minus_direct_reference_action_opnorm_meV": 14.71408118857979,
+      "ACE_minus_direct_reference_trace_meV": -0.074706507685265,
+      "reference_Gram_error": 1.8738892812883837e-15
+    },
+    "cd_1": {
+      "source_Gram_error": 6.693146160754022e-15,
+      "corrected_source_Gram_error": 7.590756307758706e-15,
+      "actual_density_Theta_compressed_lower_witness": 2.120815190465364e-11,
+      "strict_1e_8_density_Theta_gate_falsified": false,
+      "source_charge_e": 144.0000000000689,
+      "FD_occupation_max_error": 1.7208456881689926e-11,
+      "recorded_source_mu_reconstructed_Ry": 0.6971276150243728,
+      "direct_matrix_reconstruction_max_Ry": 1.6654722542338495e-16,
+      "ACE_minus_direct_reference_action_opnorm_meV": 37.88032407889476,
+      "ACE_minus_direct_reference_trace_meV": -0.4936854903073857,
+      "reference_Gram_error": 1.8738892812883837e-15
+    },
+    "cd_2": {
+      "source_Gram_error": 4.963040305512102e-15,
+      "corrected_source_Gram_error": 6.796567320488638e-15,
+      "actual_density_Theta_compressed_lower_witness": 4.018387051704806e-07,
+      "strict_1e_8_density_Theta_gate_falsified": true,
+      "source_charge_e": 143.99999999998414,
+      "FD_occupation_max_error": 3.941291737419306e-12,
+      "recorded_source_mu_reconstructed_Ry": 0.6617020227046346,
+      "direct_matrix_reconstruction_max_Ry": 3.8857867306098634e-16,
+      "ACE_minus_direct_reference_action_opnorm_meV": 37.63745304670352,
+      "ACE_minus_direct_reference_trace_meV": -0.47121912681853817,
+      "reference_Gram_error": 1.8738892812883837e-15
+    }
+  },
+  "chemical": {
+    "c1": {
+      "trace_meV": 44.18409724746495,
+      "all_sector_Rayleigh_difference_interval_meV": [
+        44.18404642500976,
+        44.18414781013124
+      ],
+      "scalar_free_compression_opnorm_meV": 8.269080671756991e-05,
+      "action_Q_leakage_opnorm_meV": 120.13545995469579,
+      "action_Q_leakage_Gamma6_opnorm_meV": 120.13545995468546,
+      "action_Q_leakage_Gamma8_opnorm_meV": 74.67305658529516,
+      "action_Q_leakage_singular_meV": [
+        120.13545995469579,
+        120.13545296607118,
+        74.67305658528186,
+        74.67304594726505,
+        74.67301636041137,
+        74.67301038958391
+      ],
+      "reference_normalization_change_meV": 4.374601640088288e-14,
+      "compression_antihermitian_meV": 2.500039667277841e-12,
+      "Gram_error": 1.8715047823246753e-15,
+      "old_complex_matrix_reconstruction_error_Ry": 1.8806153923253033e-16
+    },
+    "c2": {
+      "trace_meV": 39.81150358882771,
+      "all_sector_Rayleigh_difference_interval_meV": [
+        39.59145874963023,
+        40.03298628033753
+      ],
+      "scalar_free_compression_opnorm_meV": 0.21485648249766132,
+      "action_Q_leakage_opnorm_meV": 95.54107995136623,
+      "action_Q_leakage_Gamma6_opnorm_meV": 95.54097075918258,
+      "action_Q_leakage_Gamma8_opnorm_meV": 91.59559309149168,
+      "action_Q_leakage_singular_meV": [
+        95.54107995136623,
+        95.49511382336505,
+        91.59557013663836,
+        91.58827570708964,
+        91.56425981766361,
+        91.55009850358248
+      ],
+      "reference_normalization_change_meV": 2.641725921593486e-14,
+      "compression_antihermitian_meV": 3.116534183357896e-12,
+      "Gram_error": 1.8715047823246753e-15,
+      "old_complex_matrix_reconstruction_error_Ry": 1.2435732391773926e-15,
+      "sharp_unseen_P_block_error_sign_radius_meV": 19.905751794413856
+    },
+    "change": {
+      "trace_meV": -4.372593658637238,
+      "all_sector_Rayleigh_difference_interval_meV": [
+        -4.592672961083739,
+        -4.151077262736821
+      ],
+      "scalar_free_compression_opnorm_meV": 0.21488864847274555,
+      "action_Q_leakage_opnorm_meV": 32.45081727182711,
+      "action_Q_leakage_Gamma6_opnorm_meV": 32.45067156174186,
+      "action_Q_leakage_Gamma8_opnorm_meV": 29.078217876100094,
+      "action_Q_leakage_singular_meV": [
+        32.45081727182711,
+        32.41881761715737,
+        29.078208768436888,
+        29.06613108227659,
+        29.01308734593176,
+        29.00049710387155
+      ],
+      "reference_normalization_change_meV": 4.871783340055604e-15,
+      "compression_antihermitian_meV": 2.8389818774672338e-12,
+      "Gram_error": 1.8715047823246753e-15,
+      "old_complex_matrix_reconstruction_error_Ry": 1.2211994557970979e-15
+    }
+  },
+  "native_packet_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_before.rank0": {
+      "sha256": "29406c17387eada0e06f2a12ab439db5ef97117120ec13c880277da49f66238d",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_after.rank0": {
+      "sha256": "f2c71f43e0e34075972c1c647d7919eda07979feb20c2e2a73bc8b0026bb4776",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local0.rank0": {
+      "sha256": "0734532f856231500be97da89e781f633df53f5f4b2c3664b0e5c3e14bc76e6d",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local1.rank0": {
+      "sha256": "3597ec449f1b5e0023d1a7ae0907ba20a6a1bcd8bc12242fca161cec62f4e571",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_before.rank1": {
+      "sha256": "8ff8e0c6a04808d3339b2b40c7d872c555df9c7020ab73106d755f89b679d77f",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_after.rank1": {
+      "sha256": "9c3e9712116932fe0c4a44702a05ec9f91486cc0bbb92f8b717a115220b2a0d7",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local0.rank1": {
+      "sha256": "0fce2a1953db5054374eae0eb5ba4b3eade69b4489c4435e69d8c4476399143c",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local1.rank1": {
+      "sha256": "47f328e6a27bbee913d2b153c4206a6482ec313b635ba9046899a5f763227a70",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_before.rank0": {
+      "sha256": "a29e7b091c25e99454eee827b15046a8833877d22447e55a2d04e341760d33e3",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_after.rank0": {
+      "sha256": "9ba57c8e9972e2f210fe2338ee350bdf3e7309d6a9a7116f843d5d56b7eb8a76",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local0.rank0": {
+      "sha256": "0ba20ddc702226b216a252c38b2e0d8a98b105de03c61e0c73bac76006ad77f4",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local1.rank0": {
+      "sha256": "a36eb142d3b175e2e96fb900c88fbb537e32ea99fa8f5f6b792339e2d2b5c49e",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_before.rank1": {
+      "sha256": "82776166cd79d3d4672775e134beea20a1e6db57350a5bd0d4d906fee10b6f3d",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_after.rank1": {
+      "sha256": "a22dd63fdfac052f682b5c5226b759c6f36de22f08c7135cbc0d09f1aed95035",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local0.rank1": {
+      "sha256": "ffb6a8139b90f8f6acf43dbea0b0c284312e90a5b05be2b620e089911c1e65ee",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local1.rank1": {
+      "sha256": "5a5bfd87de76d98471dfd9b7e69b12a29eb8dfed98936a200f65b190ded51622",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_before.rank0": {
+      "sha256": "f05590f07c692cdfee1244c58bd8295625df26333ebc220cc3e49807744334f8",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_after.rank0": {
+      "sha256": "b0221ba412569f957f0a5bd6cbb8dd465ebb96e598d47ba90ee742ff6e4efa9e",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local0.rank0": {
+      "sha256": "da338004466f5d2ec3edcf5bfe1910e069a60397da5899ac7b966b6d29f736f4",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local1.rank0": {
+      "sha256": "04409ece9f6359dada492e4402f9c206e8aac6ebdaeee20f4ea7813992cdd582",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_before.rank1": {
+      "sha256": "2ae9693f09f6bf84eb051c5ba21b35e455ffcae4334c4f859df1af2feb2dc7f4",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_after.rank1": {
+      "sha256": "8b468bacb9a4889a46d2cd7a63c9ade4c3069585f913c6c1bd592800778c975e",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local0.rank1": {
+      "sha256": "2536c814a703c609c8004d2c3a43c5489149833a1789402540dcc0e5d82332d7",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local1.rank1": {
+      "sha256": "9fa7c24b8b91857cfa0d899c911d7306228b25bf40658c0171f63e4fc567ca82",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_before.rank0": {
+      "sha256": "8916bad344bdaa501e030ebf976325c067653db3d229977c83dc2260628eef8f",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_after.rank0": {
+      "sha256": "bf9fd662975e1556546b522d78ccbdca51db22a824debe797b31015559503b67",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local0.rank0": {
+      "sha256": "ff0f5c37be83a37da29d341d47d316462cbb1e3e0a21240fa5a24feedb25c952",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local1.rank0": {
+      "sha256": "5509f88c5f9ef33714ca58f011efaa7ba12af320e5d8dddd69289b2154178def",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_before.rank1": {
+      "sha256": "2884dd3de389b32e3c7094c5eb1cfc2073ce316ec56bda84b8965aa2ace776c9",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_after.rank1": {
+      "sha256": "3803dca8e35d93219e0e2f40f78950c658ad64d160661ebe4cb1fae1bfa0bf1f",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local0.rank1": {
+      "sha256": "c1667a57084cea6cbe2e704f15e5bd0fd2576d6c2358898f68ad0a0ff33a3e2d",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local1.rank1": {
+      "sha256": "dfda085bde45940aedf797ce4c98f2df2c40ba68fe820ee00c882eb981d168f4",
+      "bytes": 12809248,
+      "retained_private": true
+    }
+  },
+  "wall_s": 29.61785042565316,
+  "audit_peak_RSS_KiB": 754304,
+  "interval_rounding_enclosure": false,
+  "material_gap_or_xc": null
+}

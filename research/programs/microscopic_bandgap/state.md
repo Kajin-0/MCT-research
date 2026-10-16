@@ -2,9 +2,38 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED; original HSE numerical host frames reusable, strict FD/direct-H and screened Cd response unqualified. Stock original16atom chemistry not admitted under12GiB. Prior optical NO-GO, H304 nonstationarity and all native refusals preserved; physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED; no new native acquisition admitted. Retained matched HSE activation has large out-of-six-state action and a nonmagnetic-source counterqualification. Qualified screened Cd remainder remains missing; original16atom streaming also exceeds14GiB output cap. All prior host-reference/optical/native boundaries retained; physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 02:54 UTC
+**Updated:** 2026-10-16 03:40 UTC
+
+## Science-first screening feasibility COMPLETE — 2026-10-16
+
+[Decision](screening_feasibility_2026-10-16/decision.md),
+[theory](screening_feasibility_2026-10-16/theory.md),
+[minimum input](screening_feasibility_2026-10-16/minimum_input.md),
+[actual retained-data contractions](screening_feasibility_2026-10-16/retained_result.json),
+[independent checks](screening_feasibility_2026-10-16/independent_results.json),
+[handoff](screening_feasibility_2026-10-16/handoff_ledger.md).
+From5dc77a9, zero native/source/build/DFT writes. Reused32 originally pinned
+real matched HSE packets. Updated chemical activation trace+39.811504meV
+retains positive compressed-sector Rayleigh differences39.591459–40.032986meV,
+but its out-of-six-state action norm95.541080meV (smallest singular91.550099meV)
+falsifies a closed six-state activation operator. It is not a gap/self-energy
+error. Actual host source-density Theta lower witnesses3.27666e-7/0.001395756895
+and Cd second4.01839e-7 rule out strict1e-8 nonmagnetic continuation. Independent
+direct scalar and QR checks agree; old finite-acquisition PASS is unchanged.
+
+Neither one more unchanged A outer build nor B original16atom is admitted.
+The B stream stores22GiB despite2.75GiB resident plane, already8GiB over14GiB
+output cap. Disk availability does not waive the contract; full352SCF/restart
+and total resource bounds remain unqualified. A scalar geometric-tail sign
+certificate would require an independently uniform q<.90103694 for chemistry
+or q<.51249540 separately, not an observed ratio. Sharp projected remainder
+sign radius19.905752meV is conditional, not an attained error bound. Minimum
+next physical input is qualified matched same-D full-H six-probe screened
+remainder/state evidence. Existing e90 cold frames transfer references, not
+e50 FD self-consistency. STOP at this boundary; no native run, optical repeat,
+empirical input, convergence or physical x_c. All historical gates unchanged.
 
 ## Original stationary-reference reuse audit COMPLETE — 2026-10-16
 

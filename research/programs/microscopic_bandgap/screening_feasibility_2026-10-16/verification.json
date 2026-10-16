@@ -1,0 +1,41 @@
+{
+  "status": "PASS_READ_ONLY_SCIENTIFIC_FEASIBILITY_NO_NATIVE_ADMISSION",
+  "timestamp_UTC": "2026-10-16T03:42:52.839787+00:00",
+  "baseline": "5dc77a9",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "native_invocations": 0,
+  "private_packet_pins_rechecked": 32,
+  "private_source_ELF_PP_pins_rechecked": 14,
+  "protected_MCT": {
+    "AGENTS.md": "d29d00192e7e46058b19f2e6291b924bc4eca39ed889861e429c31c14755bde1",
+    "research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/decision.md": "aee9160c433c33beea353a6175398a8f8b5732e478e28f6f34166eda188c6ca1",
+    "research/programs/microscopic_bandgap/hybrid_convergence_2026-10-15/decision.md": "3039f8f271b83993ca66d413f4bb57c77001469f3d4e7f9ac6fbb2740d561f6d",
+    "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
+    "research/programs/microscopic_bandgap/static_environment_2026-10-15/decision.md": "de718ee6f209aa7fab06407f6e5d486e92db6a858aab813262e94ca990e8a11e",
+    "research/programs/microscopic_bandgap/single_state304_2026-10-15/decision.md": "134395357cee68252566ed6571bc9204ef5e86e745689d153d9a7cd110789782",
+    "research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/full_scf_2026-10-13/decision.md": "1a637189f5f248ea0c90afe68f0176673c78a851037df682eeb1af206fedf94a",
+    "research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/decision.md": "ed69ef5b3096ca9da40d4f3a4047f8389702a6efcbb33d7bd5c755e5e4d99c43",
+    "research/programs/microscopic_bandgap/stationary_reference_audit_2026-10-16/verification.json": "5df3e63966ead9a4b83cd877ac9877703a1e59d59d2e2ed8737c74cac1433bdc"
+  },
+  "entire_prior_handoff_preserved": true,
+  "local_links_checked": 4,
+  "physical_xc": null,
+  "new_native_acquisition_admitted": false,
+  "source_hashes": {
+    "retained_result.json": "632db6dbe9df50f7354ae41e113fdb814db4f8c916bc4ce1c01fc3f3857e746e",
+    "decision.md": "9b27f2afe88515a180799c7b947d99a9e0ee05185449bfe75bd525fd4ba0c479",
+    "contracted_actions.npz": "c6a9e4d8cbda3312ab927e24749b09006ad581fe76316e5104af17ac7a0b45b7",
+    "handoff_ledger.md": "32e5fd900196cc81e90fd8fcc0c20c8549f0f488af2b30303caa6557219fd2db",
+    "minimum_input.md": "e11f5fcd1cf6af9ab0d095ad9de56cbbbc8706d662023ac48268fec845241d48",
+    "independent_results.json": "4b33630bcac3691fd9e83f1d44011e1956e33c4c31aff9264f7bebf8b821e42b",
+    "source_and_prior_art.md": "65f085589f9ff80ef137af90d5885dd4cc4b07924f61aa467b230e9c2d68c2f1",
+    "verify_artifacts.py": "054b329b313a813cac56b24fe7028d8d5cd3b14fb3b1a29d13a0bdcde2695776",
+    "verification.md": "c4a5784578fb9de8b17f7ab53835e21146750efd373a0008e10426cd7cecb889",
+    "independent_checks.py": "eb146c19d09b226bdae8db00ea516f7629c29713682d9b9279b8abb3457d5d4d",
+    "theory.md": "e68ab77c8e8a3419b66ef92e11fb2e6ca5f05d77a50a0abff8cecfbf86cc4946",
+    "source_and_budget_check.py": "25d1037a3ef039a48f6bac47731bbdf0c860ec3074541fa87bd2deaf940d4396",
+    "audit_retained.py": "b61de550519f6ca05751fabe16b9a939e3f602ab76a045f7db47db5d2422b558",
+    "source_and_budget.json": "6625ffe03fa66e9404409b89bda09c0c7f78798092e295fb168c5dbb7a985b76"
+  },
+  "limitations": "Shared packet layout with independent old-matrix reconstruction, QR and direct scalar methods; floating checks without directed-rounding enclosure. No full-H/state/material qualification. No DFT Git command/driver, source build/edit, native command or protected-tree write."
+}

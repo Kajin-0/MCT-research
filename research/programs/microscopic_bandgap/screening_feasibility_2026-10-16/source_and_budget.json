@@ -1,0 +1,60 @@
+{
+  "timestamp_UTC": "2026-10-16T03:39:36.756128+00:00",
+  "native_jobs": 0,
+  "preserved_private_source_ELF_PP_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/pw.hse8.relax": "2f3d33e32f1dad7ca8aa75111d7a5d13e5244a3104b85fab771a5d30c452c2c7",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/electrons.f90": "5f7ca732aaac97c5b96ea1bbe8f3d2391642a4fd76da0b723fc83485b214263b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/exx.f90": "98c70651174659009bf97b1b6385cff0ffbc71a986bb2a5f5efe0a833cf58940",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_electrons.f90": "e62ea5f6c65039481f5fa5b580765dac5e3074e9e2d40c0c7ab9d7acd3be8175",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_exx.f90": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_run_pwscf.f90": "3783fee67652c4d220f94d6a59a16ae5a0c2f8d34589551e35177419861ce8ae",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/run_pwscf.f90": "5a4d42807e7c6442994f07f8f081627a7cc3de99d8cb9a0964f51ed73d756189",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pp/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pp/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pp/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "stream_source_sha256": "13ac89bbe7b1146fd4e413c01f61a9f773f8aaebf6e44ce769dd75bd3f552d2c",
+  "memory_and_storage": {
+    "A_exxbuff_nominal_B": 1216512000,
+    "B_stock_exxbuff_nominal_B": 23622320128,
+    "B_stream_resident_plane_nominal_B": 2952790016,
+    "B_stream_full_generation_bytes": 23622320128,
+    "inherited_owned_output_cap_B": 15032385536,
+    "B_stream_exceeds_output_cap_B": 8589934592,
+    "B_single_generation_plus_disk_floor_B": 34359738368,
+    "total_two_rank_RSS_or_wall_bound_qualified": false,
+    "no_new_native_admission": true
+  },
+  "conditional_observable_contraction": {
+    "chemical_last_increment_abs_meV": 4.372593658637238,
+    "separate_member_last_increments_meV": {
+      "host": -16.748791523497616,
+      "cd": -21.121385182138326
+    },
+    "separate_member_absolute_sum_meV": 37.87017670563594,
+    "uniform_chemical_increment_q_sign_threshold": 0.9010369356615493,
+    "common_separate_member_increment_q_sign_threshold": 0.512495397086114,
+    "q_measured_or_certified": false,
+    "mathematical_bound": "tail <= q B/(1-q) only with an independently uniform future-increment certificate"
+  },
+  "state_scope": "FD sigma=.001Ry in A; original e90 reference and safeguarded tiny solver are COLD, not substituted into A",
+  "cold_solver_guard": {
+    "sha256": "6da2de0ec5afc9a90f5d079fcfb80c58e6c43fcb495af751b52cb65e8a25c9aa",
+    "nbnd": 48,
+    "nk": 3,
+    "nelec": 36,
+    "transfers_to_A_176_144_or_B_352_288": false
+  },
+  "fixed_reference_embedding": {
+    "reference_sha256": "6889991eaa9402c1c4a0409e81ebe9cbc4766f7b9c2a8972aaefeb3af36a0671",
+    "source_G": 7809,
+    "target_G": 10827,
+    "bitwise_embedded": true,
+    "physical_frame_changed": false,
+    "e90_stationary_reference_silently_substituted": false
+  }
+}

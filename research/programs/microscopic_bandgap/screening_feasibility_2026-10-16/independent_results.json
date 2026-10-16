@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "native_invocations": 0,
+  "density_scalar_checks": {
+    "host_1": {
+      "actual_scalar_witness": 3.276655909312666e-07,
+      "absolute_witness": 3.276655909312666e-07,
+      "difference_from_main_witness": 5.04632266183603e-16,
+      "unit_witness_norm": 1.0,
+      "strict_gate_falsified": true
+    },
+    "host_2": {
+      "actual_scalar_witness": 0.0013957568948831554,
+      "absolute_witness": 0.0013957568948831554,
+      "difference_from_main_witness": 2.3332030751888055e-15,
+      "unit_witness_norm": 0.9999999999999999,
+      "strict_gate_falsified": true
+    },
+    "cd_1": {
+      "actual_scalar_witness": 2.1213320143432453e-11,
+      "absolute_witness": 2.1213320143432453e-11,
+      "difference_from_main_witness": 5.168238778813007e-15,
+      "unit_witness_norm": 1.0000000000000002,
+      "strict_gate_falsified": false
+    },
+    "cd_2": {
+      "actual_scalar_witness": 4.0183870661362256e-07,
+      "absolute_witness": 4.0183870661362256e-07,
+      "difference_from_main_witness": 1.44314196594473e-15,
+      "unit_witness_norm": 1.0,
+      "strict_gate_falsified": true
+    }
+  },
+  "actions": {
+    "c1": {
+      "QR_residual_singular_meV": [
+        120.13545995469578,
+        120.13545296607109,
+        74.67305658528184,
+        74.67304594726507,
+        74.67301636041138,
+        74.67301038958391
+      ],
+      "compensated_trace_meV": 44.18409724746495
+    },
+    "c2": {
+      "QR_residual_singular_meV": [
+        95.54107995136621,
+        95.495113823365,
+        91.59557013663834,
+        91.58827570708962,
+        91.56425981766354,
+        91.55009850358243
+      ],
+      "compensated_trace_meV": 39.811503588827705
+    },
+    "change": {
+      "QR_residual_singular_meV": [
+        32.450817271827084,
+        32.418817617157366,
+        29.078208768436888,
+        29.066131082276584,
+        29.013087345931723,
+        29.000497103871535
+      ],
+      "compensated_trace_meV": -4.372593658637239
+    }
+  },
+  "sharp_trace_radius_extremizer_meV": 19.905751794413856,
+  "perturbed_actual_compression_trace_meV": 2.042810365310288e-14,
+  "claims": "finite-array checks, no directed-rounding/material error enclosure"
+}

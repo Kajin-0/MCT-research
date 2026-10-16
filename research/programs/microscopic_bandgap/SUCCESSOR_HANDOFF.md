@@ -25,6 +25,33 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+## Latest science-first screening feasibility COMPLETE — 2026-10-16
+
+From5dc77a9: read `screening_feasibility_2026-10-16/{decision.md,theory.md,
+minimum_input.md,handoff_ledger.md}` and real/independent checks. NO new native
+job is admitted.32 original matched HSE packets give new full-action results:
+updated chemical activation trace+39.811504meV, positive compressed-sector
+Rayleigh differences39.591459–40.032986meV, but Q-action norm95.541080meV and
+smallest singular91.550099meV. A closed six-state activation operator is
+falsified; this is not a measured self-energy/gap error or a material mass.
+
+Actual matched host density Theta lower witnesses3.27666e-7/0.001395756895
+and second Cd4.01839e-7 disqualify strict1e-8 nonmagnetic continuation even
+before another unchanged176-source build. Independent native scalar checks
+confirm them. Preserve the accepted finite+44.184097→+39.811504meV observation;
+no historical acquisition or failed trajectory is reclassified.
+
+Source audit adds an independent B obstruction: full352-band stream generation
+22GiB exceeds14GiB tracked-output cap despite2.75GiB resident plane. Present
+disk availability does not override this. Original16atom stock memory,
+wholeSCF/restart, primitive cold/e50 FD transfer and all old refusals remain.
+No q is measured: conditional geometric sign factors.90103694/.51249540 and
+sharp projected sign radius19.905752meV only describe missing certificates.
+One future input is a qualified same-state matched full-H six-probe screened
+remainder, not another unchanged outer step or H304 trial. State bridge is
+not launch-ready. STOP at this honest boundary; no optical/native/build/source
+change, sessions, goal or material x_c. All earlier handoff content is retained.
+
 ## Latest original-host reuse audit COMPLETE — 2026-10-16
 
 Read `stationary_reference_audit_2026-10-16/{decision.md,qualification_and_resources.md,
