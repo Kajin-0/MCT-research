@@ -2,9 +2,28 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. One bounded stationary matched HSE8 admission audit is complete: pre-execution NO-GO; existing matched owner/binary is a fixed two-build diagnostic, rejected eight-build host is not a nonmagnetic stationary state, and stock direct full-SCF has no qualified exact-profile launch/time/resource/readback path under current limits. No new jobs/builds/infrastructure. PBE static diagnostic remains permanently TERMINATED. Independent stationary HSE chemical input and physical x_c remain OPEN; all prior acceptances/refusals preserved.
+**State:** historical persistent goal BLOCKED, unchanged. NEW user-authorized fresh stock-QE HSE8 host full-SCF RUNNING under standard OS controls; finite three-hour runtime supersedes the old600s scope for this new candidate only. Stock ACE, no private diagnostic/solver/source/owner changes. Cd WITHHELD pending host convergence and full-state qualification. PBE static diagnostic permanently TERMINATED; all historical refusals preserved. Physical x_c OPEN.
 
-**Updated:** 2026-10-16 19:53 UTC
+**Updated:** 2026-10-16 20:24 UTC
+
+<!-- STOCK_HSE_STATIONARY_20261016_BEGIN -->
+## Fresh stock HSE8 host SCF active — new three-hour authorization
+
+See `stock_hse_stationary_2026-10-16/{preregistration.md,preregistration.json,
+launch_host.json,host_initial_manager.json,host_monitor.jsonl}`. User explicitly
+allows longer local execution; old600s documents remain historical. New native
+host started20:21:51UTC, stockQE7.5 hash1d66c785..., two local MPI ranks, stock
+ACE/full outerSCF100 maximum, unchanged176/144,FD.001,HSE.25/.106,50/200/200,
+Gamma/q1,6.46A SG15 FRNC. Fresh root
+`DFT/.local/r07stock_20261016_202059/host`; no old saves/state reused.
+Owned standard transient unit `r07-stock-hse-20261016202059-host.service`,
+systemd RuntimeMax10800s/native max_seconds10440,12GiB/swap0/tasks12,
+CPU200%/nice10, sampled host4GiB/disk10GiB/output14GiB. Kernel limits and
+actual three-process cgroup verified. No custom runner/FD framework built.
+Monitor active in existing tool session; preserve/inspect this own unit before
+any new job. Do not start Cd or another MPI family. Initial SCF is not outer
+convergence; symmetry of the eventual state must be tested independently.
+<!-- STOCK_HSE_STATIONARY_20261016_END -->
 
 <!-- HSE_PAIR_ADMISSION_20261016_BEGIN -->
 ## Stationary matched HSE8 admission — terminal NO-GO before execution

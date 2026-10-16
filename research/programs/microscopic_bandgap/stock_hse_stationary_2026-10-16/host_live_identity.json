@@ -1,0 +1,38 @@
+{
+  "UTC": "2026-10-16T20:29:41.362712+00:00",
+  "kernel_cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-stock-hse-20261016202059-host.service",
+  "members": [
+    {
+      "PID": 1989442,
+      "start_ticks": 670683285,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prte",
+      "sha256": "823411e91988389a14c931eaacbef0482db7e00a320d1875f7b900a9884cb811",
+      "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-stock-hse-20261016202059-host.service\n",
+      "argv": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prterun --host localhost:2 -np 2 --bind-to core /home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pw.in "
+    },
+    {
+      "PID": 1989446,
+      "start_ticks": 670683304,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+      "sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+      "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-stock-hse-20261016202059-host.service\n",
+      "argv": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pw.in "
+    },
+    {
+      "PID": 1989447,
+      "start_ticks": 670683304,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+      "sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+      "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-stock-hse-20261016202059-host.service\n",
+      "argv": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pw.in "
+    }
+  ],
+  "initial_extra_readonly_check": {
+    "result": "ASSERTION_FAILED",
+    "reason": "incorrect assumption /proc MainPID/exe remains mpirun; OpenMPI5 mpirun execs installed prte",
+    "actual_evidence": "host_monitor.jsonl already records prte from first sample",
+    "native_unit_or_science_failure": false,
+    "native_retry": false
+  },
+  "not_hostwide_exclusion": true
+}

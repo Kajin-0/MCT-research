@@ -25,6 +25,26 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- STOCK_HSE_STATIONARY_20261016_BEGIN -->
+## ACTIVE native stock HSE8 host — 2026-10-16 20:24 UTC
+
+NEW explicit user authorization supersedes the previous600s execution scope
+for this new candidate: finite3hour local budget, no new solver/owner/launcher
+development. `stock_hse_stationary_2026-10-16` holds frozen input/PP/ELF/backends,
+launch command/kernel verification and sampled monitor. StockQE7.5 ACE full
+SCF host started20:21:51UTC, two local ranks; original HSE physics unchanged.
+Actual root `/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059`;
+OWNED unit `r07-stock-hse-20261016202059-host.service`. MainPID1989442,
+InvocationID15c8575aefea41689b1c39b88930c535; raw initial identity in package.
+12GiB cap/swap0/tasks12,CPU200%/nice10,RuntimeMax10800/native10440s;
+host4GiB/disk10GiB/output14GiB sampled floors. Standard systemd only, no new
+runner/source changes. Tool-session95232 is a bounded simple resource sampler.
+Do not interrupt this scientific job or launch Cd/another family. Preserve all
+historical files. Cd is predeclared but NOT started and requires accepted host.
+Potential ACE symmetry failure remains explicit; SCF/JOBDONE alone insufficient.
+PBE stays closed, old failures and historical blocked goal unchanged.
+<!-- STOCK_HSE_STATIONARY_20261016_END -->
+
 <!-- HSE_PAIR_ADMISSION_20261016_BEGIN -->
 ## Latest: stationary matched HSE8 pre-execution NO-GO — 2026-10-16 19:53 UTC
 
