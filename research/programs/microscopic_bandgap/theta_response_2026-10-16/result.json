@@ -1,0 +1,1118 @@
+{
+  "timestamp_UTC": "2026-10-16T05:04:35.950774+00:00",
+  "baseline": "4cfc16b",
+  "native_jobs": 0,
+  "status": "EXACT_SIX_COLUMN_RECONSTRUCTION_NO_GO; SOURCE_CONDITIONED_INTERVALS",
+  "closure": {
+    "reference_Gram": 1.8715047823246753e-15,
+    "normalized_Gram": 9.040000243209857e-16,
+    "sector_closure": {
+      "Gamma6": {
+        "closure_singular_values": [
+          1.2684721858201513e-07,
+          1.2684721857815848e-07
+        ],
+        "closure_op": 1.2684721858201513e-07
+      },
+      "Gamma8": {
+        "closure_singular_values": [
+          9.538237778314877e-08,
+          9.538237778133467e-08,
+          7.156326098781974e-08,
+          7.156326098228219e-08
+        ],
+        "closure_op": 9.538237778314877e-08
+      }
+    },
+    "full_closure_singular_values": [
+      1.2863992313963844e-07,
+      1.286399231335757e-07,
+      9.359731435101182e-08,
+      9.359731434693833e-08,
+      7.071511930255468e-08,
+      7.071511929600445e-08
+    ],
+    "closure_op": 1.2863992313963844e-07,
+    "exact_closure": false,
+    "inherited_1e_8_gate_pass": false,
+    "J_skew": 1.09565846980193e-15,
+    "J_square_defect": 1.6015869190854852e-14,
+    "sector_Theta_overlap": 1.5289891430874387e-13,
+    "trace_QQ_ambiguity_coefficient_per_Ry": 1.1502843895092762e-14,
+    "action_QQ_ambiguity_coefficient": 6.431996156981922e-08,
+    "original_frame_unchanged": true,
+    "normalization_is_bookkeeping": true
+  },
+  "source_density_Theta_defects": {
+    "host_1": {
+      "opnorm": 5.190222367763625e-07,
+      "Frobenius": 2.3112541070231937e-06,
+      "rank_reduction_dimension": 352,
+      "op_interval": [
+        5.190221135006328e-07,
+        5.190223600520921e-07
+      ],
+      "Frobenius_interval": [
+        2.311253983747461e-06,
+        2.3112542302989264e-06
+      ],
+      "op_span_Gram_allowance": 1.232757297177617e-13,
+      "F_span_Gram_allowance": 1.2327573273724922e-13,
+      "reduced_Gram_error": 1.6847638880837495e-15,
+      "independent_unit_vector_witness": 5.190222360630343e-07,
+      "exact_finite_rank_identity": true,
+      "directed_rounding_enclosure": false
+    },
+    "host_2": {
+      "opnorm": 0.001428207981525147,
+      "Frobenius": 0.004040264355734389,
+      "rank_reduction_dimension": 352,
+      "op_interval": [
+        0.00142820798140997,
+        0.0014282079816403243
+      ],
+      "Frobenius_interval": [
+        0.004040264355619208,
+        0.00404026435584957
+      ],
+      "op_span_Gram_allowance": 1.1517724214778131e-13,
+      "F_span_Gram_allowance": 1.1518119794118141e-13,
+      "reduced_Gram_error": 1.5144364567135424e-15,
+      "independent_unit_vector_witness": -0.0014282079815213942,
+      "exact_finite_rank_identity": true,
+      "directed_rounding_enclosure": false
+    },
+    "cd_1": {
+      "opnorm": 5.995954649194962e-07,
+      "Frobenius": 2.2972905123033004e-06,
+      "rank_reduction_dimension": 352,
+      "op_interval": [
+        5.995953417303706e-07,
+        5.995955881086218e-07
+      ],
+      "Frobenius_interval": [
+        2.2972903891141718e-06,
+        2.297290635492429e-06
+      ],
+      "op_span_Gram_allowance": 1.2318912564762222e-13,
+      "F_span_Gram_allowance": 1.2318912840814412e-13,
+      "reduced_Gram_error": 1.6260410795243781e-15,
+      "independent_unit_vector_witness": 5.995954623492128e-07,
+      "exact_finite_rank_identity": true,
+      "directed_rounding_enclosure": false
+    },
+    "cd_2": {
+      "opnorm": 4.059070139430032e-07,
+      "Frobenius": 1.0319197578503129e-06,
+      "rank_reduction_dimension": 352,
+      "op_interval": [
+        4.059068883297284e-07,
+        4.05907139556278e-07
+      ],
+      "Frobenius_interval": [
+        1.031919632237037e-06,
+        1.0319198834635888e-06
+      ],
+      "op_span_Gram_allowance": 1.2561327481086135e-13,
+      "F_span_Gram_allowance": 1.2561327586583054e-13,
+      "reduced_Gram_error": 1.6852200007186714e-15,
+      "independent_unit_vector_witness": 4.0590701679837105e-07,
+      "exact_finite_rank_identity": true,
+      "directed_rounding_enclosure": false
+    }
+  },
+  "local_checks": {
+    "host_1_0": {
+      "local_delta_op_bound_Ry": 0.579808137978711,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.615471821199612
+    },
+    "host_1_1": {
+      "local_delta_op_bound_Ry": 0.579808137978711,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.615471821199612
+    },
+    "host_2_0": {
+      "local_delta_op_bound_Ry": 0.5886474571942948,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.6202200859074768
+    },
+    "host_2_1": {
+      "local_delta_op_bound_Ry": 0.5886474571942983,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.6202200859074803
+    },
+    "cd_1_0": {
+      "local_delta_op_bound_Ry": 0.5795493429124221,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.6149766187180751
+    },
+    "cd_1_1": {
+      "local_delta_op_bound_Ry": 0.5795493429124221,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.6149766187180751
+    },
+    "cd_2_0": {
+      "local_delta_op_bound_Ry": 0.5892903192089527,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.6207153277077486
+    },
+    "cd_2_1": {
+      "local_delta_op_bound_Ry": 0.5892903192089598,
+      "magnetic_potential_max_Ry": 0.0,
+      "local_spin_density_max": 0.0,
+      "centered_local_bound_Ry": 0.6207153277077557
+    }
+  },
+  "source_norm_certificate": {
+    "source_conditioned": true,
+    "source": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/exx_base.f90",
+    "sha256": "918bb1ddb1dcac9074d7f5878898a5cd62b5dd92b602bb1f16339f3d4fdabf74",
+    "kernel_nonzero_L1_over_volume_Ry_upper": 46,
+    "kernel_zero_absolute_over_volume_Ry_upper": 50,
+    "Fock_norm_Ry_upper": 24.00000024,
+    "centered_local_change_per_member_Ry_upper": 7,
+    "actual_local_delta_max_Ry": 0.5892903192089598,
+    "centered_member_activation_Ry_upper": 32,
+    "centered_chemical_activation_Ry_upper": 64,
+    "centered_chemical_increment_Ry_upper": 128,
+    "raw_kernel_multiplier_packet_available": false,
+    "original_Theta_closure_gate_pass": false,
+    "native_or_state_gate_changed": false
+  },
+  "observations": {
+    "host_1": {
+      "completion_bound_Ry": 32,
+      "representative_scalar_anchor_Ry": -0.03566368322090098,
+      "Q_singular_radius_meV": 0.028003765081655287,
+      "trace_ambiguity_radius_meV": 5.0081332505067875e-09,
+      "original_trace_meV": 248.6385850050026,
+      "Hermitian_consistency_correction_action_meV": 1.094018700215978e-12,
+      "P_compression_Hermiticity_meV": 1.5786965744693022e-12,
+      "reconstruction_residual_meV": 6.531415320951125e-14,
+      "even": {
+        "known_column_centre_trace_meV": 248.63858500499674,
+        "trace_interval_meV": [
+          248.6385849999886,
+          248.63858501000487
+        ],
+        "Q_op_centre_meV": 368.82247518468625,
+        "Q_op_interval_meV": [
+          368.7944714196046,
+          368.85047894976793
+        ],
+        "Q_singular_centres_meV": [
+          368.82247518468625,
+          368.8224750883211,
+          368.82246153568934,
+          368.82246134384565,
+          312.38188657736634,
+          312.38188608781377
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            368.7944714196046,
+            368.85047894976793
+          ],
+          [
+            368.7944713232394,
+            368.85047885340276
+          ],
+          [
+            368.79445777060766,
+            368.850465300771
+          ],
+          [
+            368.79445757876397,
+            368.8504651089273
+          ],
+          [
+            312.35388281228467,
+            312.409890342448
+          ],
+          [
+            312.3538823227321,
+            312.40988985289545
+          ]
+        ],
+        "compression_Hermiticity_meV": 1.9680612886894113e-13
+      },
+      "odd": {
+        "known_column_centre_trace_meV": 6.446694533986271e-12,
+        "trace_interval_meV": [
+          -5.001686555972801e-09,
+          5.014579945040774e-09
+        ],
+        "Q_op_centre_meV": 0.00015240485865931365,
+        "Q_op_interval_meV": [
+          0.0,
+          0.0281561699403146
+        ],
+        "Q_singular_centres_meV": [
+          0.00015240485865931365,
+          0.00015240485802104403,
+          0.00013880527332928052,
+          0.00013880527255336002,
+          0.00012307681215933304,
+          0.00012307681118196734
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.0,
+            0.0281561699403146
+          ],
+          [
+            0.0,
+            0.02815616993967633
+          ],
+          [
+            0.0,
+            0.028142570354984568
+          ],
+          [
+            0.0,
+            0.028142570354208647
+          ],
+          [
+            0.0,
+            0.02812684189381462
+          ],
+          [
+            0.0,
+            0.028126841892837255
+          ]
+        ],
+        "compression_Hermiticity_meV": 7.154516573107652e-14
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    },
+    "host_2": {
+      "completion_bound_Ry": 32,
+      "representative_scalar_anchor_Ry": -0.031572628713182026,
+      "Q_singular_radius_meV": 0.028003765081655287,
+      "trace_ambiguity_radius_meV": 5.0081332505067875e-09,
+      "original_trace_meV": 231.889793481503,
+      "Hermitian_consistency_correction_action_meV": 1.0142523231806566e-12,
+      "P_compression_Hermiticity_meV": 1.4581238126888446e-12,
+      "reconstruction_residual_meV": 6.555246901673334e-14,
+      "even": {
+        "known_column_centre_trace_meV": 231.88979348256402,
+        "trace_interval_meV": [
+          231.88979347755588,
+          231.88979348757215
+        ],
+        "Q_op_centre_meV": 390.1042667711006,
+        "Q_op_interval_meV": [
+          390.0762630060189,
+          390.13227053618226
+        ],
+        "Q_singular_centres_meV": [
+          390.1042667711006,
+          390.1042667053113,
+          390.1014700154392,
+          390.1014697763699,
+          335.012813337291,
+          335.012812531233
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            390.0762630060189,
+            390.13227053618226
+          ],
+          [
+            390.07626294022964,
+            390.132270470393
+          ],
+          [
+            390.0734662503575,
+            390.12947378052087
+          ],
+          [
+            390.07346601128825,
+            390.1294735414516
+          ],
+          [
+            334.9848095722093,
+            335.04081710237267
+          ],
+          [
+            334.98480876615133,
+            335.0408162963147
+          ]
+        ],
+        "compression_Hermiticity_meV": 2.742059852049677e-13
+      },
+      "odd": {
+        "known_column_centre_trace_meV": -1.0607848086565709e-09,
+        "trace_interval_meV": [
+          -6.068918059163359e-09,
+          3.947348441850216e-09
+        ],
+        "Q_op_centre_meV": 0.2758918972344632,
+        "Q_op_interval_meV": [
+          0.24788813215280794,
+          0.30389566231611853
+        ],
+        "Q_singular_centres_meV": [
+          0.2758918972344632,
+          0.27589189626892463,
+          0.2357216033848876,
+          0.23572160278288218,
+          0.15717519265748303,
+          0.15717519255381185
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.24788813215280794,
+            0.30389566231611853
+          ],
+          [
+            0.24788813118726935,
+            0.30389566135057994
+          ],
+          [
+            0.20771783830323232,
+            0.2637253684665429
+          ],
+          [
+            0.2077178377012269,
+            0.2637253678645375
+          ],
+          [
+            0.12917142757582775,
+            0.1851789577391383
+          ],
+          [
+            0.12917142747215657,
+            0.18517895763546713
+          ]
+        ],
+        "compression_Hermiticity_meV": 7.008381334090734e-14
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    },
+    "cd_1": {
+      "completion_bound_Ry": 32,
+      "representative_scalar_anchor_Ry": -0.03542727580565296,
+      "Q_singular_radius_meV": 0.028003765081655287,
+      "trace_ambiguity_radius_meV": 5.0081332505067875e-09,
+      "original_trace_meV": 292.822682252468,
+      "Hermitian_consistency_correction_action_meV": 1.280864135967083e-12,
+      "P_compression_Hermiticity_meV": 1.8951003010429322e-12,
+      "reconstruction_residual_meV": 5.934284118870208e-14,
+      "even": {
+        "known_column_centre_trace_meV": 292.8226822524605,
+        "trace_interval_meV": [
+          292.82268224745235,
+          292.8226822574686
+        ],
+        "Q_op_centre_meV": 377.7935904226099,
+        "Q_op_interval_meV": [
+          377.7655866575282,
+          377.8215941876916
+        ],
+        "Q_singular_centres_meV": [
+          377.7935904226099,
+          377.7935902236209,
+          377.7935701970216,
+          377.7935700361941,
+          347.6371090133611,
+          347.63710828626904
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            377.7655866575282,
+            377.8215941876916
+          ],
+          [
+            377.76558645853925,
+            377.8215939887026
+          ],
+          [
+            377.76556643193993,
+            377.8215739621033
+          ],
+          [
+            377.76556627111245,
+            377.8215738012758
+          ],
+          [
+            347.60910524827943,
+            347.6651127784428
+          ],
+          [
+            347.60910452118736,
+            347.6651120513507
+          ]
+        ],
+        "compression_Hermiticity_meV": 3.293422587765964e-13
+      },
+      "odd": {
+        "known_column_centre_trace_meV": 7.36479162864823e-12,
+        "trace_interval_meV": [
+          -5.000768458878139e-09,
+          5.015498042135436e-09
+        ],
+        "Q_op_centre_meV": 0.00014751295066536577,
+        "Q_op_interval_meV": [
+          0.0,
+          0.02815127803232065
+        ],
+        "Q_singular_centres_meV": [
+          0.00014751295066536577,
+          0.00014751295020515502,
+          0.00013394044765615862,
+          0.00013394044715684146,
+          0.00012238918632824524,
+          0.0001223891860521701
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.0,
+            0.02815127803232065
+          ],
+          [
+            0.0,
+            0.028151278031860443
+          ],
+          [
+            0.0,
+            0.028137705529311444
+          ],
+          [
+            0.0,
+            0.02813770552881213
+          ],
+          [
+            0.0,
+            0.02812615426798353
+          ],
+          [
+            0.0,
+            0.028126154267707457
+          ]
+        ],
+        "compression_Hermiticity_meV": 7.950307685385354e-14
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    },
+    "cd_2": {
+      "completion_bound_Ry": 32,
+      "representative_scalar_anchor_Ry": -0.03142500849879589,
+      "Q_singular_radius_meV": 0.028003765081655287,
+      "trace_ambiguity_radius_meV": 5.0081332505067875e-09,
+      "original_trace_meV": 271.7012970703305,
+      "Hermitian_consistency_correction_action_meV": 1.2986434093065286e-12,
+      "P_compression_Hermiticity_meV": 2.3107681098110616e-12,
+      "reconstruction_residual_meV": 6.180545533836574e-14,
+      "even": {
+        "known_column_centre_trace_meV": 271.70129707032333,
+        "trace_interval_meV": [
+          271.7012970653152,
+          271.70129707533147
+        ],
+        "Q_op_centre_meV": 402.0469358008511,
+        "Q_op_interval_meV": [
+          402.0189320357694,
+          402.07493956593277
+        ],
+        "Q_singular_centres_meV": [
+          402.0469358008511,
+          402.0469356010747,
+          402.04690638181154,
+          402.04690623893333,
+          358.0250091969959,
+          358.02500818886267
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            402.0189320357694,
+            402.07493956593277
+          ],
+          [
+            402.01893183599304,
+            402.0749393661564
+          ],
+          [
+            402.01890261672986,
+            402.0749101468932
+          ],
+          [
+            402.01890247385165,
+            402.074910004015
+          ],
+          [
+            357.9970054319142,
+            358.05301296207756
+          ],
+          [
+            357.997004423781,
+            358.05301195394435
+          ]
+        ],
+        "compression_Hermiticity_meV": 1.7141176497926654e-13
+      },
+      "odd": {
+        "known_column_centre_trace_meV": 7.415250747614565e-12,
+        "trace_interval_meV": [
+          -5.000717999759173e-09,
+          5.015548501254402e-09
+        ],
+        "Q_op_centre_meV": 0.00013281600279339923,
+        "Q_op_interval_meV": [
+          0.0,
+          0.028136581084448685
+        ],
+        "Q_singular_centres_meV": [
+          0.00013281600279339923,
+          0.00013281600245289063,
+          0.00010260433565521517,
+          0.00010260432781966484,
+          8.47180432343778e-05,
+          8.471803806247895e-05
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.0,
+            0.028136581084448685
+          ],
+          [
+            0.0,
+            0.028136581084108176
+          ],
+          [
+            0.0,
+            0.0281063694173105
+          ],
+          [
+            0.0,
+            0.028106369409474953
+          ],
+          [
+            0.0,
+            0.028088483124889665
+          ],
+          [
+            0.0,
+            0.028088483119717764
+          ]
+        ],
+        "compression_Hermiticity_meV": 7.676542426700749e-14
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    },
+    "chemical_1": {
+      "completion_bound_Ry": 64,
+      "representative_scalar_anchor_Ry": 0.0002364074152480222,
+      "Q_singular_radius_meV": 0.05600753016331057,
+      "trace_ambiguity_radius_meV": 1.0016266501013575e-08,
+      "original_trace_meV": 44.18409724746495,
+      "Hermitian_consistency_correction_action_meV": 1.2517449593067017e-12,
+      "P_compression_Hermiticity_meV": 2.501142636866647e-12,
+      "reconstruction_residual_meV": 1.0628141317739579e-14,
+      "even": {
+        "known_column_centre_trace_meV": 44.18409724746403,
+        "trace_interval_meV": [
+          44.184097237447766,
+          44.184097257480296
+        ],
+        "Q_op_centre_meV": 120.13545650606349,
+        "Q_op_interval_meV": [
+          120.07944897590018,
+          120.1914640362268
+        ],
+        "Q_singular_centres_meV": [
+          120.13545650606349,
+          120.13545641462883,
+          74.67305089105521,
+          74.67305085442102,
+          74.67301379722544,
+          74.67301373935301
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            120.07944897590018,
+            120.1914640362268
+          ],
+          [
+            120.07944888446552,
+            120.19146394479215
+          ],
+          [
+            74.6170433608919,
+            74.72905842121853
+          ],
+          [
+            74.61704332425771,
+            74.72905838458433
+          ],
+          [
+            74.61700626706212,
+            74.72902132738875
+          ],
+          [
+            74.6170062091897,
+            74.72902126951632
+          ]
+        ],
+        "compression_Hermiticity_meV": 1.2853408643870033e-14
+      },
+      "odd": {
+        "known_column_centre_trace_meV": 9.161196449523902e-13,
+        "trace_interval_meV": [
+          -1.0015350381368622e-08,
+          1.0017182620658528e-08
+        ],
+        "Q_op_centre_meV": 0.00013996793584979182,
+        "Q_op_interval_meV": [
+          0.0,
+          0.056147498099160364
+        ],
+        "Q_singular_centres_meV": [
+          0.00013996793584979182,
+          0.0001399679357433247,
+          0.00013068239516238653,
+          0.00013068239492834138,
+          9.305619346165492e-05,
+          9.30561934189796e-05
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.0,
+            0.056147498099160364
+          ],
+          [
+            0.0,
+            0.0561474980990539
+          ],
+          [
+            0.0,
+            0.05613821255847296
+          ],
+          [
+            0.0,
+            0.05613821255823891
+          ],
+          [
+            0.0,
+            0.05610058635677223
+          ],
+          [
+            0.0,
+            0.05610058635672955
+          ]
+        ],
+        "compression_Hermiticity_meV": 8.52374963983258e-15
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    },
+    "chemical_2": {
+      "completion_bound_Ry": 64,
+      "representative_scalar_anchor_Ry": 0.0001476202143861281,
+      "Q_singular_radius_meV": 0.05600753016331057,
+      "trace_ambiguity_radius_meV": 1.0016266501013575e-08,
+      "original_trace_meV": 39.81150358882771,
+      "Hermitian_consistency_correction_action_meV": 1.5596699444546825e-12,
+      "P_compression_Hermiticity_meV": 3.117822918127868e-12,
+      "reconstruction_residual_meV": 9.56389545129434e-15,
+      "even": {
+        "known_column_centre_trace_meV": 39.811503587759454,
+        "trace_interval_meV": [
+          39.81150357774319,
+          39.81150359777572
+        ],
+        "Q_op_centre_meV": 95.51787459079591,
+        "Q_op_interval_meV": [
+          95.4618670606326,
+          95.57388212095923
+        ],
+        "Q_singular_centres_meV": [
+          95.51787459079591,
+          95.51787452169287,
+          91.57862255728604,
+          91.57862252797624,
+          91.5698639354675,
+          91.56986388557605
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            95.4618670606326,
+            95.57388212095923
+          ],
+          [
+            95.46186699152956,
+            95.57388205185619
+          ],
+          [
+            91.52261502712273,
+            91.63463008744935
+          ],
+          [
+            91.52261499781292,
+            91.63463005813955
+          ],
+          [
+            91.51385640530418,
+            91.62587146563081
+          ],
+          [
+            91.51385635541274,
+            91.62587141573937
+          ]
+        ],
+        "compression_Hermiticity_meV": 1.050378437294125e-14
+      },
+      "odd": {
+        "known_column_centre_trace_meV": 1.0682504815532644e-09,
+        "trace_interval_meV": [
+          -8.948016019460311e-09,
+          1.1084516982566839e-08
+        ],
+        "Q_op_centre_meV": 0.27588779726068274,
+        "Q_op_interval_meV": [
+          0.21988026709737218,
+          0.3318953274239933
+        ],
+        "Q_singular_centres_meV": [
+          0.27588779726068274,
+          0.27588779629604887,
+          0.23571770617336546,
+          0.23571770557054658,
+          0.15717833348409824,
+          0.15717833338051007
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.21988026709737218,
+            0.3318953274239933
+          ],
+          [
+            0.2198802661327383,
+            0.33189532645935943
+          ],
+          [
+            0.1797101760100549,
+            0.291725236336676
+          ],
+          [
+            0.179710175407236,
+            0.29172523573385717
+          ],
+          [
+            0.10117080332078766,
+            0.21318586364740882
+          ],
+          [
+            0.1011708032171995,
+            0.21318586354382063
+          ]
+        ],
+        "compression_Hermiticity_meV": 1.2274152076599323e-14
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    },
+    "chemical_change": {
+      "completion_bound_Ry": 128,
+      "representative_scalar_anchor_Ry": -8.878720086189389e-05,
+      "Q_singular_radius_meV": 0.11201506032662115,
+      "trace_ambiguity_radius_meV": 2.003253300202715e-08,
+      "original_trace_meV": -4.372593658637238,
+      "Hermitian_consistency_correction_action_meV": 1.4192921762403207e-12,
+      "P_compression_Hermiticity_meV": 2.8390006694737282e-12,
+      "reconstruction_residual_meV": 2.647182661337936e-15,
+      "even": {
+        "known_column_centre_trace_meV": -4.372593659704575,
+        "trace_interval_meV": [
+          -4.372593679737108,
+          -4.372593639672042
+        ],
+        "Q_op_centre_meV": 32.43439017804323,
+        "Q_op_interval_meV": [
+          32.32237511771661,
+          32.54640523836985
+        ],
+        "Q_singular_centres_meV": [
+          32.43439017804323,
+          32.43439016658313,
+          29.041177383359173,
+          29.04117737616435,
+          29.035610703204068,
+          29.03561069686072
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            32.32237511771661,
+            32.54640523836985
+          ],
+          [
+            32.32237510625651,
+            32.54640522690975
+          ],
+          [
+            28.929162323032553,
+            29.153192443685793
+          ],
+          [
+            28.92916231583773,
+            29.15319243649097
+          ],
+          [
+            28.923595642877448,
+            29.147625763530687
+          ],
+          [
+            28.9235956365341,
+            29.14762575718734
+          ]
+        ],
+        "compression_Hermiticity_meV": 2.442576481393247e-15
+      },
+      "odd": {
+        "known_column_centre_trace_meV": 1.06733430344751e-09,
+        "trace_interval_meV": [
+          -1.896519869857964e-08,
+          2.109986730547466e-08
+        ],
+        "Q_op_centre_meV": 0.2759332871242169,
+        "Q_op_interval_meV": [
+          0.16391822679759574,
+          0.38794834745083806
+        ],
+        "Q_singular_centres_meV": [
+          0.2759332871242169,
+          0.2759332861596493,
+          0.23576139946653754,
+          0.23576139886375017,
+          0.15720466724969354,
+          0.15720466714602588
+        ],
+        "Q_singular_intervals_meV": [
+          [
+            0.16391822679759574,
+            0.38794834745083806
+          ],
+          [
+            0.16391822583302815,
+            0.3879483464862704
+          ],
+          [
+            0.1237463391399164,
+            0.3477764597931587
+          ],
+          [
+            0.12374633853712902,
+            0.3477764591903713
+          ],
+          [
+            0.04518960692307239,
+            0.2692197275763147
+          ],
+          [
+            0.04518960681940473,
+            0.269219727472647
+          ]
+        ],
+        "compression_Hermiticity_meV": 1.7581339814126843e-15
+      },
+      "completion_parity_even_meV": 0.0,
+      "completion_parity_odd_meV": 0.0
+    }
+  },
+  "source_ELF_PP_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/pw.hse8.relax": "2f3d33e32f1dad7ca8aa75111d7a5d13e5244a3104b85fab771a5d30c452c2c7",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/electrons.f90": "5f7ca732aaac97c5b96ea1bbe8f3d2391642a4fd76da0b723fc83485b214263b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/exx.f90": "98c70651174659009bf97b1b6385cff0ffbc71a986bb2a5f5efe0a833cf58940",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_electrons.f90": "e62ea5f6c65039481f5fa5b580765dac5e3074e9e2d40c0c7ab9d7acd3be8175",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_exx.f90": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_run_pwscf.f90": "3783fee67652c4d220f94d6a59a16ae5a0c2f8d34589551e35177419861ce8ae",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/run_pwscf.f90": "5a4d42807e7c6442994f07f8f081627a7cc3de99d8cb9a0964f51ed73d756189",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pp/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pp/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pp/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "native_packet_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_before.rank0": {
+      "sha256": "29406c17387eada0e06f2a12ab439db5ef97117120ec13c880277da49f66238d",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_after.rank0": {
+      "sha256": "f2c71f43e0e34075972c1c647d7919eda07979feb20c2e2a73bc8b0026bb4776",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local0.rank0": {
+      "sha256": "0734532f856231500be97da89e781f633df53f5f4b2c3664b0e5c3e14bc76e6d",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local1.rank0": {
+      "sha256": "3597ec449f1b5e0023d1a7ae0907ba20a6a1bcd8bc12242fca161cec62f4e571",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_before.rank1": {
+      "sha256": "8ff8e0c6a04808d3339b2b40c7d872c555df9c7020ab73106d755f89b679d77f",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_after.rank1": {
+      "sha256": "9c3e9712116932fe0c4a44702a05ec9f91486cc0bbb92f8b717a115220b2a0d7",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local0.rank1": {
+      "sha256": "0fce2a1953db5054374eae0eb5ba4b3eade69b4489c4435e69d8c4476399143c",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c1_local1.rank1": {
+      "sha256": "47f328e6a27bbee913d2b153c4206a6482ec313b635ba9046899a5f763227a70",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_before.rank0": {
+      "sha256": "a29e7b091c25e99454eee827b15046a8833877d22447e55a2d04e341760d33e3",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_after.rank0": {
+      "sha256": "9ba57c8e9972e2f210fe2338ee350bdf3e7309d6a9a7116f843d5d56b7eb8a76",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local0.rank0": {
+      "sha256": "0ba20ddc702226b216a252c38b2e0d8a98b105de03c61e0c73bac76006ad77f4",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local1.rank0": {
+      "sha256": "a36eb142d3b175e2e96fb900c88fbb537e32ea99fa8f5f6b792339e2d2b5c49e",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_before.rank1": {
+      "sha256": "82776166cd79d3d4672775e134beea20a1e6db57350a5bd0d4d906fee10b6f3d",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_after.rank1": {
+      "sha256": "a22dd63fdfac052f682b5c5226b759c6f36de22f08c7135cbc0d09f1aed95035",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local0.rank1": {
+      "sha256": "ffb6a8139b90f8f6acf43dbea0b0c284312e90a5b05be2b620e089911c1e65ee",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/pilot/c2_local1.rank1": {
+      "sha256": "5a5bfd87de76d98471dfd9b7e69b12a29eb8dfed98936a200f65b190ded51622",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_before.rank0": {
+      "sha256": "f05590f07c692cdfee1244c58bd8295625df26333ebc220cc3e49807744334f8",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_after.rank0": {
+      "sha256": "b0221ba412569f957f0a5bd6cbb8dd465ebb96e598d47ba90ee742ff6e4efa9e",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local0.rank0": {
+      "sha256": "da338004466f5d2ec3edcf5bfe1910e069a60397da5899ac7b966b6d29f736f4",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local1.rank0": {
+      "sha256": "04409ece9f6359dada492e4402f9c206e8aac6ebdaeee20f4ea7813992cdd582",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_before.rank1": {
+      "sha256": "2ae9693f09f6bf84eb051c5ba21b35e455ffcae4334c4f859df1af2feb2dc7f4",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_after.rank1": {
+      "sha256": "8b468bacb9a4889a46d2cd7a63c9ade4c3069585f913c6c1bd592800778c975e",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local0.rank1": {
+      "sha256": "2536c814a703c609c8004d2c3a43c5489149833a1789402540dcc0e5d82332d7",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c1_local1.rank1": {
+      "sha256": "9fa7c24b8b91857cfa0d899c911d7306228b25bf40658c0171f63e4fc567ca82",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_before.rank0": {
+      "sha256": "8916bad344bdaa501e030ebf976325c067653db3d229977c83dc2260628eef8f",
+      "bytes": 61623288,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_after.rank0": {
+      "sha256": "bf9fd662975e1556546b522d78ccbdca51db22a824debe797b31015559503b67",
+      "bytes": 63569672,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local0.rank0": {
+      "sha256": "ff0f5c37be83a37da29d341d47d316462cbb1e3e0a21240fa5a24feedb25c952",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local1.rank0": {
+      "sha256": "5509f88c5f9ef33714ca58f011efaa7ba12af320e5d8dddd69289b2154178def",
+      "bytes": 12810312,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_before.rank1": {
+      "sha256": "2884dd3de389b32e3c7094c5eb1cfc2073ce316ec56bda84b8965aa2ace776c9",
+      "bytes": 61589424,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_after.rank1": {
+      "sha256": "3803dca8e35d93219e0e2f40f78950c658ad64d160661ebe4cb1fae1bfa0bf1f",
+      "bytes": 63534728,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local0.rank1": {
+      "sha256": "c1667a57084cea6cbe2e704f15e5bd0fd2576d6c2358898f68ad0a0ff33a3e2d",
+      "bytes": 12809248,
+      "retained_private": true
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pilot/c2_local1.rank1": {
+      "sha256": "dfda085bde45940aedf797ce4c98f2df2c40ba68fe820ee00c882eb981d168f4",
+      "bytes": 12809248,
+      "retained_private": true
+    }
+  },
+  "parent_contracted_actions_sha256": "c6a9e4d8cbda3312ab927e24749b09006ad581fe76316e5104af17ac7a0b45b7",
+  "wall_s": 26.470263480208814,
+  "peak_audit_RSS_KiB": 1093548,
+  "physically_stationary_state": false,
+  "material_gap_or_xc": null,
+  "interval_meaning": "analytical completion intervals under reviewed frozen QE model norm bound, evaluated in floating arithmetic; not directed-rounding or material error bars"
+}

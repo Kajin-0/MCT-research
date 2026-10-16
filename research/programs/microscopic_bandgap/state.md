@@ -2,9 +2,37 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED; no new native acquisition admitted. Retained matched HSE activation has large out-of-six-state action and a nonmagnetic-source counterqualification. Qualified screened Cd remainder remains missing; original16atom streaming also exceeds14GiB output cap. All prior host-reference/optical/native boundaries retained; physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED; no new native acquisition admitted. Source-conditioned bounds show retained matched HSE activation/leakage mostly Theta even; original reference is not exactly Kramers closed and source states remain nonstationary/symmetry-unqualified. Qualified screened Cd response still missing; original16atom resource restrictions and all prior host/optical/native boundaries retained. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 03:40 UTC
+**Updated:** 2026-10-16 05:10 UTC
+
+## Frozen-response time-reversal decomposition COMPLETE — 2026-10-16
+
+[Decision](theta_response_2026-10-16/decision.md),
+[theory](theta_response_2026-10-16/theory.md),
+[conditional source norm certificate](theta_response_2026-10-16/source_norm_certificate.md),
+[native-data results](theta_response_2026-10-16/result.json),
+[all member responses](theta_response_2026-10-16/response_table.csv),
+[handoff](theta_response_2026-10-16/handoff_ledger.md).
+From4cfc16b, no new native/source/build/DFT write. Original reference Theta
+closure1.2864e-7 fails1e-8, so exact six-column reconstruction is REFUSED.
+Hermitian cross-block information plus a reviewed frozen-QE norm bound still
+gives conditional intervals: updated chemical even Q norm95.4618–95.5739meV,
+odd.2198–.3320meV, even minimum singular>91.5138meV. Updated odd trace is
+bounded within about1.12e-8meV of zero in this defined frame, not asserted
+identically zero. These bounds concern closure/completion, not material error;
+original multiplier packet is absent and source assumptions are explicit.
+
+Full finite-rank source density defects: host relaxed.001428208op/.004040264F;
+preliminary Cd5.99595e-7op, despite its tiny old compressed lower witness.
+All4sources fail strict1e-8 TR state qualification. Independent actual column/
+trace, gauge and scalar-density checks pass. The large remote action survives
+even projection but even-state/SCF feedback remains unbounded: no repaired
+H[D_even], FD solution, cubic quartet, gap or physicalx_c. Nonlinear projected
+Hessian/inverse FD-Jacobian and qualified matched full-H/state input remain
+missing. No extra ThetaR job is justified just to narrow these small intervals.
+STOP this distinct phase; previous finite PASS/FAIL/source/owner gates remain.
+Registry status unchanged; no new optical search or native admission.
 
 ## Science-first screening feasibility COMPLETE — 2026-10-16
 

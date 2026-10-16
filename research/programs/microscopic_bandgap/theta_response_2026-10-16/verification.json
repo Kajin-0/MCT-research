@@ -1,0 +1,87 @@
+{
+  "status": "PASS_DISTINCT_RETAINED_DATA_THEORY; EXACT_CLOSURE_NO_GO; CONDITIONAL_FROZEN_RESPONSE_BOUNDS",
+  "timestamp_UTC": "2026-10-16T05:12:24.862767+00:00",
+  "baseline": "4cfc16b",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "native_jobs": 0,
+  "private_packet_pins_rechecked": 32,
+  "source_ELF_PP_pins_rechecked": 14,
+  "rational_norm_bound_check": {
+    "cube_shell_sum": "1961622312297248212116310369/2712329095771947571920000",
+    "regular_kernel_upper": 45.91900318953671,
+    "aa_upper": 1.4668,
+    "centered_member_upper_Ry": 31.00000024
+  },
+  "native_occupation_tail_checks": {
+    "host_1": {
+      "native_cutoff": 1e-08,
+      "max_omitted_weight": 1.3327783509583579e-53,
+      "omitted_charge_e": 7.996453989506013e-53
+    },
+    "host_2": {
+      "native_cutoff": 1e-08,
+      "max_omitted_weight": 7.993394739239139e-74,
+      "omitted_charge_e": 4.7930515368192623e-73
+    },
+    "cd_1": {
+      "native_cutoff": 1e-08,
+      "max_omitted_weight": 4.247570613152493e-53,
+      "omitted_charge_e": 1.699028245219788e-52
+    },
+    "cd_2": {
+      "native_cutoff": 1e-08,
+      "max_omitted_weight": 1.0144124191986862e-73,
+      "omitted_charge_e": 4.057647398256346e-73
+    }
+  },
+  "independent_member_matrix_checks": {
+    "host_1": {
+      "old_matrix_trace_meV": 248.6385850050025,
+      "new_native_trace_difference_meV": 8.526512829121202e-14
+    },
+    "host_2": {
+      "old_matrix_trace_meV": 231.88979348150488,
+      "new_native_trace_difference_meV": 1.8758328224066645e-12
+    },
+    "cd_1": {
+      "old_matrix_trace_meV": 292.82268225246764,
+      "new_native_trace_difference_meV": 3.410605131648481e-13
+    },
+    "cd_2": {
+      "old_matrix_trace_meV": 271.701297070331,
+      "new_native_trace_difference_meV": 5.115907697472721e-13
+    }
+  },
+  "protected_MCT": {
+    "AGENTS.md": "d29d00192e7e46058b19f2e6291b924bc4eca39ed889861e429c31c14755bde1",
+    "research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/decision.md": "aee9160c433c33beea353a6175398a8f8b5732e478e28f6f34166eda188c6ca1",
+    "research/programs/microscopic_bandgap/hybrid_convergence_2026-10-15/decision.md": "3039f8f271b83993ca66d413f4bb57c77001469f3d4e7f9ac6fbb2740d561f6d",
+    "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2",
+    "research/programs/microscopic_bandgap/static_environment_2026-10-15/decision.md": "de718ee6f209aa7fab06407f6e5d486e92db6a858aab813262e94ca990e8a11e",
+    "research/programs/microscopic_bandgap/single_state304_2026-10-15/decision.md": "134395357cee68252566ed6571bc9204ef5e86e745689d153d9a7cd110789782",
+    "research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/full_scf_2026-10-13/decision.md": "1a637189f5f248ea0c90afe68f0176673c78a851037df682eeb1af206fedf94a",
+    "research/programs/microscopic_bandgap/qe75_streaming_2026-10-11/fermi_root_2026-10-14/decision.md": "ed69ef5b3096ca9da40d4f3a4047f8389702a6efcbb33d7bd5c755e5e4d99c43",
+    "research/programs/microscopic_bandgap/stationary_reference_audit_2026-10-16/verification.json": "5df3e63966ead9a4b83cd877ac9877703a1e59d59d2e2ed8737c74cac1433bdc",
+    "research/contribution_registry.md": "ed8b98e54a450927717b2303f79ac98e29fae780e8f5c67e98035700b9992295",
+    "research/programs/microscopic_bandgap/screening_feasibility_2026-10-16/verification.json": "854720090371220e6425de3bd8b5bb9420ce86f30dc5059d76e60cf4b9072c2a"
+  },
+  "entire_old_handoff_preserved": true,
+  "contribution_registry_unchanged": true,
+  "local_links_checked": 4,
+  "physical_xc": null,
+  "native_admission": false,
+  "source_hashes": {
+    "source_norm_certificate.md": "387966c20714328b709b56e97c8872176a0398fbcc1d589c6ca6a84545d08627",
+    "decision.md": "45e9af83faa016adf9cd19095c93bee9066f7df5b770f830a847e664a0d1c85a",
+    "response_table.csv": "12904333a1bab0e25fc41c43317fc629884ab1ca4896e40db17e58c52acf3091",
+    "handoff_ledger.md": "5d34fcce44818a0980acae8c099457ac6d43b22f997ef4a5b6ed048d556e96cf",
+    "analyze.py": "df1093645d3dd1c0f5ef21974e87cb2b198b40b157c5f63d5a1d0f77f7b41932",
+    "independent_results.json": "814dc92222768b702d785082e96accdf3357c727ee24552e583c09e3ed610af8",
+    "verify_artifacts.py": "cefff7578904a3a7daa264673c907cc7fed41eda0b48751328627969ad71e462",
+    "verification.md": "521afcc2d0d09a16744c29d462d9cf326c276b2960ed97a3c2f40ed10e5f4b25",
+    "independent_checks.py": "967e49c20954803bbdf904ae5dba6922f09a8229aecc48b01b47340f3777e3ee",
+    "theory.md": "c97e619ade469bfda10f1c9a298be26b52d29460bcdb32a0e4de7fea208d937c",
+    "result.json": "62a454e5ab855da181d3678b609574d2cb1a7c2a28d0c628df20b1853cc7a9a4"
+  },
+  "limits": "Source-conditioned finite-grid operator intervals, not original kernel byte replay, directed-rounding or material error bounds. No stationary FD/HSE state or exact six-column closure. No DFT Git/driver/build/native command or protected-tree write."
+}

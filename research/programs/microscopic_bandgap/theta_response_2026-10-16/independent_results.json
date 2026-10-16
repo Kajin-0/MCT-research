@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "native_jobs": 0,
+  "actual_data_checks": {
+    "chemical_1": {
+      "alternative_column_reconstruction_meV": 9.56383157982558e-14,
+      "independent_transformed_trace_error_meV": 2.1316282072803006e-14,
+      "block_unitary_covariance_error_meV": 2.3032834288226365e-13,
+      "scalar_reference_covariance_error_meV": 2.308671264589249e-12,
+      "antiunitary_phase_invariance_error_meV": 3.2400853921337785e-14
+    },
+    "chemical_2": {
+      "alternative_column_reconstruction_meV": 8.793480920775009e-14,
+      "independent_transformed_trace_error_meV": 1.4210854715202004e-14,
+      "block_unitary_covariance_error_meV": 2.0707213078762612e-13,
+      "scalar_reference_covariance_error_meV": 1.7633181089747593e-12,
+      "antiunitary_phase_invariance_error_meV": 3.57208200166257e-14
+    },
+    "chemical_change": {
+      "alternative_column_reconstruction_meV": 2.7968902901617264e-14,
+      "independent_transformed_trace_error_meV": 1.7763568394002505e-15,
+      "block_unitary_covariance_error_meV": 6.851132346292329e-14,
+      "scalar_reference_covariance_error_meV": 1.9153032958962067e-12,
+      "antiunitary_phase_invariance_error_meV": 1.1401652753136651e-14
+    }
+  },
+  "information_NO_GO": {
+    "unknown_QQ_rank1_leaves_input_residual": 6.555375953121894e-17,
+    "nonzero_half_transformed_trace_direction": 3.998294437141586e-15,
+    "exact_six_column_decomposition_identified": false
+  },
+  "source_conditioned_not_material_bounds": true,
+  "scope": "column algebra, transformed trace, real/basis/scalar/Theta phase gauges on retained data; no synthetic Hamiltonian"
+}

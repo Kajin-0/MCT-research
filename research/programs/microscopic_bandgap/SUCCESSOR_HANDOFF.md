@@ -25,6 +25,34 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+## Latest frozen-response Theta decomposition COMPLETE — 2026-10-16
+
+From4cfc16b: read `theta_response_2026-10-16/{decision.md,theory.md,
+source_norm_certificate.md,handoff_ledger.md}`, result/verification and table.
+Distinct actual-data result: the95.54meV chemical leakage survives Theta-even
+projection. Updated even Q norm95.4618–95.5739meV, odd.2198–.3320meV;
+all even singular values>91.5138meV. Updated odd trace magnitude<1.12e-8meV
+under the stated source assumptions, leaving the finite+39.8115meV trace even
+to that precision. These are NOT stationary/material error bars.
+
+Original six-frame closure1.286399e-7 fails1e-8. Exact six-column reconstruction
+is therefore NO-GO, not a new PASS. A gauge-covariant Hermitian representative
+retains unknown QQ completion in rigorous conditional interval formulas.
+Finite-grid norm32Ry/member,64Ry/chemical is source conditioned: original native
+kernel multipliers were not captured. Do not present centres as unique physical
+operators, pretend exact W closure or discard the QQ uncertainty.
+
+Full actual density defects now available: host second.001428208op/.004040264F,
+initial Cd5.99595e-7op. Old compressed witnesses were lower and are preserved.
+All sources remain strict1e-8 TR-unqualified. Zero local spin/Theta-even frozen
+action is not self-consistency or cubic Td. Nonlinear-XC averaging has a possible
+consistent already-even local-density exception, but no FD state is certified.
+Unknown even feedback needs a bounded Hessian and inverse FD response/Jacobian.
+Minimum next physical input is unchanged: qualified matched same-state full-H
+six-probe screened response/state residual, not another unchanged HSE or extra
+ThetaR-only job. No native/source/build/DFT write, optical search, goal/session,
+registry-status or historical refusal change. STOP; all old handoff remains.
+
 ## Latest science-first screening feasibility COMPLETE — 2026-10-16
 
 From5dc77a9: read `screening_feasibility_2026-10-16/{decision.md,theory.md,
