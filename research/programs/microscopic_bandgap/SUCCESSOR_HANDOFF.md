@@ -25,6 +25,35 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- DENSITY_DRIVER_BUILD_BEGIN -->
+## Density-only driver implemented; runtime qualification refused — 2026-10-16 18:25 UTC
+
+Read `pbe_density_driver_2026-10-16/{decision.md,packet_and_execution_boundary.md,
+build_result.json,runtime_fs_probe.json,verification.json}`. From75b0e33,
+new private standalone QE7.5 read_file_new(needwf=false)/set_vrs/k/beta/becp12/
+h_psi main compiled+linked first attempt against unchanged stock archive.
+No evc352/wfc loading/SCF call on new path; metadata352/288 preserved. New
+one-rank R07D1 G-labelled input/packet+metric/Theta reader;9offline tests.
+C hard gate EPERM before mp_startup; QE-linked ELF NEVER EXECUTED.
+
+ONE fresh NON_SCIENCE FS service reached READY then pre-nonce owner admission
+AssertionError; no traceback/named predicate retained, so exact failed check
+cannot be recovered. Empty go proves no Landlock/seccomp/negative tests/MPI
+ran. Absorbing REFUSAL preserved, no retry; singleton WITHHELD. Owned pidfd
+exit and empty/absent original cgroup checked. Manager startup peak1,835,008B,
+owner elapsed.146s only, NOT QE resources. Manager Resultsuccess/wait0 after
+owner TERM is not native success (ExecMainCode2/status15). No old GateA PASS.
+
+BUILD GO only; confinement/singleton/native-equivalence/full-resource/2meV
+remain UNQUALIFIED; material EXECUTION NO-GO. Next separate NON_SCIENCE scope
+must first retain named pre-nonce identity/kernel/manager/member facts, then
+qualify actual write confinement and singleton without helper/network. No
+scientific job/release in this phase, no static numeric response or xc.
+Original protected pins/dirtyDFT/stock/failed evidence verified unchanged.
+Registry and blocked goal unchanged; STOP at separate authorization boundary.
+All previous handoff/state history remains below.
+<!-- DENSITY_DRIVER_BUILD_END -->
+
 <!-- PBE_DENSITY_ONLY_FEASIBILITY_20261016_BEGIN -->
 ## Latest density-only PBE path assessment — 2026-10-16 17:35 UTC
 

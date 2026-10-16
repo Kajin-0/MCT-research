@@ -1,0 +1,14 @@
+test_clean_import (__main__.Checks.test_clean_import) ... ok
+test_explicit_theta_control (__main__.Checks.test_explicit_theta_control) ... ok
+test_hermiticity_normalization (__main__.Checks.test_hermiticity_normalization) ... ok
+test_no_science_small_packet (__main__.Checks.test_no_science_small_packet) ... ok
+test_nonfinite_duplicate (__main__.Checks.test_nonfinite_duplicate) ... ok
+test_old_rank_schema (__main__.Checks.test_old_rank_schema) ... ok
+test_source_path (__main__.Checks.test_source_path) ... ok
+test_truncation_and_trailer (__main__.Checks.test_truncation_and_trailer) ... ok
+test_valid_components_gauge (__main__.Checks.test_valid_components_gauge) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.168s
+
+OK

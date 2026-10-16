@@ -1,0 +1,18 @@
+{
+  "scope": "NON_SCIENCE prospective source review, not runtime proof",
+  "checks": {
+    "two_fixed_non_science_targets_only": true,
+    "fixed_caps": true,
+    "no_launcher": true,
+    "pidfd_binding": true,
+    "one_shot_no_retry": true,
+    "limits_outside_holder": true,
+    "absorbing_failure": true,
+    "fresh_independent_roots": true,
+    "no_material_inputs": true,
+    "readonly_legacy_lock": true
+  },
+  "owner_sha256": "0f534da5f14ffcfc6340b105c49528457706b172d37588d53349ef8ac598c429",
+  "MemAvailable_kB": "MemAvailable:   29210024 kB",
+  "disk_free_B": 49539915776
+}

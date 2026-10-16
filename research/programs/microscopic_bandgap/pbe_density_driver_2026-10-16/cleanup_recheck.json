@@ -1,0 +1,16 @@
+{
+  "UTC": "2026-10-16T18:27:59.388065+00:00",
+  "unit": "r07-owned-02c469543180441d9568d046045620f8.service",
+  "command": [
+    "/usr/bin/systemctl",
+    "--user",
+    "show",
+    "r07-owned-02c469543180441d9568d046045620f8.service",
+    "--property=LoadState,ActiveState,MainPID,ControlGroup"
+  ],
+  "returncode": 0,
+  "stdout": "MainPID=0\nControlGroup=\nLoadState=not-found\nActiveState=inactive\n",
+  "stderr": "",
+  "original_RESULT_sha256": "1d9e3aa737322eae63072fa22401c19f8f2a7aa4b1183e1653b96cbe314c1973",
+  "only_owned_unit_queried": true
+}

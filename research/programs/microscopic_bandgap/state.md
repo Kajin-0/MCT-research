@@ -2,9 +2,38 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED. New saved-density-only QE-native PBE design is scientifically feasible CONDITIONAL on source/runtime equivalence;352 wavefunctions are not a physical input requirement. Execution remains NO-GO: singleton/confinement/resource/operator qualification absent. Gate A FD-refusal and all historical failures preserved; no native pair release. Minimum24scientific actions, not12. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED. NEW standalone density-only QE driver compiled/linked, never executed; 9offline tests pass. One NON_SCIENCE pre-nonce owner admission REFUSED; actual Landlock and singleton untested/withheld. Scientific execution/full native resource and2meV gates remain NO-GO. All historical failures preserved; physical x_c OPEN.
 
-**Updated:** 2026-10-16 17:35 UTC
+**Updated:** 2026-10-16 18:25 UTC
+
+<!-- DENSITY_DRIVER_BUILD_BEGIN -->
+## Density-only driver implemented; runtime qualification refused — 2026-10-16 18:25 UTC
+
+Read `pbe_density_driver_2026-10-16/{decision.md,packet_and_execution_boundary.md,
+build_result.json,runtime_fs_probe.json,verification.json}`. From75b0e33,
+new private standalone QE7.5 read_file_new(needwf=false)/set_vrs/k/beta/becp12/
+h_psi main compiled+linked first attempt against unchanged stock archive.
+No evc352/wfc loading/SCF call on new path; metadata352/288 preserved. New
+one-rank R07D1 G-labelled input/packet+metric/Theta reader;9offline tests.
+C hard gate EPERM before mp_startup; QE-linked ELF NEVER EXECUTED.
+
+ONE fresh NON_SCIENCE FS service reached READY then pre-nonce owner admission
+AssertionError; no traceback/named predicate retained, so exact failed check
+cannot be recovered. Empty go proves no Landlock/seccomp/negative tests/MPI
+ran. Absorbing REFUSAL preserved, no retry; singleton WITHHELD. Owned pidfd
+exit and empty/absent original cgroup checked. Manager startup peak1,835,008B,
+owner elapsed.146s only, NOT QE resources. Manager Resultsuccess/wait0 after
+owner TERM is not native success (ExecMainCode2/status15). No old GateA PASS.
+
+BUILD GO only; confinement/singleton/native-equivalence/full-resource/2meV
+remain UNQUALIFIED; material EXECUTION NO-GO. Next separate NON_SCIENCE scope
+must first retain named pre-nonce identity/kernel/manager/member facts, then
+qualify actual write confinement and singleton without helper/network. No
+scientific job/release in this phase, no static numeric response or xc.
+Original protected pins/dirtyDFT/stock/failed evidence verified unchanged.
+Registry and blocked goal unchanged; STOP at separate authorization boundary.
+All previous handoff/state history remains below.
+<!-- DENSITY_DRIVER_BUILD_END -->
 
 ## Density-only static PBE path — conditional design GO, execution NO-GO
 

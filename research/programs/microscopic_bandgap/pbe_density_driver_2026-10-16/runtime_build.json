@@ -1,0 +1,46 @@
+{
+  "scope": "NON_SCIENCE_BUILD",
+  "root": "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5",
+  "source_sha256": "ba9c2eb289afcee8dc65eadd4f6e5e10d903f67a1526cb475b960ec35b75ecda",
+  "records": [
+    {
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5/runtime_probe.c",
+        "-o",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5/fs_probe"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpicc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DR07_MPI",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5/runtime_probe.c",
+        "-Wl,-rpath,/home/User/opencode_workspace/DFT/.local/qe-env/lib",
+        "-o",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5/singleton_probe"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "elf_pins": {
+    "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5/fs_probe": "eb9a6fd98bdeb4eb60875a13b354d80d79f7f4fe5bd4a1e259da7dccb4fca798",
+    "/home/User/repos/MCT-research/.tmp/r07spc16/density-runtime-build-4c853ef3997d448680c38638a6a75ec5/singleton_probe": "9183f112d4efd2eb586ce616133a0b90d62f8b45ed655a17303bc317e047ecb5"
+  }
+}
