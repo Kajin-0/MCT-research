@@ -25,6 +25,37 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- PBE_STATIC_LIFECYCLE_20261016_BEGIN -->
+## Latest Gate A lifecycle-only actual attempt — 2026-10-16 14:35 UTC
+
+From9f59814: read `pbe_static_lifecycle_2026-10-16/{decision.md,
+preregistration.md,commands_and_boundary.md,verification.json}` FIRST.
+Finite user-authorized phase COMPLETE: **NO-GO / STOP**, not Gate B release.
+New isolated R07L/scope1601 NON_SCIENCE MPI C harness built and frozen. Real
+production-derived owner.run created one systemd local two-rank launcher unit
+with actual12GiB/swap0/tasks12/600s. At startup `/proc/1978386/fd/9` vanished
+inside strict Account.sample; incomplete/unknown live-final-pair refusal after
+0.202116s. ZERO authenticated begins/finals, packets or collective results.
+Do not claim actual two-world-rank qualification from command intent.
+Conditional missing-final negative NOT RUN; no retry or replacement identity.
+
+Actual terminal manager peak2,789,376B; sampled holderRSS24,408,064B. These
+are startup observations only. Known actor pidfds dead, managerfailed/exit1,
+foreground wait1 and original empty/absent cgroup checked; immutable RESULT
+REFUSED, no OUTSIDE_FINAL/science release. Cleanup's rank-exit field is vacuous
+with no ranks; no false rank proof. pw.out empty; exact initial ENOENT in tool
+traceback is archived as an explicitly transcribed excerpt. No assumption
+whether fdclose or taskexit caused disappearance; never silently skip it.
+
+Old PBE implementation/source/refusals,126profile/14raw pins, stockQE/dirtyDFT/
+historical ledger verified unchanged. No QE/HSE/SCF/saved-density action, hostwide
+inventory, private-netns proof, original HSE16 or goal/session change. Gate A
+full lifecycle and Gate B/backend/2meV qualification remain BLOCKED. No physical
+mass/gap/x_c or registry promotion. A future live attempt requires new explicit
+scope plus a tested bootstrap FD-lifetime/accounting solution; do not rerun this
+unit/root/lease or launch a science member. All older handoff text preserved.
+<!-- PBE_STATIC_LIFECYCLE_20261016_END -->
+
 <!-- PBE_STATIC_COMPLETION_20261016_BEGIN -->
 ## Latest PBE native completion — 2026-10-16
 

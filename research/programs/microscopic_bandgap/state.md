@@ -2,9 +2,33 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED. PBE native final hook now privately compiled/linked and production dispatcher/account/reader components tested with real non-MPI C clients. Full production owner/MPI lifecycle and resource/numerical qualification remain BLOCKED; no native pair release. Minimum24actions, not12. HSE state boundary and all historical failures unchanged. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED. Gate A actual standalone MPI-launcher/systemd owner attempt REFUSED at startup FD inventory, before any authenticated rank. Cleanup verified; no retry/negative/QE action. Full owner/MPI lifecycle and Gate B resource/numerical qualification remain BLOCKED; no native pair release. Minimum24scientific actions, not12. HSE and all historical failures unchanged. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 13:32 UTC
+**Updated:** 2026-10-16 14:35 UTC
+
+## Gate A actual lifecycle attempt — NO-GO, STOP
+
+[Decision](pbe_static_lifecycle_2026-10-16/decision.md),
+[preregistration](pbe_static_lifecycle_2026-10-16/preregistration.md),
+[actual immutable refusal/cleanup](pbe_static_lifecycle_2026-10-16/evidence/RESULT.json),
+[verification](pbe_static_lifecycle_2026-10-16/verification.json).
+From9f59814, NEW isolated R07L/scope1601 NON_SCIENCE C MPI harness and
+production-derived owner.run compiled/imported/frozen. Actual two-rank command
+entered a real bounded systemd user unit. `/proc/1978386/fd/9` disappeared during
+launcher FD accounting; strict incomplete-final-pair refusal after0.202116s.
+No authenticated begin/final, packet or MPI collective completion was obtained.
+No task-close/exit cause is inferred from ENOENT. One attempt, zero retries;
+conditional missing-final test withheld. No QE/PW/SCF or protected DFT writes.
+
+Actual kernel12GiB/swap0/tasks12/600s observed; manager final peak2,789,376B,
+holder RSS24,408,064B sampled. Cleanup checked known actor pidfds, wait1,
+same failed manager/invocation and empty/absent cgroup. No success was issued.
+The empty-rank cleanup Boolean is vacuous, NOT rank-exit evidence; failure log
+is empty and no MPI diagnostic is invented. Original RESULT stays REFUSED.
+Old126profile/14raw pins, stock/dirtyDFT/ledger unchanged. No host-wide exclusion
+or private-network proof, Gate B/2meV release or scientific resource bound.
+STOP at bootstrap FD-lifetime/accounting boundary; no automatic next service,
+resource probe or paired24actions. Registry/scientific status unchanged.
 
 ## PBE native-completion implementation — source/component PASS, native BLOCKED
 
