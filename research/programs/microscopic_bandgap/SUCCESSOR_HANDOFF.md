@@ -25,6 +25,41 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- PBE_FINAL_ADMISSION_BEGIN -->
+## FINAL PBE diagnostic TERMINATED; stationary HSE chemistry priority — 2026-10-16 19:27 UTC
+
+Read `pbe_final_admission_2026-10-16/{decision.md,science_transition.md,
+result_fs.json,predicates_fs.jsonl,verification.json}`. This finite assignment
+is COMPLETE; no further PBE infrastructure phase, singleton retry, or12/24
+static acquisition is scheduled. This supersedes prior proposals to continue
+that diagnostic; their original evidence and status remain untouched below.
+
+NEW named/durable owner had14offline passes. ONE fresh FS service reached
+all pre-nonce identity/kernel/manager gates then actual LandlockABI7 negative
+checks/FD-capability tests completed with exit0. Overall sequence REFUSED at
+BOUNDED_SAMPLE: holder ru_maxrss563,339,264B exceeded512MiB536,870,912B;
+this peak check was missing from preflight, not a proven instantaneousRSS
+measurement. No guard change/retry/retropass; prior anonymous cause unproved.
+SingletonWITHHELD, zero QE/material/H/SCF jobs. Worker kernel peak1,835,008B,
+swap0/native.122243s; holder elapsed.210653s. Actual owned pidfd exit/cgroup
+absence and both fresh unit names not-found checked. Result/journal prefix
+and post-Unref complete hashes separately preserved; no hidden hash repair.
+
+PBE diagnostic TERMINATE; scientific executionNO-GO. New driver remains hard-
+gated/unexecuted,2meV absent.822protected pins/76historical files/dirtyDFT/
+stock unchanged. No physical x_c, N2, linewidth or new material result.
+
+NEXT scientific deliverable is stationary matched HSE+SOC chemical STATES and
+signed periodic Γ mass with residual/symmetry/error certificates, then a second
+composition and conditional alloy adapter. Original primitive numerical HSE
+SCFs/frames remain useful; old8atom/176ACE/D0 defects cannot be bypassed.
+Existing stock ace=false direct-exchange path is a scientific control candidate,
+NOT resource/convergence admitted. No source/owner development campaign or job
+authorized here. If a qualified bounded calculation is unavailable, missing
+independent stationary material input is the boundary. No endpoint/gap fitting.
+Historical persistent goal/registry/main/other sessions remain unchanged. STOP.
+<!-- PBE_FINAL_ADMISSION_END -->
+
 <!-- DENSITY_DRIVER_BUILD_BEGIN -->
 ## Density-only driver implemented; runtime qualification refused — 2026-10-16 18:25 UTC
 

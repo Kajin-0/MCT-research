@@ -2,9 +2,44 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED. NEW standalone density-only QE driver compiled/linked, never executed; 9offline tests pass. One NON_SCIENCE pre-nonce owner admission REFUSED; actual Landlock and singleton untested/withheld. Scientific execution/full native resource and2meV gates remain NO-GO. All historical failures preserved; physical x_c OPEN.
+**State:** historical persistent goal BLOCKED. FINAL PBE static diagnostic TERMINATED after one named NON_SCIENCE holder-peak refusal; actual Landlock checks completed but singleton withheld. No further PBE infrastructure/acquisition scheduled. Priority is independently stationary matched HSE+SOC chemical mass across compositions; current scientific execution NO-GO, physical x_c OPEN. All original numerical acceptances and failures remain preserved.
 
-**Updated:** 2026-10-16 18:25 UTC
+**Updated:** 2026-10-16 19:27 UTC
+
+<!-- PBE_FINAL_ADMISSION_BEGIN -->
+## FINAL PBE diagnostic TERMINATED; stationary HSE chemistry priority — 2026-10-16 19:27 UTC
+
+Read `pbe_final_admission_2026-10-16/{decision.md,science_transition.md,
+result_fs.json,predicates_fs.jsonl,verification.json}`. This finite assignment
+is COMPLETE; no further PBE infrastructure phase, singleton retry, or12/24
+static acquisition is scheduled. This supersedes prior proposals to continue
+that diagnostic; their original evidence and status remain untouched below.
+
+NEW named/durable owner had14offline passes. ONE fresh FS service reached
+all pre-nonce identity/kernel/manager gates then actual LandlockABI7 negative
+checks/FD-capability tests completed with exit0. Overall sequence REFUSED at
+BOUNDED_SAMPLE: holder ru_maxrss563,339,264B exceeded512MiB536,870,912B;
+this peak check was missing from preflight, not a proven instantaneousRSS
+measurement. No guard change/retry/retropass; prior anonymous cause unproved.
+SingletonWITHHELD, zero QE/material/H/SCF jobs. Worker kernel peak1,835,008B,
+swap0/native.122243s; holder elapsed.210653s. Actual owned pidfd exit/cgroup
+absence and both fresh unit names not-found checked. Result/journal prefix
+and post-Unref complete hashes separately preserved; no hidden hash repair.
+
+PBE diagnostic TERMINATE; scientific executionNO-GO. New driver remains hard-
+gated/unexecuted,2meV absent.822protected pins/76historical files/dirtyDFT/
+stock unchanged. No physical x_c, N2, linewidth or new material result.
+
+NEXT scientific deliverable is stationary matched HSE+SOC chemical STATES and
+signed periodic Γ mass with residual/symmetry/error certificates, then a second
+composition and conditional alloy adapter. Original primitive numerical HSE
+SCFs/frames remain useful; old8atom/176ACE/D0 defects cannot be bypassed.
+Existing stock ace=false direct-exchange path is a scientific control candidate,
+NOT resource/convergence admitted. No source/owner development campaign or job
+authorized here. If a qualified bounded calculation is unavailable, missing
+independent stationary material input is the boundary. No endpoint/gap fitting.
+Historical persistent goal/registry/main/other sessions remain unchanged. STOP.
+<!-- PBE_FINAL_ADMISSION_END -->
 
 <!-- DENSITY_DRIVER_BUILD_BEGIN -->
 ## Density-only driver implemented; runtime qualification refused — 2026-10-16 18:25 UTC

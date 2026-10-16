@@ -1,0 +1,69 @@
+{
+  "status": "REFUSED_ABSORBING",
+  "unit": "r07-owned-08a8ee5376774f47b706dafd272fd03e.service",
+  "scope": "R07_FINAL_V2_NON_SCIENCE",
+  "kind": "fs",
+  "science_release": false,
+  "samples": [
+    {
+      "MemAvailable_B": 29904850944,
+      "free_disk_B": 49540268032,
+      "output_blocks_B": 249856,
+      "output_logical_B": 160898,
+      "output_inodes": 47,
+      "holder_peak_RSS_B": 563339264,
+      "members": [
+        1985982
+      ],
+      "kernel_peak_B": 1835008
+    }
+  ],
+  "identity": {
+    "pid": 1985982,
+    "start_ticks": 670308647,
+    "exe": "ddbd99225a76a6c64432699af826360ee4dd500bb50ebdf1012d1fbf06b4af7e",
+    "cgroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-owned-08a8ee5376774f47b706dafd272fd03e.service"
+  },
+  "invocation": "2a0e0c4c31bd46ea98da34178f300717",
+  "error": "Refusal('BOUNDED_SAMPLE')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/owner_v2.py\", line 107, in attempt\n    a.need('BOUNDED_SAMPLE',obs,'host>=4GiB disk>=10GiB output<14GiB holder<512MiB single process',ok=obs['MemAvailable_B']>=4*GIB and obs['free_disk_B']>=10*GIB and max(block,logical)<14*GIB and files<128 and obs['holder_peak_RSS_B']<512*(1<<20) and obs.get('members',[]) in ([],[pid]))\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/checks.py\", line 26, in need\n    if self.failed:raise Refusal(name)\n                   ^^^^^^^^^^^^^^^^^^^\nchecks.Refusal: BOUNDED_SAMPLE\n",
+  "wait_returncode": 0,
+  "launcher_stdout": "",
+  "launcher_stderr": "",
+  "terminal_manager": {
+    "Restart": "no",
+    "TimeoutStopUSec": "3s",
+    "RuntimeMaxUSec": "10min",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "OOMPolicy": "kill",
+    "ExecMainStartTimestampMonotonic": "6703086473336",
+    "ExecMainExitTimestampMonotonic": "6703086595579",
+    "ExecMainPID": "1985982",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ControlGroup": "",
+    "MemoryPeak": "1835008",
+    "MemorySwapPeak": "0",
+    "Delegate": "no",
+    "MemoryMax": "12884901888",
+    "MemorySwapMax": "0",
+    "TasksMax": "12",
+    "LimitFSIZE": "1048576",
+    "LimitCORE": "0",
+    "NoNewPrivileges": "yes",
+    "KillMode": "control-group",
+    "Id": "r07-owned-08a8ee5376774f47b706dafd272fd03e.service",
+    "LoadState": "loaded",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "InvocationID": "2a0e0c4c31bd46ea98da34178f300717"
+  },
+  "process_pidfd_exited": true,
+  "original_cgroup_empty_or_absent": true,
+  "elapsed_s": 0.21065314766019583,
+  "stdout": "NON_SCIENCE V2 READY pid=1985982 inherited_fd_closed=1 stdio_inodes_pinned=1\nLANDLOCK abi=7 allowed=1 RO_foreign_TMPDIR_devshm_denied=1 socket_spawn_denied=1 inherited_exemption_demonstrated_then_closed=1\n",
+  "stderr": "",
+  "predicates_sha256": "9c0f17871613dca3a362f63051c6b29b16e9e10901040665cbd32548fc8346e7"
+}

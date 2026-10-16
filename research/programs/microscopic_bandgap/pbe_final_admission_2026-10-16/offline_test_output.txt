@@ -1,0 +1,19 @@
+test_cgroup_injection (__main__.Checks.test_cgroup_injection) ... ok
+test_helper_injection (__main__.Checks.test_helper_injection) ... ok
+test_identity_injection (__main__.Checks.test_identity_injection) ... ok
+test_invocation_property_injection (__main__.Checks.test_invocation_property_injection) ... ok
+test_kernel_property (__main__.Checks.test_kernel_property) ... ok
+test_live_pidfd_exit (__main__.Checks.test_live_pidfd_exit) ... ok
+test_process_absence (__main__.Checks.test_process_absence) ... ok
+test_real_self_pidfd_and_named_owner (__main__.Checks.test_real_self_pidfd_and_named_owner) ... ok
+test_retained_properties_only (__main__.Checks.test_retained_properties_only) ... ok
+test_retained_terminal_cannot_be_live (__main__.Checks.test_retained_terminal_cannot_be_live) ... ok
+test_start_reuse_injection (__main__.Checks.test_start_reuse_injection) ... ok
+test_time_and_property (__main__.Checks.test_time_and_property) ... ok
+test_traceback_durable (__main__.Checks.test_traceback_durable) ... ok
+test_valid_simulated_live (__main__.Checks.test_valid_simulated_live) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.150s
+
+OK

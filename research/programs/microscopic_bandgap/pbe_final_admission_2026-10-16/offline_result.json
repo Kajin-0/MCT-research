@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "returncode": 0,
+  "tests": 14,
+  "actual_retained_fixture_plus_simulated_injections": true,
+  "actual_self_pidfd_test": true,
+  "native_service_tests": false
+}

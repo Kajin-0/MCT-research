@@ -1,0 +1,46 @@
+{
+  "scope": "FINAL_NON_SCIENCE_BUILD",
+  "root": "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a",
+  "source_sha256": "6f949dc3542f57943e13dd577212f586ec7dd9669afb1a652129654c87d806db",
+  "records": [
+    {
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a/runtime_probe_v2.c",
+        "-o",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a/fs_probe_v2"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/User/opencode_workspace/DFT/.local/qe-env/bin/mpicc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DR07_MPI",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a/runtime_probe_v2.c",
+        "-Wl,-rpath,/home/User/opencode_workspace/DFT/.local/qe-env/lib",
+        "-o",
+        "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a/singleton_probe_v2"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "elf_pins": {
+    "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a/fs_probe_v2": "ddbd99225a76a6c64432699af826360ee4dd500bb50ebdf1012d1fbf06b4af7e",
+    "/home/User/repos/MCT-research/.tmp/r07spc16/final-build-f1f76ae5398547a592af1377cc3c095a/singleton_probe_v2": "e3c6a0babc1aa0c2af30340fd7bd2909eb98a1d5927484a31e57aae20517c801"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "UTC": "2026-10-16T19:29:31.206739+00:00",
+  "verdict": "TERMINATE_PBE_STATIC_DIAGNOSTIC",
+  "scientific_execution_release": false,
+  "material_actions": 0,
+  "native_QE_executions": 0,
+  "non_science_services": 1,
+  "singleton_MPI_executions": 0,
+  "offline_tests": 14,
+  "actual_Landlock_ABI7_negative_checks_completed": true,
+  "sequence_runtime_PASS": false,
+  "exact_failed_guard": "holder_peak_RSS_B < 536870912",
+  "observed_holder_peak_RSS_B": 563339264,
+  "current_holder_RSS_NOT_recorded": true,
+  "only_failed_subpredicate": {
+    "host": true,
+    "disk": true,
+    "output": true,
+    "inodes": true,
+    "holder": false,
+    "members": true
+  },
+  "worker_kernel_peak_B": 1835008,
+  "worker_swap_peak_B": 0,
+  "worker_elapsed_s": 0.122243,
+  "owner_elapsed_s": 0.21065314766019583,
+  "native_evidence_not_scientific_qualification": true,
+  "journal_prefix_sha256": "9c0f17871613dca3a362f63051c6b29b16e9e10901040665cbd32548fc8346e7",
+  "complete_journal_sha256": "24176f3f82c2809dcc5b24180a3da654a60a0b9aacb56c4e622de3bcad0f924a",
+  "journal_cleanup_append_scope_defect_disclosed": true,
+  "old_refusals_unchanged": true,
+  "protection": {
+    "passed": true,
+    "source_data_object_archive_module_pins": 822,
+    "historical_files_byte_exact": 76,
+    "DFT_dirty_diff_sha256": "a716be79058b719e363f19b16fdacc228e4093b3f87bdd6b64ac96aa7e78b0f0",
+    "old_Gate_A_REFUSED": "REFUSED_ABSORBING",
+    "old_driver_REFUSED": "REFUSED_ABSORBING",
+    "baseline": "0c8df58"
+  },
+  "cleanup": {
+    "fs": {
+      "argv": [
+        "/usr/bin/systemctl",
+        "--user",
+        "show",
+        "r07-owned-08a8ee5376774f47b706dafd272fd03e.service",
+        "--property=LoadState,ActiveState,MainPID,ControlGroup"
+      ],
+      "returncode": 0,
+      "stdout": "MainPID=0\nControlGroup=\nLoadState=not-found\nActiveState=inactive\n",
+      "stderr": ""
+    },
+    "mpi": {
+      "argv": [
+        "/usr/bin/systemctl",
+        "--user",
+        "show",
+        "r07-owned-a4ae54a1bea447179711ccbbedd0195f.service",
+        "--property=LoadState,ActiveState,MainPID,ControlGroup"
+      ],
+      "returncode": 0,
+      "stdout": "MainPID=0\nControlGroup=\nLoadState=not-found\nActiveState=inactive\n",
+      "stderr": ""
+    }
+  },
+  "physical_xc": null,
+  "package_pins": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/predicates_fs.jsonl": "24176f3f82c2809dcc5b24180a3da654a60a0b9aacb56c4e622de3bcad0f924a",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/checks.py": "a7450ade085d70ef36152a0e95a042264ad736c8600ce648f50bb7d2159f3bec",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/build_result.json": "2eada705a7238185d97b8c0b3cc8788232696d5f7ed072834c215cf2c954dd38",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/offline_result.json": "165ce89450bde083889a0d76162a47f52cb560a0890cd6a34d2222c6a66b8a9e",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/decision.md": "97b7c9e4a801eb083201d9c65d856c60838d7ab607c5e12400d22d277cc4bca7",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/STARTED.json": "979ed371e4ad1cf8037b18c5e5363fa23a0a95d0eb0eb8f978bcce654970eb25",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/owner_v2.py": "be6445b152634c72713fa9f76dac1e52be2f22b61d9d3a4c2e1d010b808998fd",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/protection_before.json": "2cadf5abc4526f473a6b71c551fe8bfaa2cc1f14df97d0fca965448a861c221e",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/science_transition.md": "24de23e60bb9a9766de64f1c557fa7bb2a23c32b76c1b014488809349e09caa7",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/runtime_probe_v2.c": "6f949dc3542f57943e13dd577212f586ec7dd9669afb1a652129654c87d806db",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/verify_results.py": "1b0d0f3fd171cb8215f874ec2f3f909a32ef2fb0556986b446394d0005c77a66",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/protect.py": "b386d7c6a9d614deee613de7e4805027188122e5c51c56eb3b1e5bb5f842be3e",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/test_checks.py": "08e61ab76154c18fd2cd0326142ee9d3b51c0c1f532159c86c01029e629b0ca9",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/science_sources.json": "3ed5b237621f5b95ff434eafeca41d69ff404f3343b022d57707a02e319290e3",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/offline_test_output.txt": "5656e5bde7eab949b69f3f7ccb3f87e23fc9b26b01b1875d6ad55757fe83933c",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/result_fs.json": "4b7fc4d697907c3cecd2c3f82f9842d6ecaa297b8e8fde01f7c04ee91c134bd0",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/build_probes.py": "366650e64bb34c55c7349eee7d1a2cabdf66ce5a20c6f128a3358568c4f8a16b",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/preregistration.md": "ecaacaaf0741705ccd14a2d256a6d38bbe58dea2bd5991f2497738647a89beb4",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_final_admission_2026-10-16/preflight.jsonl": "bdea67648afc926ae4e15f2f777b26028f32eb8ffd43dc7fba619510f7fe7a66"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "scope": "READ_ONLY_SOURCE_AND_EXISTING_MATERIAL_RECORDS",
+  "new_material_evaluation": false,
+  "native_implementation_sources": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/Doc/INPUT_PW.def": {
+      "sha256": "3652c7782541781b436d77a14ff6626dca97d64c0381d75e792cd677abf8a1b7",
+      "lines": [
+        1245,
+        1254
+      ]
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/input.f90": {
+      "sha256": "bbfe23ac73ccd363812dfd1fb2d6b1784db7e2d430d7a18df177108d3ea4d85a",
+      "lines": [
+        2140,
+        2158
+      ]
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/h_psi.f90": {
+      "sha256": "fce3265cac4ce68282831af4a4fb31e3dc0a8c01ee5e5cb891162f35c14a3bec",
+      "lines": [
+        258,
+        269
+      ]
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/electrons.f90": {
+      "sha256": "48a5928cc5aa63fd64c872f87a950c44ed10f908d829dac561b2ada09af5c8fe",
+      "lines": [
+        218,
+        284
+      ]
+    }
+  },
+  "existing_result_sources": {
+    "research/programs/microscopic_bandgap/stationary_reference_audit_2026-10-16/metadata_audit.json": "38fe12ee3185407c2b5e0614a4806a0622b93f53380a50c155a8503bf5fc219d",
+    "research/programs/microscopic_bandgap/stationary_reference_audit_2026-10-16/native_audit.json": "6891f13b82db7bc9a063edd4da218d5c98f5e3f6a1a994b3411df6cfe02abaf9",
+    "research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/decision.md": "aee9160c433c33beea353a6175398a8f8b5732e478e28f6f34166eda188c6ca1",
+    "research/programs/microscopic_bandgap/state_update_2026-10-16/decision.md": "162838f55e9c973c805065e22f8cda59902f7e42702021d0ef9c8ac40bd929f2"
+  },
+  "primary_literature_checked": [
+    "https://arxiv.org/html/2206.14561v2",
+    "https://arxiv.org/html/1601.07159v2",
+    "https://www.colorado.edu/faculty/zunger-matter-by-design/sites/default/files/attached-files/191.pdf"
+  ],
+  "claims": "No novel ACE/SCBA/SQS method or nonempirical physical xc; direct-exchange source availability is not execution/convergence admission."
+}
