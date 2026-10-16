@@ -2,9 +2,37 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED. Read-only PBE static-environment admission COMPLETE: distinct finite saved-density observable scientifically eligible, future native pair NO-GO at missing authenticated final-hook/owner integration and incomplete resource envelope. Minimum24actions, not12. The HSE native state-update boundary and all historical failures remain unchanged. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED. PBE native final hook now privately compiled/linked and production dispatcher/account/reader components tested with real non-MPI C clients. Full production owner/MPI lifecycle and resource/numerical qualification remain BLOCKED; no native pair release. Minimum24actions, not12. HSE state boundary and all historical failures unchanged. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 12:48 UTC
+**Updated:** 2026-10-16 13:32 UTC
+
+## PBE native-completion implementation — source/component PASS, native BLOCKED
+
+[Decision](pbe_static_completion_2026-10-16/decision.md),
+[source/test acceptance](pbe_static_completion_2026-10-16/acceptance.md),
+[build](pbe_static_completion_2026-10-16/build_result.json),
+[real non-MPI components](pbe_static_completion_2026-10-16/component_results.json),
+[verification](pbe_static_completion_2026-10-16/verification.json).
+From37f48db, NEW private MCT-only compile: actual QE world begin before init,
+checked packet close/barrier then typed live native final, normalized collective
+and barrier before exit. Stock archive physics objects/source remain unchanged.
+The production external-holder dispatcher/reader/strict account now connect
+to that ABI. Original6+6Theta per member, PBE/FD/cell/PP/frame unchanged.
+
+Compiled C NON-MPI peers pass actual live identity/receipt/packet gating;
+live EACCES remains absorbing through later exit. Premature/foreign/lost rank,
+failed readback, corrupt import, descriptor reuse, lost log, output burst and
+modeled manager/cgroup failures refuse. Native reader rejects the synthetic
+fixture; positive reader/terminal snapshots were explicitly mocked. No new
+native action, MPI/SCF/member, service, protected DFT write or HSE work.
+
+Full owner.run/systemd/MPI lifecycle and complete initialization/backend plus
+outside-reader RAM/time/output envelopes are NOT qualified. No source-complete
+resource or2meV numerical certificate/frozen execution release exists; loader
+and CLI refuse. Stop here. A minimal future one-member live resource query
+would require separately reviewed owner/lifecycle/resource authorization,
+not automatic shared release or old rejected-output reuse. Old refusals,
+native data, protected dirty DFT/stock and registry status remain unchanged.
 
 ## PBE-first static environment admission — STOP before native
 

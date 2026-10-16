@@ -1,0 +1,662 @@
+{
+  "status": "NO_GO_COMPLETE_NATIVE_AND_OUTSIDE_OWNER_ENVELOPE_UNKNOWN",
+  "PP_nkb": 712,
+  "PP_projection_derivation": {
+    "Hg": {
+      "l": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "angular_projectors": 62,
+      "atoms": 6
+    },
+    "Cd": {
+      "l": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "angular_projectors": 34,
+      "atoms": 2
+    },
+    "Te": {
+      "l": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "angular_projectors": 34,
+      "atoms": 8
+    }
+  },
+  "per_rank_selected_allocations": {
+    "0": {
+      "npwx": 10799,
+      "active_pw": 10799,
+      "ngm": 86816,
+      "dense_local_grid": 256000,
+      "smooth_local_grid": 256000,
+      "evc_capacity_352_B": 121639936,
+      "vkb_B": 123022208,
+      "becp_12_B": 273408,
+      "initialization_becp_352_B": 8019968,
+      "vloc_transient_psi1_psic_B": 8537568,
+      "selected_fft_persistent_B": 25965056,
+      "one_scf_density_rho_B": 13748224,
+      "driver_selected_B": 29782116,
+      "possible_extra_saved_wave_buffer_B": 121639936,
+      "exact_packet_B": 45017560
+    },
+    "1": {
+      "npwx": 10796,
+      "active_pw": 10796,
+      "ngm": 86815,
+      "dense_local_grid": 256000,
+      "smooth_local_grid": 256000,
+      "evc_capacity_352_B": 121606144,
+      "vkb_B": 122988032,
+      "becp_12_B": 273408,
+      "initialization_becp_352_B": 8019968,
+      "vloc_transient_psi1_psic_B": 8537472,
+      "selected_fft_persistent_B": 25965040,
+      "one_scf_density_rho_B": 13748160,
+      "driver_selected_B": 29776356,
+      "possible_extra_saved_wave_buffer_B": 121606144,
+      "exact_packet_B": 45011640
+    }
+  },
+  "physical_actions": 12,
+  "Theta_controls": 12,
+  "applications_per_member": 12,
+  "total_pair_applications": 24,
+  "total_pair_packet_payload_B": 180058400,
+  "source_lines": {
+    "PW/src/init_run.f90": [
+      {
+        "line": 85,
+        "text": "CALL allocate_fft()"
+      },
+      {
+        "line": 119,
+        "text": "CALL allocate_paw_internals()"
+      },
+      {
+        "line": 122,
+        "text": "CALL allocate_locpot()"
+      },
+      {
+        "line": 123,
+        "text": "CALL allocate_bp_efield()"
+      },
+      {
+        "line": 141,
+        "text": "ALLOCATE( et( nbnd, nkstot ) , wg( nbnd, nkstot ), btype( nbnd, nkstot ) )"
+      },
+      {
+        "line": 159,
+        "text": "CALL allocate_wfc_k()"
+      },
+      {
+        "line": 186,
+        "text": "IF ( lmd ) CALL allocate_dyn_vars()"
+      }
+    ],
+    "PW/src/allocate_wfc.f90": [
+      {
+        "line": 40,
+        "text": "CALL allocate_wfc( npwx, npol, nbnd )"
+      },
+      {
+        "line": 44,
+        "text": "ALLOCATE( vkb(npwx,nkb) )"
+      },
+      {
+        "line": 49,
+        "text": "ALLOCATE( g2kin(npwx) )"
+      }
+    ],
+    "PW/src/allocate_fft.f90": [
+      {
+        "line": 59,
+        "text": "ALLOCATE( vltot(dfftp%nnr) )"
+      },
+      {
+        "line": 60,
+        "text": "ALLOCATE( rho_core(dfftp%nnr) )"
+      },
+      {
+        "line": 62,
+        "text": "ALLOCATE( kedtau(dffts%nnr,nspin) )"
+      },
+      {
+        "line": 64,
+        "text": "ALLOCATE( kedtau(1,nspin) )"
+      },
+      {
+        "line": 66,
+        "text": "ALLOCATE( rhog_core(ngm)  )"
+      },
+      {
+        "line": 67,
+        "text": "ALLOCATE( psic(dfftp%nnr) )"
+      },
+      {
+        "line": 68,
+        "text": "ALLOCATE( vrs(dfftp%nnr,nspin) )"
+      },
+      {
+        "line": 71,
+        "text": "IF (noncolin) ALLOCATE( psic_nc(dfftp%nnr,npol) )"
+      },
+      {
+        "line": 78,
+        "text": "ALLOCATE( pointlist(dfftp%nnr) )"
+      },
+      {
+        "line": 79,
+        "text": "ALLOCATE( factlist(dfftp%nnr)  )"
+      }
+    ],
+    "PW/src/allocate_locpot.f90": [
+      {
+        "line": 27,
+        "text": "ALLOCATE( vloc( ngl, ntyp) )"
+      },
+      {
+        "line": 28,
+        "text": "ALLOCATE( strf( ngm, ntyp) )"
+      },
+      {
+        "line": 30,
+        "text": "ALLOCATE( eigts1(-dfftp%nr1:dfftp%nr1,nat) )"
+      },
+      {
+        "line": 31,
+        "text": "ALLOCATE( eigts2(-dfftp%nr2:dfftp%nr2,nat) )"
+      },
+      {
+        "line": 32,
+        "text": "ALLOCATE( eigts3(-dfftp%nr3:dfftp%nr3,nat) )"
+      }
+    ],
+    "PW/src/scf_mod.f90": [
+      {
+        "line": 140,
+        "text": "ALLOCATE( rho%of_r(dfftp%nnr,nspin) )"
+      },
+      {
+        "line": 141,
+        "text": "ALLOCATE( rho%of_g(ngm,nspin) )"
+      },
+      {
+        "line": 143,
+        "text": "ALLOCATE( rho%kin_r(dfftp%nnr,nspin) )"
+      },
+      {
+        "line": 144,
+        "text": "ALLOCATE( rho%kin_g(ngm,nspin) )"
+      },
+      {
+        "line": 146,
+        "text": "ALLOCATE( rho%kin_r(1,1) )"
+      },
+      {
+        "line": 147,
+        "text": "ALLOCATE( rho%kin_g(1,1) )"
+      },
+      {
+        "line": 159,
+        "text": "IF (lda_plus_u_co)  ALLOCATE( rho%ns(2*Hubbard_lmax+1,2*Hubbard_lmax+1,nspin,nat) )"
+      },
+      {
+        "line": 160,
+        "text": "IF (lda_plus_u_cob) ALLOCATE( rho%nsb(ldmx_b,ldmx_b,nspin,nat) )"
+      },
+      {
+        "line": 161,
+        "text": "IF (lda_plus_u_nc)  ALLOCATE( rho%ns_nc(2*Hubbard_lmax+1,2*Hubbard_lmax+1,nspin,nat) )"
+      },
+      {
+        "line": 169,
+        "text": "IF (allocate_becsum) ALLOCATE( rho%bec(nhm*(nhm+1)/2,nat,nspin) )"
+      },
+      {
+        "line": 173,
+        "text": "IF(.NOT. ALLOCATED(rho%pol_r)) ALLOCATE(rho%pol_r(dfftp%nnr,nspin))"
+      },
+      {
+        "line": 174,
+        "text": "IF(.NOT. ALLOCATED(rho%pol_g)) ALLOCATE(rho%pol_g(ngm,nspin))"
+      },
+      {
+        "line": 192,
+        "text": "IF (ALLOCATED(rho%of_r) )  DEALLOCATE( rho%of_r  )"
+      },
+      {
+        "line": 193,
+        "text": "IF (ALLOCATED(rho%of_g) )  DEALLOCATE( rho%of_g  )"
+      },
+      {
+        "line": 194,
+        "text": "IF (ALLOCATED(rho%kin_r))  DEALLOCATE( rho%kin_r )"
+      },
+      {
+        "line": 195,
+        "text": "IF (ALLOCATED(rho%kin_g))  DEALLOCATE( rho%kin_g )"
+      },
+      {
+        "line": 196,
+        "text": "IF (ALLOCATED(rho%ns)   )  DEALLOCATE( rho%ns    )"
+      },
+      {
+        "line": 197,
+        "text": "IF (ALLOCATED(rho%nsb)  )  DEALLOCATE( rho%nsb   )"
+      },
+      {
+        "line": 198,
+        "text": "IF (ALLOCATED(rho%ns_nc))  DEALLOCATE( rho%ns_nc )"
+      },
+      {
+        "line": 199,
+        "text": "IF (ALLOCATED(rho%bec)  )  DEALLOCATE( rho%bec   )"
+      },
+      {
+        "line": 200,
+        "text": "IF (ALLOCATED(rho%pol_r))  DEALLOCATE( rho%pol_r )"
+      },
+      {
+        "line": 201,
+        "text": "IF (ALLOCATED(rho%pol_g))  DEALLOCATE( rho%pol_g )"
+      },
+      {
+        "line": 216,
+        "text": "ALLOCATE( rho%of_g(ngms,nspin) )"
+      },
+      {
+        "line": 224,
+        "text": "ALLOCATE( rho%kin_g(ngms,nspin) )"
+      },
+      {
+        "line": 241,
+        "text": "ALLOCATE( rho%ns_nc(2*Hubbard_lmax+1,2*Hubbard_lmax+1,nspin,nat) )"
+      },
+      {
+        "line": 246,
+        "text": "ALLOCATE( rho%ns(2*Hubbard_lmax+1,2*Hubbard_lmax+1,nspin,nat) )"
+      },
+      {
+        "line": 251,
+        "text": "ALLOCATE( rho%nsb(ldmx_b,ldmx_b,nspin,nat) )"
+      },
+      {
+        "line": 256,
+        "text": "ALLOCATE( rho%bec(nhm*(nhm+1)/2,nat,nspin) )"
+      },
+      {
+        "line": 263,
+        "text": "ALLOCATE(rho%pol_g(ngms,nspin))"
+      },
+      {
+        "line": 284,
+        "text": "DEALLOCATE( rho%of_g  )"
+      },
+      {
+        "line": 288,
+        "text": "DEALLOCATE( rho%kin_g )"
+      },
+      {
+        "line": 291,
+        "text": "IF (ALLOCATED(rho%ns)   )  DEALLOCATE( rho%ns    )"
+      },
+      {
+        "line": 292,
+        "text": "IF (ALLOCATED(rho%nsb)  )  DEALLOCATE( rho%nsb   )"
+      },
+      {
+        "line": 293,
+        "text": "IF (ALLOCATED(rho%ns_nc))  DEALLOCATE( rho%ns_nc )"
+      },
+      {
+        "line": 294,
+        "text": "IF (ALLOCATED(rho%bec)  )  DEALLOCATE( rho%bec   )"
+      },
+      {
+        "line": 637,
+        "text": "ALLOCATE( io_buffer(record_length) )"
+      },
+      {
+        "line": 656,
+        "text": "DEALLOCATE( io_buffer )"
+      }
+    ],
+    "PW/src/wfcinit.f90": [
+      {
+        "line": 70,
+        "text": "ALLOCATE( wfcU(npwx*npol,nwfcU) )"
+      },
+      {
+        "line": 112,
+        "text": "CALL read_collected_wfc ( dirname, ik, evc, \"wfc\", ierr )"
+      },
+      {
+        "line": 312,
+        "text": "ALLOCATE( wfcatom( npwx, npol, n_starting_wfc ) )"
+      },
+      {
+        "line": 315,
+        "text": "ALLOCATE(randy_vec(2 * n_starting_wfc * npol * ngk_ik))"
+      },
+      {
+        "line": 410,
+        "text": "IF(use_gpu) DEALLOCATE( randy_vec )"
+      },
+      {
+        "line": 425,
+        "text": "ALLOCATE( etatom( n_starting_wfc ) )"
+      },
+      {
+        "line": 430,
+        "text": "CALL allocate_bec_type_acc ( nkb, n_starting_wfc, becp, intra_bgrp_comm )"
+      },
+      {
+        "line": 463,
+        "text": "DEALLOCATE( etatom )"
+      },
+      {
+        "line": 465,
+        "text": "DEALLOCATE( wfcatom )"
+      },
+      {
+        "line": 506,
+        "text": "IF (.NOT. ALLOCATED(xi)) ALLOCATE( xi(npwx*npol,nbnd,nkstot) )"
+      },
+      {
+        "line": 508,
+        "text": "IF (.NOT. ALLOCATED(xi_d)) ALLOCATE( xi_d(npwx*npol,nbnd) )"
+      },
+      {
+        "line": 516,
+        "text": "CALL read_collected_wfc ( dirname, ik, xi(:,:,ik), \"ace\", ierr )"
+      }
+    ],
+    "PW/src/h_psi.f90": [
+      {
+        "line": 56,
+        "text": "ALLOCATE( recv_counts(mp_size(inter_bgrp_comm)), displs(mp_size(inter_bgrp_comm)) )"
+      },
+      {
+        "line": 66,
+        "text": "DEALLOCATE( recv_counts )"
+      },
+      {
+        "line": 67,
+        "text": "DEALLOCATE( displs )"
+      }
+    ],
+    "PW/src/vloc_psi_acc.f90": [
+      {
+        "line": 52,
+        "text": "ALLOCATE( psi1(n,incr) )"
+      },
+      {
+        "line": 53,
+        "text": "ALLOCATE( psic(dffts_nnr*incr) )"
+      },
+      {
+        "line": 139,
+        "text": "DEALLOCATE( psi1 )"
+      },
+      {
+        "line": 140,
+        "text": "DEALLOCATE( psic )"
+      },
+      {
+        "line": 191,
+        "text": "ALLOCATE( psi1(n,incr) )"
+      },
+      {
+        "line": 192,
+        "text": "ALLOCATE( psic(dffts_nnr*incr) )"
+      },
+      {
+        "line": 259,
+        "text": "DEALLOCATE( psic )"
+      },
+      {
+        "line": 260,
+        "text": "DEALLOCATE( psi1 )"
+      },
+      {
+        "line": 311,
+        "text": "ALLOCATE( psi1(n,npol) )"
+      },
+      {
+        "line": 312,
+        "text": "ALLOCATE( psic(dffts_nnr,npol) )"
+      },
+      {
+        "line": 362,
+        "text": "DEALLOCATE( psic )"
+      },
+      {
+        "line": 363,
+        "text": "DEALLOCATE( psi1 )"
+      }
+    ],
+    "PW/src/stop_run.f90": [
+      {
+        "line": 42,
+        "text": "CALL close_files( lflag )"
+      },
+      {
+        "line": 50,
+        "text": "CALL mp_global_end()"
+      },
+      {
+        "line": 107,
+        "text": "CALL stop_run( 255 )"
+      }
+    ],
+    "PW/src/pwscf.f90": [
+      {
+        "line": 98,
+        "text": "CALL stop_run( exit_status )"
+      }
+    ],
+    "Modules/wavefunctions.f90": [
+      {
+        "line": 53,
+        "text": "ALLOCATE( evc(npwx*npol,nbnd) )"
+      },
+      {
+        "line": 76,
+        "text": "IF( ALLOCATED( evc ) ) DEALLOCATE( evc )"
+      }
+    ],
+    "Modules/becmod.f90": [
+      {
+        "line": 659,
+        "text": "ALLOCATE( bec%r( nkb, nbnd ), STAT=ierr )"
+      },
+      {
+        "line": 668,
+        "text": "ALLOCATE( bec%nc( nkb, npol, nbnd ), STAT=ierr )"
+      },
+      {
+        "line": 677,
+        "text": "ALLOCATE( bec%k( nkb, nbnd ), STAT=ierr )"
+      },
+      {
+        "line": 708,
+        "text": "ALLOCATE( bec%r( nkb, nbnd ), STAT=ierr )"
+      },
+      {
+        "line": 716,
+        "text": "ALLOCATE( bec%nc( nkb, npol, nbnd ), STAT=ierr )"
+      },
+      {
+        "line": 724,
+        "text": "ALLOCATE( bec%k( nkb, nbnd ), STAT=ierr )"
+      },
+      {
+        "line": 747,
+        "text": "DEALLOCATE(bec%r)"
+      },
+      {
+        "line": 751,
+        "text": "DEALLOCATE(bec%nc)"
+      },
+      {
+        "line": 755,
+        "text": "DEALLOCATE(bec%k)"
+      },
+      {
+        "line": 775,
+        "text": "DEALLOCATE(bec%r)"
+      },
+      {
+        "line": 778,
+        "text": "DEALLOCATE(bec%nc)"
+      },
+      {
+        "line": 781,
+        "text": "DEALLOCATE(bec%k)"
+      }
+    ],
+    "upflib/uspp.f90": [
+      {
+        "line": 356,
+        "text": "IF( ALLOCATED( ofsbeta ) )    DEALLOCATE( ofsbeta )"
+      },
+      {
+        "line": 357,
+        "text": "IF( ALLOCATED( nhtolm ) )      DEALLOCATE( nhtolm )"
+      },
+      {
+        "line": 360,
+        "text": "DEALLOCATE( nhtol )"
+      },
+      {
+        "line": 364,
+        "text": "DEALLOCATE( indv )"
+      },
+      {
+        "line": 368,
+        "text": "DEALLOCATE( ijtoh )"
+      },
+      {
+        "line": 372,
+        "text": "DEALLOCATE( nhtoj )"
+      },
+      {
+        "line": 376,
+        "text": "DEALLOCATE( vkb )"
+      },
+      {
+        "line": 379,
+        "text": "IF( ALLOCATED( becsum ) )     DEALLOCATE( becsum )"
+      },
+      {
+        "line": 382,
+        "text": "DEALLOCATE( ebecsum )"
+      },
+      {
+        "line": 386,
+        "text": "DEALLOCATE( qq_at )"
+      },
+      {
+        "line": 388,
+        "text": "IF( ALLOCATED( qq_nt ) )      DEALLOCATE( qq_nt )"
+      },
+      {
+        "line": 391,
+        "text": "DEALLOCATE( dvan )"
+      },
+      {
+        "line": 395,
+        "text": "DEALLOCATE( deeq )"
+      },
+      {
+        "line": 399,
+        "text": "DEALLOCATE( qq_so )"
+      },
+      {
+        "line": 403,
+        "text": "DEALLOCATE( dvan_so )"
+      },
+      {
+        "line": 407,
+        "text": "DEALLOCATE( deeq_nc )"
+      },
+      {
+        "line": 411,
+        "text": "DEALLOCATE( fcoef )"
+      },
+      {
+        "line": 413,
+        "text": "IF( ALLOCATED( beta ) )       DEALLOCATE( beta )"
+      },
+      {
+        "line": 414,
+        "text": "IF( ALLOCATED( dbeta ) )      DEALLOCATE( dbeta )"
+      }
+    ]
+  },
+  "source_and_PP_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/init_run.f90": "c9dd8ae0a93d28715e06c80396afb4b5c51f2e5b7bd1847dc4906d367e4fbdee",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/allocate_wfc.f90": "eb48056f04a279efaa6fb03c223bbe940e15ef085dcdfdce7097d7a89f6a5e9d",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/allocate_fft.f90": "ab0128a8bdfd99f027a1e362a8bef66c7aecdd6a1ec546a36f2e8928301040a7",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/allocate_locpot.f90": "e04bad779bb298cbaaf1356e4e5f733c8a52474c23c7d12b9f6e1016d618ddef",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/scf_mod.f90": "b38801ad53bd0c96e7a89e1774a96bb244ded9576204b06c5d0e0739afd3d9c2",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/wfcinit.f90": "b56086af259fa5f0c72df346d17b07bc905410d21b92cbc7a3c83e31fee75db0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/h_psi.f90": "fce3265cac4ce68282831af4a4fb31e3dc0a8c01ee5e5cb891162f35c14a3bec",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/vloc_psi_acc.f90": "69485f3496c38bfff27665f462c8c9b4728b428d2621643aa3ecdd095e05eb0f",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/stop_run.f90": "f9f9cd335c8eded44ac845d219b44659dbbe80157cacc3708562354c236877b3",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/pwscf.f90": "4bd0679d13860c25f15215ce08409322c7e722c4e9e71ff08edc480cc810dea7",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/wavefunctions.f90": "9288866a68006fb607ef71ad5418cdf41c365ac91f263be45de489e9df4ba16c",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/becmod.f90": "d3c9670cbc3edd703c111e59e94cac11ea72c14110e1fa2ea4b115f6d13a34f5",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/upflib/uspp.f90": "940ba354fd8fb75c3501b7de4bf0c8ebda67a954c3e932779274311176fd6537"
+  },
+  "unknown_required_terms": [
+    "all simultaneous PW initialization/radial/SOC/FFT descriptor allocations",
+    "FFTW/MPI/HDF5/BLAS/allocator heap and collective workspace/timing",
+    "saved-wfc import/buffer lifetimes and post-final close_files generations",
+    "outside-owner Python/HDF5/readback peak, cgroup inventory and account inode/tree memory",
+    "complete output/log/temp/reservation/metadata bound and between-sample bursts"
+  ],
+  "complete_peak_RAM_or_runtime_upper_bound": false,
+  "complete_14GiB_disk_bound": false,
+  "past_1GiB_4s_NOT_a_bound": true,
+  "output_account_is_sampled_NOT_continuous_quota": true,
+  "actual_cgroup_limits_or_MPI_collectives_tested_this_phase": false,
+  "resource_experiment_authorized": false
+}

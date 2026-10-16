@@ -1,0 +1,90 @@
+{
+  "status": "PASS compiled NON_MPI wire and integrated handler components; NATIVE_RUNTIME_NOT_QUALIFIED",
+  "tests": {
+    "real_C_wire_production_dispatch_both_live_finals": true,
+    "production_reader_rejects_fixture_NOT_material": "ValueError: truncated native packet",
+    "actual_kernel_exits_only_PENDING": true,
+    "modeled_manager_mismatch": "Refusal: terminal manager/launcher mismatch",
+    "modeled_nonzero_exit": "Refusal: terminal manager/launcher mismatch",
+    "modeled_cgroup_identity_mismatch": "Refusal: cgroup replaced",
+    "lost_log_is_fatal": "Refusal: lost/oversized log",
+    "modeled_terminal_conjunction_component": true,
+    "real_descriptor_reuse": "Refusal: pidfd descriptor reused",
+    "actual_live_FD_EACCES_absorbing": "Refusal: STILL LIVE FD denial: fatal",
+    "later_actual_exit_does_NOT_retropass": "Refusal: absorbing refusal: STILL LIVE FD denial: fatal",
+    "premature_native_final": "Refusal: premature/invalid native final",
+    "incomplete_closed_packet": "Refusal: incomplete/foreign native packet",
+    "failed_readback_blocks_final_ack": "Refusal: injected native readback failure",
+    "resource_failure_prevents_grant": "Refusal: pre-ACK resource failure",
+    "foreign_process_final_refused": "Refusal: final from different kernel process",
+    "JOBDONE_lost_rank_no_authority": "Refusal: incomplete/unknown live final pair",
+    "real_allocated_output_burst_absorbing": "Refusal: 14-GiB sampled retained output/metadata budget crossed",
+    "native_release_load_refuses": "Refusal: no native execution release in this phase",
+    "clean_production_owner_and_reader_import": true,
+    "missing_and_corrupt_dependency_fail_before_launch": true
+  },
+  "kernel_observations": [
+    {
+      "case": "normal",
+      "ranks": {
+        "0": {
+          "pid": 1975949,
+          "ticks": 668239811,
+          "pidfd_dev_inode": [
+            5,
+            31329338
+          ],
+          "kernel_exit_mask": 0,
+          "cgroup": "/user.slice/user-0.slice/session-12743.scope"
+        },
+        "1": {
+          "pid": 1975950,
+          "ticks": 668239811,
+          "pidfd_dev_inode": [
+            5,
+            31329339
+          ],
+          "kernel_exit_mask": 0,
+          "cgroup": "/user.slice/user-0.slice/session-12743.scope"
+        }
+      }
+    },
+    {
+      "case": "live-denied",
+      "pid": 1975951,
+      "path": "/proc/1975951/fd",
+      "errno": 13,
+      "pidfd_mask": 0
+    }
+  ],
+  "component_compile": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_completion_2026-10-16/wire_worker.c",
+      "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_completion_2026-10-16/native_lease.c",
+      "-o",
+      "/home/User/repos/MCT-research/.tmp/r07spc16/component-build-cc19548b9463-1792157676312398546/wire_worker"
+    ],
+    "returncode": 0,
+    "stderr": ""
+  },
+  "source_sha256": {
+    "/home/User/repos/MCT-research/.tmp/r07spc16/component-build-cc19548b9463-1792157676312398546/wire_worker": "1a807b2d3853ff9ce41efff6c0dd05f28591bf301597a0152f1d808a12836f75",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_completion_2026-10-16/wire_worker.c": "be9ff53e05053740efb705e36590e2a6189efea5c2f5d52f8ba90f5ea8adc6e7",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_completion_2026-10-16/native_lease.c": "fd9b600ab03df820e80526f7376829bef6dcb838b23de2a920aead51af8a0ede"
+  },
+  "terminal_manager_cgroup_and_fixture_reader_MOCKED": true,
+  "actual_systemd_unit_or_MPI": false,
+  "whole_production_owner_loop_executed": false,
+  "all_children_reaped": true,
+  "no_native_Hamiltonian_or_old_refused_packet_used": true,
+  "native_QE_MPI_SCF": 0,
+  "DFT_writes": 0,
+  "live_user_manager_terminal_admission": false,
+  "physical_xc": null
+}

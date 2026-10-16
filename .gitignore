@@ -4,3 +4,5 @@ __pycache__/
 .pytest_cache/
 .venv/
 .cache/
+# Private R07 completion builds and disposable non-MPI tests; hashes are tracked.
+/.tmp/r07spc16/

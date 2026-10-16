@@ -1,0 +1,11 @@
+{
+  "status": "NOT_GRANTED",
+  "scope": "SOURCE_COMPILE_AND_NON_MPI_COMPONENT_VALIDATION_ONLY",
+  "native_QE_PW_MPI_SCF_or_member_execution": "PROHIBITED_THIS_PHASE",
+  "missing": [
+    "Independent actual MPI collective and systemd-owner lifecycle qualification",
+    "Complete source/backend/owner RAM and output envelope or separately authorized bounded live resource experiment",
+    "Independent numerical action/frame error certificate for the prospective 2 meV contrast budget"
+  ],
+  "old_refused_unshared_data": "NEVER_AN_ACCEPTED_CONTROL"
+}

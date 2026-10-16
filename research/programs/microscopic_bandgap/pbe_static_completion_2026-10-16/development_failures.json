@@ -1,0 +1,30 @@
+{
+  "historical_native_failures_changed": false,
+  "new_native_runs": 0,
+  "pre_worker_import_attempt_1": {
+    "result": "FAILED BEFORE ANY WORKER OR SERVICE",
+    "error": "NameError: name 'SingleMemberAccount' is not defined",
+    "cause": "Private accounting assembly stopped before the legacy alias definition",
+    "remedy": "Explicit SingleMemberAccount=OutputAccount before the copied PBE Account subclass",
+    "not_a_native_retry_or_retropass": true
+  },
+  "component_fixture_attempt_2": {
+    "result": "READBACK REFUSAL BEFORE FINAL ACK; ALL TEST CHILDREN REAPED",
+    "error": "fixture readback failed",
+    "cause": "17-byte fixture literal was written with a declared 16-byte extent",
+    "remedy": "16-byte NON_MPI_FIXTURE! literal; production native packet format unaffected",
+    "no_native_job": true
+  },
+  "component_fixture_attempt_3": {
+    "result": "POST-FINAL NONZERO CHILD EXIT DETECTED; ALL CHILDREN REAPED",
+    "cause": "Python fixture sent exit but C fixture's one-character exit command is x",
+    "remedy": "Use the C fixture's declared x command; native ABI unchanged",
+    "no_native_job": true
+  },
+  "compile_v1": {
+    "result": "COMPILE_LINK_PASS_ONLY",
+    "subsequent_source_review": "Production owner uses systemd INVOCATION_ID; C needed explicit fallback",
+    "remedy": "New compile in build2, old build and build_v1_result preserved",
+    "no_native_runtime_result": true
+  }
+}

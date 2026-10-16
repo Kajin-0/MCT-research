@@ -1,0 +1,109 @@
+SUBROUTINE r07_static_H()
+ USE kinds,ONLY:DP
+ USE io_global,ONLY:stdout
+ USE mp_world,ONLY:mpime,nproc
+ USE mp_bands,ONLY:intra_bgrp_comm
+ USE mp,ONLY:mp_sum,mp_barrier
+ USE wvfct,ONLY:npwx,nbnd,current_k,g2kin
+ USE klist,ONLY:ngk,igk_k,xk,wk,nelec,nks,degauss
+ USE gvect,ONLY:mill,ngm
+ USE cell_base,ONLY:bg,tpiba,omega
+ USE scf,ONLY:rho,vrs
+ USE ener,ONLY:ehart,etxc,vtxc
+ USE fft_base,ONLY:dfftp,dffts
+ USE noncollin_module,ONLY:npol,lspinorb,domag
+ USE lsda_mod,ONLY:nspin
+ USE uspp,ONLY:nkb,vkb,okvan
+ USE uspp_init,ONLY:init_us_2
+ USE becmod,ONLY:becp,allocate_bec_type,deallocate_bec_type,calbec
+ USE starting_scf,ONLY:starting_pot,starting_wfc
+ USE control_flags,ONLY:use_gpu
+ USE ions_base,ONLY:nat
+ USE xc_lib,ONLY:xclib_dft_is,exx_is_active
+ IMPLICIT NONE
+ INTEGER::u,ios,n,Nref,i,j,q,rankkey(3),lo(3),hi(3),idx
+ INTEGER(8)::header(16),h(16),fft(14,2),packet_bytes
+ INTEGER(8),ALLOCATABLE::labels(:,:)
+ INTEGER,ALLOCATABLE::lookup(:,:,:)
+ REAL(DP)::B0(3,3),charge
+ COMPLEX(DP),ALLOCATABLE::P(:,:),ref(:,:),kin(:,:),loc(:,:),nl(:,:),full(:,:)
+ CHARACTER(1024)::root
+ CHARACTER(16)::rank
+ CHARACTER::tail
+ current_k=1;n=ngk(1)
+ CALL get_environment_variable('R07_STATIC_ROOT',root)
+ IF(INDEX(TRIM(root),'/home/User/repos/MCT-research/.tmp/r07spc16/jobs/')/=1) &
+  CALL errore('staticH','unowned private root',1)
+ IF(nproc/=2.OR.nat/=16.OR.nbnd/=352.OR.npol/=2.OR.nspin/=4.OR..NOT.lspinorb.OR.domag.OR.okvan.OR. &
+    use_gpu.OR.nks/=1.OR.ABS(nelec-288._DP)>1.e-12_DP.OR.ABS(degauss-.001_DP)>1.e-14_DP.OR. &
+    starting_pot/='file'.OR.starting_wfc/='file'.OR.xclib_dft_is('hybrid').OR.exx_is_active())CALL errore('staticH','fixed native PBE domain',1)
+ OPEN(NEWUNIT=u,FILE=TRIM(root)//'/probes.bin',ACCESS='STREAM',FORM='UNFORMATTED',STATUS='OLD',IOSTAT=ios)
+ IF(ios/=0)CALL errore('staticH','probe input absent',1)
+ READ(u,IOSTAT=ios)header,B0
+ IF(ios/=0.OR.header(1)/=70251520_8.OR.header(2)/=1.OR.header(4)/=12.OR.header(5)/=2) &
+  CALL errore('staticH','probe header',1)
+ Nref=INT(header(3));IF(Nref<1.OR.Nref>50000)CALL errore('staticH','probe extent',1)
+ ALLOCATE(labels(3,Nref),ref(2*Nref,12),P(2*npwx,12),kin(2*npwx,12),loc(2*npwx,12),nl(2*npwx,12),full(2*npwx,12))
+ READ(u,IOSTAT=ios)labels,ref
+ IF(ios/=0)CALL errore('staticH','probe read',1)
+ READ(u,IOSTAT=ios)tail
+ IF(ios>=0)CALL errore('staticH','probe trailing bytes',1)
+ CLOSE(u)
+ IF(MAXVAL(ABS(B0-bg*tpiba))>1.e-12_DP.OR.MAXVAL(ABS(xk(:,1)))>1.e-12_DP.OR.ABS(wk(1)-1._DP)>1.e-12_DP) &
+  CALL errore('staticH','physical frame',1)
+ lo=INT(MINVAL(labels,DIM=2));hi=INT(MAXVAL(labels,DIM=2))
+ IF(ANY(hi-lo>200))CALL errore('staticH','Miller extent',1)
+ ALLOCATE(lookup(lo(1):hi(1),lo(2):hi(2),lo(3):hi(3)));lookup=0
+ DO i=1,Nref
+  rankkey=INT(labels(:,i));IF(lookup(rankkey(1),rankkey(2),rankkey(3))/=0)CALL errore('staticH','duplicateG',1)
+  lookup(rankkey(1),rankkey(2),rankkey(3))=i
+ ENDDO
+ P=(0._DP,0._DP)
+ DO i=1,n
+  rankkey=mill(:,igk_k(i,1));IF(ANY(rankkey<lo).OR.ANY(rankkey>hi))CALL errore('staticH','outside referenceG',1)
+  idx=lookup(rankkey(1),rankkey(2),rankkey(3));IF(idx==0)CALL errore('staticH','missingG',1)
+  P(i,:)=ref(idx,:);P(npwx+i,:)=ref(Nref+idx,:)
+ ENDDO
+ DEALLOCATE(lookup,ref,labels)
+ CALL g2_kin(1)
+ CALL init_us_2(n,igk_k(:,1),xk(:,1),vkb,.FALSE.)
+ IF(ALLOCATED(becp%nc))CALL deallocate_bec_type(becp)
+ CALL allocate_bec_type(nkb,12,becp)
+ CALL h_psi(npwx,n,12,P,full)
+ kin=(0._DP,0._DP);loc=kin;nl=kin
+ DO j=1,12
+  kin(1:n,j)=g2kin(1:n)*P(1:n,j);kin(npwx+1:npwx+n,j)=g2kin(1:n)*P(npwx+1:npwx+n,j)
+ ENDDO
+ CALL vloc_psi_nc_acc(npwx,n,12,P,vrs,loc)
+ CALL calbec(n,vkb,P,becp,12)
+ CALL add_vuspsi(npwx,n,12,nl)
+ charge=0._DP
+ DO i=1,ngm
+  IF(ALL(mill(:,i)==0))charge=omega*REAL(rho%of_g(i,1),DP)
+ ENDDO
+ CALL mp_sum(charge,intra_bgrp_comm)
+ IF(ABS(charge-288._DP)>1.e-8_DP)CALL errore('staticH','savedcharge',1)
+ fft(:,1)=[INT(dfftp%nr1,8),INT(dfftp%nr2,8),INT(dfftp%nr3,8),INT(dfftp%nr1x,8), &
+  INT(dfftp%nr2x,8),INT(dfftp%nr3x,8),INT(dfftp%my_nr2p,8),INT(dfftp%my_nr3p,8), &
+  INT(dfftp%my_i0r2p,8),INT(dfftp%my_i0r3p,8),INT(dfftp%nproc2,8),INT(dfftp%nproc3,8),INT(dfftp%nnr,8),0_8]
+ fft(:,2)=[INT(dffts%nr1,8),INT(dffts%nr2,8),INT(dffts%nr3,8),INT(dffts%nr1x,8), &
+  INT(dffts%nr2x,8),INT(dffts%nr3x,8),INT(dffts%my_nr2p,8),INT(dffts%my_nr3p,8), &
+  INT(dffts%my_i0r2p,8),INT(dffts%my_i0r3p,8),INT(dffts%nproc2,8),INT(dffts%nproc3,8),INT(dffts%nnr,8),0_8]
+ h=[70251521_8,1_8,INT(mpime,8),INT(getpid(),8),INT(npwx,8),INT(n,8),INT(ngm,8), &
+  INT(dfftp%nnr,8),INT(dffts%nnr,8),352_8,4_8,INT(nkb,8),16_8,12_8,0_8,0_8]
+ WRITE(rank,'(I0)')mpime
+ OPEN(NEWUNIT=u,FILE=TRIM(root)//'/pilot/H.rank'//TRIM(rank),STATUS='NEW',ACCESS='STREAM',FORM='UNFORMATTED',IOSTAT=ios)
+ IF(ios/=0)CALL errore('staticH','output open',1)
+ WRITE(u,IOSTAT=ios)h,fft,bg*tpiba,xk(:,1),omega,charge,degauss,ehart,etxc,vtxc, &
+  INT(mill(:,igk_k(1:n,1)),8),INT(mill(:,1:ngm),8),P,kin,loc,nl,full,rho%of_g,rho%of_r,vrs
+ IF(ios/=0)CALL errore('staticH','output write',1)
+ FLUSH(u,IOSTAT=ios)
+ IF(ios/=0)CALL errore('staticH','packet flush',1)
+ INQUIRE(UNIT=u,SIZE=packet_bytes,IOSTAT=ios)
+ IF(ios/=0.OR.packet_bytes<1_8.OR.packet_bytes>1073741824_8)CALL errore('staticH','packet size',1)
+ CLOSE(u,IOSTAT=ios)
+ IF(ios/=0)CALL errore('staticH','packet close',1)
+ CALL mp_barrier(intra_bgrp_comm)
+ CALL r07_static_phase(10,packet_bytes)
+ WRITE(stdout,'(A,ES25.16)')'R07_STATIC_H_COMPLETE charge=',charge
+END SUBROUTINE

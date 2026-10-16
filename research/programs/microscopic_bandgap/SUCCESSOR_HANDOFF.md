@@ -25,6 +25,37 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- PBE_STATIC_COMPLETION_20261016_BEGIN -->
+## Latest PBE native completion — 2026-10-16
+
+From37f48db: read `pbe_static_completion_2026-10-16/{decision.md,acceptance.md,
+build_result.json,component_results.json,resource_audit.json,verification.json}`.
+New actual QE-linked PBE-only R07S/scope16 final hook exists in private MCT
+scratch: begin before init, checked packet flush/close + barrier, live final,
+world error normalization/barrier, return before electrons/punch. Stock
+physics objects unchanged. Native ELF NEVER executed; no new MPI/SCF/action,
+service/member, DFT/source write, old refusal reclassification or HSE work.
+
+Production dispatcher/account/reader source uses actual kernel peers and a
+fresh scope, no wrapper/inherited-socket self identity. Actual NON-MPI C clients
+exercise it, including fatal liveEACCES, wrong/early/lost finals, incomplete
+packet, failed reader/import, descriptor reuse, output burst and lost log.
+Terminal manager/cgroup and positive tiny reader were MOCKED; native reader
+rejects the fixture. Do NOT call these components full production qualified.
+
+Native owner.run/actual systemd/MPI collectives, safe setup/cancel/crash, complete
+12GiB/backend/outside-holder resource and2meV numerical error qualification
+remain BLOCKED. Source loader/CLI prohibit native release. Scope-local pending
+latch preserves unknown cleanup; protected old ledger is never rewritten.
+Resource metadata are source-selected terms, not1GiB/4s forecast converted
+to a bound. No pair/job/queue/restart is created. Stop at this explicit native
+qualification/resource boundary; a future one-member live resource query
+requires separately reviewed protocol/authorization and no automatic Cd/shared
+release. Exact6+6Theta/member,24total and original24/4 subgroups/physical
+contract remain. No gap, N2, linewidth/EBS, random alloy or x_c claim; registry
+status and all old handoff below unchanged.
+<!-- PBE_STATIC_COMPLETION_20261016_END -->
+
 <!-- PBE_STATIC_ADMISSION_20261016_BEGIN -->
 ## Latest PBE static environment admission — 2026-10-16
 
