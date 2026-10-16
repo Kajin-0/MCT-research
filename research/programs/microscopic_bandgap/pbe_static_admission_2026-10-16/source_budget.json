@@ -1,0 +1,268 @@
+{
+  "status": "SOURCE_SELECTED_BOUNDS_ONLY; COMPLETE_NATIVE_ENVELOPE_NOT_CERTIFIED",
+  "dimensions_from_unqualified_packet_NOT_physics_acceptance": true,
+  "per_rank": {
+    "0": {
+      "npwx": 10799,
+      "active_pw": 10799,
+      "ngm": 86816,
+      "nrho": 256000,
+      "nsmooth": 256000,
+      "fft": [
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          256000,
+          256000
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "packet_exact_B": 45017560,
+      "driver_arrays_selected_upper_B": 29782116,
+      "persistent_evc_B": 121639936,
+      "initialization_wave_buffer_additional_possible_B": 121639936,
+      "packet_source": "UNQUALIFIED old packet DIMENSIONS ONLY"
+    },
+    "1": {
+      "npwx": 10796,
+      "active_pw": 10796,
+      "ngm": 86815,
+      "nrho": 256000,
+      "nsmooth": 256000,
+      "fft": [
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          256000,
+          256000
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "packet_exact_B": 45011640,
+      "driver_arrays_selected_upper_B": 29776356,
+      "persistent_evc_B": 121606144,
+      "initialization_wave_buffer_additional_possible_B": 121606144,
+      "packet_source": "UNQUALIFIED old packet DIMENSIONS ONLY"
+    }
+  },
+  "two_member_native_packet_payload_B": 180058400,
+  "source_copied_saves_logical_B": 498983205,
+  "probes_two_members_exact_B": 17621920,
+  "frame_np_arrays_payload_B": 8810832,
+  "selected_persistent_and_driver_RAM_B": 302804552,
+  "known_copies_probe_frame_packets_logical_subtotal_B": 705474357,
+  "unknown_total_RAM_terms": [
+    "complete PW initialization/FFT/beta/radial arrays and temporaries",
+    "FFT/HDF5/MPI/allocator/backend RSS and log/tmp producers",
+    "new live owner/receipt/FD/terminal integration"
+  ],
+  "additional_unknown_disk_terms": [
+    "wfc buffer close/readback layout",
+    "MPI/HDF5/error/tmp/log generations",
+    "inode/block rounding/metadata and new owner capture"
+  ],
+  "complete_RAM_runtime_or_disk_bound": false,
+  "old_1GiB_4s_observation_NOT_bound": true,
+  "inherited_caps": {
+    "memory_B": 12884901888,
+    "swap_B": 0,
+    "tasks": 12,
+    "wall_s": 600,
+    "host_floor_B": 4294967296,
+    "disk_floor_B": 10737418240,
+    "sampled_output_cap_B": 15032385536
+  },
+  "passive_current_storage": {
+    "probe_errno": 0,
+    "fs_type": 61267,
+    "block_bytes": 4096,
+    "available_blocks": 12126273,
+    "available_bytes": 49669214208,
+    "project_error": 0,
+    "project_id": 0,
+    "quotas": [
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 3,
+        "status_error": 3
+      },
+      {
+        "error": 3,
+        "active": 0,
+        "used_bytes": 0,
+        "hard_blocks_1024": 0,
+        "soft_blocks_1024": 0,
+        "valid": 0,
+        "limit_error": 1,
+        "status_error": 3
+      }
+    ]
+  },
+  "passive_current_memory": {
+    "MemTotal": 33651908608,
+    "MemAvailable": 29863206912
+  },
+  "passive_capacity_status": "PASS capacity/quota component ONLY",
+  "passive_capacity_component": {
+    "admitted": true,
+    "rounded_reservation_bytes": 15099494400,
+    "min_disk_reserve_bytes": 10737418240,
+    "max_family_ram_bytes": 12884901888,
+    "max_wall_seconds": 600
+  },
+  "new_cgroup_or_reservation_created": false,
+  "socket_lengths_bytes": {
+    "unshared": 99,
+    "shared": 97
+  },
+  "actual_future_address_bind_NOT_attempted": true,
+  "source_allocation_and_gauge_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/v_of_rho.f90": {
+      "sha256": "5111e47cf300f2cd6e71e5372dfd0e094b318b022c55e6ab5c506b66cec2b705",
+      "lines": {
+        "NB: V(G=0)=0": 673,
+        "aux1(:,:) = 0.D0": 684
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/setlocal.f90": {
+      "sha256": "97f5822018cc4ac0e90667d43a93f53acb3653ff1f33e1a1c280d9cf4d7f6d89",
+      "lines": {
+        "vloc(igtongl(1:ngm),nt) * strf(1:ngm,nt)": 68,
+        "v_of_0 = DBLE( aux(1) )": 92
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/set_vrs.f90": {
+      "sha256": "7ec81bc3130e42b208fb651e02f789f752d280c484f7c9850c93d328a6fc6ca3",
+      "lines": {
+        "vrs(:,is) = vltot(:) + vr(:,is)": 51
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/wfcinit.f90": {
+      "sha256": "b56086af259fa5f0c72df346d17b07bc905410d21b92cbc7a3c83e31fee75db0",
+      "lines": {
+        "starting_wfc = 'atomic+random'": 123,
+        "CALL read_collected_wfc": 112
+      }
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/allocate_wfc.f90": {
+      "sha256": "eb48056f04a279efaa6fb03c223bbe940e15ef085dcdfdce7097d7a89f6a5e9d",
+      "lines": {
+        "CALL allocate_wfc( npwx, npol, nbnd )": 40,
+        "ALLOCATE( vkb(npwx,nkb) )": 44
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS isolated import/dependency tests; native validation NOT executed",
+  "historical_missing_packets_reproduced": true,
+  "explicit_new_dependency_import_pass": true,
+  "missing_dependency_refused": true,
+  "corrupt_dependency_refused": true,
+  "copied_Reader_AST_identical": true,
+  "old_native_packet_FORMAT_ONLY_decode": true,
+  "historical_root_validate_refused": true,
+  "original_readback_unchanged": true,
+  "native_jobs": 0,
+  "DFT_writes": 0,
+  "native_release": false,
+  "outputs": {
+    "success_stdout": "{\"imported\": true, \"reader_file\": \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_admission_2026-10-16/packet_reader.py\"}\n",
+    "format_stdout": "{\"imported\": true, \"reader_file\": \"/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_admission_2026-10-16/packet_reader.py\"}\n{\"FORMAT_ONLY_unqualified_packet\": true, \"rank\": 0, \"queries\": 12}\n"
+  },
+  "pins": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/static_environment_2026-10-15/readback.py": "930e9c41093dcb3b706e23eb884eb35317b0355cad6d5c3577705243997200b3",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/hybrid_convergence_2026-10-15/packets.py": "b5697239259e1e4fa018e86190e229eb088ab6a15059d62d7e94a762a00c702c",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_admission_2026-10-16/packet_reader.py": "053de9faddb54a67ec6fa257894c3d7e90512d6ac91f1ff9df6d69eb86e70ff9",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/pbe_static_admission_2026-10-16/readback_prospective.py": "a91b3431716c44b48a41f832cf6e2dfa969d10a8ef5171e26278636b7d421b2f"
+  }
+}

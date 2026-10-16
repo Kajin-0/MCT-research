@@ -2,9 +2,37 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED; native state update not admitted. A new FD-derived trial passes offline nonlocal symmetry/charge/transport, but the qualified native diagnostic enforces old fixed occupations and no full-space occupied-solve/nonlinear-rebuild bridge or<=2meV chemical error certificate exists. Original matched source failures, frozen-response bounds,16atom resource and host/optical/native boundaries remain. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED. Read-only PBE static-environment admission COMPLETE: distinct finite saved-density observable scientifically eligible, future native pair NO-GO at missing authenticated final-hook/owner integration and incomplete resource envelope. Minimum24actions, not12. The HSE native state-update boundary and all historical failures remain unchanged. Physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-16 11:38 UTC
+**Updated:** 2026-10-16 12:48 UTC
+
+## PBE-first static environment admission — STOP before native
+
+[Decision](pbe_static_admission_2026-10-16/decision.md),
+[physical contract](pbe_static_admission_2026-10-16/observable_contract.md),
+[owner/import acceptance](pbe_static_admission_2026-10-16/owner_import_acceptance.md),
+[input audit](pbe_static_admission_2026-10-16/input_audit.json),
+[verification](pbe_static_admission_2026-10-16/verification.json).
+Fromfdc1b02, no new native/operator/SCF/build/service or protected DFT write.
+All126 frozen profile pins and14 refused raw pins match. Accepted original
+16atom x=.25 SCF states and exact host50Ry frame survive; scalar densities pass
+actual24/4 chemical groups, not a shared host quartet. The full nonlocal FD
+density and saved full-H eigenpair residuals are not newly certified.
+
+Original-frame Theta leakage1.65485e-6 has6singular directions above1e-8:
+12primary physical actions need12additional Theta controls across the pair.
+Static A=F†HF, B=QHF and scalar-shift-invariant trace contrast are distinct
+from old own-EF finite-eta data; <=2meV numerical sign budget is prospective.
+N2, QHQ, ensemble disorder, physical gap/x_c and material error remain unknown.
+
+Isolated importer and real non-MPI kernel pidfd/live-EACCES component tests
+pass; injected terminal manager/CG cases are not production authority. Pinned
+PBE native final hook and owner retirement caller are absent. Complete source
+RAM/runtime/output envelope is also unqualified; old~1GiB/4s is not a bound.
+STOP at that exact integration/admission boundary; no future pair launched.
+Old live-rank FD refusal/import defect and HSE state gate remain immutable;
+registry status unchanged. Any future acquisition needs a new private scoped
+source/profile/ELF and separately authorized BOTH-member execution.
 
 ## Nonmagnetic electronic-state update qualification — STOP before native
 

@@ -1,0 +1,103 @@
+{
+  "status": "PASS bounded non-MPI component tests; PRODUCTION OWNER NOT QUALIFIED",
+  "cases": {
+    "both_live_fresh_kernel_peer_registrations": true,
+    "fake_success_file": "Refusal: unbound task or missing LIVE final pair",
+    "boolean_wire_version": "Refusal: typed rank/action",
+    "boolean_wire_rank": "Refusal: typed rank/action",
+    "boolean_wire_action": "Refusal: typed rank/action",
+    "wrong_job_wire": "Refusal: wrong JOB/PROFILE/nonce; no historical receipts",
+    "duplicate_rank_new_kernel_peer": "Refusal: duplicate/replaced rank or pending acquisition",
+    "both_live_kernel_bound_final_receipts": true,
+    "unregistered_task_fd_denial": "Refusal: unbound task or missing LIVE final pair",
+    "unknown_output_path_NOT_retirement": "Refusal: non-FD failure cannot enter retirement",
+    "injected_PID_reuse": "Refusal: registered PID replaced/moved",
+    "REAL_EACCES_with_live_pidfd": "Refusal: FD denial for STILL LIVE registered rank",
+    "live_denied_attempt_STAYS_REFUSED_after_REAL_exit": "Refusal: attempt already REFUSED; cannot resurrect",
+    "REAL_dead_rank_only_pending": "TERMINAL_PENDING_NOT_ACCEPTED",
+    "one_live_rank_terminal_refused": "Refusal: terminal rank still live",
+    "REAL_two_process_exits": true,
+    "original_failed_manager_REFUSED": "Refusal: manager identity/exit mismatch",
+    "modeled_bad_ExecMainStatus": "Refusal: manager identity/exit mismatch",
+    "modeled_bad_InvocationID": "Refusal: manager identity/exit mismatch",
+    "modeled_cgroup_UNKNOWN": "Refusal: unknown/reused/populated cgroup",
+    "modeled_cgroup_REUSED_INODE": "Refusal: unknown/reused/populated cgroup",
+    "modeled_cgroup_POPULATED": "Refusal: unknown/reused/populated cgroup",
+    "modeled_limit_elapsed_s_600": "Refusal: resource threshold/event failure",
+    "modeled_limit_host_available_B_4294967295": "Refusal: resource threshold/event failure",
+    "modeled_limit_disk_available_B_10737418239": "Refusal: resource threshold/event failure",
+    "modeled_limit_output_B_15032385537": "Refusal: resource threshold/event failure",
+    "modeled_limit_rss_B_12884901889": "Refusal: resource threshold/event failure",
+    "modeled_limit_swap_max_1": "Refusal: hard caps changed/unknown",
+    "modeled_limit_swap_max_False": "Refusal: hard caps changed/unknown",
+    "modeled_limit_output_B_9223372036854775808": "Refusal: resource integer64 observation incomplete/overflow",
+    "modeled_limit_host_available_B_True": "Refusal: resource integer64 observation incomplete/overflow",
+    "modeled_limit_elapsed_s_nan": "Refusal: elapsed observation incomplete/nonfinite",
+    "modeled_complete_terminal_conjunction": "MODEL_CONJUNCTION_ONLY_NO_NATIVE_AUTHORITY",
+    "REAL_pidfd_descriptor_reuse": "Refusal: pidfd descriptor reused"
+  },
+  "kernel_observations": {
+    "registered_kernel_peers": {
+      "0": {
+        "pid": 1973560,
+        "start_ticks": 667979745,
+        "cgroup": "/user.slice/user-0.slice/session-12743.scope",
+        "pidfd_device_inode": [
+          5,
+          31326949
+        ],
+        "exit_poll_mask": 0
+      },
+      "1": {
+        "pid": 1973561,
+        "start_ticks": 667979749,
+        "cgroup": "/user.slice/user-0.slice/session-12743.scope",
+        "pidfd_device_inode": [
+          5,
+          31326950
+        ],
+        "exit_poll_mask": 0
+      }
+    },
+    "after_live_final_exit_masks": {
+      "0": 0,
+      "1": 0
+    },
+    "live_denial": {
+      "pid": 1973560,
+      "path": "/proc/1973560/fd",
+      "errno": 13,
+      "exit_poll_mask": 0
+    },
+    "after_actual_exit": {
+      "0": {
+        "pid": 1973560,
+        "exit_poll_mask": 17,
+        "child_returncode": 0
+      },
+      "1": {
+        "pid": 1973561,
+        "exit_poll_mask": 17,
+        "child_returncode": 0
+      }
+    }
+  },
+  "real_kernel_tests": [
+    "SO_PEERPIDFD/process pidfd identity",
+    "live EACCES",
+    "both child exits",
+    "pidfd descriptor reuse"
+  ],
+  "injected_tests": [
+    "PID-start mismatch",
+    "manager/CG/limit observations"
+  ],
+  "live_systemd_unit_or_empty_cgroup_measured": false,
+  "native_final_receipt_hook_in_PBE_binary": false,
+  "production_owner_integrated": false,
+  "scratch_only": true,
+  "all_test_children_reaped": true,
+  "native_jobs": 0,
+  "DFT_writes": 0,
+  "native_admission": false
+}

@@ -1,0 +1,349 @@
+{
+  "status": "READ_ONLY_INPUT_AND_SELECTED_BOUND_AUDIT; NO_NATIVE_ADMISSION",
+  "old_refusal_preserved": true,
+  "old_rank_exits_false_NOT_teardown_proof": true,
+  "old_profile_pins_checked": 126,
+  "old_refused_raw_pins_checked": 14,
+  "source_ELF_PP_saved_inputs_pass": true,
+  "source_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/physical_frame.npz": "7f43140113c77c9a9fdbcfdd49500deac7164204356e34bbc77536e5f59002a3",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/out/r07pbe.save/wfc1.hdf5": "e58f1ade954f23c7e393745b6e8b97c07ac3daa8049476e6412f0173080ccdb3",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/charge-density.hdf5": "8a1fa2dee94a8e6a4b6e9de83f55e0e1add95108fd878d00159ad250f02e96f1",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/data-file-schema.xml": "b53dec9b385a81ae7b180ddc15d17aa6d5b24f46ab7f126182fd2259ca362183",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/out/r07pbe.save/wfc1.hdf5": "5b75e903196d74e4a9794ea7181307cc063c9b3d30ba2c79296cef9f1d860481",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/unshared/pw.in": "92864f0f011223081a3da2e7bb27a77501eb3839c01bb61ef06706c9ced335f0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/charge-density.hdf5": "fe599ce8a29408e537ed0255a0e1185cfa41993251331fe51856922b288b779b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/data-file-schema.xml": "fbf74a67af2e80bbef275bd61289795c154584ce5988083b373bf0f3d2fe0571",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/out/r07pbe.save/wfc1.hdf5": "8b4793d6ab0f0bc596ce35c38f00ba06c095f903265ad0b4b82f48b4f3dc6826",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16e_20261015/shared/pw.in": "5d33e116ce8260282d58e99d10186dc799e58a2814c92426bf5d3e8233cd952c"
+  },
+  "source_ELF_sha256": "14664944bb0fd334ed0a58f6e4e9bd990a071c4b3a63442422e3f62f16fc09d3",
+  "stock_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "original_frame_bitwise_from_accepted_host": true,
+  "frame_Gram_op": 2.6700354783013193e-15,
+  "original_Theta_outside_F": 1.654853218499373e-06,
+  "original_Theta_outside_singulars": [
+    8.342446520745089e-07,
+    8.342446520714988e-07,
+    7.126390079382576e-07,
+    7.126390079320859e-07,
+    4.0675679742077764e-07,
+    4.0675679741493963e-07
+  ],
+  "extra_Theta_rank_above1e8": 6,
+  "physical_actions_total": 12,
+  "Theta_control_actions_total": 12,
+  "minimum_static_actions_total": 24,
+  "members": {
+    "unshared": {
+      "cell_Bohr": [
+        [
+          0.0,
+          12.20763076508248,
+          12.20763076508248
+        ],
+        [
+          12.20763076508248,
+          0.0,
+          12.20763076508248
+        ],
+        [
+          12.20763076508248,
+          12.20763076508248,
+          0.0
+        ]
+      ],
+      "species_counts": {
+        "Cd": 2,
+        "Hg": 6,
+        "Te": 8
+      },
+      "Cd_indices": [
+        0,
+        7
+      ],
+      "Te_nearest4_Cd_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "Te_environment_histogram": [
+        0,
+        8,
+        0,
+        0,
+        0
+      ],
+      "actual_point_operation_count": 24,
+      "saved_charge_e": 288.00000000010033,
+      "saved_density_group_covariance_relative": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "saved_local_model": "nonmagnetic PBE+SOC; domag=false, scalar rhoG only",
+      "full_nonlocal_density_Theta_or_eigenpair_NOT_certified": true,
+      "FD_charge_error_e": 9.987388693843968e-11,
+      "FD_occupation_max_error": 2.7755575615628914e-14,
+      "scf_error_Ry": 9.782168846471765e-10,
+      "saved_eigenpair_full_H_residual_certified": false,
+      "own_EF_Ry": 0.7043899286302908,
+      "saved_files_logical_B": 249495706,
+      "socket_bytes": 99,
+      "future_root_created": false
+    },
+    "shared": {
+      "cell_Bohr": [
+        [
+          0.0,
+          12.20763076508248,
+          12.20763076508248
+        ],
+        [
+          12.20763076508248,
+          0.0,
+          12.20763076508248
+        ],
+        [
+          12.20763076508248,
+          12.20763076508248,
+          0.0
+        ]
+      ],
+      "species_counts": {
+        "Cd": 2,
+        "Hg": 6,
+        "Te": 8
+      },
+      "Cd_indices": [
+        0,
+        1
+      ],
+      "Te_nearest4_Cd_counts": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "Te_environment_histogram": [
+        2,
+        4,
+        2,
+        0,
+        0
+      ],
+      "actual_point_operation_count": 4,
+      "saved_charge_e": 287.9999999999583,
+      "saved_density_group_covariance_relative": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "saved_local_model": "nonmagnetic PBE+SOC; domag=false, scalar rhoG only",
+      "full_nonlocal_density_Theta_or_eigenpair_NOT_certified": true,
+      "FD_charge_error_e": -4.1950443119276315e-11,
+      "FD_occupation_max_error": 2.7644553313166398e-14,
+      "scf_error_Ry": 2.222863224759002e-10,
+      "saved_eigenpair_full_H_residual_certified": false,
+      "own_EF_Ry": 0.7049748023370708,
+      "saved_files_logical_B": 249487499,
+      "socket_bytes": 97,
+      "future_root_created": false
+    }
+  },
+  "rank_source_extents": {
+    "0": {
+      "npwx": 10799,
+      "active_pw": 10799,
+      "ngm": 86816,
+      "nrho": 256000,
+      "nsmooth": 256000,
+      "fft": [
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          256000,
+          256000
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "packet_exact_B": 45017560,
+      "driver_arrays_selected_upper_B": 29782116,
+      "persistent_evc_B": 121639936,
+      "initialization_wave_buffer_additional_possible_B": 121639936,
+      "packet_source": "UNQUALIFIED old packet DIMENSIONS ONLY"
+    },
+    "1": {
+      "npwx": 10796,
+      "active_pw": 10796,
+      "ngm": 86815,
+      "nrho": 256000,
+      "nsmooth": 256000,
+      "fft": [
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          256000,
+          256000
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "packet_exact_B": 45011640,
+      "driver_arrays_selected_upper_B": 29776356,
+      "persistent_evc_B": 121606144,
+      "initialization_wave_buffer_additional_possible_B": 121606144,
+      "packet_source": "UNQUALIFIED old packet DIMENSIONS ONLY"
+    }
+  },
+  "selected_payload_two_rank_B": 302804552,
+  "native_packet_payload_two_members_exact_B": 180058400,
+  "packet_bound_is_conditional_on_same_layout": true,
+  "resource_unknowns": [
+    "complete PW initialization/FFT/beta/radial arrays and temporaries",
+    "FFT/HDF5/MPI/allocator/backend RSS and log/tmp producers",
+    "new live owner/receipt/FD/terminal integration"
+  ],
+  "complete_12GiB_RAM_or_600s_bound_certified": false,
+  "complete_14GiB_output_source_envelope_certified": false,
+  "old_measured_kernel_peak_B": 956485632,
+  "old_observation_is_NOT_bound": true,
+  "future_private_base": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/p2",
+  "native_runs": 0,
+  "DFT_writes": 0,
+  "physical_xc": null
+}

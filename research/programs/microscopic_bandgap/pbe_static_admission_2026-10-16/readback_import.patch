@@ -1,0 +1,25 @@
+--- frozen/readback.py
++++ prospective/readback.py
+@@ -1 +1,5 @@
+-"""Native static actions, exact saved rhoG and genuine independent Theta trials."""
++"""IMPORT-FIX CANDIDATE ONLY; not a qualified new science/owner validator.
++
++Legacy science logic is retained for dependency testing, NOT certified
++for the new metric/error-budget contract. No native admission authority.
++"""
+@@ -6,3 +10,9 @@
+-HERE=Path(__file__).resolve().parent;BASE=HERE.parent;PRIVATE=Path('/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015')
+-sys.path.insert(0,str(BASE/'native_matched_pilot_2026-10-11'))
+-from packets import Reader
++HERE=Path(__file__).resolve().parent;BASE=HERE.parent;PRIVATE=Path('/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16h_20261015/jobs/p2')
++import hashlib,importlib.util
++_reader=HERE/'packet_reader.py'
++if hashlib.sha256(_reader.read_bytes()).hexdigest()!='053de9faddb54a67ec6fa257894c3d7e90512d6ac91f1ff9df6d69eb86e70ff9':
++    raise ImportError('pinned Reader dependency changed')
++_spec=importlib.util.spec_from_file_location('_r07_static_pbe_reader_v1',_reader)
++_module=importlib.util.module_from_spec(_spec)
++_spec.loader.exec_module(_module)
++Reader=_module.Reader
+@@ -19,0 +30,2 @@
++    if member not in ['unshared','shared'] or Path(root)!=PRIVATE/'jobs'/member:
++        raise ValueError('new-scope roots only; refused historical unit cannot be accepted')

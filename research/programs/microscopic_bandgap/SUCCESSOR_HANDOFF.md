@@ -25,6 +25,36 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+<!-- PBE_STATIC_ADMISSION_20261016_BEGIN -->
+## Latest PBE static environment admission — 2026-10-16
+
+Fromfdc1b02: read `pbe_static_admission_2026-10-16/{decision.md,
+observable_contract.md,owner_import_acceptance.md,verification.json}` FIRST.
+Read-only phase COMPLETE; scientific static-observable GO, native pair NO-GO.
+No new native action/SCF/MPI/build/service or protected DFT write. All126 old
+profile pins/14 refused raw pins checked; no old result is retrospectively PASS.
+
+Exact original50Ry host frame has6Theta residual singular directions>1e-8,
+so primary12actions across BOTH arrangements require12extraTheta controls:
+24total. Do not replace the frame or force Td/quartet on the4-operation shared
+cell. Scalar saved PBE densities pass their actual24/4 groups. Static A/B and
+trace contrast are new potential observables, not the old own-EF inverses or
+physical mass/gap. Common scalar requires an independently checked energy
+gauge; trace/complement are scalar-shift invariant. N2/QHQ/random-alloy x_c
+remain unidentifiable. Prospective2meV numerical budget is not achieved.
+
+Importer preflight now passes with explicit pinned dependency and negative
+tests. Kernel-only small NON-MPI children prove liveEACCES refuses, real dead
+rank can only enterPENDING, fake/wrong/incomplete identities refuse. Terminal
+manager/cgroup cases were INJECTED, not a new service/native owner acceptance.
+The pinned PBE ELF has NO live native final hook and owner has NO retirement
+caller. Complete12GiB/600s/14GiB resource envelope remains unqualified. Stop
+here; only new scoped private integration/qualification could permit a future
+separately authorized fresh pair. No unchanged HSE or generic infrastructure
+continuation is requested. Historical goal/registry status and all old handoff
+content below are unchanged.
+<!-- PBE_STATIC_ADMISSION_20261016_END -->
+
 <!-- STATE_UPDATE_20261016_BEGIN -->
 ## Latest nonmagnetic state-update qualification — 2026-10-16
 
