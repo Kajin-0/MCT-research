@@ -2,27 +2,48 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. NEW user-authorized fresh stock-QE HSE8 host full-SCF RUNNING under standard OS controls; finite three-hour runtime supersedes the old600s scope for this new candidate only. Stock ACE, no private diagnostic/solver/source/owner changes. Cd WITHHELD pending host convergence and full-state qualification. PBE static diagnostic permanently TERMINATED; all historical refusals preserved. Physical x_c OPEN.
+**State:** historical persistent goal BLOCKED, unchanged. ONE fresh stock-QE HSE8 host ran10488.53s under the newly authorized three-hour scope and12GiB cap;79source builds, native checkpoint stop, outer SCF UNCONVERGED (dexx1.12e-6Ry). Saved density independently fails Theta/Td (Theta op.99999696), Gamma8-character spread661.215meV; host NOT accepted, Cd WITHHELD. Standard OS run measured resource-feasible; terminal sampler KeyError preserved. Unit cleaned, no retries/new software. PBE permanently CLOSED; physical x_c OPEN; all old gates preserved.
 
-**Updated:** 2026-10-16 20:24 UTC
+**Updated:** 2026-10-16 23:22 UTC
 
 <!-- STOCK_HSE_STATIONARY_20261016_BEGIN -->
-## Fresh stock HSE8 host SCF active — new three-hour authorization
+## Stock HSE8 long-run result — host scientific NO-GO; no Cd
 
-See `stock_hse_stationary_2026-10-16/{preregistration.md,preregistration.json,
-launch_host.json,host_initial_manager.json,host_monitor.jsonl}`. User explicitly
-allows longer local execution; old600s documents remain historical. New native
-host started20:21:51UTC, stockQE7.5 hash1d66c785..., two local MPI ranks, stock
-ACE/full outerSCF100 maximum, unchanged176/144,FD.001,HSE.25/.106,50/200/200,
-Gamma/q1,6.46A SG15 FRNC. Fresh root
-`DFT/.local/r07stock_20261016_202059/host`; no old saves/state reused.
-Owned standard transient unit `r07-stock-hse-20261016202059-host.service`,
-systemd RuntimeMax10800s/native max_seconds10440,12GiB/swap0/tasks12,
-CPU200%/nice10, sampled host4GiB/disk10GiB/output14GiB. Kernel limits and
-actual three-process cgroup verified. No custom runner/FD framework built.
-Monitor active in existing tool session; preserve/inspect this own unit before
-any new job. Do not start Cd or another MPI family. Initial SCF is not outer
-convergence; symmetry of the eventual state must be tested independently.
+Read [decision](stock_hse_stationary_2026-10-16/decision.md),
+[native state](stock_hse_stationary_2026-10-16/host_state_result.json),
+[resources](stock_hse_stationary_2026-10-16/resources.json) and
+[verification](stock_hse_stationary_2026-10-16/verification.json).
+New user authorization explicitly allowed approximately3hours; old600s was
+a prior scope, not a universal user preference. One fresh stockQE7.5 ACE
+host, two local ranks, no source/binary/runner changes, exact declared HSE
+.25/.106,50/200/200Ry,176/144,FD.001,Gamma/q1,6.46A,SG15FRNC. Real run
+20:21:51–23:16:39UTC,10488.530204s,79source builds. Native max_seconds10440
+recognized10486.87s and saved all; OSexit0/JOBDONE but XMLSCFfalse and no EXX
+self-consistency. Final E=-1936.3410548077159Ry,Fock/2=-35.83701457Ry,
+dexx1.12e-6>1e-9Ry. No automatic continuation or restart qualification.
+
+Charge+8.17e-11e independently from orbitals and saved rhoG; FD error6.41e-24.
+These do not certify the nonlocal state: independent untruncated QR gives
+Theta-density op.999996959745,F2.00301968; source compression/scalar checks
+agree.24Td physical-frame lower witness max.99957689. Gamma8-character
+spread661.214908meV,Gamma6-character5.385866meV; do not average/label gap.
+No full-H residual certificate, stationary nonmagnetic state or physical mass.
+
+Manager peak4,224,897,024B,sampledRSS4,290,023,424B(shared overcount),swap0,
+sampled tasks7; host available>=25.269GB,disk>=49.399GB. New retained files
+131.778MB. Standard kernel12GiB/tasks12/3h caps; no hardware purchase. Last
+sampler failed KeyErrorControlGroup after group release, raw failure retained;
+independent explicit manager readback and all recorded PID identities gone,
+old cgroup absent, own unit unloaded. No full sampler PASS or retry claimed.
+
+Raw root `DFT/.local/r07stock_20261016_202059` preserved; Git stores metadata,
+small native stdout/XML and hashes, not large wave/ACE files.18build prefix
+checkpoint cfbad7d immutable; this terminal result supersedes ACTIVE only.
+822pins/76originals/dirtyDFT/stock/oldPBE failures and other sessions unchanged.
+NEXT physical input remains a stationary symmetry-qualified HSE host before
+Cd; stock direct exchange is an established control with unmeasured full-SCF
+cost, not an automatically admitted retry. ACE versus Gamma-only instability
+not selected. This finite assignment STOPPED; no pending job, no physicalxc.
 <!-- STOCK_HSE_STATIONARY_20261016_END -->
 
 <!-- HSE_PAIR_ADMISSION_20261016_BEGIN -->

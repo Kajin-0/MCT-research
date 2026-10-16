@@ -1,0 +1,12 @@
+{
+  "UTC": "2026-10-16T23:19:27.978134+00:00",
+  "own_unit": "r07-stock-hse-20261016202059-host.service",
+  "stop_returncode": 0,
+  "stop_stdout": "",
+  "stop_stderr": "",
+  "after": "LoadState=not-found\nActiveState=inactive\nSubState=dead\n",
+  "native_processes_gone_before_stop": true,
+  "original_cgroup_absent": true,
+  "raw_data_deleted": false,
+  "other_units_modified": false
+}

@@ -1,0 +1,127 @@
+{
+  "UTC": "2026-10-16T23:19:28.083476+00:00",
+  "root": "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059",
+  "files": {
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/cd/pw.in": {
+      "sha256": "6e9c37d3b95ef7374cab1db751cf3e9817c2c34f598e597666c87b581bce6d33",
+      "bytes": 1140,
+      "blocks_B": 4096
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/cd/reference.bin": {
+      "sha256": "6889991eaa9402c1c4a0409e81ebe9cbc4766f7b9c2a8972aaefeb3af36a0671",
+      "bytes": 1686872,
+      "blocks_B": 1687552
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pw.err": {
+      "sha256": "c29c309cad61a37144d0966e06863fa91fc48398f65f2fcab11a10e2b895937c",
+      "bytes": 192,
+      "blocks_B": 4096
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pw.in": {
+      "sha256": "3014a23e36b4fcad0841aef479a969af4f3d2a66809c0a26782e8e236d9abb89",
+      "bytes": 1144,
+      "blocks_B": 4096
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pw.out": {
+      "sha256": "f28e8790813ecdb6e6e77aca1454150683ee320dd493e448dd1165533031bd7c",
+      "bytes": 454194,
+      "blocks_B": 458752
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/reference.bin": {
+      "sha256": "6889991eaa9402c1c4a0409e81ebe9cbc4766f7b9c2a8972aaefeb3af36a0671",
+      "bytes": 1686872,
+      "blocks_B": 1687552
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.restart_e": {
+      "sha256": "c96743db53f717b9a57dec5efd691f8e82ecc6a94830aa4f8af652158ad2dfcd",
+      "bytes": 9324,
+      "blocks_B": 12288
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.wfc2": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "blocks_B": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.wfc1": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "blocks_B": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.restart_e2": {
+      "sha256": "c96743db53f717b9a57dec5efd691f8e82ecc6a94830aa4f8af652158ad2dfcd",
+      "bytes": 9324,
+      "blocks_B": 12288
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.xml": {
+      "sha256": "727e3bb297c1bebfd9fab1f537d3a22f23b7541a36647c735daf99c0a3b1dc56",
+      "bytes": 58888,
+      "blocks_B": 61440
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pp/Hg_sg15_pbe_fr_v12.UPF": {
+      "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "bytes": 374986,
+      "blocks_B": 376832
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pp/Cd_sg15_pbe_fr_v12.UPF": {
+      "sha256": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "bytes": 355177,
+      "blocks_B": 356352
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/pp/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714,
+      "blocks_B": 323584
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/charge-density.hdf5": {
+      "sha256": "89e9d1f1e3261cbaf9ba69f07e22a0891a4cfc4f420fe2e2cc35d17e5338cc21",
+      "bytes": 2434244,
+      "blocks_B": 2437120
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/Hg_sg15_pbe_fr_v12.UPF": {
+      "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "bytes": 374986,
+      "blocks_B": 376832
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/Cd_sg15_pbe_fr_v12.UPF": {
+      "sha256": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "bytes": 355177,
+      "blocks_B": 356352
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/data-file-schema.xml": {
+      "sha256": "727e3bb297c1bebfd9fab1f537d3a22f23b7541a36647c735daf99c0a3b1dc56",
+      "bytes": 58888,
+      "blocks_B": 61440
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/ace1.hdf5": {
+      "sha256": "0b69aa59ca0cba4fd8758828e29bac28166ed65a71bd5558e76fcfb46b7a7097",
+      "bytes": 61111932,
+      "blocks_B": 61116416
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714,
+      "blocks_B": 323584
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/wfc1.hdf5": {
+      "sha256": "048934f70ec662875822b6291fab15a3c4bf04b686ca49c24db82bf8065332f6",
+      "bytes": 61111932,
+      "blocks_B": 61116416
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/cd/pp/Hg_sg15_pbe_fr_v12.UPF": {
+      "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "bytes": 374986,
+      "blocks_B": 376832
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/cd/pp/Cd_sg15_pbe_fr_v12.UPF": {
+      "sha256": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "bytes": 355177,
+      "blocks_B": 356352
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/cd/pp/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714,
+      "blocks_B": 323584
+    }
+  },
+  "raw_large_wavefunctions_only_local_not_on_GitHub": true
+}

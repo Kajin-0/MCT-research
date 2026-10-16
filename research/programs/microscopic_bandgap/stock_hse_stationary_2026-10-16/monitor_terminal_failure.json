@@ -1,0 +1,11 @@
+{
+  "UTC": "2026-10-16T23:17:41.107374+00:00",
+  "tool_session": 95232,
+  "exit_code": 1,
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 6, in <module>\nKeyError: 'ControlGroup'\n",
+  "measured_terminal_ControlGroup": "",
+  "reason_evidence": "Full show omitted empty ControlGroup after exit; explicitly requested property is empty, original group absent; terminal manager/identity independently captured.",
+  "native_run_retried": false,
+  "sampler_restarted_or_past_log_modified": false,
+  "no_full_monitor_PASS_claim": true
+}

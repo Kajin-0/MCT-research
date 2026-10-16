@@ -1,0 +1,28 @@
+{
+  "NC_saved_scalar_density_charge_e": 144.0000000000817,
+  "density_charge_imag_e": 0.0,
+  "density_charge_residual_e": 8.171241461241152e-11,
+  "volume_Bohr3": 1819.2574208348283,
+  "saved_density_nspin": 1,
+  "bands": 176,
+  "nelec": 144.0,
+  "wave_cutoff_Ry": 50.0,
+  "rho_cutoff_Ry": 200.0,
+  "Fock_cutoff_Ry": 200.0,
+  "HSE_fraction": 0.25,
+  "screening_Bohr_inverse": 0.106,
+  "smearing": "fd",
+  "sigma_Ry": 0.001,
+  "q_grid": {
+    "nqx1": "1",
+    "nqx2": "1",
+    "nqx3": "1"
+  },
+  "actual_k_points": 1,
+  "magnetization_flags": {
+    "noncolin": "true",
+    "spinorbit": "true",
+    "do_magnetization": "false"
+  },
+  "no_full_H_eigenpair_bound_inferred": true
+}

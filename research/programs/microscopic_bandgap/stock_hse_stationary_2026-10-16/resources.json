@@ -1,0 +1,21 @@
+{
+  "elapsed_OS_wall_s": 10488.530204,
+  "CPU_usage_s": 20960.526071,
+  "retained_manager_memory_peak_B": 4224897024,
+  "sampled_family_RSS_shared_overcount_peak_B": 4290023424,
+  "sampled_host_available_min_B": 25269334016,
+  "sampled_disk_free_min_B": 49398976512,
+  "sampled_tasks_peak": 7,
+  "swap_current_max_B": 0,
+  "all_sampled_oom_and_limit_events_zero": true,
+  "sample_count": 1042,
+  "first_sample_UTC": "2026-10-16T20:22:46.088108+00:00",
+  "last_sample_UTC": "2026-10-16T23:16:39.499365+00:00",
+  "terminal_monitor_key_error_preserved": true,
+  "terminal_manager_independently_read_back": true,
+  "no_claim_full_sampler_PASS": true,
+  "fresh_retained_all_files_bytes": 131777577,
+  "fresh_retained_blocks_B": 131833856,
+  "sampler_was_sampled_not_continuous_quota": true,
+  "numerical_postprocessing_separate_from_native_peak": true
+}

@@ -26,23 +26,45 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
 <!-- STOCK_HSE_STATIONARY_20261016_BEGIN -->
-## ACTIVE native stock HSE8 host — 2026-10-16 20:24 UTC
+## TERMINAL stock HSE8 result — 2026-10-16 23:22 UTC
 
-NEW explicit user authorization supersedes the previous600s execution scope
-for this new candidate: finite3hour local budget, no new solver/owner/launcher
-development. `stock_hse_stationary_2026-10-16` holds frozen input/PP/ELF/backends,
-launch command/kernel verification and sampled monitor. StockQE7.5 ACE full
-SCF host started20:21:51UTC, two local ranks; original HSE physics unchanged.
-Actual root `/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059`;
-OWNED unit `r07-stock-hse-20261016202059-host.service`. MainPID1989442,
-InvocationID15c8575aefea41689b1c39b88930c535; raw initial identity in package.
-12GiB cap/swap0/tasks12,CPU200%/nice10,RuntimeMax10800/native10440s;
-host4GiB/disk10GiB/output14GiB sampled floors. Standard systemd only, no new
-runner/source changes. Tool-session95232 is a bounded simple resource sampler.
-Do not interrupt this scientific job or launch Cd/another family. Preserve all
-historical files. Cd is predeclared but NOT started and requires accepted host.
-Potential ACE symmetry failure remains explicit; SCF/JOBDONE alone insufficient.
-PBE stays closed, old failures and historical blocked goal unchanged.
+Read `stock_hse_stationary_2026-10-16/{decision.md,host_state_result.json,
+resources.json,native_readback.json,verification.json,cleanup.json}`. The new
+user allowed approximately3hour local runtime; do not call600s a universal
+user limit. ONE fresh stockQE7.5 ACE host actually ran10488.530204s,79source
+builds,20:21:51–23:16:39UTC. Native max_seconds10440 stopped it cleanly after
+the current rebuild and saved all. Final total-1936.3410548077159Ry,
+Fock/2-35.83701457Ry,dexx1.12e-6>1e-9Ry,XMLSCFfalse. OSexit0/JOBDONE
+does NOT mean HSE convergence. No restart, alternative candidate or Cd run.
+
+Actual model unchanged:8atom176spinor/144e,HSE.25/.106,50/200/Fock200Ry,
+Gamma/q1,FD.001Ry,6.46A,SG15FRNC,atomic start; both live ranks matched stock
+hash1d66c785... . No private source/owner/launcher changes. Full saved density
+is NOT nonmagnetic: untruncated QR Theta op.999996959745/F2.00301968,
+independent source/scalar witnesses agree; max24Td frame witness.99957689.
+Gamma8-character spread661.215meV,Gamma6-character5.386meV; no averaging or
+signed gap. Correct FD/charge(+8.17e-11e from both wave and rhoG) is insufficient.
+No full-H eigenpair residual bound, stationarity, physicalx_c or Cd response.
+
+Resource-feasible measurement: managerMemoryPeak4,224,897,024B,
+sampledRSS4,290,023,424B(shared overcount),tasks7,swap0,no observedOOM/limit
+events,hostavailable>=25.269GB,disk>=49.399GB,newfiles131.778MB. Unit had
+12GiB/swap0/tasks12/3h limits andCPU200%/nice10. At exit the one-off sampler
+failed KeyErrorControlGroup (empty property omitted); preserve this negative,
+NOT full samplerPASS. Independent final manager retains same invocation,
+NRestarts0/exit0/peak. All three originalPID identities gone,cgroup absent;
+own transient unit now unloaded. NO ACTIVE SCIENCE JOB OR TOOL SAMPLER.
+
+Raw root `/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059`
+preserved. cfbad7d18-build ACTIVE snapshot remains immutable historical prefix;
+terminal files supersede active state, not its data.822pins/76oldfiles,
+dirtyDFT/stock/HSE16/other sessions/PBEclosure/blockedgoal unchanged. No retry
+of this candidate. This is not proof of physical HgTe magnetism or that more
+RAM would cure it. Stock direct exchange is a distinct established algorithmic
+control but whole-SCF cost is unknown (79ACE builds9125s here); no new launch
+or infrastructure campaign admitted. Need a genuinely stationary symmetry-
+qualified HSE host before Cd; ACE versus finiteGamma instability remains OPEN.
+Current finite assignment STOPPED after actual numerical negative result.
 <!-- STOCK_HSE_STATIONARY_20261016_END -->
 
 <!-- HSE_PAIR_ADMISSION_20261016_BEGIN -->

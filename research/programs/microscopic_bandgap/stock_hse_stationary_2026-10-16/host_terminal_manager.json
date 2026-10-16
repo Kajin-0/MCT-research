@@ -1,0 +1,39 @@
+{
+  "UTC": "2026-10-16T23:17:41.107374+00:00",
+  "manager": {
+    "Restart": "no",
+    "RuntimeMaxUSec": "3h",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "OOMPolicy": "kill",
+    "ExecMainStartTimestamp": "Fri 2026-10-16 20:21:51 UTC",
+    "ExecMainStartTimestampMonotonic": "6706832856627",
+    "ExecMainExitTimestamp": "Fri 2026-10-16 23:16:39 UTC",
+    "ExecMainExitTimestampMonotonic": "6717321386831",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ControlGroup": "",
+    "MemoryCurrent": "[not set]",
+    "MemoryPeak": "4224897024",
+    "CPUUsageNSec": "20960526071000",
+    "MemoryMax": "12884901888",
+    "MemorySwapMax": "0",
+    "TasksMax": "12",
+    "KillMode": "control-group",
+    "Id": "r07-stock-hse-20261016202059-host.service",
+    "LoadState": "loaded",
+    "ActiveState": "active",
+    "SubState": "exited",
+    "InvocationID": "15c8575aefea41689b1c39b88930c535"
+  },
+  "original_cgroup_path": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-stock-hse-20261016202059-host.service",
+  "original_cgroup_exists": false,
+  "native_processes_gone": true,
+  "original_PID_identities": {
+    "1989442": "absent",
+    "1989446": "absent",
+    "1989447": "absent"
+  },
+  "manager_status_is_NOT_SCF_convergence": true
+}
