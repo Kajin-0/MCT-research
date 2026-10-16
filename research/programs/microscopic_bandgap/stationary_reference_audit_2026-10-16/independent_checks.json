@@ -1,0 +1,79 @@
+{
+  "status": "PASS_READ_ONLY_INDEPENDENT_CHECKS",
+  "records": [
+    {
+      "run": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b",
+      "charge_from_decimal_text": "35.9999999999999959531250",
+      "Gamma8_distance_to_scalar_occupation": 4.277307165123645e-07,
+      "e90_to_e50_amplitude_loss_sqrt": [
+        0.001427661841610737,
+        0.0014276618083546152,
+        0.0003574600270258719,
+        0.00035746025052913946,
+        0.00035746034602003466,
+        0.00035745910330990704
+      ],
+      "independently_bisected_FD_mu_Ha": 0.32908547150445133,
+      "original_SCF_acceptance_unchanged": true
+    },
+    {
+      "run": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800",
+      "charge_from_decimal_text": "35.9999999999999999656250",
+      "Gamma8_distance_to_scalar_occupation": 5.301861011053344e-07,
+      "e90_to_e50_amplitude_loss_sqrt": [
+        0.001427649791086937,
+        0.0014276497804341524,
+        0.0003574558355918094,
+        0.0003574557927082907,
+        0.00035745595141829204,
+        0.00035745591057464846
+      ],
+      "independently_bisected_FD_mu_Ha": 0.32908562577767986,
+      "original_SCF_acceptance_unchanged": true
+    }
+  ],
+  "memory_arithmetic": {
+    "primitive_f120_nominal_B": 2952790016,
+    "primitive_f360_nominal_B": 14189395968,
+    "original_16atom_f120_nominal_B": 23622320128,
+    "cap_12GiB_B": 12884901888
+  },
+  "protected_MCT": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "d29d00192e7e46058b19f2e6291b924bc4eca39ed889861e429c31c14755bde1"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/public_optical_intake_2026-10-15/verification.json",
+      "sha256": "f3e32746457efb7d12410f0bd0887a04b5aab36aa221c3c540aec99bc710f70d"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/append_hamiltonian_2026-10-15/strict_refusal.json",
+      "sha256": "ba94b698cf2e9846a0aa0cf736769920e0623c08885f765e52598172886a93f2"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/static_environment_2026-10-15/evidence/GUARD_RESULT.json",
+      "sha256": "3e2ff07fd59dba211fe3779210faa72e29631534c7fc39845069cad242974d41"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/single_state304_2026-10-15/native_result.json",
+      "sha256": "a3eae387e5b89f1d78e8483e7bbea9c44e79895894b4b370c7a9dc26a5d03ab4"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/hybrid_convergence_2026-10-15/decision.md",
+      "sha256": "3039f8f271b83993ca66d413f4bb57c77001469f3d4e7f9ac6fbb2740d561f6d"
+    },
+    {
+      "path": "research/programs/microscopic_bandgap/physical_input_qualification_2026-10-11/decision.md",
+      "sha256": "5ad37696cceae21bad9af6cd3199f3a5ad79a633417d02ccb4955c17b8624061"
+    },
+    {
+      "path": "docs/derivations/host_invariant_reaction_kernel.md",
+      "sha256": "fead8d8dd5f08c3f500b58564b91e7c2fb5b74fde9aea200a166331a0aaaf1c1"
+    }
+  ],
+  "no_native_jobs": true,
+  "physical_xc": null,
+  "stationary_FD_certified": false,
+  "notes": "Real retained spectra only; no synthetic optical/mass example. Schur scalar distance assumes the qualified native irrep frame; not an interval-certified full-H or material residual."
+}

@@ -1,0 +1,172 @@
+{
+  "records": [
+    {
+      "run": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_fullacc_c1e-10_t3600_g1800_restart_7ef6476b",
+      "effective_model": {
+        "ecutwfc_Ry": 90.0,
+        "ecutrho_Ry": 360.0,
+        "ecutfock_Ry": 360.0,
+        "screening_Bohr_inverse": 0.106,
+        "exx_fraction": 0.25,
+        "q_grid": {
+          "nqx1": "4",
+          "nqx2": "4",
+          "nqx3": "4"
+        },
+        "exxdiv_treatment": "gygi-baldereschi",
+        "x_gamma_extrapolation": "true",
+        "SOC": "true",
+        "nominal_scf_accepted_signed_Gamma_order_eV": -0.28976341236020176
+      },
+      "input_XML_ecutfock_Ha": null,
+      "Gamma_Kramers_pair_energy_differences_eV": [
+        6.874500968478969e-13,
+        2.0607515693882306e-11,
+        4.8183679268731794e-11
+      ],
+      "Gamma_Kramers_pair_occupation_differences": [
+        0.0,
+        1.1160768975670976e-09,
+        2.6096327321312174e-09
+      ],
+      "last_native_exchange_convergence_lines": [
+        "BEWARE: negative dexx:  -0.707E-10",
+        "est. exchange err (dexx)  =          7.1E-11 Ry",
+        "EXX self-consistency reached"
+      ],
+      "physical_frame": {
+        "cell_bohr": [
+          [
+            0.0,
+            6.103815382541238,
+            6.103815382541238
+          ],
+          [
+            6.103815382541238,
+            0.0,
+            6.103815382541238
+          ],
+          [
+            6.103815382541238,
+            6.103815382541238,
+            0.0
+          ]
+        ],
+        "species": [
+          "Hg",
+          "Te"
+        ],
+        "positions_bohr": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            3.051907691270619,
+            3.051907691270619,
+            3.051907691270619
+          ]
+        ],
+        "PP_sha256": {
+          "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        }
+      },
+      "SCF_and_expanded_rhoG_bytes_equal": false,
+      "open_grid_stdout_sha256": "110672fea0998732765f70c39b86cf099728a729895239b3259ea07d79686aba",
+      "open_grid_EXX_grid": [
+        54,
+        54,
+        54
+      ],
+      "SCF_expanded_charge_datasets_equal": true,
+      "SCF_expanded_charge_max_float_diff": 0.0
+    },
+    {
+      "run": "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800",
+      "effective_model": {
+        "ecutwfc_Ry": 90.0,
+        "ecutrho_Ry": 360.0,
+        "ecutfock_Ry": 120.0,
+        "screening_Bohr_inverse": 0.106,
+        "exx_fraction": 0.25,
+        "q_grid": {
+          "nqx1": "4",
+          "nqx2": "4",
+          "nqx3": "4"
+        },
+        "exxdiv_treatment": "gygi-baldereschi",
+        "x_gamma_extrapolation": "true",
+        "SOC": "true",
+        "nominal_scf_accepted_signed_Gamma_order_eV": -0.28977011377785367
+      },
+      "input_XML_ecutfock_Ha": "0.000000000000000E+000",
+      "Gamma_Kramers_pair_energy_differences_eV": [
+        0.0,
+        1.4406253967536031e-11,
+        5.683098436293221e-11
+      ],
+      "Gamma_Kramers_pair_occupation_differences": [
+        0.0,
+        7.803213630808159e-10,
+        3.0780868409685525e-09
+      ],
+      "last_native_exchange_convergence_lines": [
+        "BEWARE: negative dexx:  -0.663E-10",
+        "est. exchange err (dexx)  =          6.6E-11 Ry",
+        "EXX self-consistency reached"
+      ],
+      "physical_frame": {
+        "cell_bohr": [
+          [
+            0.0,
+            6.103815382541238,
+            6.103815382541238
+          ],
+          [
+            6.103815382541238,
+            0.0,
+            6.103815382541238
+          ],
+          [
+            6.103815382541238,
+            6.103815382541238,
+            0.0
+          ]
+        ],
+        "species": [
+          "Hg",
+          "Te"
+        ],
+        "positions_bohr": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            3.051907691270619,
+            3.051907691270619,
+            3.051907691270619
+          ]
+        ],
+        "PP_sha256": {
+          "Hg": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+          "Te": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+        }
+      },
+      "SCF_and_expanded_rhoG_bytes_equal": false,
+      "open_grid_stdout_sha256": "8e3609e711562fc470b6b636b5d1107fe09d0320722f5b83ca018b17c0981205",
+      "open_grid_EXX_grid": [
+        54,
+        54,
+        54
+      ],
+      "SCF_expanded_charge_datasets_equal": true,
+      "SCF_expanded_charge_max_float_diff": 0.0
+    }
+  ],
+  "native_lattice_origin_species_PP_frames_equal": true,
+  "source_audit_sha256": "6891f13b82db7bc9a063edd4da218d5c98f5e3f6a1a994b3411df6cfe02abaf9"
+}

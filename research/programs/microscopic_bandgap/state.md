@@ -2,9 +2,45 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED; analytical competing-route results accepted under assumptions. New public three-field optical intake NO-GO: complete raw/calibration/assay package not located. H304 remains FD nonstationary; all native refusals immutable. Physical zero-T random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED; original HSE numerical host frames reusable, strict FD/direct-H and screened Cd response unqualified. Stock original16atom chemistry not admitted under12GiB. Prior optical NO-GO, H304 nonstationarity and all native refusals preserved; physical zero-T random-alloy x_c OPEN.
 
-**Updated:** 2026-10-15 23:09 UTC
+**Updated:** 2026-10-16 02:54 UTC
+
+## Original stationary-reference reuse audit COMPLETE — 2026-10-16
+
+[Decision](stationary_reference_audit_2026-10-16/decision.md),
+[qualification/resources](stationary_reference_audit_2026-10-16/qualification_and_resources.md),
+[theory/contract](stationary_reference_audit_2026-10-16/theory_and_contract.md),
+[minimum input](stationary_reference_audit_2026-10-16/minimum_input.md),
+[native audit](stationary_reference_audit_2026-10-16/native_audit.json),
+[handoff](stationary_reference_audit_2026-10-16/handoff_ledger.md).
+From clean9a83424, distinct read-only audit of ORIGINAL primitive e90 k4/q4
+f360/f120 SCF saves, beyond P1's Gamma cross-cutoff inventory. Original SCF
+XML matches prior expansion-parent hashes; full wave/occupation/ACE files
+survive and supply useful numerical host/reference frames, avoiding more D0
+blocks. Exported open_grid metadata is not the SCF convergence authority.
+
+Native charge36e and physical Gamma irrep spans pass numerical checks, but
+cold-smearing Gamma8 occupation spreads8.55e-7/1.06e-6 yield cubic density
+witnesses8.54e-7/1.04e-6. Saved-ACE six-probe cubic defects2.42e-8/9.15e-8
+and unknown DIRECT/full-H residuals do not certify strict1e-8 FD stationarity.
+The accepted native SCF flags are unchanged. FD reinterpretation of stored
+spectra shifts mu−1.895584meV only algebraically; no H[D_new] is acquired.
+e90-to-e50 physical-frame tails are measured, not renormalized away. Original/
+export coefficients differ near roundoff, so no byte-replay PASS or old-failure
+reclassification. New source hashes do not invent historical kernel fingerprints.
+
+Source-based nominal EXX buffers: primitive f1202.75GiB, f36013.21GiB,
+original16atom f12022GiB. Stock matched chemistry under12GiB is NO-GO;
+H304's5.56GB is not a substitute bound. Both original open_grid exports
+used54³ FFT; regenerating f120 export would also require a nominal13.21GiB
+buffer, so use existing exports read-only. Primitive f120 is a candidate for
+future same-state residual qualification only after a complete two-rank
+source/state/resource gate; no new native run is admitted. Independently
+self-consistent Cd-screened density/operator in that host frame remains
+indispensable, followed by dilute/alloy/material/observable control. STOP at
+that actual information/resource boundary. No native/optical/synthetic rerun,
+empirical coefficient, material mass or physical x_c in this phase.
 
 ## Public one-specimen optical intake COMPLETE — 2026-10-15
 

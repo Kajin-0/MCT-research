@@ -25,6 +25,38 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 - **Complete same-density HSE operator, then single-state 304**: `single_state304_2026-10-15/decision.md` (pushed commit **283aad5**) is the latest accepted native milestone as of this snapshot. One native 2-rank HgTe host query measured **304 basis columns + 12 controls from exactly one frozen trial state**, source/kernel/local snapshots byte-stable, Td/Theta defects around 1.7e-11, Hermiticity ~1.32e-15, wall **329.21 s**, kernel peak **5.56 GB**. It avoids a refused cross-run splice. **FD IS NOT STATIONARY**: 304 Galerkin trial density mismatch **0.00942430** (operator norm); Fermi quartet full-H residual **0.023784678 Ry** (~0.3236 eV), full commutator **0.50357023 Ry Frobenius**. Auxiliary Ritz/kinetic values are NOT new physical bands. No self-consistent HSE host, matched HSE Cd gap, physical crossing or x_c has been obtained.
 - **Preserved refused work**: exact HSE cross-run append refused at `append_hamiltonian_2026-10-15` (near-roundoff changes in rho/potential/control do not permit byte-exact state splice). PBE static 6-probe operator attempt at `static_environment_2026-10-15` failed owner FD-inventory verification, despite diagnostic native output; shared configuration withheld. No historic failure was silently retried, accepted or deleted.
 
+## Latest original-host reuse audit COMPLETE — 2026-10-16
+
+Read `stationary_reference_audit_2026-10-16/{decision.md,qualification_and_resources.md,
+theory_and_contract.md,minimum_input.md,handoff_ledger.md}` and native/independent
+checks. From9a83424, original e90 k4/q4 f120/f360 HgTe SCF states survive; their
+SCF XML matches earlier expansion-parent pins. Numerical host frames and source
+states are reusable as references/initial states, so additional H304[D0] columns
+are not needed to find a numerical host. This is new full-source/occupation
+qualification beyond P1; old SCF acceptance remains intact.
+
+Strict FD/direct-H transfer is NOT qualified: native cold occupations produce
+Gamma cubic density witnesses~1e-6; saved ACE six-probe defects~1e-8–1e-7;
+full-H residual/stability and source-kernel replay remain unbounded. FD roots
+of stored spectra are only reinterpretations, not nonlinear H[D_new] updates.
+e50/Γ-only model and e90 k4/q4 state differ in frame, quadrature and occupation
+law. No primitive small defect is relabelled as the old severe broken host.
+No same-D byte-replay PASS: original/export coefficient roundoff is retained.
+
+Original16atom stock nominal EXX buffer22GiB fails12GiB admission independently
+of H304's unrelated5.56GB peak. Primitive f120 subtotal2.75GiB suggests a future
+same-state residual candidate, but complete two-rank RAM/time/output/state
+qualification is absent. Both archived open_grid logs show54³ FFT even for
+f120 (temporary4*ecutwfc); a new export also carries13.21GiB nominal buffer.
+Reuse the existing exports, not a new postprocessor. No native run is authorized
+here. The indispensable
+chemistry is aligned self-consistent Cd-screened H[D_c], not another host
+interpolation or fixed-D ionic shift. Further alloy/material/continuum/root
+inputs remain. STOP at that precise boundary; no new optical search, synthetic
+mass example, DFT command/write, H304 action, goal/session or old-gate change.
+All previous handoff content below is preserved. Read the new decision before
+proposing any next computation; do not promise a cheap SCF or material x_c.
+
 ## Latest finite public optical intake COMPLETE — 2026-10-15
 
 From clean pushed 4affbd8: `public_optical_intake_2026-10-15/decision.md`,

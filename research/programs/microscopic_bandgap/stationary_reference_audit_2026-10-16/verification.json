@@ -1,0 +1,33 @@
+{
+  "status": "PASS_SCOPED_READ_ONLY_ASSESSMENT",
+  "timestamp_UTC": "2026-10-16T02:55:51.995403+00:00",
+  "baseline": "9a83424",
+  "branch": "research/hgcdte-impurity-tmatrix-20261010",
+  "native_sources_rehashed": 206,
+  "protected_MCT_rehashed": 8,
+  "links_checked": 5,
+  "entire_prior_handoff_preserved": true,
+  "stock_QE_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "reusable_numerical_reference_frame": true,
+  "strict_FD_or_DIRECT_H_state_certified": false,
+  "matched_16atom_stock_12GiB_admitted": false,
+  "native_jobs": 0,
+  "physical_xc": null,
+  "source_hashes": {
+    "decision.md": "008dd9d808601b31d5fd0c9bef2ab798673c54c37eeaa703407d6fec2bbf57ba",
+    "handoff_ledger.md": "183ba421a4973683082f858f1bb31c55c87e0d1f0f3a3e007e6b5834fc97e896",
+    "theory_and_contract.md": "80874029e305acc26e50573d2f94d281f42c739dd922edf8e07146333d8cac4b",
+    "minimum_input.md": "aa675fabc6fa07c253583e32ce2cb10ccda65c8a3ce51cc0b4727a849e6cace0",
+    "metadata_audit.json": "38fe12ee3185407c2b5e0614a4806a0622b93f53380a50c155a8503bf5fc219d",
+    "audit_native.py": "306032e9e72feae48ff6ef3e91e21a5aa7b67159669a8927d17c6b6fbc24928e",
+    "literature_and_source_boundary.md": "8246cb5d0c97657517faaa29cc32c10ca89ec81c39cfc9881cd3b1f58d02f525",
+    "metadata_audit.py": "c2f9523d0623e1d8b171e01d866f0467e9e5f3f6cf36b4c660ca32604d5d1438",
+    "qualification_and_resources.md": "7a8587cf53849fbbafb6d537f00ac5426e1886310d44d881cb3917254e187370",
+    "verify_artifacts.py": "90f98575792ef27a87fc1697666f7b9171d0bc6b293aa2d0bf4a95fbe58f968c",
+    "independent_checks.json": "5d303cd53885ee325256e9e6c17dc7e2e7f916029662aae846416672a6f4bad7",
+    "verification.md": "8084424a8849a1ea74900b47dbbc43b0f8dab673f27e8c64b08f4ab732d26309",
+    "independent_checks.py": "4c63997083f2e7721440e7e9675797b307933a406eba12bf7c3d8e307dfd648b",
+    "native_audit.json": "6891f13b82db7bc9a063edd4da218d5c98f5e3f6a1a994b3411df6cfe02abaf9"
+  },
+  "limits": "No native full-H/whole-FD/material certificate. Newly pinned private state files are not hosted here and not asserted historically fingerprinted. No DFT Git command or driver/write, no rerun of old examples/refused jobs."
+}
