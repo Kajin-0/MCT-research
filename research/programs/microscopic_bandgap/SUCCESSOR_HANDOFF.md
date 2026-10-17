@@ -16,6 +16,25 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 4. **Avoid false uncertainty.** Conditional projector/tail/IEEE bounds are not HSE functional, composition, finite-size, disordered-alloy, electron-phonon or material error bars. Retained data may fail to identify missing causal moments or impurity correlations. Preserve exact mathematical NO-GO claims under their assumptions.
 5. **New contribution criterion.** Compare each proposed claim against Wei & Zunger (1991), Phys. Rev. B 43, 1662, doi:10.1103/PhysRevB.43.1662; Krishtopenko, Antezza & Teppe (2022), Phys. Rev. B 106, 115203, doi:10.1103/PhysRevB.106.115203; Alowa et al. (2025), J. Phys. D 58, 135120, doi:10.1088/1361-6463/adb2a0; Lin ACE (2016), SQS (Zunger/Wei/Ferreira/Bernard 1990), and newer competing work. Relevant local files: `chemical_pbe16_p2_2026-10-15/literature_boundary.md`, `analytical_first_2026-10-11/literature.md`, `continuum_spectral_2026-10-11/literature.md`, `threshold_causal_2026-10-11/literature.md`, and `../correlated_random_mass_kane/prior_art_matrix.md`. Novelty currently **UNVERIFIED**.
 
+## Latest zero-cost FR-VCA compatibility — 2026-10-17
+
+Read `vca_fr_compatibility_2026-10-17/{decision.md,preregistration.json,
+upf_audit.json,verification.json}`. Specific supplied Hg/Cd virtual_v2 SG15
+NC/fullSO pseudo+reader GO within endpoint tests.24beta/l/j retained,
+exactweightedDblocks; Cd gridtruncation and inheritedHgCHInames explicit.
+Mixed radialGram healthy,not a native mixedstate certificate.5stockdry
+readerchecks and4GammaPBEendpointSCFs actually passed;max44leveldiffHg
+4.03e-5meV/Cd2.08e-4meV,densityGmax<8e-8e.29.73ssum/123.66MBkernelpeak,
+12GiB/swap0/tasks12 hardcontrols,all9unitsunloaded;noHSE/mixedSCF/build/spend.
+RawHDF5/UPFs remainprivate;Gitcontainsnativeinput/output/XML/hashes.
+No implied all-k operator/material accuracy,ghost-free guarantee or physicalxc.
+ExistingprimitiveHSEsymmetry1e-8FAIL unchanged;PBEstaticdiagnostic staysclosed.
+Currentuserbudget$0;oldcloudplan isNOT authorization. A futureprimitiveVCA
+x=.125HSE state would test coherentfractionalexternaloperator only,not local
+Cdimpurity/Teenvironment/disorder. It needs separately approved matchedstate,
+symmetry,coverage/resource admission. All822pins/76oldfiles/dirtyDFT preserved.
+STOP this finite qualification;no automatic next calculation.
+
 ## Latest compute plan only — 2026-10-17
 
 Read `compute_acquisition_plan_2026-10-17/decision.md`. Conditional procurement

@@ -1,0 +1,342 @@
+{
+  "native_cases": 9,
+  "dry_cases": 5,
+  "SCF_cases": 4,
+  "no_HSE": true,
+  "no_mixed_SCF": true,
+  "endpoint_comparisons_pass": true,
+  "total_polled_job_elapsed_s": 29.73035562224686,
+  "max_kernel_MemoryPeak_B": 123658240,
+  "minimum_host_MemAvailable_B": 29732790272,
+  "minimum_disk_free_B": 49251344384,
+  "maximum_owned_sampled_B": 27828224,
+  "max_tasks_sampled": 7,
+  "terminal_TasksCurrent_not_set": "retained as unavailable, never cast to zero; no new native job",
+  "aggregate_output_accounting": "sampled retained blocks+metadata, not continuous quota/deleted-open proof",
+  "all_kernel_caps_read_back": true,
+  "all_units_stopped_unloaded": true,
+  "all_terminal_exit_status_zero": true,
+  "temporary_path": "/tmp/r07vq_20261017_0640",
+  "temporary_files_remaining": [],
+  "source_and_PP_pins_unchanged": true,
+  "hostwide_foreign_MPI_absence_proven": false,
+  "raw_saved_HDF5_public": false,
+  "raw_manifest": {
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/launch.json": {
+      "sha256": "11cbf9aa9bf7a0b2ff9969a7a4ee526ec66ff535809f56f5a3f6033f384122e5",
+      "bytes": 1935
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/pw.in": {
+      "sha256": "2ed7f5867639dc2444b5aca65557256d5c16c02b56a0e9ff0bb026fe1bbe85fc",
+      "bytes": 891
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/pw.out": {
+      "sha256": "8524daa99b1f5ce34eceafee898afb994c934bfd3ec4e539b33feef95fa26bc7",
+      "bytes": 17266
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/result.json": {
+      "sha256": "97ddd0289b9f0a295a64aa1662e7dc75e1752bd7724e410ac03dc54614b3e24a",
+      "bytes": 4647
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "6dbcbc6de410f717a0b4826b8682cdcc28b276d26f7a2267411d84a3d748a4ac",
+      "bytes": 36104
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual/launch.json": {
+      "sha256": "2f5f78f4221cb7c2e98ba491a381a992f9ec367b2a81e087818e6fe0682840c7",
+      "bytes": 1928
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual/pw.in": {
+      "sha256": "c44ee2fa32693088c50f63379dd96f96c6b022d2dcfbb769811ac280e9e8b505",
+      "bytes": 878
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual/pw.out": {
+      "sha256": "4f585857de0ca852f1f5b0517784acfd914755ae2691201f06913806d8c1b4fe",
+      "bytes": 17508
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual/result.json": {
+      "sha256": "cd37c50c82971e27862267e19e69583b945b4a4947cc83d6a993dafe719c2d54",
+      "bytes": 4638
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "0909cac3d6d09ea7fcfb5aa0cb43f5dfae1a2ab8dc02b781b6cc7f6f635cc392",
+      "bytes": 36079
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original/launch.json": {
+      "sha256": "686380b4af9e94636244e829401c77c85d5b02516a7fdcbd06cdc5769c9043ec",
+      "bytes": 1935
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original/pw.in": {
+      "sha256": "00adb86049df824c3b04a6890dcb091091ba9838d9386a7fb3105babe88c136b",
+      "bytes": 891
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original/pw.out": {
+      "sha256": "846ff3ad13a4d91b0259ef02bda368c39b8ca0a6b07abd6570e948452a77b746",
+      "bytes": 17158
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original/result.json": {
+      "sha256": "b6cee5939be5047e35be3ac3a1edb210e94f972f580b7810a62e9c9ab805fb37",
+      "bytes": 4647
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "37624f5dbb3bbaaf85603b99eca3418c0acf6345f55f444ad75b3f973d117a9e",
+      "bytes": 36104
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual/launch.json": {
+      "sha256": "f03fc3e8fa3069872220c2b3c61cd6911be7932dc541e35e02502fdb47e823fb",
+      "bytes": 1928
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual/pw.in": {
+      "sha256": "e1f64997950350f65692bbc8c6a321e4ab603504d8841c670fa0ed74bc433363",
+      "bytes": 878
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual/pw.out": {
+      "sha256": "07b7dda6645bbf06f527e426833beaaf9aed27d7e3f43df6474e60b270ac79cc",
+      "bytes": 17563
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual/result.json": {
+      "sha256": "d11f6e094898994f0ee6edc69c6058281fa8278c6ca0d7d5822f88b659cc06b5",
+      "bytes": 4639
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "85e0cfd0ee57bd63d3e3ccc9aad7e40f11f420c00524f60c03e74f0292ceaf11",
+      "bytes": 36079
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed/launch.json": {
+      "sha256": "e09be8b5e2ed1f72c42ded4824d2b51e54b51dda67e94d1c093b51d9cc4b0e91",
+      "bytes": 1893
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed/pw.in": {
+      "sha256": "d940091f497a498059b35cf432483d742d098ae8745466f157f54f2c406436b9",
+      "bytes": 874
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed/pw.out": {
+      "sha256": "80ad8f77b07545f9328ecee832c9b219a1966d5b5fd253cbc127ca4ec0b0502f",
+      "bytes": 17570
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed/result.json": {
+      "sha256": "bcbb7459b5beba00305a5e47e996650b561e7ae238db1836beca4269a1f6c53a",
+      "bytes": 4597
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "113ce8ff835dcc2949ed5d29e726a55e74245176e47267f215e68ec9475f1818",
+      "bytes": 36076
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/launch.json": {
+      "sha256": "38f8751a1f00086d04e31e07cd44b5c7ea42a28d89f43d00bbb5f2c40bf881e8",
+      "bytes": 2023
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/pw.in": {
+      "sha256": "3881947dab295d02d9e414f3d4dae5c8d52454d29178b695d5e0496e2bed79b5",
+      "bytes": 883
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/pw.out": {
+      "sha256": "ec8526819a0bcfef9e4243385830249a572a57b74945aec820640e9dc2fe28df",
+      "bytes": 31015
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/result.json": {
+      "sha256": "2412c529086443660050e4058cc485e4797e43c5b2997b99e9faeb0e5d0dde58",
+      "bytes": 10191
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/out/vcaqual.xml": {
+      "sha256": "6eedf556d0813e5fb8a1464b8afbcecb1160413ab94d349454ddc8b6094e97dd",
+      "bytes": 46286
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/out/vcaqual.save/charge-density.hdf5": {
+      "sha256": "a8327d8c66fc2a0a86b204d4cea699044694f4e77d97b43f54adf2690c468544",
+      "bytes": 608756
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/out/vcaqual.save/Hg_sg15_pbe_fr_v12.UPF": {
+      "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "bytes": 374986
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "6eedf556d0813e5fb8a1464b8afbcecb1160413ab94d349454ddc8b6094e97dd",
+      "bytes": 46286
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/out/vcaqual.save/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original/out/vcaqual.save/wfc1.hdf5": {
+      "sha256": "907262b5dea78f0d8a6958949bcf4a46b06a0476f673bfc9dc5016e21f8d78e0",
+      "bytes": 3885204
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/launch.json": {
+      "sha256": "01f34959146591d4afccdf5562f994da9dd96d1801c3950a0e302449f0041388",
+      "bytes": 2016
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/pw.in": {
+      "sha256": "9c8c4f1156450d47a070a90d5524d6295ed0aebbf62a3277be40eb91cb6c7be2",
+      "bytes": 870
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/pw.out": {
+      "sha256": "464113ff5f25fd5302220297ea789f620ad8c82369bf54a5d15abdd381553101",
+      "bytes": 31257
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/result.json": {
+      "sha256": "9c2b1a1a7d1aa2dea9bbcf04b4d0959065a085871f13f7799c1fd622d9a88748",
+      "bytes": 10189
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/out/vcaqual.xml": {
+      "sha256": "ff2d286b288a455433494335beb62939eff0c4f792bfa74002d7568e45db5a29",
+      "bytes": 46261
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/out/vcaqual.save/charge-density.hdf5": {
+      "sha256": "c4427eb2df35122f8bc5b28dd33d64c9f3538676447a21f1e68f56ad7ede653a",
+      "bytes": 608756
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "ff2d286b288a455433494335beb62939eff0c4f792bfa74002d7568e45db5a29",
+      "bytes": 46261
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/out/vcaqual.save/VCA_Hg.UPF": {
+      "sha256": "0be0d796559e4cb1ccea6507765e585ed9905ff4870abf0c8602dc1d52ddd995",
+      "bytes": 1055306
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/out/vcaqual.save/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual/out/vcaqual.save/wfc1.hdf5": {
+      "sha256": "5425e74705f56385ee04bc4f83095d455c2b8ff5c8ada3cc4d38ebf82c152946",
+      "bytes": 3885204
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/launch.json": {
+      "sha256": "b6a6b834e68279c8f59cc741a20ff7b3906f6a0cb072aaf501effdfc1bd5263b",
+      "bytes": 2023
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/pw.in": {
+      "sha256": "01036968f617d616a3e1e1516d9efaa6469ac295c3bdaf58ea68d42f263fda64",
+      "bytes": 883
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/pw.out": {
+      "sha256": "11b76103b2acffd53b2bbc0708ef42f543defed835b12f436805aef10724d61c",
+      "bytes": 35323
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/result.json": {
+      "sha256": "95aa1f14c7aa4778ef4e68d100fffe660ca6b6a2debac322fff0a3400690cc90",
+      "bytes": 9115
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/out/vcaqual.xml": {
+      "sha256": "125036b3b30ecfb436ecc94d6de0a479668c325afa46151a36b3fb13b3d28cec",
+      "bytes": 46288
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/out/vcaqual.save/charge-density.hdf5": {
+      "sha256": "d2704b7890891dcf4768eb7627f14a9ce225c4039bf58f8583bbfabcd63e86d9",
+      "bytes": 608756
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/out/vcaqual.save/Cd_sg15_pbe_fr_v12.UPF": {
+      "sha256": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "bytes": 355177
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "125036b3b30ecfb436ecc94d6de0a479668c325afa46151a36b3fb13b3d28cec",
+      "bytes": 46288
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/out/vcaqual.save/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original/out/vcaqual.save/wfc1.hdf5": {
+      "sha256": "2a96fd24cae6752212a5190cb209e630da1db07ba52723ca8cc0e5b90e107f9a",
+      "bytes": 3885204
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/pw.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/launch.json": {
+      "sha256": "320caeb6e2f3153b3750aa33d5c3aab6005cea29bdde14190d6e273f9534ed03",
+      "bytes": 2016
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/pw.in": {
+      "sha256": "ddfef257d2f02d5832347b69171b3a84b020e3566ace40ac2f8de07c571fc7d3",
+      "bytes": 870
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/pw.out": {
+      "sha256": "c29962a36b0b6846671239b28b6d03f6b0631efc12d8c28fc5fb71396b92ee4b",
+      "bytes": 35728
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/result.json": {
+      "sha256": "600f6b7cb65d2ca9409ca57f8f15542f6c8252574f5b24383b18e79d952f23d9",
+      "bytes": 11276
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/out/vcaqual.xml": {
+      "sha256": "b2cb335751f7db5d158cd28291e6daf1d788858470c21783f98f61850891af80",
+      "bytes": 46263
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/out/vcaqual.save/charge-density.hdf5": {
+      "sha256": "f4e92105a6c8e450bf13db4dc9cbe443c320edf1fcc5034ead38474e8d7592b9",
+      "bytes": 608756
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/out/vcaqual.save/data-file-schema.xml": {
+      "sha256": "b2cb335751f7db5d158cd28291e6daf1d788858470c21783f98f61850891af80",
+      "bytes": 46263
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/out/vcaqual.save/Te_sg15_pbe_fr_v12.UPF": {
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "bytes": 320714
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/out/vcaqual.save/wfc1.hdf5": {
+      "sha256": "8bd4810b2872f01aac412b44f40936f7a610179cb0c3beb8b348fd73dd93fbb9",
+      "bytes": 3885204
+    },
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual/out/vcaqual.save/VCA_Cd.UPF": {
+      "sha256": "8d2d1ce8399885b5d0fa83e9b5927f42809908145bb81e83489991fc1a9d4aa7",
+      "bytes": 1055306
+    }
+  },
+  "preregistration_sha256": "c55794775508784e6e932cc1afd21715326f2ba5c81c361ece85e6fdfb1c9470",
+  "protected_pins_unchanged": 822,
+  "historical_files_unchanged": 76,
+  "DFT_dirty_status_and_diff_unchanged": true,
+  "old_primitive_k4_decision_unchanged": true,
+  "common_RAB_exact": true,
+  "nonlocal_D_Hermitian_exact": true,
+  "prior_live_cgroups_absent_independently": [
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-dry-hg-original.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-dry-hg-virtual.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-dry-cd-original.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-dry-cd-virtual.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-dry-mixed.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-scf-hg-original.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-scf-hg-virtual.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-scf-cd-original.service",
+    "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vq-1017-0640-scf-cd-virtual.service"
+  ],
+  "no_visible_pw_or_mpirun": true,
+  "postanalysis_notes": "Initial summary attempts rejected terminal TasksCurrent=[not set] and empty terminal ControlGroup. Correct verification retains unavailable terminal fields and checks unique nonempty prior live cgroup paths. No native rerun or status change."
+}

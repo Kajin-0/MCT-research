@@ -1,0 +1,87 @@
+{
+  "mixed_radial_norms_squared": [
+    0.9999900440417069,
+    0.999780345901918,
+    0.9995647473444642,
+    0.9990361212030162,
+    0.998301722215078,
+    0.9985608894142296
+  ],
+  "same_lj_radial_Gram_blocks": {
+    "(0, 0.5)": {
+      "channels": [
+        0,
+        3
+      ],
+      "radial_Gram": [
+        [
+          0.9999900440417069,
+          8.067979173542349e-06
+        ],
+        [
+          8.067979173542349e-06,
+          0.9990361212030162
+        ]
+      ],
+      "eigenvalues": [
+        0.9990360529714678,
+        0.9999901122732553
+      ]
+    },
+    "(1, 0.5)": {
+      "channels": [
+        2
+      ],
+      "radial_Gram": [
+        [
+          0.9995647473444642
+        ]
+      ],
+      "eigenvalues": [
+        0.9995647473444642
+      ]
+    },
+    "(1, 1.5)": {
+      "channels": [
+        1
+      ],
+      "radial_Gram": [
+        [
+          0.999780345901918
+        ]
+      ],
+      "eigenvalues": [
+        0.999780345901918
+      ]
+    },
+    "(2, 1.5)": {
+      "channels": [
+        5
+      ],
+      "radial_Gram": [
+        [
+          0.9985608894142296
+        ]
+      ],
+      "eigenvalues": [
+        0.9985608894142296
+      ]
+    },
+    "(2, 2.5)": {
+      "channels": [
+        4
+      ],
+      "radial_Gram": [
+        [
+          0.998301722215078
+        ]
+      ],
+      "eigenvalues": [
+        0.998301722215078
+      ]
+    }
+  },
+  "minimum_radial_Gram_eigenvalue": 0.998301722215078,
+  "native_mixed_atomic_initialization_executed": false,
+  "plane_wave_Gram_or_HSE_initial_state_certificate": false
+}

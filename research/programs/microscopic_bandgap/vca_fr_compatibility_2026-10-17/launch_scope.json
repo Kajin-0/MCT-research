@@ -1,0 +1,8 @@
+{
+  "temp_root": "/tmp/r07vq_20261017_0640",
+  "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017",
+  "native_total_hard_deadline_s": 1500,
+  "sampled_output_guarantee": true,
+  "continuous_aggregate_quota": false,
+  "prices_or_cloud_actions": false
+}

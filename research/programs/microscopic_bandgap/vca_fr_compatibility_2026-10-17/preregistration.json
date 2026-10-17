@@ -1,0 +1,107 @@
+{
+  "UTC": "2026-10-17T06:32:48.122446+00:00",
+  "baseline": "242e042a3fb6ca351ec9ff72ed9cdcabe32ef6a2",
+  "scope": "stock PBE+SOC endpoint and mixed-reader qualification only; no HSE, no mixed SCF",
+  "case_limit": 9,
+  "order": [
+    "dry_hg_original",
+    "dry_hg_virtual",
+    "dry_cd_original",
+    "dry_cd_virtual",
+    "dry_mixed",
+    "scf_hg_original",
+    "scf_hg_virtual",
+    "scf_cd_original",
+    "scf_cd_virtual"
+  ],
+  "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017",
+  "cases": {
+    "dry_hg_original": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original",
+      "input_sha256": "2ed7f5867639dc2444b5aca65557256d5c16c02b56a0e9ff0bb026fe1bbe85fc",
+      "hard_wall_s": 60
+    },
+    "dry_hg_virtual": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_virtual",
+      "input_sha256": "c44ee2fa32693088c50f63379dd96f96c6b022d2dcfbb769811ac280e9e8b505",
+      "hard_wall_s": 60
+    },
+    "dry_cd_original": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_original",
+      "input_sha256": "00adb86049df824c3b04a6890dcb091091ba9838d9386a7fb3105babe88c136b",
+      "hard_wall_s": 60
+    },
+    "dry_cd_virtual": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_cd_virtual",
+      "input_sha256": "e1f64997950350f65692bbc8c6a321e4ab603504d8841c670fa0ed74bc433363",
+      "hard_wall_s": 60
+    },
+    "dry_mixed": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_mixed",
+      "input_sha256": "d940091f497a498059b35cf432483d742d098ae8745466f157f54f2c406436b9",
+      "hard_wall_s": 60
+    },
+    "scf_hg_original": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_original",
+      "input_sha256": "3881947dab295d02d9e414f3d4dae5c8d52454d29178b695d5e0496e2bed79b5",
+      "hard_wall_s": 300
+    },
+    "scf_hg_virtual": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_hg_virtual",
+      "input_sha256": "9c8c4f1156450d47a070a90d5524d6295ed0aebbf62a3277be40eb91cb6c7be2",
+      "hard_wall_s": 300
+    },
+    "scf_cd_original": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_original",
+      "input_sha256": "01036968f617d616a3e1e1516d9efaa6469ac295c3bdaf58ea68d42f263fda64",
+      "hard_wall_s": 300
+    },
+    "scf_cd_virtual": {
+      "root": "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/scf_cd_virtual",
+      "input_sha256": "ddfef257d2f02d5832347b69171b3a84b020e3566ace40ac2f8de07c571fc7d3",
+      "hard_wall_s": 300
+    }
+  },
+  "staged_PP_pins": {
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp/VCA_Hg.UPF": "0be0d796559e4cb1ccea6507765e585ed9905ff4870abf0c8602dc1d52ddd995",
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp/VCA_mix.UPF": "4388cd23a07772037b6c4fdf7db72690478e6ae2e163025cfba1a6312dff11b4",
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp/VCA_Cd.UPF": "8d2d1ce8399885b5d0fa83e9b5927f42809908145bb81e83489991fc1a9d4aa7"
+  },
+  "ELF_pins": {
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+    "/home/User/opencode_workspace/DFT/.local/qe-env/bin/virtual_v2.x": "59bf5b0404d60f6e1d4b33f584e328b7dc0c7dee7ee767c96de81c130220235f"
+  },
+  "limits": {
+    "MemoryMax_B": 12884901888,
+    "MemorySwapMax_B": 0,
+    "TasksMax": 12,
+    "CPUQuota": "200%",
+    "ranks": 2,
+    "maximum_sum_hard_runtime_s": 1500,
+    "host_MemAvailable_min_B": 4294967296,
+    "disk_free_min_B": 10737418240,
+    "owned_output_sampled_max_B": 15032385536,
+    "per_file_LimitFSIZE_B": 1073741824,
+    "poll_s": 1
+  },
+  "gates": {
+    "dry_so_reader_and_36electrons_required": true,
+    "dry_complete_peak_not_claimed": true,
+    "dry_estimated_total_GiB_max_for_SCF": 3.0,
+    "no_retry": true,
+    "stop_first_fatal_or_endpoint_difference": true,
+    "SCF_convergence_required": true,
+    "charge_error_e_max": 1e-08,
+    "FD_formula_max_error": 1e-10,
+    "endpoint_total_energy_abs_meV_max": 0.1,
+    "endpoint_all44_raw_and_mu_aligned_eigenvalue_max_meV": 0.1,
+    "endpoint_rhoG_relative_L2_max": 1e-05,
+    "endpoint_rhoG_max_abs_charge_units_e": 1e-05,
+    "occupation_comparison": "computed FD sensitivity bound (|delta_epsilon|+|delta_mu|)/(4sigma) plus numerical rounding; no independent absolute occupation waiver"
+  },
+  "rationale": "0.1meV endpoint budget is 5% of the old prospective 2meV contrast target, not an achieved material error; density gates are pseudo compatibility checks, not changed old HSE symmetry gates",
+  "native_jobs_started": 0
+}

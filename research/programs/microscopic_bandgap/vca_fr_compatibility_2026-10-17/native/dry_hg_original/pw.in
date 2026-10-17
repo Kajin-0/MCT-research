@@ -1,0 +1,25 @@
+&CONTROL
+ calculation='scf', prefix='vcaqual', outdir='/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/dry_hg_original/out', pseudo_dir='/home/User/opencode_workspace/DFT/.local/r07_vca_qual_20261017/pp',
+ verbosity='high', disk_io='low', restart_mode='from_scratch', max_seconds=45, nstep=0,
+/
+&SYSTEM
+ ibrav=0, nat=2, ntyp=2, nbnd=44, ecutwfc=50, ecutrho=200,
+ occupations='smearing', smearing='fd', degauss=0.001, noncolin=.true., lspinorb=.true.,
+ input_dft='PBE', nosym=.false.,
+/
+&ELECTRONS
+ conv_thr=1d-12, mixing_beta=0.3, electron_maxstep=80, diagonalization='david', diago_full_acc=.true.,
+ startingpot='atomic', startingwfc='atomic+random',
+/
+ATOMIC_SPECIES
+Hg 200.59 Hg_sg15_pbe_fr_v12.UPF
+Te 127.60 Te_sg15_pbe_fr_v12.UPF
+CELL_PARAMETERS angstrom
+0 3.23 3.23
+3.23 0 3.23
+3.23 3.23 0
+ATOMIC_POSITIONS crystal
+Hg 0 0 0
+Te .25 .25 .25
+K_POINTS automatic
+1 1 1 0 0 0

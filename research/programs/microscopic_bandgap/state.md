@@ -2,9 +2,27 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. Latest finite compute plan conditionally recommends128GiB on-demand for a matched16atom host/Cd1 pair; no purchase/job approval or capacity certificate. Prior admission study: centered conventional8 k2/q2 with152 spinors is stock-compatible but execution NO-GO under12GiB because complete peak is unqualified (8.405GB source;11.231GB nominal named payload, not a bound). Conventional k4/q2 needs56 sources,58.835GB. No new jobs/builds/services. The completed primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Old failures and PBE closure preserved; Cd/physical x_c remain OPEN.
+**State:** historical persistent goal BLOCKED, unchanged. Latest separately authorized zero-cost FR-VCA compatibility task: specific SG15 Hg/Cd pseudo/stock SOC reader GO;5dry checks+4endpoint PBE SCFs PASS, no mixed SCF/HSE. HSE launch not approved; no physical inversion result. Earlier128GiB cloud plan remains unpurchased; user current budget$0. Conventional8 k2/q2/152 execution remains NO-GO under12GiB (complete peak unqualified);k4/q2 requires56sources. Primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Historical failures and closed PBE static diagnostic unchanged; physical x_c OPEN.
 
-**Updated:** 2026-10-17 05:54 UTC
+**Updated:** 2026-10-17 06:38 UTC
+
+## Specific fully relativistic Hg/Cd VCA compatibility: GO, no HSE admission
+
+Read [decision](vca_fr_compatibility_2026-10-17/decision.md),
+[native/resource verification](vca_fr_compatibility_2026-10-17/verification.json)
+and [UPF audit](vca_fr_compatibility_2026-10-17/upf_audit.json).
+Stock virtual_v2 supplied outputs keep24radial beta/l/j and exact weighted
+nonlocalDblocks; noSOCdrop. Cd grid truncation12.45vs13.67bohr and inherited
+HgCHIlabels are explicit; l/j/radial support validated, not globaloperator
+identity. Five nstep0 SOC reader checks and four fresh Gamma-onlyPBE+SOC
+endpointSCFs passed frozen0.1meV/density/charge gates. Max44leveldiffHg
+4.03e-5meV,Cd2.08e-4meV; Cdmu-aligned2.75e-4meV. No gap/mass inferred.
+Nine bounded two-rank systemd cases total29.73s,kernelpeak123.66MB,zero
+swapallowance/tasks12;unitsunloaded. No mixedSCF,HSE,sourcebuild or spending.
+All822pins/76originals/dirtyDFTunchanged;oldGateArefusal/staticPBEclosure
+and1e-8HSEsymmetryFAIL unchanged. PrimitiveVCAx=.125HSE could test coherent
+mean response only,not substitution/disorder/physicalxc;separateapproval and
+state/resourcequalification required. Finite assignment COMPLETE/STOP.
 
 ## Compute acquisition plan only — no allocation/job approval
 
