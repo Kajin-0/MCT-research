@@ -2,6 +2,10 @@
 
 > **Read this before launching another calculation.** This document captures intent and navigation across context-window resets. For authoritative live truth consult `state.md`, individual `decision.md` and native readback/verification records, and current Git/tmux state. Never overwrite newer developments with this dated snapshot.
 
+## Highest priority prior-art update — 2026-10-17
+
+Read [Nicklas/Wilkins and related HSE/SQS prior-art priority](prior_art_priority_2026-10-17.md) before proposing new R07 computations. HSE SQS x_c about 0.17 already appeared in 2011; R07 must distinguish a coherent VCA crossing from a disorder-qualified transition with a nonempirical, falsifiable additional contribution. Existing strict symmetry gates remain failed; no scan, spending, empirical x_c fit or new native job authorized.
+
 ## New VCA physical-reference projection — 2026-10-17
 
 Read [VCA projection decision](vca_x0125_hse_2026-10-17/decision.md) and [numerical record](vca_x0125_hse_2026-10-17/postprocess/reference_projection_results.json). G-labelled reference transport selects Γ6-like33–34 and Γ8-like35–38, reference weights >.9998 and max Td character errors <1.2e-13. Strict subspace amplitudes and full-density 1e-8 symmetry **FAIL**. Candidate ΔΓ=-98.78796872 meV, candidate half=-49.39398436 meV, conditional shift from HgTe half +95.39926805 meV. Do **not** call a strict mass or physical random-alloy xc. No native launch or spend.
