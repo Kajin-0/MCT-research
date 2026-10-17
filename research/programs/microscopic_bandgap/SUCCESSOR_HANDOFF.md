@@ -2,6 +2,10 @@
 
 > **Read this before launching another calculation.** This document captures intent and navigation across context-window resets. For authoritative live truth consult `state.md`, individual `decision.md` and native readback/verification records, and current Git/tmux state. Never overwrite newer developments with this dated snapshot.
 
+## CURRENT R07 BUDGET AND SCIENTIFIC STATUS — 2026-10-17
+
+**$0 additional spending.** The prior 128 GiB cloud proposal is historical and is superseded for acquisition. Do not rent or buy compute, hardware or services, and do not launch a native HSE job automatically. See [current zero-cost policy](zero_cost_policy_2026-10-17/decision.md) and [validated VCA compatibility](vca_fr_compatibility_2026-10-17/decision.md). Latest verified research HEAD before this policy update was 66124cb. VCA SG15 FR+SOC pseudo/reader passed five dry and four PBE endpoint checks; x=.125 VCA HSE **has not run**. The primitive HgTe HSE reference retains conventional SCF PASS but strict 1e-8 full-density symmetry FAIL. Scientific goal remains nonempirical composition-dependent inversion and eventually disorder-qualified x_c.
+
 ## Non-negotiable ultimate objective
 
 Develop a predictive, **first-principles, nonempirical and analytically interpretable microscopic theory** of Hg_(1-x)Cd_xTe that explains *how Cd substitution alters the Gamma6/Gamma8 inversion*, determines the physically appropriate **signed zero-temperature inversion mass / gap**, and ultimately predicts the **critical composition x_c** with defensible numerical, configurational and material uncertainty. Chemical average, coherent scattering, local correlations and electronic self-consistency must be treated consistently. **Do not fit empirical alloy-bandgap coefficients to obtain x_c**. Hansen/other models may be benchmarks, not the derivation.

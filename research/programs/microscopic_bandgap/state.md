@@ -6,6 +6,10 @@
 
 **Updated:** 2026-10-17 06:38 UTC
 
+## Current operating policy: $0 additional spending
+
+The current user constraint is **zero additional expenditure**, superseding the historical conditional cloud acquisition recommendation. [Current decision](zero_cost_policy_2026-10-17/decision.md). No paid compute, purchases, upgrades, or paid services; no automatic HSE job. The VCA endpoint pseudopotential/SOC-reader compatibility is GO, but mixed HSE execution is separate and remains unapproved. Preserve historical cloud feasibility reports and frozen failures unchanged.
+
 ## Specific fully relativistic Hg/Cd VCA compatibility: GO, no HSE admission
 
 Read [decision](vca_fr_compatibility_2026-10-17/decision.md),
