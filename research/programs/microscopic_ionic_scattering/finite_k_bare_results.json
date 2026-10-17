@@ -1,0 +1,1191 @@
+{
+  "status": "BOUNDED_BARE_SINGLE_SITE_FINITE_K_MATRIX_ELEMENTS_PROVISIONAL",
+  "phase_and_normalization": "One cation site at Cartesian origin; delta-k included in local Fourier kernel; nonlocal Bloch k+G projector factors. Cell-normalized matrix = single impurity periodic amplitude x Ncells; not a finite defect-normalized rate.",
+  "numerical_validation": {
+    "gamma_local_max_abs_eV": 1.495150427747564e-16,
+    "gamma_nonlocal_max_abs_eV": 2.2213862104960676e-15,
+    "reciprocity_gamma_to_k3_k5_local_max_abs_eV": "passed below 3e-10",
+    "fft_N": 49,
+    "local_radial_dq_bohr_inv": 0.01
+  },
+  "source_sha256": {
+    "/home/User/opencode_workspace/DFT/calculations/r07/hgte_hse_sg15_k4_q4_e90_f120_fullacc_c1e-10_t3600_g1800/out/r07.save/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/calculations/r07/cdte_hse_sg15_k4_q2_e90_fullacc/out/r07.save/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017/out/r07pk4.save/data-file-schema.xml": "cec237d3cadfa68d36d6e52cff09e63acb498b91610f1a7e2e8491fb73a860b1"
+  },
+  "kpoint_wavefunction_sha256": {
+    "1": "c1c5e9f8c8926e557e61826363f3be45a81973939b100292e3a29bbd58319c8b",
+    "2": "d9862939aa2481bf82fc99b3897f9f1d6db988c53e482462422ec46efccafe29",
+    "3": "8222d7817f2ea42b1803151832540a825c67b877e96e0d138208129b7397a3cb",
+    "4": "e3a2d5936a1aa4086af8890284b27193dcf5dec8c84f4eb6378a9188e234b0f5",
+    "5": "a8e556538808ea31253e0885f7573cbf424766fda3fcf9ff40c8bc984e33e261",
+    "6": "9334835f1a1def735c4b94fd9c3170e7b439af91a854ac5f1bc0265a5069f698",
+    "7": "109733eb14960429bd506b2ed671d5fbe36143bb9dffd1b06e2dab474cd454d1",
+    "8": "25a4dac10604f1181e7b8949d343ee19f6cde66eb0e959180172d25567f93d1d"
+  },
+  "kpoint_records": [
+    {
+      "k_index": 1,
+      "k_cart_bohr_inv": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "k_cart_norm_bohr_inv": 0.0,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 1.5416337029533043,
+      "Gamma6_like_all_44_local_strength_eV2": 234.71117433327808,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 200.6238249041125,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 6,
+        "bands_1based": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "strength_eV2": 0.5522356277069571,
+        "mean_energy_eV": 8.859643320193351
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 6,
+        "bands_1based": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "strength_eV2": 0.5522356277069571,
+        "mean_energy_eV": 8.859643320193351
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 8,
+        "bands_1based": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "strength_eV2": 0.5522356277069577,
+        "mean_energy_eV": 8.629699653983216
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 1,
+          "E_eV": -109.57316925749222,
+          "delta_E_from_initial_eV": -118.3669539318723,
+          "squared_matrix_eV2": 0.4472970482137403,
+          "local_only_eV2": 103.81831044769356,
+          "nonlocal_only_eV2": 90.63657615633058
+        },
+        {
+          "band": 2,
+          "E_eV": -109.57316925749217,
+          "delta_E_from_initial_eV": -118.36695393187225,
+          "squared_matrix_eV2": 0.44729703532601905,
+          "local_only_eV2": 103.81830453816292,
+          "nonlocal_only_eV2": 90.63657081814993
+        },
+        {
+          "band": 34,
+          "E_eV": 8.793784674381229,
+          "delta_E_from_initial_eV": 1.1439738045737613e-12,
+          "squared_matrix_eV2": 0.27611784228759867,
+          "local_only_eV2": 11.58858098416939,
+          "nonlocal_only_eV2": 8.287094054253135
+        },
+        {
+          "band": 33,
+          "E_eV": 8.79378467437894,
+          "delta_E_from_initial_eV": -1.1439738045737613e-12,
+          "squared_matrix_eV2": 0.27611778541929516,
+          "local_only_eV2": 11.588577325509387,
+          "nonlocal_only_eV2": 8.28709127188786
+        },
+        {
+          "band": 20,
+          "E_eV": -4.328016994345801,
+          "delta_E_from_initial_eV": -13.121801668725887,
+          "squared_matrix_eV2": 0.04740200218053242,
+          "local_only_eV2": 1.9487008340606058,
+          "nonlocal_only_eV2": 1.388246533533513
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 4.985498742354427,
+      "Gamma8_like_all_44_local_strength_eV2": 232.84900639459096,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 301.95542735317844,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 6,
+        "bands_1based": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "strength_eV2": 1.2509633245812641,
+        "mean_energy_eV": 8.859643320193351
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 6,
+        "bands_1based": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "strength_eV2": 1.2509633245812641,
+        "mean_energy_eV": 8.859643320193351
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 8,
+        "bands_1based": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "strength_eV2": 1.2509633245812641,
+        "mean_energy_eV": 8.629699653983216
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 29,
+          "E_eV": 1.337510871137783,
+          "delta_E_from_initial_eV": -7.555061771962202,
+          "squared_matrix_eV2": 0.4066441384309996,
+          "local_only_eV2": 13.356345919338676,
+          "nonlocal_only_eV2": 18.424011310223175
+        },
+        {
+          "band": 28,
+          "E_eV": 1.3375108663936872,
+          "delta_E_from_initial_eV": -7.555061776706298,
+          "squared_matrix_eV2": 0.4066441264703762,
+          "local_only_eV2": 13.356345753780506,
+          "nonlocal_only_eV2": 18.424011035269267
+        },
+        {
+          "band": 30,
+          "E_eV": 1.3375108711380208,
+          "delta_E_from_initial_eV": -7.555061771961965,
+          "squared_matrix_eV2": 0.4066440187359761,
+          "local_only_eV2": 13.35634681222016,
+          "nonlocal_only_eV2": 18.424011553223913
+        },
+        {
+          "band": 27,
+          "E_eV": 1.3375108663932915,
+          "delta_E_from_initial_eV": -7.555061776706694,
+          "squared_matrix_eV2": 0.4066440139699242,
+          "local_only_eV2": 13.356347224782166,
+          "nonlocal_only_eV2": 18.424012005692035
+        },
+        {
+          "band": 35,
+          "E_eV": 8.8925726400811,
+          "delta_E_from_initial_eV": -3.018884697780777e-09,
+          "squared_matrix_eV2": 0.3127408666592844,
+          "local_only_eV2": 9.099217458150358,
+          "nonlocal_only_eV2": 12.785797179161282
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 2,
+      "k_cart_bohr_inv": [
+        0.1286733156517029,
+        0.1286733156517029,
+        -0.1286733156517029
+      ],
+      "k_cart_norm_bohr_inv": 0.22286872028709706,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 2.1812375662019132,
+      "Gamma6_like_all_44_local_strength_eV2": 236.29376572862694,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 204.2274462384217,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 2,
+        "bands_1based": [
+          35,
+          36
+        ],
+        "strength_eV2": 3.094911001707628e-14,
+        "mean_energy_eV": 8.344889783134064
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 2,
+        "bands_1based": [
+          35,
+          36
+        ],
+        "strength_eV2": 3.094911001707628e-14,
+        "mean_energy_eV": 8.344889783134064
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 1,
+          "E_eV": -109.57268118033501,
+          "delta_E_from_initial_eV": -118.3664658547151,
+          "squared_matrix_eV2": 0.3794939418345503,
+          "local_only_eV2": 102.74624505220845,
+          "nonlocal_only_eV2": 90.63709402875162
+        },
+        {
+          "band": 2,
+          "E_eV": -109.5726811787498,
+          "delta_E_from_initial_eV": -118.36646585312988,
+          "squared_matrix_eV2": 0.3794938543194914,
+          "local_only_eV2": 102.74622707051708,
+          "nonlocal_only_eV2": 90.63707849233187
+        },
+        {
+          "band": 6,
+          "E_eV": -53.49818849047716,
+          "delta_E_from_initial_eV": -62.29197316485725,
+          "squared_matrix_eV2": 0.21411813620690215,
+          "local_only_eV2": 0.21423491410694562,
+          "nonlocal_only_eV2": 3.859238890599889e-08
+        },
+        {
+          "band": 5,
+          "E_eV": -53.498188492035474,
+          "delta_E_from_initial_eV": -62.29197316641556,
+          "squared_matrix_eV2": 0.2141181053931065,
+          "local_only_eV2": 0.21423487888447204,
+          "nonlocal_only_eV2": 3.84830426823854e-08
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36613578355313,
+          "delta_E_from_initial_eV": -79.15992045793323,
+          "squared_matrix_eV2": 0.173143206060762,
+          "local_only_eV2": 0.17319643614745495,
+          "nonlocal_only_eV2": 1.7495036025066978e-08
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 15.142891835678853,
+      "Gamma8_like_all_44_local_strength_eV2": 222.36856093399842,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 294.6334740846924,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 2,
+        "bands_1based": [
+          35,
+          36
+        ],
+        "strength_eV2": 0.59684436041336,
+        "mean_energy_eV": 8.344889783134064
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 3,
+          "E_eV": -70.36613578520709,
+          "delta_E_from_initial_eV": -79.25870842830707,
+          "squared_matrix_eV2": 1.6535611501995136,
+          "local_only_eV2": 1.6535304024006332,
+          "nonlocal_only_eV2": 2.1525227897287394e-08
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36613578355313,
+          "delta_E_from_initial_eV": -79.25870842665311,
+          "squared_matrix_eV2": 1.6535609593627578,
+          "local_only_eV2": 1.6535301786362195,
+          "nonlocal_only_eV2": 2.1525906564729545e-08
+        },
+        {
+          "band": 7,
+          "E_eV": -53.49807021091804,
+          "delta_E_from_initial_eV": -62.390642854018026,
+          "squared_matrix_eV2": 1.4433559234616768,
+          "local_only_eV2": 7.405122297436401,
+          "nonlocal_only_eV2": 9.95233951712774
+        },
+        {
+          "band": 5,
+          "E_eV": -53.498188492035474,
+          "delta_E_from_initial_eV": -62.39076113513546,
+          "squared_matrix_eV2": 1.3363016203183344,
+          "local_only_eV2": 7.666981253399552,
+          "nonlocal_only_eV2": 9.953346090214879
+        },
+        {
+          "band": 6,
+          "E_eV": -53.49818849047716,
+          "delta_E_from_initial_eV": -62.39076113357714,
+          "squared_matrix_eV2": 1.3363014743201473,
+          "local_only_eV2": 7.666978485606656,
+          "nonlocal_only_eV2": 9.953342166463976
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 3,
+      "k_cart_bohr_inv": [
+        -0.2573466313034058,
+        -0.2573466313034058,
+        0.2573466313034058
+      ],
+      "k_cart_norm_bohr_inv": 0.4457374405741941,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 4.455177547790252,
+      "Gamma6_like_all_44_local_strength_eV2": 227.41019860249665,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 202.39285122967405,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 2,
+        "bands_1based": [
+          35,
+          36
+        ],
+        "strength_eV2": 4.5586036623256205e-14,
+        "mean_energy_eV": 7.8523081167453626
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 7,
+          "E_eV": -53.498824370443096,
+          "delta_E_from_initial_eV": -62.29260904482318,
+          "squared_matrix_eV2": 0.9495705841594587,
+          "local_only_eV2": 0.9495665027125202,
+          "nonlocal_only_eV2": 2.1279016935292636e-08
+        },
+        {
+          "band": 8,
+          "E_eV": -53.498824370443096,
+          "delta_E_from_initial_eV": -62.29260904482318,
+          "squared_matrix_eV2": 0.9495703836413744,
+          "local_only_eV2": 0.9495663417324843,
+          "nonlocal_only_eV2": 2.160036526238376e-08
+        },
+        {
+          "band": 3,
+          "E_eV": -70.3671469665225,
+          "delta_E_from_initial_eV": -79.16093164090259,
+          "squared_matrix_eV2": 0.7328267770768293,
+          "local_only_eV2": 0.7328258098135189,
+          "nonlocal_only_eV2": 2.8756734853272488e-09
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36714696652241,
+          "delta_E_from_initial_eV": -79.1609316409025,
+          "squared_matrix_eV2": 0.732826728970736,
+          "local_only_eV2": 0.7328257366565512,
+          "nonlocal_only_eV2": 2.872736258283675e-09
+        },
+        {
+          "band": 1,
+          "E_eV": -109.57318100860012,
+          "delta_E_from_initial_eV": -118.36696568298021,
+          "squared_matrix_eV2": 0.20208321343721303,
+          "local_only_eV2": 99.39742368872659,
+          "nonlocal_only_eV2": 90.63606681375711
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 44.92148703695074,
+      "Gamma8_like_all_44_local_strength_eV2": 206.11579046554263,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 290.713500047302,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 4,
+          "E_eV": -70.36714696652241,
+          "delta_E_from_initial_eV": -79.2597196096224,
+          "squared_matrix_eV2": 5.753561635046552,
+          "local_only_eV2": 5.753545975029765,
+          "nonlocal_only_eV2": 6.585906248183331e-09
+        },
+        {
+          "band": 3,
+          "E_eV": -70.3671469665225,
+          "delta_E_from_initial_eV": -79.25971960962248,
+          "squared_matrix_eV2": 5.753560407343868,
+          "local_only_eV2": 5.7535446605876075,
+          "nonlocal_only_eV2": 6.587018013599788e-09
+        },
+        {
+          "band": 6,
+          "E_eV": -53.499203999425994,
+          "delta_E_from_initial_eV": -62.39177664252598,
+          "squared_matrix_eV2": 4.255882613156297,
+          "local_only_eV2": 10.243222830736741,
+          "nonlocal_only_eV2": 9.952580973063803
+        },
+        {
+          "band": 5,
+          "E_eV": -53.499203999425994,
+          "delta_E_from_initial_eV": -62.39177664252598,
+          "squared_matrix_eV2": 4.2541478866967175,
+          "local_only_eV2": 10.25018564403463,
+          "nonlocal_only_eV2": 9.952581958811345
+        },
+        {
+          "band": 8,
+          "E_eV": -53.498824370443096,
+          "delta_E_from_initial_eV": -62.391397013543084,
+          "squared_matrix_eV2": 3.87273783622369,
+          "local_only_eV2": 9.0887800144218,
+          "nonlocal_only_eV2": 9.95439252680217
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 4,
+      "k_cart_bohr_inv": [
+        0.2573466313034058,
+        0.0,
+        0.0
+      ],
+      "k_cart_norm_bohr_inv": 0.2573466313034058,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 2.4316444235912864,
+      "Gamma6_like_all_44_local_strength_eV2": 235.42975921100486,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 204.257665369202,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 1,
+          "E_eV": -109.57226469797926,
+          "delta_E_from_initial_eV": -118.36604937235936,
+          "squared_matrix_eV2": 0.3577386758664635,
+          "local_only_eV2": 102.38266541121253,
+          "nonlocal_only_eV2": 90.63648089566942
+        },
+        {
+          "band": 2,
+          "E_eV": -109.57226469639569,
+          "delta_E_from_initial_eV": -118.36604937077578,
+          "squared_matrix_eV2": 0.3577386752604139,
+          "local_only_eV2": 102.38264886018085,
+          "nonlocal_only_eV2": 90.6364653326356
+        },
+        {
+          "band": 6,
+          "E_eV": -53.49797925104928,
+          "delta_E_from_initial_eV": -62.291763925429365,
+          "squared_matrix_eV2": 0.2869659762010451,
+          "local_only_eV2": 0.2871419975116484,
+          "nonlocal_only_eV2": 2.698411106135311e-08
+        },
+        {
+          "band": 5,
+          "E_eV": -53.49797925234613,
+          "delta_E_from_initial_eV": -62.29176392672621,
+          "squared_matrix_eV2": 0.28696580132830274,
+          "local_only_eV2": 0.28714206594354624,
+          "nonlocal_only_eV2": 2.7059013721676976e-08
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36598775152613,
+          "delta_E_from_initial_eV": -79.15977242590623,
+          "squared_matrix_eV2": 0.2325236774918869,
+          "local_only_eV2": 0.23260172456044304,
+          "nonlocal_only_eV2": 6.548069089987859e-09
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 18.706083657039756,
+      "Gamma8_like_all_44_local_strength_eV2": 219.3230310946468,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 292.6658668141805,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 3,
+          "E_eV": -70.36598775316614,
+          "delta_E_from_initial_eV": -79.25856039626612,
+          "squared_matrix_eV2": 2.2349295238056484,
+          "local_only_eV2": 2.234901071630114,
+          "nonlocal_only_eV2": 2.2204435081303425e-08
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36598775152613,
+          "delta_E_from_initial_eV": -79.25856039462612,
+          "squared_matrix_eV2": 2.2349293131705297,
+          "local_only_eV2": 2.234900792831024,
+          "nonlocal_only_eV2": 2.2200150962003103e-08
+        },
+        {
+          "band": 6,
+          "E_eV": -53.49797925104928,
+          "delta_E_from_initial_eV": -62.39055189414927,
+          "squared_matrix_eV2": 1.9072500842600588,
+          "local_only_eV2": 7.993999933751776,
+          "nonlocal_only_eV2": 9.953833924483295
+        },
+        {
+          "band": 5,
+          "E_eV": -53.49797925234613,
+          "delta_E_from_initial_eV": -62.39055189544611,
+          "squared_matrix_eV2": 1.9072498357410033,
+          "local_only_eV2": 7.99399738758642,
+          "nonlocal_only_eV2": 9.95383393293563
+        },
+        {
+          "band": 7,
+          "E_eV": -53.4977233725184,
+          "delta_E_from_initial_eV": -62.39029601561839,
+          "squared_matrix_eV2": 1.5102859319702653,
+          "local_only_eV2": 8.096759602813643,
+          "nonlocal_only_eV2": 9.95278765548874
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 5,
+      "k_cart_bohr_inv": [
+        -0.1286733156517029,
+        -0.3860199469551087,
+        0.3860199469551087
+      ],
+      "k_cart_norm_bohr_inv": 0.5608739796560834,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 6.86283706029738,
+      "Gamma6_like_all_44_local_strength_eV2": 224.79484469804785,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 205.0874234661801,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 3,
+          "E_eV": -70.36607908299375,
+          "delta_E_from_initial_eV": -79.15986375737384,
+          "squared_matrix_eV2": 1.2255283857864883,
+          "local_only_eV2": 1.2253494774889286,
+          "nonlocal_only_eV2": 1.2622542067942405e-08
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36589228820439,
+          "delta_E_from_initial_eV": -79.15967696258448,
+          "squared_matrix_eV2": 1.1803977051509378,
+          "local_only_eV2": 1.1805489223006944,
+          "nonlocal_only_eV2": 4.948177329191038e-09
+        },
+        {
+          "band": 8,
+          "E_eV": -53.4975961582476,
+          "delta_E_from_initial_eV": -62.29138083262769,
+          "squared_matrix_eV2": 1.1354916964304396,
+          "local_only_eV2": 1.1354894901806145,
+          "nonlocal_only_eV2": 1.1539877588001929e-08
+        },
+        {
+          "band": 5,
+          "E_eV": -53.49824266069267,
+          "delta_E_from_initial_eV": -62.29202733507275,
+          "squared_matrix_eV2": 1.0226452451321921,
+          "local_only_eV2": 1.0226091749535804,
+          "nonlocal_only_eV2": 8.930419663569767e-09
+        },
+        {
+          "band": 7,
+          "E_eV": -53.497705988243126,
+          "delta_E_from_initial_eV": -62.29149066262321,
+          "squared_matrix_eV2": 0.6051426157695071,
+          "local_only_eV2": 0.605083131824345,
+          "nonlocal_only_eV2": 6.759097645163531e-09
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 67.95134284257614,
+      "Gamma8_like_all_44_local_strength_eV2": 196.773751967058,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 290.96730196612856,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 4,
+          "E_eV": -70.36589228820439,
+          "delta_E_from_initial_eV": -79.25846493130437,
+          "squared_matrix_eV2": 9.097933421785283,
+          "local_only_eV2": 9.097907955668466,
+          "nonlocal_only_eV2": 1.5440510925513695e-08
+        },
+        {
+          "band": 3,
+          "E_eV": -70.36607908299375,
+          "delta_E_from_initial_eV": -79.25865172609373,
+          "squared_matrix_eV2": 7.671907220100347,
+          "local_only_eV2": 7.671923333845628,
+          "nonlocal_only_eV2": 1.0472267515587329e-08
+        },
+        {
+          "band": 6,
+          "E_eV": -53.49803859413517,
+          "delta_E_from_initial_eV": -62.39061123723515,
+          "squared_matrix_eV2": 6.125345488047169,
+          "local_only_eV2": 10.289070035811989,
+          "nonlocal_only_eV2": 9.953229233347654
+        },
+        {
+          "band": 8,
+          "E_eV": -53.4975961582476,
+          "delta_E_from_initial_eV": -62.390168801347585,
+          "squared_matrix_eV2": 6.033811570931643,
+          "local_only_eV2": 9.736498897061693,
+          "nonlocal_only_eV2": 9.954710907451528
+        },
+        {
+          "band": 7,
+          "E_eV": -53.497705988243126,
+          "delta_E_from_initial_eV": -62.39027863134311,
+          "squared_matrix_eV2": 5.805944426911225,
+          "local_only_eV2": 11.752774825532235,
+          "nonlocal_only_eV2": 9.953834164681382
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 6,
+      "k_cart_bohr_inv": [
+        0.0,
+        -0.2573466313034058,
+        0.2573466313034058
+      ],
+      "k_cart_norm_bohr_inv": 0.36394309622030496,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 3.3806646841311445,
+      "Gamma6_like_all_44_local_strength_eV2": 233.5756072952754,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 205.35256124821257,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 8,
+          "E_eV": -53.49743002730002,
+          "delta_E_from_initial_eV": -62.291214701680104,
+          "squared_matrix_eV2": 0.5917116090185278,
+          "local_only_eV2": 0.591963228097525,
+          "nonlocal_only_eV2": 2.674459567065959e-08
+        },
+        {
+          "band": 3,
+          "E_eV": -70.36601668740416,
+          "delta_E_from_initial_eV": -79.15980136178425,
+          "squared_matrix_eV2": 0.48502598578890993,
+          "local_only_eV2": 0.48506356341535917,
+          "nonlocal_only_eV2": 7.27809201527136e-10
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36582222006462,
+          "delta_E_from_initial_eV": -79.15960689444469,
+          "squared_matrix_eV2": 0.46937795282321515,
+          "local_only_eV2": 0.4695010644783961,
+          "nonlocal_only_eV2": 8.071585651435792e-09
+        },
+        {
+          "band": 7,
+          "E_eV": -53.49760553010688,
+          "delta_E_from_initial_eV": -62.291390204486966,
+          "squared_matrix_eV2": 0.38146903518668573,
+          "local_only_eV2": 0.38160146643807347,
+          "nonlocal_only_eV2": 1.1492175175246825e-08
+        },
+        {
+          "band": 1,
+          "E_eV": -109.57227080630925,
+          "delta_E_from_initial_eV": -118.36605548068934,
+          "squared_matrix_eV2": 0.2756156115643727,
+          "local_only_eV2": 100.9080545244216,
+          "nonlocal_only_eV2": 90.6362846477207
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 31.993358364435483,
+      "Gamma8_like_all_44_local_strength_eV2": 211.9890369494933,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 291.3425841195306,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 4,
+          "E_eV": -70.36582222006462,
+          "delta_E_from_initial_eV": -79.2583948631646,
+          "squared_matrix_eV2": 4.404346237131537,
+          "local_only_eV2": 4.404553056976743,
+          "nonlocal_only_eV2": 1.2340988520149685e-08
+        },
+        {
+          "band": 3,
+          "E_eV": -70.36601668740416,
+          "delta_E_from_initial_eV": -79.25858933050414,
+          "squared_matrix_eV2": 3.8816274626511404,
+          "local_only_eV2": 3.8813957807324435,
+          "nonlocal_only_eV2": 8.958502299172964e-09
+        },
+        {
+          "band": 8,
+          "E_eV": -53.49743002730002,
+          "delta_E_from_initial_eV": -62.39000267040001,
+          "squared_matrix_eV2": 3.1318598538571614,
+          "local_only_eV2": 8.361958268840029,
+          "nonlocal_only_eV2": 9.954558335175312
+        },
+        {
+          "band": 7,
+          "E_eV": -53.49760553010688,
+          "delta_E_from_initial_eV": -62.39017817320686,
+          "squared_matrix_eV2": 3.091374474839429,
+          "local_only_eV2": 9.517242572033656,
+          "nonlocal_only_eV2": 9.953604290131866
+        },
+        {
+          "band": 6,
+          "E_eV": -53.497941144567335,
+          "delta_E_from_initial_eV": -62.39051378766732,
+          "squared_matrix_eV2": 3.0588329378626185,
+          "local_only_eV2": 8.479289337356056,
+          "nonlocal_only_eV2": 9.953370893948623
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 7,
+      "k_cart_bohr_inv": [
+        -0.5146932626068116,
+        0.0,
+        0.0
+      ],
+      "k_cart_norm_bohr_inv": 0.5146932626068116,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 5.831313572098396,
+      "Gamma6_like_all_44_local_strength_eV2": 228.97171314041574,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 206.4509824276652,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 8,
+          "E_eV": -53.49878618666023,
+          "delta_E_from_initial_eV": -62.29257086104032,
+          "squared_matrix_eV2": 1.3181772245752235,
+          "local_only_eV2": 1.3181761699725199,
+          "nonlocal_only_eV2": 3.4120569697733266e-13
+        },
+        {
+          "band": 7,
+          "E_eV": -53.49878618666023,
+          "delta_E_from_initial_eV": -62.29257086104032,
+          "squared_matrix_eV2": 1.3181771828208657,
+          "local_only_eV2": 1.3181771180849542,
+          "nonlocal_only_eV2": 2.1587350369247283e-13
+        },
+        {
+          "band": 4,
+          "E_eV": -70.3670616314685,
+          "delta_E_from_initial_eV": -79.1608463058486,
+          "squared_matrix_eV2": 0.9990308249677129,
+          "local_only_eV2": 0.9990307866976179,
+          "nonlocal_only_eV2": 5.802880446741726e-16
+        },
+        {
+          "band": 3,
+          "E_eV": -70.3670616314686,
+          "delta_E_from_initial_eV": -79.16084630584868,
+          "squared_matrix_eV2": 0.9990302332678063,
+          "local_only_eV2": 0.999030270471796,
+          "nonlocal_only_eV2": 4.8391291915375975e-15
+        },
+        {
+          "band": 40,
+          "E_eV": 11.899983376796229,
+          "delta_E_from_initial_eV": 3.106198702416144,
+          "squared_matrix_eV2": 0.25849247315516677,
+          "local_only_eV2": 0.25849233813416883,
+          "nonlocal_only_eV2": 1.1649392155112856e-13
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 59.41986407731124,
+      "Gamma8_like_all_44_local_strength_eV2": 199.7947555667383,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 286.967669165526,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 3,
+          "E_eV": -70.3670616314686,
+          "delta_E_from_initial_eV": -79.25963427456858,
+          "squared_matrix_eV2": 8.110142681328888,
+          "local_only_eV2": 8.110109129284309,
+          "nonlocal_only_eV2": 1.0846531228158565e-08
+        },
+        {
+          "band": 4,
+          "E_eV": -70.3670616314685,
+          "delta_E_from_initial_eV": -79.25963427456848,
+          "squared_matrix_eV2": 8.110142116750522,
+          "local_only_eV2": 8.110108703031639,
+          "nonlocal_only_eV2": 1.0844335225415517e-08
+        },
+        {
+          "band": 8,
+          "E_eV": -53.49878618666023,
+          "delta_E_from_initial_eV": -62.39135882976022,
+          "squared_matrix_eV2": 6.162469725513506,
+          "local_only_eV2": 10.742977862434621,
+          "nonlocal_only_eV2": 9.95474718515128
+        },
+        {
+          "band": 7,
+          "E_eV": -53.49878618666023,
+          "delta_E_from_initial_eV": -62.39135882976022,
+          "squared_matrix_eV2": 6.16246916867961,
+          "local_only_eV2": 10.742975389271445,
+          "nonlocal_only_eV2": 9.954747264075909
+        },
+        {
+          "band": 5,
+          "E_eV": -53.498986130127925,
+          "delta_E_from_initial_eV": -62.39155877322791,
+          "squared_matrix_eV2": 4.739736710208445,
+          "local_only_eV2": 10.662565695637825,
+          "nonlocal_only_eV2": 9.953270074208008
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    },
+    {
+      "k_index": 8,
+      "k_cart_bohr_inv": [
+        -0.5146932626068116,
+        0.25734663130340585,
+        0.0
+      ],
+      "k_cart_norm_bohr_inv": 0.5754445613749907,
+      "reported_bands": 44,
+      "Gamma6_like_all_44_strength_eV2": 7.374974488979855,
+      "Gamma6_like_all_44_local_strength_eV2": 225.4452734146243,
+      "Gamma6_like_all_44_nonlocal_strength_eV2": 205.99182793388727,
+      "Gamma6_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma6_like_top5": [
+        {
+          "band": 3,
+          "E_eV": -70.36597400033713,
+          "delta_E_from_initial_eV": -79.15975867471721,
+          "squared_matrix_eV2": 1.2937648191777418,
+          "local_only_eV2": 1.2937647432394397,
+          "nonlocal_only_eV2": 1.8942275224501788e-15
+        },
+        {
+          "band": 4,
+          "E_eV": -70.36571393189985,
+          "delta_E_from_initial_eV": -79.15949860627993,
+          "squared_matrix_eV2": 1.251358658575243,
+          "local_only_eV2": 1.2513587251481924,
+          "nonlocal_only_eV2": 3.481797644950866e-15
+        },
+        {
+          "band": 6,
+          "E_eV": -53.49774055440473,
+          "delta_E_from_initial_eV": -62.29152522878481,
+          "squared_matrix_eV2": 1.053390855253166,
+          "local_only_eV2": 1.0533908937023364,
+          "nonlocal_only_eV2": 3.13487696784925e-10
+        },
+        {
+          "band": 8,
+          "E_eV": -53.49712835366365,
+          "delta_E_from_initial_eV": -62.29091302804373,
+          "squared_matrix_eV2": 0.9955839443201803,
+          "local_only_eV2": 0.9955839807314512,
+          "nonlocal_only_eV2": 2.4356501779898557e-10
+        },
+        {
+          "band": 5,
+          "E_eV": -53.497985094470884,
+          "delta_E_from_initial_eV": -62.29176976885097,
+          "squared_matrix_eV2": 0.6924246797948974,
+          "local_only_eV2": 0.6924241796764434,
+          "nonlocal_only_eV2": 3.193267397440524e-13
+        }
+      ],
+      "Gamma8_like_all_44_strength_eV2": 72.08058270770344,
+      "Gamma8_like_all_44_local_strength_eV2": 195.45701023996713,
+      "Gamma8_like_all_44_nonlocal_strength_eV2": 290.2363567820951,
+      "Gamma8_like_energy_window_0.25_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_0.5_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_energy_window_1_eV": {
+        "count": 0,
+        "bands_1based": [],
+        "strength_eV2": 0.0,
+        "mean_energy_eV": null
+      },
+      "Gamma8_like_top5": [
+        {
+          "band": 4,
+          "E_eV": -70.36571393189985,
+          "delta_E_from_initial_eV": -79.25828657499983,
+          "squared_matrix_eV2": 9.831818472833547,
+          "local_only_eV2": 9.831822799875905,
+          "nonlocal_only_eV2": 4.1346138691538484e-10
+        },
+        {
+          "band": 3,
+          "E_eV": -70.36597400033713,
+          "delta_E_from_initial_eV": -79.25854664343711,
+          "squared_matrix_eV2": 8.498483985981439,
+          "local_only_eV2": 8.498480726812065,
+          "nonlocal_only_eV2": 3.1160841398130234e-09
+        },
+        {
+          "band": 8,
+          "E_eV": -53.49712835366365,
+          "delta_E_from_initial_eV": -62.38970099676364,
+          "squared_matrix_eV2": 7.284873508807139,
+          "local_only_eV2": 11.17524587387375,
+          "nonlocal_only_eV2": 9.95522838179631
+        },
+        {
+          "band": 5,
+          "E_eV": -53.497985094470884,
+          "delta_E_from_initial_eV": -62.39055773757087,
+          "squared_matrix_eV2": 5.93793876655616,
+          "local_only_eV2": 11.21610364858875,
+          "nonlocal_only_eV2": 9.953976654680481
+        },
+        {
+          "band": 7,
+          "E_eV": -53.49771313738195,
+          "delta_E_from_initial_eV": -62.39028578048193,
+          "squared_matrix_eV2": 5.877645792080649,
+          "local_only_eV2": 10.717281269847511,
+          "nonlocal_only_eV2": 9.954192021720596
+        }
+      ],
+      "nearGamma_k_not_scattering_lifetime": true
+    }
+  ],
+  "omissions": [
+    "bare unscreened ionic potential",
+    "only 8 irreducible k points",
+    "only 44 computed spinor bands",
+    "no full Brillouin-zone unfold/symmetry expansion",
+    "no group velocity or absolute cross section",
+    "zero excluded random-alloy correlations",
+    "strict 1e-8 symmetry gate still FAIL"
+  ]
+}
