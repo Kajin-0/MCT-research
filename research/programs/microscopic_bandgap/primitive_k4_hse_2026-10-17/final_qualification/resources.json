@@ -1,0 +1,33 @@
+{
+  "elapsed_OS_wall_s": 6622.738545,
+  "native_stdout_start_UTC": "2026-10-17 01:34:29",
+  "native_stdout_termination_UTC": "2026-10-17 03:24:51",
+  "terminal_observation_UTC": "2026-10-17T03:25:22.291248+00:00",
+  "worker_InvocationID": "8dee58502fd048e4bf30a09bd9053a1f",
+  "kernel_MemoryPeak_B": 6225952768,
+  "kernel_MemorySwapPeak_B": 0,
+  "sampled_family_RSS_peak_B": 6289747968,
+  "RSS_shared_pages_overcount": true,
+  "sampled_tasks_peak": 7,
+  "sampled_MemAvailable_min_B": 23673958400,
+  "sampled_disk_free_min_B": 49293254656,
+  "sampled_owned_output_max_B": 65069056,
+  "memory_events_observed": [
+    "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+  ],
+  "samples": 222,
+  "manager_success": true,
+  "native_restarts": 0,
+  "native_cases": 1,
+  "worker_memory_cap_B": 12884901888,
+  "worker_swap_cap_B": 0,
+  "worker_tasks_cap": 12,
+  "worker_wall_cap_s": 86400,
+  "native_max_seconds": 82800,
+  "scientific_stop_requested": false,
+  "resource_refusal": false,
+  "native_EXIT_file": false,
+  "observer_stderr_bytes": 0,
+  "observer_kernel_peak": "journal rounded 9.1M; exact terminal observer byte peak unavailable",
+  "output_floors_sampled_not_continuous_or_quota": true
+}

@@ -1,0 +1,134 @@
+{
+  "folding_matrix": [
+    [
+      -1,
+      1,
+      1
+    ],
+    [
+      1,
+      -1,
+      1
+    ],
+    [
+      1,
+      1,
+      -1
+    ]
+  ],
+  "folded_k_quarter_indices": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      3,
+      1
+    ],
+    [
+      1,
+      3,
+      3
+    ],
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      2
+    ],
+    [
+      2,
+      2,
+      0
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      3,
+      1,
+      3
+    ],
+    [
+      3,
+      3,
+      1
+    ],
+    [
+      3,
+      3,
+      3
+    ]
+  ],
+  "folded_weights": [
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625
+  ],
+  "conventional_8atom_native_exx_FFT": [
+    60,
+    60,
+    60
+  ],
+  "bands": 176,
+  "spinor_components": 2,
+  "nominal_buffer_bytes_q64": 77856768000,
+  "nominal_buffer_bytes_q16": 19464192000,
+  "nominal_buffer_bytes_q8": 9732096000,
+  "established_8atom_q1_buffer_bytes": 1216512000,
+  "raw_extent_evidence_sha256": "03e91afd88c03ae9dd56b3add8f07101a4d6f3bb5f8a634fe29afd46e60c53c3",
+  "stock_q16_irregular_folded_deck_supported_or_admitted": false,
+  "buffer_is_total_RAM_bound": false,
+  "new_jobs_authorized": false
+}

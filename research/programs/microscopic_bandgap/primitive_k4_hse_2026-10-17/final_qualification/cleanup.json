@@ -1,0 +1,106 @@
+{
+  "UTC": "2026-10-17T03:34:02.940029+00:00",
+  "queries": [
+    {
+      "argv": [
+        "systemctl",
+        "--user",
+        "show",
+        "r07-pk4-1017013015.service",
+        "-p",
+        "LoadState",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "MainPID",
+        "-p",
+        "InvocationID",
+        "-p",
+        "Result"
+      ],
+      "returncode": 0,
+      "stdout": "MainPID=0\nResult=success\nLoadState=not-found\nActiveState=inactive\nSubState=dead\nInvocationID=\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "systemctl",
+        "--user",
+        "show",
+        "r07-pk4-1017013015-observe.service",
+        "-p",
+        "LoadState",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "MainPID",
+        "-p",
+        "InvocationID",
+        "-p",
+        "Result"
+      ],
+      "returncode": 0,
+      "stdout": "MainPID=0\nResult=success\nLoadState=not-found\nActiveState=inactive\nSubState=dead\nInvocationID=\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "journalctl",
+        "--user",
+        "-u",
+        "r07-pk4-1017013015.service",
+        "-u",
+        "r07-pk4-1017013015-observe.service",
+        "--since",
+        "2026-10-17 01:34:20 UTC",
+        "--until",
+        "2026-10-17 03:26:00 UTC",
+        "--no-pager",
+        "-o",
+        "short-iso-precise"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    }
+  ],
+  "original_identities": [
+    {
+      "pid": 1999216,
+      "original_start_ticks": "672559114",
+      "pid_present": false,
+      "original_identity_gone": true,
+      "original_cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service",
+      "original_cgroup_absent": true
+    },
+    {
+      "pid": 1999219,
+      "original_start_ticks": "672559120",
+      "pid_present": false,
+      "original_identity_gone": true,
+      "original_cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service",
+      "original_cgroup_absent": true
+    },
+    {
+      "pid": 1999220,
+      "original_start_ticks": "672559120",
+      "pid_present": false,
+      "original_identity_gone": true,
+      "original_cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service",
+      "original_cgroup_absent": true
+    },
+    {
+      "pid": 1999213,
+      "original_start_ticks": "672559109",
+      "pid_present": false,
+      "original_identity_gone": true,
+      "original_cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015-observe.service",
+      "original_cgroup_absent": true
+    }
+  ],
+  "no_unit_or_process_mutation": true,
+  "no_new_science_jobs_or_native_actions": true
+}

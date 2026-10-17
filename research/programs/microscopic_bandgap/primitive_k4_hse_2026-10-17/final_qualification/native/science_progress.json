@@ -1,0 +1,52 @@
+{
+  "completed_source_builds": 6,
+  "residuals_Ry": [
+    0.00083406,
+    1.66e-05,
+    3.9e-07,
+    1e-08,
+    2.3e-10
+  ],
+  "latest_Gamma_candidate_blocks": [
+    {
+      "Gamma6_candidate_spread_eV": 0.0,
+      "Gamma8_candidate_spread_eV": 0.0,
+      "Gamma8_candidate_occupations": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "occupation_spread": 0.0,
+      "separated": true
+    },
+    {
+      "Gamma6_candidate_spread_eV": 0.0,
+      "Gamma8_candidate_spread_eV": 0.0,
+      "Gamma8_candidate_occupations": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "occupation_spread": 0.0,
+      "separated": true
+    },
+    {
+      "Gamma6_candidate_spread_eV": 0.0,
+      "Gamma8_candidate_spread_eV": 0.0,
+      "Gamma8_candidate_occupations": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "occupation_spread": 0.0,
+      "separated": true
+    }
+  ],
+  "topmost_printed_occupation_max": 0.0,
+  "reached_EXX": true,
+  "provisional_index_stop_guideline": false,
+  "note": "Printed index probes only; final G-labelled spinors must qualify/refute sector labels. No density-Theta inference."
+}

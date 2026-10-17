@@ -1,0 +1,47 @@
+{
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.in": {
+    "sha256": "73e657776ff387a590fbfa0eaa1019b746ef9d2c710e0123332af7ca77af7827",
+    "bytes": 993,
+    "repository_copy": "native/pw.in"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.out": {
+    "sha256": "49ee67fce31d3bf9523af05f9a1821af55740f75f6706839a0835c42473b9643",
+    "bytes": 96597,
+    "repository_copy": "native/pw.out"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.err": {
+    "sha256": "c29c309cad61a37144d0966e06863fa91fc48398f65f2fcab11a10e2b895937c",
+    "bytes": 192,
+    "repository_copy": "native/pw.err"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/observer.out": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "repository_copy": "native/observer.out"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/observer.err": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "repository_copy": "native/observer.err"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/resource_samples.jsonl": {
+    "sha256": "2dd69a101f27b1139921a8b686e0b5ea4b9ba55b7f22c3a32b98f3aff5149af3",
+    "bytes": 379711,
+    "repository_copy": "native/resource_samples.jsonl"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/science_progress.json": {
+    "sha256": "f2bd5eeac5ed6086c6daf18d17b753e57093d95099ee63a79d94d3adb4642718",
+    "bytes": 1157,
+    "repository_copy": "native/science_progress.json"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/terminal_manager.json": {
+    "sha256": "b779964b623d82242461eb5988a0b4087a38a2dfc06a5844fe87fb8a356b42d6",
+    "bytes": 1924,
+    "repository_copy": "native/terminal_manager.json"
+  },
+  "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/out/r07pk4.save/data-file-schema.xml": {
+    "sha256": "f56a6fd7f541a0a681bfc00c12ee1fde683b15f0b71b600e6fc8b1157cbdad19",
+    "bytes": 66161,
+    "repository_copy": "native/data-file-schema.xml"
+  }
+}

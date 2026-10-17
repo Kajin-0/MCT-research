@@ -1,0 +1,75 @@
+{
+  "UTC": "2026-10-17T03:25:22.291248+00:00",
+  "manager": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "6725591142990",
+    "ExecMainExitTimestampMonotonic": "6732213881535",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ControlGroup": "",
+    "MemoryPeak": "6225952768",
+    "MemorySwapPeak": "0",
+    "LoadState": "loaded",
+    "ActiveState": "active",
+    "SubState": "exited",
+    "InvocationID": "8dee58502fd048e4bf30a09bd9053a1f"
+  },
+  "host_available_B": 29925965824,
+  "disk_free_B": 49293701120,
+  "owned_sampled_B": 64868352,
+  "files_vanished_during_sample": 0,
+  "science": {
+    "completed_source_builds": 6,
+    "residuals_Ry": [
+      0.00083406,
+      1.66e-05,
+      3.9e-07,
+      1e-08,
+      2.3e-10
+    ],
+    "latest_Gamma_candidate_blocks": [
+      {
+        "Gamma6_candidate_spread_eV": 0.0,
+        "Gamma8_candidate_spread_eV": 0.0,
+        "Gamma8_candidate_occupations": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "occupation_spread": 0.0,
+        "separated": true
+      },
+      {
+        "Gamma6_candidate_spread_eV": 0.0,
+        "Gamma8_candidate_spread_eV": 0.0,
+        "Gamma8_candidate_occupations": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "occupation_spread": 0.0,
+        "separated": true
+      },
+      {
+        "Gamma6_candidate_spread_eV": 0.0,
+        "Gamma8_candidate_spread_eV": 0.0,
+        "Gamma8_candidate_occupations": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "occupation_spread": 0.0,
+        "separated": true
+      }
+    ],
+    "topmost_printed_occupation_max": 0.0,
+    "reached_EXX": true,
+    "provisional_index_stop_guideline": false,
+    "note": "Printed index probes only; final G-labelled spinors must qualify/refute sector labels. No density-Theta inference."
+  }
+}

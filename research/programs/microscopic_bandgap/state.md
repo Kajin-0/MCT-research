@@ -2,49 +2,51 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. ONE newly authorized stock primitive k4/q4 FD-HSE+SOC control is RUNNING (unit r07-pk4-1017013015, invocation8dee58502fd048e4bf30a09bd9053a1f), matching k2 except quadrature/paths/runtime. Native Gamma weight1/64 and64q sources verified; first ACE underway at01:37UTC checkpoint, peak6.133GB so far.24h hard/23h native/12GiB/swap0/tasks12 and frozen early-stop rule; no restart,second case,Cd or final scientific result. Oldk2/HSE8 refusals immutable,PBE CLOSED,physical x_c OPEN.
+**State:** historical persistent goal BLOCKED, unchanged. Sole primitive k4/q4 stock HSE+SOC control COMPLETED: conventional numerical outer SCF PASS, conditional approximate Γ6−Γ8 ordering −0.289586505eV. Full Γ density Theta3.615e-7/Td5.196e-7 FAIL frozen1e-8; no strict nonmagnetic/material certificate. Native6builds/dexx2.3e-10Ry, wall1h50m, peak6.226GB/swap0. No active job, restart or Cd authorization. Old failures immutable; PBE CLOSED; physical random-alloy x_c OPEN.
 
-**Updated:** 2026-10-17 01:39 UTC
+**Updated:** 2026-10-17 03:41 UTC
 
 <!-- PRIMITIVE_K4_HSE_20261017_BEGIN -->
-## ACTIVE sole primitive k4/q4 stock-HSE control — not a result yet
+## COMPLETED k4/q4 control: conventional SCF PASS, strict symmetry FAIL
 
-Read [decision](primitive_k4_hse_2026-10-17/decision.md),
-[frozen protocol](primitive_k4_hse_2026-10-17/preregistration.md),
-[live checkpoint](primitive_k4_hse_2026-10-17/active_checkpoint.json),
-[verification](primitive_k4_hse_2026-10-17/verification.json).
-Started2026-10-17 01:34:29UTC; user explicitly authorizes24h,
-not a600s restriction. StockQE7.5/two local ranks,primitive2atom,
-36e/44spinors,50/200/Fock200Ry,HSE.25/.106,FD.001,a6.46A,SG15FRNC,
-atomic start; onlyk/q2->4,paths/prefix/budget changed fromab6fbd0k2.
-Actual8irreduciblepoints,64sourcepoints,Gammaweight1/64,24Td,FFT40³.
+Read [final decision](primitive_k4_hse_2026-10-17/decision.md),
+[full state/QR results](primitive_k4_hse_2026-10-17/final_qualification/state_result.json),
+[independent verification](primitive_k4_hse_2026-10-17/final_qualification/verification.json)
+and [derivation/limitations](primitive_k4_hse_2026-10-17/final_qualification/scientific_result.md).
+The 01:37 RUNNING checkpoint/prefixes remain historical, byte-unchanged.
 
-01:37:07UTC immutable checkpoint:RUNNING firstACE,zero completed outer
-residual records. Kernel peak6.133GB,RSS6.196GB(shared overcount),swap0,
-tasks7,host available>=23.760GB,disk>=49.352GB,own output~2.1MB.
-Initial semilocal SCF10iterations is NOT final HSE/outer convergence.
-No actual saved full-D Theta/irrep or signed mass/x_c statement yet.
+Native finished2026-10-17 03:24:51UTC, sixsourcebuilds, EXX reached/XMLtrue,
+lastdexx2.3e-10Ry,lastinner3.2745e-10Ry,total−484.161000956768Ry,
+Fock/2−8.96862706Ry. Same frozen50/200/Fock200Ry,FD.001,HSE.25/.106,
+SG15FRNC,a6.46A,primitive36e/44spinor; onlyk/q4 relative tok2.
+Actual8nativefibers,64qcoordinates,Gammaweight1/64. Weighted/rhocharge errors
+~1.39e-11e,FDformula2.78e-14,entropy independently matches native.
 
-Worker `r07-pk4-1017013015.service`,invocation
-`8dee58502fd048e4bf30a09bd9053a1f`;launcher1999216,ranks1999219/1999220.
-Root `/home/User/opencode_workspace/DFT/.local/p4_1017_013015`.
-Persistent bounded OS observer `r07-pk4-1017013015-observe.service`;
-worker standardBindsTo stops if observer fails. Kernel12GiB/swap0/tasks12/
-24h,CPU200%;native max_seconds82800. Hard deadlineOct18 01:34:29UTC.
-Native maxseconds/checkpoint does not prove stationarity. No automaticrestart.
-Frozen>=12completed-build guideline requests nativeEXIT for sustained>0.2eV
-candidate splitting,degraded FD occupations and nonrecovering dexx. Printed
-indices are provisional; final physical G-labelled spinors must confirm them.
-No custom QE/owner/FD framework,source build,PBE job,paid action or secondcase.
+Physical e90/f120 G-labelled frame and24actualTdcharacters support approximate
+Gamma6bands33–34/Gamma8bands35–38; e50 lost reference tails retained.
+Conditional signedordering−.289586504823eV, nominal Kanehalf−.144793252411eV;
+quartetspread7.75e-9eV. NOT a rigorous gap/mass/material error interval.
+All44states/88QRcolumns give Gamma fullThetaop3.61517e-7,F8.71074e-7;
+Tdmax5.19645e-7. These FAIL unchanged1e-8 despite compressedTheta4.05e-11.
+Independent direct Rayleigh/blockF/phase checks agree. Sector amplitude
+leakages also>1e-8; no exact-irrep/full-H/eigenpair certificate.
+OnlynativeTRIM1,3,7 have direct -k tests;fivegenericpartners absent;
+actual little groups checked,no fabricated64export or full-BZThetaPASS.
 
-NEXT inspect existing private progress/resources/stdout and terminal/refusal
-files; NEVER relaunch a missing unit blindly. After its sole termination,
-read saved XML/waves,verify36e/FD/actual Td/Theta/full-H limits,cleanup thenstop.
-k4 includes non-TRIM k: use real-k/-k reciprocal maps,not the k2self-fiber
-formula unchanged. No open_grid. Immutable Git checkpoints are prefixes,
-not terminal file pins; current runtime files stay private so worktree is clean.
-822pins/76oldfiles/dirtyDFT/stock/oldfailed evidence verified unchanged.
-This native case may continue asynchronously; historicalblockedgoal unchanged.
+OS6622.739s,kernelpeak6,225,952,768B,swap0,tasks7;all observed resource floors
+held. Original invocation8dee58502fd048e4bf30a09bd9053a1f exited0,no restart,
+no EXITrequest/resourcefailure. Both units unloaded;originalPIDs/cgroups gone.
+No active science job or authorizedCd. Source/ELF/PP/822pins/76oldfiles,
+DFTdirty/oldfailures/PBEclosure/main/other sessions unchanged.
+
+This supports denser-quadrature suppression of the tested instability,
+not unique causality/global stability. Olde90coldordering differs+.183609meV;
+not a convergence/material error bar. Next missing physical input is sampling-
+compatible stationary Cd-bearing HSE+matchedhost,not primitivehost spliced
+into oldGamma-only chemistry. Eightatomk4/q4 stock buffer alone77.86GB>
+12GiB; folding-equivalent16-source hypothetical19.46GB also exceeds it.
+No new deck/streamer/infrastructure or job admitted. STOP solecontrol after
+read-only qualification; historicalpersistentgoal remains unchanged.
 <!-- PRIMITIVE_K4_HSE_20261017_END -->
 
 <!-- PRIMITIVE_K2_HSE_20261017_BEGIN -->
