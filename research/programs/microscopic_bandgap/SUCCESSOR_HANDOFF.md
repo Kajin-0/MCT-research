@@ -16,7 +16,23 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 4. **Avoid false uncertainty.** Conditional projector/tail/IEEE bounds are not HSE functional, composition, finite-size, disordered-alloy, electron-phonon or material error bars. Retained data may fail to identify missing causal moments or impurity correlations. Preserve exact mathematical NO-GO claims under their assumptions.
 5. **New contribution criterion.** Compare each proposed claim against Wei & Zunger (1991), Phys. Rev. B 43, 1662, doi:10.1103/PhysRevB.43.1662; Krishtopenko, Antezza & Teppe (2022), Phys. Rev. B 106, 115203, doi:10.1103/PhysRevB.106.115203; Alowa et al. (2025), J. Phys. D 58, 135120, doi:10.1088/1361-6463/adb2a0; Lin ACE (2016), SQS (Zunger/Wei/Ferreira/Bernard 1990), and newer competing work. Relevant local files: `chemical_pbe16_p2_2026-10-15/literature_boundary.md`, `analytical_first_2026-10-11/literature.md`, `continuum_spectral_2026-10-11/literature.md`, `threshold_causal_2026-10-11/literature.md`, and `../correlated_random_mass_kane/prior_art_matrix.md`. Novelty currently **UNVERIFIED**.
 
-## Latest finite read-only decision — eight-atom152/q8, 2026-10-17
+## Latest compute plan only — 2026-10-17
+
+Read `compute_acquisition_plan_2026-10-17/decision.md`. Conditional procurement
+recommendation is on-demand n2-highmem-16/128GiB,500GiB total pd-balanced,
+for a fresh matched16atom x=0/.125 model at50/200/Fock200Ry,FD.001,K2/Q2,352.
+Exact As=2Ap geometry folds primitiveK4 electronic rule; exchange Q4→Q2 also
+needs eight reciprocal/band sectors and primitive-periodic full density.
+No automatic HSE equivalence or matched-host waiver. Originale90/cold/f120
+is different; old64³/22GiB buffer is not the newFFT/fullRAMcertificate.
+128 is plausible,not admitted. Explicit spend/region/quota/currentprice,
+model/layout/resource/stockcheckpoint approval required before paid action.
+Official128price$1.048112/h;48totalVMh+250–500GiBdisk≈$51.95–53.60 beforeextras,
+not runtimeforecast. No account/credentialaccess,jobs,builds,services,purchases.
+All822pins/76historicalfiles/dirtyDFT unchanged. OldNO-GOs/PBEclosure/goal
+untouched. STOP this finite plan; no automatically authorized next phase.
+
+## Latest finite read-only admission decision — eight-atom152/q8, 2026-10-17
 
 Read `hse8_152_q8_admission_2026-10-17/{decision.md,audit.json,verification.json}`.
 Assignment COMPLETE: stock centered electronic2³/q2³/152 is source-compatible,

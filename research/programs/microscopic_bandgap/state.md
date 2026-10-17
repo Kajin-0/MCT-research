@@ -2,9 +2,24 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. Latest finite read-only admission study: centered conventional8 k2/q2 with152 spinors is stock-compatible but execution NO-GO under12GiB because complete peak is unqualified (8.405GB source;11.231GB nominal named payload, not a bound). Conventional k4/q2 needs56 sources,58.835GB. No new jobs/builds/services. The completed primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Old failures and PBE closure preserved; Cd/physical x_c remain OPEN.
+**State:** historical persistent goal BLOCKED, unchanged. Latest finite compute plan conditionally recommends128GiB on-demand for a matched16atom host/Cd1 pair; no purchase/job approval or capacity certificate. Prior admission study: centered conventional8 k2/q2 with152 spinors is stock-compatible but execution NO-GO under12GiB because complete peak is unqualified (8.405GB source;11.231GB nominal named payload, not a bound). Conventional k4/q2 needs56 sources,58.835GB. No new jobs/builds/services. The completed primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Old failures and PBE closure preserved; Cd/physical x_c remain OPEN.
 
-**Updated:** 2026-10-17 05:20 UTC
+**Updated:** 2026-10-17 05:54 UTC
+
+## Compute acquisition plan only — no allocation/job approval
+
+Read [one resource/cost decision](compute_acquisition_plan_2026-10-17/decision.md).
+Conditional planning recommendation: on-demand n2-highmem-16/128GiB with500GiB
+total balanced disk, prioritizing a fresh same-cell16atom host/Cd1 pair at
+50/200/Fock200Ry,FD.001,K2/Q2,352spinors. As=2Ap gives exact primitiveK4
+electronic folding and geometric exchange-transfer folding, not automatic
+finite-grid HSE/state equivalence. Original90/360/Fock120/cold model remains
+distinct and refused. Source8 atactualold64³ needs22GiB; newFFT/fullRAM/time
+unknown.128GiB is plausible procurement,not capacity certificate. Official
+price$1.048112/h;48totalVMh plus250–500GiBdisk≈$51.95–53.60,not runtime promise.
+Require explicit spend/model/resource/checkpoint approval;no purchase,account
+access,build or nativejob.822pins/76originals/dirtyDFT unchanged. Previous
+12GiBNO-GO and strictsymmetryFAIL unchanged;physicalx_cOPEN. Finite phase STOP.
 
 <!-- HSE8_152_Q8_ADMISSION_20261017_BEGIN -->
 ## Read-only eight-atom152/q8 admission: NO-GO under12GiB
