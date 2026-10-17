@@ -2,6 +2,10 @@
 
 > **Read this before launching another calculation.** This document captures intent and navigation across context-window resets. For authoritative live truth consult `state.md`, individual `decision.md` and native readback/verification records, and current Git/tmux state. Never overwrite newer developments with this dated snapshot.
 
+## NEWER VCA Gamma audit — 2026-10-17
+
+Read [postprocessing decision](vca_x0125_hse_2026-10-17/decision.md): saved-wave Γ full-density Theta 3.95518494693e-7, Td max 4.95143773706e-7 **both FAIL strict 1e-8**. Provisional 33–34 minus 35–38 energy -98.78796872 meV, half -49.39398436 meV; physical Γ6/Γ8 projection/characters not certified. This is not accepted m_VCA or physical xc; no second QE execution.
+
 ## CURRENT R07 terminal VCA checkpoint — 2026-10-17
 
 The previous `LIVE`/`RUNNING` sections below are historical launch snapshots, **superseded** by the [terminal decision](vca_x0125_hse_2026-10-17/decision.md) and [native checkpoint](vca_x0125_hse_2026-10-17/completed_native_checkpoint.json). One zero-cost stock primitive Hg0.875Cd0.125Te HSE+SOC k4/q4 run has **converged numerically**: six exchange builds, dexx 3.5e-10 Ry, `EXX self-consistency reached`, `JOB DONE`, total -484.01592595 Ry, XML SCF true. Worker exit 0, zero restarts, 6,217,211,904 B observed kernel peak. Saved wavefunctions/ACE/density/XML remain in private DFT `.local`. **No Γ6/Γ8 projection or strict full-density Theta/Td 1e-8 certificate, accepted half-gap mass, physical random-alloy x_c, zero-smearing/material error claim.** Next: read-only physical postprocessing; no second HSE job or spending. Host primitive strict symmetry failure unchanged.

@@ -58,3 +58,10 @@ preserve it and stop this trajectory. Historical blocked goal unchanged.
 **NOT ACCEPTED YET:** G-labelled physical Γ6 doublet/Γ8 quartet symmetry projections; full-density time reversal and Td at the unchanged 1e-8 gate; independently certified HSE eigenpair residual/uncertainty; signed half-gap `m=(EΓ6-EΓ8)/2`; physical random-alloy transition `x_c`. Index-based candidate degeneracy and near-half FD occupations are not symmetry certification. Keep HgTe host strict symmetry FAIL. This run alone cannot identify alloy-disorder response.
 
 **Next falsifiable gate:** read-only state analysis must either validate the Γ representations and strict density symmetry to support a conditional VCA half-gap, or report the exact failure metric and refuse a qualified mass. Do not restart, rerun, launch another composition, purchase compute, modify stock/dirty DFT, or silently symmetrize the density.
+
+
+## Read-only Gamma density audit — 2026-10-17
+
+[Script](postprocess/read_only_gamma.py) and [measured results](postprocess/gamma_density_results.json) use the established host full-finite-rank density QR and G-labelled transformations, applied directly to the saved native x=.125 spinors. **STRICT 1e-8 SYMMETRY FAIL**: Gamma full-density time-reversal operator defect 3.95518494693e-7 (Frobenius 8.86298082304e-7), and maximum 24-operation Td defect 4.95143773706e-7. All 88 QR columns retained; independent extremal direct-action residual 1.5152e-15. No density repair or acceptance-threshold change.
+
+The **provisional printed-index** 33–34 versus 35–38 signed ordering is -0.0987879687199 eV, half -0.04939398435995 eV. THESE ARE NOT certified Gamma6/Gamma8 sectors: physical virtual-cation spinor projector/character association has not been completed. Do not promote to m_VCA, error bound, bulk gap or x_c. Existing HgTe host strict symmetry FAIL independently persists. Next falsifiable question is whether reference-frame physical Gamma6/Gamma8 projections and characters agree with this provisional indexing; strict density gate still fails regardless. No additional native job authorized.

@@ -1,0 +1,153 @@
+{
+  "status": "NUMERICAL_HSE_PASS_PHYSICAL_GAMMA_LABELS_PENDING",
+  "gamma_candidate_indices": {
+    "doublet": [
+      33,
+      34
+    ],
+    "quartet": [
+      35,
+      36,
+      37,
+      38
+    ]
+  },
+  "gamma_candidate_doublet_eV": [
+    8.79378467437894,
+    8.793784674381229
+  ],
+  "gamma_candidate_quartet_eV": [
+    8.8925726400811,
+    8.892572640081497,
+    8.892572646117962,
+    8.892572646119381
+  ],
+  "gamma_candidate_signed_delta_eV": -0.09878796871990048,
+  "gamma_candidate_half_delta_eV": -0.04939398435995024,
+  "gamma_candidate_occupations": [
+    0.9992989177007439,
+    0.999298917700626,
+    0.5003505973595549,
+    0.5003505973522829,
+    0.5003504864343405,
+    0.5003504864081948
+  ],
+  "gamma_full_density_Theta": {
+    "op": 3.955184946930029e-07,
+    "F": 8.86298082304416e-07,
+    "direct_action_Rayleigh": 3.955184941358494e-07,
+    "eigenvalue_Rayleigh_error": 5.571534969901716e-16,
+    "direct_action_eigenvector_residual": 1.515154555598621e-15,
+    "compressed_witness": 4.4793601233960494e-11,
+    "columns_retained": 88,
+    "physical_dimension": 5466
+  },
+  "gamma_full_density_Td_max": 4.951437737055333e-07,
+  "gamma_full_density_Td_operations": [
+    {
+      "operation_index": 3,
+      "op": 1.6951841619085209e-15
+    },
+    {
+      "operation_index": 0,
+      "op": 4.000161666679587e-07
+    },
+    {
+      "operation_index": 1,
+      "op": 4.354612164247718e-07
+    },
+    {
+      "operation_index": 2,
+      "op": 3.203570507972871e-07
+    },
+    {
+      "operation_index": 15,
+      "op": 4.695348837855486e-07
+    },
+    {
+      "operation_index": 13,
+      "op": 4.514703456120848e-07
+    },
+    {
+      "operation_index": 14,
+      "op": 3.979233860687182e-07
+    },
+    {
+      "operation_index": 12,
+      "op": 4.800809290968881e-07
+    },
+    {
+      "operation_index": 19,
+      "op": 4.69534883194931e-07
+    },
+    {
+      "operation_index": 18,
+      "op": 4.800809286893548e-07
+    },
+    {
+      "operation_index": 16,
+      "op": 4.514703456937903e-07
+    },
+    {
+      "operation_index": 17,
+      "op": 3.979233860601865e-07
+    },
+    {
+      "operation_index": 8,
+      "op": 3.507176144653775e-07
+    },
+    {
+      "operation_index": 11,
+      "op": 4.6334487817713336e-07
+    },
+    {
+      "operation_index": 9,
+      "op": 3.436537462039446e-07
+    },
+    {
+      "operation_index": 10,
+      "op": 3.436537465917801e-07
+    },
+    {
+      "operation_index": 21,
+      "op": 4.5011758219829155e-07
+    },
+    {
+      "operation_index": 23,
+      "op": 3.4363657127830985e-07
+    },
+    {
+      "operation_index": 20,
+      "op": 4.1387331485088027e-07
+    },
+    {
+      "operation_index": 22,
+      "op": 4.1387331390408526e-07
+    },
+    {
+      "operation_index": 6,
+      "op": 4.951437737055333e-07
+    },
+    {
+      "operation_index": 7,
+      "op": 4.1968511430020047e-07
+    },
+    {
+      "operation_index": 4,
+      "op": 4.823534965590817e-07
+    },
+    {
+      "operation_index": 5,
+      "op": 4.823534969557712e-07
+    }
+  ],
+  "strict_density_1e8_pass": false,
+  "native_irreducible_k": 8,
+  "full_64_fiber_certificate": false,
+  "physical_Gamma_labels_certified": false,
+  "physical_random_alloy_xc": null,
+  "note": "No density symmetrization; \u0393 indices provisional, not physical irrep identification.",
+  "input_sha256": "cde983f285d4a4209bc05a146487275fc4b43dc87a6e7febc30a8dcb0d5f6e17",
+  "xml_sha256": "cec237d3cadfa68d36d6e52cff09e63acb498b91610f1a7e2e8491fb73a860b1",
+  "spinor_sha256": "c1c5e9f8c8926e557e61826363f3be45a81973939b100292e3a29bbd58319c8b"
+}
