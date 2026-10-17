@@ -82,3 +82,8 @@ See [R07 prior-art priority](../prior_art_priority_2026-10-17.md). Nicklas and W
 ## Primary-method audit follow-up — 2026-10-17
 
 Read [three-paper method/identifiability audit](../three_paper_method_audit_2026-10-17.md). Existing HSE SQS x_c and SCBA disorder mass prior art constrain novelty; published x=.125 SQS mostly coherent near Gamma makes testing/limiting VCA error more defensible than asserting a large shift. Same-Hamiltonian unfolded spectral/projection and disorder covariance data missing. Existing 1e-8 density symmetry FAIL and zero-cost/no-new-run gate unchanged.
+
+
+## Public SQS input availability gate — 2026-10-17
+
+[Matched comparison decision](../vca_atomistic_data_gate_2026-10-17.md): Wang 2019 public Figure 5 x=.125 EBS is open, but no raw coordinates, numeric unfolding weights or projection-resolved Gamma spectra were located; negative search result is not proof of nonexistence. Wang HgCdTe functional is LDA+U(Ud=10 eV), not our HSE, hence cross-paper subtraction does not isolate a disorder correction. Strict 1e-8 VCA density symmetry FAIL and no-new-job/bash policy persist. Quantitative comparison NO-GO until numerical inputs and same-H alignment exist.

@@ -2,6 +2,10 @@
 
 **Portfolio contribution:** R07
 
+## x=.125 public atomistic data gate — 2026-10-17
+
+[Public availability and same-H comparability audit](vca_atomistic_data_gate_2026-10-17.md): Wang 2019 provides open Fig.5 EBS at x=.125 but no identified downloadable SQS coordinates/raw unfolded spectra/projection weights. Critically, Wang uses VASP PAW **LDA+U(Ud=10 eV)**, not R07 QE **HSE+SOC VCA**; published band offsets cannot isolate disorder error. Quantitative matched delta-Delta-Gamma and broadening remain UNIDENTIFIED. STOP before further computation or speculative models; frozen strict 1e-8 symmetry FAIL remains.
+
 ## Three-paper primary-method audit — 2026-10-17
 
 [Full audit](three_paper_method_audit_2026-10-17.md): Nicklas 2011 already predicted HSE/SQS x_c~0.17; Wang 2019 studied 64-atom HgCdTe SQS x=.125 and found predominantly coherent Gamma dispersion; Krishtopenko 2022 independently derived heavy-hole Kane SCBA mass and a white-noise W^2=v^2+u^2 non-identifiability. Next priority is falsifiable, matched-observable VCA-accuracy/uncertainty analysis, not assuming a large disorder correction. Frozen strict 1e-8 symmetry FAIL persists. No further job or spending authorized.
