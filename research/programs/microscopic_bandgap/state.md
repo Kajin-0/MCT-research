@@ -2,6 +2,10 @@
 
 **Portfolio contribution:** R07
 
+## CURRENT R07 terminal VCA checkpoint — 2026-10-17
+
+The previous `LIVE`/`RUNNING` sections below are historical launch snapshots, **superseded** by the [terminal decision](vca_x0125_hse_2026-10-17/decision.md) and [native checkpoint](vca_x0125_hse_2026-10-17/completed_native_checkpoint.json). One zero-cost stock primitive Hg0.875Cd0.125Te HSE+SOC k4/q4 run has **converged numerically**: six exchange builds, dexx 3.5e-10 Ry, `EXX self-consistency reached`, `JOB DONE`, total -484.01592595 Ry, XML SCF true. Worker exit 0, zero restarts, 6,217,211,904 B observed kernel peak. Saved wavefunctions/ACE/density/XML remain in private DFT `.local`. **No Γ6/Γ8 projection or strict full-density Theta/Td 1e-8 certificate, accepted half-gap mass, physical random-alloy x_c, zero-smearing/material error claim.** Next: read-only physical postprocessing; no second HSE job or spending. Host primitive strict symmetry failure unchanged.
+
 **State:** historical persistent goal BLOCKED, unchanged. Latest separately authorized zero-cost FR-VCA compatibility task: specific SG15 Hg/Cd pseudo/stock SOC reader GO;5dry checks+4endpoint PBE SCFs PASS, no mixed SCF/HSE. HSE launch not approved; no physical inversion result. Earlier128GiB cloud plan remains unpurchased; user current budget$0. Conventional8 k2/q2/152 execution remains NO-GO under12GiB (complete peak unqualified);k4/q2 requires56sources. Primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Historical failures and closed PBE static diagnostic unchanged; physical x_c OPEN.
 
 **Updated:** 2026-10-17 06:58 UTC

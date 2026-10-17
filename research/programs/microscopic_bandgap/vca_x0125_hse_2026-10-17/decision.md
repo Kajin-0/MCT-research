@@ -49,3 +49,12 @@ Next continuation: inspect SAME unit/output/observer, preserve terminal evidence
 then perform read-only final projections/charge/symmetry qualification. No second
 native job or automatic continuation. If observer/resource/science refusal occurs,
 preserve it and stop this trajectory. Historical blocked goal unchanged.
+
+
+## Terminal verification update — 2026-10-17
+
+**COMPLETED numerical HSE+SOC**, superseding the RUNNING status above (original launch evidence preserved). Native `pw.out` reports final `!! total energy = -484.01592595 Ry`, 6 source builds, last `est. exchange err (dexx) = 3.5E-10 Ry`, `EXX self-consistency reached`, and `JOB DONE.` Native saved XML reports SCF true (1.681808213917471E-10 Ry). The final observer records worker exit status 0, NRestarts 0, memory peak 6,217,211,904 B (below 12 GiB), and no scientific stop request. Original stderr retains IEEE underflow/denormal notices. Eight HDF5 wavefunction sets, eight ACE sets, density and XML are retained privately. Details/hashes: [completed native checkpoint](completed_native_checkpoint.json).
+
+**NOT ACCEPTED YET:** G-labelled physical Γ6 doublet/Γ8 quartet symmetry projections; full-density time reversal and Td at the unchanged 1e-8 gate; independently certified HSE eigenpair residual/uncertainty; signed half-gap `m=(EΓ6-EΓ8)/2`; physical random-alloy transition `x_c`. Index-based candidate degeneracy and near-half FD occupations are not symmetry certification. Keep HgTe host strict symmetry FAIL. This run alone cannot identify alloy-disorder response.
+
+**Next falsifiable gate:** read-only state analysis must either validate the Γ representations and strict density symmetry to support a conditional VCA half-gap, or report the exact failure metric and refuse a qualified mass. Do not restart, rerun, launch another composition, purchase compute, modify stock/dirty DFT, or silently symmetrize the density.

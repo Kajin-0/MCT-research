@@ -1,0 +1,32 @@
+{
+  "state": "NATIVE_HSE_CONVERGED_SYMMETRY_PENDING",
+  "composition_Cd": 0.125,
+  "method": "stock QE7.5 VCA HSE+SOC k4/q4 2 atom FD0.001Ry 44 spinors",
+  "end_native": "2026-10-17 08:43:42 (as printed by QE)",
+  "scf_xml_true": true,
+  "exx_self_consistency": true,
+  "exx_dexx_Ry": 3.5e-10,
+  "exchange_builds": 6,
+  "total_energy_Ry": -484.01592595,
+  "manager_peak_memory_bytes": 6217211904,
+  "manager_restarts": 0,
+  "manager_exit_status": 0,
+  "observer_ended": true,
+  "saved_wavefunction_files": 8,
+  "saved_ace_files": 8,
+  "physical_Gamma6_Gamma8_projection": "PENDING",
+  "strict_full_density_Theta_Td_1e_minus_8": "PENDING",
+  "signed_half_gap_mass_meV": null,
+  "physical_alloy_xc": null,
+  "stderr_notes": "IEEE underflow and denormal (not silent)",
+  "private_native_root": "/home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017",
+  "hashes": {
+    "pw.in": "cde983f285d4a4209bc05a146487275fc4b43dc87a6e7febc30a8dcb0d5f6e17",
+    "pw.out": "9dfa55d3a28ddc65c79bfafefb53559b6db221434fb0f2876fac37e4e828fff9",
+    "pw.err": "c29c309cad61a37144d0966e06863fa91fc48398f65f2fcab11a10e2b895937c",
+    "science_progress.json": "5ca0cedde6124bc9371e68bda114f5d1ad4ece91066c8bec80bf7b290fe4c084",
+    "resource_samples.jsonl": "d1d16e14eedf9a0e0e705a4ff8a73761500068b9ae41346f804d8f9011a22123",
+    "out/r07pk4.save/data-file-schema.xml": "cec237d3cadfa68d36d6e52cff09e63acb498b91610f1a7e2e8491fb73a860b1"
+  },
+  "interpretation": "Numerical HSE convergence, not a symmetry-certified inversion or random-alloy result. Historical HgTe strict 1e-8 symmetry failure unchanged."
+}
