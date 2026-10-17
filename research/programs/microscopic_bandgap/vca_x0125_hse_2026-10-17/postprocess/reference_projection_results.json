@@ -1,0 +1,148 @@
+{
+  "status": "REFERENCE_TRANSPORT_DIAGNOSTIC_NOT_STRICT_MASS_CERTIFICATE",
+  "reference_chemical_identity": "HgTe host, NOT same pseudopotential as mixed-cation VCA",
+  "reference_frame": "previously qualified e90/f120 HgTe reference with G-index e50 transport; frame chemical substitution prevents exact operator equivalence",
+  "full_reference_G_subset": true,
+  "reference_lost_probability": [
+    2.0381839237471056e-06,
+    2.038183896768686e-06,
+    1.2777467406355214e-07,
+    1.277746447536643e-07,
+    1.2777475677516748e-07,
+    1.2777472535585588e-07
+  ],
+  "sectors": {
+    "Gamma6_like": {
+      "indices_1based": [
+        33,
+        34
+      ],
+      "energies_eV": [
+        8.79378467437894,
+        8.793784674381229
+      ],
+      "occupations": [
+        0.9992989177007439,
+        0.999298917700626
+      ],
+      "projection_weights": [
+        0.9998096626828179,
+        0.9998096644276779
+      ],
+      "projection_singular_values": [
+        0.9999048277069904,
+        0.9999048267904048
+      ],
+      "max_Td_amplitude_span_leakage": 4.91600266955673e-07,
+      "max_Td_character_error": 1.1295231670808725e-13,
+      "Theta_amplitude_span_leakage": 3.897997225426466e-07,
+      "Theta_sewing_singular_values": [
+        0.9999999999999251,
+        0.9999999999999248
+      ],
+      "Theta_sewing_skew_error": 8.697223247828235e-16,
+      "max_Td_character_error_per_operation": [
+        4.441586539324952e-16,
+        2.520206333836539e-14,
+        4.274598591957669e-14,
+        1.1990601850828616e-14,
+        1.0855506168492457e-13,
+        9.934072201314476e-14,
+        6.683514944821791e-14,
+        9.303854423296918e-14,
+        1.0876571151711318e-13,
+        9.367060614471585e-14,
+        9.923004523989452e-14,
+        6.700830599518541e-14,
+        8.992830384746374e-15,
+        6.952858158912572e-14,
+        4.523750135836037e-14,
+        4.54779997752504e-14,
+        4.540949670512181e-14,
+        1.5643746584789952e-14,
+        1.0621302681034066e-13,
+        1.054337983343879e-13,
+        7.294187828694259e-14,
+        1.9027403476996585e-14,
+        1.1295231670808725e-13,
+        1.128749067277791e-13
+      ],
+      "strict_sector_amplitude_1e8_pass": false
+    },
+    "Gamma8_like": {
+      "indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "energies_eV": [
+        8.8925726400811,
+        8.892572640081497,
+        8.892572646117962,
+        8.892572646119381
+      ],
+      "occupations": [
+        0.5003505973595549,
+        0.5003505973522829,
+        0.5003504864343405,
+        0.5003504864081948
+      ],
+      "projection_weights": [
+        0.9998543139454026,
+        0.999854314125399,
+        0.9998543140509515,
+        0.9998543143954461
+      ],
+      "projection_singular_values": [
+        0.9999271545848706,
+        0.9999271545030423,
+        0.9999271543775929,
+        0.9999271541801333
+      ],
+      "max_Td_amplitude_span_leakage": 2.9074421934357475e-07,
+      "max_Td_character_error": 3.6000779114060095e-14,
+      "Theta_amplitude_span_leakage": 2.4712653830821174e-07,
+      "Theta_sewing_singular_values": [
+        0.9999999999999853,
+        0.9999999999999813,
+        0.9999999999999742,
+        0.9999999999999697
+      ],
+      "Theta_sewing_skew_error": 5.853114496808269e-16,
+      "max_Td_character_error_per_operation": [
+        0.0,
+        1.1157749001946096e-14,
+        8.202672027992893e-17,
+        6.161949702713979e-15,
+        3.5905299633251834e-14,
+        2.5297269690242847e-14,
+        2.1660132716065977e-14,
+        1.969394515886746e-14,
+        3.60007791140601e-14,
+        1.9413432951367706e-14,
+        2.6514348948602435e-14,
+        2.18915493574476e-14,
+        1.1602928174462981e-14,
+        1.9154188518491044e-14,
+        1.260130643682343e-14,
+        1.2740897615026113e-14,
+        1.060580307753952e-14,
+        4.1249032921710516e-16,
+        2.461698942026374e-14,
+        2.393168074210624e-14,
+        3.130856364960168e-14,
+        1.5239288964566557e-14,
+        2.997134397142387e-14,
+        2.999703657711734e-14
+      ],
+      "strict_sector_amplitude_1e8_pass": false
+    }
+  },
+  "provisional_energy_delta_eV": -0.09878796871990048,
+  "strict_full_density_1e8_pass": false,
+  "source_sha256": "3f6661498ac9832870d957fd65b112771d6ee5e2c41f5ff72b0ddd1851122912",
+  "native_xml_sha256": "cec237d3cadfa68d36d6e52cff09e63acb498b91610f1a7e2e8491fb73a860b1",
+  "native_spinor_sha256": "c1c5e9f8c8926e557e61826363f3be45a81973939b100292e3a29bbd58319c8b",
+  "host_reference_spinor_sha256": "d5effd9011b8f949a4ec704fd481df54848c05bd7f2cec22b35de00c0afb0c62"
+}

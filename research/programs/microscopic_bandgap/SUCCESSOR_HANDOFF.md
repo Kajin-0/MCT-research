@@ -2,6 +2,10 @@
 
 > **Read this before launching another calculation.** This document captures intent and navigation across context-window resets. For authoritative live truth consult `state.md`, individual `decision.md` and native readback/verification records, and current Git/tmux state. Never overwrite newer developments with this dated snapshot.
 
+## New VCA physical-reference projection — 2026-10-17
+
+Read [VCA projection decision](vca_x0125_hse_2026-10-17/decision.md) and [numerical record](vca_x0125_hse_2026-10-17/postprocess/reference_projection_results.json). G-labelled reference transport selects Γ6-like33–34 and Γ8-like35–38, reference weights >.9998 and max Td character errors <1.2e-13. Strict subspace amplitudes and full-density 1e-8 symmetry **FAIL**. Candidate ΔΓ=-98.78796872 meV, candidate half=-49.39398436 meV, conditional shift from HgTe half +95.39926805 meV. Do **not** call a strict mass or physical random-alloy xc. No native launch or spend.
+
 ## NEWER VCA Gamma audit — 2026-10-17
 
 Read [postprocessing decision](vca_x0125_hse_2026-10-17/decision.md): saved-wave Γ full-density Theta 3.95518494693e-7, Td max 4.95143773706e-7 **both FAIL strict 1e-8**. Provisional 33–34 minus 35–38 energy -98.78796872 meV, half -49.39398436 meV; physical Γ6/Γ8 projection/characters not certified. This is not accepted m_VCA or physical xc; no second QE execution.
