@@ -1,0 +1,1757 @@
+{
+  "baseline": "305327988ae72196c07eaf32856809c65136a820",
+  "verdict": "NO-GO for execution under12GiB; stock/model compatibility conditional YES",
+  "native_jobs": 0,
+  "builds": 0,
+  "services": 0,
+  "source_edits": 0,
+  "stock_ELF": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+  "stock_ELF_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+  "stock_ELF_executed": false,
+  "exact_source_tag_commit": "770a0b2d12928a67048e2f3da8d10d057e52179e",
+  "source_pins": {
+    "PW/src/exx_base.f90": {
+      "tag": "qe-7.5",
+      "sha256": "918bb1ddb1dcac9074d7f5878898a5cd62b5dd92b602bb1f16339f3d4fdabf74",
+      "lines": 970,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/exx_base.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/exx.f90": {
+      "tag": "qe-7.5",
+      "sha256": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+      "lines": 4955,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/exx.f90",
+      "working_file_matches_tag": false,
+      "trusted_archive": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_exx.f90"
+    },
+    "PW/src/exx_band.f90": {
+      "tag": "qe-7.5",
+      "sha256": "fa062cee00528042f93fae0afc33283f41898ebd7f52a9034fc94bfa62bd0928",
+      "lines": 1490,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/exx_band.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/kpoint_grid.f90": {
+      "tag": "qe-7.5",
+      "sha256": "26e0b6cb524d5e328d89f67f7863b1f0721f9226eac485f43aa7205979cbb816",
+      "lines": 317,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/kpoint_grid.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/setup.f90": {
+      "tag": "qe-7.5",
+      "sha256": "0768adedf9691ceb0092a3bebf7f889cb436d60e5efc42c7a3c45f8e9e2be4dd",
+      "lines": 912,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/setup.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/input.f90": {
+      "tag": "qe-7.5",
+      "sha256": "bbfe23ac73ccd363812dfd1fb2d6b1784db7e2d430d7a18df177108d3ea4d85a",
+      "lines": 2215,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/input.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/allocate_wfc.f90": {
+      "tag": "qe-7.5",
+      "sha256": "eb48056f04a279efaa6fb03c223bbe940e15ef085dcdfdce7097d7a89f6a5e9d",
+      "lines": 55,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/allocate_wfc.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/wfcinit.f90": {
+      "tag": "qe-7.5",
+      "sha256": "b56086af259fa5f0c72df346d17b07bc905410d21b92cbc7a3c83e31fee75db0",
+      "lines": 535,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/wfcinit.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/c_bands.f90": {
+      "tag": "qe-7.5",
+      "sha256": "db077cfad3ab3b84b2a1ce5ef0c9dc5fa60dcd09431b9b514a5b1d2a5deb4777",
+      "lines": 1161,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/c_bands.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/h_psi.f90": {
+      "tag": "qe-7.5",
+      "sha256": "fce3265cac4ce68282831af4a4fb31e3dc0a8c01ee5e5cb891162f35c14a3bec",
+      "lines": 302,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/h_psi.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/src/buffers.f90": {
+      "tag": "qe-7.5",
+      "sha256": "393efaaca321ac2c6db8ae0a1306bdb71c8b643214992681bd198efa24d0a672",
+      "lines": 707,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/src/buffers.f90",
+      "working_file_matches_tag": true
+    },
+    "Modules/mp_exx.f90": {
+      "tag": "qe-7.5",
+      "sha256": "012fd545051608820db79caa0a57b978e605eb8bd8183e16f9845f961e5ac51a",
+      "lines": 356,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/Modules/mp_exx.f90",
+      "working_file_matches_tag": true
+    },
+    "Modules/wavefunctions.f90": {
+      "tag": "qe-7.5",
+      "sha256": "9288866a68006fb607ef71ad5418cdf41c365ac91f263be45de489e9df4ba16c",
+      "lines": 83,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/Modules/wavefunctions.f90",
+      "working_file_matches_tag": true
+    },
+    "Modules/input_parameters.f90": {
+      "tag": "qe-7.5",
+      "sha256": "0a871234d0983b2203c1e3550a1711cdf43cbc2145ce3d4e6f3285f814336f56",
+      "lines": 2049,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/Modules/input_parameters.f90",
+      "working_file_matches_tag": true
+    },
+    "Modules/read_namelists.f90": {
+      "tag": "qe-7.5",
+      "sha256": "dacf74da652b2a07b22e27b383c828885f58078287a84143feb5a6c224b9f7ea",
+      "lines": 2602,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/Modules/read_namelists.f90",
+      "working_file_matches_tag": true
+    },
+    "KS_Solvers/Davidson/cegterg.f90": {
+      "tag": "qe-7.5",
+      "sha256": "3bc571d8e3a7096159461a60bcc94393ba8bf52e5f443378e46cf6e40f337cd2",
+      "lines": 1712,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/KS_Solvers/Davidson/cegterg.f90",
+      "working_file_matches_tag": true
+    },
+    "PW/Doc/INPUT_PW.def": {
+      "tag": "qe-7.5",
+      "sha256": "3652c7782541781b436d77a14ff6626dca97d64c0381d75e792cd677abf8a1b7",
+      "lines": 4846,
+      "primary_URL": "https://github.com/QEF/q-e/blob/qe-7.5/PW/Doc/INPUT_PW.def",
+      "working_file_matches_tag": true
+    }
+  },
+  "raw_pins": {
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/host_native_result.json": "e32aea91d121c30432f8bfc74f699519cfb40028e5c531050d79e85fa1ceea91",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/host/out/r07hse8.save/data-file-schema.xml": "3660a0505ecd2e30d337c313d0f7936294e754f8ea2ec54c57266b875b1a7844",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/chemical_hse_relax_2026-10-15/cd_native_result.json": "6e753d3156b93df69aaef13d34729a86690c49bf1b14758dd3f9fc5879a8ec49",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/out/r07hse8.save/data-file-schema.xml": "5e9ec869e51db9e9ccecf1425a325573e2504a50490ae87134b09ec381425327",
+    "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/stock_hse_stationary_2026-10-16/host_projected_state.npz": "f2dc63821b691f2bda7804c95624b9846b10616d3d1a03da149ef7717c207a26",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Hg_sg15_pbe_fr_v12.UPF": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Cd_sg15_pbe_fr_v12.UPF": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Te_sg15_pbe_fr_v12.UPF": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa"
+  },
+  "PP": {
+    "Hg": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Hg_sg15_pbe_fr_v12.UPF",
+      "sha256": "846a3a2bbef4b97835486a60468a0dafd68d622e21ebfb76011e51ce65fafee0",
+      "generated": "Generated using ONCVPSP code by D. R. Hamann",
+      "author": "anonymous",
+      "date": "210904",
+      "comment": "",
+      "element": "Hg",
+      "pseudo_type": "NC",
+      "relativistic": "full",
+      "is_ultrasoft": "F",
+      "is_paw": "F",
+      "is_coulomb": "F",
+      "has_so": "T",
+      "has_wfc": "F",
+      "has_gipaw": "F",
+      "core_correction": "F",
+      "functional": "PBE",
+      "z_valence": "   20.00",
+      "total_psenergy": "  -3.10418642386E+02",
+      "rho_cutoff": "   1.24500000000E+01",
+      "l_max": "3",
+      "l_local": "-1",
+      "mesh_size": "  1246",
+      "number_of_wfc": "6",
+      "number_of_proj": "14"
+    },
+    "Cd": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Cd_sg15_pbe_fr_v12.UPF",
+      "sha256": "a388ee7afceb3557a41675cad4891fddcd6677cccf4e42e133e55a3f18e34e9b",
+      "generated": "Generated using ONCVPSP code by D. R. Hamann",
+      "author": "anonymous",
+      "date": "210904",
+      "comment": "",
+      "element": "Cd",
+      "pseudo_type": "NC",
+      "relativistic": "full",
+      "is_ultrasoft": "F",
+      "is_paw": "F",
+      "is_coulomb": "F",
+      "has_so": "T",
+      "has_wfc": "F",
+      "has_gipaw": "F",
+      "core_correction": "F",
+      "functional": "PBE",
+      "z_valence": "   20.00",
+      "total_psenergy": "  -3.10522911562E+02",
+      "rho_cutoff": "   1.36700000000E+01",
+      "l_max": "2",
+      "l_local": "-1",
+      "mesh_size": "  1368",
+      "number_of_wfc": "6",
+      "number_of_proj": "10"
+    },
+    "Te": {
+      "path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/p1/cd/pp/Te_sg15_pbe_fr_v12.UPF",
+      "sha256": "1b6d3177b82988cecabebf7da1636825613b7270bc269795a1fb6c12743e12fa",
+      "generated": "Generated using ONCVPSP code by D. R. Hamann",
+      "author": "anonymous",
+      "date": "210904",
+      "comment": "",
+      "element": "Te",
+      "pseudo_type": "NC",
+      "relativistic": "full",
+      "is_ultrasoft": "F",
+      "is_paw": "F",
+      "is_coulomb": "F",
+      "has_so": "T",
+      "has_wfc": "F",
+      "has_gipaw": "F",
+      "core_correction": "F",
+      "functional": "PBE",
+      "z_valence": "   16.00",
+      "total_psenergy": "  -1.74142190474E+02",
+      "rho_cutoff": "   1.32300000000E+01",
+      "l_max": "2",
+      "l_local": "-1",
+      "mesh_size": "  1324",
+      "number_of_wfc": "5",
+      "number_of_proj": "10"
+    }
+  },
+  "grid_models": [
+    {
+      "electronic_grid": [
+        2,
+        2,
+        2
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "requested_q": [
+        2,
+        2,
+        2
+      ],
+      "effective_q": [
+        2,
+        2,
+        2
+      ],
+      "electronic_full_count": 8,
+      "irreducible_count": 4,
+      "representatives": [
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "multiplicity": 3
+        },
+        {
+          "k": [
+            0.0,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 3
+        },
+        {
+          "k": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "requested_transfer_count": 8,
+      "effective_transfer_count": 8,
+      "source_union_count": 8,
+      "requested_translations_supported": true,
+      "effective_translations_supported": true,
+      "Gamma_included": true,
+      "full_Gamma_weight": 0.125,
+      "intersect_folded_target": 8,
+      "electronic_rule_TV_from_folded16": 0.5,
+      "nominal_source_buffer_B": 8404992000,
+      "source_points": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "electronic_grid": [
+        2,
+        2,
+        2
+      ],
+      "offset_flags": [
+        1,
+        1,
+        1
+      ],
+      "requested_q": [
+        2,
+        2,
+        2
+      ],
+      "effective_q": [
+        1,
+        1,
+        1
+      ],
+      "electronic_full_count": 8,
+      "irreducible_count": 1,
+      "representatives": [
+        {
+          "k": [
+            0.25,
+            0.25,
+            0.25
+          ],
+          "multiplicity": 8
+        }
+      ],
+      "requested_transfer_count": 8,
+      "effective_transfer_count": 1,
+      "source_union_count": 1,
+      "requested_translations_supported": true,
+      "effective_translations_supported": true,
+      "Gamma_included": false,
+      "full_Gamma_weight": 0,
+      "intersect_folded_target": 8,
+      "electronic_rule_TV_from_folded16": 0.5,
+      "nominal_source_buffer_B": 1050624000,
+      "source_points": [
+        [
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "electronic_grid": [
+        3,
+        3,
+        3
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "requested_q": [
+        2,
+        2,
+        2
+      ],
+      "effective_q": [
+        1,
+        1,
+        1
+      ],
+      "electronic_full_count": 27,
+      "irreducible_count": 4,
+      "representatives": [
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.3333333333333333
+          ],
+          "multiplicity": 6
+        },
+        {
+          "k": [
+            0.0,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "multiplicity": 8
+        }
+      ],
+      "requested_transfer_count": 8,
+      "effective_transfer_count": 1,
+      "source_union_count": 4,
+      "requested_translations_supported": false,
+      "effective_translations_supported": true,
+      "Gamma_included": true,
+      "full_Gamma_weight": 0.037037037037037035,
+      "intersect_folded_target": 1,
+      "electronic_rule_TV_from_folded16": 0.9629629629629629,
+      "nominal_source_buffer_B": 4202496000,
+      "source_points": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.3333333333333333
+        ],
+        [
+          0.0,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      ]
+    },
+    {
+      "electronic_grid": [
+        4,
+        4,
+        4
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "requested_q": [
+        2,
+        2,
+        2
+      ],
+      "effective_q": [
+        2,
+        2,
+        2
+      ],
+      "electronic_full_count": 64,
+      "irreducible_count": 10,
+      "representatives": [
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.25
+          ],
+          "multiplicity": 6
+        },
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "multiplicity": 3
+        },
+        {
+          "k": [
+            0.0,
+            0.25,
+            0.25
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.0,
+            0.25,
+            0.5
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.0,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 3
+        },
+        {
+          "k": [
+            0.25,
+            0.25,
+            0.25
+          ],
+          "multiplicity": 8
+        },
+        {
+          "k": [
+            0.25,
+            0.25,
+            0.5
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.25,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 6
+        },
+        {
+          "k": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "requested_transfer_count": 8,
+      "effective_transfer_count": 8,
+      "source_union_count": 56,
+      "requested_translations_supported": true,
+      "effective_translations_supported": true,
+      "Gamma_included": true,
+      "full_Gamma_weight": 0.015625,
+      "intersect_folded_target": 16,
+      "electronic_rule_TV_from_folded16": 0.75,
+      "nominal_source_buffer_B": 58834944000,
+      "source_points": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.25
+        ],
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.75
+        ],
+        [
+          0.0,
+          0.25,
+          0.0
+        ],
+        [
+          0.0,
+          0.25,
+          0.25
+        ],
+        [
+          0.0,
+          0.25,
+          0.5
+        ],
+        [
+          0.0,
+          0.25,
+          0.75
+        ],
+        [
+          0.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.25
+        ],
+        [
+          0.0,
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.5,
+          0.75
+        ],
+        [
+          0.0,
+          0.75,
+          0.0
+        ],
+        [
+          0.0,
+          0.75,
+          0.25
+        ],
+        [
+          0.0,
+          0.75,
+          0.5
+        ],
+        [
+          0.0,
+          0.75,
+          0.75
+        ],
+        [
+          0.25,
+          0.0,
+          0.0
+        ],
+        [
+          0.25,
+          0.0,
+          0.5
+        ],
+        [
+          0.25,
+          0.25,
+          0.0
+        ],
+        [
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.5
+        ],
+        [
+          0.25,
+          0.25,
+          0.75
+        ],
+        [
+          0.25,
+          0.5,
+          0.0
+        ],
+        [
+          0.25,
+          0.5,
+          0.5
+        ],
+        [
+          0.25,
+          0.75,
+          0.0
+        ],
+        [
+          0.25,
+          0.75,
+          0.25
+        ],
+        [
+          0.25,
+          0.75,
+          0.5
+        ],
+        [
+          0.25,
+          0.75,
+          0.75
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.25
+        ],
+        [
+          0.5,
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0,
+          0.75
+        ],
+        [
+          0.5,
+          0.25,
+          0.0
+        ],
+        [
+          0.5,
+          0.25,
+          0.25
+        ],
+        [
+          0.5,
+          0.25,
+          0.5
+        ],
+        [
+          0.5,
+          0.25,
+          0.75
+        ],
+        [
+          0.5,
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          0.25
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.75
+        ],
+        [
+          0.5,
+          0.75,
+          0.0
+        ],
+        [
+          0.5,
+          0.75,
+          0.25
+        ],
+        [
+          0.5,
+          0.75,
+          0.5
+        ],
+        [
+          0.5,
+          0.75,
+          0.75
+        ],
+        [
+          0.75,
+          0.0,
+          0.0
+        ],
+        [
+          0.75,
+          0.0,
+          0.5
+        ],
+        [
+          0.75,
+          0.25,
+          0.0
+        ],
+        [
+          0.75,
+          0.25,
+          0.25
+        ],
+        [
+          0.75,
+          0.25,
+          0.5
+        ],
+        [
+          0.75,
+          0.25,
+          0.75
+        ],
+        [
+          0.75,
+          0.5,
+          0.0
+        ],
+        [
+          0.75,
+          0.5,
+          0.5
+        ],
+        [
+          0.75,
+          0.75,
+          0.0
+        ],
+        [
+          0.75,
+          0.75,
+          0.25
+        ],
+        [
+          0.75,
+          0.75,
+          0.5
+        ],
+        [
+          0.75,
+          0.75,
+          0.75
+        ]
+      ]
+    },
+    {
+      "electronic_grid": [
+        4,
+        4,
+        4
+      ],
+      "offset_flags": [
+        1,
+        1,
+        1
+      ],
+      "requested_q": [
+        2,
+        2,
+        2
+      ],
+      "effective_q": [
+        2,
+        2,
+        2
+      ],
+      "electronic_full_count": 64,
+      "irreducible_count": 4,
+      "representatives": [
+        {
+          "k": [
+            0.125,
+            0.125,
+            0.125
+          ],
+          "multiplicity": 8
+        },
+        {
+          "k": [
+            0.125,
+            0.125,
+            0.375
+          ],
+          "multiplicity": 24
+        },
+        {
+          "k": [
+            0.125,
+            0.375,
+            0.375
+          ],
+          "multiplicity": 24
+        },
+        {
+          "k": [
+            0.375,
+            0.375,
+            0.375
+          ],
+          "multiplicity": 8
+        }
+      ],
+      "requested_transfer_count": 8,
+      "effective_transfer_count": 8,
+      "source_union_count": 32,
+      "requested_translations_supported": true,
+      "effective_translations_supported": true,
+      "Gamma_included": false,
+      "full_Gamma_weight": 0,
+      "intersect_folded_target": 0,
+      "electronic_rule_TV_from_folded16": 1.0,
+      "nominal_source_buffer_B": 33619968000,
+      "source_points": [
+        [
+          0.125,
+          0.125,
+          0.125
+        ],
+        [
+          0.125,
+          0.125,
+          0.375
+        ],
+        [
+          0.125,
+          0.125,
+          0.625
+        ],
+        [
+          0.125,
+          0.125,
+          0.875
+        ],
+        [
+          0.125,
+          0.375,
+          0.375
+        ],
+        [
+          0.125,
+          0.375,
+          0.875
+        ],
+        [
+          0.125,
+          0.625,
+          0.125
+        ],
+        [
+          0.125,
+          0.625,
+          0.375
+        ],
+        [
+          0.125,
+          0.625,
+          0.625
+        ],
+        [
+          0.125,
+          0.625,
+          0.875
+        ],
+        [
+          0.125,
+          0.875,
+          0.375
+        ],
+        [
+          0.125,
+          0.875,
+          0.875
+        ],
+        [
+          0.375,
+          0.375,
+          0.375
+        ],
+        [
+          0.375,
+          0.375,
+          0.875
+        ],
+        [
+          0.375,
+          0.875,
+          0.375
+        ],
+        [
+          0.375,
+          0.875,
+          0.875
+        ],
+        [
+          0.625,
+          0.125,
+          0.125
+        ],
+        [
+          0.625,
+          0.125,
+          0.375
+        ],
+        [
+          0.625,
+          0.125,
+          0.625
+        ],
+        [
+          0.625,
+          0.125,
+          0.875
+        ],
+        [
+          0.625,
+          0.375,
+          0.375
+        ],
+        [
+          0.625,
+          0.375,
+          0.875
+        ],
+        [
+          0.625,
+          0.625,
+          0.125
+        ],
+        [
+          0.625,
+          0.625,
+          0.375
+        ],
+        [
+          0.625,
+          0.625,
+          0.625
+        ],
+        [
+          0.625,
+          0.625,
+          0.875
+        ],
+        [
+          0.625,
+          0.875,
+          0.375
+        ],
+        [
+          0.625,
+          0.875,
+          0.875
+        ],
+        [
+          0.875,
+          0.375,
+          0.375
+        ],
+        [
+          0.875,
+          0.375,
+          0.875
+        ],
+        [
+          0.875,
+          0.875,
+          0.375
+        ],
+        [
+          0.875,
+          0.875,
+          0.875
+        ]
+      ]
+    },
+    {
+      "electronic_grid": [
+        4,
+        4,
+        4
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "requested_q": [
+        4,
+        4,
+        4
+      ],
+      "effective_q": [
+        4,
+        4,
+        4
+      ],
+      "electronic_full_count": 64,
+      "irreducible_count": 10,
+      "representatives": [
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.25
+          ],
+          "multiplicity": 6
+        },
+        {
+          "k": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "multiplicity": 3
+        },
+        {
+          "k": [
+            0.0,
+            0.25,
+            0.25
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.0,
+            0.25,
+            0.5
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.0,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 3
+        },
+        {
+          "k": [
+            0.25,
+            0.25,
+            0.25
+          ],
+          "multiplicity": 8
+        },
+        {
+          "k": [
+            0.25,
+            0.25,
+            0.5
+          ],
+          "multiplicity": 12
+        },
+        {
+          "k": [
+            0.25,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 6
+        },
+        {
+          "k": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "requested_transfer_count": 64,
+      "effective_transfer_count": 64,
+      "source_union_count": 64,
+      "requested_translations_supported": true,
+      "effective_translations_supported": true,
+      "Gamma_included": true,
+      "full_Gamma_weight": 0.015625,
+      "intersect_folded_target": 16,
+      "electronic_rule_TV_from_folded16": 0.75,
+      "nominal_source_buffer_B": 67239936000,
+      "source_points": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.25
+        ],
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.75
+        ],
+        [
+          0.0,
+          0.25,
+          0.0
+        ],
+        [
+          0.0,
+          0.25,
+          0.25
+        ],
+        [
+          0.0,
+          0.25,
+          0.5
+        ],
+        [
+          0.0,
+          0.25,
+          0.75
+        ],
+        [
+          0.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.25
+        ],
+        [
+          0.0,
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.5,
+          0.75
+        ],
+        [
+          0.0,
+          0.75,
+          0.0
+        ],
+        [
+          0.0,
+          0.75,
+          0.25
+        ],
+        [
+          0.0,
+          0.75,
+          0.5
+        ],
+        [
+          0.0,
+          0.75,
+          0.75
+        ],
+        [
+          0.25,
+          0.0,
+          0.0
+        ],
+        [
+          0.25,
+          0.0,
+          0.25
+        ],
+        [
+          0.25,
+          0.0,
+          0.5
+        ],
+        [
+          0.25,
+          0.0,
+          0.75
+        ],
+        [
+          0.25,
+          0.25,
+          0.0
+        ],
+        [
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.5
+        ],
+        [
+          0.25,
+          0.25,
+          0.75
+        ],
+        [
+          0.25,
+          0.5,
+          0.0
+        ],
+        [
+          0.25,
+          0.5,
+          0.25
+        ],
+        [
+          0.25,
+          0.5,
+          0.5
+        ],
+        [
+          0.25,
+          0.5,
+          0.75
+        ],
+        [
+          0.25,
+          0.75,
+          0.0
+        ],
+        [
+          0.25,
+          0.75,
+          0.25
+        ],
+        [
+          0.25,
+          0.75,
+          0.5
+        ],
+        [
+          0.25,
+          0.75,
+          0.75
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.25
+        ],
+        [
+          0.5,
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0,
+          0.75
+        ],
+        [
+          0.5,
+          0.25,
+          0.0
+        ],
+        [
+          0.5,
+          0.25,
+          0.25
+        ],
+        [
+          0.5,
+          0.25,
+          0.5
+        ],
+        [
+          0.5,
+          0.25,
+          0.75
+        ],
+        [
+          0.5,
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          0.25
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.75
+        ],
+        [
+          0.5,
+          0.75,
+          0.0
+        ],
+        [
+          0.5,
+          0.75,
+          0.25
+        ],
+        [
+          0.5,
+          0.75,
+          0.5
+        ],
+        [
+          0.5,
+          0.75,
+          0.75
+        ],
+        [
+          0.75,
+          0.0,
+          0.0
+        ],
+        [
+          0.75,
+          0.0,
+          0.25
+        ],
+        [
+          0.75,
+          0.0,
+          0.5
+        ],
+        [
+          0.75,
+          0.0,
+          0.75
+        ],
+        [
+          0.75,
+          0.25,
+          0.0
+        ],
+        [
+          0.75,
+          0.25,
+          0.25
+        ],
+        [
+          0.75,
+          0.25,
+          0.5
+        ],
+        [
+          0.75,
+          0.25,
+          0.75
+        ],
+        [
+          0.75,
+          0.5,
+          0.0
+        ],
+        [
+          0.75,
+          0.5,
+          0.25
+        ],
+        [
+          0.75,
+          0.5,
+          0.5
+        ],
+        [
+          0.75,
+          0.5,
+          0.75
+        ],
+        [
+          0.75,
+          0.75,
+          0.0
+        ],
+        [
+          0.75,
+          0.75,
+          0.25
+        ],
+        [
+          0.75,
+          0.75,
+          0.5
+        ],
+        [
+          0.75,
+          0.75,
+          0.75
+        ]
+      ]
+    }
+  ],
+  "folded16": {
+    "points": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.5,
+        0.0
+      ],
+      [
+        0.0,
+        0.5,
+        0.5
+      ],
+      [
+        0.25,
+        0.25,
+        0.25
+      ],
+      [
+        0.25,
+        0.25,
+        0.75
+      ],
+      [
+        0.25,
+        0.75,
+        0.25
+      ],
+      [
+        0.25,
+        0.75,
+        0.75
+      ],
+      [
+        0.5,
+        0.0,
+        0.0
+      ],
+      [
+        0.5,
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        0.5,
+        0.0
+      ],
+      [
+        0.5,
+        0.5,
+        0.5
+      ],
+      [
+        0.75,
+        0.25,
+        0.25
+      ],
+      [
+        0.75,
+        0.25,
+        0.75
+      ],
+      [
+        0.75,
+        0.75,
+        0.25
+      ],
+      [
+        0.75,
+        0.75,
+        0.75
+      ]
+    ],
+    "irreducible_count": 5,
+    "q2_source_count": 16,
+    "q2_includes_only_same_coset_not_full16_transfer_rule": true,
+    "nominal152_source_buffer_B": 16809984000
+  },
+  "lower_D2_TR_k4_q2": {
+    "irreducible_count": 27,
+    "source_count": 64
+  },
+  "chemical_geometry": {
+    "host_Td_operations": 24,
+    "Cd_at_origin_Td_operations": 24,
+    "host_primitive_translations_in_conventional_cell": 4,
+    "Cd_translations": 1,
+    "generic_lower_point_symmetry_assumption_false_for_frozen_motif": true
+  },
+  "spinor_bands": {
+    "electrons": 144.0,
+    "proposed": 152,
+    "extra_over_electron_count": 8,
+    "stock_default_from_setup": 172,
+    "old_explicit": 176,
+    "ACE_projection_equals_nbnd_in_normal_SCF": true,
+    "random_atomic_perturbation_branch_changes_when_nbnd_equals_natomwfc": true,
+    "FD_operator_tail_1e8_requires_energy_margin_eV": 0.25062612918280375,
+    "FD_24state_charge_tail_1e8_requires_margin_eV": 0.29386575445726143
+  },
+  "retained_nonstationary_data": {
+    "host": {
+      "nonstationary": true,
+      "HSE_converged": false,
+      "native_nsym": 24,
+      "band152_minus_mu_eV": 2.290023410997432,
+      "dropped_153_176_occupation": 0.0,
+      "band152_occupation": 7.985925186258616e-74,
+      "atomic_starting_columns": 152
+    },
+    "cd": {
+      "nonstationary": true,
+      "HSE_converged": false,
+      "native_nsym": 24,
+      "band152_minus_mu_eV": 2.845519838748376,
+      "dropped_153_176_occupation": 0.0,
+      "band152_occupation": 0.0,
+      "atomic_starting_columns": 152
+    },
+    "rejected_stock79build_host": {
+      "projection_probability_in_bands153_176": [
+        0.00015976318371393802,
+        0.00015866879627650458,
+        4.397156693713977e-05,
+        5.47523800188112e-05,
+        5.8307177063162895e-05,
+        4.058349255795072e-05
+      ],
+      "occupation_in_bands153_176": 0.0,
+      "native_band152_minus_mu_eV": null,
+      "NOT_a_bound_for_new_152_k2_q2_state": true
+    }
+  },
+  "memory": {
+    "band152_q8_nominal_B": 8404992000,
+    "hard_12GiB_B": 12884901888,
+    "persistent_plus_two_EXX_batches_B": 10506240000,
+    "nominal_known_ACE_phase_payload": {
+      "exxbuff_q8_B": 8404992000,
+      "two_spinor_FFT_batches_B": 2101248000,
+      "FFT_rhoc_vc_jblock7_B": 48384000,
+      "xi_all4k_B": 210650112,
+      "evc_B": 52662528,
+      "evc_exx_B": 52662528,
+      "direct_big_result_B": 52662528,
+      "wave_records_4k_B": 210650112,
+      "rir_24ops_duplicated2ranks_B": 41472000,
+      "coulomb_fac_grid_extent_ceiling_B": 55296000
+    },
+    "nominal_known_ACE_phase_sum_B": 11230679808,
+    "nominal_unassigned_headroom_B": 1654222080,
+    "plane_wave_payload_uses_old_Gamma_count": 10827,
+    "actual_new_npwx_FFT_padding_cache_and_library_peak_qualified": false,
+    "Davidson_NC_vectors_B": 210650112,
+    "Davidson_replicated_dense3matrices_B": 8871936,
+    "Davidson_phase_excludes_direct_EXX_FFT_batches": true,
+    "exxinit_replicated_two_global_spinor_FFT_arrays_B": 27648000,
+    "exxinit_global_temporaries_do_not_overlap_aceinit_batches": true,
+    "old_stock_q1_176_kernel_peak_B": 4224897024,
+    "old_diagnostic_q1_176_peak_B": 4548526080,
+    "overhead_cannot_be_subtracted_and_reused_as_upper": true,
+    "complete_peak_upper_B": null,
+    "credible_overall_peak": "UNQUALIFIED; named payload is not all resident charge",
+    "execution_under_12GiB": "NO-GO",
+    "deliberate_cgroup_OOM_probe_permitted": false
+  },
+  "checks": [
+    "archived pristine EXX is byte-identical to local qe-7.5 tag",
+    "folded16 equals unshifted2^3 plus all-axis half-shifted2^3",
+    "k4/q2 union56; shifted single-irrep k2 forcesq1; incompatible k3/q2 falls backq1",
+    "independent q2-coset count reproduces all compatible source unions",
+    "Cd-at-origin retains all24 Td operations but only1 of4 fcc translations",
+    "actual FR NC SG15 header valences give144 spinor electrons in both cells",
+    "q8/152 allocation8404992000B; simultaneous full EXX spinor batches add2101248000B",
+    "822protected pins/76historical files, dirtyDFT and previous host acceptances/refusals unchanged"
+  ],
+  "protected_pins_unchanged": 822,
+  "historical_files_unchanged": 76,
+  "best_unadmitted_candidate": {
+    "electron_mesh": [
+      2,
+      2,
+      2
+    ],
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "q_mesh": [
+      2,
+      2,
+      2
+    ],
+    "nbnd": 152,
+    "new_model_relative_to_primitive4": true,
+    "equivalent_to_primitive4": false,
+    "execution_admitted": false,
+    "scientific_response_error_meV_certified": null
+  },
+  "physical_xc": null
+}

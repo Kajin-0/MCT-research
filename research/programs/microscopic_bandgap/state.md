@@ -2,9 +2,48 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. Sole primitive k4/q4 stock HSE+SOC control COMPLETED: conventional numerical outer SCF PASS, conditional approximate Γ6−Γ8 ordering −0.289586505eV. Full Γ density Theta3.615e-7/Td5.196e-7 FAIL frozen1e-8; no strict nonmagnetic/material certificate. Native6builds/dexx2.3e-10Ry, wall1h50m, peak6.226GB/swap0. No active job, restart or Cd authorization. Old failures immutable; PBE CLOSED; physical random-alloy x_c OPEN.
+**State:** historical persistent goal BLOCKED, unchanged. Latest finite read-only admission study: centered conventional8 k2/q2 with152 spinors is stock-compatible but execution NO-GO under12GiB because complete peak is unqualified (8.405GB source;11.231GB nominal named payload, not a bound). Conventional k4/q2 needs56 sources,58.835GB. No new jobs/builds/services. The completed primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Old failures and PBE closure preserved; Cd/physical x_c remain OPEN.
 
-**Updated:** 2026-10-17 03:41 UTC
+**Updated:** 2026-10-17 05:20 UTC
+
+<!-- HSE8_152_Q8_ADMISSION_20261017_BEGIN -->
+## Read-only eight-atom152/q8 admission: NO-GO under12GiB
+
+Read [decision](hse8_152_q8_admission_2026-10-17/decision.md),
+[exact source/grid/allocation audit](hse8_152_q8_admission_2026-10-17/audit.json)
+and [independent verification](hse8_152_q8_admission_2026-10-17/verification.json).
+No native job, build, source edit, service, PBE reopening or new infrastructure.
+
+QE permits separate electronic and exchange grids, but allocates the distinct
+k+q source union. Centered conventional k2/q2 has4irreps/8sources; k4/q2
+has10irreps/56sources. At152bands/retained60³ these need8.405GB/58.835GB
+nominal buffers. A single irreducible point forcesq1, including shiftedk2;
+k3/q2 falls backq1. Source replay independently reproduces the accepted
+primitive native k4 irreps/weights/64sources, without launching QE.
+
+The primitive4³ folded16-point electronic rule is neither centered nor shifted
+conventional2³ alone; q8 does not reproduce the full folded exchange rule.
+The exact unrelaxed Cd-at-origin8atom motif retains24Td rotations, confirmed
+by species-preserving geometry and old native XML; fcc translations fall4to1.
+Do not assume lower point symmetry, nor equate geometry with a qualified density.
+
+152bands is legal for144spinor electrons; dominant old Gamma labels fit,
+but old nonstationary physical-probe weight above152 reaches1.60e-4.
+Both cells have152atomic starting columns: changing176to152 changes the
+stock atomic+random branch and ACE span, not merely memory. No coverage or
+symmetry certificate for the new model follows from old unconverged data.
+
+Source buffer plus two simultaneous EXX spinor batches totals10.506GB.
+Extended named nominal payload is11.231GB,leaving1.654GBunassigned under12GiB;
+actual rank padding/backend/cache high water lacks a complete upper bound.
+This is pre-execution NO-GO,not proof of OOM or an authorized resource probe.
+ONE best unadmitted model: fresh matched8atom centeredk2/q2/152,same50/200/
+Fock200Ry,FD.001,HSE.25/.106,SG15FRNC,a6.46A and stock solver. It is not
+primitivek4-equivalent. Need trustworthy exact-profile resident envelope
+before any separate execution authorization; no new cap or HPC allocation invented.
+Original1e-8 density gates and conditional2meV operator-error budget unchanged.
+822pins/76oldfiles/dirtyDFT/oldhost decisions verified unchanged. STOP this study.
+<!-- HSE8_152_Q8_ADMISSION_20261017_END -->
 
 <!-- PRIMITIVE_K4_HSE_20261017_BEGIN -->
 ## COMPLETED k4/q4 control: conventional SCF PASS, strict symmetry FAIL

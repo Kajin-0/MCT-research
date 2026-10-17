@@ -1,0 +1,143 @@
+{
+  "verdict": "NO-GO for execution under12GiB; stock/model compatibility conditional YES",
+  "grid_summary": [
+    {
+      "electronic_grid": [
+        2,
+        2,
+        2
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "effective_q": [
+        2,
+        2,
+        2
+      ],
+      "irreducible_count": 4,
+      "source_union_count": 8,
+      "requested_translations_supported": true,
+      "electronic_rule_TV_from_folded16": 0.5
+    },
+    {
+      "electronic_grid": [
+        2,
+        2,
+        2
+      ],
+      "offset_flags": [
+        1,
+        1,
+        1
+      ],
+      "effective_q": [
+        1,
+        1,
+        1
+      ],
+      "irreducible_count": 1,
+      "source_union_count": 1,
+      "requested_translations_supported": true,
+      "electronic_rule_TV_from_folded16": 0.5
+    },
+    {
+      "electronic_grid": [
+        3,
+        3,
+        3
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "effective_q": [
+        1,
+        1,
+        1
+      ],
+      "irreducible_count": 4,
+      "source_union_count": 4,
+      "requested_translations_supported": false,
+      "electronic_rule_TV_from_folded16": 0.9629629629629629
+    },
+    {
+      "electronic_grid": [
+        4,
+        4,
+        4
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "effective_q": [
+        2,
+        2,
+        2
+      ],
+      "irreducible_count": 10,
+      "source_union_count": 56,
+      "requested_translations_supported": true,
+      "electronic_rule_TV_from_folded16": 0.75
+    },
+    {
+      "electronic_grid": [
+        4,
+        4,
+        4
+      ],
+      "offset_flags": [
+        1,
+        1,
+        1
+      ],
+      "effective_q": [
+        2,
+        2,
+        2
+      ],
+      "irreducible_count": 4,
+      "source_union_count": 32,
+      "requested_translations_supported": true,
+      "electronic_rule_TV_from_folded16": 1.0
+    },
+    {
+      "electronic_grid": [
+        4,
+        4,
+        4
+      ],
+      "offset_flags": [
+        0,
+        0,
+        0
+      ],
+      "effective_q": [
+        4,
+        4,
+        4
+      ],
+      "irreducible_count": 10,
+      "source_union_count": 64,
+      "requested_translations_supported": true,
+      "electronic_rule_TV_from_folded16": 0.75
+    }
+  ],
+  "known_payload_B": 11230679808,
+  "unassigned_headroom_B": 1654222080,
+  "checks": [
+    "archived pristine EXX is byte-identical to local qe-7.5 tag",
+    "folded16 equals unshifted2^3 plus all-axis half-shifted2^3",
+    "k4/q2 union56; shifted single-irrep k2 forcesq1; incompatible k3/q2 falls backq1",
+    "independent q2-coset count reproduces all compatible source unions",
+    "Cd-at-origin retains all24 Td operations but only1 of4 fcc translations",
+    "actual FR NC SG15 header valences give144 spinor electrons in both cells",
+    "q8/152 allocation8404992000B; simultaneous full EXX spinor batches add2101248000B",
+    "822protected pins/76historical files, dirtyDFT and previous host acceptances/refusals unchanged"
+  ]
+}

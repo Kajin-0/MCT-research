@@ -16,6 +16,39 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 4. **Avoid false uncertainty.** Conditional projector/tail/IEEE bounds are not HSE functional, composition, finite-size, disordered-alloy, electron-phonon or material error bars. Retained data may fail to identify missing causal moments or impurity correlations. Preserve exact mathematical NO-GO claims under their assumptions.
 5. **New contribution criterion.** Compare each proposed claim against Wei & Zunger (1991), Phys. Rev. B 43, 1662, doi:10.1103/PhysRevB.43.1662; Krishtopenko, Antezza & Teppe (2022), Phys. Rev. B 106, 115203, doi:10.1103/PhysRevB.106.115203; Alowa et al. (2025), J. Phys. D 58, 135120, doi:10.1088/1361-6463/adb2a0; Lin ACE (2016), SQS (Zunger/Wei/Ferreira/Bernard 1990), and newer competing work. Relevant local files: `chemical_pbe16_p2_2026-10-15/literature_boundary.md`, `analytical_first_2026-10-11/literature.md`, `continuum_spectral_2026-10-11/literature.md`, `threshold_causal_2026-10-11/literature.md`, and `../correlated_random_mass_kane/prior_art_matrix.md`. Novelty currently **UNVERIFIED**.
 
+## Latest finite read-only decision — eight-atom152/q8, 2026-10-17
+
+Read `hse8_152_q8_admission_2026-10-17/{decision.md,audit.json,verification.json}`.
+Assignment COMPLETE: stock centered electronic2³/q2³/152 is source-compatible,
+execution NO-GO under12GiB because total resident peak is not established.
+Source8.405GB plus two simultaneous full spinor EXX batches2.101GB already
+makes10.506GB; named nominal phase model11.231GB is NOT a peak bound.
+The remaining1.654GB does not cover all unknown padding/library/cache high water
+with an independent certificate. No cgroup-OOM probe is authorized or planned.
+
+Read exact source semantics before suggesting grids: nqs=8transfers is NOT
+nkqs=8stored sources on arbitrary k. Conventional centeredk4/q2 gives56sources
+and58.835GB at152bands; exactfolded16electronic sampling withq2 needs16sources
+and16.810GB but still changes exchange quadrature. Shiftedk2 has one irrep,
+so stock forcesq1; centeredk3/q2 falls backq1. Native effective mesh must be
+verified in any separately authorized run. Exact rational source replay matches
+actual accepted primitivek4 metadata,not newly executed native data.
+
+Cd atorigin in the frozen ideal8atom motif retains24Td rotations and loses
+three fcc translations; do not invent lower point symmetry or force an SCF
+quartet without actual density qualification.152 is legal for144electrons,
+not proof of8empty states/coverage. Old Gamma labels lie below152, but old
+nonstationary probe weight above152 reaches1.60e-4. Both native atomic starting
+sets are152: atomic+random takes a different branch than176 and ACE span changes.
+Keep old176/HSE8 failures and latest primitive strict1e-8 FAIL unchanged.
+
+Best unadmitted candidate is a fresh matched centeredk2/q2/152 host then Cd,
+with same explicit physical/solver settings; it is a new coarse ordered model,
+not the primitivek4 host plus Cd. Exact-profile complete resident evidence is
+missing. No queued run, new resource cap, HPC access, source/owner development,
+PBE reopening or physicalxc. This phase ran ZERO native jobs/builds/services;
+822pins/76originals/dirtyDFT verified unchanged. Historicalgoal untouched. STOP.
+
 ## Latest: COMPLETED primitive k4/q4 host control — 2026-10-17
 
 Read `primitive_k4_hse_2026-10-17/decision.md` and
