@@ -16,6 +16,39 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 4. **Avoid false uncertainty.** Conditional projector/tail/IEEE bounds are not HSE functional, composition, finite-size, disordered-alloy, electron-phonon or material error bars. Retained data may fail to identify missing causal moments or impurity correlations. Preserve exact mathematical NO-GO claims under their assumptions.
 5. **New contribution criterion.** Compare each proposed claim against Wei & Zunger (1991), Phys. Rev. B 43, 1662, doi:10.1103/PhysRevB.43.1662; Krishtopenko, Antezza & Teppe (2022), Phys. Rev. B 106, 115203, doi:10.1103/PhysRevB.106.115203; Alowa et al. (2025), J. Phys. D 58, 135120, doi:10.1088/1361-6463/adb2a0; Lin ACE (2016), SQS (Zunger/Wei/Ferreira/Bernard 1990), and newer competing work. Relevant local files: `chemical_pbe16_p2_2026-10-15/literature_boundary.md`, `analytical_first_2026-10-11/literature.md`, `continuum_spectral_2026-10-11/literature.md`, `threshold_causal_2026-10-11/literature.md`, and `../correlated_random_mass_kane/prior_art_matrix.md`. Novelty currently **UNVERIFIED**.
 
+## Latest native primitive k2/q2 result — 2026-10-17
+
+Read `primitive_k2_hse_2026-10-17/{decision.md,state_result.json,
+resources.json,verification.json,cleanup.json}`. From53ca7b3 ONE fresh stock
+primitive2atom k2/q2 FD-HSE control actually ran856.34s/16source builds,
+50/200/200Ry,44/36,SG15FRNC,a6.46A,HSE.25/.106. After sustained315meV
+Gamma8-character splitting, investigator requested normal native EXIT. This
+was an EARLY scientific stop,not a frozen plateau trigger,600s rule,6h budget
+or resource failure. It does not prove absence of a symmetric fixed point.
+
+Total−484.060104456Ry,Fock/2−8.96881784Ry,dexx6.23e-6>1e-9,XMLfalse;
+NO converged/nonmagnetic host,Cd,mass or xc. Actual density Theta opGamma.903712,
+L.016914,X.013660;Td max.997426;Gamma8-character315.272meV. Charge/FD pass
+and24nativecrystaloperations do not certify nonlocalD. All3actualTRIM checked
+with physicalG->−G−2k.8fullBZfibers are symmetry-transported,not nativeexports;
+source/exactfull-H residual is missing. No averaging/repair/old retropass.
+
+New old-state translation bound: conventional8Gamma folds primitiveGamma+3X,
+newk2adds4L. TwirlingoldD into exactprimitiveperiodicity changes it<=9.23e-6
+and leavesTheta lower expression.9999785. Not a nonlinear HSE/FD update.
+Coarse sampling is insufficient for this trajectory;ACE/occupation/quadrature
+causality still not isolated. OnlyGamma has fractional FD occupations.
+
+Kernelpeak1.043GB,swap0,tasks7,all floors held;ownunit unloaded,originalPIDs
+andcgroupgone.822protectedpins/76oldfiles/dirtyDFT/stock/other sessions unchanged.
+Prelaunchmissinguserbus andofflineXML48lattice-vs24crystalparser error retained,
+fixed before native launch/within readback respectively;ONE native job,no retry.
+NEXT physics input,NOT admitted/queued: primitivek4/q4 atsamee50FD law andcuts
+would isolatequadrature better. Nominal5.767GBsource and~4.69h16buildFock
+forecast need independentfullresource/convergenceadmission. No more owner/PBE
+infrastructure;oldaccepted e90coldk4 reference does not isolatek sampling alone.
+Current finite assignment COMPLETE;historicalBLOCKEDgoal untouched.
+
 ## Confirmed milestones (not claims of a physical random-alloy gap)
 
 - **Analytical identifiability**: binary endpoints plus finite endpoint information do *not* uniquely determine interior alloy electronic structure. Symmetry-reduced causal Gamma responses require independent functions; a single ordered configuration cannot determine all environment-dependent operators. Read `analytical_first_2026-10-11`, `threshold_causal_2026-10-11`, `ordered_environment_2026-10-15`.

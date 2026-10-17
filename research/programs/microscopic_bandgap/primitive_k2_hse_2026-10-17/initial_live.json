@@ -1,0 +1,52 @@
+{
+  "RuntimeMaxUSec": "6h",
+  "MainPID": "1996070",
+  "Result": "success",
+  "NRestarts": "0",
+  "ExecMainStartTimestamp": "Sat 2026-10-17 00:24:04 UTC",
+  "ExecMainStatus": "0",
+  "ControlGroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-primitive-k2-hse-20261017002313.service",
+  "MemoryPeak": "1025179648",
+  "MemoryMax": "12884901888",
+  "MemorySwapMax": "0",
+  "TasksMax": "12",
+  "Id": "r07-primitive-k2-hse-20261017002313.service",
+  "LoadState": "loaded",
+  "ActiveState": "active",
+  "SubState": "running",
+  "InvocationID": "9ef75959cf584ea0a540cafa9ccf45e0",
+  "kernel": {
+    "memory.max": "12884901888",
+    "memory.swap.max": "0",
+    "pids.max": "12",
+    "memory.current": "1025179648",
+    "memory.peak": "1025179648",
+    "cgroup.procs": "1996070\n1996073\n1996074"
+  },
+  "processes": [
+    {
+      "pid": 1996070,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prte",
+      "exe_sha256": "823411e91988389a14c931eaacbef0482db7e00a320d1875f7b900a9884cb811",
+      "stat": "1996070 (prterun) S 805 1996070 1996070 0 -1 4194304 2068 0 3 0 2 13 0 0 30 10 3 0 672136565 136404992 3086 18446744073709551615 95048762822656 95048762839789 140722118052304 0 0 0 0 0 1741388339 0 0 0 17 7 0 0 0 0 0 95048762849272 95048762851520 95049206132736 140722118056233 140722118056464 140722118056464 140722118057916 0\n",
+      "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-primitive-k2-hse-20261017002313.service\n",
+      "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prterun --host localhost:2 -np 2 --bind-to core /home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07pk2_20261017_002313/pw.in "
+    },
+    {
+      "pid": 1996073,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+      "exe_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+      "stat": "1996073 (pw.x) R 1996070 1996073 1996070 0 -1 4194304 149497 0 2 0 1070 133 0 0 30 10 2 0 672136581 1049096192 132575 18446744073709551615 94660508565504 94660516049933 140733120822752 0 0 0 0 0 1098908925 0 0 0 17 0 0 0 0 0 0 94660518667888 94660518853648 94660853850112 140733120828360 140733120828491 140733120828491 140733120831423 0\n",
+      "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-primitive-k2-hse-20261017002313.service\n",
+      "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07pk2_20261017_002313/pw.in "
+    },
+    {
+      "pid": 1996074,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+      "exe_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+      "stat": "1996074 (pw.x) R 1996070 1996074 1996070 0 -1 4194304 148488 0 2 0 1069 136 0 0 30 10 2 0 672136582 1049030656 131925 18446744073709551615 109830229127168 109830236611597 140734189040704 0 0 0 0 0 1098908925 0 0 0 17 1 0 0 0 0 0 109830239229552 109830239415312 109830796959744 140734189048776 140734189048907 140734189048907 140734189051839 0\n",
+      "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-primitive-k2-hse-20261017002313.service\n",
+      "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07pk2_20261017_002313/pw.in "
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "UTC": "2026-10-17T00:38:11.442269+00:00",
+  "kind": "INVESTIGATOR SCIENTIFIC EARLY STOP, not runtime/resource failure",
+  "reason": "Sustained growing Gamma8-candidate splitting around315meV and unconverged outer residual; stop this broken-symmetry trajectory and qualify saved spinors. No assertion that symmetric solution is impossible.",
+  "not_a_preregistered_plateau_trigger": true,
+  "gate_not_relaxed": true,
+  "native_hard_budget_still_6h": true,
+  "last_printed_candidates": [
+    {
+      "inner_block_1based": 12,
+      "prior_ACE_builds": 11,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9747,
+        9.0118,
+        9.2478,
+        9.2721
+      ],
+      "displayed_spread_eV": 0.29739999999999966,
+      "rounding_only_spread_interval_eV": [
+        0.2972999999999997,
+        0.29749999999999965
+      ]
+    },
+    {
+      "inner_block_1based": 13,
+      "prior_ACE_builds": 12,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9714,
+        8.9715,
+        9.2812,
+        9.2824
+      ],
+      "displayed_spread_eV": 0.3110000000000017,
+      "rounding_only_spread_interval_eV": [
+        0.31090000000000173,
+        0.3111000000000017
+      ]
+    },
+    {
+      "inner_block_1based": 14,
+      "prior_ACE_builds": 13,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9697,
+        8.9704,
+        9.2823,
+        9.2841
+      ],
+      "displayed_spread_eV": 0.3144000000000009,
+      "rounding_only_spread_interval_eV": [
+        0.3143000000000009,
+        0.3145000000000009
+      ]
+    },
+    {
+      "inner_block_1based": 15,
+      "prior_ACE_builds": 14,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9694,
+        8.9701,
+        9.2826,
+        9.2844
+      ],
+      "displayed_spread_eV": 0.3149999999999995,
+      "rounding_only_spread_interval_eV": [
+        0.3148999999999995,
+        0.3150999999999995
+      ]
+    },
+    {
+      "inner_block_1based": 16,
+      "prior_ACE_builds": 15,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9692,
+        8.97,
+        9.2828,
+        9.2845
+      ],
+      "displayed_spread_eV": 0.3152999999999988,
+      "rounding_only_spread_interval_eV": [
+        0.3151999999999988,
+        0.3153999999999988
+      ]
+    }
+  ],
+  "stdout_prefix_bytes": 105453,
+  "stdout_prefix_sha256": "a38fff8d20b8666a03f17a39b74d6a285cff79cf981566b8aa7abe5ee65816df",
+  "exit_path": "/home/User/opencode_workspace/DFT/.local/r07pk2_20261017_002313/r07pk2.EXIT",
+  "native_retry": false
+}

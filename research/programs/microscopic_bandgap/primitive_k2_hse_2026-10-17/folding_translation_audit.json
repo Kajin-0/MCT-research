@@ -1,0 +1,58 @@
+{
+  "status": "CALCULATED old rejected state; no retropass",
+  "old_state_translation_tests": [
+    {
+      "translation_conventional_fraction": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "density_operator": {
+        "op": 1.2327859067942243e-05,
+        "F": 3.867898673809936e-05,
+        "scalar_witness": 1.2283614715946625e-05,
+        "scalar_crosscheck_error": 1.2395310743529982e-15
+      },
+      "scalar_rhoG_relative_F": 7.609503877962485e-07
+    },
+    {
+      "translation_conventional_fraction": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "density_operator": {
+        "op": 1.2357491967323723e-05,
+        "F": 3.873267544104597e-05,
+        "scalar_witness": 1.2313266865071598e-05,
+        "scalar_crosscheck_error": 1.0179082918356994e-15
+      },
+      "scalar_rhoG_relative_F": 7.609503877962484e-07
+    },
+    {
+      "translation_conventional_fraction": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "density_operator": {
+        "op": 1.2240035868701704e-05,
+        "F": 3.8851669219302476e-05,
+        "scalar_witness": 1.219315915856887e-05,
+        "scalar_crosscheck_error": 2.831427854768734e-16
+      },
+      "scalar_rhoG_relative_F": 7.609503877962478e-07
+    }
+  ],
+  "primitive_translation_twirl_distance_upper_expression": 9.231346725991917e-06,
+  "Theta_defect_after_translation_twirl_lower_expression": 0.9999784970511492,
+  "arithmetic": "QR eigenvalues in ordinary double precision; theorem exact, numerical expressions not interval-certified",
+  "old_raw_pins": {
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/wfc1.hdf5": "048934f70ec662875822b6291fab15a3c4bf04b686ca49c24db82bf8065332f6",
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/data-file-schema.xml": "727e3bb297c1bebfd9fab1f537d3a22f23b7541a36647c735daf99c0a3b1dc56",
+    "/home/User/opencode_workspace/DFT/.local/r07stock_20261016_202059/host/out/r07hse8.save/charge-density.hdf5": "89e9d1f1e3261cbaf9ba69f07e22a0891a4cfc4f420fe2e2cc35d17e5338cc21"
+  },
+  "native_runs": 0,
+  "Theta_failure_unchanged": true,
+  "limitation": "No twirled H or FD state constructed. Not a causal separation of sampling and nonlinear self-consistency."
+}

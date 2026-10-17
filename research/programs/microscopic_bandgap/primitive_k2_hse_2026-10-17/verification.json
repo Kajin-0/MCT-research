@@ -1,0 +1,20 @@
+{
+  "verified": true,
+  "meaning": "Verification of observed failed candidate, NOT host SCF or symmetry PASS",
+  "independent_Gamma_band35_Theta_density_scalar_witness": 0.8167066856268297,
+  "independent_FD_mu_Ry": 0.6707934180720831,
+  "native_mu_Ry": 0.6707934148406698,
+  "independent_mu_shift_eV": 4.396561851769103e-08,
+  "independent_root_charge_residual_e": 0.0,
+  "protected_pins_unchanged": 822,
+  "historical_original_files_unchanged": 76,
+  "prior_stock8_and_closed_PBE_unchanged": true,
+  "DFT_dirty_unchanged": true,
+  "one_native_control_no_retry": true,
+  "no_owned_native_job_remaining": true,
+  "native_occupied_density_symmetry_failed": true,
+  "native_outer_converged": false,
+  "investigator_early_stop_not_preregistered_plateau": true,
+  "raw_file_count": 20,
+  "physical_xc": null
+}

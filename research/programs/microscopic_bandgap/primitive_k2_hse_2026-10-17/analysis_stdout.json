@@ -1,0 +1,691 @@
+{
+  "status": "CALCULATED finite-smearing primitive k2/q2 HSE control",
+  "native_outer_converged": false,
+  "trajectory": [
+    {
+      "source_build": 2,
+      "dexx_Ry": 0.00074249,
+      "corrected_total_Ry": -484.0589591,
+      "Fock_half_Ry": -8.96380789
+    },
+    {
+      "source_build": 3,
+      "dexx_Ry": 1.382e-05,
+      "corrected_total_Ry": -484.05907008,
+      "Fock_half_Ry": -8.96682386
+    },
+    {
+      "source_build": 4,
+      "dexx_Ry": 3.2e-07,
+      "corrected_total_Ry": -484.05907245,
+      "Fock_half_Ry": -8.96726911
+    },
+    {
+      "source_build": 5,
+      "dexx_Ry": 5.3e-09,
+      "corrected_total_Ry": -484.05907251,
+      "Fock_half_Ry": -8.96733765
+    },
+    {
+      "source_build": 6,
+      "dexx_Ry": 1e-08,
+      "corrected_total_Ry": -484.05907249,
+      "Fock_half_Ry": -8.9673518
+    },
+    {
+      "source_build": 7,
+      "dexx_Ry": 7e-08,
+      "corrected_total_Ry": -484.05907242,
+      "Fock_half_Ry": -8.96734927
+    },
+    {
+      "source_build": 8,
+      "dexx_Ry": 2.6e-07,
+      "corrected_total_Ry": -484.0590722,
+      "Fock_half_Ry": -8.96735036
+    },
+    {
+      "source_build": 9,
+      "dexx_Ry": 3.25e-06,
+      "corrected_total_Ry": -484.05907648,
+      "Fock_half_Ry": -8.96735642
+    },
+    {
+      "source_build": 10,
+      "dexx_Ry": 0.00012341,
+      "corrected_total_Ry": -484.05922898,
+      "Fock_half_Ry": -8.9675461
+    },
+    {
+      "source_build": 11,
+      "dexx_Ry": 0.00037739,
+      "corrected_total_Ry": -484.05987759,
+      "Fock_half_Ry": -8.96841568
+    },
+    {
+      "source_build": 12,
+      "dexx_Ry": 4.89e-06,
+      "corrected_total_Ry": -484.06007638,
+      "Fock_half_Ry": -8.96875581
+    },
+    {
+      "source_build": 13,
+      "dexx_Ry": 3.28e-06,
+      "corrected_total_Ry": -484.06008407,
+      "Fock_half_Ry": -8.968797
+    },
+    {
+      "source_build": 14,
+      "dexx_Ry": 6.05e-06,
+      "corrected_total_Ry": -484.06009078,
+      "Fock_half_Ry": -8.9687993
+    },
+    {
+      "source_build": 15,
+      "dexx_Ry": 6.32e-06,
+      "corrected_total_Ry": -484.06009767,
+      "Fock_half_Ry": -8.96881422
+    },
+    {
+      "source_build": 16,
+      "dexx_Ry": 6.23e-06,
+      "corrected_total_Ry": -484.06010446,
+      "Fock_half_Ry": -8.96881784
+    }
+  ],
+  "displayed_Gamma8_index_history": [
+    {
+      "inner_block_1based": 1,
+      "prior_ACE_builds": 0,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.7237,
+        9.7237,
+        9.7237,
+        9.7237
+      ],
+      "displayed_spread_eV": 0.0,
+      "rounding_only_spread_interval_eV": [
+        0,
+        0.0001
+      ]
+    },
+    {
+      "inner_block_1based": 2,
+      "prior_ACE_builds": 1,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1475,
+        9.1475,
+        9.1475,
+        9.1475
+      ],
+      "displayed_spread_eV": 0.0,
+      "rounding_only_spread_interval_eV": [
+        0,
+        0.0001
+      ]
+    },
+    {
+      "inner_block_1based": 3,
+      "prior_ACE_builds": 2,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1291,
+        9.1291,
+        9.1291,
+        9.1291
+      ],
+      "displayed_spread_eV": 0.0,
+      "rounding_only_spread_interval_eV": [
+        0,
+        0.0001
+      ]
+    },
+    {
+      "inner_block_1based": 4,
+      "prior_ACE_builds": 3,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1269,
+        9.1269,
+        9.1269,
+        9.1269
+      ],
+      "displayed_spread_eV": 0.0,
+      "rounding_only_spread_interval_eV": [
+        0,
+        0.0001
+      ]
+    },
+    {
+      "inner_block_1based": 5,
+      "prior_ACE_builds": 4,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1266,
+        9.1266,
+        9.1266,
+        9.1266
+      ],
+      "displayed_spread_eV": 0.0,
+      "rounding_only_spread_interval_eV": [
+        0,
+        0.0001
+      ]
+    },
+    {
+      "inner_block_1based": 6,
+      "prior_ACE_builds": 5,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1265,
+        9.1266,
+        9.1266,
+        9.1266
+      ],
+      "displayed_spread_eV": 9.999999999976694e-05,
+      "rounding_only_spread_interval_eV": [
+        0,
+        0.00019999999999976693
+      ]
+    },
+    {
+      "inner_block_1based": 7,
+      "prior_ACE_builds": 6,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1265,
+        9.1266,
+        9.1266,
+        9.1267
+      ],
+      "displayed_spread_eV": 0.00019999999999953388,
+      "rounding_only_spread_interval_eV": [
+        9.999999999953388e-05,
+        0.0002999999999995339
+      ]
+    },
+    {
+      "inner_block_1based": 8,
+      "prior_ACE_builds": 7,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.126,
+        9.1265,
+        9.1268,
+        9.127
+      ],
+      "displayed_spread_eV": 0.0010000000000012221,
+      "rounding_only_spread_interval_eV": [
+        0.0009000000000012221,
+        0.0011000000000012222
+      ]
+    },
+    {
+      "inner_block_1based": 9,
+      "prior_ACE_builds": 8,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1233,
+        9.1262,
+        9.128,
+        9.1289
+      ],
+      "displayed_spread_eV": 0.005599999999999383,
+      "rounding_only_spread_interval_eV": [
+        0.005499999999999383,
+        0.0056999999999993835
+      ]
+    },
+    {
+      "inner_block_1based": 10,
+      "prior_ACE_builds": 9,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.1086,
+        9.1241,
+        9.1345,
+        9.1391
+      ],
+      "displayed_spread_eV": 0.03049999999999997,
+      "rounding_only_spread_interval_eV": [
+        0.030399999999999972,
+        0.03059999999999997
+      ]
+    },
+    {
+      "inner_block_1based": 11,
+      "prior_ACE_builds": 10,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        9.0383,
+        9.1108,
+        9.1674,
+        9.1899
+      ],
+      "displayed_spread_eV": 0.15160000000000018,
+      "rounding_only_spread_interval_eV": [
+        0.1515000000000002,
+        0.15170000000000017
+      ]
+    },
+    {
+      "inner_block_1based": 12,
+      "prior_ACE_builds": 11,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9747,
+        9.0118,
+        9.2478,
+        9.2721
+      ],
+      "displayed_spread_eV": 0.29739999999999966,
+      "rounding_only_spread_interval_eV": [
+        0.2972999999999997,
+        0.29749999999999965
+      ]
+    },
+    {
+      "inner_block_1based": 13,
+      "prior_ACE_builds": 12,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9714,
+        8.9715,
+        9.2812,
+        9.2824
+      ],
+      "displayed_spread_eV": 0.3110000000000017,
+      "rounding_only_spread_interval_eV": [
+        0.31090000000000173,
+        0.3111000000000017
+      ]
+    },
+    {
+      "inner_block_1based": 14,
+      "prior_ACE_builds": 13,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9697,
+        8.9704,
+        9.2823,
+        9.2841
+      ],
+      "displayed_spread_eV": 0.3144000000000009,
+      "rounding_only_spread_interval_eV": [
+        0.3143000000000009,
+        0.3145000000000009
+      ]
+    },
+    {
+      "inner_block_1based": 15,
+      "prior_ACE_builds": 14,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9694,
+        8.9701,
+        9.2826,
+        9.2844
+      ],
+      "displayed_spread_eV": 0.3149999999999995,
+      "rounding_only_spread_interval_eV": [
+        0.3148999999999995,
+        0.3150999999999995
+      ]
+    },
+    {
+      "inner_block_1based": 16,
+      "prior_ACE_builds": 15,
+      "tracked_indices_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "displayed_energies_eV": [
+        8.9692,
+        8.97,
+        9.2828,
+        9.2845
+      ],
+      "displayed_spread_eV": 0.3152999999999988,
+      "rounding_only_spread_interval_eV": [
+        0.3151999999999988,
+        0.3153999999999988
+      ]
+    }
+  ],
+  "XML_convergence": "false",
+  "total_energy_Ry": -484.0601044561862,
+  "inner_scf_error_Ry": 8.737257749018952e-11,
+  "fermi_Ry": 0.6707934148406698,
+  "charge_error_e": -1.5724310742371017e-11,
+  "independent_rhoG_charge_error_e": -1.5717205315013416e-11,
+  "FD_entropy_minus_TS_Ry": -6.102085800923052e-08,
+  "native_qpoint_grid_XML": {
+    "nqx1": "2",
+    "nqx2": "2",
+    "nqx3": "2"
+  },
+  "actual_q_source_coordinates_stdout": [
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "crystal_rounded": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "irreducible_index": 1,
+      "symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        -0.3535534,
+        0.3535534
+      ],
+      "crystal_rounded": [
+        -0.0,
+        -0.0,
+        -0.5
+      ],
+      "irreducible_index": 2,
+      "symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.3535534,
+        -0.3535534
+      ],
+      "crystal_rounded": [
+        0.0,
+        -0.5,
+        -0.0
+      ],
+      "irreducible_index": 2,
+      "symmetry_index": 4
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.7071068,
+        0.0,
+        0.0
+      ],
+      "crystal_rounded": [
+        0.0,
+        -0.5,
+        -0.5
+      ],
+      "irreducible_index": 3,
+      "symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        -0.3535534,
+        -0.3535534
+      ],
+      "crystal_rounded": [
+        -0.5,
+        0.0,
+        0.0
+      ],
+      "irreducible_index": 2,
+      "symmetry_index": 3
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        -0.7071068,
+        0.0
+      ],
+      "crystal_rounded": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "irreducible_index": 3,
+      "symmetry_index": 5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.0,
+        -0.7071068
+      ],
+      "crystal_rounded": [
+        -0.5,
+        -0.5,
+        0.0
+      ],
+      "irreducible_index": 3,
+      "symmetry_index": 9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.3535534,
+        0.3535534
+      ],
+      "crystal_rounded": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "irreducible_index": 2,
+      "symmetry_index": 2
+    }
+  ],
+  "explicit_q_coordinates_in_XML": false,
+  "q_coordinate_evidence": "XML stores q-grid dimensions; stdout stores actual8 k+q source coordinates. At Gamma these are the q mesh. Not mislabelled as explicit XML coordinates.",
+  "full_BZ_reconstructed_Theta": [
+    {
+      "k": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_index": 1,
+      "rotation_index": 0,
+      "op": 0.9037117213443561,
+      "F": 1.8074264427920839,
+      "scalar_witness": 0.9037117139480276,
+      "scalar_crosscheck_error": 3.337167946540778e-16
+    },
+    {
+      "k": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "source_index": 2,
+      "rotation_index": 3,
+      "op": 0.016913853722625955,
+      "F": 0.03791032068212995,
+      "scalar_witness": 0.015955038995154054,
+      "scalar_crosscheck_error": 3.1225775476680653e-17
+    },
+    {
+      "k": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "source_index": 2,
+      "rotation_index": 2,
+      "op": 0.01691385372262571,
+      "F": 0.037910320682129774,
+      "scalar_witness": 0.015955038995153405,
+      "scalar_crosscheck_error": 2.8796442357888423e-16
+    },
+    {
+      "k": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "source_index": 3,
+      "rotation_index": 0,
+      "op": 0.013659877932338206,
+      "F": 0.030880019915926815,
+      "scalar_witness": 0.012665397264002953,
+      "scalar_crosscheck_error": 6.245006019352675e-16
+    },
+    {
+      "k": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "source_index": 2,
+      "rotation_index": 1,
+      "op": 0.016913853722625525,
+      "F": 0.037910320682129704,
+      "scalar_witness": 0.015955038995153405,
+      "scalar_crosscheck_error": 2.8796442357888423e-16
+    },
+    {
+      "k": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "source_index": 3,
+      "rotation_index": 8,
+      "op": 0.013659877932338171,
+      "F": 0.030880019915926853,
+      "scalar_witness": 0.012665397264003894,
+      "scalar_crosscheck_error": 4.943963808642609e-16
+    },
+    {
+      "k": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "source_index": 3,
+      "rotation_index": 12,
+      "op": 0.01365987793233819,
+      "F": 0.030880019915926833,
+      "scalar_witness": 0.012665397264003904,
+      "scalar_crosscheck_error": 4.753142324176451e-16
+    },
+    {
+      "k": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "source_index": 2,
+      "rotation_index": 0,
+      "op": 0.0169138537226259,
+      "F": 0.03791032068212987,
+      "scalar_witness": 0.015955038995154054,
+      "scalar_crosscheck_error": 3.1225775476680653e-17
+    }
+  ],
+  "full_BZ_direct_sum_Theta_op": 0.9037117213443561,
+  "full_BZ_direct_sum_Td_op": 0.9974260338530027,
+  "reconstruction": "8 symmetry-transported fibers; NOT native full-BZ readback or bitwise EXX source replay; covariance checks all24x8 paths without averaging",
+  "reference_e90_lost_probability_e50": [
+    2.0381839233030163e-06,
+    2.038183896768686e-06,
+    1.277746727312845e-07,
+    1.2777464430957508e-07,
+    1.277747575523236e-07,
+    1.27774726133012e-07
+  ],
+  "native_nsym": 24,
+  "native_nrot": 48,
+  "XML_cartesian_Td_group_verified": true,
+  "XML_rotation_array_transposed_for_cartesian": false,
+  "XML_rotation_cartesian_orthogonality_error": 4.574911368985992e-17,
+  "original_primitive_cell_origin_compatible": true,
+  "symmetry_1e8_qualified": false,
+  "actual_full_H_eigenpair_residual_available": false,
+  "stationary_nonmagnetic_host_accepted": false,
+  "final_interpretation_record": "decision.md",
+  "Cd_runs": 0,
+  "physical_xc": null
+}

@@ -1,0 +1,24 @@
+{
+  "UTC": "2026-10-17T00:39:20.195126+00:00",
+  "native_exit_status": "0",
+  "native_stopped_unconverged": true,
+  "original_cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/r07-primitive-k2-hse-20261017002313.service",
+  "original_cgroup_absent": true,
+  "original_processes": [
+    {
+      "pid": 1996070,
+      "original_identity_gone": true
+    },
+    {
+      "pid": 1996073,
+      "original_identity_gone": true
+    },
+    {
+      "pid": 1996074,
+      "original_identity_gone": true
+    }
+  ],
+  "stop_returncode": 0,
+  "after": "LoadState=not-found\nActiveState=inactive\nSubState=dead\n",
+  "unrelated_units_modified": false
+}

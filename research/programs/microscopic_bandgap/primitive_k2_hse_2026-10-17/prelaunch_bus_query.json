@@ -1,0 +1,9 @@
+{
+  "stage": "prelaunch manager query; no systemd-run/native attempt",
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Failed to connect to user scope bus via local transport: $DBUS_SESSION_BUS_ADDRESS and $XDG_RUNTIME_DIR not defined (consider using --machine=<user>@.host --user to connect to bus of other user)\n",
+  "uid": 1001,
+  "bus_path": "/run/user/1001/bus",
+  "bus_exists": true
+}

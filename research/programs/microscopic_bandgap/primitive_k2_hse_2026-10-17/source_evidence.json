@@ -1,0 +1,23 @@
+{
+  "source_reads": {
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_exx.f90": {
+      "sha256": "9ce3e0fa836a11f6e3d8dda36ab92c1f39082fbf0587fc56a36fcc3f88b57bdf",
+      "role": "Archived pristine7.5 EXX allocation, spin-source expansion and ACE source review; no new binary"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/h8r_20261015/build1/source/pristine_electrons.f90": {
+      "sha256": "e62ea5f6c65039481f5fa5b580765dac5e3074e9e2d40c0c7ab9d7acd3be8175",
+      "role": "Archived pristine7.5 outer SCF/stop logic"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/Modules/check_stop.f90": {
+      "sha256": "9ace8cf292c57c671f7df629643817f4342dd27f521b96b6908ebcf741211b86",
+      "role": "Existing7.5 EXIT file semantics; no source edit"
+    },
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/q-e/PW/src/exx_base.f90": {
+      "sha256": "918bb1ddb1dcac9074d7f5878898a5cd62b5dd92b602bb1f16339f3d4fdabf74",
+      "role": "Existing7.5 source q-star generation; no source edit"
+    }
+  },
+  "new_compiles": 0,
+  "stock_ELF_unchanged": true,
+  "scope": "source-conditioned semantics; no claim of fresh source-to-ELF build verification"
+}

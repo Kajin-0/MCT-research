@@ -1,0 +1,22 @@
+{
+  "UTC": "2026-10-17T00:38:29.510700+00:00",
+  "manager": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "6721365650476",
+    "ExecMainExitTimestampMonotonic": "6722221989259",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ControlGroup": "",
+    "MemoryPeak": "1042771968",
+    "MemorySwapPeak": "0",
+    "TasksCurrent": "[not set]",
+    "ActiveState": "active",
+    "SubState": "exited",
+    "InvocationID": "9ef75959cf584ea0a540cafa9ccf45e0"
+  },
+  "host_available_B": 29520527360,
+  "disk_free_B": 49353924608,
+  "owned_sampled_B": 37302272
+}

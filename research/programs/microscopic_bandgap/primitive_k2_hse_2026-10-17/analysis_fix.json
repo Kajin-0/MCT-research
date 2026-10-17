@@ -1,0 +1,11 @@
+{
+  "kind": "OFFLINE XML parser count error, no native retry",
+  "analysis_source_sha256": "2f6d4be6ac2d1438da51297d422e931cf47d100e0acad452629a82c4d96260f5",
+  "observed_nsym": 24,
+  "observed_nrot": 48,
+  "info_crystal_symmetry_count": 24,
+  "info_lattice_symmetry_count": 24,
+  "cartesian_orthogonality_max": 4.574911368985992e-17,
+  "correction": "select info=crystal_symmetry instead of all48 XML symmetry entries; retain24 Td and1e-10 geometry gates",
+  "native_files_modified": false
+}

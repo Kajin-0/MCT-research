@@ -2,9 +2,45 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. ONE fresh stock-QE HSE8 host ran10488.53s under the newly authorized three-hour scope and12GiB cap;79source builds, native checkpoint stop, outer SCF UNCONVERGED (dexx1.12e-6Ry). Saved density independently fails Theta/Td (Theta op.99999696), Gamma8-character spread661.215meV; host NOT accepted, Cd WITHHELD. Standard OS run measured resource-feasible; terminal sampler KeyError preserved. Unit cleaned, no retries/new software. PBE permanently CLOSED; physical x_c OPEN; all old gates preserved.
+**State:** historical persistent goal BLOCKED, unchanged. ONE fresh stock primitive k2/q2 FD-HSE+SOC control developed severe Gamma8-character splitting315.272meV and actual occupied-density Theta defect.903712 at Gamma (.016914L/.013660X). Investigator stopped through native EXIT after16source builds/856.34s; outer SCF UNCONVERGED(dexx6.23e-6Ry). No qualified nonmagnetic host or Cd;6h budget/resource caps were not exhausted. Old8atom/primitive evidence immutable, PBE permanently CLOSED, physical x_c OPEN; no active native job.
 
-**Updated:** 2026-10-16 23:22 UTC
+**Updated:** 2026-10-17 00:44 UTC
+
+<!-- PRIMITIVE_K2_HSE_20261017_BEGIN -->
+## Primitive k2/q2 scientific control — rejected trajectory, not a gap
+
+Read [decision](primitive_k2_hse_2026-10-17/decision.md),
+[state arrays/trajectory](primitive_k2_hse_2026-10-17/state_result.json),
+[verification](primitive_k2_hse_2026-10-17/verification.json).
+ONE actual fresh stockQE7.5,2atom36e/44spinors,SG15FRNC,a6.46A,
+HSE.25/.106,50/200/Fock200Ry,FD.001,primitive k2/q2/Gamma+L+X.
+Actual24Td ops,weights1/8,4/8,3/8,8q sources,FFT40³. No solver/source change.
+Outer error approached5.3e-9 then grew with split levels. Native normal EXIT
+requested after sustained~315meV spread;16builds,14m16sOS,total−484.060104456Ry,
+Fock/2−8.96881784Ry,dexx6.23e-6>1e-9,XMLfalse. Investigator EARLY stop,
+not frozen plateau trigger,600s limit,6h exhaustion or no-symmetric-solution proof.
+
+Saved density Theta op Gamma.90371172,L.01691385,X.01365988;Td max.997426.
+Gamma8-character315.272meV,not an exact multiplet;occupied35/36 mainly Theta
+map to empty38/37. Independent native35 scalar witness.816707. FD/charge pass
+(~1.57e-11e) does not repair full density. All actual3TRIM G->−G−2k mappings
+checked;8BZ fibers symmetry-reconstructed,NOT independent native full exports.
+No full-H residual or stationary/mass/xc certificate. Strict1e-8 gates unchanged.
+
+Read-only old8 translation audit:twirl distance<=9.23135e-6 leaves old Theta
+lower expression.99997850. ConventionalGamma folds primitiveGamma+3X;newmesh
+adds4L. This controls a cell-periodicity confounder,not unique k/ACE causality.
+OnlyGamma has fractional occupations;coarse mesh does not resolve HH continuum.
+
+Kernel peak1.043GB,RSS1.114GB(shared overcount),swap0,tasks7,host>=27.756GB,
+disk>=49.354GB,own output37.303MB. Unit/cgroup/originalPIDs gone;observer
+completed. Prelaunch bus query and offline48-vs24XML parser failures retained,
+not native retries.822pins/76oldfiles/dirtyDFT/stock/priorFAILS unchanged.
+NEXT separately scoped physical discriminant: samee50FDprimitive k4/q4,
+not direct-HSE by fiat or new owner software;nominal5.767GBsource/4.69h16-build
+Fock forecast are NOT complete admission/convergence bounds. No job queued.
+Current assignment STOPPED; old persistent goal and all historical stops unchanged.
+<!-- PRIMITIVE_K2_HSE_20261017_END -->
 
 <!-- STOCK_HSE_STATIONARY_20261016_BEGIN -->
 ## Stock HSE8 long-run result — host scientific NO-GO; no Cd
