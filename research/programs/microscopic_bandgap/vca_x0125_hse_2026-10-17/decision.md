@@ -77,3 +77,8 @@ Conditional Γ6-like minus Γ8-like ordering=-98.7879687199 meV; **candidate hal
 ## Revised literature boundary — 2026-10-17
 
 See [R07 prior-art priority](../prior_art_priority_2026-10-17.md). Nicklas and Wilkins (2011) already predicted HSE/SQS x_c around 0.17, excluding generic HSE crossover prediction as novel. The future research question is a nonempirical coherent-VCA-versus-disordered-alloy distinction, not an interpolation or rebranding of the current strict-symmetry-failing VCA candidate. No additional native calculation approved.
+
+
+## Primary-method audit follow-up — 2026-10-17
+
+Read [three-paper method/identifiability audit](../three_paper_method_audit_2026-10-17.md). Existing HSE SQS x_c and SCBA disorder mass prior art constrain novelty; published x=.125 SQS mostly coherent near Gamma makes testing/limiting VCA error more defensible than asserting a large shift. Same-Hamiltonian unfolded spectral/projection and disorder covariance data missing. Existing 1e-8 density symmetry FAIL and zero-cost/no-new-run gate unchanged.

@@ -2,6 +2,10 @@
 
 > **Read this before launching another calculation.** This document captures intent and navigation across context-window resets. For authoritative live truth consult `state.md`, individual `decision.md` and native readback/verification records, and current Git/tmux state. Never overwrite newer developments with this dated snapshot.
 
+## Three-paper primary-method audit — 2026-10-17
+
+[Full audit](three_paper_method_audit_2026-10-17.md): Nicklas 2011 already predicted HSE/SQS x_c~0.17; Wang 2019 studied 64-atom HgCdTe SQS x=.125 and found predominantly coherent Gamma dispersion; Krishtopenko 2022 independently derived heavy-hole Kane SCBA mass and a white-noise W^2=v^2+u^2 non-identifiability. Next priority is falsifiable, matched-observable VCA-accuracy/uncertainty analysis, not assuming a large disorder correction. Frozen strict 1e-8 symmetry FAIL persists. No further job or spending authorized.
+
 ## Highest priority prior-art update — 2026-10-17
 
 Read [Nicklas/Wilkins and related HSE/SQS prior-art priority](prior_art_priority_2026-10-17.md) before proposing new R07 computations. HSE SQS x_c about 0.17 already appeared in 2011; R07 must distinguish a coherent VCA crossing from a disorder-qualified transition with a nonempirical, falsifiable additional contribution. Existing strict symmetry gates remain failed; no scan, spending, empirical x_c fit or new native job authorized.
