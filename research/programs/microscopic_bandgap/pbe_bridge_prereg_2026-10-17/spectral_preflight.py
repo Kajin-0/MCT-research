@@ -37,6 +37,12 @@ trace352=weights.sum(axis=0)
 want=np.array([46,46,46,40,46,40,40,46])
 assert np.max(abs(trace350-want))<1e-8
 assert np.max(abs(weights[:144].sum(axis=0)-18))<1e-10
+occupation=np.fromstring(r.findtext('output/band_structure/ks_energies/occupations'),sep=' ')
+assert len(occupation)==352
+weighted=occupation@weights
+assert abs(occupation.sum()-288)<1e-8
+assert np.max(abs(weighted-36))<1e-8
+assert np.all(abs(occupation[286:290]-.5)<1e-8)
 assert np.max(abs(trace352-np.round(trace352)))>.1
 a_matrix=np.array([[0,1,1],[1,0,1],[1,1,0]])
 fold=[]
@@ -46,7 +52,11 @@ for p in itertools.product([0,.5],repeat=3):
  fold.append({'primitive_fractional':list(p),'supercell_reciprocal_fractional':list(map(float,t)),'parity_sector':format(code,'03b'),'multiplicity_class':('Gamma' if sum(q)==0 else 'X' if sum(q)==1 else 'L')})
 out={'status':'READ_ONLY_DESIGN_PIN_AND_SPECTRAL_PREFLIGHT_PASS_NO_NATIVE_OWNER_EXECUTION',
 'deck_sha256':sha(HERE/'primitive_pbe_fold46.in'),'deck_path':str(HERE/'primitive_pbe_fold46.in'),
-'source_pins':checks,'folding_map':fold,'host_occupied_144_per_sector':list(map(float,weights[:144].sum(axis=0))),
+'source_pins':checks,'folding_map':fold,'prefix_144_parity_per_sector_not_occupied':list(map(float,weights[:144].sum(axis=0))),
+'occupation_weighted_electrons_per_sector':list(map(float,weighted)),
+'occupation_sum_electrons':float(occupation.sum()),
+'occupation_fractional_bands_1based':[287,288,289,290],
+'occupation_fractional_values':list(map(float,occupation[286:290])),
 'prefix_350_per_sector':list(map(float,trace350)),'prefix_352_per_sector':list(map(float,trace352)),
 'max_integrality_error_350':float(np.max(abs(trace350-np.round(trace350)))),
 'retained_E350_eV':float(s[349]),'retained_E351_eV':float(s[350]),'retained_E352_eV':float(s[351]),
