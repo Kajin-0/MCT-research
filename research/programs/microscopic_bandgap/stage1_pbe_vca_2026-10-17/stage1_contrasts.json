@@ -1,0 +1,325 @@
+{
+  "status": "CALCULATED matched retained-spectral model contrasts; NOT material error certification",
+  "observable_reference": "each specimen own Fermi energy; no absolute cross-specimen offset",
+  "original_fixed_projectors_reused": true,
+  "VCA_Td": {
+    "Gamma6": {
+      "VCA_Gamma_bands_1based": [
+        31,
+        32
+      ],
+      "VCA_Td_class": [
+        1,
+        0,
+        0
+      ],
+      "VCA_frame_weight_in_selected": 0.9998891897936593,
+      "VCA_retained_weight": 0.9999628044856184,
+      "ordered_retained_weight": 0.9994170542320351,
+      "VCA_mean_minus_own_Fermi_eV": -0.8704807481753498,
+      "ordered_mean_minus_own_Fermi_eV": -0.875353202576707
+    },
+    "Gamma8": {
+      "VCA_Gamma_bands_1based": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "VCA_Td_class": [
+        0,
+        0,
+        1
+      ],
+      "VCA_frame_weight_in_selected": 0.9996082772145374,
+      "VCA_retained_weight": 0.9999099333564415,
+      "ordered_retained_weight": 0.9993653386606465,
+      "VCA_mean_minus_own_Fermi_eV": 8.407496920881385e-12,
+      "ordered_mean_minus_own_Fermi_eV": -1.6919798895287386e-13
+    }
+  },
+  "tracked_multiplet_ordered_eV": -0.8753532025765378,
+  "tracked_multiplet_VCA_eV": -0.8704807481837573,
+  "tracked_ordered_minus_VCA_eV": -0.004872454392780501,
+  "Gaussian_W_rows": [
+    {
+      "W_eV": 1.0,
+      "ordered_eV": -0.8496094814289237,
+      "VCA_eV": -0.8704807744624561,
+      "ordered_minus_VCA_eV": 0.020871293033532412,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "centroid_eV": -0.8508035867505249,
+            "Gaussian_mass": 0.6765106407200401,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "centroid_eV": -0.0011941053216012636,
+            "Gaussian_mass": 0.9945977524727176,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "centroid_eV": -0.870480748174173,
+            "Gaussian_mass": 0.6845598631254007,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "centroid_eV": 2.6288283104176054e-08,
+            "Gaussian_mass": 0.9996082834632192,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    },
+    {
+      "W_eV": 1.5,
+      "ordered_eV": -0.8453099053995662,
+      "VCA_eV": -0.8704842002733796,
+      "ordered_minus_VCA_eV": 0.025174294873813396,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "centroid_eV": -0.8473775038539227,
+            "Gaussian_mass": 0.8378367645051719,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "centroid_eV": -0.002067598454356573,
+            "Gaussian_mass": 0.9957012655965434,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "centroid_eV": -0.8704806760739362,
+            "Gaussian_mass": 0.8449340119476798,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "centroid_eV": 3.524199443428966e-06,
+            "Gaussian_mass": 0.9996091299422161,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    },
+    {
+      "W_eV": 2.0,
+      "ordered_eV": -0.842933007617828,
+      "VCA_eV": -0.8704933910987163,
+      "ordered_minus_VCA_eV": 0.027560383480888295,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "centroid_eV": -0.8454556436624725,
+            "Gaussian_mass": 0.9034810735370137,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "centroid_eV": -0.00252263604464449,
+            "Gaussian_mass": 0.996284135947453,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "centroid_eV": -0.8704772810374124,
+            "Gaussian_mass": 0.9095298792246401,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "centroid_eV": 1.611006130384374e-05,
+            "Gaussian_mass": 0.9996135456203482,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    },
+    {
+      "W_eV": 2.5,
+      "ordered_eV": -0.8424356642846041,
+      "VCA_eV": -0.8704717584323263,
+      "ordered_minus_VCA_eV": 0.028036094147722124,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "centroid_eV": -0.8452325301356703,
+            "Gaussian_mass": 0.9359148307585381,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "centroid_eV": -0.0027968658510661793,
+            "Gaussian_mass": 0.9966238822799254,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "centroid_eV": -0.8704599271996076,
+            "Gaussian_mass": 0.9410802326952648,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "centroid_eV": 1.183123271867195e-05,
+            "Gaussian_mass": 0.9996233842425786,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    },
+    {
+      "W_eV": 3.0,
+      "ordered_eV": -0.8428033524679782,
+      "VCA_eV": -0.8703874123919749,
+      "ordered_minus_VCA_eV": 0.027584059923996707,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "centroid_eV": -0.8459155696693376,
+            "Gaussian_mass": 0.9542684528089972,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "centroid_eV": -0.003112217201359318,
+            "Gaussian_mass": 0.9968557284173059,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "centroid_eV": -0.870425627708191,
+            "Gaussian_mass": 0.9586783257412617,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "centroid_eV": -3.821531621603912e-05,
+            "Gaussian_mass": 0.9996395705533452,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    }
+  ],
+  "scalar_inverse_eta_rows": [
+    {
+      "eta_eV": 0.025,
+      "ordered_eV": -0.9094922439257873,
+      "VCA_eV": -0.8705852250368692,
+      "ordered_minus_VCA_eV": -0.03890701888891812,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "G_real": 1.0985572947750966,
+            "G_imag": -0.03245862867505766,
+            "inverse_real_eV": 0.9094908066041048,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "G_real": -0.0022561839347140233,
+            "G_imag": -39.61961600100181,
+            "inverse_real_eV": -1.4373216825144381e-06,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "G_real": 1.1477059232073274,
+            "G_imag": -0.032962188994301964,
+            "inverse_real_eV": 0.8705852409160902,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "G_real": 2.538685302765237e-05,
+            "G_imag": -39.98433127369709,
+            "inverse_real_eV": 1.587922106415708e-08,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    },
+    {
+      "eta_eV": 0.05,
+      "ordered_eV": -0.9093312322282614,
+      "VCA_eV": -0.870585151433455,
+      "ordered_minus_VCA_eV": -0.03874608079480635,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "G_real": 1.0958893835856236,
+            "G_imag": -0.06475804846706743,
+            "inverse_real_eV": 0.9093256377894471,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "G_real": -0.0021955609673378505,
+            "G_imag": -19.8104565236554,
+            "inverse_real_eV": -5.5944388143069916e-06,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "G_real": 1.1448752679604226,
+            "G_imag": -0.06576178646403531,
+            "inverse_real_eV": 0.8705852149750071,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "G_real": 2.5396713121984158e-05,
+            "G_imag": -19.992165914499754,
+            "inverse_real_eV": 6.354155205069368e-08,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    },
+    {
+      "eta_eV": 0.1,
+      "ordered_eV": -0.9086961118255785,
+      "VCA_eV": -0.8705848570525958,
+      "ordered_minus_VCA_eV": -0.03811125477298272,
+      "details": {
+        "ordered": {
+          "Gamma6": {
+            "G_real": 1.0853456371527885,
+            "G_imag": -0.1282579456914954,
+            "inverse_real_eV": 0.9086760638068875,
+            "missing_spectral_probability": 0.0005829457679649153
+          },
+          "Gamma8": {
+            "G_real": -0.0019674735674629793,
+            "G_imag": -9.90646513414942,
+            "inverse_real_eV": -2.0048018691077215e-05,
+            "missing_spectral_probability": 0.0006346613393535261
+          }
+        },
+        "vca": {
+          "Gamma6": {
+            "G_real": 1.133690909980959,
+            "G_imag": -0.1302387242640775,
+            "inverse_real_eV": 0.8705851112349899,
+            "missing_spectral_probability": 3.719551438163826e-05
+          },
+          "Gamma8": {
+            "G_real": 2.5398333271087437e-05,
+            "G_imag": -9.996083512386017,
+            "inverse_real_eV": 2.5418239416019857e-07,
+            "missing_spectral_probability": 9.006664355848404e-05
+          }
+        }
+      }
+    }
+  ],
+  "caveats": [
+    "Gaussian widths/eta are externally imposed probes, not intrinsic linewidth",
+    "PBE 46-band \u0393-retained VCA and 352-band ordered supercell have separate incomplete high-energy tails",
+    "No material uncertainty bound or physical xc established",
+    "No HSE transfer or random alloy statistics",
+    "Scalar inverse is not equivalent to a sharp signed inversion mass",
+    "own Fermi energy per sample; no absolute energy alignment"
+  ],
+  "native_stage1_guard_pass": true
+}
