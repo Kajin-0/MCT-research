@@ -1,0 +1,63 @@
+{
+  "purpose": "disorder benchmark capacity and coherent sign-switch decision threshold; not a disorder calculation",
+  "lattice_constant_A": 6.46,
+  "supercells": [
+    {
+      "primitive_repetitions": [
+        2,
+        2,
+        2
+      ],
+      "atoms": 16,
+      "cation_sites": 8,
+      "cadmium_sites_for_x0125": 1,
+      "number_of_raw_Cd_occupancy_sets": 8,
+      "number_of_single_Cd_orbits_under_lattice_translations": 1,
+      "Cd_Cd_pair_distances_A": [],
+      "Cd_pair_correlations_identifiable": false
+    },
+    {
+      "primitive_repetitions": [
+        2,
+        2,
+        4
+      ],
+      "atoms": 32,
+      "cation_sites": 16,
+      "cadmium_sites_for_x0125": 2,
+      "number_of_raw_Cd_occupancy_sets": 120,
+      "number_of_single_Cd_orbits_under_lattice_translations": 1,
+      "Cd_Cd_pair_distances_A": [
+        4.567909806,
+        6.46,
+        7.911851869,
+        9.135819613
+      ],
+      "Cd_pair_correlations_identifiable": "different pair distances allow inequivalent environments, but 1-2 configurations do not establish ensemble convergence"
+    }
+  ],
+  "archived_x0125_PBE16_input": {
+    "exists": true,
+    "Cd_atoms": 1,
+    "atoms": 16,
+    "source_path": "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/physical_pbe_soc_16atom_20261013/impurity/pw.in",
+    "sha256": "adbd12be64d4613aa774ddba830b3e51a0aa614f8f9cda706a7a47d542e00f22",
+    "scientific_status": "input and interrupted older PBE archive; not accepted self-consistent HSE alloy evidence"
+  },
+  "historical_HSE16_resource": {
+    "source": "research/programs/microscopic_bandgap/native_matched_pilot_2026-10-11/decision.md",
+    "interrupted_family_RSS_GiB": 26.72213,
+    "authorized_family_cap_GiB": 26.63966,
+    "SCF_completed": false,
+    "Cd_substitution_started": false
+  },
+  "conditional_VCA_x0125_half_ordering_eV": -0.04939398435995024,
+  "conditional_positive_disorder_shift_needed_for_sign_reversal_eV": 0.04939398435995024,
+  "important_limits": [
+    "conditional x=.125 VCA sign NOT certified under prospective 1e-8 full-density symmetry gate",
+    "two Cd sites and multiple pair distances are necessary not sufficient for ensemble uncertainty",
+    "x=.125 PBE 16-atom model is different from HSE",
+    "same-H screened spectral correction and configurational uncertainty remain unknown",
+    "no native run or spending authorized by this capacity test"
+  ]
+}
