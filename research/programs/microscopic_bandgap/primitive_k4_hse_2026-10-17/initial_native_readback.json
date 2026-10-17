@@ -1,0 +1,1001 @@
+{
+  "UTC": "2026-10-17T01:36:00.347909+00:00",
+  "status": "RUNNING native startup readback, not SCF/material acceptance",
+  "native_k_points_crystal_stdout": [
+    {
+      "index": 1,
+      "crystal": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weight": 0.015625
+    },
+    {
+      "index": 2,
+      "crystal": [
+        0.0,
+        0.0,
+        0.25
+      ],
+      "weight": 0.125
+    },
+    {
+      "index": 3,
+      "crystal": [
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "weight": 0.0625
+    },
+    {
+      "index": 4,
+      "crystal": [
+        0.0,
+        0.25,
+        0.25
+      ],
+      "weight": 0.09375
+    },
+    {
+      "index": 5,
+      "crystal": [
+        0.0,
+        0.25,
+        -0.5
+      ],
+      "weight": 0.375
+    },
+    {
+      "index": 6,
+      "crystal": [
+        0.0,
+        0.25,
+        -0.25
+      ],
+      "weight": 0.1875
+    },
+    {
+      "index": 7,
+      "crystal": [
+        0.0,
+        -0.5,
+        -0.5
+      ],
+      "weight": 0.046875
+    },
+    {
+      "index": 8,
+      "crystal": [
+        0.25,
+        -0.5,
+        -0.25
+      ],
+      "weight": 0.09375
+    }
+  ],
+  "native_q_source_points_stdout": [
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_irreducible_index": 1,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        0.1767767,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.0,
+        0.25
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        -0.3535534,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "source_irreducible_index": 3,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        -0.1767767,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.0,
+        -0.25
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": -1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        -0.1767767,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.25,
+        0.0
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": 4
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.0,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.25,
+        0.25
+      ],
+      "source_irreducible_index": 4,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        -0.5303301,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.25,
+        -0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        -0.3535534,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.25,
+        -0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.3535534,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "source_irreducible_index": 3,
+      "source_symmetry_index": 4
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        0.5303301,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.5,
+        0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 4
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.7071068,
+        0.0,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.5,
+        -0.5
+      ],
+      "source_irreducible_index": 7,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        -0.5303301,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        0.5,
+        -0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -4
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        0.1767767,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.25,
+        0.0
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": -4
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.3535534,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.25,
+        0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": -1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        0.5303301,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.25,
+        0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.0,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.0,
+        -0.25,
+        -0.25
+      ],
+      "source_irreducible_index": 4,
+      "source_symmetry_index": -1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        0.1767767,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.0,
+        0.0
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": 3
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.0,
+        0.25
+      ],
+      "source_irreducible_index": 4,
+      "source_symmetry_index": 5
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        -0.1767767,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.0,
+        -0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 7
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.0,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.0,
+        -0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": -5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.0,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.25,
+        0.0
+      ],
+      "source_irreducible_index": 4,
+      "source_symmetry_index": 9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        0.1767767,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": -2
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": 11
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        0.5303301,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.25,
+        0.75
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -12
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        0.5303301,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        -0.5,
+        0.0
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.0,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": -6
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        -0.5303301,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        -0.75,
+        -0.5,
+        -0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -2
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.7071068,
+        0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        -0.5,
+        -0.25
+      ],
+      "source_irreducible_index": 8,
+      "source_symmetry_index": 1
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        -0.25,
+        0.0
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": 9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        -0.1767767,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        0.75,
+        0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -6
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.7071068,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.25,
+        -0.25,
+        0.5
+      ],
+      "source_irreducible_index": 8,
+      "source_symmetry_index": -5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        -0.5303301,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        -0.75,
+        -0.25,
+        -0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 3
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        -0.3535534,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        0.0,
+        0.0
+      ],
+      "source_irreducible_index": 3,
+      "source_symmetry_index": 3
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        -0.1767767,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        0.0,
+        0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        -0.7071068,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "source_irreducible_index": 7,
+      "source_symmetry_index": 5
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        0.1767767,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        0.0,
+        -0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        -0.5303301,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        0.25,
+        0.0
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 10
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.3535534,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": 2
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        -0.1767767,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        -0.75,
+        -0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -8
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.0,
+        0.7071068
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        0.25,
+        -0.25
+      ],
+      "source_irreducible_index": 8,
+      "source_symmetry_index": -9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.0,
+        -0.7071068
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        -0.5,
+        0.0
+      ],
+      "source_irreducible_index": 7,
+      "source_symmetry_index": 9
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        -0.5303301,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        -0.5,
+        -0.75
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -11
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.3535534,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "source_irreducible_index": 3,
+      "source_symmetry_index": 2
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        0.5303301,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 11
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        0.5303301,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        -0.25,
+        0.0
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -10
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.0,
+        -0.7071068
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        -0.25,
+        0.25
+      ],
+      "source_irreducible_index": 8,
+      "source_symmetry_index": 9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        0.1767767,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.5,
+        0.75,
+        0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 8
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        -0.3535534,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        -0.5,
+        -0.25,
+        -0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": -2
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        -0.1767767,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.0,
+        0.0
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": -3
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        0.0,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.0,
+        0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": 5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        0.1767767,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.0,
+        0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -7
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        -0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.0,
+        -0.25
+      ],
+      "source_irreducible_index": 4,
+      "source_symmetry_index": -5
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.3535534,
+        -0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.25,
+        0.0
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": -9
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        0.5303301,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.75,
+        0.25,
+        0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -3
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        -0.7071068,
+        0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.25,
+        -0.5
+      ],
+      "source_irreducible_index": 8,
+      "source_symmetry_index": 5
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        0.1767767,
+        -0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        -0.75,
+        -0.25
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 6
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.5303301,
+        -0.5303301,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.5,
+        0.0
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": -9
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.7071068,
+        -0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        0.5,
+        0.25
+      ],
+      "source_irreducible_index": 8,
+      "source_symmetry_index": -1
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.1767767,
+        0.5303301,
+        0.5303301
+      ],
+      "crystal_quarter_rounded": [
+        0.75,
+        0.5,
+        0.5
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 2
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        0.0,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        -0.5,
+        -0.25
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": 6
+    },
+    {
+      "cart_2pi_over_alat": [
+        0.0,
+        0.0,
+        -0.3535534
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        -0.25,
+        0.0
+      ],
+      "source_irreducible_index": 4,
+      "source_symmetry_index": -9
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.5303301,
+        -0.5303301,
+        0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        -0.25,
+        -0.75
+      ],
+      "source_irreducible_index": 5,
+      "source_symmetry_index": 12
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.3535534,
+        -0.3535534,
+        0.0
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        -0.25,
+        -0.5
+      ],
+      "source_irreducible_index": 6,
+      "source_symmetry_index": -11
+    },
+    {
+      "cart_2pi_over_alat": [
+        -0.1767767,
+        -0.1767767,
+        -0.1767767
+      ],
+      "crystal_quarter_rounded": [
+        -0.25,
+        -0.25,
+        -0.25
+      ],
+      "source_irreducible_index": 2,
+      "source_symmetry_index": 2
+    }
+  ],
+  "native_q_full_count": 64,
+  "native_Gamma_weight": 0.015625,
+  "native_nsym": 24,
+  "EXX_FFT": [
+    40,
+    40,
+    40
+  ],
+  "only_kq_runtime_paths_changed": true,
+  "XML_final_k_coordinates_not_yet_available": true,
+  "explicit_q_coords_not_stored_in_XML": true,
+  "source": "actual native stdout, not requested mesh alone",
+  "full_spinor_Theta_and_irreps_not_yet_available": true,
+  "native_physics_header": {
+    "ecutwfc_Ry": 50.0,
+    "ecutrho_Ry": 200.0,
+    "ecutfock_Ry": 200.0,
+    "exx_fraction": 0.25,
+    "screening_Bohr_inverse": 0.106,
+    "FD_sigma_Ry": 0.001,
+    "electrons": 36.0,
+    "nbnd": 44.0
+  },
+  "native_nonmagnetic_SOC_label_observed": true,
+  "SOC_label_not_density_Theta_certificate": true
+}

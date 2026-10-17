@@ -2,9 +2,50 @@
 
 **Portfolio contribution:** R07
 
-**State:** historical persistent goal BLOCKED, unchanged. ONE fresh stock primitive k2/q2 FD-HSE+SOC control developed severe Gamma8-character splitting315.272meV and actual occupied-density Theta defect.903712 at Gamma (.016914L/.013660X). Investigator stopped through native EXIT after16source builds/856.34s; outer SCF UNCONVERGED(dexx6.23e-6Ry). No qualified nonmagnetic host or Cd;6h budget/resource caps were not exhausted. Old8atom/primitive evidence immutable, PBE permanently CLOSED, physical x_c OPEN; no active native job.
+**State:** historical persistent goal BLOCKED, unchanged. ONE newly authorized stock primitive k4/q4 FD-HSE+SOC control is RUNNING (unit r07-pk4-1017013015, invocation8dee58502fd048e4bf30a09bd9053a1f), matching k2 except quadrature/paths/runtime. Native Gamma weight1/64 and64q sources verified; first ACE underway at01:37UTC checkpoint, peak6.133GB so far.24h hard/23h native/12GiB/swap0/tasks12 and frozen early-stop rule; no restart,second case,Cd or final scientific result. Oldk2/HSE8 refusals immutable,PBE CLOSED,physical x_c OPEN.
 
-**Updated:** 2026-10-17 00:44 UTC
+**Updated:** 2026-10-17 01:39 UTC
+
+<!-- PRIMITIVE_K4_HSE_20261017_BEGIN -->
+## ACTIVE sole primitive k4/q4 stock-HSE control — not a result yet
+
+Read [decision](primitive_k4_hse_2026-10-17/decision.md),
+[frozen protocol](primitive_k4_hse_2026-10-17/preregistration.md),
+[live checkpoint](primitive_k4_hse_2026-10-17/active_checkpoint.json),
+[verification](primitive_k4_hse_2026-10-17/verification.json).
+Started2026-10-17 01:34:29UTC; user explicitly authorizes24h,
+not a600s restriction. StockQE7.5/two local ranks,primitive2atom,
+36e/44spinors,50/200/Fock200Ry,HSE.25/.106,FD.001,a6.46A,SG15FRNC,
+atomic start; onlyk/q2->4,paths/prefix/budget changed fromab6fbd0k2.
+Actual8irreduciblepoints,64sourcepoints,Gammaweight1/64,24Td,FFT40³.
+
+01:37:07UTC immutable checkpoint:RUNNING firstACE,zero completed outer
+residual records. Kernel peak6.133GB,RSS6.196GB(shared overcount),swap0,
+tasks7,host available>=23.760GB,disk>=49.352GB,own output~2.1MB.
+Initial semilocal SCF10iterations is NOT final HSE/outer convergence.
+No actual saved full-D Theta/irrep or signed mass/x_c statement yet.
+
+Worker `r07-pk4-1017013015.service`,invocation
+`8dee58502fd048e4bf30a09bd9053a1f`;launcher1999216,ranks1999219/1999220.
+Root `/home/User/opencode_workspace/DFT/.local/p4_1017_013015`.
+Persistent bounded OS observer `r07-pk4-1017013015-observe.service`;
+worker standardBindsTo stops if observer fails. Kernel12GiB/swap0/tasks12/
+24h,CPU200%;native max_seconds82800. Hard deadlineOct18 01:34:29UTC.
+Native maxseconds/checkpoint does not prove stationarity. No automaticrestart.
+Frozen>=12completed-build guideline requests nativeEXIT for sustained>0.2eV
+candidate splitting,degraded FD occupations and nonrecovering dexx. Printed
+indices are provisional; final physical G-labelled spinors must confirm them.
+No custom QE/owner/FD framework,source build,PBE job,paid action or secondcase.
+
+NEXT inspect existing private progress/resources/stdout and terminal/refusal
+files; NEVER relaunch a missing unit blindly. After its sole termination,
+read saved XML/waves,verify36e/FD/actual Td/Theta/full-H limits,cleanup thenstop.
+k4 includes non-TRIM k: use real-k/-k reciprocal maps,not the k2self-fiber
+formula unchanged. No open_grid. Immutable Git checkpoints are prefixes,
+not terminal file pins; current runtime files stay private so worktree is clean.
+822pins/76oldfiles/dirtyDFT/stock/oldfailed evidence verified unchanged.
+This native case may continue asynchronously; historicalblockedgoal unchanged.
+<!-- PRIMITIVE_K4_HSE_20261017_END -->
 
 <!-- PRIMITIVE_K2_HSE_20261017_BEGIN -->
 ## Primitive k2/q2 scientific control — rejected trajectory, not a gap

@@ -1,0 +1,24 @@
+--- frozen_k2
++++ prospective_k4
+@@ -1,12 +1,12 @@
+ &CONTROL
+- calculation='scf', prefix='r07pk2', outdir='/home/User/opencode_workspace/DFT/.local/r07pk2_20261017_002313/out',
+- pseudo_dir='/home/User/opencode_workspace/DFT/.local/r07pk2_20261017_002313/pp', verbosity='high', disk_io='low', restart_mode='from_scratch', max_seconds=21000,
++ calculation='scf', prefix='r07pk4', outdir='/home/User/opencode_workspace/DFT/.local/p4_1017_013015/out',
++ pseudo_dir='/home/User/opencode_workspace/DFT/.local/p4_1017_013015/pp', verbosity='high', disk_io='low', restart_mode='from_scratch', max_seconds=82800,
+ /
+ &SYSTEM
+  ibrav=0, nat=2, ntyp=2, nbnd=44, ecutwfc=50, ecutrho=200,
+  occupations='smearing', smearing='fd', degauss=0.001,
+  noncolin=.true., lspinorb=.true., nosym=.false., input_dft='HSE', ecutfock=200, exx_fraction=0.25, screening_parameter=0.106,
+- nqx1=2, nqx2=2, nqx3=2, ace=.true.,
++ nqx1=4, nqx2=4, nqx3=4, ace=.true.,
+ /
+ &ELECTRONS
+  conv_thr=1d-9, adaptive_thr=.false., exx_maxstep=100, mixing_beta=0.3, electron_maxstep=100,
+@@ -23,4 +23,4 @@
+ Hg 0 0 0
+ Te 0.25 0.25 0.25
+ K_POINTS automatic
+-2 2 2 0 0 0
++4 4 4 0 0 0

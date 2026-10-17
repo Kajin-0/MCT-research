@@ -1,0 +1,10 @@
+{
+  "UTC": "2026-10-17T01:33:48.438542+00:00",
+  "offline_only": true,
+  "native_runs": 0,
+  "retained_k2_frozen_early_stop_detected": true,
+  "no_trigger_before12completed": true,
+  "incomplete_line_not_data": true,
+  "source_sha256": "65b4536a997824a7f99ce395b5ab933ffe2969af7418e8a969b6bc89f5632542",
+  "scientific_label": "provisional native printed indices; no actual symmetry/material qualification"
+}

@@ -16,6 +16,43 @@ We seek a distinct, falsifiable physical advance beyond extant HgCdTe SQS, DFT/H
 4. **Avoid false uncertainty.** Conditional projector/tail/IEEE bounds are not HSE functional, composition, finite-size, disordered-alloy, electron-phonon or material error bars. Retained data may fail to identify missing causal moments or impurity correlations. Preserve exact mathematical NO-GO claims under their assumptions.
 5. **New contribution criterion.** Compare each proposed claim against Wei & Zunger (1991), Phys. Rev. B 43, 1662, doi:10.1103/PhysRevB.43.1662; Krishtopenko, Antezza & Teppe (2022), Phys. Rev. B 106, 115203, doi:10.1103/PhysRevB.106.115203; Alowa et al. (2025), J. Phys. D 58, 135120, doi:10.1088/1361-6463/adb2a0; Lin ACE (2016), SQS (Zunger/Wei/Ferreira/Bernard 1990), and newer competing work. Relevant local files: `chemical_pbe16_p2_2026-10-15/literature_boundary.md`, `analytical_first_2026-10-11/literature.md`, `continuum_spectral_2026-10-11/literature.md`, `threshold_causal_2026-10-11/literature.md`, and `../correlated_random_mass_kane/prior_art_matrix.md`. Novelty currently **UNVERIFIED**.
 
+## ACTIVE k4/q4 control — new authorization, 2026-10-17
+
+Read `primitive_k4_hse_2026-10-17/{decision.md,preregistration.md,
+active_checkpoint.json,initial_live.json,verification.json}` FIRST for the
+current native case. Started01:34:29UTC fromab6fbd0. It is RUNNING under
+24h hard/23h native,not600s. No new QE/solver/owner build. Same e50/FD
+primitive36e/44spinor,HSE.25/.106,50/200/Fock200,a6.46A,SG15FRNC as k2;
+onlyquadrature4³ plusnewpaths/runtime. Native8irreps/64q,Gammaweight1/64,
+24crystalops,FFT40³ confirmed. Initial semilocal SCF is not a new HSE result.
+
+01:37:07checkpoint: firstACE ongoing,zero complete outer residual records;
+peak6.133GB,RSS6.196GB(shared overcount),swap0,tasks7,host>=23.760GB,
+disk>=49.352GB. No saved final full-D/covariance/irrep or mass/xc claim.
+Worker `r07-pk4-1017013015.service`,invocation
+`8dee58502fd048e4bf30a09bd9053a1f`,launcher1999216,ranks1999219/1999220.
+Private root `/home/User/opencode_workspace/DFT/.local/p4_1017_013015`.
+Observer `r07-pk4-1017013015-observe.service` samples OS/progress;standard
+BindsTo stops worker on observer loss. Hard24h endsOct18 01:34:29UTC;
+source native82800 seconds allows checkpoint margin. No retry/restart/Cd.
+
+Frozen early-stop guideline only after>=12completedbuilds:sustained3blocks
+>0.2eV candidatequartet splitting,FDdegrading,notrapidlyconvergingdexx.
+Observer writes prefixEXIT once; this is provisionalindexdiagnostic,notirrep
+proof. If approachingconvergence/restoringsymmetry,continue withinbudget.
+On return inspect PRIVATE `science_progress.json`,`resource_samples.jsonl`,
+`pw.out`,`observer.err`,possible`scientific_stop_request.json`,
+`resource_refusal.json`,`terminal_manager.json`;query existingunits.
+If unit is gone,inspecttermination;NEVERstart another case. Final analysis
+must handle generic k/-k and realG labels,distinguish reconstructed64BZfrom
+native8savedwavefiles;do not reuse k2allTRIMcode unchanged or runopen_grid.
+Check actualouterSCF/36e/FD/Td/Theta and unavailablefullHresidual separately.
+
+Committed checkpoint is an immutable PREFIX,not currentfilehash or restart
+certificate. Runtime writes onlyprivateroot;822pins/76oldfiles/dirtyDFT,
+stock,oldrefusals/PBEclosure/main/othersessions/goal unchanged. Continue
+REVIEW of this authorized onecase,not new infrastructure/new material jobs.
+
 ## Latest native primitive k2/q2 result — 2026-10-17
 
 Read `primitive_k2_hse_2026-10-17/{decision.md,state_result.json,

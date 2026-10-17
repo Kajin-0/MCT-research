@@ -1,0 +1,61 @@
+{
+  "UTC": "2026-10-17T01:37:07.636914+00:00",
+  "status": "RUNNING",
+  "root": "/home/User/opencode_workspace/DFT/.local/p4_1017_013015",
+  "checkpoint_dir": "/home/User/repos/MCT-research/research/programs/microscopic_bandgap/primitive_k4_hse_2026-10-17/checkpoint_013707",
+  "worker_unit": "r07-pk4-1017013015.service",
+  "observer_unit": "r07-pk4-1017013015-observe.service",
+  "worker_invocation": "8dee58502fd048e4bf30a09bd9053a1f",
+  "worker_mainPID": 1999216,
+  "worker_rank_PIDs": [
+    1999219,
+    1999220
+  ],
+  "snapshot_prefixes": {
+    "pw.out": {
+      "source": "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.out",
+      "bytes": 36139,
+      "sha256": "cd144839a7e0ee3eb34eaf8f4f137d523b271d12c80d200ea49fe285d228647c",
+      "kind": "immutable prefix of running file; not terminal full-file pin"
+    },
+    "pw.err": {
+      "source": "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "immutable prefix of running file; not terminal full-file pin"
+    },
+    "resource_samples.jsonl": {
+      "source": "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/resource_samples.jsonl",
+      "bytes": 8469,
+      "sha256": "b11bbb8457e3f978ab35f3fa020300de8c1facbabd2b610011d190c16140f2c1",
+      "kind": "immutable prefix of running file; not terminal full-file pin"
+    },
+    "observer.out": {
+      "source": "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/observer.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "immutable prefix of running file; not terminal full-file pin"
+    },
+    "observer.err": {
+      "source": "/home/User/opencode_workspace/DFT/.local/p4_1017_013015/observer.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "immutable prefix of running file; not terminal full-file pin"
+    }
+  },
+  "elapsed_since_start_s": 158.11701000016183,
+  "complete_EXX_residuals": 0,
+  "first_ACE_build_in_progress": true,
+  "initial_semilocal_SCF_not_final_HSE": true,
+  "kernel_memory_peak_B": 6133006336,
+  "sampled_family_RSS_peak_B": 6196469760,
+  "swap_peak_B": 0,
+  "sampled_host_available_min_B": 23760388096,
+  "sampled_disk_free_min_B": 49351831552,
+  "sampled_owned_output_max_B": 2101248,
+  "resource_sample_count": 6,
+  "native_outer_converged": null,
+  "qualified_nonmagnetic_state": null,
+  "physical_xc": null,
+  "restart_or_second_job_authorized": false
+}

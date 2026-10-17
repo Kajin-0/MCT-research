@@ -1,0 +1,20 @@
+{
+  "verified": true,
+  "scope": "immutable RUNNING checkpoint, not terminal SCF/symmetry PASS",
+  "status_at_checkpoint": "RUNNING",
+  "native_case_count": 1,
+  "native_restarts": 0,
+  "Gamma_weight_measured": 0.015625,
+  "q_points_measured": 64,
+  "kernel_peak_at_checkpoint_B": 6133006336,
+  "source_physics_delta_only_kq": true,
+  "protected_pins_unchanged": 822,
+  "historical_originals_unchanged": 76,
+  "old_k2_HSE8_and_PBE_closure_unchanged": true,
+  "DFT_dirty_unchanged": true,
+  "native_final_state_unavailable_at_checkpoint": true,
+  "worker_unit": "r07-pk4-1017013015.service",
+  "worker_invocation": "8dee58502fd048e4bf30a09bd9053a1f",
+  "protected_future_action": "inspect existing job; never launch/retry a second case",
+  "physical_xc": null
+}

@@ -1,0 +1,98 @@
+{
+  "UTC": "2026-10-17T01:34:54.461353+00:00",
+  "units": {
+    "unit": {
+      "RuntimeMaxUSec": "1d",
+      "MainPID": "1999216",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-17 01:34:29 UTC",
+      "ControlGroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service",
+      "MemoryPeak": "1692344320",
+      "MemorySwapPeak": "0",
+      "MemoryMax": "12884901888",
+      "MemorySwapMax": "0",
+      "TasksMax": "12",
+      "Id": "r07-pk4-1017013015.service",
+      "BindsTo": "r07-pk4-1017013015-observe.service",
+      "After": "app.slice r07-pk4-1017013015-observe.service basic.target -.mount",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "8dee58502fd048e4bf30a09bd9053a1f",
+      "kernel": {
+        "memory.max": "12884901888",
+        "memory.swap.max": "0",
+        "pids.max": "12",
+        "memory.current": "1692868608",
+        "memory.peak": "1692868608",
+        "pids.current": "7",
+        "cgroup.procs": "1999216\n1999219\n1999220"
+      },
+      "processes": [
+        {
+          "pid": 1999216,
+          "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prte",
+          "exe_sha256": "823411e91988389a14c931eaacbef0482db7e00a320d1875f7b900a9884cb811",
+          "stat": "1999216 (prterun) S 805 1999216 1999216 0 -1 4194304 2012 0 3 0 1 5 0 0 30 10 3 0 672559114 136404992 3169 18446744073709551615 102492117217280 102492117234413 140725935098928 0 0 0 0 0 1741388339 0 0 0 17 7 0 0 0 0 0 102492117243896 102492117246144 102492533501952 140725935102290 140725935102513 140725935102513 140725935103932 0\n",
+          "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service\n",
+          "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prterun --host localhost:2 -np 2 --bind-to core /home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.in "
+        },
+        {
+          "pid": 1999219,
+          "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+          "exe_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+          "stat": "1999219 (pw.x) R 1999216 1999219 1999216 0 -1 4194304 253108 0 2 0 1919 593 0 0 30 10 2 0 672559120 3487338496 215431 18446744073709551615 108694330204160 108694337688589 140734058565888 0 0 0 0 0 1098908925 0 0 0 17 0 0 0 0 0 0 108694340306544 108694340492304 108694703177728 140734058574881 140734058575004 140734058575004 140734058577855 0\n",
+          "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service\n",
+          "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.in "
+        },
+        {
+          "pid": 1999220,
+          "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+          "exe_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+          "stat": "1999220 (pw.x) R 1999216 1999220 1999216 0 -1 4194304 259725 0 2 0 1919 594 0 0 30 10 2 0 672559120 3486400512 217467 18446744073709551615 109794542469120 109794549953549 140731655120848 0 0 0 0 0 1098908925 0 0 0 17 1 0 0 0 0 0 109794552571504 109794552757264 109794679967744 140731655124001 140731655124124 140731655124124 140731655126975 0\n",
+          "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015.service\n",
+          "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/p4_1017_013015/pw.in "
+        }
+      ]
+    },
+    "observer_unit": {
+      "RuntimeMaxUSec": "1d 5min",
+      "MainPID": "1999213",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-17 01:34:29 UTC",
+      "ControlGroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015-observe.service",
+      "MemoryPeak": "8040448",
+      "MemorySwapPeak": "0",
+      "MemoryMax": "268435456",
+      "MemorySwapMax": "0",
+      "TasksMax": "3",
+      "Id": "r07-pk4-1017013015-observe.service",
+      "BindsTo": "",
+      "After": "basic.target app.slice -.mount",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "94780d99bb7b4fafbc1b43b7f892bfb6",
+      "kernel": {
+        "memory.max": "268435456",
+        "memory.swap.max": "0",
+        "pids.max": "3",
+        "memory.current": "6721536",
+        "memory.peak": "8040448",
+        "pids.current": "1",
+        "cgroup.procs": "1999213"
+      },
+      "processes": [
+        {
+          "pid": 1999213,
+          "exe": "/usr/bin/python3.13",
+          "exe_sha256": "efb29ce53d36ebaeee80e3aa44fd6c7f9d71bbded5fe1665240b2ed8ecaeee0e",
+          "stat": "1999213 (python3) S 805 1999213 1999213 0 -1 4194304 2225 443 0 0 3 1 0 0 39 19 1 0 672559109 22290432 3451 18446744073709551615 4325376 7742033 140727980814848 0 0 0 0 16781312 2 1 0 0 17 7 0 0 0 0 0 10497464 11089672 896593920 140727980821685 140727980821774 140727980821774 140727980822503 0\n",
+          "cgroup": "0::/user.slice/user-1001.slice/user@1001.service/app.slice/r07-pk4-1017013015-observe.service\n",
+          "cmdline": "/usr/bin/python3 /home/User/opencode_workspace/DFT/.local/p4_1017_013015/observe_case.py "
+        }
+      ]
+    }
+  },
+  "actual_filesystem_sockets": []
+}
