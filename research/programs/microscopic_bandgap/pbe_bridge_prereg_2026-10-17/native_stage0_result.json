@@ -1,0 +1,57 @@
+{
+  "experiment": "R07_STAGE0_NATIVE_PBE_SOC_PRIMITIVE_FOLD46_SINGLE_AUTHORIZED_RUN",
+  "native_execution": "SUCCEEDED_ONCE",
+  "terminal_guard": "PASS",
+  "k_reduced": [
+    {
+      "weight": 0.125,
+      "band_count": 46,
+      "occupations": 36.00000000024952
+    },
+    {
+      "weight": 0.5,
+      "band_count": 46,
+      "occupations": 36.00000000000574
+    },
+    {
+      "weight": 0.375,
+      "band_count": 46,
+      "occupations": 36.0
+    }
+  ],
+  "electron_primitive": 36,
+  "electron_supercell": 288,
+  "spinor_occupation_kind": "QE noncollinear FD smearing",
+  "complete_350_spectrum_max_abs_meV": 0.2777850632043055,
+  "complete_350_spectrum_mean_abs_meV": 0.12454313030405562,
+  "observed_2meV_spectral_target": "MET",
+  "primitive_etot_H": -242.3689026051051,
+  "supercell_etot_H": -1938.951220640645,
+  "supercell_minus_8primitive_free_energy_meV": 0.005447602517962208,
+  "observed_8meV_free_energy_target": "MET",
+  "supercell_minus_8primitive_entropy_term_meV": -0.0004081707936932965,
+  "primitive_fft": [
+    40,
+    40,
+    40
+  ],
+  "supercell_fft": [
+    80,
+    80,
+    80
+  ],
+  "density_even_coefficients_relative_L2": 1.684250821729741e-06,
+  "density_odd_max_abs": 2.4249884472094126e-09,
+  "primitive_wfc_gram_max_error": 1.7763568394002505e-15,
+  "supercell_wfc_gram_max_error": 2.6645352591003757e-15,
+  "full_352_cutoff": "INCONCLUSIVE (incomplete symmetry multiplet)",
+  "independent_numerical_error_budget": "NOT CERTIFIED; SCF/FFT/charge diagnostics do not form a rigorous <=1meV/<=4meV comparison error bound",
+  "projector_subspace_validation": "NOT FULLY QUALIFIED (native \u0393 symmetry frame overlap pending)",
+  "stage0_overall": "INCONCLUSIVE UNDER STRICT FROZEN PASS CONDITIONS",
+  "stages_1_2": "NOT AUTHORIZED",
+  "inputs_sha256": {
+    "/home/User/opencode_workspace/DFT/.local/r07s0_20261017/primitive/pw.in": "aa3765409c4e67ca9b1943678673bca635c53c1a953ef78e6317cd48ce88f4df",
+    "/home/User/opencode_workspace/DFT/.local/r07s0_20261017/primitive/out/r07pbe.save/data-file-schema.xml": "a8f071de4906a97ed8dcb7a09ac21825241dd7c891f80808062f249262085c02",
+    "/home/User/opencode_workspace/DFT/.local/qe75_lowram_20261011/p16p2_20261015/host/out/r07pbe.save/data-file-schema.xml": "50671ba742d4ac7ed3c3bdc627af7f28c23528a3a2ae4d2b1ab6133d08871875"
+  }
+}
