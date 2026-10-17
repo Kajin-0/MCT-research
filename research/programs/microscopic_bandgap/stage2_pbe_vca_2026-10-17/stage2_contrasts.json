@@ -1,0 +1,58 @@
+{
+  "xCd": 0.25,
+  "VCA_Gamma": {
+    "Gamma6": {
+      "chosen": [
+        33,
+        34
+      ],
+      "energies": [
+        -0.6901923762863564,
+        -0.6901923762735525
+      ],
+      "weight_selected": 0.9991890540362196,
+      "weight_retained": 0.9999248078728271,
+      "classification": [
+        1,
+        0,
+        0
+      ],
+      "sym_pass": true
+    },
+    "Gamma8": {
+      "chosen": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "energies": [
+        3.2933655802480644e-12,
+        3.467448550509289e-12,
+        3.467448550509289e-12,
+        3.806732706834737e-12
+      ],
+      "weight_selected": 0.9993483351834795,
+      "weight_retained": 0.9998059681472176,
+      "classification": [
+        0,
+        0,
+        1
+      ],
+      "sym_pass": true
+    }
+  },
+  "VCA_Gaussian_W2_eV": -0.6901731441736357,
+  "VCA_scalar_inverse_eta005_eV": -0.6907975177342568,
+  "Gaussian_ordered_minus_VCA_eV": {
+    "shared": 0.041865144541128885,
+    "unshared": 0.04394179326371905
+  },
+  "scalar_ordered_minus_VCA_eV": {
+    "shared": -0.07586513620468605,
+    "unshared": 0.005609317447670126
+  },
+  "Gamma8_shared_split_preserved": true,
+  "reference": "accepted PBE16 native50Ry host frame, separate own EF each specimen",
+  "no_random_alloy_bound": true
+}
