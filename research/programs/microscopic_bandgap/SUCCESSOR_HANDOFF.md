@@ -2,6 +2,17 @@
 
 > **Read this before launching another calculation.** This document captures intent and navigation across context-window resets. For authoritative live truth consult `state.md`, individual `decision.md` and native readback/verification records, and current Git/tmux state. Never overwrite newer developments with this dated snapshot.
 
+## LIVE VCA x=.125 HSE — explicit sole-case authorization
+
+Read `vca_x0125_hse_2026-10-17/decision.md` and running checkpoint FIRST.
+Actual stock two-rank SCF now RUNNING;worker r07-vca0125-hse-20261017.service,
+observer r07-vca0125-hse-20261017-observe.service. Root
+`/home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017`.
+User approved this single zero-cost24h case;historical unapproved text below
+remains prior status,not cancellation. No restart/retry/new case. Do not kill
+an active authorized computation. Review same-unit final output when terminal,
+then read-only physical projections/FD/full-density1e-8 gates. No result yet.
+
 ## CURRENT R07 BUDGET AND SCIENTIFIC STATUS — 2026-10-17
 
 **$0 additional spending.** The prior 128 GiB cloud proposal is historical and is superseded for acquisition. Do not rent or buy compute, hardware or services, and do not launch a native HSE job automatically. See [current zero-cost policy](zero_cost_policy_2026-10-17/decision.md) and [validated VCA compatibility](vca_fr_compatibility_2026-10-17/decision.md). Latest verified research HEAD before this policy update was 66124cb. VCA SG15 FR+SOC pseudo/reader passed five dry and four PBE endpoint checks; x=.125 VCA HSE **has not run**. The primitive HgTe HSE reference retains conventional SCF PASS but strict 1e-8 full-density symmetry FAIL. Scientific goal remains nonempirical composition-dependent inversion and eventually disorder-qualified x_c.

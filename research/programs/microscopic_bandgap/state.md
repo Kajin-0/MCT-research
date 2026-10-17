@@ -4,7 +4,18 @@
 
 **State:** historical persistent goal BLOCKED, unchanged. Latest separately authorized zero-cost FR-VCA compatibility task: specific SG15 Hg/Cd pseudo/stock SOC reader GO;5dry checks+4endpoint PBE SCFs PASS, no mixed SCF/HSE. HSE launch not approved; no physical inversion result. Earlier128GiB cloud plan remains unpurchased; user current budget$0. Conventional8 k2/q2/152 execution remains NO-GO under12GiB (complete peak unqualified);k4/q2 requires56sources. Primitive k4 host remains conventional SCF PASS/conditional Γ ordering−.289586505eV, strict1e-8 density symmetry FAIL. Historical failures and closed PBE static diagnostic unchanged; physical x_c OPEN.
 
-**Updated:** 2026-10-17 06:38 UTC
+**Updated:** 2026-10-17 06:58 UTC
+
+## LIVE authorized zero-cost VCA x=.125 HSE calculation
+
+[Running decision](vca_x0125_hse_2026-10-17/decision.md). ONE stock primitive
+2atom HSE+SOC k4/q4/e50/200/f200/44/FD.001 VCA .875Hg+.125Cd SCF launched;
+unit r07-vca0125-hse-20261017.service, two pw ranks2012299/2012300, observer
+2012292. Root DFT/.local/r07_vca_x0125_hse_20261017. 24h/12GiB/swap0/tasks12,
+original observer+floors/output/science stops active. Ancillary dry PASS.
+RUNNING ONLY; no convergence/mass/xc or symmetryPASS. 822pins/76originals/
+dirtyDFT unchanged. No retry/second run. User current explicit authorization
+supersedes earlier unapproved wording for THIS sole case;all old failures remain.
 
 ## Current operating policy: $0 additional spending
 

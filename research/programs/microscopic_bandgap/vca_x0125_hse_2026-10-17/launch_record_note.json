@@ -1,0 +1,4 @@
+{
+  "note": "launch.json observer_props retains the original template paths; observer_argv records actual new paths. Independent live property readback confirms the actual observer uses this new root. No launch or worker setting changed.",
+  "effective_property_readback": "observer_effective_properties.txt"
+}

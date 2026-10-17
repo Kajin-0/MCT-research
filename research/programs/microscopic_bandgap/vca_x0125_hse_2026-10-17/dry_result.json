@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "elapsed_s": 1.0328820496797562,
+  "samples": [
+    {
+      "Result": "success",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainStatus": "0",
+      "MemoryPeak": "1572864",
+      "MemoryMax": "12884901888",
+      "MemorySwapMax": "0",
+      "TasksMax": "12",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "ff5a370167214340b44a815d35ba820d"
+    },
+    {
+      "Result": "success",
+      "ExecMainExitTimestampMonotonic": "6744926436393",
+      "ExecMainStatus": "0",
+      "MemoryPeak": "28811264",
+      "MemoryMax": "12884901888",
+      "MemorySwapMax": "0",
+      "TasksMax": "12",
+      "ActiveState": "active",
+      "SubState": "exited",
+      "InvocationID": "ff5a370167214340b44a815d35ba820d"
+    }
+  ],
+  "terminal": {
+    "Result": "success",
+    "ExecMainExitTimestampMonotonic": "6744926436393",
+    "ExecMainStatus": "0",
+    "MemoryPeak": "28811264",
+    "MemoryMax": "12884901888",
+    "MemorySwapMax": "0",
+    "TasksMax": "12",
+    "ActiveState": "active",
+    "SubState": "exited",
+    "InvocationID": "ff5a370167214340b44a815d35ba820d"
+  }
+}

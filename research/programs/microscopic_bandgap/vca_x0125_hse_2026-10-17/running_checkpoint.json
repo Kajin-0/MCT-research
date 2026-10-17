@@ -1,0 +1,66 @@
+{
+  "UTC": "2026-10-17T06:57:51.583364+00:00",
+  "status": "RUNNING; initial native SCF, no HSE convergence or physical result",
+  "managers": {
+    "worker": {
+      "MainPID": "2012295",
+      "Result": "success",
+      "ControlGroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vca0125-hse-20261017.service",
+      "MemoryPeak": "311795712",
+      "MemoryMax": "12884901888",
+      "MemorySwapMax": "0",
+      "TasksMax": "12",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "6937cb9475e54888b5cba081bf954210"
+    },
+    "observer": {
+      "MainPID": "2012292",
+      "Result": "success",
+      "ControlGroup": "/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vca0125-hse-20261017-observe.service",
+      "MemoryPeak": "7925760",
+      "MemoryMax": "268435456",
+      "MemorySwapMax": "0",
+      "TasksMax": "3",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "2c5cbb51baf94c9f85d43ccfd84c49c4"
+    }
+  },
+  "kernel": {
+    "memory.max": "12884901888",
+    "memory.swap.max": "0",
+    "pids.max": "12",
+    "memory.current": "313892864",
+    "memory.peak": "313892864",
+    "memory.swap.current": "0",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "cgroup.procs": "2012295\n2012299\n2012300"
+  },
+  "processes": [
+    {
+      "pid": 2012295,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prte",
+      "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/prterun --host localhost:2 -np 2 --bind-to core /home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017/pw.in ",
+      "start_ticks": "674496748"
+    },
+    {
+      "pid": 2012299,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+      "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017/pw.in ",
+      "start_ticks": "674496754"
+    },
+    {
+      "pid": 2012300,
+      "exe": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x",
+      "cmdline": "/home/User/opencode_workspace/DFT/.local/qe-env/bin/pw.x -in /home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017/pw.in ",
+      "start_ticks": "674496754"
+    }
+  ],
+  "protected_pins_unchanged": 822,
+  "historical_files_unchanged": 76,
+  "DFT_dirty_unchanged": true,
+  "old_failures_unchanged": true,
+  "zero_spend": true,
+  "observer_samples_present": true
+}

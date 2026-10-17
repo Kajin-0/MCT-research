@@ -1,0 +1,10 @@
+RuntimeMaxUSec=1d
+MainPID=2012295
+ControlGroup=/user.slice/user-1001.slice/user@1001.service/app.slice/r07-vca0125-hse-20261017.service
+CPUQuotaPerSecUSec=2s
+MemoryMax=12884901888
+MemorySwapMax=0
+TasksMax=12
+ActiveState=active
+SubState=running
+InvocationID=6937cb9475e54888b5cba081bf954210

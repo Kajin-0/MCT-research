@@ -1,0 +1,6 @@
+MainPID=2012292
+WorkingDirectory=/home/User/opencode_workspace/DFT/.local/r07_vca_x0125_hse_20261017
+StandardOutput=append
+StandardError=append
+ActiveState=active
+SubState=running
