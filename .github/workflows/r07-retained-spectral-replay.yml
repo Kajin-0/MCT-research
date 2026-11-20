@@ -1,0 +1,34 @@
+name: R07 retained spectral replay
+
+on:
+  push:
+    branches:
+      - audit/r07-spectral-observable-gate-20261119
+    paths:
+      - tools/audit_r07_retained_spectral.py
+      - tests/test_r07_retained_spectral_gate.py
+      - research/programs/microscopic_bandgap/spectral_observable_gate_2026-11-19/**
+      - .github/workflows/r07-retained-spectral-replay.yml
+  pull_request:
+    paths:
+      - tools/audit_r07_retained_spectral.py
+      - tests/test_r07_retained_spectral_gate.py
+      - research/programs/microscopic_bandgap/spectral_observable_gate_2026-11-19/**
+      - .github/workflows/r07-retained-spectral-replay.yml
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Replay original spectral data
+        run: python tools/audit_r07_retained_spectral.py --compact
+      - name: Isolated no-QE regression tests
+        run: python -m unittest discover -s tests -p 'test_r07_retained_spectral_gate.py' -v
